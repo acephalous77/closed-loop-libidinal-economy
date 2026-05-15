@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Closed-Loop Libidinal Economy
 
-## Getting Started
+The formal home of a framework on attention capture under platform capitalism.
 
-First, run the development server:
+A long-form prose argument, a mathematical exposition, and (in progress) five
+interactive visualizations of the closed-loop dynamics. By Adnan Selimović.
 
-```bash
+Live at [closed-loop-libidinal-economy.vercel.app](https://closed-loop-libidinal-economy.vercel.app/).
+
+## What the site is
+
+The framework critiques attention-economy design conventions, and the site is
+built to refuse them: no analytics, no tracking, no engagement loops, no
+SaaS-aesthetic chrome. The aesthetic register is Semiotext(e) / *October* /
+Zone Books — gravity and strangeness applied to the web.
+
+See `/instrumentation` on the live site for the full disclosure of what this
+site does and does not log (nothing, beyond the seven-day HTTP server logs
+that the web requires to function).
+
+## Stack
+
+- Next.js 16 (App Router) + React 19 + TypeScript
+- Tailwind v4 (constrained to spec-defined design tokens only)
+- MDX content with `remark-math` + `remark-gfm` + `rehype-katex` + `rehype-slug`
+- Self-hosted EB Garamond, JetBrains Mono, Garamond Math (SIL OFL)
+- Deployed on Vercel
+
+## Development
+
+```sh
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dev server defaults to port 3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Production build is fully static — no runtime server is required for the
+prose surfaces.
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/                  Next.js routes (one directory per page)
+content/              MDX source for prose and math pages
+components/           Typography, navigation, and layout primitives
+public/fonts/         Self-hosted typefaces
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Dual-licensed: textual content under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/),
+code under MIT. See [LICENSE](./LICENSE). Fonts under SIL Open Font License 1.1.
 
-## Deploy on Vercel
+## Citation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Selimović, Adnan. *The Closed-Loop Libidinal Economy*. 2026.
+https://closed-loop-libidinal-economy.vercel.app/

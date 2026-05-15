@@ -95,6 +95,7 @@ body {
   max-width: var(--measure);
   margin-left: auto;
   margin-right: auto;
+  min-width: 0;
 }
 
 .argument-prose h2 {
@@ -119,10 +120,21 @@ body {
   max-width: 50rem;
   margin-left: auto;
   margin-right: auto;
+  min-width: 0;
 }
 
 .mathematics-prose p {
   max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mathematics-prose ol,
+.mathematics-prose ul,
+.mathematics-prose hr {
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mathematics-prose table {
@@ -147,6 +159,13 @@ body {
 
 .mathematics-prose .katex-display {
   margin: var(--space-md) 0;
+  max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
+}
+
+.mathematics-prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
 }
