@@ -51,6 +51,7 @@
   /* Layout */
   --container-page: 1280px;
   --container-prose: 38rem;
+  --measure: 32rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,4 +87,23 @@ body {
 ::selection {
   background: var(--color-oxblood);
   color: var(--color-paper);
+}
+
+/* Argument-page prose: auto-number h2 section headings with §N. in oxblood */
+.argument-prose {
+  counter-reset: argument-section;
+  max-width: var(--measure);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.argument-prose h2 {
+  counter-increment: argument-section;
+}
+
+.argument-prose h2::before {
+  content: "§" counter(argument-section) ".";
+  color: var(--color-oxblood);
+  margin-right: 1em;
+  font-weight: 500;
 }

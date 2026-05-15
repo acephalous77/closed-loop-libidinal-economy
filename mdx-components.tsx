@@ -4,22 +4,28 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     ...components,
     h1: ({ children }) => (
-      <h1 className="font-serif text-2xl text-ink leading-tight mt-lg mb-md">
+      <h1 className="font-serif text-2xl text-ink leading-tight mt-xl mb-md">
         {children}
       </h1>
     ),
-    h2: ({ children }) => (
-      <h2 className="font-mono text-xl text-ink leading-tight mt-lg mb-sm">
+    h2: ({ children, id }) => (
+      <h2
+        id={id}
+        className="font-mono font-medium text-xl text-ink-90 leading-snug mt-xl mb-md scroll-mt-md"
+      >
         {children}
       </h2>
     ),
-    h3: ({ children }) => (
-      <h3 className="font-mono text-md text-ink-90 leading-snug mt-md mb-sm">
+    h3: ({ children, id }) => (
+      <h3
+        id={id}
+        className="font-mono font-medium text-md text-ink-90 leading-snug mt-lg mb-sm scroll-mt-md"
+      >
         {children}
       </h3>
     ),
     p: ({ children }) => (
-      <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm max-w-[var(--container-prose)]">
+      <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
         {children}
       </p>
     ),
@@ -31,8 +37,18 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </a>
     ),
+    em: ({ children }) => <em className="italic">{children}</em>,
+    strong: ({ children }) => (
+      <strong className="font-medium text-ink">{children}</strong>
+    ),
+    sub: ({ children }) => (
+      <sub className="text-[0.75em] align-sub">{children}</sub>
+    ),
+    sup: ({ children }) => (
+      <sup className="text-[0.75em] align-super">{children}</sup>
+    ),
     blockquote: ({ children }) => (
-      <blockquote className="font-serif italic text-lg text-ink-70 border-l-2 border-paper-85 pl-sm my-md max-w-[var(--container-prose)]">
+      <blockquote className="font-serif italic text-lg text-ink-70 border-l-2 border-paper-85 pl-sm my-md">
         {children}
       </blockquote>
     ),
@@ -47,7 +63,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </pre>
     ),
     hr: () => (
-      <hr className="border-0 border-t border-paper-85 my-lg max-w-[var(--container-prose)]" />
+      <hr className="border-0 border-t border-paper-85 my-lg" />
+    ),
+    ul: ({ children }) => (
+      <ul className="font-serif text-base text-ink-90 list-disc pl-[1.5em] mb-sm space-y-xs">
+        {children}
+      </ul>
+    ),
+    ol: ({ children }) => (
+      <ol className="font-serif text-base text-ink-90 list-decimal pl-[1.5em] mb-sm space-y-xs">
+        {children}
+      </ol>
     ),
   };
 }
