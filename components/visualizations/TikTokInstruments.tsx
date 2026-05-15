@@ -379,24 +379,30 @@ function ThumbScrollDiagram() {
   );
 }
 
+// Precomputed wave paths — kept at module level so SSR and client emit
+// identical attribute strings. Hydration warnings on these go away.
+const WAVE_BODY = Array.from({ length: 100 }, (_, i) => {
+  const x = 30 + i * 4.8;
+  const y = 60 + Math.sin(i * 0.25) * 15;
+  return `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(3)}`;
+}).join(" ");
+
+const WAVE_MEDIUM = Array.from({ length: 100 }, (_, i) => {
+  const x = 30 + i * 4.8;
+  const phaseShift =
+    i < 30 ? Math.PI / 2 : (0.2 * (30 - i)) / 30 * Math.PI;
+  const y = 110 + Math.sin(i * 0.25 + phaseShift) * 15;
+  return `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(3)}`;
+}).join(" ");
+
 // VI. Captured resonance — two oscillating waveforms phase-locking
 function ResonanceDiagram() {
-  const waveBody = Array.from({ length: 100 }, (_, i) => {
-    const x = 30 + i * 4.8;
-    const y = 60 + Math.sin(i * 0.25) * 15;
-    return `${i === 0 ? "M" : "L"} ${x} ${y}`;
-  }).join(" ");
-  const waveMedium = Array.from({ length: 100 }, (_, i) => {
-    const x = 30 + i * 4.8;
-    const y = 110 + Math.sin(i * 0.25 + (i < 30 ? Math.PI / 2 : 0.2 * (30 - i) / 30 * Math.PI)) * 15;
-    return `${i === 0 ? "M" : "L"} ${x} ${y}`;
-  }).join(" ");
   return (
     <DiagramFrame>
       <text x={30} y={30} fontFamily="var(--font-mono)" fontSize={10} fill="var(--color-ink-90)">φ_b · body</text>
-      <path d={waveBody} fill="none" stroke="var(--color-ink-90)" strokeWidth={1.2} />
+      <path d={WAVE_BODY} fill="none" stroke="var(--color-ink-90)" strokeWidth={1.2} />
       <text x={30} y={148} fontFamily="var(--font-mono)" fontSize={10} fill="var(--color-oxblood)">φ_m · sound/scroll</text>
-      <path d={waveMedium} fill="none" stroke="var(--color-oxblood)" strokeWidth={1.2} />
+      <path d={WAVE_MEDIUM} fill="none" stroke="var(--color-oxblood)" strokeWidth={1.2} />
       {/* lock marker after some point */}
       <line x1={250} y1={45} x2={250} y2={130} stroke="var(--color-ink-50)" strokeDasharray="2 3" strokeWidth={0.6} />
       <text x={255} y={42} fontFamily="var(--font-mono)" fontSize={9} fill="var(--color-ink-70)">phase lock</text>
