@@ -70,6 +70,12 @@ const MECHANISMS: Mechanism[] = [
     description: "the proof of Theorem 1 as a directed graph from (A1)–(A6) to RECLAMATION ⌀; Mode A cuts the chain at θ*, Modes B and C operate on parallel structures",
     section: "§4",
   },
+  {
+    slug: "intervention",
+    title: "the three modes of intervention",
+    description: "Mode A (architectural · β) / Mode B (artisanal · L_m) / Mode C (disruption-as-form · σ_η⁺) side by side; sweep each knob to see which structurally distinct claim it modifies",
+    section: "§5",
+  },
 ];
 
 interface Instrument {
