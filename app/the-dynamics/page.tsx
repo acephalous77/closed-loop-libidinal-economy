@@ -34,6 +34,12 @@ const MECHANISMS: Mechanism[] = [
     description: "the body as forced oscillator under the medium's delivery phase; Kuramoto coupling and the lock transition K_bm > |ω_b − ω_m|",
     section: "§3.6",
   },
+  {
+    slug: "chrono-debt",
+    title: "chrono-debt spectrum",
+    description: "the deficit in pause-time at every scale simultaneously; D(t,τ) = Λ_◦(τ) − Λ(t,τ) as a spectrum, not a quantity at one scale",
+    section: "§3.2",
+  },
 ];
 
 interface Instrument {
