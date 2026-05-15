@@ -28,6 +28,12 @@ const MECHANISMS: Mechanism[] = [
     description: "equations (1)–(6) wired as a directed graph; the foundational architecture from which the rest of the framework descends",
     section: "§1",
   },
+  {
+    slug: "captured-resonance",
+    title: "captured resonance",
+    description: "the body as forced oscillator under the medium's delivery phase; Kuramoto coupling and the lock transition K_bm > |ω_b − ω_m|",
+    section: "§3.6",
+  },
 ];
 
 interface Instrument {
