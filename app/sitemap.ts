@@ -1,0 +1,34 @@
+import type { MetadataRoute } from "next";
+
+const BASE = "https://closed-loop-libidinal-economy.vercel.app";
+
+const ROUTES = [
+  "/",
+  "/the-argument",
+  "/the-mathematics",
+  "/the-dynamics",
+  "/the-dynamics/foreclosure-clock",
+  "/the-dynamics/reclamation-trajectories",
+  "/the-dynamics/closed-loop",
+  "/the-dynamics/libidinal-routing",
+  "/the-dynamics/chrono-debt",
+  "/the-dynamics/captured-resonance",
+  "/the-dynamics/somatic-optimization",
+  "/the-dynamics/surplus",
+  "/the-dynamics/metric-superego",
+  "/the-dynamics/causal-chain",
+  "/the-dynamics/intervention",
+  "/the-dynamics/cohort-gradient",
+  "/instrumentation",
+  "/colophon",
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const now = new Date();
+  return ROUTES.map((path) => ({
+    url: `${BASE}${path}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: path === "/" ? 1.0 : path.startsWith("/the-") ? 0.8 : 0.5,
+  }));
+}
