@@ -1,0 +1,85 @@
+import type { Metadata } from "next";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { SurplusBreakdown } from "@/components/visualizations/SurplusBreakdown";
+
+export const metadata: Metadata = {
+  title: "surplus — The Closed-Loop Libidinal Economy",
+  description:
+    "Mechanism §3.1. The platform's accumulated yield over horizon T, decomposed across the four registers. The asymmetry is the policy's signature.",
+};
+
+export default function SurplusPage() {
+  return (
+    <main className="min-h-screen">
+      <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
+        <div className="mb-lg">
+          <Breadcrumb
+            path={[
+              { label: "the closed-loop libidinal economy", href: "/" },
+              { label: "the dynamics", href: "/the-dynamics" },
+              { label: "surplus" },
+            ]}
+          />
+        </div>
+
+        <article className="mx-auto max-w-[50rem]">
+          <header className="mb-md">
+            <p className="font-mono text-xs text-ink-50">mechanism · §3.1</p>
+            <h1 className="font-mono text-xl text-ink-90 mt-xs">libidinal surplus</h1>
+            <p className="font-serif italic text-md text-ink-70 mt-xs">
+              the platform's accumulated yield, decomposed by register
+            </p>
+          </header>
+
+          <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
+            One of{" "}
+            <a
+              href="/the-mathematics#3-the-six-instruments"
+              className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              the six instruments
+            </a>{" "}
+            (§3.1). The platform's accumulated yield over horizon T is given by
+            the marked point process in equation (5):{" "}
+            <span className="font-mono">
+              Σ(T) = Σ_i ∫_0^T ρ_i(u_{`{t⁻}`}, y_{`{t⁻}`}) dN^i_t
+            </span>
+            . The per-register decomposition{" "}
+            <span className="font-mono">Σ^i(T)</span> is what gives the
+            instrument its analytic power: the policy distributes extraction
+            across registers to maximize joint long-run yield, and the
+            distribution is observable — the temporal density of register-marks
+            in any user's engagement stream estimates the policy's extraction
+            priorities.
+          </p>
+
+          <SurplusBreakdown />
+
+          <section className="mt-lg max-w-[var(--measure)]">
+            <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
+            <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
+              At <span className="font-mono">baseline</span> the four registers
+              extract roughly equally — pre-closure apparatuses were not
+              jointly optimized. Step to{" "}
+              <span className="font-mono">converged</span> and the distribution
+              skews sharply: the Consumer register dominates the yield because
+              the policy has learned where extraction kernels{" "}
+              <span className="font-mono">ρ_i</span> integrate most.
+            </p>
+            <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
+              Switch to <span className="font-mono">with-bonus (β = 10)</span> —
+              Mode A — and total <span className="font-mono">Σ(T)</span> drops
+              substantially. The architectural intervention costs the platform
+              measurable yield; the per-register distribution also flattens
+              because the modified policy fires less and the cross-excitation
+              that concentrated extraction has less to work on. This is the
+              quantitative content of Mode A's antagonism with engagement
+              competition: under voluntary conditions, the platform that
+              adopts it loses against the platform that doesn't.
+            </p>
+          </section>
+        </article>
+      </div>
+    </main>
+  );
+}

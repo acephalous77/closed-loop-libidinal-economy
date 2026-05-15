@@ -52,6 +52,18 @@ const MECHANISMS: Mechanism[] = [
     description: "the body as the differential of the marked point process; Hawkes-style raster of stimuli and per-register engagement events, with cross-excitation visible at the tick level",
     section: "§3.5",
   },
+  {
+    slug: "surplus",
+    title: "libidinal surplus",
+    description: "Σ(T) = Σ_i ∫ ρ_i dN^i_t — the platform's accumulated yield decomposed across the four registers; the asymmetric distribution is the policy's signature",
+    section: "§3.1",
+  },
+  {
+    slug: "metric-superego",
+    title: "metric superego",
+    description: "D_KL(ν_u ‖ π_R̂) trajectory under maintenance labor; the user's self-evaluative distribution converges to the platform's reward distribution unless L_m ≥ L_m*",
+    section: "§3.4",
+  },
 ];
 
 interface Instrument {
