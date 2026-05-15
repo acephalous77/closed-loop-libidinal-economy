@@ -14,6 +14,33 @@ interface Plate {
   description: string;
 }
 
+interface Instrument {
+  href: string;
+  title: string;
+  description: string;
+  note: string;
+  external?: boolean;
+}
+
+const INSTRUMENTS: Instrument[] = [
+  {
+    href: "/simulator/index.html",
+    title: "the live simulator",
+    description:
+      "all six equations, all six instruments, and the three modes wired into a single running apparatus. Lemma 1 and Theorem 1 produced in real time; intervention controls at the points the framework specifies.",
+    note: "live instrument · the prior artifact, served as-is",
+    external: true,
+  },
+  {
+    href: "/simulator/mindmap.html",
+    title: "the relational atlas",
+    description:
+      "every variable, theorem, and intervention point in one navigable map of the apparatus. The causal graph made interrogable.",
+    note: "relational atlas · standalone",
+    external: true,
+  },
+];
+
 const PLATES: Plate[] = [
   {
     numeral: "I.",
@@ -65,6 +92,8 @@ export default function TheDynamicsPage() {
             the dynamics.
           </h1>
 
+          <p className="font-mono text-xs text-ink-50 mb-md">five plates · each carries one structural claim</p>
+
           <ol className="flex flex-col gap-lg">
             {PLATES.map((plate) => (
               <li key={plate.slug}>
@@ -87,6 +116,41 @@ export default function TheDynamicsPage() {
               </li>
             ))}
           </ol>
+
+          {/* The apparatus, complete — instruments that run all the dynamics at once. */}
+          <section className="mt-2xl pt-lg border-t border-paper-85">
+            <p className="font-mono text-xs text-ink-50 mb-md">
+              the apparatus, complete · the dynamics seen all at once
+            </p>
+            <ol className="flex flex-col gap-lg">
+              {INSTRUMENTS.map((inst) => (
+                <li key={inst.href}>
+                  <a
+                    href={inst.href}
+                    target={inst.external ? "_self" : undefined}
+                    className="group block"
+                  >
+                    <div className="flex items-baseline justify-between gap-sm">
+                      <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
+                        {inst.title}
+                      </h2>
+                      <span className="font-mono text-xs text-ink-50 shrink-0">
+                        {inst.note}
+                      </span>
+                    </div>
+                    <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
+                      {inst.description}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ol>
+            <p className="font-serif italic text-sm text-ink-50 mt-md max-w-[34rem]">
+              These two surfaces are preserved from the prior artifact and served as-is.
+              Typography and chrome do not match the rest of the site; the apparatus does.
+              A spec-aligned port is planned.
+            </p>
+          </section>
         </article>
       </div>
     </main>
