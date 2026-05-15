@@ -107,3 +107,9 @@ body {
   margin-right: 1em;
   font-weight: 500;
 }
+
+/* Colophon: each paragraph is a single short line; tighten paragraph rhythm */
+.colophon-prose p {
+  margin-bottom: var(--space-sm);
+  max-width: none;
+}
