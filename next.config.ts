@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [["remark-math", {}]],
+    remarkPlugins: [
+      ["remark-gfm", {}],
+      ["remark-math", {}],
+    ],
     rehypePlugins: [
       ["rehype-slug", {}],
       ["rehype-katex", { strict: false, trust: true }],

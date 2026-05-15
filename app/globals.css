@@ -113,3 +113,40 @@ body {
   margin-bottom: var(--space-sm);
   max-width: none;
 }
+
+/* Mathematics prose: wider container for equations + tables, prose still at measure */
+.mathematics-prose {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mathematics-prose p {
+  max-width: var(--measure);
+}
+
+.mathematics-prose table {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  border-collapse: collapse;
+  margin: var(--space-sm) 0;
+}
+
+.mathematics-prose table th,
+.mathematics-prose table td {
+  text-align: left;
+  padding: 0.4em 1em 0.4em 0;
+  vertical-align: top;
+  border-bottom: 1px solid var(--color-paper-85);
+}
+
+.mathematics-prose table th {
+  color: var(--color-ink-70);
+  font-weight: 500;
+}
+
+.mathematics-prose .katex-display {
+  margin: var(--space-md) 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
