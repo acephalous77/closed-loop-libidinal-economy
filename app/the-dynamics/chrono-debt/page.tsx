@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ChronoDebt } from "@/components/visualizations/ChronoDebt";
 
 export const metadata: Metadata = {
@@ -74,6 +75,13 @@ export default function ChronoDebtPage() {
               not.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "the survival function that the debt measures against" },
+              { href: "/the-dynamics/captured-resonance", title: "captured resonance", note: "the timescale axis the debt accumulates over" },
+              { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the dynamics producing the realized Λ(t,τ)" },
+            ]}
+          />
         </article>
       </div>
     </main>

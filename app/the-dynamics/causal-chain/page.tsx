@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { CausalChain } from "@/components/visualizations/CausalChain";
 
 export const metadata: Metadata = {
@@ -91,6 +92,14 @@ export default function CausalChainPage() {
               chain. The chains do not exchange.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "Lemma 1 made physically legible" },
+              { href: "/the-dynamics/reclamation-trajectories", title: "reclamation trajectories", note: "Theorem 1 as a set that fails to grow" },
+              { href: "/the-dynamics/intervention", title: "the three modes", note: "where Mode A cuts the chain" },
+              { href: "/the-dynamics/mode-space", title: "mode-space", note: "geometric view of the three modes" },
+            ]}
+          />
         </article>
       </div>
     </main>

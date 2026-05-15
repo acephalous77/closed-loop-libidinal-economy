@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ModeSpace } from "@/components/visualizations/ModeSpace";
 
 export const metadata: Metadata = {
@@ -78,6 +79,14 @@ export default function ModeSpacePage() {
               snaps the camera back to the default perspective.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/intervention", title: "the three modes", note: "the modes side by side with their interventions" },
+              { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "where each mode intercepts the proof" },
+              { href: "/the-dynamics/metric-superego", title: "metric superego", note: "Mode B's parallel structure in detail" },
+              { href: "/the-dynamics/surplus", title: "libidinal surplus", note: "Mode C's bounded structure in detail" },
+            ]}
+          />
         </article>
       </div>
     </main>

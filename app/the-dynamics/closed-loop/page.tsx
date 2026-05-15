@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { LoopDiagram } from "@/components/visualizations/LoopDiagram";
 
 export const metadata: Metadata = {
@@ -77,6 +78,13 @@ export default function ClosedLoopPage() {
               wiring or interventions on it.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "what the loop produces formally" },
+              { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "Lemma 1, derived from the loop" },
+              { href: "/the-mathematics#1-the-closed-loop-dynamics", title: "§1 closed-loop dynamics", note: "the formal definition of the six equations" },
+            ]}
+          />
         </article>
       </div>
     </main>

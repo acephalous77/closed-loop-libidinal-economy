@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ReclamationTrajectories } from "@/components/visualizations/ReclamationTrajectories";
 
 export const metadata: Metadata = {
@@ -87,6 +88,13 @@ export default function ReclamationTrajectoriesPage() {
               for the representative user.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "Lemma 1's bound, made physically legible" },
+              { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "the proof chain from Lemma 1 to Theorem 1" },
+              { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode A breaks what Theorem 1 forecloses" },
+            ]}
+          />
         </article>
       </div>
     </main>

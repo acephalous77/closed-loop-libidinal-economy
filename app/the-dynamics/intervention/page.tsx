@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { InterventionPanel } from "@/components/visualizations/InterventionPanel";
 
 export const metadata: Metadata = {
@@ -98,6 +99,14 @@ export default function InterventionPage() {
               ignore.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/mode-space", title: "mode-space", note: "geometric non-substitutability of the modes" },
+              { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "where each mode intercepts the proof" },
+              { href: "/the-dynamics/metric-superego", title: "metric superego", note: "Mode B's dynamics in detail" },
+              { href: "/the-dynamics/surplus", title: "libidinal surplus", note: "what Mode C bounds in the policy's yield" },
+            ]}
+          />
         </article>
       </div>
     </main>

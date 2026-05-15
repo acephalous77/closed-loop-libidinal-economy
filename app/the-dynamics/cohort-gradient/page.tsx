@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { CohortGradient } from "@/components/visualizations/CohortGradient";
 
 export const metadata: Metadata = {
@@ -96,6 +97,13 @@ export default function CohortGradientPage() {
               testable empirical commitment would not.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/metric-superego", title: "metric superego", note: "the mechanism behind the cohort effect" },
+              { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: "the registers the gradient is measured across" },
+              { href: "/the-mathematics#8-open-formal-questions", title: "§8 open formal questions", note: "the formal derivation is still a research target" },
+            ]}
+          />
         </article>
       </div>
     </main>

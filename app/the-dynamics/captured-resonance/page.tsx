@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { CapturedResonance } from "@/components/visualizations/CapturedResonance";
 
 export const metadata: Metadata = {
@@ -73,6 +74,13 @@ export default function CapturedResonancePage() {
               not the threshold itself.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/chrono-debt", title: "chrono-debt spectrum", note: "the timescale axis along which entrainment occurs" },
+              { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "the body's other coupling" },
+              { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the architecture that drives the entrainment" },
+            ]}
+          />
         </article>
       </div>
     </main>

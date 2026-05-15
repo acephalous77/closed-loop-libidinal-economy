@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { TikTokInstruments } from "@/components/visualizations/TikTokInstruments";
 
 export const metadata: Metadata = {
@@ -67,6 +68,13 @@ export default function TikTokPage() {
               corresponding instrument's standalone page on /the-dynamics.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the architecture each instrument operates within" },
+              { href: "/the-dynamics/intervention", title: "the three modes", note: "what intervention on TikTok would look like" },
+              { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "the proof structure these instruments touch" },
+            ]}
+          />
         </article>
       </div>
     </main>

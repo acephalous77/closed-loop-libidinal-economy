@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { LibidinalRouting } from "@/components/visualizations/LibidinalRouting";
 
 export const metadata: Metadata = {
@@ -81,6 +82,13 @@ export default function LibidinalRoutingPage() {
               has been engineered away.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "routing visible at the per-event level" },
+              { href: "/the-dynamics/tiktok", title: "tiktok", note: "interleaved categories on a specific platform" },
+              { href: "/the-dynamics/mode-space", title: "mode-space", note: "D_KL axis is the routing's structural dual" },
+            ]}
+          />
         </article>
       </div>
     </main>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { SurplusBreakdown } from "@/components/visualizations/SurplusBreakdown";
 
 export const metadata: Metadata = {
@@ -78,6 +79,13 @@ export default function SurplusPage() {
               adopts it loses against the platform that doesn't.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "where the extraction events come from" },
+              { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode A drops total surplus measurably" },
+              { href: "/the-dynamics/tiktok", title: "tiktok", note: "Σ as the FYP's accumulated yield, in practice" },
+            ]}
+          />
         </article>
       </div>
     </main>

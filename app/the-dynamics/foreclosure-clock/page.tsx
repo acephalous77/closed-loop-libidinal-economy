@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ForeclosureClock } from "@/components/visualizations/ForeclosureClock";
 
 export const metadata: Metadata = {
@@ -69,6 +70,13 @@ export default function ForeclosureClockPage() {
               bound lives below.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "the proof that depends on Lemma 1" },
+              { href: "/the-dynamics/reclamation-trajectories", title: "reclamation trajectories", note: "Theorem 1 as set-that-fails" },
+              { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the architecture that produces the lemma" },
+            ]}
+          />
         </article>
       </div>
     </main>

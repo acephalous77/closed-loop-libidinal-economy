@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { SomaticOptimization } from "@/components/visualizations/SomaticOptimization";
 
 export const metadata: Metadata = {
@@ -84,6 +85,13 @@ export default function SomaticOptimizationPage() {
               fresh Hawkes realization at the same regime.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: "registers differentiated at the event level" },
+              { href: "/the-dynamics/surplus", title: "libidinal surplus", note: "per-register marks integrate into Σ" },
+              { href: "/the-dynamics/captured-resonance", title: "captured resonance", note: "the body's other coupling to the apparatus" },
+            ]}
+          />
         </article>
       </div>
     </main>

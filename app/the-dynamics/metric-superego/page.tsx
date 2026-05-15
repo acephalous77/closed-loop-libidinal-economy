@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { MetricSuperego } from "@/components/visualizations/MetricSuperego";
 
 export const metadata: Metadata = {
@@ -92,6 +93,13 @@ export default function MetricSuperegoPage() {
               the population level.
             </p>
           </section>
+          <RelatedPlates
+            entries={[
+              { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: "the registers ν_u is defined over" },
+              { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode B is the relevant intervention here" },
+              { href: "/the-dynamics/cohort-gradient", title: "cohort gradient", note: "the developmental mechanism behind ν_u" },
+            ]}
+          />
         </article>
       </div>
     </main>
