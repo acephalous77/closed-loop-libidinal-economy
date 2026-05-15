@@ -40,6 +40,12 @@ const MECHANISMS: Mechanism[] = [
     description: "the deficit in pause-time at every scale simultaneously; D(t,τ) = Λ_◦(τ) − Λ(t,τ) as a spectrum, not a quantity at one scale",
     section: "§3.2",
   },
+  {
+    slug: "libidinal-routing",
+    title: "libidinal routing",
+    description: "the four registers (Subject · Citizen · Person · Consumer) routed through a single delivery surface; mutual information fills the off-diagonal and the dividual condition follows",
+    section: "§3.3",
+  },
 ];
 
 interface Instrument {
