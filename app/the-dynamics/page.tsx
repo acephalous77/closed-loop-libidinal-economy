@@ -64,6 +64,12 @@ const MECHANISMS: Mechanism[] = [
     description: "D_KL(ν_u ‖ π_R̂) trajectory under maintenance labor; the user's self-evaluative distribution converges to the platform's reward distribution unless L_m ≥ L_m*",
     section: "§3.4",
   },
+  {
+    slug: "causal-chain",
+    title: "the causal chain",
+    description: "the proof of Theorem 1 as a directed graph from (A1)–(A6) to RECLAMATION ⌀; Mode A cuts the chain at θ*, Modes B and C operate on parallel structures",
+    section: "§4",
+  },
 ];
 
 interface Instrument {
