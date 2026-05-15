@@ -32,16 +32,17 @@ export default function ForeclosureClockPage() {
           </header>
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
-            The bound from{" "}
             <a
               href="/the-mathematics#4-the-foreclosure-lemma-and-the-reclamation-theorem"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
-              Lemma 1
+              Lemma 1 (foreclosure of the no-input window)
             </a>{" "}
-            states that the survival probability of a no-input window of reflective duration
-            decays exponentially in the ratio θ_ref / δ_min. The ratio is on the order of a
-            thousand to a hundred thousand for realistic platforms. The bound is therefore
+            establishes that the survival function of the inter-stimulus interval at the
+            converged policy θ* satisfies{" "}
+            <span className="font-mono">S(θ_ref; θ*) ≤ C(c<sub>v</sub>) · e<sup>−θ_ref/δ_min</sup></span>{" "}
+            (Asmussen, Ch. V). The exponent θ_ref / δ_min is on the order of a thousand
+            to a hundred thousand for realistic platforms. The bound is therefore
             mathematically positive but operationally indistinguishable from zero. The
             visualization renders this fact as a length comparison: the bound is smaller
             than the smallest physical scale.

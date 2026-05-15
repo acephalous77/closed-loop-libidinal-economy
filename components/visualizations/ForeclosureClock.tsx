@@ -129,7 +129,7 @@ export function ForeclosureClock() {
             ratio θ_ref / δ_min = <span className="text-ink-90">{formatRatio(ratio)}</span>
           </p>
           <p>
-            bound S(θ_ref) ≤ C · e<sup>−{formatRatio(ratio)}</sup>{" "}
+            S(θ_ref; θ*) ≤ C(c<sub>v</sub>) · e<sup>−{formatRatio(ratio)}</sup>{" "}
             <span className="text-ink-50">
               (≈ 10<sup>{Math.round(boundMag).toLocaleString("en-US")}</sup>)
             </span>
@@ -177,15 +177,17 @@ export function ForeclosureClock() {
 
       {/* Bottom layer — caption */}
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
-        The foreclosure lemma states that the probability of a no-input window of
-        reflective duration is bounded above by{" "}
-        <span className="font-mono">C · e<sup>−θ_ref/δ_min</sup></span>. At realistic
-        parameter values — a reflective threshold of seconds to minutes, a platform tick
-        rate of milliseconds — the bound is on the order of{" "}
-        <span className="font-mono">e<sup>−1000</sup></span> to{" "}
+        <span className="font-mono text-xs text-oxblood">Lemma 1.</span> Under
+        Assumptions (A1)–(A6), the survival function of the inter-stimulus
+        interval at the converged policy θ* satisfies{" "}
+        <span className="font-mono">S(θ_ref; θ*) ≤ C(c<sub>v</sub>) · e<sup>−θ_ref/δ_min</sup></span>.
+        At realistic parameter values — a reflective threshold of seconds to
+        minutes, a tick rate of milliseconds to sub-second — the exponent
+        θ_ref/δ_min is on the order of <span className="font-mono">10<sup>3</sup></span>{" "}
+        to <span className="font-mono">10<sup>5</sup></span>, so the bound is on the
+        order of <span className="font-mono">e<sup>−1000</sup></span> to{" "}
         <span className="font-mono">e<sup>−100,000</sup></span>: mathematically positive,
-        operationally indistinguishable from zero. The bound is smaller than physical
-        quantities have meaning at.
+        operationally indistinguishable from zero.
       </figcaption>
     </figure>
   );
