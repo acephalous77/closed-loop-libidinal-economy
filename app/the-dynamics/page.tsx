@@ -46,6 +46,12 @@ const MECHANISMS: Mechanism[] = [
     description: "the four registers (Subject · Citizen · Person · Consumer) routed through a single delivery surface; mutual information fills the off-diagonal and the dividual condition follows",
     section: "§3.3",
   },
+  {
+    slug: "somatic-optimization",
+    title: "somatic optimization",
+    description: "the body as the differential of the marked point process; Hawkes-style raster of stimuli and per-register engagement events, with cross-excitation visible at the tick level",
+    section: "§3.5",
+  },
 ];
 
 interface Instrument {

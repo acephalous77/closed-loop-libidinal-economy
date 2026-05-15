@@ -1,0 +1,249 @@
+"use client";
+
+import { useMemo, useState } from "react";
+
+/**
+ * Somatic optimization — the body as the differential of the marked
+ * point process N_t^i. Renders the raster of stimulus events (s_t) at
+ * top and the per-register engagement events (dN^S, dN^C, dN^P, dN^K)
+ * below across a 600-tick window. Under the closure, the raster
+ * concentrates near the technical floor and clusters via Hawkes
+ * cross-excitation.
+ *
+ * Standalone version: synthetic event generators per regime. The
+ * conceptual point is the density and clustering pattern, not exact
+ * reproduction of any specific sim trajectory.
+ */
+
+const REGISTERS = [
+  { id: "S", label: "Subject" },
+  { id: "C", label: "Citizen" },
+  { id: "P", label: "Person" },
+  { id: "K", label: "Consumer" },
+] as const;
+
+type RegisterId = (typeof REGISTERS)[number]["id"];
+
+interface SimEvent {
+  kind: "s" | "y";
+  t: number;
+  reg?: RegisterId;
+}
+
+interface Regime {
+  key: string;
+  label: string;
+  // probability per tick of a stimulus firing
+  stimRate: number;
+  // mean Hawkes burst size (engagement events per stimulus)
+  burstMean: number;
+}
+
+const REGIMES: Regime[] = [
+  {
+    key: "baseline",
+    label: "baseline · pre-closure",
+    stimRate: 0.015,
+    burstMean: 0.3,
+  },
+  {
+    key: "early",
+    label: "early platform exposure",
+    stimRate: 0.08,
+    burstMean: 0.6,
+  },
+  {
+    key: "converged",
+    label: "converged · technical floor",
+    stimRate: 0.42,
+    burstMean: 1.2,
+  },
+  {
+    key: "with-bonus",
+    label: "with-bonus (Mode A, β = 10)",
+    stimRate: 0.06,
+    burstMean: 0.5,
+  },
+];
+
+const WINDOW = 600;
+
+function generateEvents(regime: Regime): SimEvent[] {
+  const events: SimEvent[] = [];
+  for (let t = 0; t < WINDOW; t++) {
+    if (Math.random() < regime.stimRate) {
+      events.push({ kind: "s", t });
+      // Hawkes-style cross-excited burst.
+      const burstSize = Math.max(0, Math.round(regime.burstMean + (Math.random() - 0.5)));
+      for (let b = 0; b < burstSize; b++) {
+        const reg = REGISTERS[Math.floor(Math.random() * 4)].id;
+        events.push({ kind: "y", t: Math.min(WINDOW - 1, t + b), reg });
+      }
+    }
+  }
+  return events;
+}
+
+export function SomaticOptimization() {
+  const [regimeKey, setRegimeKey] = useState<string>("converged");
+  // Generate a key derived from regime + counter so user can press "regenerate"
+  // to draw a new sample without changing regime.
+  const [seedTick, setSeedTick] = useState<number>(0);
+  const regime = REGIMES.find((r) => r.key === regimeKey) ?? REGIMES[0];
+
+  const events = useMemo(
+    () => generateEvents(regime),
+    // Regenerate when regime or seedTick changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [regime.key, seedTick]
+  );
+
+  const stimEvents = events.filter((e) => e.kind === "s");
+  const eventsByReg: Record<RegisterId, SimEvent[]> = {
+    S: events.filter((e) => e.kind === "y" && e.reg === "S"),
+    C: events.filter((e) => e.kind === "y" && e.reg === "C"),
+    P: events.filter((e) => e.kind === "y" && e.reg === "P"),
+    K: events.filter((e) => e.kind === "y" && e.reg === "K"),
+  };
+  const totalEvents = stimEvents.length;
+
+  return (
+    <figure className="my-md">
+      <div className="bg-paper-95 border border-ink-50 p-md">
+        {/* Picker */}
+        <div className="font-mono text-sm text-ink-90 mb-md flex flex-wrap items-baseline gap-x-md gap-y-sm">
+          <label className="inline-flex items-baseline gap-x-xs">
+            <span className="text-ink-70">regime =</span>
+            <select
+              value={regimeKey}
+              onChange={(e) => {
+                setRegimeKey(e.target.value);
+                setSeedTick(0);
+              }}
+              className="bg-paper-95 text-ink-90 border-b border-ink-50 hover:border-oxblood focus:border-oxblood outline-none cursor-pointer transition-colors duration-100 px-[0.3em]"
+            >
+              {REGIMES.map((r) => (
+                <option key={r.key} value={r.key}>
+                  {r.label}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            onClick={() => setSeedTick((s) => s + 1)}
+            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100"
+          >
+            regenerate sample
+          </button>
+        </div>
+
+        {/* Raster */}
+        <div
+          className="font-mono text-xs"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "120px 1fr",
+            rowGap: "8px",
+            columnGap: "8px",
+          }}
+        >
+          <Lane
+            label={<span><b>s_t</b> stimuli</span>}
+            events={stimEvents}
+            cls="stim"
+          />
+          {REGISTERS.map((reg) => (
+            <Lane
+              key={reg.id}
+              label={
+                <span>
+                  dN<sup>{reg.id.toLowerCase()}</sup>
+                  <sub>t</sub> · <b>{reg.label}</b>
+                </span>
+              }
+              events={eventsByReg[reg.id]}
+              cls={reg.id.toLowerCase()}
+            />
+          ))}
+        </div>
+
+        {/* Counter */}
+        <div className="font-mono text-sm text-ink-70 mt-md space-y-xs">
+          <p>
+            stimuli over {WINDOW}-tick window:{" "}
+            <span className={totalEvents > 200 ? "text-oxblood" : "text-ink-90"}>
+              {totalEvents}
+            </span>
+          </p>
+          <p>
+            inter-stimulus rate ≈{" "}
+            <span className="text-ink-90">
+              {((totalEvents / WINDOW) * 1000).toFixed(0)}
+            </span>{" "}
+            per 1000 ticks
+          </p>
+        </div>
+      </div>
+
+      <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
+        <span className="font-mono text-xs text-oxblood">§3.5.</span> Stimulus
+        events <span className="font-mono">s_t</span> at the top, per-register
+        engagement events <span className="font-mono">dN<sup>i</sup><sub>t</sub></span>{" "}
+        below. Each tick is a marked point process: the differential of the
+        body — saccades, taps, scroll-events, gaze shifts — under Hawkes
+        intensity <span className="font-mono">λ^i(t) = λ_0^i + Σ_j α_ij ∫ κ(t−s) dN_s^j</span>.
+        The optimization is over these somatic micro-events, not over
+        deliberative choice. Under the converged policy the raster
+        concentrates near the technical floor; under Mode A intervention it
+        thins back out.
+      </figcaption>
+    </figure>
+  );
+}
+
+function Lane({
+  label,
+  events,
+  cls,
+}: {
+  label: React.ReactNode;
+  events: SimEvent[];
+  cls: string;
+}) {
+  // Choose color per lane class.
+  const colorMap: Record<string, string> = {
+    stim: "var(--color-ink)",
+    s: "var(--color-oxblood)",
+    c: "var(--color-ink-90)",
+    p: "var(--color-ink-70)",
+    k: "var(--color-ink-50)",
+  };
+  const color = colorMap[cls] ?? "var(--color-ink)";
+
+  return (
+    <>
+      <div className="text-ink-70 self-center text-right pr-xs">{label}</div>
+      <div
+        className="relative bg-paper border-b border-paper-85"
+        style={{ height: cls === "stim" ? "20px" : "16px" }}
+        role="img"
+        aria-label={`${cls} lane with ${events.length} events`}
+      >
+        {events.map((e, i) => (
+          <span
+            key={i}
+            aria-hidden="true"
+            style={{
+              position: "absolute",
+              left: `${(e.t / WINDOW) * 100}%`,
+              top: "10%",
+              height: "80%",
+              width: "1.5px",
+              background: color,
+            }}
+          />
+        ))}
+      </div>
+    </>
+  );
+}
