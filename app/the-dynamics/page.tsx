@@ -14,6 +14,22 @@ interface Plate {
   description: string;
 }
 
+interface Mechanism {
+  slug: string;
+  title: string;
+  description: string;
+  section: string;
+}
+
+const MECHANISMS: Mechanism[] = [
+  {
+    slug: "closed-loop",
+    title: "the closed loop",
+    description: "equations (1)–(6) wired as a directed graph; the foundational architecture from which the rest of the framework descends",
+    section: "§1",
+  },
+];
+
 interface Instrument {
   href: string;
   title: string;
@@ -116,6 +132,32 @@ export default function TheDynamicsPage() {
               </li>
             ))}
           </ol>
+
+          {/* Mechanisms — individual dimensions isolated as their own plates. */}
+          <section className="mt-2xl pt-lg border-t border-paper-85">
+            <p className="font-mono text-xs text-ink-50 mb-md">
+              mechanisms · isolated dimensions, one at a time
+            </p>
+            <ol className="flex flex-col gap-lg">
+              {MECHANISMS.map((m) => (
+                <li key={m.slug}>
+                  <a href={`/the-dynamics/${m.slug}`} className="group block">
+                    <div className="flex items-baseline justify-between gap-sm">
+                      <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
+                        {m.title}
+                      </h2>
+                      <span className="font-mono text-xs text-ink-50 shrink-0">
+                        {m.section}
+                      </span>
+                    </div>
+                    <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
+                      {m.description}
+                    </p>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </section>
 
           {/* The apparatus, complete — instruments that run all the dynamics at once. */}
           <section className="mt-2xl pt-lg border-t border-paper-85">

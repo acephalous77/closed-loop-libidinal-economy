@@ -1,0 +1,84 @@
+import type { Metadata } from "next";
+import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { LoopDiagram } from "@/components/visualizations/LoopDiagram";
+
+export const metadata: Metadata = {
+  title: "the closed loop — The Closed-Loop Libidinal Economy",
+  description:
+    "The foundational mechanism. Equations (1)–(6) wired together as a directed graph; the loop is closed by construction, and the exogenous channel stands outside it.",
+};
+
+export default function ClosedLoopPage() {
+  return (
+    <main className="min-h-screen">
+      <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
+        <div className="mb-lg">
+          <Breadcrumb
+            path={[
+              { label: "the closed-loop libidinal economy", href: "/" },
+              { label: "the dynamics", href: "/the-dynamics" },
+              { label: "the closed loop" },
+            ]}
+          />
+        </div>
+
+        <article className="mx-auto max-w-[50rem]">
+          <header className="mb-md">
+            <p className="font-mono text-xs text-ink-50">mechanism · §1</p>
+            <h1 className="font-mono text-xl text-ink-90 mt-xs">the closed loop</h1>
+            <p className="font-serif italic text-md text-ink-70 mt-xs">
+              equations (1)–(6) wired as a directed graph
+            </p>
+          </header>
+
+          <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
+            The framework's foundational structure. Four nodes — user state
+            <span className="font-mono"> u_t</span>, engagement signal
+            <span className="font-mono"> y_t</span>, policy
+            <span className="font-mono"> π</span>, stimulus
+            <span className="font-mono"> s_t</span> — connected by four edges
+            corresponding to equations (1)–(4) of the formal exposition. The
+            contour is closed by construction: every stimulus the user receives
+            is shaped, recursively, by the policy's prior shaping of the user.
+            The exogenous channel{" "}
+            <span className="font-mono">e_t ≡ 0</span> from{" "}
+            <a
+              href="/the-mathematics#1-the-closed-loop-dynamics"
+              className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              equation (6)
+            </a>{" "}
+            stands outside the loop — definitional, not propositional. The
+            propositional consequence (that no-input windows of reflective
+            length vanish) is{" "}
+            <a
+              href="/the-mathematics#4-the-foreclosure-lemma-and-the-reclamation-theorem"
+              className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              Lemma 1
+            </a>
+            , derived from this architecture.
+          </p>
+
+          <LoopDiagram />
+
+          <section className="mt-lg max-w-[var(--measure)]">
+            <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
+            <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
+              The pulse cycles through the four loop equations in order. The
+              edge in oxblood is the one currently firing. There is no inlet to
+              the contour; the only marker outside is the foreclosed exogenous
+              channel <span className="font-mono">e_t ≡ 0</span>.
+            </p>
+            <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
+              This is the architecture from which everything else descends. The
+              foreclosure lemma, the reclamation theorem, the three modes of
+              intervention, the six instruments — all are properties of this
+              wiring or interventions on it.
+            </p>
+          </section>
+        </article>
+      </div>
+    </main>
+  );
+}
