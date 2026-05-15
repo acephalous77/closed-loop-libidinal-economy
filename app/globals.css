@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Strip Tailwind defaults we won't use */
+  --color-*: initial;
+  --font-*: initial;
+  --text-*: initial;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors — light mode (cream paper, warm off-black ink) */
+  --color-ink: #1a1612;
+  --color-ink-90: #2b2520;
+  --color-ink-70: #5a514a;
+  --color-ink-50: #8a7f74;
+  --color-paper: #f4ede0;
+  --color-paper-95: #ebe3d3;
+  --color-paper-85: #ddd2bd;
+  --color-oxblood: #7a1f1f;
+  --color-oxblood-dark: #5e1818;
+
+  /* Fonts — variables populated by next/font/local on <html> */
+  --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-math: var(--font-garamond-math), var(--font-eb-garamond), serif;
+
+  /* Type scale — 1.2 modular, 18px base */
+  --text-xs: 0.781rem;
+  --text-xs--line-height: 1.5;
+  --text-sm: 0.937rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.125rem;
+  --text-base--line-height: 1.55;
+  --text-md: 1.350rem;
+  --text-md--line-height: 1.35;
+  --text-lg: 1.620rem;
+  --text-lg--line-height: 1.4;
+  --text-xl: 1.944rem;
+  --text-xl--line-height: 1.2;
+  --text-2xl: 2.812rem;
+  --text-2xl--line-height: 1.1;
+  --text-3xl: 4.687rem;
+  --text-3xl--line-height: 1.0;
+
+  /* Spacing (24px rhythm) — additive to default numeric scale */
+  --spacing-xs: 0.75rem;
+  --spacing-sm: 1.5rem;
+  --spacing-md: 3rem;
+  --spacing-lg: 6rem;
+  --spacing-xl: 9rem;
+  --spacing-2xl: 15rem;
+
+  /* Layout */
+  --container-page: 1280px;
+  --container-prose: 38rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-ink: #e8e0d0;
+    --color-ink-90: #d4ccbe;
+    --color-ink-70: #9a907f;
+    --color-ink-50: #6d6357;
+    --color-paper: #1a1612;
+    --color-paper-95: #221d18;
+    --color-paper-85: #2f2820;
+    --color-oxblood: #b04a4a;
+    --color-oxblood-dark: #c25555;
   }
 }
 
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink-90);
+}
+
+body {
+  font-family: var(--font-serif);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  font-feature-settings: "kern", "liga", "calt";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-oxblood);
+  color: var(--color-paper);
 }
