@@ -295,7 +295,8 @@ export function ModeSpace() {
 
         {/* 3D Canvas */}
         <div
-          style={{ height: "420px", background: COLORS.paper95 }}
+          className="[&_canvas]:!w-full [&_canvas]:!h-full [&_canvas]:!block"
+          style={{ width: "100%", height: "420px", background: COLORS.paper95 }}
           role="img"
           aria-label="3D scene with R̂, B, and D_KL axes and the three intervention paths"
         >
