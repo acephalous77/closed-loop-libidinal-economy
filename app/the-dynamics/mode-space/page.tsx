@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { ModeSpace } from "@/components/visualizations/ModeSpace";
 import { M } from "@/components/ui/Math";
 
@@ -88,6 +89,20 @@ export default function ModeSpacePage() {
               { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "where each mode intercepts the proof" },
               { href: "/the-dynamics/metric-superego", title: "metric superego", note: "Mode B's parallel structure in detail" },
               { href: "/the-dynamics/surplus", title: "libidinal surplus", note: "Mode C's bounded structure in detail" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/adolescence-without-outside#viii-the-open-question-of-mode-c",
+                title: "adolescence without outside · §VIII",
+                note: "the open question of Mode C's availability for the native cohort",
+              },
+              {
+                href: "/the-argument/sincere-captives#vii-the-foreclosure-of-mode-c",
+                title: "the sincere captives · §VII",
+                note: "Mode C structurally foreclosed at the captive's limit",
+              },
             ]}
           />
         </article>

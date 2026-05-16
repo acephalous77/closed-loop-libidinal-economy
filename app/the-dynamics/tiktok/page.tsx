@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { TikTokInstruments } from "@/components/visualizations/TikTokInstruments";
 
 export const metadata: Metadata = {
@@ -73,6 +74,15 @@ export default function TikTokPage() {
               { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the architecture each instrument operates within" },
               { href: "/the-dynamics/intervention", title: "the three modes", note: "what intervention on TikTok would look like" },
               { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "the proof structure these instruments touch" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/adolescence-without-outside#iv-the-politics-that-look-like-politics",
+                title: "adolescence without outside · §IV",
+                note: "the cohort's TikTok-mediated political grammar",
+              },
             ]}
           />
         </article>

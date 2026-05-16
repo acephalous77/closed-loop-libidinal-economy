@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { CapturedResonance } from "@/components/visualizations/CapturedResonance";
 import { M } from "@/components/ui/Math";
 
@@ -80,6 +81,15 @@ export default function CapturedResonancePage() {
               { href: "/the-dynamics/chrono-debt", title: "chrono-debt spectrum", note: "the timescale axis along which entrainment occurs" },
               { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "the body's other coupling" },
               { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the architecture that drives the entrainment" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/sincere-captives#v-the-mechanism-of-capture",
+                title: "the sincere captives · §V",
+                note: "captured resonance at the affect-grammar layer, one level up",
+              },
             ]}
           />
         </article>

@@ -3,6 +3,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { InterventionPanel } from "@/components/visualizations/InterventionPanel";
 import { M } from "@/components/ui/Math";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 
 export const metadata: Metadata = {
   title: "the three modes — The Closed-Loop Libidinal Economy",
@@ -106,6 +107,25 @@ export default function InterventionPage() {
               { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "where each mode intercepts the proof" },
               { href: "/the-dynamics/metric-superego", title: "metric superego", note: "Mode B's dynamics in detail" },
               { href: "/the-dynamics/surplus", title: "libidinal surplus", note: "what Mode C bounds in the policy's yield" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/citizen-after-the-pause#the-architectural-ask-made-concrete",
+                title: "the citizen after the pause · §5",
+                note: "Mode A made concrete: regulation, register-isolation, formation-window restrictions",
+              },
+              {
+                href: "/the-argument/adolescence-without-outside#viii-the-open-question-of-mode-c",
+                title: "adolescence without outside · §VIII",
+                note: "the open question of whether Mode C is available to the cohort that grew up inside the loop",
+              },
+              {
+                href: "/the-argument/sincere-captives#vii-the-foreclosure-of-mode-c",
+                title: "the sincere captives · §VII",
+                note: "Mode C structurally foreclosed for the captive — the limit case",
+              },
             ]}
           />
         </article>

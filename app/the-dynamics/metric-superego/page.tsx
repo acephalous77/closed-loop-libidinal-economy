@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { MetricSuperego } from "@/components/visualizations/MetricSuperego";
 import { M } from "@/components/ui/Math";
 
@@ -100,6 +101,20 @@ export default function MetricSuperegoPage() {
               { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: <>the registers <M>{String.raw`\nu_u`}</M> is defined over</> },
               { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode B is the relevant intervention here" },
               { href: "/the-dynamics/cohort-gradient", title: "cohort gradient", note: <>the developmental mechanism behind <M>{String.raw`\nu_u`}</M></> },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/sincere-captives#v-the-mechanism-of-capture",
+                title: "the sincere captives · §V",
+                note: "the metric superego's terminal convergence on the LinkedIn fanatic",
+              },
+              {
+                href: "/the-argument/adolescence-without-outside#v-the-therapeutic-vernacular",
+                title: "adolescence without outside · §V",
+                note: "the therapeutic vernacular as the cohort's metric superego",
+              },
             ]}
           />
         </article>

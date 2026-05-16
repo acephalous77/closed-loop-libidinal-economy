@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Mathematics from "@/content/mathematics.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MarginTOC } from "@/components/navigation/MarginTOC";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 
 export const metadata: Metadata = {
   title: "the mathematics — The Closed-Loop Libidinal Economy",
@@ -45,6 +46,20 @@ export default function TheMathematicsPage() {
               the mathematics.
             </h1>
             <Mathematics />
+            <RelatedReading
+              entries={[
+                {
+                  href: "/the-argument/the-loop",
+                  title: "the loop · piece I",
+                  note: "the framework laid out in prose — the same structure without the proofs",
+                },
+                {
+                  href: "/the-argument/note",
+                  title: "the coda · open questions",
+                  note: "the math doc's open questions, in the document's own self-description",
+                },
+              ]}
+            />
           </article>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { ForeclosureClock } from "@/components/visualizations/ForeclosureClock";
 import { M } from "@/components/ui/Math";
 
@@ -76,6 +77,15 @@ export default function ForeclosureClockPage() {
               { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "the proof that depends on Lemma 1" },
               { href: "/the-dynamics/reclamation-trajectories", title: "reclamation trajectories", note: "Theorem 1 as set-that-fails" },
               { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the architecture that produces the lemma" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/citizen-after-the-pause#what-democracy-required",
+                title: "the citizen after the pause · §1",
+                note: "the substrate the foreclosure removes — what democracy required",
+              },
             ]}
           />
         </article>

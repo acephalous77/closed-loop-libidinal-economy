@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { CohortGradient } from "@/components/visualizations/CohortGradient";
 import { M } from "@/components/ui/Math";
 
@@ -103,6 +104,20 @@ export default function CohortGradientPage() {
               { href: "/the-dynamics/metric-superego", title: "metric superego", note: "the mechanism behind the cohort effect" },
               { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: "the registers the gradient is measured across" },
               { href: "/the-mathematics#8-open-formal-questions", title: "§8 open formal questions", note: "the formal derivation is still a research target" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/citizen-after-the-pause#adolescence-as-class-on-the-frameworks-prediction",
+                title: "the citizen after the pause · §2",
+                note: "adolescence-as-class as the cohort gradient's political form",
+              },
+              {
+                href: "/the-argument/adolescence-without-outside",
+                title: "adolescence without outside",
+                note: "the native cohort — the gradient's limit case",
+              },
             ]}
           />
         </article>

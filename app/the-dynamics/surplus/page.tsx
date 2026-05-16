@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { SurplusBreakdown } from "@/components/visualizations/SurplusBreakdown";
 import { M } from "@/components/ui/Math";
 
@@ -83,6 +84,15 @@ export default function SurplusPage() {
               { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "where the extraction events come from" },
               { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode A drops total surplus measurably" },
               { href: "/the-dynamics/tiktok", title: "tiktok", note: "Σ as the FYP's accumulated yield, in practice" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/sincere-captives#v-the-mechanism-of-capture",
+                title: "the sincere captives · §V",
+                note: "what the platform extracts from the captive — surplus at terminal density",
+              },
             ]}
           />
         </article>

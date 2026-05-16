@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { ChronoDebt } from "@/components/visualizations/ChronoDebt";
 import { M } from "@/components/ui/Math";
 
@@ -82,6 +83,15 @@ export default function ChronoDebtPage() {
               { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "the survival function that the debt measures against" },
               { href: "/the-dynamics/captured-resonance", title: "captured resonance", note: "the timescale axis the debt accumulates over" },
               { href: "/the-dynamics/closed-loop", title: "the closed loop", note: <>the dynamics producing the realized <M>{String.raw`\Lambda(t,\tau)`}</M></> },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/sincere-captives#iv-the-weiner-pivot",
+                title: "the sincere captives · §IV",
+                note: "chrono-debt-as-obligation — the professional register of the same spectrum",
+              },
             ]}
           />
         </article>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { CausalChain } from "@/components/visualizations/CausalChain";
 import { M } from "@/components/ui/Math";
 
@@ -101,6 +102,15 @@ export default function CausalChainPage() {
               { href: "/the-dynamics/reclamation-trajectories", title: "reclamation trajectories", note: "Theorem 1 as a set that fails to grow" },
               { href: "/the-dynamics/intervention", title: "the three modes", note: "where Mode A cuts the chain" },
               { href: "/the-dynamics/mode-space", title: "mode-space", note: "geometric view of the three modes" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/the-loop#the-reclamation-theorem",
+                title: "the loop · §4",
+                note: "the proof's conclusion — what the chain produces",
+              },
             ]}
           />
         </article>

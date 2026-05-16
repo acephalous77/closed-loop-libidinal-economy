@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PIECES } from "@/lib/argument-pieces";
+import { PiecesArc } from "@/components/argument/PiecesArc";
 
 export const metadata: Metadata = {
   title: "the argument — The Closed-Loop Libidinal Economy",
@@ -48,6 +49,8 @@ export default function TheArgumentIndexPage() {
             and the position from which it closes. The pieces are not
             independent essays but registers of a single argument.
           </p>
+
+          <PiecesArc pieces={PIECES} />
 
           <ol className="flex flex-col gap-lg mt-2xl">
             {PIECES.map((piece) => (

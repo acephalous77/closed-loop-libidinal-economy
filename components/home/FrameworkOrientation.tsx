@@ -148,7 +148,7 @@ function DocumentMap() {
     {
       href: "/the-argument",
       label: "the argument",
-      sub: "four prose pieces — the body of the work",
+      sub: "four prose pieces and a coda — the body of the work, traversing cohort time forward",
     },
     {
       href: "/the-mathematics",
@@ -158,7 +158,7 @@ function DocumentMap() {
     {
       href: "/the-dynamics",
       label: "the dynamics",
-      sub: "interactive plates — the mechanisms made operable",
+      sub: "interactive plates and the live simulator — the mechanisms made operable",
     },
   ];
 

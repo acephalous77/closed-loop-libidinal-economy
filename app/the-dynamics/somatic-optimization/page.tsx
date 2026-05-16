@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { SomaticOptimization } from "@/components/visualizations/SomaticOptimization";
 import { M } from "@/components/ui/Math";
 
@@ -91,6 +92,20 @@ export default function SomaticOptimizationPage() {
               { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: "registers differentiated at the event level" },
               { href: "/the-dynamics/surplus", title: "libidinal surplus", note: "per-register marks integrate into Σ" },
               { href: "/the-dynamics/captured-resonance", title: "captured resonance", note: "the body's other coupling to the apparatus" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/the-loop#what-the-loop-produces",
+                title: "the loop · §3",
+                note: "the body as differential — what the marked point process accumulates against",
+              },
+              {
+                href: "/the-argument/sincere-captives#v-the-mechanism-of-capture",
+                title: "the sincere captives · §V",
+                note: "somatic optimization at the captive's terminal scale",
+              },
             ]}
           />
         </article>

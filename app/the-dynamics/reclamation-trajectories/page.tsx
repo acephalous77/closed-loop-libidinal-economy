@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { ReclamationTrajectories } from "@/components/visualizations/ReclamationTrajectories";
 import { M } from "@/components/ui/Math";
 
@@ -96,6 +97,20 @@ export default function ReclamationTrajectoriesPage() {
               { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "Lemma 1's bound, made physically legible" },
               { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "the proof chain from Lemma 1 to Theorem 1" },
               { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode A breaks what Theorem 1 forecloses" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/the-loop#the-reclamation-theorem",
+                title: "the loop · §4",
+                note: "the reclamation theorem stated in prose",
+              },
+              {
+                href: "/the-argument/citizen-after-the-pause#why-deliberative-repair-fails",
+                title: "the citizen after the pause · §4",
+                note: "why deliberative-democratic repair runs into the same foreclosure",
+              },
             ]}
           />
         </article>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { LoopDiagram } from "@/components/visualizations/LoopDiagram";
 import { M } from "@/components/ui/Math";
 
@@ -84,6 +85,15 @@ export default function ClosedLoopPage() {
               { href: "/the-dynamics/causal-chain", title: "the causal chain", note: "what the loop produces formally" },
               { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "Lemma 1, derived from the loop" },
               { href: "/the-mathematics#1-the-closed-loop-dynamics", title: "§1 closed-loop dynamics", note: "the formal definition of the six equations" },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/the-loop#the-loop-and-why-it-is-closed",
+                title: "the loop · §2",
+                note: "the closure described in prose — what no exogenous channel means",
+              },
             ]}
           />
         </article>

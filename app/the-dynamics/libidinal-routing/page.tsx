@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
+import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { LibidinalRouting } from "@/components/visualizations/LibidinalRouting";
 import { M } from "@/components/ui/Math";
 
@@ -88,6 +89,15 @@ export default function LibidinalRoutingPage() {
               { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "routing visible at the per-event level" },
               { href: "/the-dynamics/tiktok", title: "tiktok", note: "interleaved categories on a specific platform" },
               { href: "/the-dynamics/mode-space", title: "mode-space", note: <><M>{String.raw`D_{\mathrm{KL}}`}</M> axis is the routing's structural dual</> },
+            ]}
+          />
+          <RelatedReading
+            entries={[
+              {
+                href: "/the-argument/the-loop#what-the-loop-produces",
+                title: "the loop · §3",
+                note: "the four registers fused on a single delivery surface",
+              },
             ]}
           />
         </article>
