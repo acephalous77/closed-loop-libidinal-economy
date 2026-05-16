@@ -239,7 +239,7 @@ That is, under the closed loop the four registers become statistically redundant
 
 
 $$
-D_{KL}\!\left(\nu_u(t)\ \big\|\ \pi_{R̂}\right) \to 0\quad \text{as}\quad t \to \infty
+D_{KL}\!\left(\nu_u(t)\ \big\|\ \pi_{\hat{R}}\right) \to 0\quad \text{as}\quad t \to \infty
 $$
 
 
@@ -281,7 +281,7 @@ The central result of the framework is the reclamation theorem. The theorem rest
 
 **4.1 Lemma 1 (foreclosure of the no-input window).**
 
-$Let \tau^{(k)} denote the k-th inter-stimulus interval — the time between the k-th \,\text{and}\, (k+1)-th delivered stimuli \,\text{under}\, policy \pi. Let S(\tau; t) := \mathrm{Pr}(\tau^{(k)} > \tau | \theta_{t}) be its survival function \,\text{under}\, the policy at time t. Let \theta_{\mathrm{ref}} > 0 be the reflective-processing threshold (the minimum no-input duration that supports deliberation). \,\text{Under}\, Assumptions (A1)–(A6):$
+*Let $\tau^{(k)}$ denote the $k$-th inter-stimulus interval — the time between the $k$-th and $(k+1)$-th delivered stimuli under policy $\pi$. Let $S(\tau; t) := \mathrm{Pr}(\tau^{(k)} > \tau \mid \theta_t)$ be its survival function under the policy at time $t$. Let $\theta_{\mathrm{ref}} > 0$ be the reflective-processing threshold (the minimum no-input duration that supports deliberation). Under Assumptions (A1)–(A6):*
 
 
 $$
@@ -323,7 +323,7 @@ Since $\theta_{\mathrm{ref}}/\delta_{\min} ≫ 1$ by the structural separation o
 
 The *strict* form — $S(\tau; \theta*) = 0$ for all $\tau > \delta_{\min}$ — requires three additional conditions. *First*, that $\bar{\lambda}(\theta*) = \lambda_{\max}$ exactly (not asymptotically); this in turn presumes SGD reaches the *global* maximum of *F* rather than a suboptimal local maximum. The proof above asserts this via the local-ascent-direction argument, but for non-convex *F* (the typical case for neural-network-parametrized policies) the argument is heuristic: local maximality of $\theta*$ doesn't strictly preclude a sub-maximal $\bar{\lambda}(\theta*) < \lambda_{\max}$. Empirically, mature engagement-monetized training regimes — continuous re-training, large compute, hyperparameter search, exploration — reach policies with $\bar{\lambda}$ very close to $\lambda_{\max}$; the strict equality is an empirical idealization, not a consequence of (A5)+(A6) alone. *Second*, that the engagement process be Poisson with rate $\lambda_{\max}$ (not merely a counting process with bounded CoV). *Third*, that the convergence in (A5) be exact rather than asymptotic. None of these holds in the strict sense for real platforms.
 
-The framework treats the strict-vs-operational distinction as immaterial for the reclamation theorem below: a conditioning event with probability bounded above by $e^{-1000}$ yields an estimator-divergent $I(\tau)$ for any sample-based construction, since the variance of any such estimator diverges as the conditioning probability tends to zero. And the operational form is robust to weakening of $\bar{\lambda}(\theta*) = \lambda_{\max}$: substituting any $\bar{\lambda}(\theta*) \ge c\cdot\lambda_{\max}$ into the exponential bound gives $S(\theta_{\mathrm{ref}}; \theta*) \le C\cdotexp(-c\cdot\theta_{\mathrm{ref}}/\delta_{\min})$, which is operationally zero for any *c* bounded below by a non-trivial constant. Whether the limit object is "exactly undefined" (strict form) or "estimator-divergent" (operational form) is a distinction without an operational difference.
+The framework treats the strict-vs-operational distinction as immaterial for the reclamation theorem below: a conditioning event with probability bounded above by $e^{-1000}$ yields an estimator-divergent $I(\tau)$ for any sample-based construction, since the variance of any such estimator diverges as the conditioning probability tends to zero. And the operational form is robust to weakening of $\bar{\lambda}(\theta*) = \lambda_{\max}$: substituting any $\bar{\lambda}(\theta*) \ge c\cdot\lambda_{\max}$ into the exponential bound gives $S(\theta_{\mathrm{ref}}; \theta*) \le C\cdot \exp(-c\cdot\theta_{\mathrm{ref}}/\delta_{\min})$, which is operationally zero for any *c* bounded below by a non-trivial constant. Whether the limit object is "exactly undefined" (strict form) or "estimator-divergent" (operational form) is a distinction without an operational difference.
 
 **4.2 Theorem 1 (reclamation theorem).**
 
@@ -335,9 +335,9 @@ I(\tau) := \mathrm{Cov}\!\left(u_t,\, u_{t+\tau}\ \big|\ E_\tau\right),\quad E_\
 $$
 
 
-$Let "reclamation" denote the recovery of I(\tau) > 0 on a positive-measure set of trajectories at some \tau > \theta_{\mathrm{ref}}. \,\text{Under}\, (1)–(5) \,\text{and}\, (A1)–(A5):$
+*Let "reclamation" denote the recovery of $I(\tau) > 0$ on a positive-measure set of trajectories at some $\tau > \theta_{\mathrm{ref}}$. Under (1)–(5) and (A1)–(A5):*
 
-$Reclamation is structurally incoherent. The quantity I(\tau) is undefined-on-trajectory in the limit t \to \infty \,\text{for}\, \tau > \theta_{\mathrm{ref}}.$
+*Reclamation is structurally incoherent. The quantity $I(\tau)$ is undefined-on-trajectory in the limit $t \to \infty$ for $\tau > \theta_{\mathrm{ref}}$.*
 
 **Proof.**
 
@@ -355,7 +355,7 @@ The first conditional covariance is the *interiority component* — the autocova
 
 *Step 2 (conditional well-definedness).* The conditional expectation $E[X | E_{\tau}]$ admits two distinct constructions when $\mathrm{Pr}(E_{\tau}) > 0$ and when $\mathrm{Pr}(E_{\tau}) = 0$. In the elementary case ($\mathrm{Pr}(E_{\tau}) > 0$), it is defined as $E[X \cdot 1_{E_{\tau}}] / \mathrm{Pr}(E_{\tau})$ — a canonical scalar. In the measure-zero case ($\mathrm{Pr}(E_{\tau}) = 0$), this ratio is *0/0* and undefined elementarily. Regular conditional probabilities can be constructed via the disintegration theorem (Kallenberg, *Foundations of Modern Probability*, §6.3), which gives a *family* of probability measures $\{P_{\omega}\}$ indexed by the conditioning σ-algebra such that $P(A | F)(\omega) = P_{\omega}(A)$ almost surely; however, on a measure-zero set the disintegration is non-unique, and the value $E[X | E_{\tau}]$ depends on the choice of disintegration. The conditional autocovariance $I(\tau)$ thus admits no canonical value as $\mathrm{Pr}(E_{\tau}) \to 0$.
 
-Operationally, this is the more relevant statement: any sample-based estimator $\hat{I}(\tau)$ — formed from a finite trajectory by conditioning on observed no-input windows — has variance scaling as $1/(N_{obs}\cdotPr(E_{\tau}))$, where $N_{obs}$ is the trajectory length. As $\mathrm{Pr}(E_{\tau}) \to 0$, the variance diverges. There is no operationally well-defined $I(\tau)$ in the limit, regardless of which disintegration one selects.
+Operationally, this is the more relevant statement: any sample-based estimator $\hat{I}(\tau)$ — formed from a finite trajectory by conditioning on observed no-input windows — has variance scaling as $1/(N_{obs}\cdot \mathrm{Pr}(E_{\tau}))$, where $N_{obs}$ is the trajectory length. As $\mathrm{Pr}(E_{\tau}) \to 0$, the variance diverges. There is no operationally well-defined $I(\tau)$ in the limit, regardless of which disintegration one selects.
 
 *Step 3 (foreclosure).* By Lemma 1, $\mathrm{Pr}(E_{\tau}; t) = S(\tau; t) \to 0$ as $t \to \infty$ for $\tau > \theta_{\mathrm{ref}}$.
 
@@ -385,7 +385,7 @@ Before stating Proposition 1, we establish a parametric-continuity lemma that th
 
 **Lemma 2 (parametric continuity of regularized optima).**
 
-$Define F(\theta) := E[\hat{R}(y_{1:T}, N_{T}) | \theta] \,\text{and}\, B(\theta) := E[\Sigma_{k} b(\tau^{(k)}) | \theta]. \,\text{Under}\, (A1)–(A6), the gradient-ascent limit:$
+*Define $F(\theta) := \mathbb{E}[\hat{R}(y_{1:T}, N_T) \mid \theta]$ and $B(\theta) := \mathbb{E}[\sum_k b(\tau^{(k)}) \mid \theta]$. Under (A1)–(A6), the gradient-ascent limit:*
 
 
 $$
@@ -393,25 +393,25 @@ $$
 $$
 
 
-$is well-defined locally \,\text{for}\, each \beta \ge 0, \,\text{with}\, the following properties:$
+*is well-defined locally for each $\beta \ge 0$, with the following properties:*
 
-$(i) Continuity: \beta ↦ \theta*$'$_{\beta} is continuous.$
+*(i) Continuity: $\beta \mapsto \theta^{*\prime}_\beta$ is continuous.*
 
-$(ii) Monotonicity: B(\theta*$'$_{\beta}) is non-decreasing in \beta, \,\text{and}\, F(\theta*$'$_{\beta}) is non-increasing in \beta.$
+*(ii) Monotonicity: $B(\theta^{*\prime}_\beta)$ is non-decreasing in $\beta$, and $F(\theta^{*\prime}_\beta)$ is non-increasing in $\beta$.*
 
-$(iii) Path existence \,\text{and}\, strict growth: There \,\text{exists}\, a continuous path \beta ↦ \thetã(\beta), defined on a maximal interval [0, \betā) ⊆ [0, \infty], \,\text{with}\, \thetã(0) = \theta* (the unregularized engagement-maximizer of Lemma 1) \,\text{and}\, \,\text{with}\, \thetã(\beta) a local maximum of F + \betaB along the entire path. The bonus achievement B(\thetã(\beta)) is non-decreasing in \beta. Provided the path's gradient direction is non-trivial — formally, \nablaB(\theta*) \ne 0, which \,\text{holds}\, generically since B \,\text{and}\, F have distinct extremizers — B(\thetã(\beta)) is strictly increasing on (0, \betā). The path's terminal value:$
+*(iii) Path existence and strict growth: There exists a continuous path $\beta \mapsto \tilde\theta(\beta)$, defined on a maximal interval $[0, \bar\beta) \subseteq [0, \infty]$, with $\tilde\theta(0) = \theta^*$ (the unregularized engagement-maximizer of Lemma 1) and with $\tilde\theta(\beta)$ a local maximum of $F + \beta B$ along the entire path. The bonus achievement $B(\tilde\theta(\beta))$ is non-decreasing in $\beta$. Provided the path’s gradient direction is non-trivial — formally, $\nabla B(\theta^*) \ne 0$, which holds generically since $B$ and $F$ have distinct extremizers — $B(\tilde\theta(\beta))$ is strictly increasing on $(0, \bar\beta)$. The path’s terminal value:*
 
 
 $$
-B_{\max}^{\,\tilde\theta}\ :=\ \sup_{\beta \in [0,\, \bar\beta)}\, B(\tilde\theta(\beta))
+B_{\max}^{\,\tilde\theta}\ :=\ \\sup_{\beta \in [0,\, \bar\beta)}\, B(\tilde\theta(\beta))
 $$
 
 
-$satisfies B^{\thetã}_{\max} > 0. The path's right endpoint \betā is finite at most \,\text{if}\, a bifurcation interrupts the IFT continuation; \,\text{under}\, generic regularity (no codimension-one bifurcations along the path, which \,\text{holds}\, on an open dense set in the policy class), \betā = \infty \,\text{and}\, B^{\thetã}_{\max} attains a local maximum of B.$
+*satisfies $B^{\tilde\theta}_{\max} > 0$. The path's right endpoint $\bar\beta$ is finite at most if a bifurcation interrupts the IFT continuation; under generic regularity (no codimension-one bifurcations along the path, which holds on an open dense set in the policy class), $\bar\beta = \infty$ and $B^{\tilde\theta}_{\max}$ attains a local maximum of $B$.*
 
 **Proof.**
 
-*(i)* By (A6), *F* and *B* are *C¹* on $\Theta$ with non-degenerate Hessians at the optima. The first-order condition at $\theta*$'$_{\beta}$ is:
+*(i)* By (A6), *F* and *B* are *C¹* on $\Theta$ with non-degenerate Hessians at the optima. The first-order condition at $\theta^{*\prime}_\beta$ is:
 
 
 $$
@@ -419,7 +419,7 @@ $$
 $$
 
 
-The Hessian of the regularized objective is $H_{F}(\theta*$'$_{\beta}) + \beta H_{B}(\theta*$'$_{\beta})$, which is non-singular at $\theta*$'$_{\beta}$ by (A6). The implicit function theorem applies: $\theta*$'$_{\beta}$ is a *C¹* function of $\beta$ in a neighborhood of any $\beta_{0} \ge 0$. Continuity follows.
+The Hessian of the regularized objective is $H_{F}(\theta^{*\prime}_\beta) + \beta H_{B}(\theta^{*\prime}_\beta)$, which is non-singular at $\theta^{*\prime}_\beta$ by (A6). The implicit function theorem applies: $\theta^{*\prime}_\beta$ is a *C¹* function of $\beta$ in a neighborhood of any $\beta_{0} \ge 0$. Continuity follows.
 
 *(ii)* Differentiating the FOC with respect to $\beta$:
 
@@ -429,7 +429,7 @@ $$
 $$
 
 
-Hence $d\theta*$'$_{\beta}/d\beta = -[H_{F} + \beta H_{B}]^{-1} \nablaB$. The bracketed Hessian is negative definite at a local maximum (by (A6)), so its inverse is also negative definite. The rate of change of the bonus:
+Hence $d\theta^{*\prime}_\beta/d\beta = -[H_{F} + \beta H_{B}]^{-1} \nabla B$. The bracketed Hessian is negative definite at a local maximum (by (A6)), so its inverse is also negative definite. The rate of change of the bonus:
 
 
 $$
@@ -437,35 +437,35 @@ $$
 $$
 
 
-since $-\nablaB^{\top}(neg. def.)^{-1}\nablaB \ge 0$. The monotonicity of *F* follows by the envelope theorem: at the optimum, $dF(\theta*$'$_{\beta})/d\beta = -\beta \cdot dB(\theta*$'$_{\beta})/d\beta \le 0$.
+since $-\nabla B^{\top}(neg. def.)^{-1}\nabla B \ge 0$. The monotonicity of *F* follows by the envelope theorem: at the optimum, $dF(\theta^{*\prime}_\beta)/d\beta = -\beta \cdot dB(\theta^{*\prime}_\beta)/d\beta \le 0$.
 
-*(iii)* At $\beta = 0$, the regularization vanishes and $\thetã(0) = \theta*$, the unregularized engagement-maximizer of Lemma 1. By part (i), the implicit function theorem gives a unique smooth continuation of $\thetã(\beta)$ as long as the regularized Hessian $H_{F}(\thetã(\beta)) + \beta H_{B}(\thetã(\beta))$ remains non-degenerate. Let $\betā$ denote the supremum of β-values for which this continuation exists; $\betā \in (0, \infty]$.
+*(iii)* At $\beta = 0$, the regularization vanishes and $\tilde\theta(0) = \theta*$, the unregularized engagement-maximizer of Lemma 1. By part (i), the implicit function theorem gives a unique smooth continuation of $\tilde\theta(\beta)$ as long as the regularized Hessian $H_{F}(\tilde\theta(\beta)) + \beta H_{B}(\tilde\theta(\beta))$ remains non-degenerate. Let $\bar\beta$ denote the supremum of β-values for which this continuation exists; $\bar\beta \in (0, \infty]$.
 
-By part (ii), $B(\thetã(\beta))$ is non-decreasing on [0, β̄). For *strict* growth, we use the explicit derivative $dB/d\beta = -\nablaB^{\top}[H_{F} + \betaH_{B}]^{-1}\nablaB$ (from part (ii)). The Hessian $H_{F} + \betaH_{B}$ is negative definite at a local maximum, so its inverse is also negative definite, and the quadratic form $-\nablaB^{\top}(neg. def.)^{-1}\nablaB > 0$ whenever $\nablaB(\thetã(\beta)) \ne 0$. Hence $B(\thetã(\beta))$ is strictly increasing on any β-interval where $\nablaB$ is non-vanishing along the path.
+By part (ii), $B(\tilde\theta(\beta))$ is non-decreasing on [0, \bar\beta). For *strict* growth, we use the explicit derivative $dB/d\beta = -\nabla B^{\top}[H_{F} + \beta H_{B}]^{-1}\nabla B$ (from part (ii)). The Hessian $H_{F} + \beta H_{B}$ is negative definite at a local maximum, so its inverse is also negative definite, and the quadratic form $-\nabla B^{\top}(neg. def.)^{-1}\nabla B > 0$ whenever $\nabla B(\tilde\theta(\beta)) \ne 0$. Hence $B(\tilde\theta(\beta))$ is strictly increasing on any β-interval where $\nabla B$ is non-vanishing along the path.
 
-The condition $\nablaB(\thetã(\beta)) \ne 0$ holds generically: *B* and *F* have distinct extremizers (the *B*-maximizer fires at rate $1/\tau*$ to maximize bonus-eligible intervals; the *F*-maximizer fires at $\lambda_{\max} = 1/\delta_{\min}$ to maximize engagement). Hence $\nablaB(\theta*) \ne 0$ — at the *F*-maximizer, the *B*-gradient is non-zero, since *B* prefers a different policy. By continuity, $\nablaB(\thetã(\beta)) \ne 0$ in a neighborhood of $\beta = 0$, and the path produces strictly positive $B(\thetã(\beta)) > B(\theta*) = 0$ for any sufficiently small $\beta > 0$. Define $B^{\thetã}_{\max} := sup_{\beta \in [0, \betā)} B(\thetã(\beta))$ — strictly positive by this argument.
+The condition $\nabla B(\tilde\theta(\beta)) \ne 0$ holds generically: *B* and *F* have distinct extremizers (the *B*-maximizer fires at rate $1/\tau*$ to maximize bonus-eligible intervals; the *F*-maximizer fires at $\lambda_{\max} = 1/\delta_{\min}$ to maximize engagement). Hence $\nabla B(\theta*) \ne 0$ — at the *F*-maximizer, the *B*-gradient is non-zero, since *B* prefers a different policy. By continuity, $\nabla B(\tilde\theta(\beta)) \ne 0$ in a neighborhood of $\beta = 0$, and the path produces strictly positive $B(\tilde\theta(\beta)) > B(\theta*) = 0$ for any sufficiently small $\beta > 0$. Define $B^{\tilde\theta}_{\max} := \sup_{\beta \in [0, \bar\beta)} B(\tilde\theta(\beta))$ — strictly positive by this argument.
 
-The path's right endpoint $\betā$ is finite only if a bifurcation interrupts the IFT continuation (e.g., the regularized Hessian becomes degenerate). Bifurcations occur on a codimension-one stratum in $\Theta × [0, \infty]$ (Whitney stratification), and under generic policy-class regularity the chosen path avoids them — $\betā = \infty$. In this regime, $\thetã(\beta) \to \mathrm{arg} max B$ (or to a local maximum of *B*, depending on basin structure), and $B^{\thetã}_{\max} = b_{\max}\cdotE[N_{T}]/T = b_{\max}\cdot(1/\tau*)\cdotT$ (with policy firing rate $1/\tau*$). When $\betā$ is finite, the framework's argument requires only that $B^{\thetã}_{\max} > 0$, which is the strict-growth conclusion above. ∎
+The path's right endpoint $\bar\beta$ is finite only if a bifurcation interrupts the IFT continuation (e.g., the regularized Hessian becomes degenerate). Bifurcations occur on a codimension-one stratum in $\Theta × [0, \infty]$ (Whitney stratification), and under generic policy-class regularity the chosen path avoids them — $\bar\beta = \infty$. In this regime, $\tilde\theta(\beta) \to \mathrm{arg\,max} B$ (or to a local maximum of *B*, depending on basin structure), and $B^{\tilde\theta}_{\max} = b_{\max}\cdot E[N_{T}]/T = b_{\max}\cdot(1/\tau*)\cdot T$ (with policy firing rate $1/\tau*$). When $\bar\beta$ is finite, the framework's argument requires only that $B^{\tilde\theta}_{\max} > 0$, which is the strict-growth conclusion above. ∎
 
 **Proposition 1 (Mode A breaks foreclosure).**
 
-$\,\text{Under}\, (A1)–(A6), define P(\beta) := \mathrm{Pr}(\tau^{(k)} > \tau*; \thetã(\beta)) along the parametric path of Lemma 2(iii). \,\text{Then}\,:$
+*Under (A1)–(A6), define $P(\beta) := \mathrm{Pr}(\tau^{(k)} > \tau^*;\, \tilde\theta(\beta))$ along the parametric path of Lemma 2(iii). Then:*
 
-$(a) P(0) = S(\tau*; \theta*) \le C(c_{v})\cdote^{-\tau*/\delta_{\min}}, which is operationally zero.$
+*(a) $P(0) = S(\tau^*; \theta^*) \le C(c_v) \cdot e^{-\tau^*/\delta_{\min}}$, which is operationally zero.*
 
-$(b) P(\beta) is continuous in \beta on [0, \betā).$
+*(b) $P(\beta)$ is continuous in $\beta$ on $[0, \bar\beta)$.*
 
-$(c) There \,\text{exists}\, \epsilon_{\max} := sup_{\beta \in [0, \betā)} P(\beta) > 0.$
+*(c) There exists $\epsilon_{\max} := \\sup_{\beta \in [0, \bar\beta)} P(\beta) > 0$.*
 
-$Consequently, \,\text{for}\, any \epsilon \in (0, \epsilon_{\max}), there \,\text{exists}\, \beta_{\epsilon} \in (0, \betā) \,\text{with}\, P(\beta_{\epsilon}) \ge \epsilon. \,\text{For}\, such \beta_{\epsilon}, Lemma 1 fails \,\text{under}\, \hat{R}'(\cdot; \beta_{\epsilon}), the conditioning event E_{\tau*} has positive measure, \,\text{and}\, I(\tau*) is well-defined on a positive-measure set of trajectories. Mode A is the only mode of intervention that recovers what the reclamation theorem forecloses.$
+*Consequently, for any $\epsilon \in (0, \epsilon_{\max})$, there exists $\beta_\epsilon \in (0, \bar\beta)$ with $P(\beta_\epsilon) \ge \epsilon$. For such $\beta_\epsilon$, Lemma 1 fails under $\hat{R}’(\cdot; \beta_\epsilon)$, the conditioning event $E_{\tau^*}$ has positive measure, and $I(\tau^*)$ is well-defined on a positive-measure set of trajectories. Mode A is the only mode of intervention that recovers what the reclamation theorem forecloses.*
 
 **Proof.**
 
-*(a)* Taking $\tau* \ge \theta_{\mathrm{ref}}$ and applying Lemma 1: $S(\tau*; \theta*) \le C(c_{v})\cdote^{-\tau*/\delta_{\min}}$. Since $\thetã(0) = \theta*$ by Lemma 2(iii), *P(0)* equals this operationally-zero bound.
+*(a)* Taking $\tau* \ge \theta_{\mathrm{ref}}$ and applying Lemma 1: $S(\tau*; \theta*) \le C(c_{v})\cdot e^{-\tau*/\delta_{\min}}$. Since $\tilde\theta(0) = \theta*$ by Lemma 2(iii), *P(0)* equals this operationally-zero bound.
 
-*(b)* Continuity of $P(\beta)$: by Lemma 2(i), $\beta ↦ \thetã(\beta)$ is continuous on [0, β̄). The map $\theta ↦ \mathrm{Pr}(\tau^{(k)} > \tau*; \theta)$ is continuous on Θ by (A1) (continuous dependence of the inter-arrival distribution on policy parameters, via the bounded-variance noise assumption). The composition is therefore continuous.
+*(b)* Continuity of $P(\beta)$: by Lemma 2(i), $\beta ↦ \tilde\theta(\beta)$ is continuous on [0, \bar\beta). The map $\theta ↦ \mathrm{Pr}(\tau^{(k)} > \tau*; \theta)$ is continuous on Θ by (A1) (continuous dependence of the inter-arrival distribution on policy parameters, via the bounded-variance noise assumption). The composition is therefore continuous.
 
-*(c)* Strict positivity of $\epsilon_{\max}$: by Lemma 2(iii), $B(\thetã(\beta))$ is strictly increasing on (0, β̄), with $B(\thetã(0)) = 0$ and $B^{\thetã}_{\max} > 0$. The bonus *b* is supported only on intervals $\tau > \tau*$: explicitly,
+*(c)* Strict positivity of $\epsilon_{\max}$: by Lemma 2(iii), $B(\tilde\theta(\beta))$ is strictly increasing on (0, \bar\beta), with $B(\tilde\theta(0)) = 0$ and $B^{\tilde\theta}_{\max} > 0$. The bonus *b* is supported only on intervals $\tau > \tau*$: explicitly,
 
 
 $$
@@ -473,9 +473,9 @@ B(\tilde\theta(\beta))\ =\ \mathbb{E}\!\left[\sum_{k} b(\tau^{(k)});\, \tilde\th
 $$
 
 
-Hence $B(\thetã(\beta)) > 0 ⟹ P(\beta) > 0$. Taking the supremum, $\epsilon_{\max} \ge B^{\thetã}_{\max}/(b_{\max}\cdotsup_{\beta} E[N_{T}; \thetã(\beta)]) > 0$.
+Hence $B(\tilde\theta(\beta)) > 0 ⟹ P(\beta) > 0$. Taking the supremum, $\epsilon_{\max} \ge B^{\tilde\theta}_{\max}/(b_{\max}\cdot\sup_{\beta} E[N_{T}; \tilde\theta(\beta)]) > 0$.
 
-For the IVT conclusion: by (a), *P(0)* is operationally zero; by (c), $sup_{\beta} P(\beta) = \epsilon_{\max} > 0$; by (b), *P* is continuous. By the intermediate value theorem applied to *P* on [0, β̄), for any $\epsilon \in (0, \epsilon_{\max})$, there exists $\beta_{\epsilon}$ with $P(\beta_{\epsilon}) = \epsilon$. The continuity of *P* and the non-decreasing nature of $B(\thetã(\beta))$ in $\beta$ (Lemma 2(ii)), composed with the monotone relationship between *B* and *P* via the bonus structure, give $P(\beta) \ge \epsilon$ for $\beta$ in a right-neighborhood of $\beta_{\epsilon}$. ∎
+For the IVT conclusion: by (a), *P(0)* is operationally zero; by (c), $\sup_{\beta} P(\beta) = \epsilon_{\max} > 0$; by (b), *P* is continuous. By the intermediate value theorem applied to *P* on [0, \bar\beta), for any $\epsilon \in (0, \epsilon_{\max})$, there exists $\beta_{\epsilon}$ with $P(\beta_{\epsilon}) = \epsilon$. The continuity of *P* and the non-decreasing nature of $B(\tilde\theta(\beta))$ in $\beta$ (Lemma 2(ii)), composed with the monotone relationship between *B* and *P* via the bonus structure, give $P(\beta) \ge \epsilon$ for $\beta$ in a right-neighborhood of $\beta_{\epsilon}$. ∎
 
 The mode operates on the timescale of $T_{\mathrm{mix}}$. The intervention itself — a policy change, a regulatory imposition, a structural constraint on $\pi$ or $\hat{R}$ — may be instantaneous in clock-time, but the cohort's empirical distribution converges to the new $\mu*_{\pi'}$ only over the mixing time of the modified loop. This is the framework's most consequential quantitative claim about architectural intervention: evaluations conducted at clock-time substantially less than $T_{\mathrm{mix}}(\pi')$ will systematically underestimate the intervention's structural effect, and the pattern in the policy literature of declaring failure on the basis of one-quarter or two-quarter observation windows is a temporal misalignment masquerading as an empirical finding.
 
@@ -497,13 +497,13 @@ $$
 $$
 
 
-$\,\text{where}\, (a) h_{0} : [0, \infty) \to [0, \infty) is continuous, strictly increasing in \beta_{u} (the platform pressure: a continuous, monotone increasing function of \alpha, the policy's cumulative confidence H(u | y_{1:t})^{-1}, \,\text{and}\, the duration of exposure t), \,\text{with}\, h_{0}(0) = 0; (b) r : [0, \infty) \to [0, \infty) is continuous, strictly increasing in L_{m}, \,\text{with}\, r(0) = 0; (c) the contraction is reversible — \,\text{for}\, any \beta_{u}, the inverse function L_{m}* := r^{-1}(h_{0}(\beta_{u})) \,\text{exists}\, in (0, L_{m,max}] \,\text{where}\, L_{m,max} is the user's metabolic budget.$
+*where (a) $h_0 : [0, \infty) \to [0, \infty)$ is continuous, strictly increasing in $\beta_u$ (the platform pressure: a continuous, monotone increasing function of $\alpha$, the policy’s cumulative confidence $H(u \mid y_{1:t})^{-1}$, and the duration of exposure $t$), with $h_0(0) = 0$; (b) $r : [0, \infty) \to [0, \infty)$ is continuous, strictly increasing in $L_m$, with $r(0) = 0$; (c) the contraction is reversible — for any $\beta_u$, the inverse function $L_m^* := r^{-1}(h_0(\beta_u))$ exists in $(0, L_{m,\max}]$ where $L_{m,\max}$ is the user’s metabolic budget.*
 
-$\,\text{Then}\, \,\text{for}\, L_{m} \ge L_{m}*(\beta_{u}):$
+*Then for $L_m \ge L_m^*(\beta_u)$:*
 
-$(i) D_{\mathrm{KL}}(\nu_{u}(t) \| \pi_{\hat{R}}) \ge \gamma > 0 is maintained over the user's exposure horizon, \,\text{with}\, \gamma given by the initial gap D_{\mathrm{KL}}(\nu_{u}(0) \| \pi_{\hat{R}}).$
+*(i) $D_{\mathrm{KL}}(\nu_u(t) \,\|\, \pi_{\hat{R}}) \ge \gamma > 0$ is maintained over the user’s exposure horizon, with $\gamma$ given by the initial gap $D_{\mathrm{KL}}(\nu_u(0) \,\|\, \pi_{\hat{R}})$.*
 
-$(ii) Lemma 1 continues to hold: \mathrm{Pr}(E_{\tau}) \to 0 \,\text{for}\, \tau > \theta_{\mathrm{ref}}.$
+*(ii) Lemma 1 continues to hold: $\mathrm{Pr}(E_\tau) \to 0$ for $\tau > \theta_{\mathrm{ref}}$.*
 
 **Remark on the structural assumption.** The decomposition $dD_{\mathrm{KL}}/dt = -h_{0}(\beta_{u}) + r(L_{m})$ is *not* axiomatic; it is the first-order linearization of the user's internalization dynamics around the operating point $\nu_{u}^{\mathrm{op}}$ where $D_{\mathrm{KL}}(\nu_{u}^{\mathrm{op}} \| \pi_{\hat{R}}) = \gamma$. The derivation differs across the three named mechanisms but each produces the same linearized form. The free-energy case is worked here explicitly; the other two are sketched.
 
@@ -567,13 +567,13 @@ The third mode operates on neither the policy nor the user's internal dynamics, 
 
 **Proposition 3 (Mode C bounds surplus but does not break foreclosure).**
 
-$Suppose the user's behavioral practice (deliberate inauthenticity, obfuscation, modulation of engagement timing, refusal of legibility) results in an inflated observation-noise variance \mathrm{Var}(\eta_{t}) \ge \sigma^{2}_{\eta} > \sigma^{2}_{\eta,0}, \,\text{where}\, \sigma^{2}_{\eta,0} is the baseline observation noise. \,\text{Then}\, \,\text{under}\, (A1)–(A6):$
+*Suppose the user’s behavioral practice (deliberate inauthenticity, obfuscation, modulation of engagement timing, refusal of legibility) results in an inflated observation-noise variance $\mathrm{Var}(\eta_t) \ge \sigma^2_\eta > \sigma^2_{\eta,0}$, where $\sigma^2_{\eta,0}$ is the baseline observation noise. Then under (A1)–(A6):*
 
-$(i) The platform's residual entropy satisfies H(u_{t} | y_{1:t}) \ge H_{\mathrm{res}}(\sigma^{2}_{\eta}) > 0 \,\text{for}\, all t, \,\text{with}\, H_{\mathrm{res}}(\cdot) strictly increasing.$
+*(i) The platform’s residual entropy satisfies $H(u_t \mid y_{1:t}) \ge H_{\mathrm{res}}(\sigma^2_\eta) > 0$ for all $t$, with $H_{\mathrm{res}}(\cdot)$ strictly increasing.*
 
-$(ii) The achievable expected reward satisfies E[\hat{R}; \theta*$($\sigma^{2}_{\eta})] < E[\hat{R}; \theta*$($\sigma^{2}_{\eta,0})], \,\text{where}\, \theta*$($\sigma^{2}_{\eta}) is the policy limit \,\text{under}\, noise level \sigma^{2}_{\eta}. Consequently, \Sigma(T) \,\text{under}\, Mode C is strictly bounded below \Sigma(T) \,\text{under}\, contracted observation.$
+*(ii) The achievable expected reward satisfies $\mathbb{E}[\hat{R}; \theta^*(\sigma^2_\eta)] < \mathbb{E}[\hat{R}; \theta^*(\sigma^2_{\eta,0})]$, where $\theta^*(\sigma^2_\eta)$ is the policy limit under noise level $\sigma^2_\eta$. Consequently, $\Sigma(T)$ under Mode C is strictly bounded below $\Sigma(T)$ under contracted observation.*
 
-$(iii) Lemma 1 continues to hold: \mathrm{Pr}(E_{\tau}) \to 0 \,\text{for}\, \tau > \theta_{\mathrm{ref}}.$
+*(iii) Lemma 1 continues to hold: $\mathrm{Pr}(E_\tau) \to 0$ for $\tau > \theta_{\mathrm{ref}}$.*
 
 **Proof.**
 
@@ -641,7 +641,7 @@ The model does not claim that intervention is impossible. The formal treatment o
 
 The model does not claim mechanism. The metric superego, in particular, is mechanism-agnostic by design. Where the formalism is silent on whether convergence is realized by free-energy minimization, by operant conditioning, or by social comparison, the silence is a feature: the framework's prediction is the convergence, not the route. Empirical work that distinguishes the routes is downstream of the framework, not constitutive of it.
 
-The model does not claim falsification-immunity. The reclamation theorem rests on Lemma 1, which rests on (1)–(5) under Assumptions (A1)–(A6). A platform that adopted explicit no-input regularization — augmenting $\hat{R}$ with a positive bonus $\beta\cdotB$ on inter-stimulus intervals exceeding some $\tau*$, in the sense of Proposition 1, with $\beta$ large enough to produce $\mathrm{Pr}(\tau^{(k)} > \tau*) \ge \epsilon$ for some non-trivial $\epsilon$ — would falsify the foreclosure lemma by example. The framework's prediction is that no platform under engagement-monetization will do so voluntarily, since voluntary adoption violates (A2); that prediction is itself falsifiable.
+The model does not claim falsification-immunity. The reclamation theorem rests on Lemma 1, which rests on (1)–(5) under Assumptions (A1)–(A6). A platform that adopted explicit no-input regularization — augmenting $\hat{R}$ with a positive bonus $\beta\cdot B$ on inter-stimulus intervals exceeding some $\tau*$, in the sense of Proposition 1, with $\beta$ large enough to produce $\mathrm{Pr}(\tau^{(k)} > \tau*) \ge \epsilon$ for some non-trivial $\epsilon$ — would falsify the foreclosure lemma by example. The framework's prediction is that no platform under engagement-monetization will do so voluntarily, since voluntary adoption violates (A2); that prediction is itself falsifiable.
 
 The model does not claim ethical conclusions. The closed-loop economy is a description, not a verdict. The verdict that follows from the description — that the contemporary user is not a subject in the sense the historical apparatus presupposed, that political intervention pitched at the historical subject is temporally misaligned, that the body has become the differential of a process whose integral is extracted as surplus — is the work of the prose. The mathematics gives the work its structural form. It does not give it its claim on the reader.
 
@@ -665,11 +665,11 @@ The following questions, flagged in earlier drafts, have been addressed by the p
 
 — *The parametric-continuity argument in Proposition 1.* Now formalized as Lemma 2, with explicit appeal to the implicit function theorem under the non-degeneracy assumption (A6) and the standard envelope-theorem properties. The sign error in the original regularization formulation (penalty for long pauses, which was the wrong direction) has been corrected to a bonus for long pauses.
 
-— *The measure-theoretic conditioning subtlety in Theorem 1, Step 2.* Now explicit, with reference to Kallenberg's treatment of disintegration and a clean operational statement: any sample-based estimator $\hat{I}(\tau)$ has variance scaling as $1/(N_{obs}\cdotPr(E_{\tau}))$ and diverges as $\mathrm{Pr}(E_{\tau}) \to 0$, regardless of the chosen disintegration. The operational meaning of "undefined-on-trajectory" is therefore preserved.
+— *The measure-theoretic conditioning subtlety in Theorem 1, Step 2.* Now explicit, with reference to Kallenberg's treatment of disintegration and a clean operational statement: any sample-based estimator $\hat{I}(\tau)$ has variance scaling as $1/(N_{obs}\cdot \mathrm{Pr}(E_{\tau}))$ and diverges as $\mathrm{Pr}(E_{\tau}) \to 0$, regardless of the chosen disintegration. The operational meaning of "undefined-on-trajectory" is therefore preserved.
 
 — *The parametric premise of Proposition 2.* The decomposition $dD_{\mathrm{KL}}/dt = -h_{0}(\beta_{u}) + r(L_{m})$ is now derived explicitly as the first-order linearization around the operating point $\nu_{u}^{\mathrm{op}}$. The free-energy minimization case is worked in full — under the variational free-energy gradient with maintenance counter-gradient $L_{m}\cdotê_{resist}$, the linearized dynamics give $h_{0}(\beta_{u}) = \beta_{u}\cdotc_{\mathrm{op}}^{2}$ and $r(L_{m}) = L_{m}\cdotc_{\mathrm{op}}$ with $c_{\mathrm{op}} := \|\nabla_{\nu}D_{\mathrm{KL}}\|_{\mathrm{op}}$. The operant reinforcement and social comparison cases produce the same linearized form with different constants. The framework's commitment to mechanism-agnosticism is now formalized: not as an absence of mechanism, but as the explicit identification of a structural decomposition derived (in linearization) from each of the named mechanisms.
 
-— *The bifurcation/basin-connectedness handwave in Lemma 2(iii).* Replaced by a clean strict-growth argument: provided $\nablaB(\theta*) \ne 0$ (which holds generically since *B* and *F* have distinct extremizers — the *F*-maximizer fires at $\lambda_{\max}$, the *B*-maximizer at $1/\tau*$), the path $\beta ↦ \thetã(\beta)$ produces strictly positive $B(\thetã(\beta)) > 0$ for sufficiently small $\beta > 0$. This implies $\epsilon_{\max} := sup_{\beta} P(\beta) > 0$, which is the substantive content the framework requires. The full claim $P(\beta) \to 1 as \beta \to \infty$ requires the additional generic regularity (no codimension-one bifurcations along the path), but Proposition 1 needs only $\epsilon_{\max} > 0$ — which holds without the bifurcation regularity.
+— *The bifurcation/basin-connectedness handwave in Lemma 2(iii).* Replaced by a clean strict-growth argument: provided $\nabla B(\theta*) \ne 0$ (which holds generically since *B* and *F* have distinct extremizers — the *F*-maximizer fires at $\lambda_{\max}$, the *B*-maximizer at $1/\tau*$), the path $\beta ↦ \tilde\theta(\beta)$ produces strictly positive $B(\tilde\theta(\beta)) > 0$ for sufficiently small $\beta > 0$. This implies $\epsilon_{\max} := \sup_{\beta} P(\beta) > 0$, which is the substantive content the framework requires. The full claim $P(\beta) \to 1 \text{ as } \beta \to \infty$ requires the additional generic regularity (no codimension-one bifurcations along the path), but Proposition 1 needs only $\epsilon_{\max} > 0$ — which holds without the bifurcation regularity.
 
 — *The metabolically-bounded premise of Mode B.* The empirical-political claim about late-capitalist constraints on $L_{m,max}$ is now explicitly marked as external to the formal model — consistent with but not derived from (1)–(5). The framework asserts its consistency with the literature on time-poverty and social reproduction without claiming to prove it.
 
