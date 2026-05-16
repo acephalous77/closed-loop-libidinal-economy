@@ -26,6 +26,7 @@ const ROUTES = [
   "/the-dynamics/cohort-gradient",
   "/the-dynamics/mode-space",
   "/the-dynamics/tiktok",
+  "/reading-list",
   "/instrumentation",
   "/colophon",
 ];

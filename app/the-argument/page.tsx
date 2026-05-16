@@ -94,6 +94,21 @@ export default function TheArgumentIndexPage() {
               </p>
             </a>
           </section>
+
+          <section className="mt-lg">
+            <a href="/reading-list" className="group block">
+              <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
+                reading list
+              </h2>
+              <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
+                the works the framework draws on — Adorno, Marcuse, Stiegler,
+                Han, Crary, Lyotard, Deleuze, Mannheim, Sloterdijk, Burroughs —
+                plus the mathematical references (Asmussen, Kallenberg,
+                Kuramoto, Hawkes) and contemporary work the diagnostic builds
+                on or argues against.
+              </p>
+            </a>
+          </section>
         </article>
       </div>
     </main>

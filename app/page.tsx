@@ -37,9 +37,31 @@ export default function Cover() {
         </figure>
       </div>
 
-      {/* Footer — single line, JetBrains Mono xs, ink-50, no links */}
+      {/* Footer */}
       <footer className="w-full px-sm py-md text-center">
         <p className="font-mono text-xs text-ink-50">
+          <a
+            href="/reading-list"
+            className="hover:text-oxblood transition-colors duration-100"
+          >
+            reading list
+          </a>
+          <span aria-hidden="true" className="mx-xs">·</span>
+          <a
+            href="/colophon"
+            className="hover:text-oxblood transition-colors duration-100"
+          >
+            colophon
+          </a>
+          <span aria-hidden="true" className="mx-xs">·</span>
+          <a
+            href="/instrumentation"
+            className="hover:text-oxblood transition-colors duration-100"
+          >
+            instrumentation
+          </a>
+        </p>
+        <p className="font-mono text-xs text-ink-50 mt-xs">
           A. Selimović, Ph.D. — Blacksburg, Virginia — 2026
         </p>
       </footer>
