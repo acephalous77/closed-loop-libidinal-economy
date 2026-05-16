@@ -15,7 +15,7 @@ export function FrameworkOrientation() {
   return (
     <section
       aria-labelledby="orientation-heading"
-      className="mt-xl max-w-[var(--container-prose)] text-center"
+      className="mt-lg max-w-[var(--container-prose)] text-center"
     >
       <h2
         id="orientation-heading"
@@ -210,11 +210,23 @@ function DocumentMap() {
   ];
 
   return (
-    <div className="mt-xl">
-      <h2 className="font-mono text-xs text-ink-50 uppercase tracking-[0.25em]">
+    <div className="mt-lg">
+      <h2 className="font-mono text-xs text-ink-50 uppercase tracking-[0.25em] text-center">
         three paths through the material
       </h2>
-      <ol className="mt-md flex flex-col gap-md sm:grid sm:grid-cols-3 sm:gap-sm text-left">
+      <p className="mt-sm font-serif italic text-sm text-ink-50 leading-snug text-center max-w-[36rem] mx-auto">
+        First-time reader: start with{" "}
+        <a
+          href="/the-argument/the-loop"
+          className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+        >
+          the loop
+        </a>{" "}
+        — the framework laid out in prose. The mathematics is for readers who
+        want the proofs; the dynamics for those who want the mechanisms
+        running.
+      </p>
+      <ol className="mt-md grid grid-cols-1 sm:grid-cols-3 gap-sm text-left">
         {paths.map((p, i) => (
           <li key={p.href} className="border-t border-paper-85 pt-sm">
             <span className="font-mono text-xs text-ink-50">
@@ -232,17 +244,6 @@ function DocumentMap() {
           </li>
         ))}
       </ol>
-      <p className="mt-md font-serif italic text-sm text-ink-50 leading-snug">
-        First-time reader? Start with{" "}
-        <a
-          href="/the-argument/the-loop"
-          className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
-        >
-          the loop
-        </a>{" "}
-        — the framework laid out in prose. The mathematics is for readers who
-        want the proofs; the dynamics for those who want the mechanisms running.
-      </p>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 import { MdxMathTooltips } from "@/components/ui/MdxMathTooltips";
+import { SiteFooter } from "@/components/layout/SiteFooter";
 
 const ebGaramond = localFont({
   src: [
@@ -54,7 +55,10 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
     >
       <body>
-        {children}
+        <div className="min-h-screen flex flex-col">
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
         <MdxMathTooltips />
       </body>
     </html>
