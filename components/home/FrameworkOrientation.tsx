@@ -45,11 +45,16 @@ export function FrameworkOrientation() {
 /* ── The closed loop, miniature ────────────────────────────────────── */
 
 function ClosedLoopGlyph() {
-  const W = 320;
-  const H = 180;
+  // Generous bounding box so every label has clearance. The diagram
+  // sits centered with margin on every side; nothing bleeds into
+  // anything else, and the "no exogenous channel" claim is a
+  // figcaption below rather than a cramped sideline marker.
+  const W = 360;
+  const H = 220;
   const cx = W / 2;
-  const cy = H / 2;
-  const r = 56;
+  const cy = H / 2 - 6; // slight upward shift to leave room for bottom labels
+  const r = 70;          // distance from center to each node center
+  const nodeR = 28;      // node radius
   const stroke = "var(--color-ink-70)";
 
   return (
@@ -59,7 +64,8 @@ function ClosedLoopGlyph() {
         preserveAspectRatio="xMidYMid meet"
         className="w-full h-auto"
         role="img"
-        aria-label="A closed loop diagram: user state and platform exchange engagement and stimulus, with no exogenous channel."
+        aria-label="Two nodes (user and platform) connected by two arcs (engagement upward, stimulus downward) — a closed loop."
+        style={{ maxWidth: "26rem" }}
       >
         <defs>
           <marker
@@ -67,75 +73,116 @@ function ClosedLoopGlyph() {
             viewBox="0 0 10 10"
             refX="9"
             refY="5"
-            markerWidth="6"
-            markerHeight="6"
+            markerWidth="7"
+            markerHeight="7"
             orient="auto-start-reverse"
           >
             <path d="M0,0 L10,5 L0,10 z" fill={stroke} />
           </marker>
         </defs>
 
-        {/* Two nodes: user (left), platform (right) */}
-        <circle cx={cx - r} cy={cy} r={26} fill="var(--color-paper-95)" stroke={stroke} strokeWidth="1" />
-        <circle cx={cx + r} cy={cy} r={26} fill="var(--color-paper-95)" stroke={stroke} strokeWidth="1" />
-
-        <SvgM x={cx - r - 30} y={cy - 8} w={60} h={16} align="center" color="var(--color-ink-90)" size="13px">
-          {String.raw`u_t`}
-        </SvgM>
-        <SvgM x={cx + r - 30} y={cy - 8} w={60} h={16} align="center" color="var(--color-ink-90)" size="13px">
-          {String.raw`\pi`}
-        </SvgM>
-
-        <SvgM x={cx - r - 32} y={cy + 22} w={64} h={12} align="center" color="var(--color-ink-50)" size="9px">
-          <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.5px" }}>user</span>
-        </SvgM>
-        <SvgM x={cx + r - 32} y={cy + 22} w={64} h={12} align="center" color="var(--color-ink-50)" size="9px">
-          <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.5px" }}>platform</span>
-        </SvgM>
-
         {/* Top arc: user → platform (engagement) */}
         <path
-          d={`M ${cx - r + 22} ${cy - 14} Q ${cx} ${cy - 50} ${cx + r - 22} ${cy - 14}`}
+          d={`M ${cx - r + nodeR + 4} ${cy - 10} Q ${cx} ${cy - r + 4} ${cx + r - nodeR - 4} ${cy - 10}`}
           fill="none"
           stroke={stroke}
           strokeWidth="1.2"
           markerEnd="url(#orient-arrow)"
         />
-        <SvgM x={cx - 70} y={cy - 70} w={140} h={14} align="center" color="var(--color-ink-70)" size="10.5px">
-          <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>engagement</span>
+        <SvgM
+          x={cx - 80}
+          y={cy - r - 8}
+          w={160}
+          h={16}
+          align="center"
+          color="var(--color-ink-70)"
+          size="12px"
+        >
+          <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+            engagement
+          </span>
         </SvgM>
 
         {/* Bottom arc: platform → user (stimulus) */}
         <path
-          d={`M ${cx + r - 22} ${cy + 14} Q ${cx} ${cy + 50} ${cx - r + 22} ${cy + 14}`}
+          d={`M ${cx + r - nodeR - 4} ${cy + 10} Q ${cx} ${cy + r - 4} ${cx - r + nodeR + 4} ${cy + 10}`}
           fill="none"
           stroke={stroke}
           strokeWidth="1.2"
           markerEnd="url(#orient-arrow)"
         />
-        <SvgM x={cx - 70} y={cy + 56} w={140} h={14} align="center" color="var(--color-ink-70)" size="10.5px">
-          <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>stimulus</span>
+        <SvgM
+          x={cx - 80}
+          y={cy + r - 6}
+          w={160}
+          h={16}
+          align="center"
+          color="var(--color-ink-70)"
+          size="12px"
+        >
+          <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>
+            stimulus
+          </span>
         </SvgM>
 
-        {/* "no exogenous channel" marker outside the loop */}
-        <line
-          x1={20}
-          y1={cy}
-          x2={cx - r - 32}
-          y2={cy}
-          stroke="var(--color-ink-50)"
-          strokeWidth="0.8"
-          strokeDasharray="2 3"
-        />
-        <SvgM x={20} y={cy - 18} w={70} h={12} align="left" color="var(--color-ink-50)" size="9px">
-          <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.5px" }}>no exogenous</span>
+        {/* Nodes — drawn after arcs so they sit on top */}
+        <circle cx={cx - r} cy={cy} r={nodeR} fill="var(--color-paper)" stroke={stroke} strokeWidth="1.2" />
+        <circle cx={cx + r} cy={cy} r={nodeR} fill="var(--color-paper)" stroke={stroke} strokeWidth="1.2" />
+
+        {/* Symbol inside each node */}
+        <SvgM
+          x={cx - r - nodeR}
+          y={cy - 10}
+          w={nodeR * 2}
+          h={20}
+          align="center"
+          color="var(--color-ink-90)"
+          size="15px"
+        >
+          {String.raw`u_t`}
         </SvgM>
-        <SvgM x={20} y={cy - 6} w={70} h={12} align="left" color="var(--color-ink-50)" size="9px">
-          <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.5px" }}>channel</span>
+        <SvgM
+          x={cx + r - nodeR}
+          y={cy - 10}
+          w={nodeR * 2}
+          h={20}
+          align="center"
+          color="var(--color-ink-90)"
+          size="15px"
+        >
+          {String.raw`\pi`}
+        </SvgM>
+
+        {/* Label below each node — well clear of the bottom arc's label */}
+        <SvgM
+          x={cx - r - nodeR}
+          y={cy + nodeR + 6}
+          w={nodeR * 2}
+          h={14}
+          align="center"
+          color="var(--color-ink-50)"
+          size="10px"
+        >
+          <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.5px" }}>
+            user
+          </span>
+        </SvgM>
+        <SvgM
+          x={cx + r - nodeR}
+          y={cy + nodeR + 6}
+          w={nodeR * 2}
+          h={14}
+          align="center"
+          color="var(--color-ink-50)"
+          size="10px"
+        >
+          <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.5px" }}>
+            platform
+          </span>
         </SvgM>
       </svg>
-      <figcaption className="mt-xs font-mono text-xs text-ink-50 tracking-wider">
-        the central image
+      <figcaption className="mt-xs font-mono text-xs text-ink-50 tracking-wider text-center">
+        the central image · no exogenous channel
       </figcaption>
     </figure>
   );
