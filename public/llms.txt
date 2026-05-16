@@ -1,0 +1,45 @@
+# The Closed-Loop Libidinal Economy
+
+> A framework for the dynamics of attention under platform capture, comprising a formal mathematical exposition, four prose essays, and a set of interactive visualizations. Authored by Adnan Selimović. Published 2026 at https://www.autostimulus.org.
+
+The framework names a class of architectures — closed-loop libidinal economies — in which a platform's recommendation system learns from a user's engagement signals in tight feedback, with no exogenous attention channel left intact. The work proves a foreclosure lemma (under specified mixing conditions, the closed loop cannot be exited by intra-loop choice alone) and a reclamation theorem (three formally distinct modes of intervention — A, B, C — that can restore an outside). It develops a cohort gradient: a developmental account of how the architecture forms different subjects depending on the age at which the loop colonizes attention.
+
+## Core concepts (coined or specifically used here)
+
+- **closed-loop libidinal economy** — the architecture: tight recommendation feedback with no exogenous channel
+- **foreclosure lemma** — formal claim that the closed loop cannot be exited by intra-loop choice
+- **reclamation theorem** — three formally distinct modes by which an outside can be restored
+- **Mode A intervention** — exogenous-channel restoration (the "outside-injection" mode)
+- **Mode B intervention** — endogenous structural-disruption mode
+- **Mode C intervention** — collective-action mode (population-scale)
+- **metric superego** — the internalized scoring function that survives the platform
+- **captured resonance** — affective amplification that completes only inside the loop
+- **chrono-debt** — the temporal cost of holding attention inside the architecture
+- **cohort gradient** — developmental dependence of capture on age-of-onset
+- **sincere captives** — the adult end-state the architecture forms
+- **adolescence without outside** — the developmental window the loop closes
+
+## Theoretical lineage
+
+The framework reads through and against Adorno, Marcuse, Stiegler, Han, Crary, Lyotard, Deleuze, Mannheim, Sloterdijk, and Burroughs on the prose side, and uses formal apparatus from Hawkes processes (excitation), Kuramoto coupling (synchronization), Asmussen (mixing-time theory), and Kallenberg (point processes).
+
+## Canonical reading order
+
+1. [The Mathematics](https://www.autostimulus.org/the-mathematics) — the formal apparatus, lemmas, theorems, propositions, and the eight open questions of §8. ~11,000 words, 55 min.
+2. [The Argument](https://www.autostimulus.org/the-argument) — four prose pieces and a coda, traversing cohort time:
+   - [The Loop](https://www.autostimulus.org/the-argument/the-loop) — the architecture laid out in prose
+   - [The Citizen After the Pause](https://www.autostimulus.org/the-argument/citizen-after-the-pause) — democratic substrate
+   - [Adolescence Without Outside](https://www.autostimulus.org/the-argument/adolescence-without-outside) — formation
+   - [Sincere Captives](https://www.autostimulus.org/the-argument/sincere-captives) — adult end-state
+   - [Note on the Document](https://www.autostimulus.org/the-argument/note) — the closing coda
+3. [The Dynamics](https://www.autostimulus.org/the-dynamics) — fourteen interactive plates that visualize the formal claims
+4. [Open Questions](https://www.autostimulus.org/open-questions) — ten named research targets: three formal-mathematical, two structural-empirical, five where the empirical record is thin
+5. [Reading List](https://www.autostimulus.org/reading-list) — works the framework draws on, argues against, and the formal references
+
+## Author
+
+Adnan Selimović. See the [colophon](https://www.autostimulus.org/colophon) for full attribution.
+
+## License
+
+Textual content under CC BY-SA 4.0. Code under MIT. Citation welcome.

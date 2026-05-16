@@ -24,14 +24,34 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://www.autostimulus.org";
 
+// Identity-verification URLs for the author. Each entry strengthens
+// the E-E-A-T signal Google/Bing/LLMs use to weight authority. Add
+// URLs here as they exist — they propagate to every page's JSON-LD.
+const AUTHOR_SAME_AS: string[] = [
+  // "https://orcid.org/0000-0000-0000-0000",
+  // "https://scholar.google.com/citations?user=XXXXXXXXXXX",
+  // "https://philpapers.org/profile/XXXXX",
+  // "https://www.researchgate.net/profile/Adnan-Selimovic",
+];
+
 const AUTHOR = {
   "@type": "Person",
   name: "Adnan Selimović",
   alternateName: "A. Selimović",
+  url: `${SITE_URL}/colophon`,
+  ...(AUTHOR_SAME_AS.length ? { sameAs: AUTHOR_SAME_AS } : {}),
 };
 
 const PUBLISHER = {
   "@type": "Organization",
+  name: "The Closed-Loop Libidinal Economy",
+  url: SITE_URL,
+};
+
+/** The framework as a CreativeWork — used as isPartOf on every
+ *  child article so search engines understand the corpus structure. */
+const FRAMEWORK_PART_OF = {
+  "@type": "CreativeWork",
   name: "The Closed-Loop Libidinal Economy",
   url: SITE_URL,
 };
@@ -108,6 +128,7 @@ export function articleJsonLd(args: ArticleArgs) {
     author: AUTHOR,
     publisher: PUBLISHER,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    isPartOf: FRAMEWORK_PART_OF,
     inLanguage: "en",
     license: "https://creativecommons.org/licenses/by-sa/4.0/",
     isAccessibleForFree: true,
