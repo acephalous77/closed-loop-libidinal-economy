@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * TikTok worked example — six panels, one per instrument.
@@ -256,7 +256,9 @@ function FYPDiagram() {
       <text x={430} y={138} textAnchor="middle" fontFamily="var(--font-mono)" fontSize={9} fill="var(--color-ink-70)">explore</text>
       {/* next video */}
       <rect x={460} y={70} width={60} height={40} fill="var(--color-paper-95)" stroke="var(--color-ink-90)" strokeWidth={1} />
-      <text x={490} y={95} textAnchor="middle" fontFamily="var(--font-mono)" fontSize={9} fill="var(--color-ink-90)">s_{`{t+1}`}</text>
+      <SvgM x={460} y={82} w={60} h={16} align="center" color="var(--color-ink-90)" size="10px">
+        {String.raw`s_{t+1}`}
+      </SvgM>
       {/* feedback loop back */}
       <path d="M 490 110 Q 490 145 80 115 L 80 106" fill="none" stroke="var(--color-ink-70)" strokeWidth={0.8} strokeDasharray="2 3" markerEnd="url(#fyp-ar-dim)" />
       <defs>
@@ -345,8 +347,15 @@ function MetricOverlayDiagram() {
       <text x={270} y={120} textAnchor="middle" fontFamily="var(--font-serif)" fontStyle="italic" fontSize={11} fill="var(--color-ink-90)">value = count</text>
       {/* arrow from user to metrics */}
       <path d="M 50 80 Q 130 80 195 80" fill="none" stroke="var(--color-ink-70)" strokeWidth={0.8} strokeDasharray="2 3" markerEnd="url(#metric-ar)" />
-      <text x={120} y={70} textAnchor="middle" fontFamily="var(--font-mono)" fontSize={9} fill="var(--color-ink-70)">ν_u(t)</text>
-      <text x={120} y={94} textAnchor="middle" fontFamily="var(--font-mono)" fontSize={9} fill="var(--color-oxblood)">→ π_R̂</text>
+      <SvgM x={90} y={60} w={60} h={14} align="center" color="var(--color-ink-70)" size="10px">
+        {String.raw`\nu_u(t)`}
+      </SvgM>
+      <SvgM x={90} y={84} w={60} h={14} align="center" color="var(--color-oxblood)" size="10px">
+        <span style={{ display: "inline-flex", alignItems: "baseline", gap: "3px" }}>
+          <span style={{ fontFamily: "var(--font-mono)" }}>→</span>
+          <M>{String.raw`\pi_{\hat{R}}`}</M>
+        </span>
+      </SvgM>
       <defs>
         <marker id="metric-ar" viewBox="0 0 10 10" refX={9} refY={5} markerWidth={6} markerHeight={6} orient="auto-start-reverse">
           <path d="M0,0 L10,5 L0,10 z" fill="var(--color-ink-70)" />
@@ -370,7 +379,12 @@ function ThumbScrollDiagram() {
       <path d="M 250 130 Q 270 110 290 130" fill="none" stroke="var(--color-oxblood)" strokeWidth={1.8} />
       <text x={270} y={158} textAnchor="middle" fontFamily="var(--font-mono)" fontSize={9} fill="var(--color-oxblood)">thumb</text>
       {/* event ticks below — dN^i_t */}
-      <text x={70} y={50} fontFamily="var(--font-mono)" fontSize={10} fill="var(--color-ink-70)">dN^i_t =</text>
+      <SvgM x={70} y={40} w={80} h={16} align="left" color="var(--color-ink-70)" size="11px">
+        <span style={{ display: "inline-flex", alignItems: "baseline", gap: "3px" }}>
+          <M>{String.raw`dN^i_t`}</M>
+          <span style={{ fontFamily: "var(--font-mono)" }}>=</span>
+        </span>
+      </SvgM>
       {Array.from({ length: 12 }).map((_, i) => (
         <rect key={i} x={70 + i * 10} y={60} width={2} height={16} fill="var(--color-ink-90)" />
       ))}
@@ -400,9 +414,19 @@ const WAVE_MEDIUM = Array.from({ length: 100 }, (_, i) => {
 function ResonanceDiagram() {
   return (
     <DiagramFrame>
-      <text x={30} y={30} fontFamily="var(--font-mono)" fontSize={10} fill="var(--color-ink-90)">φ_b · body</text>
+      <SvgM x={30} y={20} w={120} h={16} align="left" color="var(--color-ink-90)" size="11px">
+        <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+          <M>{String.raw`\varphi_b`}</M>
+          <span style={{ fontFamily: "var(--font-mono)" }}>· body</span>
+        </span>
+      </SvgM>
       <path d={WAVE_BODY} fill="none" stroke="var(--color-ink-90)" strokeWidth={1.2} />
-      <text x={30} y={148} fontFamily="var(--font-mono)" fontSize={10} fill="var(--color-oxblood)">φ_m · sound/scroll</text>
+      <SvgM x={30} y={138} w={140} h={16} align="left" color="var(--color-oxblood)" size="11px">
+        <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+          <M>{String.raw`\varphi_m`}</M>
+          <span style={{ fontFamily: "var(--font-mono)" }}>· sound/scroll</span>
+        </span>
+      </SvgM>
       <path d={WAVE_MEDIUM} fill="none" stroke="var(--color-oxblood)" strokeWidth={1.2} />
       {/* lock marker after some point */}
       <line x1={250} y1={45} x2={250} y2={130} stroke="var(--color-ink-50)" strokeDasharray="2 3" strokeWidth={0.6} />

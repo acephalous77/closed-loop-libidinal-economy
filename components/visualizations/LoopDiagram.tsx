@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * The closed loop as a directed graph — equations (1)–(6) wired together
@@ -23,19 +23,19 @@ export function LoopDiagram() {
   const cy = h / 2;
   const r = 132;
 
-  const nodes = [
-    { id: "u", x: cx, y: cy - r, label: "u_t", sub: "user state" },
-    { id: "y", x: cx + r, y: cy, label: "y_t", sub: "engagement" },
-    { id: "π", x: cx, y: cy + r, label: "π(y₁ₜ;θₜ)", sub: "policy" },
-    { id: "s", x: cx - r, y: cy, label: "s_t", sub: "stimulus" },
-  ] as const;
+  const nodes: { id: string; x: number; y: number; tex: string; sub: string }[] = [
+    { id: "u", x: cx, y: cy - r, tex: String.raw`u_t`, sub: "user state" },
+    { id: "y", x: cx + r, y: cy, tex: String.raw`y_t`, sub: "engagement" },
+    { id: "π", x: cx, y: cy + r, tex: String.raw`\pi(y_{1:t};\, \theta_t)`, sub: "policy" },
+    { id: "s", x: cx - r, y: cy, tex: String.raw`s_t`, sub: "stimulus" },
+  ];
 
-  const edges = [
-    { from: "u", to: "y", eq: "(2) y = g(u) + η" },
-    { from: "y", to: "π", eq: "(4) θ ← θ + α·∇R̂" },
-    { from: "π", to: "s", eq: "(3) s = π(y₁ₜ)" },
-    { from: "s", to: "u", eq: "(1) u' = f(u, s) + ξ" },
-  ] as const;
+  const edges: { from: string; to: string; n: string; tex: string }[] = [
+    { from: "u", to: "y", n: "(2)", tex: String.raw`y = g(u) + \eta` },
+    { from: "y", to: "π", n: "(4)", tex: String.raw`\theta \leftarrow \theta + \alpha \cdot \nabla \hat{R}` },
+    { from: "π", to: "s", n: "(3)", tex: String.raw`s = \pi(y_{1:t})` },
+    { from: "s", to: "u", n: "(1)", tex: String.raw`u' = f(u, s) + \xi` },
+  ];
 
   const phase = tick % 4;
 
@@ -97,49 +97,18 @@ export function LoopDiagram() {
               style={{ stroke: "var(--color-ink)" }}
               strokeWidth="1"
             />
-            <text
-              x="-6"
-              y="-28"
-              textAnchor="end"
-              fontFamily="var(--font-mono)"
-              fontSize="10"
-              style={{ fill: "var(--color-ink-70)", letterSpacing: "1.2px" }}
-            >
-              e_t ≡ 0
-            </text>
-            <text
-              x="-6"
-              y="-14"
-              textAnchor="end"
-              fontFamily="var(--font-serif)"
-              fontStyle="italic"
-              fontSize="11"
-              style={{ fill: "var(--color-ink-70)" }}
-            >
-              no exogenous
-            </text>
-            <text
-              x="-6"
-              y="0"
-              textAnchor="end"
-              fontFamily="var(--font-serif)"
-              fontStyle="italic"
-              fontSize="11"
-              style={{ fill: "var(--color-ink-70)" }}
-            >
-              channel
-            </text>
-            <text
-              x="-6"
-              y="14"
-              textAnchor="end"
-              fontFamily="var(--font-serif)"
-              fontStyle="italic"
-              fontSize="11"
-              style={{ fill: "var(--color-ink-70)" }}
-            >
-              (6)
-            </text>
+            <SvgM x={-90} y={-32} w={84} h={14} align="right" color="var(--color-ink-70)" size="10px">
+              {String.raw`e_t \equiv 0`}
+            </SvgM>
+            <SvgM x={-90} y={-18} w={84} h={14} align="right" color="var(--color-ink-70)" size="11px">
+              <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>no exogenous</span>
+            </SvgM>
+            <SvgM x={-90} y={-4} w={84} h={14} align="right" color="var(--color-ink-70)" size="11px">
+              <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>channel</span>
+            </SvgM>
+            <SvgM x={-90} y={10} w={84} h={14} align="right" color="var(--color-ink-70)" size="11px">
+              <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>(6)</span>
+            </SvgM>
           </g>
 
           {/* Edges */}
@@ -172,21 +141,20 @@ export function LoopDiagram() {
                   markerEnd={active ? "url(#loop-arrow-active)" : "url(#loop-arrow)"}
                   opacity={active ? 1 : 0.7}
                 />
-                <text
-                  x={mx}
-                  y={my - 4}
-                  textAnchor="middle"
-                  fontFamily="var(--font-mono)"
-                  fontSize="10"
-                  style={{
-                    fill: active
-                      ? "var(--color-oxblood)"
-                      : "var(--color-ink-90)",
-                    letterSpacing: "0.5px",
-                  }}
+                <SvgM
+                  x={mx - 100}
+                  y={my - 16}
+                  w={200}
+                  h={16}
+                  align="center"
+                  color={active ? "var(--color-oxblood)" : "var(--color-ink-90)"}
+                  size="11px"
                 >
-                  {e.eq}
-                </text>
+                  <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px" }}>{e.n}</span>
+                    <M>{e.tex}</M>
+                  </span>
+                </SvgM>
               </g>
             );
           })}
@@ -199,49 +167,22 @@ export function LoopDiagram() {
                 style={{ fill: "var(--color-paper-95)", stroke: "var(--color-ink)" }}
                 strokeWidth="1.2"
               />
-              <text
-                textAnchor="middle"
-                y="-3"
-                fontFamily="var(--font-serif)"
-                fontStyle="italic"
-                fontSize="17"
-                style={{ fill: "var(--color-ink)" }}
-              >
-                {n.label}
-              </text>
-              <text
-                textAnchor="middle"
-                y="13"
-                fontFamily="var(--font-mono)"
-                fontSize="8.5"
-                style={{ fill: "var(--color-ink-70)", letterSpacing: "1px" }}
-              >
-                {n.sub}
-              </text>
+              <SvgM x={-40} y={-22} w={80} h={22} align="center" color="var(--color-ink)" size="15px">
+                <M>{n.tex}</M>
+              </SvgM>
+              <SvgM x={-40} y={4} w={80} h={14} align="center" color="var(--color-ink-70)" size="8.5px">
+                <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1px" }}>{n.sub}</span>
+              </SvgM>
             </g>
           ))}
 
           {/* CLOSED CONTOUR annotation in the center */}
-          <text
-            x={cx}
-            y={cy - 4}
-            textAnchor="middle"
-            fontFamily="var(--font-mono)"
-            fontSize="9"
-            style={{ fill: "var(--color-ink-50)", letterSpacing: "1.5px" }}
-          >
-            CLOSED
-          </text>
-          <text
-            x={cx}
-            y={cy + 10}
-            textAnchor="middle"
-            fontFamily="var(--font-mono)"
-            fontSize="9"
-            style={{ fill: "var(--color-ink-50)", letterSpacing: "1.5px" }}
-          >
-            CONTOUR
-          </text>
+          <SvgM x={cx - 60} y={cy - 18} w={120} h={14} align="center" color="var(--color-ink-50)" size="9px">
+            <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1.5px" }}>CLOSED</span>
+          </SvgM>
+          <SvgM x={cx - 60} y={cy - 2} w={120} h={14} align="center" color="var(--color-ink-50)" size="9px">
+            <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1.5px" }}>CONTOUR</span>
+          </SvgM>
         </svg>
       </div>
 

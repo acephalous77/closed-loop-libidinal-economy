@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * Captured resonance — Kuramoto phase coupling between the body (φ_b)
@@ -155,46 +155,45 @@ export function CapturedResonance() {
 
           {/* Live readouts */}
           <g transform={`translate(${h + 60}, 28)`}>
-            <text
-              fontFamily="var(--font-serif)"
-              fontStyle="italic"
-              fontSize="14"
-              style={{ fill: "var(--color-ink)" }}
+            <SvgM
+              x={0}
+              y={-10}
+              w={260}
+              h={20}
+              align="left"
+              color="var(--color-ink)"
+              size="13px"
             >
-              dφ
-              <tspan baselineShift="sub" fontSize="9">b</tspan>
-              /dt = ω
-              <tspan baselineShift="sub" fontSize="9">b</tspan>
-              {" + K"}
-              <tspan baselineShift="sub" fontSize="9">bm</tspan>
-              {" sin(φ"}
-              <tspan baselineShift="sub" fontSize="9">m</tspan>
-              {" − φ"}
-              <tspan baselineShift="sub" fontSize="9">b</tspan>
-              {")"}
-            </text>
-            <text
-              y="28"
-              fontFamily="var(--font-mono)"
-              fontSize="11"
-              style={{ fill: "var(--color-ink-90)" }}
+              {String.raw`d\varphi_b/dt = \omega_b + K_{bm}\,\sin(\varphi_m - \varphi_b)`}
+            </SvgM>
+            <SvgM
+              x={0}
+              y={20}
+              w={200}
+              h={16}
+              align="left"
+              color="var(--color-ink-90)"
+              size="11px"
             >
-              K
-              <tspan baselineShift="sub" fontSize="8">bm</tspan>
-              {` = ${kBm.toFixed(3)}`}
-            </text>
-            <text
-              y="46"
-              fontFamily="var(--font-mono)"
-              fontSize="11"
-              style={{ fill: "var(--color-ink-90)" }}
+              <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+                <M>{String.raw`K_{bm}`}</M>
+                <span style={{ fontFamily: "var(--font-mono)" }}>{`= ${kBm.toFixed(3)}`}</span>
+              </span>
+            </SvgM>
+            <SvgM
+              x={0}
+              y={38}
+              w={220}
+              h={16}
+              align="left"
+              color="var(--color-ink-90)"
+              size="11px"
             >
-              |ω
-              <tspan baselineShift="sub" fontSize="8">b</tspan>
-              {" − ω"}
-              <tspan baselineShift="sub" fontSize="8">m</tspan>
-              {`| = ${DETUNING.toFixed(3)}`}
-            </text>
+              <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+                <M>{String.raw`|\omega_b - \omega_m|`}</M>
+                <span style={{ fontFamily: "var(--font-mono)" }}>{`= ${DETUNING.toFixed(3)}`}</span>
+              </span>
+            </SvgM>
             <text
               y="68"
               fontFamily="var(--font-mono)"
@@ -207,15 +206,20 @@ export function CapturedResonance() {
             >
               {locked ? "■  PHASE-LOCKED" : "○  free oscillation"}
             </text>
-            <text
-              y="86"
-              fontFamily="var(--font-serif)"
-              fontStyle="italic"
-              fontSize="11"
-              style={{ fill: "var(--color-ink-70)" }}
+            <SvgM
+              x={0}
+              y={78}
+              w={200}
+              h={16}
+              align="left"
+              color="var(--color-ink-70)"
+              size="11px"
             >
-              Δφ = {dphi.toFixed(2)} rad
-            </text>
+              <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+                <M>{String.raw`\Delta\varphi`}</M>
+                <span style={{ fontFamily: "var(--font-serif)", fontStyle: "italic" }}>{`= ${dphi.toFixed(2)} rad`}</span>
+              </span>
+            </SvgM>
           </g>
         </svg>
       </div>

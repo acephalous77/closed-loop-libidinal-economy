@@ -80,7 +80,7 @@ export default function ChronoDebtPage() {
             entries={[
               { href: "/the-dynamics/foreclosure-clock", title: "foreclosure clock", note: "the survival function that the debt measures against" },
               { href: "/the-dynamics/captured-resonance", title: "captured resonance", note: "the timescale axis the debt accumulates over" },
-              { href: "/the-dynamics/closed-loop", title: "the closed loop", note: "the dynamics producing the realized Λ(t,τ)" },
+              { href: "/the-dynamics/closed-loop", title: "the closed loop", note: <>the dynamics producing the realized <M>{String.raw`\Lambda(t,\tau)`}</M></> },
             ]}
           />
         </article>

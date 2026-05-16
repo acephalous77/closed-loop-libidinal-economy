@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * Chrono-debt spectrum — D(t,τ) = Λ_◦(τ) − Λ(t,τ).
@@ -198,25 +198,31 @@ export function ChronoDebt() {
             y2={h - pad.b}
             style={{ stroke: "var(--color-ink)" }}
           />
-          <text
-            x={(w + pad.l) / 2}
-            y={h - 8}
-            textAnchor="middle"
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{ fill: "var(--color-ink-70)", letterSpacing: "1px" }}
+          <SvgM
+            x={(w + pad.l) / 2 - 60}
+            y={h - 18}
+            w={120}
+            h={16}
+            align="center"
+            color="var(--color-ink-70)"
+            size="10px"
           >
-            τ  (ticks)
-          </text>
-          <text
-            x={10}
-            y={pad.t + 10}
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{ fill: "var(--color-ink-70)", letterSpacing: "1px" }}
+            <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+              <M>{String.raw`\tau`}</M>
+              <span style={{ fontFamily: "var(--font-mono)" }}>(ticks)</span>
+            </span>
+          </SvgM>
+          <SvgM
+            x={4}
+            y={pad.t}
+            w={120}
+            h={16}
+            align="left"
+            color="var(--color-ink-70)"
+            size="10px"
           >
-            Pr(τ_m &gt; τ)
-          </text>
+            {String.raw`\mathrm{Pr}(\tau_m > \tau)`}
+          </SvgM>
 
           {/* θ_ref marker */}
           <line
@@ -228,15 +234,17 @@ export function ChronoDebt() {
             strokeDasharray="2 3"
             strokeWidth="0.8"
           />
-          <text
-            x={thetaRefX + 6}
-            y={pad.t + 12}
-            fontFamily="var(--font-mono)"
-            fontSize="9"
-            style={{ fill: "var(--color-ink-90)" }}
+          <SvgM
+            x={thetaRefX + 4}
+            y={pad.t + 2}
+            w={60}
+            h={14}
+            align="left"
+            color="var(--color-ink-90)"
+            size="10px"
           >
-            θ_ref
-          </text>
+            {String.raw`\theta_{\mathrm{ref}}`}
+          </SvgM>
         </svg>
 
         {/* Legend */}

@@ -87,7 +87,7 @@ export default function LibidinalRoutingPage() {
             entries={[
               { href: "/the-dynamics/somatic-optimization", title: "somatic optimization", note: "routing visible at the per-event level" },
               { href: "/the-dynamics/tiktok", title: "tiktok", note: "interleaved categories on a specific platform" },
-              { href: "/the-dynamics/mode-space", title: "mode-space", note: "D_KL axis is the routing's structural dual" },
+              { href: "/the-dynamics/mode-space", title: "mode-space", note: <><M>{String.raw`D_{\mathrm{KL}}`}</M> axis is the routing's structural dual</> },
             ]}
           />
         </article>

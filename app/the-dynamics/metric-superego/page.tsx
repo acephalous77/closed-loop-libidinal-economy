@@ -96,9 +96,9 @@ export default function MetricSuperegoPage() {
           </section>
           <RelatedPlates
             entries={[
-              { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: "the registers ν_u is defined over" },
+              { href: "/the-dynamics/libidinal-routing", title: "libidinal routing", note: <>the registers <M>{String.raw`\nu_u`}</M> is defined over</> },
               { href: "/the-dynamics/intervention", title: "the three modes", note: "Mode B is the relevant intervention here" },
-              { href: "/the-dynamics/cohort-gradient", title: "cohort gradient", note: "the developmental mechanism behind ν_u" },
+              { href: "/the-dynamics/cohort-gradient", title: "cohort gradient", note: <>the developmental mechanism behind <M>{String.raw`\nu_u`}</M></> },
             ]}
           />
         </article>

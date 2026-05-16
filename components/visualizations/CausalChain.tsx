@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * Causal implication chain — the proof of Theorem 1 visualized.
@@ -38,19 +38,62 @@ const POLICY_OPTIONS: OptionT[] = [
 const W = 760;
 const H = 460;
 
-const NODES = {
-  A2: { x: 20, y: 50, w: 110, h: 50, label: "(A2)", t: "reward monotone in N_T" },
-  A3: { x: 20, y: 110, w: 110, h: 50, label: "(A3)", t: "π attains λ_max" },
-  A5: { x: 20, y: 170, w: 110, h: 50, label: "(A5)", t: "SGA converges to θ*" },
-  A6: { x: 20, y: 230, w: 110, h: 50, label: "(A6)", t: "θ* isolated, H ≺ 0" },
-  A1: { x: 20, y: 290, w: 110, h: 50, label: "(A1)", t: "renewal CoV bounded" },
-  A4: { x: 20, y: 350, w: 110, h: 50, label: "(A4)", t: "user responds (p₀ > 0)" },
-  star: { x: 180, y: 140, w: 170, h: 80, label: "θ* is a local max", t: "λ̄(θ*) = λ_max = 1/δ_min" },
-  bound: { x: 400, y: 60, w: 220, h: 80, label: "Asmussen renewal bound", t: "S(τ;θ*) ≤ C(c_v)·e^{−τ/δ_min}" },
-  prZero: { x: 400, y: 180, w: 220, h: 80, label: "Lemma 1", t: "Pr(E_τ) → 0 for τ > θ_ref" },
-  varDiv: { x: 400, y: 300, w: 220, h: 80, label: "Step 2 (Thm 1)", t: "Var Î(τ) ∝ 1/(N · Pr(E_τ))" },
-  fore: { x: 640, y: 200, w: 110, h: 140, label: "Theorem 1", t: "I(τ) undefined-on-trajectory" },
-} as const;
+interface NodeDef {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  label: string | React.ReactNode;
+  t: React.ReactNode;
+}
+
+const NODES: Record<string, NodeDef> = {
+  A2: {
+    x: 20, y: 50, w: 110, h: 50, label: "(A2)",
+    t: <>reward monotone in <M>{String.raw`N_T`}</M></>,
+  },
+  A3: {
+    x: 20, y: 110, w: 110, h: 50, label: "(A3)",
+    t: <><M>{String.raw`\pi`}</M> attains <M>{String.raw`\lambda_{\max}`}</M></>,
+  },
+  A5: {
+    x: 20, y: 170, w: 110, h: 50, label: "(A5)",
+    t: <>SGA converges to <M>{String.raw`\theta^*`}</M></>,
+  },
+  A6: {
+    x: 20, y: 230, w: 110, h: 50, label: "(A6)",
+    t: <><M>{String.raw`\theta^*`}</M> isolated, <M>{String.raw`H \prec 0`}</M></>,
+  },
+  A1: {
+    x: 20, y: 290, w: 110, h: 50, label: "(A1)",
+    t: <>renewal CoV bounded</>,
+  },
+  A4: {
+    x: 20, y: 350, w: 110, h: 50, label: "(A4)",
+    t: <>user responds (<M>{String.raw`p_0 > 0`}</M>)</>,
+  },
+  star: {
+    x: 180, y: 140, w: 170, h: 80,
+    label: <><M>{String.raw`\theta^*`}</M> is a local max</>,
+    t: <M>{String.raw`\bar\lambda(\theta^*) = \lambda_{\max} = 1/\delta_{\min}`}</M>,
+  },
+  bound: {
+    x: 400, y: 60, w: 220, h: 80, label: "Asmussen renewal bound",
+    t: <M>{String.raw`S(\tau;\theta^*) \le C(c_v) \cdot e^{-\tau/\delta_{\min}}`}</M>,
+  },
+  prZero: {
+    x: 400, y: 180, w: 220, h: 80, label: "Lemma 1",
+    t: <M>{String.raw`\mathrm{Pr}(E_\tau) \to 0 \text{ for } \tau > \theta_{\mathrm{ref}}`}</M>,
+  },
+  varDiv: {
+    x: 400, y: 300, w: 220, h: 80, label: "Step 2 (Thm 1)",
+    t: <M>{String.raw`\mathrm{Var}\, \hat{I}(\tau) \propto 1/(N \cdot \mathrm{Pr}(E_\tau))`}</M>,
+  },
+  fore: {
+    x: 640, y: 200, w: 110, h: 140, label: "Theorem 1",
+    t: <><M>{String.raw`I(\tau)`}</M> undefined-on-trajectory</>,
+  },
+};
 
 type NodeId = keyof typeof NODES;
 
@@ -216,26 +259,30 @@ export function CausalChain() {
                 style={{ stroke: "var(--color-oxblood)" }}
                 strokeWidth="2.5"
               />
-              <text
-                x={148}
-                y={50}
-                textAnchor="end"
-                fontFamily="var(--font-mono)"
-                fontSize="10"
-                style={{ fill: "var(--color-oxblood)", letterSpacing: "0.8px" }}
+              <SvgM
+                x={68}
+                y={40}
+                w={80}
+                h={14}
+                align="right"
+                color="var(--color-oxblood)"
+                size="10px"
               >
-                MODE A
-              </text>
-              <text
-                x={148}
-                y={62}
-                textAnchor="end"
-                fontFamily="var(--font-mono)"
-                fontSize="10"
-                style={{ fill: "var(--color-oxblood)" }}
+                <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "0.8px" }}>
+                  MODE A
+                </span>
+              </SvgM>
+              <SvgM
+                x={88}
+                y={54}
+                w={60}
+                h={14}
+                align="right"
+                color="var(--color-oxblood)"
+                size="10px"
               >
-                βR̂'
-              </text>
+                {String.raw`\beta \hat{R}'`}
+              </SvgM>
             </g>
           )}
 
@@ -275,37 +322,43 @@ export function CausalChain() {
                   style={{ fill, stroke }}
                   strokeWidth={isLit ? 1.4 : 0.8}
                 />
-                <text
-                  x={n.x + 10}
-                  y={n.y + 16}
-                  fontFamily="var(--font-mono)"
-                  fontSize="10"
-                  style={{ fill: labelColor, letterSpacing: "1.2px" }}
+                <SvgM
+                  x={n.x + 6}
+                  y={n.y + 4}
+                  w={n.w - 12}
+                  h={18}
+                  align="left"
+                  color={labelColor}
+                  size="10px"
                 >
-                  {n.label}
-                </text>
-                <text
-                  x={n.x + n.w / 2}
-                  y={n.y + (n.h > 60 ? 50 : 36)}
-                  textAnchor="middle"
-                  fontFamily="var(--font-serif)"
-                  fontStyle="italic"
-                  fontSize={n.h > 60 ? 13 : 11.5}
-                  style={{ fill: textColor }}
+                  <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1px" }}>
+                    {n.label}
+                  </span>
+                </SvgM>
+                <SvgM
+                  x={n.x + 6}
+                  y={n.y + (n.h > 60 ? 30 : 22)}
+                  w={n.w - 12}
+                  h={n.h - (n.h > 60 ? 36 : 26)}
+                  align="center"
+                  color={textColor}
+                  size={n.h > 60 ? "12px" : "10.5px"}
                 >
-                  {n.t}
-                </text>
+                  <span style={{ textAlign: "center" }}>{n.t}</span>
+                </SvgM>
                 {isTerminal && isLit && (
-                  <text
-                    x={n.x + n.w / 2}
-                    y={n.y + 100}
-                    textAnchor="middle"
-                    fontFamily="var(--font-mono)"
-                    fontSize="10"
-                    style={{ fill: "var(--color-oxblood)", letterSpacing: "1.2px" }}
+                  <SvgM
+                    x={n.x}
+                    y={n.y + n.h - 28}
+                    w={n.w}
+                    h={20}
+                    color="var(--color-oxblood)"
+                    size="10px"
                   >
-                    RECLAMATION ⌀
-                  </text>
+                    <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1.2px" }}>
+                      RECLAMATION ⌀
+                    </span>
+                  </SvgM>
                 )}
               </g>
             );
@@ -320,18 +373,20 @@ export function CausalChain() {
             style={{ stroke: "var(--color-paper-85)" }}
             strokeDasharray="2 3"
           />
-          <text
+          <SvgM
             x={20}
-            y={436}
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{
-              fill: modeBOn ? "var(--color-ink-90)" : "var(--color-ink-50)",
-              letterSpacing: "1px",
-            }}
+            y={425}
+            w={340}
+            h={16}
+            align="left"
+            color={modeBOn ? "var(--color-ink-90)" : "var(--color-ink-50)"}
+            size="10px"
           >
-            MODE B · holds D_KL(ν_u ‖ π_R̂) &gt; 0
-          </text>
+            <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+              <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1px" }}>MODE B ·</span>
+              <span>holds <M>{String.raw`D_{\mathrm{KL}}(\nu_u \,\|\, \pi_{\hat{R}}) > 0`}</M></span>
+            </span>
+          </SvgM>
           <text
             x={20}
             y={450}
@@ -350,18 +405,20 @@ export function CausalChain() {
             style={{ stroke: "var(--color-paper-85)" }}
             strokeDasharray="2 3"
           />
-          <text
+          <SvgM
             x={420}
-            y={436}
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{
-              fill: modeCOn ? "var(--color-ink-90)" : "var(--color-ink-50)",
-              letterSpacing: "1px",
-            }}
+            y={425}
+            w={320}
+            h={16}
+            align="left"
+            color={modeCOn ? "var(--color-ink-90)" : "var(--color-ink-50)"}
+            size="10px"
           >
-            MODE C · bounds Σ(T)
-          </text>
+            <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+              <span style={{ fontFamily: "var(--font-mono)", letterSpacing: "1px" }}>MODE C ·</span>
+              <span>bounds <M>{String.raw`\Sigma(T)`}</M></span>
+            </span>
+          </SvgM>
           <text
             x={420}
             y={450}

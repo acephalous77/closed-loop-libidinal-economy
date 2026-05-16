@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * Metric superego — D_KL(ν_u ‖ π_R̂) trajectory.
@@ -30,12 +30,12 @@ interface OptionT {
 }
 
 const L_M_OPTIONS: OptionT[] = [
-  { value: 0, label: "0 (no labor)" },
-  { value: 0.3, label: "0.3 (below L_m*)" },
-  { value: 0.7, label: "0.7 (just below L_m*)" },
-  { value: L_M_STAR, label: `${L_M_STAR.toFixed(2)} (at L_m*)` },
-  { value: 1.2, label: "1.2 (above L_m*)" },
-  { value: 2.0, label: "2.0 (sustained labor)" },
+  { value: 0, label: "0 — no labor" },
+  { value: 0.3, label: "0.3 — well below threshold" },
+  { value: 0.7, label: "0.7 — just below threshold" },
+  { value: L_M_STAR, label: `${L_M_STAR.toFixed(2)} — at threshold` },
+  { value: 1.2, label: "1.2 — above threshold" },
+  { value: 2.0, label: "2.0 — sustained labor" },
 ];
 
 function simulateTrajectory(Lm: number): number[] {
@@ -177,25 +177,31 @@ export function MetricSuperego() {
             y2={h - pad.b}
             style={{ stroke: "var(--color-ink)" }}
           />
-          <text
-            x={(w + pad.l) / 2}
-            y={h - 8}
-            textAnchor="middle"
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{ fill: "var(--color-ink-70)", letterSpacing: "1px" }}
+          <SvgM
+            x={(w + pad.l) / 2 - 70}
+            y={h - 18}
+            w={140}
+            h={16}
+            align="center"
+            color="var(--color-ink-70)"
+            size="10px"
           >
-            t  (ticks · 20ms)
-          </text>
-          <text
-            x={10}
-            y={pad.t + 10}
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{ fill: "var(--color-ink-70)", letterSpacing: "1px" }}
+            <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+              <M>{String.raw`t`}</M>
+              <span style={{ fontFamily: "var(--font-mono)" }}>(ticks · 20ms)</span>
+            </span>
+          </SvgM>
+          <SvgM
+            x={4}
+            y={pad.t}
+            w={160}
+            h={16}
+            align="left"
+            color="var(--color-ink-70)"
+            size="10px"
           >
-            D_KL(ν_u ‖ π_R̂)
-          </text>
+            {String.raw`D_{\mathrm{KL}}(\nu_u \,\|\, \pi_{\hat{R}})`}
+          </SvgM>
         </svg>
 
         {/* Readouts */}

@@ -1,7 +1,7 @@
 interface Entry {
   href: string;
   title: string;
-  note: string;
+  note: React.ReactNode;
 }
 
 interface RelatedPlatesProps {

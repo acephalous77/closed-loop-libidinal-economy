@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { M } from "@/components/ui/Math";
+import { M, SvgM } from "@/components/ui/Math";
 
 /**
  * Cohort gradient — the framework's most direct empirical prediction.
@@ -266,15 +266,20 @@ export function CohortGradient() {
               >
                 age = {hover.age}
               </text>
-              <text
+              <SvgM
                 x={xScale(hover.age) + 14}
-                y={yScale(hover.predicted) - 4}
-                fontFamily="var(--font-mono)"
-                fontSize="9.5"
-                style={{ fill: "var(--color-oxblood)" }}
+                y={yScale(hover.predicted) - 14}
+                w={104}
+                h={14}
+                align="left"
+                color="var(--color-oxblood)"
+                size="10px"
               >
-                I(60s) ≈ {hover.predicted.toFixed(3)}
-              </text>
+                <span style={{ display: "inline-flex", alignItems: "baseline", gap: "3px" }}>
+                  <M>{String.raw`I(60\text{s})`}</M>
+                  <span style={{ fontFamily: "var(--font-mono)" }}>{`≈ ${hover.predicted.toFixed(3)}`}</span>
+                </span>
+              </SvgM>
             </g>
           )}
 
@@ -320,15 +325,20 @@ export function CohortGradient() {
           >
             age of first exposure (years)
           </text>
-          <text
-            x={14}
-            y={pad.t + 12}
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            style={{ fill: "var(--color-ink-70)", letterSpacing: "1px" }}
+          <SvgM
+            x={8}
+            y={pad.t + 2}
+            w={180}
+            h={16}
+            align="left"
+            color="var(--color-ink-70)"
+            size="10px"
           >
-            I(τ = 60s) · normalized
-          </text>
+            <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
+              <M>{String.raw`I(\tau = 60\text{s})`}</M>
+              <span style={{ fontFamily: "var(--font-mono)" }}>· normalized</span>
+            </span>
+          </SvgM>
         </svg>
       </div>
 
