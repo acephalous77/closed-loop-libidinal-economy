@@ -64,9 +64,12 @@ export default function TikTokPage() {
             <p className="font-serif text-base text-ink-70 leading-[1.55] italic">
               Diagrams above are deliberately schematic. They convey one
               structural relation each; the prose does the explanatory work.
-              Click a diagram to expand. The "↗ formal statement" links go
-              to §3 of the math; the "↗ mechanism plate" links go to the
-              corresponding instrument's standalone page on /the-dynamics.
+              Each instrument's mechanism plate (linked in the related
+              footer below) renders the same structure in interactive form;
+              the math doc <a
+                href="/the-mathematics#3-the-six-instruments"
+                className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+              >§3 (the six instruments)</a> states each formally.
             </p>
           </section>
           <RelatedPlates
