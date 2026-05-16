@@ -27,6 +27,7 @@ const ROUTES = [
   "/the-dynamics/mode-space",
   "/the-dynamics/tiktok",
   "/reading-list",
+  "/open-questions",
   "/instrumentation",
   "/colophon",
 ];

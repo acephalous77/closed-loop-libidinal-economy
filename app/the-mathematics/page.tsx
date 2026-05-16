@@ -62,6 +62,11 @@ export default function TheMathematicsPage() {
                   note: "the framework laid out in prose — the same structure without the proofs",
                 },
                 {
+                  href: "/open-questions",
+                  title: "open questions · research targets",
+                  note: "§8's three formal open questions stated as research targets, plus seven more from the prose and the empirical record",
+                },
+                {
                   href: "/the-argument/note",
                   title: "the coda · open questions",
                   note: "the math doc's open questions, in the document's own self-description",

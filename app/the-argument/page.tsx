@@ -109,6 +109,20 @@ export default function TheArgumentIndexPage() {
               </p>
             </a>
           </section>
+
+          <section className="mt-lg">
+            <a href="/open-questions" className="group block">
+              <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
+                open questions
+              </h2>
+              <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
+                ten open questions named explicitly as research targets — three
+                formal mathematical (math doc §8), two structural-empirical from
+                the prose, five where the empirical record is genuinely thin.
+                Each with what would refute, what would confirm.
+              </p>
+            </a>
+          </section>
         </article>
       </div>
     </main>

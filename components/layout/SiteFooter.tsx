@@ -51,6 +51,10 @@ export function SiteFooter() {
           <a href="/reading-list" className={linkClass(isActive("/reading-list"))}>
             reading list
           </a>
+          <span aria-hidden="true" className="mx-xs">·</span>
+          <a href="/open-questions" className={linkClass(isActive("/open-questions"))}>
+            open questions
+          </a>
         </nav>
         <p className="font-mono text-xs text-ink-50">
           <a href="/colophon" className={linkClass(isActive("/colophon"))}>

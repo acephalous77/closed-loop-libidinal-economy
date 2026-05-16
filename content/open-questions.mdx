@@ -1,0 +1,284 @@
+*The framework's open questions, named explicitly. Each carries a
+research target: what would refute, what would confirm, where the
+question lives in the formal apparatus and in the prose. A framework
+whose open questions are precisely posed is a framework that can be
+developed. The list below is the document's standing invitation to
+that work.*
+
+
+---
+
+
+## Formal mathematical questions
+
+Three questions from [§8 of the math doc](/the-mathematics#8-open-formal-questions) that the
+framework names as open targets within its own formal apparatus —
+positions where the existing proofs do not yet reach.
+
+
+### Q1. The direction of $T_{\mathrm{mix}}$ under Mode C
+
+**The question.** Does disrupted observation (Mode C: inflating
+$\mathrm{Var}(\eta_t)$) slow the cohort's convergence toward the
+policy's stationary distribution, or speed it? The framework's
+intuition is the former — weaker policy pull means slower mixing —
+but the proof requires additional structure on the response dynamics
+$f$, the observation function $g$, and the policy class that the
+framework does not currently specify.
+
+**What would settle it.** A formal derivation linking $\mathrm{Var}(\eta_t)$
+to the spectral gap $\gamma_\pi$ of the closed-loop transition
+operator $P_\pi$, or an empirical measurement of cohort mixing time
+under a Mode C–like intervention at platform scale.
+
+**Why it matters.** Mode C's strategic role depends on which holds.
+If disrupted observation slows mixing, the mode buys time during the
+long mixing-time of Mode A architectural intervention. If it speeds
+mixing, Mode C may have the opposite of its intended structural
+effect at the population level.
+
+**Where named.** [Math §8.1](/the-mathematics#8-open-formal-questions).
+
+
+### Q2. The developmental mechanism behind the cohort gradient
+
+**The question.** The framework asserts as a structural prediction
+that long-lag interiority $I(\tau)$ is moderated by
+developmental-stage-at-introduction to the loop (the cohort gradient,
+§6.1). But the formal apparatus does not derive the developmental
+moderation from the closed-loop dynamics (1)–(5) alone. The argument
+is intuitive — pre-closure cohorts have a self-evaluative
+distribution $\nu_u$ distinct from $\pi_{\hat{R}}$ at first exposure;
+post-closure cohorts do not — but a formal derivation would specify
+the developmental learning dynamics of $\nu_u$ formation, and the
+contractive properties of the user's response dynamics under
+closed-loop stimulation relative to pre-closure conditions.
+
+**What would settle it.** A model of $\nu_u$'s formative trajectory
+with developmental-stage parameters explicit, coupled to the existing
+Proposition 2 dynamics, that produces the gradient as a derived
+consequence rather than an asserted prediction.
+
+**Why it matters.** This is the framework's most refutable claim. If
+the developmental mechanism is wrong, the cohort gradient may not
+hold; if it holds, the gradient is a near-direct consequence rather
+than a free-standing empirical prediction.
+
+**Where named.** [Math §8.2](/the-mathematics#8-open-formal-questions);
+[Citizen After the Pause §2](/the-argument/citizen-after-the-pause#adolescence-as-class-on-the-frameworks-prediction).
+
+
+### Q3. The operating-point characterization of per-register surplus
+
+**The question.** From equation (5), the per-register surplus
+$\Sigma^i(T)$ is observable through the marked point process $N_t^i$
+and the kernel $\rho_i$. The framework claims that under any policy
+$\pi$ converged on $\hat{R}$, the joint distribution of $\Sigma^i$
+across $i$ approaches a specific operating point: extraction
+proportional to the marginal yield of each register conditional on
+the cross-excitation matrix $\alpha_{ij}$. The explicit
+characterization — a KKT-style constrained-optimization solution over
+the policy's action space — is not written down.
+
+**What would settle it.** Either a Lagrangian derivation of the
+operating point under the platform's revenue maximization (subject
+to (A1)–(A6)), or empirical identification of the operating point on
+disclosed platform data.
+
+**Why it matters.** This would make the framework's prediction about
+*which* register the platform over-routes to (and by how much) sharp
+enough to test against the engagement-event metadata production
+platforms already collect.
+
+**Where named.** [Math §8.3](/the-mathematics#8-open-formal-questions).
+
+
+---
+
+
+## Open structural-empirical questions
+
+Two questions the prose names at the level of structural prediction
+about the cohort's actually-existing politics, which the formal
+apparatus does not currently formalize.
+
+
+### Q4. Is cohort-level disruption-mobilization scaled-up Mode C?
+
+**The question.** Mode C at the individual level bounds the platform's
+purchase by injecting structural variance into the engagement signal
+through deliberate inauthenticity, strategic obfuscation, refusal of
+legibility. The framework's prediction about the cohort's actually-
+existing politics — the iterative-disruption, rapid-onset, rapid-
+dispersion pattern — sits in suggestive distance to this. Is the
+cohort's mobilization-form a population-scale Mode C — does the
+pattern bound the apparatus's purchase on the cohort the way
+individual Mode C bounds the platform's purchase on the user?
+
+**What would settle it.** An information-theoretic measurement of the
+platform's posterior over a mobilizing cohort during a disruption
+event compared to its posterior in the quiescent regime. If the
+posterior is systematically less informative during disruption, the
+cohort-level pattern bounds platform information in the way Mode C
+formally specifies.
+
+**Why it matters.** If the answer is yes, the older analytical
+cohort's tendency to read disruption-mobilization as failed
+consolidation is exactly the kind of category error the framework's
+analytical move (recognition) was meant to correct — the cohort is
+already doing Mode C politics; the older categories cannot read it.
+
+**Where named.** [Citizen After the Pause §3](/the-argument/citizen-after-the-pause#the-political-form-already-present).
+
+
+### Q5. Does the native cohort's multi-legibilities practice satisfy Mode C?
+
+**The question.** The native cohort's elaborate construction of online
+personae (the alt account, the finsta, the parasocial-tested public
+persona) might look like Mode C from outside but operate, on a
+pessimistic reading, as another register of platform-articulation
+rather than the refusal-of-articulation Mode C formally specifies.
+On an optimistic reading, the cohort has invented Mode C as a native
+rather than inherited mode, and the multiple-legibilities practice is
+in fact Mode C's native form for a cohort with no pre-platform self
+to retreat to.
+
+**What would settle it.** The same kind of measurement as Q4 but at
+the user level: is the platform's posterior over a multi-legibility-
+practicing native-cohort user in fact less informative than its
+posterior over a single-account user with otherwise-equivalent
+engagement?
+
+**Why it matters.** If pessimistic, Mode C joins Mode B as a
+structurally foreclosed mode for the native cohort, and the only
+available intervention is Mode A — architectural intervention
+conducted by political bodies outside the user-platform circuit, on
+behalf of a cohort whose own intervention-modes have been pre-
+removed. If optimistic, the cohort is the most fluent practitioner of
+Mode C the framework predicts — and the older analytic cohort's
+failure to recognize this is itself the recognition-failure the
+framework's analytical move was meant to address.
+
+**Where named.** [Adolescence Without Outside §VIII](/the-argument/adolescence-without-outside#viii-the-open-question-of-mode-c).
+
+
+---
+
+
+## Where the empirical record is genuinely thin
+
+Five empirical commitments the framework makes that don't yet have
+strong empirical confirmation. Named in the [reading list's empirical
+backing section](/reading-list#empirical-backing-for-the-frameworks-claims),
+restated here as research targets.
+
+
+### Q6. The cohort gradient at the developmental level
+
+**The empirical commitment.** Long-lag autocorrelation in user state
+is moderated by developmental-stage-at-introduction to the loop.
+Younger cohorts should retain measurably *less* interiority at long
+lags, controlling for total exposure duration.
+
+**The literature.** Twenge & Haidt make the cohort claim
+empirically; Orben & Przybylski find small effect sizes in
+cross-sectional data. The literature is contested.
+
+**What refutation looks like.** Longitudinal cohort data showing no
+gradient, or showing the inverse (younger cohorts retain more
+autocovariance) — see the [cohort gradient
+plate](/the-dynamics/cohort-gradient) for the predicted shape and the
+falsification threshold.
+
+
+### Q7. Mutual-information convergence across the four registers
+
+**The empirical commitment.** Off-diagonal entries $I(u^i; u^j)$ between
+the Subject/Citizen/Person/Consumer registers fill in under prolonged
+loop exposure — the dividual condition's measurable surface.
+
+**The literature.** Kosinski et al. (PNAS 2013) showed single-channel
+engagement predicts cross-channel attributes; Matz et al. (PNAS 2017)
+operationalized cross-register inference as persuasion targeting.
+Both are suggestive but not definitive on the population-scale
+convergence.
+
+**What refutation looks like.** Time-series measurement of platform-
+internal $I(u^i; u^j)$ estimates across cohorts and exposure
+durations, showing no upward trend.
+
+
+### Q8. Mode C's effectiveness at population scale
+
+**The empirical commitment.** Practiced at population scale, Mode C
+strictly bounds platform surplus extraction. (Direct experimental
+form of Q4 + Q5.)
+
+**The literature.** None known. The Blackwell-style sufficiency
+argument is mathematically sound for individual users; the
+population-scale effect has not been measured to the author's
+knowledge.
+
+**What confirmation looks like.** A natural experiment in which a
+substantial cohort adopts a Mode C–like practice and the platform's
+disclosed engagement metrics show a measurable bound on extraction.
+
+
+### Q9. Mode A mixing-time prediction
+
+**The empirical commitment.** Under Mode A architectural intervention
+(e.g., DSA/DMA regulation), cohort distributions converge to the
+modified policy's stationary form over months-to-years, not weeks.
+Evaluations conducted on shorter clock-time will systematically
+underestimate the structural effect.
+
+**The literature.** TikTok and YouTube algorithm-change studies show
+cohort-level distribution changes taking quarters. Markov-chain
+mixing-time bounds (Levin & Peres) give the formal apparatus. But
+direct measurement of $T_{\mathrm{mix}}$ under Mode A is still
+propagating — the DSA/DMA effects are early-stage.
+
+**What confirmation looks like.** Five-to-ten-year longitudinal data
+on cohort engagement distributions under EU/UK architectural
+regulation, showing the predicted mixing-time signature.
+
+
+### Q10. The captive-as-population claim
+
+**The empirical commitment.** The figure tracked in [*The Sincere
+Captives*](/the-argument/sincere-captives) — the post-cynical
+professional for whom the platform-grammar has been metabolized
+upstream of articulation — exists at population scale, not just as a
+phenomenological possibility.
+
+**The literature.** Phenomenological, with suggestive empirical
+neighbors (Phillips & Milner; Duffy; C. Thi Nguyen on value-capture)
+but no rigorous population-level measurement.
+
+**What confirmation looks like.** Methodologically careful identification
+of the population's size and demographic distribution. Distinguishing
+the sincere captive from the cynical professional empirically would
+require measurement of internal-vs-performed affect-grammar
+congruence — which is its own methodological project.
+
+
+---
+
+
+## On using this list
+
+These ten questions are not the framework's weaknesses to be papered
+over. They are the targets the framework specifies for whoever takes
+the framework up — empirically, theoretically, or institutionally.
+The framework's commitment is to name what it does not yet show, in
+the same register and at the same level of specificity as what it
+does show.
+
+The [reading list](/reading-list) gives the empirical-backing context
+for each question. The [math doc](/the-mathematics) gives the formal
+position from which Q1–Q3 are posed. The [argument](/the-argument)
+gives the prose register in which Q4–Q10 are felt.
+
+If you are taking up one of these questions and would like to talk:
+the author can be reached through the channels named in
+[/colophon](/colophon).
