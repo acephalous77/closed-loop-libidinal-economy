@@ -1,0 +1,43 @@
+/* chrome.css — site-style breadcrumb above the simulator/atlas apps.
+   Sits inside /public/simulator/ and is loaded by both standalone
+   HTML files. Matches the parent site's Breadcrumb component's
+   visual register (mono · xs · ink-50 with oxblood hover). */
+
+.site-chrome {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 18px 36px 0;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4em;
+}
+
+.site-chrome a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.12s ease;
+}
+
+.site-chrome a:hover {
+  color: var(--accent);
+}
+
+.site-chrome span[aria-hidden="true"] {
+  color: var(--ink-4);
+}
+
+/* Last segment (the current page) — slightly heavier. */
+.site-chrome > span:not([aria-hidden]) {
+  color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  .site-chrome {
+    padding: 14px 18px 0;
+    font-size: 11px;
+  }
+}

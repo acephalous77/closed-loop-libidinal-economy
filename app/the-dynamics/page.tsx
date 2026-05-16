@@ -94,7 +94,7 @@ const INSTRUMENTS: Instrument[] = [
     title: "the live simulator",
     description:
       "all six equations, all six instruments, and the three modes wired into a single running apparatus. Lemma 1 and Theorem 1 produced in real time; intervention controls at the points the framework specifies.",
-    note: "live instrument · the prior artifact, served as-is",
+    note: "live instrument · standalone surface",
     external: true,
   },
   {
@@ -102,7 +102,7 @@ const INSTRUMENTS: Instrument[] = [
     title: "the relational atlas",
     description:
       "every variable, theorem, and intervention point in one navigable map of the apparatus. The causal graph made interrogable.",
-    note: "relational atlas · standalone",
+    note: "relational atlas · standalone surface",
     external: true,
   },
 ];
@@ -241,9 +241,11 @@ export default function TheDynamicsPage() {
               ))}
             </ol>
             <p className="font-serif italic text-sm text-ink-50 mt-md max-w-[34rem]">
-              These two surfaces are preserved from the prior artifact and served as-is.
-              Typography and chrome do not match the rest of the site; the apparatus does.
-              A spec-aligned port is planned.
+              These two surfaces are standalone — they each run all of the
+              apparatus at once and need their own page region to do so.
+              Restyled to the site's palette and typography; the live
+              simulator runs at full visual register with site fonts and
+              tokens. Both open in this tab.
             </p>
           </section>
         </article>

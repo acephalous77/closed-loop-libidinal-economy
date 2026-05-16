@@ -1,22 +1,92 @@
-/* Closed-Loop Libidinal Economy — Live Simulator */
+/* Closed-Loop Libidinal Economy — Live Simulator
+   Restyled to share the parent site's design tokens. Fonts loaded
+   locally from /fonts/ (no Google Fonts, matching the site's
+   no-tracking commitment in /instrumentation). */
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --paper: #f3efe7;
-  --paper-2: #ece7dc;
-  --paper-3: #e2dcce;
-  --ink: #1a1814;
-  --ink-2: #3b362d;
-  --ink-3: #6b6457;
-  --ink-4: #948c7d;
-  --rule: #cdc6b6;
-  --rule-2: #b9b1a0;
-  --accent: oklch(0.46 0.12 35);     /* oxidized red — surplus, extraction */
-  --accent-2: oklch(0.62 0.10 35);
-  --leak: oklch(0.50 0.08 220);      /* desaturated blue — leak channel */
-  --good: oklch(0.45 0.09 145);      /* moss — reclamation */
-  --serif: "Source Serif 4", "Source Serif Pro", "Crimson Pro", Georgia, serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  --mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Cream paper / ink palette — matches the site's app/globals.css tokens. */
+  --paper: #f4ede0;
+  --paper-2: #ebe3d3;
+  --paper-3: #ddd2bd;
+  --ink: #1a1612;
+  --ink-2: #2b2520;
+  --ink-3: #5a514a;
+  --ink-4: #8a7f74;
+  --rule: #ddd2bd;
+  --rule-2: #c8bca4;
+  --accent: #7a1f1f;                  /* oxblood — surplus, extraction, signal */
+  --accent-2: #b04a4a;
+  --leak: #4a6478;                    /* dim blue — leak channel */
+  --good: #4f6e4a;                    /* moss — reclamation */
+  --serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  --sans: "EB Garamond", Georgia, serif;     /* site has no separate sans; serif fills both */
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1a1612;
+    --paper-2: #221d18;
+    --paper-3: #2f2820;
+    --ink: #e8e0d0;
+    --ink-2: #d4ccbe;
+    --ink-3: #9a907f;
+    --ink-4: #6d6357;
+    --rule: #2f2820;
+    --rule-2: #3a3128;
+    --accent: #b04a4a;
+    --accent-2: #c25555;
+  }
 }
 
 * { box-sizing: border-box; }
@@ -34,12 +104,11 @@ html, body {
 }
 
 body {
-  /* very subtle paper grain */
-  background-image:
-    radial-gradient(rgba(60,50,30,0.025) 1px, transparent 1px),
-    radial-gradient(rgba(60,50,30,0.018) 1px, transparent 1px);
-  background-size: 3px 3px, 7px 7px;
-  background-position: 0 0, 1px 2px;
+  /* No paper grain — the parent site uses flat paper. Kept the rule
+     here for reference in case the grain is desired later. */
+  background-image: none;
+  background-size: 0;
+  background-position: 0 0;
 }
 
 #root { min-height: 100vh; }
