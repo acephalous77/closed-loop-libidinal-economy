@@ -3,6 +3,7 @@ import ReadingList from "@/content/reading-list.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PrintButton } from "@/components/ui/PrintButton";
 import { ReadingProgress } from "@/components/ui/ReadingProgress";
+import { BackToTop } from "@/components/ui/BackToTop";
 
 export const metadata: Metadata = {
   title: "reading list — The Closed-Loop Libidinal Economy",
@@ -26,6 +27,7 @@ export default function ReadingListPage() {
   return (
     <main className="min-h-screen">
       <ReadingProgress />
+      <BackToTop />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb
