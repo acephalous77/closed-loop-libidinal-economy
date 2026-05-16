@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { M } from "@/components/ui/Math";
+import { InstrumentsConstellation } from "@/components/dynamics/InstrumentsConstellation";
 
 export const metadata: Metadata = {
   title: "the dynamics — The Closed-Loop Libidinal Economy",
@@ -187,6 +188,9 @@ export default function TheDynamicsPage() {
             <p className="font-mono text-xs text-ink-50 mb-md">
               mechanisms · isolated dimensions, one at a time
             </p>
+
+            <InstrumentsConstellation />
+
             <ol className="flex flex-col gap-lg">
               {MECHANISMS.map((m) => (
                 <li key={m.slug}>
