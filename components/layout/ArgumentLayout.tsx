@@ -1,5 +1,6 @@
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MarginTOC } from "@/components/navigation/MarginTOC";
+import { PrintButton } from "@/components/ui/PrintButton";
 
 interface TocEntry {
   number: string;
@@ -59,9 +60,12 @@ export function ArgumentLayout({
                 {eyebrow}
               </p>
             )}
-            <h1 className="font-serif text-2xl text-ink leading-tight mb-lg">
-              {title}
-            </h1>
+            <div className="flex items-baseline justify-between gap-md mb-lg">
+              <h1 className="font-serif text-2xl text-ink leading-tight">
+                {title}
+              </h1>
+              <PrintButton />
+            </div>
             {children}
           </article>
 

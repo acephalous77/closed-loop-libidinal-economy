@@ -3,6 +3,7 @@ import Mathematics from "@/content/mathematics.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MarginTOC } from "@/components/navigation/MarginTOC";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
+import { PrintButton } from "@/components/ui/PrintButton";
 
 export const metadata: Metadata = {
   title: "the mathematics — The Closed-Loop Libidinal Economy",
@@ -42,9 +43,12 @@ export default function TheMathematicsPage() {
           </aside>
 
           <article className="lg:col-span-8 lg:col-start-4 mathematics-prose">
-            <h1 className="font-serif text-2xl text-ink leading-tight mb-lg">
-              the mathematics.
-            </h1>
+            <div className="flex items-baseline justify-between mb-lg gap-md">
+              <h1 className="font-serif text-2xl text-ink leading-tight">
+                the mathematics.
+              </h1>
+              <PrintButton />
+            </div>
             <Mathematics />
             <RelatedReading
               entries={[

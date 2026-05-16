@@ -328,3 +328,212 @@ body {
   }
 }
 
+/* ── Print styles ────────────────────────────────────────────────────
+   Triggered by the reader's browser print dialog (Cmd/Ctrl-P) or by
+   any .print-trigger element calling window.print(). Goal: a clean,
+   academic-paper rendering suitable for offline reading, printing,
+   annotation, or "Save as PDF" via the browser.
+
+   Strategy: black on white, full-width prose at print measure, all
+   site chrome hidden, all interactive affordances removed. KaTeX
+   renders fine in print since it's all SVG/font glyphs. */
+
+@media print {
+  /* ── Reset palette: black on white ─────────────────────────────── */
+  html, body {
+    background: white !important;
+    color: black !important;
+  }
+  body {
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif !important;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  /* ── Hide all site chrome ──────────────────────────────────────── */
+  nav[aria-label="Breadcrumb"],
+  nav[aria-label="Site sections"],
+  nav[aria-label="Essay sequence"],
+  nav[aria-label="Sections"],
+  nav[aria-label="Primary sections"],
+  aside[aria-label="Related"],
+  aside[aria-label="Related reading in the argument"],
+  footer,
+  .math-tip__popover,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Hide the MarginTOC sidebars and any other layout asides. The
+     mathematics page and essay pages use aside.hidden.lg:block for
+     their TOC; on print, we want them out. */
+  aside.hidden {
+    display: none !important;
+  }
+
+  /* Drop tooltip popover affordances entirely on print */
+  .math-tip--mdx::after,
+  .math-tip--mdx::before,
+  .math-tip__symbol {
+    border-bottom: none !important;
+  }
+  .math-tip,
+  .math-tip--mdx {
+    cursor: text !important;
+  }
+
+  /* ── Layout: full-width single-column prose ────────────────────── */
+  main,
+  article,
+  .argument-prose,
+  .mathematics-prose,
+  .mathematics-prose p,
+  .mathematics-prose ol,
+  .mathematics-prose ul,
+  .mathematics-prose hr {
+    max-width: none !important;
+    width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* Override grid layout from ArgumentLayout */
+  .grid,
+  [class*="lg:col-"],
+  [class*="lg:grid-"] {
+    display: block !important;
+    grid-template-columns: none !important;
+    width: 100% !important;
+  }
+
+  /* ── Headings ──────────────────────────────────────────────────── */
+  h1 {
+    font-family: "EB Garamond", Georgia, serif !important;
+    font-size: 22pt;
+    font-weight: 600;
+    line-height: 1.1;
+    page-break-after: avoid;
+    margin: 0 0 16pt;
+  }
+  h2 {
+    font-size: 15pt;
+    font-weight: 600;
+    page-break-before: always;
+    page-break-after: avoid;
+    margin: 18pt 0 8pt;
+  }
+  h2:first-of-type {
+    page-break-before: avoid;
+  }
+  h3 {
+    font-size: 12pt;
+    font-weight: 600;
+    page-break-after: avoid;
+    margin: 14pt 0 6pt;
+  }
+  h4 {
+    font-size: 11pt;
+    font-weight: 600;
+    page-break-after: avoid;
+    margin: 10pt 0 4pt;
+  }
+
+  /* The §N. counters in argument-prose work via CSS counters, which
+     print drivers respect. Keep the oxblood color visible as a darker
+     gray that still distinguishes from body text. */
+  .argument-prose h2::before {
+    color: #4a1414 !important;
+  }
+
+  /* ── Body elements ─────────────────────────────────────────────── */
+  p {
+    orphans: 3;
+    widows: 3;
+    margin: 0 0 6pt;
+  }
+
+  blockquote {
+    margin: 8pt 0 8pt 12pt;
+    padding-left: 8pt;
+    border-left: 1.5pt solid #888 !important;
+    font-style: italic;
+    page-break-inside: avoid;
+  }
+
+  /* Keep figures, tables, equations together */
+  figure,
+  table,
+  pre,
+  .katex-display {
+    page-break-inside: avoid;
+    margin: 8pt 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  th, td {
+    border: 0.5pt solid #888;
+    padding: 4pt 6pt;
+    text-align: left;
+  }
+  th {
+    background: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Inline math + display math: KaTeX renders to SVG/HTML; trust it */
+  .katex { font-size: inherit !important; }
+  .katex-display {
+    margin: 8pt 0;
+    text-align: center;
+  }
+
+  /* ── Links ─────────────────────────────────────────────────────── */
+  a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+
+  /* Show URL after external links and internal anchors (helpful for
+     paper readers); skip for footnote-like anchors and trivial fragments */
+  a[href^="http"]::after,
+  a[href^="/"]::after {
+    content: " [" attr(href) "]";
+    font-family: "JetBrains Mono", monospace !important;
+    font-size: 8.5pt;
+    color: #555 !important;
+    word-break: break-all;
+  }
+  /* Don't append URLs to in-page anchors */
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  /* ── Page setup ────────────────────────────────────────────────── */
+  @page {
+    size: A4;
+    margin: 2.2cm 1.8cm;
+  }
+
+  /* SVG figures: prevent oversize SVGs from clipping; allow them to
+     scale to the page width */
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Reset background-color tints (oxblood badges, paper cards) to
+     transparent so they don't waste ink */
+  [class*="bg-"]:not(body):not(html) {
+    background: transparent !important;
+  }
+
+  /* Restore the print-affordance button itself only when not printing
+     — handled by .print-hide above */
+}
+

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import ReadingList from "@/content/reading-list.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { PrintButton } from "@/components/ui/PrintButton";
 
 export const metadata: Metadata = {
   title: "reading list — The Closed-Loop Libidinal Economy",
@@ -37,9 +38,12 @@ export default function ReadingListPage() {
           <p className="font-mono text-xs text-ink-50 uppercase tracking-wider mb-xs">
             references · lineage
           </p>
-          <h1 className="font-serif text-2xl text-ink leading-tight mb-lg">
-            reading list
-          </h1>
+          <div className="flex items-baseline justify-between gap-md mb-lg">
+            <h1 className="font-serif text-2xl text-ink leading-tight">
+              reading list
+            </h1>
+            <PrintButton />
+          </div>
           <ReadingList />
         </article>
 
