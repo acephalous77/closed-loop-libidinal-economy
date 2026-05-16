@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { SomaticOptimization } from "@/components/visualizations/SomaticOptimization";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "somatic optimization — The Closed-Loop Libidinal Economy",
@@ -42,11 +43,11 @@ export default function SomaticOptimizationPage() {
             </a>{" "}
             (§3.5). Engagement is not a sequence of choices. It is a counting
             process. The marked process{" "}
-            <span className="font-mono">N_t^i</span> has Hawkes intensity{" "}
-            <span className="font-mono">λ^i(t) = λ_0^i + Σ_j α_ij ∫ κ(t−s) dN_s^j</span>{" "}
+            <M>{String.raw`N_t^i`}</M> has Hawkes intensity{" "}
+            <M>{String.raw`\lambda^i(t) = \lambda_0^i + \sum_j \alpha_{ij} \int \kappa(t-s)\, dN_s^j`}</M>{" "}
             — events cluster via cross-excitation between registers. The{" "}
             <em>somatic</em> qualifier signals that the differential{" "}
-            <span className="font-mono">dN^i_t</span> is the body: saccades,
+            <M>{String.raw`dN^i_t`}</M> is the body: saccades,
             taps, scroll-events, gaze shifts, transaction events. The
             optimization is over these somatic micro-events. Deliberative
             choice does not enter.
@@ -72,7 +73,7 @@ export default function SomaticOptimizationPage() {
               becoming visible at the event level.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              Switch to <span className="font-mono">with-bonus (β = 10)</span> —
+              Switch to <M>{String.raw`\text{with-bonus } (\beta = 10)`}</M> —
               Mode A — and the stimulus lane thins back out. The architectural
               intervention bears on the rate at which the differential is taken
               from the body; the body is not the actor in the loop, it is what

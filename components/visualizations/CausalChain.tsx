@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Causal implication chain — the proof of Theorem 1 visualized.
@@ -132,7 +133,7 @@ export function CausalChain() {
               onChange={(e) => setModeBOn(e.target.checked)}
               className="accent-oxblood"
             />
-            <span className="text-ink-70">Mode B active (L_m &gt; 0)</span>
+            <span className="text-ink-70">Mode B active (<M>{String.raw`L_m > 0`}</M>)</span>
           </label>
           <label className="inline-flex items-center gap-x-xs cursor-pointer">
             <input
@@ -141,7 +142,7 @@ export function CausalChain() {
               onChange={(e) => setModeCOn(e.target.checked)}
               className="accent-oxblood"
             />
-            <span className="text-ink-70">Mode C active (σ_C &gt; 0)</span>
+            <span className="text-ink-70">Mode C active (<M>{String.raw`\sigma_C > 0`}</M>)</span>
           </label>
         </div>
 
@@ -379,10 +380,10 @@ export function CausalChain() {
         chain from the assumptions to Theorem 1, with each node firing when
         its premise holds. Under closed-loop, the chain fires to completion
         and reclamation is foreclosed. Switch to with-bonus and Mode A cuts
-        the chain at the θ* node — Assumption (A2) reward-monotonicity fails
-        under <span className="font-mono">β R̂'</span>. Modes B and C light
+        the chain at the <M>{String.raw`\theta^*`}</M> node — Assumption (A2) reward-monotonicity fails
+        under <M>{String.raw`\beta \hat{R}'`}</M>. Modes B and C light
         their footers without modifying the chain: they hold parallel
-        structures (D_KL, Σ) that the proof of Theorem 1 does not depend on.
+        structures (<M>{String.raw`D_{\mathrm{KL}}`}</M>, <M>{String.raw`\Sigma`}</M>) that the proof of Theorem 1 does not depend on.
       </figcaption>
     </figure>
   );

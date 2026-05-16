@@ -7,6 +7,7 @@ import {
   projectU,
   type SimState,
 } from "@/lib/simulation/closed-loop";
+import { M } from "@/components/ui/Math";
 
 interface OptionT<T> {
   value: T;
@@ -227,7 +228,7 @@ export function ReclamationTrajectories() {
         {/* Controls */}
         <div className="flex flex-wrap items-baseline gap-x-md gap-y-sm font-mono text-sm">
           <Picker
-            label="θ_ref"
+            label={<M>{String.raw`\theta_{\mathrm{ref}}`}</M>}
             options={THETA_REF_OPTIONS}
             value={thetaRef}
             onChange={setThetaRef}
@@ -284,13 +285,13 @@ export function ReclamationTrajectories() {
             / {horizonSeconds}s
           </p>
           <p>
-            window threshold θ_ref:{" "}
+            window threshold <M>{String.raw`\theta_{\mathrm{ref}}`}</M>:{" "}
             <span className="text-ink-90">
               {THETA_REF_OPTIONS.find((o) => o.value === thetaRef)?.label}
             </span>
           </p>
           <p>
-            trajectories with a no-input window ≥ θ_ref:{" "}
+            trajectories with a no-input window ≥ <M>{String.raw`\theta_{\mathrm{ref}}`}</M>:{" "}
             <span className={windowedCount > 0 ? "text-oxblood" : "text-ink-90"}>
               {windowedCount} / {nUsers}
             </span>{" "}
@@ -303,10 +304,10 @@ export function ReclamationTrajectories() {
 
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         Each ink-50 line is a single user under the closed loop. Trajectories that
-        experience a no-input window of duration ≥ θ_ref are rendered in oxblood. Under
+        experience a no-input window of duration ≥ <M>{String.raw`\theta_{\mathrm{ref}}`}</M> are rendered in oxblood. Under
         the converged closed-loop policy (β = 0), the oxblood set does not grow — the
         reclamation theorem rendered as a set that fails to appear. Switch the policy to{" "}
-        <span className="font-mono">with-bonus (β = 10)</span> — Mode A — and oxblood
+        <M>{String.raw`\text{with-bonus } (\beta = 10)`}</M> — Mode A — and oxblood
         trajectories emerge: the architectural intervention is the only one that produces
         them.
       </figcaption>
@@ -320,7 +321,7 @@ function Picker<T>({
   value,
   onChange,
 }: {
-  label: string;
+  label: React.ReactNode;
   options: OptionT<T>[];
   value: T;
   onChange: (v: T) => void;

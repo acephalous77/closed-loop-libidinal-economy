@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { CapturedResonance } from "@/components/visualizations/CapturedResonance";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "captured resonance — The Closed-Loop Libidinal Economy",
@@ -41,15 +42,15 @@ export default function CapturedResonancePage() {
               the six instruments
             </a>{" "}
             (§3.6). The biological phase{" "}
-            <span className="font-mono">φ_b</span> — a circadian, sleep-wake, or
+            <M>{String.raw`\varphi_b`}</M> — a circadian, sleep-wake, or
             attentional oscillator with intrinsic frequency{" "}
-            <span className="font-mono">ω_b</span> — couples to the
-            medium-delivery phase <span className="font-mono">φ_m</span> through
+            <M>{String.raw`\omega_b`}</M> — couples to the
+            medium-delivery phase <M>{String.raw`\varphi_m`}</M> through
             a Kuramoto equation. When the coupling strength{" "}
-            <span className="font-mono">K_bm</span> exceeds the frequency
-            mismatch <span className="font-mono">|ω_b − ω_m|</span>, the body
+            <M>{String.raw`K_{bm}`}</M> exceeds the frequency
+            mismatch <M>{String.raw`|\omega_b - \omega_m|`}</M>, the body
             entrains. Under sustained policy on a closed-loop platform, the
-            policy shapes <span className="font-mono">φ_m</span> through
+            policy shapes <M>{String.raw`\varphi_m`}</M> through
             delivery timing; the user's circadian rhythm and attentional
             oscillation become forced oscillators whose driver is the apparatus.
           </p>
@@ -59,10 +60,10 @@ export default function CapturedResonancePage() {
           <section className="mt-lg max-w-[var(--measure)]">
             <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              At <span className="font-mono">K_bm = 0</span> the body vector and
+              At <M>{String.raw`K_{bm} = 0`}</M> the body vector and
               the medium vector rotate at their own intrinsic rates; the angular
               gap Δφ drifts continuously. Step{" "}
-              <span className="font-mono">K_bm</span> up across the threshold
+              <M>{String.raw`K_{bm}`}</M> up across the threshold
               (≈ 0.007 here) and watch the gap settle to a constant — the
               vectors phase-lock and the lock indicator turns oxblood.
             </p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ChronoDebt } from "@/components/visualizations/ChronoDebt";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "chrono-debt — The Closed-Loop Libidinal Economy",
@@ -41,13 +42,13 @@ export default function ChronoDebtPage() {
               the six instruments
             </a>{" "}
             (§3.2). Let{" "}
-            <span className="font-mono">Λ_◦(τ)</span> be the pre-closure survival
+            <M>{String.raw`\Lambda_\circ(\tau)`}</M> be the pre-closure survival
             function of the inter-stimulus interval — the probability under the
             historical regime that the inter-stimulus interval exceeded τ. Let{" "}
-            <span className="font-mono">Λ(t,τ)</span> be the realized survival
+            <M>{String.raw`\Lambda(t,\tau)`}</M> be the realized survival
             under the closed loop at time t. The{" "}
             <em>chrono-debt at scale τ</em> is{" "}
-            <span className="font-mono">D(t,τ) = Λ_◦(τ) − Λ(t,τ)</span>. The
+            <M>{String.raw`D(t,\tau) = \Lambda_\circ(\tau) - \Lambda(t,\tau)`}</M>. The
             framework's central observation is that D is a{" "}
             <em>spectrum</em> — non-zero across the entire τ axis at once.
           </p>
@@ -67,7 +68,7 @@ export default function ChronoDebtPage() {
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               The aggregate readout uses the framework's default weighting{" "}
-              <span className="font-mono">w(τ) ∝ τ</span> — longer foreclosed
+              <M>{String.raw`w(\tau) \propto \tau`}</M> — longer foreclosed
               windows count more. The choice is not arbitrary; it reflects the
               empirical claim that developmental and political consequences of
               foreclosed pause-time scale with the foreclosed window's scale. A

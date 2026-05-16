@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * TikTok worked example — six panels, one per instrument.
@@ -37,7 +38,7 @@ const PANELS: Panel[] = [
         of baseline — the cumulative yield the platform extracts from this
         balance, decomposed across the four registers depending on which
         content categories the user's engagement profile leans into. The FYP
-        is the operating apparatus that produces <span className="font-mono">Σ(T)</span>.
+        is the operating apparatus that produces <M>{String.raw`\Sigma(T)`}</M>.
       </>
     ),
     mathSection: "#3-the-six-instruments",
@@ -57,7 +58,7 @@ const PANELS: Panel[] = [
         natural pauses between scenes or chapters offer reflective windows.
         TikTok's vertical scroll architecture is purpose-built to remove
         these. The chrono-debt spectrum, when computed against TikTok's
-        survival function, fills out across every <span className="font-mono">τ</span>{" "}
+        survival function, fills out across every <M>{String.raw`\tau`}</M>{" "}
         below the typical session length.
       </>
     ),
@@ -77,7 +78,7 @@ const PANELS: Panel[] = [
         product placement appear in adjacent slots. The Subject, Citizen,
         Person, and Consumer registers are addressed through the same
         delivery surface in seconds. The cross-register mutual information{" "}
-        <span className="font-mono">I(u^i; u^j)</span> grows precisely
+        <M>{String.raw`I(u^i; u^j)`}</M> grows precisely
         because the engagement signal can't disentangle which register a
         given swipe belongs to.
       </>
@@ -96,10 +97,10 @@ const PANELS: Panel[] = [
         TikTok displays like counts, view counts, share counts, and saves as
         primary overlays on every video. The creator side has analytics
         dashboards. The metric is the same on both ends of the platform.{" "}
-        <span className="font-mono">ν_u</span> — the user's self-evaluative
+        <M>{String.raw`\nu_u`}</M> — the user's self-evaluative
         distribution — converges toward whatever produces a high count, and
         the count IS the platform's reward-induced distribution{" "}
-        <span className="font-mono">π_R̂</span> made visible. The
+        <M>{String.raw`\pi_{\hat{R}}`}</M> made visible. The
         D_KL collapse is not hidden — it is the platform's UX.
       </>
     ),
@@ -118,7 +119,7 @@ const PANELS: Panel[] = [
         differential. The body's micro-motor activity — the thumb's vertical
         flick — is the only somatic act the platform observes, and it is the
         act the platform optimizes against. The marked point process{" "}
-        <span className="font-mono">dN^i_t</span> is, on TikTok, almost
+        <M>{String.raw`dN^i_t`}</M> is, on TikTok, almost
         literally the thumb's contact events with the screen. Deliberative
         choice does not enter. The hand is the integrand.
       </>
@@ -137,7 +138,7 @@ const PANELS: Panel[] = [
         TikTok's audio is short, looping, and synchronized to scroll
         boundaries — every video has a sound, and sounds chain across videos
         so the user's auditory rhythm entrains to the swipe rhythm. The
-        Kuramoto coupling <span className="font-mono">K_bm</span> between
+        Kuramoto coupling <M>{String.raw`K_{bm}`}</M> between
         the body's attentional oscillation and the platform's delivery phase
         is reinforced through the paired auditory–visual structure. The
         platform's policy can drive K_bm above threshold simply by choosing

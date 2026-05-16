@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Surplus Σ(T) — per-register libidinal surplus accumulation.
@@ -128,7 +129,7 @@ export function SurplusBreakdown() {
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">§3.1.</span> Each bar
         is one register's accumulated surplus{" "}
-        <span className="font-mono">Σ^i(T) = ∫_0^T ρ_i(u_{`{t⁻}`}, y_{`{t⁻}`}) dN^i_t</span>{" "}
+        <M>{String.raw`\Sigma^i(T) = \int_0^T \rho_i(u_{t^-}, y_{t^-})\, dN^i_t`}</M>{" "}
         — the platform's yield from extraction events marked with that
         register. Under the converged regime the distribution is sharply
         unequal — the policy concentrates extraction where per-register yield

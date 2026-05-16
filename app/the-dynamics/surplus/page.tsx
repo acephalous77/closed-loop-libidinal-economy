@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { SurplusBreakdown } from "@/components/visualizations/SurplusBreakdown";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "surplus — The Closed-Loop Libidinal Economy",
@@ -42,11 +43,9 @@ export default function SurplusPage() {
             </a>{" "}
             (§3.1). The platform's accumulated yield over horizon T is given by
             the marked point process in equation (5):{" "}
-            <span className="font-mono">
-              Σ(T) = Σ_i ∫_0^T ρ_i(u_{`{t⁻}`}, y_{`{t⁻}`}) dN^i_t
-            </span>
+            <M>{String.raw`\Sigma(T) = \sum_i \int_0^T \rho_i(u_{t^-}, y_{t^-})\, dN^i_t`}</M>
             . The per-register decomposition{" "}
-            <span className="font-mono">Σ^i(T)</span> is what gives the
+            <M>{String.raw`\Sigma^i(T)`}</M> is what gives the
             instrument its analytic power: the policy distributes extraction
             across registers to maximize joint long-run yield, and the
             distribution is observable — the temporal density of register-marks
@@ -65,11 +64,11 @@ export default function SurplusPage() {
               <span className="font-mono">converged</span> and the distribution
               skews sharply: the Consumer register dominates the yield because
               the policy has learned where extraction kernels{" "}
-              <span className="font-mono">ρ_i</span> integrate most.
+              <M>{String.raw`\rho_i`}</M> integrate most.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              Switch to <span className="font-mono">with-bonus (β = 10)</span> —
-              Mode A — and total <span className="font-mono">Σ(T)</span> drops
+              Switch to <M>{String.raw`\text{with-bonus } (\beta = 10)`}</M> —
+              Mode A — and total <M>{String.raw`\Sigma(T)`}</M> drops
               substantially. The architectural intervention costs the platform
               measurable yield; the per-register distribution also flattens
               because the modified policy fires less and the cross-excitation

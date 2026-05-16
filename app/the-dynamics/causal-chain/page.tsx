@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { CausalChain } from "@/components/visualizations/CausalChain";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "the causal chain — The Closed-Loop Libidinal Economy",
@@ -43,12 +44,12 @@ export default function CausalChainPage() {
             as a directed graph. The six assumptions{" "}
             <span className="font-mono">(A1)–(A6)</span> feed three intermediate
             results: the policy reaches{" "}
-            <span className="font-mono">θ*</span> at the engagement-maximizer,
+            <M>{String.raw`\theta^*`}</M> at the engagement-maximizer,
             the Asmussen renewal bound holds on the survival function, and the
             no-input event probability collapses (Lemma 1). From Lemma 1, the
             estimator variance for{" "}
-            <span className="font-mono">I(τ)</span> diverges, and Theorem 1
-            follows: <span className="font-mono">I(τ)</span> is
+            <M>{String.raw`I(\tau)`}</M> diverges, and Theorem 1
+            follows: <M>{String.raw`I(\tau)`}</M> is
             undefined-on-trajectory.
           </p>
 
@@ -60,8 +61,9 @@ export default function CausalChainPage() {
             >
               the three modes of intervention
             </a>{" "}
-            is visible directly on this chain. Mode A intercepts at the θ*
-            node — by adding <span className="font-mono">β · b(τ^(k))</span> to
+            is visible directly on this chain. Mode A intercepts at the{" "}
+            <M>{String.raw`\theta^*`}</M> node — by adding{" "}
+            <M>{String.raw`\beta \cdot b(\tau^{(k)})`}</M> to
             the reward, Assumption (A2)'s monotonicity fails. Modes B and C
             do not intercept this chain at all: they hold structures the
             chain doesn't depend on.
@@ -76,7 +78,7 @@ export default function CausalChainPage() {
               fires — the chain completes and Theorem 1's terminal node lights
               in oxblood: <span className="font-mono">RECLAMATION ⌀</span>.
               Switch to <span className="font-mono">with-bonus</span> and the
-              red Mode A cut appears between the (A2) node and the θ* node;
+              red Mode A cut appears between the (A2) node and the <M>{String.raw`\theta^*`}</M> node;
               every downstream node dims; the terminal node goes dark.
               Theorem 1 does not fire.
             </p>
@@ -84,7 +86,8 @@ export default function CausalChainPage() {
               Toggle the Mode B and Mode C indicators. Their footers brighten
               when active. The chain itself does not respond — Mode B and Mode
               C operate on parallel structures (the user's self-evaluative
-              divergence D_KL and the platform's surplus Σ respectively).
+              divergence <M>{String.raw`D_{\mathrm{KL}}`}</M> and the platform's surplus{" "}
+              <M>{String.raw`\Sigma`}</M> respectively).
               They produce real effects, but not the effect the chain produces.
               The framework's central political claim is this asymmetry:
               substituting one mode for another is substituting an

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ModeSpace } from "@/components/visualizations/ModeSpace";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "mode-space — The Closed-Loop Libidinal Economy",
@@ -34,10 +35,11 @@ export default function ModeSpacePage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             A 3D space with three orthogonal axes — engagement reward{" "}
-            <span className="font-mono">R̂</span>, bonus achievement{" "}
-            <span className="font-mono">B</span>, divergence{" "}
-            <span className="font-mono">D_KL(ν_u ‖ π_R̂)</span>. The closed-loop
-            operating point sits at high R̂, zero B, zero D_KL. The three modes
+            <M>{String.raw`\hat{R}`}</M>, bonus achievement{" "}
+            <M>{String.raw`B`}</M>, divergence{" "}
+            <M>{String.raw`D_{\mathrm{KL}}(\nu_u \,\|\, \pi_{\hat{R}})`}</M>. The closed-loop
+            operating point sits at high <M>{String.raw`\hat{R}`}</M>, zero{" "}
+            <M>{String.raw`B`}</M>, zero <M>{String.raw`D_{\mathrm{KL}}`}</M>. The three modes
             of intervention move along three orthogonal directions from this
             point. The non-substitutability of{" "}
             <a
@@ -56,14 +58,15 @@ export default function ModeSpacePage() {
             <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               Rotate the space. <strong>Mode A</strong>'s oxblood curve moves
-              entirely within the <span className="font-mono">R̂-B</span> plane —
-              D_KL doesn't change because the architectural intervention does
+              entirely within the <M>{String.raw`\hat{R}\text{-}B`}</M> plane —{" "}
+              <M>{String.raw`D_{\mathrm{KL}}`}</M> doesn't change because the architectural intervention does
               not touch the user's distribution. <strong>Mode B</strong>'s
               dashed ink line moves entirely along the{" "}
-              <span className="font-mono">D_KL</span> axis — R̂ stays the same
-              and B stays at zero because Mode B does not modify the policy.{" "}
+              <M>{String.raw`D_{\mathrm{KL}}`}</M> axis — <M>{String.raw`\hat{R}`}</M> stays the same
+              and <M>{String.raw`B`}</M> stays at zero because Mode B does not modify the policy.{" "}
               <strong>Mode C</strong>'s region is a small box around the
-              operating point — the same θ*, with the achievable R̂ pulled in.
+              operating point — the same <M>{String.raw`\theta^*`}</M>, with the achievable{" "}
+              <M>{String.raw`\hat{R}`}</M> pulled in.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               The three paths are orthogonal in this space. That orthogonality

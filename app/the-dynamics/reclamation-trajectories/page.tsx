@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ReclamationTrajectories } from "@/components/visualizations/ReclamationTrajectories";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "reclamation trajectories — The Closed-Loop Libidinal Economy",
@@ -42,12 +43,14 @@ export default function ReclamationTrajectoriesPage() {
               Theorem 1 (the reclamation theorem)
             </a>{" "}
             says that under (1)–(5) and (A1)–(A5) the conditional autocovariance{" "}
-            <span className="font-mono">I(τ) := Cov(u_t, u_{`{t+τ}`} | E_τ)</span> is
-            undefined-on-trajectory in the limit t → ∞ for τ &gt; θ_ref — the
+            <M>{String.raw`I(\tau) := \mathrm{Cov}(u_t,\, u_{t+\tau} \mid E_\tau)`}</M> is
+            undefined-on-trajectory in the limit{" "}
+            <M>{String.raw`t \to \infty`}</M> for{" "}
+            <M>{String.raw`\tau > \theta_{\mathrm{ref}}`}</M> — the
             conditioning event{" "}
-            <span className="font-mono">E_τ := &#123;s_{`{t'}`} = 0 for t &lt; t' ≤ t+τ&#125;</span>{" "}
+            <M>{String.raw`E_\tau := \{s_{t'} = 0 \text{ for } t < t' \le t+\tau\}`}</M>{" "}
             has measure zero (Lemma 1). Run the simulation. Each line is a user;
-            trajectories that experience an E_τ event turn oxblood. Under the closed-loop
+            trajectories that experience an <M>{String.raw`E_\tau`}</M> event turn oxblood. Under the closed-loop
             policy, the oxblood set does not grow. The visualization is the theorem
             rendered as a set that fails to appear.
           </p>
@@ -65,7 +68,7 @@ export default function ReclamationTrajectoriesPage() {
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               Switch the policy to{" "}
-              <span className="font-mono">with-bonus (β = 10)</span> —{" "}
+              <M>{String.raw`\text{with-bonus } (\beta = 10)`}</M> —{" "}
               <a
                 href="/the-mathematics#5-three-modes-of-intervention"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
@@ -74,9 +77,9 @@ export default function ReclamationTrajectoriesPage() {
               </a>
               , architectural — and re-run. Now oxblood trajectories emerge. The
               regularized objective{" "}
-              <span className="font-mono">R̂'(θ; β) = E[R̂] + β · E[∑ b(τ^(k))]</span>{" "}
-              rewards inter-stimulus intervals τ &gt; τ*; the operating point along the
-              path θ̃(β) moves to one with positive probability on long windows. The
+              <M>{String.raw`\hat{R}'(\theta; \beta) = \mathbb{E}[\hat{R}] + \beta \cdot \mathbb{E}[\sum b(\tau^{(k)})]`}</M>{" "}
+              rewards inter-stimulus intervals <M>{String.raw`\tau > \tau^*`}</M>; the operating point along the
+              path <M>{String.raw`\tilde\theta(\beta)`}</M> moves to one with positive probability on long windows. The
               contrast is the framework's central political claim: only the architectural
               mode breaks Lemma 1 and recovers what Theorem 1 forecloses.
             </p>

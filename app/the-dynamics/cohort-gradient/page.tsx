@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { CohortGradient } from "@/components/visualizations/CohortGradient";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "cohort gradient — The Closed-Loop Libidinal Economy",
@@ -35,10 +36,10 @@ export default function CohortGradientPage() {
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             The framework asserts a structural prediction: users with earlier
             age-of-first-exposure to closed-loop platforms retain less{" "}
-            <span className="font-mono">I(τ)</span> at long lags, after
+            <M>{String.raw`I(\tau)`}</M> at long lags, after
             controlling for total exposure. Older cohorts had a baseline
             self-evaluative distribution{" "}
-            <span className="font-mono">ν_u</span> constructed under an
+            <M>{String.raw`\nu_u`}</M> constructed under an
             architectural regime that included extra-platform inputs; the{" "}
             <a
               href="/the-dynamics/metric-superego"
@@ -47,8 +48,8 @@ export default function CohortGradientPage() {
               artisanal mode
             </a>{" "}
             has something to maintain. Younger cohorts have{" "}
-            <span className="font-mono">ν_u</span> approximating{" "}
-            <span className="font-mono">π_R̂</span> at the outset.
+            <M>{String.raw`\nu_u`}</M> approximating{" "}
+            <M>{String.raw`\pi_{\hat{R}}`}</M> at the outset.
           </p>
 
           <CohortGradient />

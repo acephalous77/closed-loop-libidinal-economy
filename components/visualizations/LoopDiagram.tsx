@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * The closed loop as a directed graph — equations (1)–(6) wired together
@@ -247,13 +248,13 @@ export function LoopDiagram() {
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">Equations (1)–(6).</span>{" "}
         The four edges step in sequence: the user's state{" "}
-        <span className="font-mono">u_t</span> produces an engagement signal{" "}
-        <span className="font-mono">y_t</span> by the observation function (2),
+        <M>{String.raw`u_t`}</M> produces an engagement signal{" "}
+        <M>{String.raw`y_t`}</M> by the observation function (2),
         the platform updates its policy parameters{" "}
-        <span className="font-mono">θ_t</span> by gradient ascent (4), the policy
-        selects the next stimulus <span className="font-mono">s_t</span> (3), and
+        <M>{String.raw`\theta_t`}</M> by gradient ascent (4), the policy
+        selects the next stimulus <M>{String.raw`s_t`}</M> (3), and
         the stimulus reshapes the user's state (1). The exogenous channel
-        <span className="font-mono"> e_t ≡ 0</span> stands outside the contour —
+        {" "}<M>{String.raw`e_t \equiv 0`}</M> stands outside the contour —
         the loop has no input it did not, in some prior step, contribute to
         shaping (6).
       </figcaption>

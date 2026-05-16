@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { MetricSuperego } from "@/components/visualizations/MetricSuperego";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "metric superego — The Closed-Loop Libidinal Economy",
@@ -40,13 +41,13 @@ export default function MetricSuperegoPage() {
             >
               the six instruments
             </a>{" "}
-            (§3.4). Let <span className="font-mono">ν_u(t)</span> be the user's
+            (§3.4). Let <M>{String.raw`\nu_u(t)`}</M> be the user's
             self-evaluative distribution — the posterior over their own
             value-states inferred from observed feedback. Let{" "}
-            <span className="font-mono">π_R̂</span> be the distribution induced
+            <M>{String.raw`\pi_{\hat{R}}`}</M> be the distribution induced
             over user actions by the platform's reward functional{" "}
-            <span className="font-mono">R̂</span>. The metric-superego claim is{" "}
-            <span className="font-mono">D_KL(ν_u(t) ‖ π_R̂) → 0</span> as t → ∞
+            <M>{String.raw`\hat{R}`}</M>. The metric-superego claim is{" "}
+            <M>{String.raw`D_{\mathrm{KL}}(\nu_u(t) \,\|\, \pi_{\hat{R}}) \to 0`}</M> as t → ∞
             — the user's image of what is valuable converges to the platform's.
             The convergence is mechanism-agnostic: free-energy minimization,
             operant reinforcement, or social comparison each produce it.
@@ -54,10 +55,10 @@ export default function MetricSuperegoPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             Proposition 2 in §5.2 gives the dynamics:{" "}
-            <span className="font-mono">d D_KL / dt = −h_0(β_u) + r(L_m)</span>.
+            <M>{String.raw`d D_{\mathrm{KL}} / dt = -h_0(\beta_u) + r(L_m)`}</M>.
             Without maintenance labor (Mode B), the first term dominates and the
             divergence collapses. With labor above the threshold{" "}
-            <span className="font-mono">L_m* = h_0/c_op</span>, the second term
+            <M>{String.raw`L_m^* = h_0/c_{\mathrm{op}}`}</M>, the second term
             holds the gap.
           </p>
 
@@ -66,12 +67,12 @@ export default function MetricSuperegoPage() {
           <section className="mt-lg max-w-[var(--measure)]">
             <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              At <span className="font-mono">L_m = 0</span> the trajectory
+              At <M>{String.raw`L_m = 0`}</M> the trajectory
               decays smoothly to zero — the metric superego forms. The line
               turns oxblood when the divergence falls below 0.05 and the
               readout marks the status. Step{" "}
-              <span className="font-mono">L_m</span> through the threshold{" "}
-              <span className="font-mono">L_m* ≈ 0.80</span> and the dynamics
+              <M>{String.raw`L_m`}</M> through the threshold{" "}
+              <M>{String.raw`L_m^* \approx 0.80`}</M> and the dynamics
               flip: above threshold, the labor input exactly counteracts the
               platform's pull and the gap stabilizes; well above it, the gap
               grows.
@@ -85,7 +86,7 @@ export default function MetricSuperegoPage() {
                 Mode B (Proposition 2)
               </a>
               : artisanal labor preserves a real gap{" "}
-              <span className="font-mono">γ &gt; 0</span> for the user who
+              <M>{String.raw`\gamma > 0`}</M> for the user who
               practices it. But the closure persists — Lemma 1's bound is
               unchanged; the trajectory the user maintains is parallel to the
               loop, not a modification of it. The framework's claim is that

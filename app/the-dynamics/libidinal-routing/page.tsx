@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { LibidinalRouting } from "@/components/visualizations/LibidinalRouting";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "libidinal routing — The Closed-Loop Libidinal Economy",
@@ -51,12 +52,12 @@ export default function LibidinalRoutingPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             The structural claim, stated as the libidinal routing instrument:{" "}
-            <span className="font-mono">I_π(u^i; u^j) ≫ I_◦(u^i; u^j)</span> for
-            all <span className="font-mono">i ≠ j</span>. Under the platform's
+            <M>{String.raw`I_\pi(u^i; u^j) \gg I_\circ(u^i; u^j)`}</M> for
+            all <M>{String.raw`i \neq j`}</M>. Under the platform's
             stationary distribution, the registers are far more mutually
             informative than they were under the pre-closure regime. From this
             the <em>dividual condition</em> follows:{" "}
-            <span className="font-mono">H(u | y_{`{1:t}`}) → 0</span> — the
+            <M>{String.raw`H(u \mid y_{1:t}) \to 0`}</M> — the
             platform's posterior over the user's full state converges (in
             entropy) to a point mass as the engagement history accumulates.
           </p>

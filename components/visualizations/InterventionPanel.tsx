@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * The three modes of intervention — Mode A (architectural),
@@ -37,13 +38,13 @@ export function InterventionPanel() {
             statusActive={modeAActive}
             description={
               <>
-                Augment <span className="font-mono">R̂</span> with a bonus on
-                long ISIs: <span className="font-mono">R̂' = R̂ + β · Σ_k b(τ^(k))</span>.
+                Augment <M>{String.raw`\hat{R}`}</M> with a bonus on
+                long ISIs: <M>{String.raw`\hat{R}' = \hat{R} + \beta \cdot \sum_k b(\tau^{(k)})`}</M>.
                 The only mode that breaks the foreclosure. Operates on{" "}
-                <span className="font-mono">T_mix(π')</span>.
+                <M>{String.raw`T_{\mathrm{mix}}(\pi')`}</M>.
               </>
             }
-            knobLabel={<><span className="font-mono">β</span> <span className="text-ink-50">regularization</span></>}
+            knobLabel={<><M>{String.raw`\beta`}</M> <span className="text-ink-50">regularization</span></>}
             knobValue={beta}
             knobMin={0}
             knobMax={1.2}
@@ -51,8 +52,11 @@ export function InterventionPanel() {
             onKnobChange={setBeta}
             footer={
               <>
-                <span className="text-ink-50">Prop. 1:</span> P(β) continuous,
-                P(0) ≈ 0, sup P(β) &gt; 0 ⇒ IVT recovers any ε ∈ (0, ε_max).
+                <span className="text-ink-50">Prop. 1:</span>{" "}
+                <M>{String.raw`P(\beta)`}</M> continuous,{" "}
+                <M>{String.raw`P(0) \approx 0`}</M>,{" "}
+                <M>{String.raw`\sup P(\beta) > 0`}</M> ⇒ IVT recovers any{" "}
+                <M>{String.raw`\epsilon \in (0, \epsilon_{\max})`}</M>.
               </>
             }
           />
@@ -63,22 +67,22 @@ export function InterventionPanel() {
             title="Artisanal"
             status={
               modeBPreservesGap
-                ? "Mode B holds D_KL > 0"
+                ? <>Mode B holds <M>{String.raw`D_{\mathrm{KL}} > 0`}</M></>
                 : Lm > 0
-                  ? "L_m < L_m* — gap collapses"
+                  ? <><M>{String.raw`L_m < L_m^*`}</M> — gap collapses</>
                   : "Lemma 1 unchanged"
             }
             statusActive={modeBPreservesGap}
             description={
               <>
-                Maintenance labor <span className="font-mono">L_m</span> against
+                Maintenance labor <M>{String.raw`L_m`}</M> against
                 the platform's pull. Preserves a positive{" "}
-                <span className="font-mono">D_KL(ν_u ‖ π_R̂)</span> iff{" "}
-                <span className="font-mono">L_m ≥ L_m*</span>. Does not modify
+                <M>{String.raw`D_{\mathrm{KL}}(\nu_u \,\|\, \pi_{\hat{R}})`}</M> iff{" "}
+                <M>{String.raw`L_m \ge L_m^*`}</M>. Does not modify
                 the policy.
               </>
             }
-            knobLabel={<><span className="font-mono">L_m</span> <span className="text-ink-50">labor</span></>}
+            knobLabel={<><M>{String.raw`L_m`}</M> <span className="text-ink-50">labor</span></>}
             knobValue={Lm}
             knobMin={0}
             knobMax={2.0}
@@ -86,8 +90,9 @@ export function InterventionPanel() {
             onKnobChange={setLm}
             footer={
               <>
-                <span className="text-ink-50">Prop. 2:</span> dD_KL/dt = −h_0(β_u)
-                + r(L_m). L_m* = r⁻¹(h_0) ≈ {LM_STAR.toFixed(2)}.
+                <span className="text-ink-50">Prop. 2:</span>{" "}
+                <M>{String.raw`dD_{\mathrm{KL}}/dt = -h_0(\beta_u) + r(L_m)`}</M>.{" "}
+                <M>{String.raw`L_m^* = r^{-1}(h_0)`}</M> ≈ {LM_STAR.toFixed(2)}.
               </>
             }
           />
@@ -98,19 +103,19 @@ export function InterventionPanel() {
             title="Disruption-as-form"
             status={
               modeCActive
-                ? "bounds Σ(T) strictly below sup"
+                ? <>bounds <M>{String.raw`\Sigma(T)`}</M> strictly below sup</>
                 : "Lemma 1 unchanged"
             }
             statusActive={modeCActive}
             description={
               <>
-                Inflate <span className="font-mono">Var(η_t)</span> by refusing
+                Inflate <M>{String.raw`\mathrm{Var}(\eta_t)`}</M> by refusing
                 legibility. By Blackwell sufficiency,{" "}
-                <span className="font-mono">sup_π E[R̂]</span> falls;{" "}
-                <span className="font-mono">H_res &gt; 0</span> is held.
+                <M>{String.raw`\sup_\pi \mathbb{E}[\hat{R}]`}</M> falls;{" "}
+                <M>{String.raw`H_{\mathrm{res}} > 0`}</M> is held.
               </>
             }
-            knobLabel={<><span className="font-mono">σ_η^+</span> <span className="text-ink-50">added noise</span></>}
+            knobLabel={<><M>{String.raw`\sigma_\eta^+`}</M> <span className="text-ink-50">added noise</span></>}
             knobValue={sigmaC}
             knobMin={0}
             knobMax={0.6}
@@ -135,8 +140,8 @@ export function InterventionPanel() {
             </span>
           </p>
           <p className="mt-xs text-ink-50 italic font-serif">
-            Mode B preserves a parallel structure (D_KL), Mode C bounds the
-            extracted surplus — neither breaks Lemma 1. Only Mode A reaches
+            Mode B preserves a parallel structure (<M>{String.raw`D_{\mathrm{KL}}`}</M>),
+            Mode C bounds the extracted surplus — neither breaks Lemma 1. Only Mode A reaches
             the foreclosure node of the proof chain.
           </p>
         </div>
@@ -171,7 +176,7 @@ function ModeCard({
 }: {
   badge: string;
   title: string;
-  status: string;
+  status: React.ReactNode;
   statusActive: boolean;
   description: React.ReactNode;
   knobLabel: React.ReactNode;

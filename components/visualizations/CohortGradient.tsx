@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Cohort gradient — the framework's most direct empirical prediction.
@@ -335,13 +336,13 @@ export function CohortGradient() {
         <span className="font-mono text-xs text-oxblood">Prediction.</span>{" "}
         The framework predicts conditional autocovariance at reflective lags
         is moderated by developmental cohort: earlier age-of-first-exposure
-        produces lower <span className="font-mono">I(τ)</span> even after
+        produces lower <M>{String.raw`I(\tau)`}</M> even after
         controlling for total exposure. The solid black curve is the
         prediction; the shaded band is the framework's hedge on magnitude;
         the oxblood dashed line is the falsification threshold. The three
         dotted curves show what confirming, null, and disconfirming data
         would look like. Hover a cohort age to see the exact predicted{" "}
-        <span className="font-mono">I(60s)</span> value.
+        <M>{String.raw`I(60\text{s})`}</M> value.
       </figcaption>
     </figure>
   );

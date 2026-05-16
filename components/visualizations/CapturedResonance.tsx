@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Captured resonance — Kuramoto phase coupling between the body (φ_b)
@@ -222,7 +223,7 @@ export function CapturedResonance() {
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">§3.6.</span> Body phase
         (ink) and medium-delivery phase (oxblood) on a single dial. Below the
-        lock condition <span className="font-mono">K_bm &gt; |ω_b − ω_m|</span>{" "}
+        lock condition <M>{String.raw`K_{bm} > |\omega_b - \omega_m|`}</M>{" "}
         the vectors drift apart; above it the body becomes a forced oscillator
         and the angular gap Δφ collapses to a constant. Set K_bm at threshold
         (≈ {DETUNING.toFixed(3)}) to watch the bifurcation directly.

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 interface OptionT<T> {
   value: T;
@@ -61,7 +62,7 @@ function Picker<T>({
   onChange,
   unit,
 }: {
-  label: string;
+  label: React.ReactNode;
   options: OptionT<T>[];
   value: T;
   onChange: (v: T) => void;
@@ -69,7 +70,7 @@ function Picker<T>({
 }) {
   const current = options.find((o) => o.value === value);
   return (
-    <label className="inline-flex items-baseline gap-x-xs font-mono text-md text-ink-90">
+    <label className="inline-flex items-baseline gap-x-xs text-md text-ink-90">
       <span className="text-ink-70">{label} =</span>
       <select
         value={String(value)}
@@ -111,28 +112,32 @@ export function ForeclosureClock() {
         {/* Top layer — parameters */}
         <div className="flex flex-wrap items-baseline gap-x-md gap-y-sm">
           <Picker
-            label="θ_ref"
+            label={<M>{String.raw`\theta_{\mathrm{ref}}`}</M>}
             options={THETA_REF_OPTIONS}
             value={thetaRef}
             onChange={setThetaRef}
           />
           <Picker
-            label="δ_min"
+            label={<M>{String.raw`\delta_{\min}`}</M>}
             options={DELTA_MIN_OPTIONS}
             value={deltaMin}
             onChange={setDeltaMin}
           />
         </div>
 
-        <div className="font-mono text-sm text-ink-70 mt-sm space-y-xs">
+        <div className="text-sm text-ink-70 mt-sm space-y-xs">
           <p>
-            ratio θ_ref / δ_min = <span className="text-ink-90">{formatRatio(ratio)}</span>
+            <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min}`}</M>{" "}
+            = <span className="text-ink-90 font-mono">{formatRatio(ratio)}</span>
           </p>
           <p>
-            S(θ_ref; θ*) ≤ C(c_v) · e^(−{formatRatio(ratio)}){" "}
-            <span className="text-ink-50">
-              (≈ 10^{Math.round(boundMag).toLocaleString("en-US")})
-            </span>
+            <M>
+              {String.raw`S(\theta_{\mathrm{ref}};\, \theta^*) \le C(c_v)\, e^{-` +
+                formatRatio(ratio) +
+                String.raw`} \approx 10^{` +
+                Math.round(boundMag).toLocaleString("en-US") +
+                String.raw`}`}
+            </M>
           </p>
         </div>
 
@@ -142,18 +147,23 @@ export function ForeclosureClock() {
             <ComparisonBar
               label="the foreclosure bound"
               labelClass="text-oxblood"
-              magnitude={boundMag}
               widthPx={boundWidthPx}
               barClass="bg-oxblood"
-              annotation={`10^${formatRatio(Math.round(boundMag))}`}
+              annotation={
+                <M>{String.raw`10^{${Math.round(boundMag).toLocaleString("en-US")}}`}</M>
+              }
             />
             <ComparisonBar
               label={reference.label}
               labelClass="text-ink-90"
-              magnitude={reference.magnitude}
               widthPx={referenceWidthPx}
               barClass="bg-ink-90"
-              annotation={`10^${reference.magnitude} ${reference.unit}`}
+              annotation={
+                <>
+                  <M>{String.raw`10^{${reference.magnitude}}`}</M>
+                  <span className="font-mono ml-xs">{reference.unit}</span>
+                </>
+              }
             />
           </div>
 
@@ -179,14 +189,14 @@ export function ForeclosureClock() {
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">Lemma 1.</span> Under
         Assumptions (A1)–(A6), the survival function of the inter-stimulus
-        interval at the converged policy θ* satisfies{" "}
-        <span className="font-mono">S(θ_ref; θ*) ≤ C(c_v) · e^(−θ_ref/δ_min)</span>.
+        interval at the converged policy <M>{String.raw`\theta^*`}</M> satisfies{" "}
+        <M>{String.raw`S(\theta_{\mathrm{ref}};\, \theta^*) \le C(c_v)\, \exp(-\theta_{\mathrm{ref}}/\delta_{\min})`}</M>.
         At realistic parameter values — a reflective threshold of seconds to
-        minutes, a tick rate of milliseconds to sub-second — the exponent
-        θ_ref/δ_min is on the order of <span className="font-mono">10^3</span>{" "}
-        to <span className="font-mono">10^5</span>, so the bound is on the
-        order of <span className="font-mono">e^(−1000)</span> to{" "}
-        <span className="font-mono">e^(−100,000)</span>: mathematically positive,
+        minutes, a tick rate of milliseconds to sub-second — the exponent{" "}
+        <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min}`}</M> is on the order of{" "}
+        <M>{String.raw`10^{3}`}</M> to <M>{String.raw`10^{5}`}</M>, so the bound is on the
+        order of <M>{String.raw`e^{-1000}`}</M> to{" "}
+        <M>{String.raw`e^{-100{,}000}`}</M>: mathematically positive,
         operationally indistinguishable from zero.
       </figcaption>
     </figure>
@@ -196,17 +206,15 @@ export function ForeclosureClock() {
 function ComparisonBar({
   label,
   labelClass,
-  magnitude,
   widthPx,
   barClass,
   annotation,
 }: {
   label: string;
   labelClass: string;
-  magnitude: number;
   widthPx: number;
   barClass: string;
-  annotation: string;
+  annotation: React.ReactNode;
 }) {
   return (
     <div>
@@ -216,9 +224,9 @@ function ComparisonBar({
           className={`${barClass} transition-all duration-200`}
           style={{ width: `${widthPx}px`, height: `${BAR_HEIGHT}px` }}
           role="img"
-          aria-label={`bar of ${widthPx} pixels representing ${annotation}`}
+          aria-label={`bar of ${widthPx} pixels`}
         />
-        <span className="font-mono text-xs text-ink-50">{annotation}</span>
+        <span className="text-xs text-ink-50">{annotation}</span>
       </div>
     </div>
   );

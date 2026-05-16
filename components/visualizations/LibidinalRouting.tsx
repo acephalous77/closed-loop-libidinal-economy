@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Libidinal routing — mutual information across the four registers
@@ -161,9 +162,9 @@ export function LibidinalRouting() {
         addressed through distinct apparatuses (school, parliament, church,
         marketplace) with their own evaluation criteria. Under the closed loop
         they collapse onto a single delivery surface. Off-diagonal entries
-        I(u^i; u^j) measure how much knowing one register tells the platform
+        <M>{String.raw`I(u^i; u^j)`}</M> measure how much knowing one register tells the platform
         about the other. Switch from baseline to converged: the off-diagonals
-        fill in. The dividual condition H(u | y_1:t) → 0 follows: the
+        fill in. The dividual condition <M>{String.raw`H(u \mid y_{1:t}) \to 0`}</M> follows: the
         platform's posterior over the user's full state converges to a point.
       </figcaption>
     </figure>

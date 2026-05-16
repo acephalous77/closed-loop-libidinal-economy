@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Metric superego — D_KL(ν_u ‖ π_R̂) trajectory.
@@ -223,12 +224,12 @@ export function MetricSuperego() {
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">§3.4.</span> The
         divergence{" "}
-        <span className="font-mono">D_KL(ν_u ‖ π_R̂)</span> measures the gap
+        <M>{String.raw`D_{\mathrm{KL}}(\nu_u \,\|\, \pi_{\hat{R}})`}</M> measures the gap
         between the user's self-evaluative distribution and the platform's
         reward-induced distribution. Without maintenance labor it decays at
-        rate <span className="font-mono">−h_0(β_u)</span>: the user's image of
+        rate <M>{String.raw`-h_0(\beta_u)`}</M>: the user's image of
         what is valuable converges to the platform's. With labor at the
-        threshold <span className="font-mono">L_m* = h_0/c_op</span>, the
+        threshold <M>{String.raw`L_m^* = h_0/c_{\mathrm{op}}`}</M>, the
         decay is exactly counteracted; above it, the gap grows. Proposition 2
         in §5.2 establishes this; the trajectory above is its time evolution.
       </figcaption>

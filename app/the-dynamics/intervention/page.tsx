@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { InterventionPanel } from "@/components/visualizations/InterventionPanel";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "the three modes — The Closed-Loop Libidinal Economy",
@@ -56,14 +57,14 @@ export default function InterventionPage() {
               href="/the-dynamics/metric-superego"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
-              D_KL
+              <M>{String.raw`D_{\mathrm{KL}}`}</M>
             </a>{" "}
             and{" "}
             <a
               href="/the-dynamics/surplus"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
-              Σ(T)
+              <M>{String.raw`\Sigma(T)`}</M>
             </a>{" "}
             respectively — which the proof of Theorem 1 does not depend on.
             Substituting one mode for another is substituting an intervention
@@ -76,20 +77,20 @@ export default function InterventionPage() {
             <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               The status line at the top of each mode card is the formal
-              claim. Sweep <span className="font-mono">β</span> in Mode A above
+              claim. Sweep <M>{String.raw`\beta`}</M> in Mode A above
               the threshold and the status flips from "Lemma 1 holds" to
               "breaks Lemma 1" in oxblood; the summary at the bottom updates.
-              Sweep <span className="font-mono">L_m</span> in Mode B and the
+              Sweep <M>{String.raw`L_m`}</M> in Mode B and the
               status flips at the threshold{" "}
-              <span className="font-mono">L_m* ≈ 0.80</span>, but the Lemma 1
+              <M>{String.raw`L_m^* \approx 0.80`}</M>, but the Lemma 1
               status at the bottom does not change. Sweep{" "}
-              <span className="font-mono">σ_η^+</span> in Mode C and
-              the status notes "bounds Σ(T) strictly below sup", again without
+              <M>{String.raw`\sigma_\eta^+`}</M> in Mode C and
+              the status notes "bounds <M>{String.raw`\Sigma(T)`}</M> strictly below sup", again without
               touching Lemma 1.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               The three modes operate on three distinct timescales — Mode A on{" "}
-              <span className="font-mono">T_mix(π')</span> (months to years),
+              <M>{String.raw`T_{\mathrm{mix}}(\pi')`}</M> (months to years),
               Mode B on the user's metabolic cycle (daily to weekly), Mode C
               per-event (compounding through the user's exposure horizon).
               They do not exchange. There is no rate at which Mode B

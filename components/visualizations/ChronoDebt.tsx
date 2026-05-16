@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Chrono-debt spectrum — D(t,τ) = Λ_◦(τ) − Λ(t,τ).
@@ -288,14 +289,14 @@ export function ChronoDebt() {
 
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">§3.2.</span>{" "}
-        <span className="font-mono">D(t,τ) = Λ_◦(τ) − Λ(t,τ)</span>. The realized
+        <M>{String.raw`D(t,\tau) = \Lambda_\circ(\tau) - \Lambda(t,\tau)`}</M>. The realized
         survival under the closed loop falls fast; the baseline falls slowly.
         The vertical gap between them at any τ is the chrono-debt at scale τ —
         the pause-time that has been foreclosed at that scale. The framework's
         observation is that D is non-zero across the entire τ axis
         simultaneously: not localized at one preferred scale but accumulated
         everywhere, weighted by{" "}
-        <span className="font-mono">w(τ) ∝ τ</span> so that longer foreclosed
+        <M>{String.raw`w(\tau) \propto \tau`}</M> so that longer foreclosed
         windows count more. A foreclosed second is recoverable; a foreclosed
         adolescence is not.
       </figcaption>

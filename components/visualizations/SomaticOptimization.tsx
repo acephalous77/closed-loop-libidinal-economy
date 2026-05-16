@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Somatic optimization — the body as the differential of the marked
@@ -148,7 +149,7 @@ export function SomaticOptimization() {
           }}
         >
           <Lane
-            label={<span><b>s_t</b> stimuli</span>}
+            label={<span><M>{String.raw`s_t`}</M> stimuli</span>}
             events={stimEvents}
             cls="stim"
           />
@@ -157,7 +158,7 @@ export function SomaticOptimization() {
               key={reg.id}
               label={
                 <span>
-                  dN^{reg.id.toLowerCase()}_t · <b>{reg.label}</b>
+                  <M>{String.raw`dN^${reg.id.toLowerCase()}_t`}</M> · <b>{reg.label}</b>
                 </span>
               }
               events={eventsByReg[reg.id]}
@@ -186,11 +187,11 @@ export function SomaticOptimization() {
 
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">§3.5.</span> Stimulus
-        events <span className="font-mono">s_t</span> at the top, per-register
-        engagement events <span className="font-mono">dN^i_t</span>{" "}
+        events <M>{String.raw`s_t`}</M> at the top, per-register
+        engagement events <M>{String.raw`dN^i_t`}</M>{" "}
         below. Each tick is a marked point process: the differential of the
         body — saccades, taps, scroll-events, gaze shifts — under Hawkes
-        intensity <span className="font-mono">λ^i(t) = λ_0^i + Σ_j α_ij ∫ κ(t−s) dN_s^j</span>.
+        intensity <M>{String.raw`\lambda^i(t) = \lambda_0^i + \sum_j \alpha_{ij} \int \kappa(t-s)\, dN_s^j`}</M>.
         The optimization is over these somatic micro-events, not over
         deliberative choice. Under the converged policy the raster
         concentrates near the technical floor; under Mode A intervention it

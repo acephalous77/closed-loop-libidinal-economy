@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { LoopDiagram } from "@/components/visualizations/LoopDiagram";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "the closed loop — The Closed-Loop Libidinal Economy",
@@ -34,15 +35,15 @@ export default function ClosedLoopPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             The framework's foundational structure. Four nodes — user state
-            <span className="font-mono"> u_t</span>, engagement signal
-            <span className="font-mono"> y_t</span>, policy
-            <span className="font-mono"> π</span>, stimulus
-            <span className="font-mono"> s_t</span> — connected by four edges
+            {" "}<M>{String.raw`u_t`}</M>, engagement signal
+            {" "}<M>{String.raw`y_t`}</M>, policy
+            {" "}<M>{String.raw`\pi`}</M>, stimulus
+            {" "}<M>{String.raw`s_t`}</M> — connected by four edges
             corresponding to equations (1)–(4) of the formal exposition. The
             contour is closed by construction: every stimulus the user receives
             is shaped, recursively, by the policy's prior shaping of the user.
             The exogenous channel{" "}
-            <span className="font-mono">e_t ≡ 0</span> from{" "}
+            <M>{String.raw`e_t \equiv 0`}</M> from{" "}
             <a
               href="/the-mathematics#1-the-closed-loop-dynamics"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
@@ -69,7 +70,7 @@ export default function ClosedLoopPage() {
               The pulse cycles through the four loop equations in order. The
               edge in oxblood is the one currently firing. There is no inlet to
               the contour; the only marker outside is the foreclosed exogenous
-              channel <span className="font-mono">e_t ≡ 0</span>.
+              channel <M>{String.raw`e_t \equiv 0`}</M>.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               This is the architecture from which everything else descends. The

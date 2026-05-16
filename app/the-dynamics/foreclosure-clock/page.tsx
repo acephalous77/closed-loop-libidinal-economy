@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { ForeclosureClock } from "@/components/visualizations/ForeclosureClock";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "foreclosure clock — The Closed-Loop Libidinal Economy",
@@ -40,9 +41,9 @@ export default function ForeclosureClockPage() {
               Lemma 1 (foreclosure of the no-input window)
             </a>{" "}
             establishes that the survival function of the inter-stimulus interval at the
-            converged policy θ* satisfies{" "}
-            <span className="font-mono">S(θ_ref; θ*) ≤ C(c_v) · e^(−θ_ref/δ_min)</span>{" "}
-            (Asmussen, Ch. V). The exponent θ_ref / δ_min is on the order of a thousand
+            converged policy <M>{String.raw`\theta^*`}</M> satisfies{" "}
+            <M>{String.raw`S(\theta_{\mathrm{ref}};\, \theta^*) \le C(c_v)\, \exp(-\theta_{\mathrm{ref}}/\delta_{\min})`}</M>{" "}
+            (Asmussen, Ch. V). The exponent <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min}`}</M> is on the order of a thousand
             to a hundred thousand for realistic platforms. The bound is therefore
             mathematically positive but operationally indistinguishable from zero. The
             visualization renders this fact as a length comparison: the bound is smaller
@@ -54,7 +55,7 @@ export default function ForeclosureClockPage() {
           <section className="mt-lg max-w-[var(--measure)]">
             <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              Switch δ_min between 1ms and 1s. At 1s, the bound has visible length — the
+              Switch <M>{String.raw`\delta_{\min}`}</M> between 1ms and 1s. At 1s, the bound has visible length — the
               "closure" doesn't yet hold. At 10ms (the realistic tick rate for engagement
               platforms), the bound collapses to invisibility against every physical
               reference. There is no physical scale at which the bound is meaningfully
