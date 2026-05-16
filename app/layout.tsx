@@ -35,7 +35,7 @@ const garamondMath = localFont({
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://autostimulus.org";
+  "https://www.autostimulus.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

@@ -2,11 +2,28 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { M } from "@/components/ui/Math";
 import { InstrumentsConstellation } from "@/components/dynamics/InstrumentsConstellation";
+import { JsonLd, itemListJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
+
+const PATH = "/the-dynamics";
+const TITLE = "the dynamics";
+const DESCRIPTION =
+  "Five composite plates, nine mechanism dimensions, and two standalone instruments — the closed-loop dynamics made operable. Includes the foreclosure clock, reclamation trajectories, mode-space, cohort gradient, and a TikTok worked example, plus the live simulator and relational atlas.";
 
 export const metadata: Metadata = {
-  title: "the dynamics — The Closed-Loop Libidinal Economy",
-  description:
-    "Five composite plates and nine isolated mechanism dimensions of the closed-loop dynamics, plus the live simulator and relational atlas.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: "website",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: PATH,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 interface Plate {
@@ -143,6 +160,26 @@ const PLATES: Plate[] = [
 export default function TheDynamicsPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd
+        data={[
+          itemListJsonLd("The Dynamics — five composite plates", PLATES.map((p) => ({
+            name: p.title,
+            url: `/the-dynamics/${p.slug}`,
+            description: typeof p.description === "string" ? p.description : undefined,
+          }))),
+          itemListJsonLd("The Six Instruments", MECHANISMS.filter((m) =>
+            ["closed-loop", "captured-resonance", "chrono-debt", "libidinal-routing", "somatic-optimization", "surplus", "metric-superego"].includes(m.slug)
+          ).map((m) => ({
+            name: m.title,
+            url: `/the-dynamics/${m.slug}`,
+            description: typeof m.description === "string" ? m.description : undefined,
+          }))),
+          breadcrumbJsonLd([
+            { label: "the closed-loop libidinal economy", href: "/" },
+            { label: "the dynamics", href: PATH },
+          ]),
+        ]}
+      />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb

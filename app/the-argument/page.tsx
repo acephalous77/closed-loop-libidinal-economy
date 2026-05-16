@@ -2,16 +2,46 @@ import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PIECES } from "@/lib/argument-pieces";
 import { PiecesArc } from "@/components/argument/PiecesArc";
+import { JsonLd, itemListJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
+
+const PATH = "/the-argument";
+const TITLE = "the argument";
+const DESCRIPTION =
+  "Four prose pieces and a coda. The framework laid out in prose: what the loop forecloses, what democratic substrate it removes, the cohort it forms, the captive it produces — and the closing note on what this document is.";
 
 export const metadata: Metadata = {
-  title: "the argument — The Closed-Loop Libidinal Economy",
-  description:
-    "Four prose pieces and a coda. The framework laid out in prose: what the loop forecloses, what democratic substrate it removes, the cohort it forms, the captive it produces — and the closing note on what this document is.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: "website",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: PATH,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function TheArgumentIndexPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd
+        data={[
+          itemListJsonLd("The Argument — five pieces", PIECES.map((p) => ({
+            name: p.title,
+            url: `/the-argument/${p.slug}`,
+            description: p.teaser,
+          }))),
+          breadcrumbJsonLd([
+            { label: "the closed-loop libidinal economy", href: "/" },
+            { label: "the argument", href: PATH },
+          ]),
+        ]}
+      />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb

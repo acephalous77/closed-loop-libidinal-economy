@@ -1,8 +1,19 @@
 import { FrameworkOrientation } from "@/components/home/FrameworkOrientation";
+import { JsonLd, frameworkJsonLd, itemListJsonLd } from "@/lib/jsonld";
 
 export default function Cover() {
   return (
     <main className="min-h-screen flex flex-col">
+      <JsonLd
+        data={[
+          frameworkJsonLd(),
+          itemListJsonLd("Three paths through the material", [
+            { name: "the argument", url: "/the-argument", description: "four prose pieces and a coda" },
+            { name: "the mathematics", url: "/the-mathematics", description: "the formal apparatus" },
+            { name: "the dynamics", url: "/the-dynamics", description: "interactive plates and the live simulator" },
+          ]),
+        ]}
+      />
       <div className="flex-1 flex flex-col items-center px-sm pt-[6rem] pb-md">
         {/* Title — two lines, EB Garamond 3xl, lowercase per spec */}
         <h1 className="font-serif text-3xl text-ink leading-none tracking-tight text-center">

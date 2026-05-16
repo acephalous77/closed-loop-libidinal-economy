@@ -22,7 +22,7 @@ export function JsonLd({ data }: JsonLdProps) {
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://autostimulus.org";
+  "https://www.autostimulus.org";
 
 const AUTHOR = {
   "@type": "Person",
@@ -68,6 +68,14 @@ interface ArticleArgs {
   scholarly?: boolean;
   /** Optional URL of the OG image. Auto-derived from the path if absent. */
   image?: string;
+  /** Approximate word count; signals content depth to crawlers. */
+  wordCount?: number;
+  /** Article section label (e.g. "Mathematics", "Essay"). */
+  articleSection?: string;
+  /** Keywords / subject tags. */
+  keywords?: string[];
+  /** Estimated reading time in minutes. */
+  timeRequired?: number;
 }
 
 /** Article (or ScholarlyArticle) schema for long-form pages. */
@@ -80,6 +88,10 @@ export function articleJsonLd(args: ArticleArgs) {
     dateModified,
     scholarly = false,
     image,
+    wordCount,
+    articleSection,
+    keywords,
+    timeRequired,
   } = args;
   const url = `${SITE_URL}${path}`;
   const ogImage = image || `${SITE_URL}${path}/opengraph-image`;
@@ -98,6 +110,71 @@ export function articleJsonLd(args: ArticleArgs) {
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     inLanguage: "en",
     license: "https://creativecommons.org/licenses/by-sa/4.0/",
+    isAccessibleForFree: true,
+    ...(wordCount ? { wordCount } : {}),
+    ...(articleSection ? { articleSection } : {}),
+    ...(keywords && keywords.length ? { keywords: keywords.join(", ") } : {}),
+    ...(timeRequired ? { timeRequired: `PT${timeRequired}M` } : {}),
+  };
+}
+
+interface ItemListEntry {
+  name: string;
+  url: string;
+  description?: string;
+}
+
+/** ItemList schema — for index pages like reading-list, open-questions. */
+export function itemListJsonLd(name: string, items: ItemListEntry[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: item.url.startsWith("http") ? item.url : `${SITE_URL}${item.url}`,
+      ...(item.description ? { description: item.description } : {}),
+    })),
+  };
+}
+
+/** CreativeWork schema for the framework as a whole (homepage). */
+export function frameworkJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: "The Closed-Loop Libidinal Economy",
+    alternateName: "Closed-Loop Libidinal Economy Framework",
+    description:
+      "A formal framework for the dynamics of attention under platform capture, comprising a mathematical exposition with explicit lemmas and theorems, four prose essays, and a set of interactive visualizations.",
+    url: SITE_URL,
+    author: AUTHOR,
+    publisher: PUBLISHER,
+    inLanguage: "en",
+    license: "https://creativecommons.org/licenses/by-sa/4.0/",
+    datePublished: "2026-05-15",
+    keywords: [
+      "libidinal economy",
+      "platform capitalism",
+      "attention economy",
+      "closed-loop dynamics",
+      "Hawkes process",
+      "Kuramoto coupling",
+      "foreclosure lemma",
+      "reclamation theorem",
+      "metric superego",
+      "cohort gradient",
+    ].join(", "),
+    hasPart: [
+      { "@type": "ScholarlyArticle", name: "The Mathematics", url: `${SITE_URL}/the-mathematics` },
+      { "@type": "Article", name: "The Argument", url: `${SITE_URL}/the-argument` },
+      { "@type": "CollectionPage", name: "The Dynamics", url: `${SITE_URL}/the-dynamics` },
+      { "@type": "Article", name: "Reading List", url: `${SITE_URL}/reading-list` },
+      { "@type": "Article", name: "Open Questions", url: `${SITE_URL}/open-questions` },
+    ],
   };
 }
 

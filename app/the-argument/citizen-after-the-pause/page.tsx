@@ -60,6 +60,10 @@ export default function EssayPage() {
             description: DESCRIPTION,
             path: PATH,
             scholarly: true,
+            wordCount: 3869,
+            timeRequired: 19,
+            articleSection: 'Essay · Democratic Substrate',
+            keywords: 'libidinal economy, attention economy, platform capitalism, closed-loop dynamics, metric superego, cohort gradient, foreclosure lemma'.split(", "),
           }),
           breadcrumbJsonLd([
             { label: "the closed-loop libidinal economy", href: "/" },
