@@ -9,9 +9,9 @@ The exposition proceeds from foundations outward. First, the six equations that 
 
 ## §1. The closed-loop dynamics
 
-Let *t ∈ [0, ∞)* denote continuous time, with the platform observing and acting at discrete tick boundaries separated by *δ<sub>min</sub> > 0* — the minimum technical inter-stimulus latency. State, observation, and policy variables are piecewise-constant between ticks, with updates happening at tick boundaries. The marked point process of engagement events is supported on the tick grid. This multiscale structure — continuous time for the marked point process, discrete tick boundaries for the dynamics — is implicit in all equations below; specifically, the difference equation in (1) is shorthand for *u<sub>(k+1)δ<sub>min</sub></sub> = f(u<sub>kδ<sub>min</sub></sub>, s<sub>kδ<sub>min</sub></sub>) + ξ<sub>k</sub>*, and the integral in (5) is well-defined as a sum over events at tick boundaries.
+Let $t \in [0, \infty)$ denote continuous time, with the platform observing and acting at discrete tick boundaries separated by $\delta_{\min} > 0$ — the minimum technical inter-stimulus latency. State, observation, and policy variables are piecewise-constant between ticks, with updates happening at tick boundaries. The marked point process of engagement events is supported on the tick grid. This multiscale structure — continuous time for the marked point process, discrete tick boundaries for the dynamics — is implicit in all equations below; specifically, the difference equation in (1) is shorthand for $u_{(k+1)\delta_{\min}} = f(u_{k\delta_{\min}}, s_{k\delta_{\min}}) + \xi_{k}$, and the integral in (5) is well-defined as a sum over events at tick boundaries.
 
-The user state at time *t* is a vector *u<sub>t</sub>* in a state space *U*, decomposed into four registers:
+The user state at time *t* is a vector $u_{t}$ in a state space *U*, decomposed into four registers:
 
 
 $$
@@ -28,7 +28,7 @@ u_{t+1} = f(u_t,\, s_t) + \xi_t
 $$
 
 
-where *s<sub>t</sub>* is the stimulus delivered to the user at time *t*, *f* is the user's response dynamics (which may be nonlinear, register-coupled, and partially unknown to the user), and *ξ<sub>t</sub>* is process noise representing the residual variability not captured by the deterministic response — what the framework calls the leak channel, since it is the only stochastic admission of anything outside the loop.
+where $s_{t}$ is the stimulus delivered to the user at time *t*, *f* is the user's response dynamics (which may be nonlinear, register-coupled, and partially unknown to the user), and $\xi_{t}$ is process noise representing the residual variability not captured by the deterministic response — what the framework calls the leak channel, since it is the only stochastic admission of anything outside the loop.
 
 **(2) Engagement signal.**
 
@@ -37,7 +37,7 @@ y_t = g(u_t) + \eta_t
 $$
 
 
-The platform does not observe *u<sub>t</sub>* directly. It observes an engagement signal *y<sub>t</sub>* — a tuple of measurable behavioral outputs (taps, scrolls, watch-time, gaze, transaction events) — produced by an observation function *g* that compresses the high-dimensional internal state into a low-dimensional behavioral projection, with measurement noise *η<sub>t</sub>*. The compression is irreversible: distinct internal states can produce identical *y<sub>t</sub>*. This irreversibility is not a bug; it is the precondition for the platform's optimization.
+The platform does not observe $u_{t}$ directly. It observes an engagement signal $y_{t}$ — a tuple of measurable behavioral outputs (taps, scrolls, watch-time, gaze, transaction events) — produced by an observation function *g* that compresses the high-dimensional internal state into a low-dimensional behavioral projection, with measurement noise $\eta_{t}$. The compression is irreversible: distinct internal states can produce identical $y_{t}$. This irreversibility is not a bug; it is the precondition for the platform's optimization.
 
 **(3) Delivery policy.**
 
@@ -46,7 +46,7 @@ s_t = \pi(y_{1:t};\, \theta_t)
 $$
 
 
-The stimulus *s<sub>t</sub>* is chosen by a policy *π* parameterized by *θ<sub>t</sub>* (the predictive parameters maintained by the platform). The policy can depend only on the history *y<sub>1:t</sub>* of engagement observations, since by (2) the platform has no direct access to *u<sub>t</sub>*. The policy implicitly maintains a belief state *b<sub>t</sub>(·) := p(u<sub>t</sub> | y<sub>1:t</sub>; θ<sub>t</sub>)* — the platform's posterior over the user's full state given the engagement history, updated by Bayes' rule under the observation model (2) — and selects *s<sub>t</sub>* to maximize an expected objective under that belief. The same object appears in §3.3 (dividual condition: *H(b<sub>t</sub>) → 0*) and §5.3 (Mode C: maintaining *H(b<sub>t</sub>) ≥ H<sub>res</sub> > 0*). Equation (3) is what makes the loop closed: *s<sub>t</sub>* depends on prior behavioral output, which depended on prior *s<sub>t-1</sub>*, recursively, with no exogenous input that the policy does not itself shape.
+The stimulus $s_{t}$ is chosen by a policy $\pi$ parameterized by $\theta_{t}$ (the predictive parameters maintained by the platform). The policy can depend only on the history $y_{1:t}$ of engagement observations, since by (2) the platform has no direct access to $u_{t}$. The policy implicitly maintains a belief state $b_{t}(\cdot) := p(u_{t} | y_{1:t}; \theta_{t})$ — the platform's posterior over the user's full state given the engagement history, updated by Bayes' rule under the observation model (2) — and selects $s_{t}$ to maximize an expected objective under that belief. The same object appears in §3.3 (dividual condition: $H(b_{t}) \to 0$) and §5.3 (Mode C: maintaining $H(b_{t}) \ge H_{\mathrm{res}} > 0$). Equation (3) is what makes the loop closed: $s_{t}$ depends on prior behavioral output, which depended on prior $s_{t-1}$, recursively, with no exogenous input that the policy does not itself shape.
 
 **(4) Online learning.**
 
@@ -55,7 +55,7 @@ $$
 $$
 
 
-The predictive parameters evolve by stochastic gradient ascent on the expected platform reward *R̂*, with learning rate *α*. The hat denotes a stochastic estimator of the policy gradient — the most common in practice is the REINFORCE form *R̂(y<sub>t</sub>)·∇<sub>θ</sub>log π(s<sub>t</sub>|y<sub>1:t</sub>; θ<sub>t</sub>)*, but the framework's results hold for any unbiased estimator with bounded second moment. *R̂* is the empirical proxy for engagement that the platform actually optimizes (session length, revisit rate, ad impression value, retention curves); it is not a normative quantity. The framework does not assume any particular *R̂*; the results below hold under the structural condition (Assumption A2 in §1.5) that *R̂* is non-decreasing in the engagement-event count over the operating support of *π*.
+The predictive parameters evolve by stochastic gradient ascent on the expected platform reward $\hat{R}$, with learning rate $\alpha$. The hat denotes a stochastic estimator of the policy gradient — the most common in practice is the REINFORCE form $\hat{R}(y_{t})\cdot\nabla_{\theta}\mathrm{log} \pi(s_{t}|y_{1:t}; \theta_{t})$, but the framework's results hold for any unbiased estimator with bounded second moment. $\hat{R}$ is the empirical proxy for engagement that the platform actually optimizes (session length, revisit rate, ad impression value, retention curves); it is not a normative quantity. The framework does not assume any particular $\hat{R}$; the results below hold under the structural condition (Assumption A2 in §1.5) that $\hat{R}$ is non-decreasing in the engagement-event count over the operating support of $\pi$.
 
 **(5) Surplus extraction.**
 
@@ -64,7 +64,7 @@ $$
 $$
 
 
-The platform's accumulated yield over horizon *T* is given by a marked point process. *N<sub>t</sub><sup>i</sup>* is the counting process for engagement events marked with register *i* (a Citizen-marked event is a political-content tap; a Consumer-marked event is a transactional swipe; the marks are inferred from content metadata, not from the user). The extraction kernel *ρ<sub>i</sub>* is a predictable process — evaluated at the left limits *u<sub>t<sup>−</sup></sub>, y<sub>t<sup>−</sup></sub>* immediately before each jump — assumed measurable and bounded. Surplus splits per register:
+The platform's accumulated yield over horizon *T* is given by a marked point process. $N_{t}^{i}$ is the counting process for engagement events marked with register *i* (a Citizen-marked event is a political-content tap; a Consumer-marked event is a transactional swipe; the marks are inferred from content metadata, not from the user). The extraction kernel $\rho_{i}$ is a predictable process — evaluated at the left limits $u_{t^{-}}, y_{t^{-}}$ immediately before each jump — assumed measurable and bounded. Surplus splits per register:
 
 
 $$
@@ -81,7 +81,7 @@ e_t \equiv 0
 $$
 
 
-The model has no exogenous input. The user's state evolution in (1) is driven entirely by the policy-shaped stimulus *s<sub>t</sub>* and the residual noise *ξ<sub>t</sub>*. Equation (6) is a *definitional* fact about the model's architecture — the loop is closed by construction. The substantive *propositional* claim, that the survival function of no-input windows under the policy's stationary behavior decays to zero on the relevant timescales, is not asserted here. It is derived from (1)–(5) as **Lemma 1** in §4 below.
+The model has no exogenous input. The user's state evolution in (1) is driven entirely by the policy-shaped stimulus $s_{t}$ and the residual noise $\xi_{t}$. Equation (6) is a *definitional* fact about the model's architecture — the loop is closed by construction. The substantive *propositional* claim, that the survival function of no-input windows under the policy's stationary behavior decays to zero on the relevant timescales, is not asserted here. It is derived from (1)–(5) as **Lemma 1** in §4 below.
 
 Equations (1)–(6) constitute the closed loop. They are not six separate claims. They are a single architecture, and every result in the framework descends from this architecture or makes structural conditions on it. The architecture is rendered as a directed graph at [/the-dynamics/closed-loop](/the-dynamics/closed-loop).
 
@@ -91,9 +91,9 @@ Equations (1)–(6) constitute the closed loop. They are not six separate claims
 
 The framework's results depend on six regularity assumptions. They are stated here explicitly so that what is foundational is separated from what is derivable, and so that the falsifiability conditions are formally identifiable.
 
-**(A1) Measurability and integrability.** The response dynamics *f : U × S → U* and the observation function *g : U → Y* are measurable. The noise processes *ξ<sub>t</sub>* and *η<sub>t</sub>* are independent, mean-zero, with bounded variance, and independent of *u<sub>0</sub>*. The kernels *ρ<sub>i</sub>* are predictable, measurable, and bounded. Additionally — and separately, since this is a property of the arrival distribution rather than of the reward kernels — the engagement-event point process *N<sub>t</sub>* has bounded coefficient of variation on the operating support of *π* (the inter-arrival distribution has finite second moment relative to its mean), which is what the renewal-theoretic bound in Lemma 1 requires.
+**(A1) Measurability and integrability.** The response dynamics $f : U × S \to U$ and the observation function $g : U \to Y$ are measurable. The noise processes $\xi_{t}$ and $\eta_{t}$ are independent, mean-zero, with bounded variance, and independent of $u_{0}$. The kernels $\rho_{i}$ are predictable, measurable, and bounded. Additionally — and separately, since this is a property of the arrival distribution rather than of the reward kernels — the engagement-event point process $N_{t}$ has bounded coefficient of variation on the operating support of $\pi$ (the inter-arrival distribution has finite second moment relative to its mean), which is what the renewal-theoretic bound in Lemma 1 requires.
 
-**(A2) Reward monotonicity on the operating support.** Let *Op(π) := supp(y<sub>1:T</sub>, N<sub>T</sub>) under π* denote the operating support of the policy. The reward functional *R̂* satisfies:
+**(A2) Reward monotonicity on the operating support.** Let $\mathrm{Op}(\pi) := \mathrm{supp}(y_{1:T}, N_{T}) \,\text{under}\, \pi$ denote the operating support of the policy. The reward functional $\hat{R}$ satisfies:
 
 
 $$
@@ -101,15 +101,15 @@ $$
 $$
 
 
-That is, *R̂* is non-decreasing in the engagement count conditional on the engagement profile, almost surely over the policy-induced distribution. The condition is empirically warranted for engagement-monetized platforms; it does not require global monotonicity (a platform can have saturation or burnout effects in extreme regimes), only monotonicity over the operating regime where the policy actually places its mass.
+That is, $\hat{R}$ is non-decreasing in the engagement count conditional on the engagement profile, almost surely over the policy-induced distribution. The condition is empirically warranted for engagement-monetized platforms; it does not require global monotonicity (a platform can have saturation or burnout effects in extreme regimes), only monotonicity over the operating regime where the policy actually places its mass.
 
-**(A3) Policy expressivity.** The policy class *Π* contains, for any target intensity *λ ∈ [0, λ<sub>max</sub>]*, a policy *π<sub>λ</sub>* under which the long-run engagement rate *λ̄(π<sub>λ</sub>) := lim<sub>T→∞</sub> E[N<sub>T</sub>]/T = λ*. The upper bound *λ<sub>max</sub> = 1/δ<sub>min</sub>* corresponds to the minimum technical inter-stimulus latency *δ<sub>min</sub>* (the platform's tick rate). The assumption is that the policy is rich enough to approximate the engagement-maximizing operating point; in modern transformer-based recommender architectures this is uncontroversial.
+**(A3) Policy expressivity.** The policy class $\Pi$ contains, for any target intensity $\lambda \in [0, \lambda_{\max}]$, a policy $\pi_{\lambda}$ under which the long-run engagement rate $\bar{\lambda}(\pi_{\lambda}) := lim_{T\to\infty} E[N_{T}]/T = \lambda$. The upper bound $\lambda_{\max} = 1/\delta_{\min}$ corresponds to the minimum technical inter-stimulus latency $\delta_{\min}$ (the platform's tick rate). The assumption is that the policy is rich enough to approximate the engagement-maximizing operating point; in modern transformer-based recommender architectures this is uncontroversial.
 
-**(A4) User response.** The user's response function *f* and the observation function *g* together ensure that for any non-zero stimulus *s* delivered at time *t*, the probability of an engagement event in the next tick is bounded below: there exists *p<sub>0</sub> > 0* such that *Pr(dN<sub>t+1</sub> ≥ 1 | s<sub>t</sub> ≠ 0) ≥ p<sub>0</sub>*. The assumption is empirically warranted at the population level; at the individual level it fails for users who systematically ignore delivered stimuli, and Mode B (§5.2) is precisely the structural analysis of this failure.
+**(A4) User response.** The user's response function *f* and the observation function *g* together ensure that for any non-zero stimulus *s* delivered at time *t*, the probability of an engagement event in the next tick is bounded below: there exists $p_{0} > 0$ such that $\mathrm{Pr}(dN_{t+1} \ge 1 | s_{t} \ne 0) \ge p_{0}$. The assumption is empirically warranted at the population level; at the individual level it fails for users who systematically ignore delivered stimuli, and Mode B (§5.2) is precisely the structural analysis of this failure.
 
-**(A5) Gradient convergence.** The stochastic gradient ascent in (4) converges to a stationary point *θ\** of *E[R̂; θ]* under standard regularity (Robbins-Monro conditions on *α* or fixed sufficiently small *α* with a bounded second-moment estimator). In typical platform deployments, training operates at scales where this convergence is reached and re-reached continuously as the data distribution shifts.
+**(A5) Gradient convergence.** The stochastic gradient ascent in (4) converges to a stationary point $\theta*$ of $E[\hat{R}; \theta]$ under standard regularity (Robbins-Monro conditions on $\alpha$ or fixed sufficiently small $\alpha$ with a bounded second-moment estimator). In typical platform deployments, training operates at scales where this convergence is reached and re-reached continuously as the data distribution shifts.
 
-**(A6) Local smoothness and isolation.** The expected-reward functional *F(θ) := E[R̂; θ]* and any auxiliary objective *B(θ)* used in regularization (cf. Proposition 1 in §5.1) are *C¹* on the policy parameter space *Θ*, with the gradient-ascent limit *θ\** being an isolated stationary point at which the Hessian *∇²F(θ\*)* is non-degenerate (negative definite in the local concave region). This is the standard non-degeneracy condition under which the implicit function theorem applies — required for the parametric-continuity argument of Lemma 2 below and the comparative-statics claims of Proposition 1. The framework's policy class — typically a parametric family of recommender models — satisfies this condition under generic initialization.
+**(A6) Local smoothness and isolation.** The expected-reward functional $F(\theta) := E[\hat{R}; \theta]$ and any auxiliary objective $B(\theta)$ used in regularization (cf. Proposition 1 in §5.1) are *C¹* on the policy parameter space $\Theta$, with the gradient-ascent limit $\theta*$ being an isolated stationary point at which the Hessian $\nabla²F(\theta*)$ is non-degenerate (negative definite in the local concave region). This is the standard non-degeneracy condition under which the implicit function theorem applies — required for the parametric-continuity argument of Lemma 2 below and the comparative-statics claims of Proposition 1. The framework's policy class — typically a parametric family of recommender models — satisfies this condition under generic initialization.
 
 These six assumptions are sufficient for the foreclosure proposition, the reclamation theorem, and the three propositions of §5. Where additional structure is needed (Proposition 2's parametric internalization dynamics; cohort gradient; mixing time), the additional assumptions are stated locally.
 
@@ -121,32 +121,32 @@ These six assumptions are sufficient for the foreclosure proposition, the reclam
 
 | Symbol | Definition |
 |---|---|
-| *u<sub>t</sub>* | User state vector at time *t*, valued in state space *U* |
-| *u<sub>t</sub><sup>S</sup>, u<sub>t</sub><sup>C</sup>, u<sub>t</sub><sup>P</sup>, u<sub>t</sub><sup>K</sup>* | Four registers: Subject, Citizen, Person, Consumer |
-| *F<sub>u</sub>* | Variational free energy of the user's generative model |
-| *q<sub>u</sub>* | User's generative model — the variational posterior over *s<sub>t</sub>* given *u<sub>t</sub>* |
-| *ν<sub>u</sub>* | Self-evaluative distribution — the user's reflexive estimate of their own value-states |
-| *L<sub>m</sub>* | Maintenance labor — the energetic cost of preserving *u<sub>t</sub>* against the policy's gradient |
-| *I(τ)* | Interiority autocorrelation — conditional autocovariance of *u<sub>t</sub>* over no-input windows of length *τ* |
-| *H<sub>res</sub>* | Residual entropy of *u<sub>t</sub>* given the engagement history *y<sub>1:t</sub>* |
+| $u_{t}$ | User state vector at time *t*, valued in state space *U* |
+| $u_{t}^{S}, u_{t}^{C}, u_{t}^{P}, u_{t}^{K}$ | Four registers: Subject, Citizen, Person, Consumer |
+| $F_{u}$ | Variational free energy of the user's generative model |
+| $q_{u}$ | User's generative model — the variational posterior over $s_{t}$ given $u_{t}$ |
+| $\nu_{u}$ | Self-evaluative distribution — the user's reflexive estimate of their own value-states |
+| $L_{m}$ | Maintenance labor — the energetic cost of preserving $u_{t}$ against the policy's gradient |
+| $I(\tau)$ | Interiority autocorrelation — conditional autocovariance of $u_{t}$ over no-input windows of length $\tau$ |
+| $H_{\mathrm{res}}$ | Residual entropy of $u_{t}$ given the engagement history $y_{1:t}$ |
 
 **Platform (apparatus) domain.**
 
 | Symbol | Definition |
 |---|---|
-| *π* | Delivery policy mapping inferred user-state to stimulus |
-| *R̂* | Platform's empirical reward functional (engagement proxy) |
-| *θ<sub>t</sub>* | Predictive parameters of the policy at time *t* |
-| *α* | Learning rate of (4); governs the convergence rate of the policy to *θ\** |
+| $\pi$ | Delivery policy mapping inferred user-state to stimulus |
+| $\hat{R}$ | Platform's empirical reward functional (engagement proxy) |
+| $\theta_{t}$ | Predictive parameters of the policy at time *t* |
+| $\alpha$ | Learning rate of (4); governs the convergence rate of the policy to $\theta*$ |
 
 **Loop (interface) domain.**
 
 | Symbol | Definition |
 |---|---|
-| *s<sub>t</sub>* | Stimulus delivered to the user at time *t* |
-| *y<sub>t</sub>* | Engagement signal observed by the platform at time *t* |
-| *η<sub>t</sub>* | Observation noise on *y<sub>t</sub>* |
-| *ξ<sub>t</sub>* | Process noise (leak channel) on *u<sub>t</sub>* |
+| $s_{t}$ | Stimulus delivered to the user at time *t* |
+| $y_{t}$ | Engagement signal observed by the platform at time *t* |
+| $\eta_{t}$ | Observation noise on $y_{t}$ |
+| $\xi_{t}$ | Process noise (leak channel) on $u_{t}$ |
 | *f* | User's response dynamics function |
 | *g* | Observation function (state-to-engagement compression) |
 
@@ -154,50 +154,50 @@ These six assumptions are sufficient for the foreclosure proposition, the reclam
 
 | Symbol | Definition |
 |---|---|
-| *m* | Medium index, *m ∈ &#123;R, V, L, H&#125;* (Reading, Viewing, Listening, Haptic) |
-| *τ<sub>m</sub>* | Inter-stimulus interval for medium *m* |
-| *P<sub>m</sub>(θ)* | Pause measure: *Pr(τ<sub>m</sub> > θ)* — probability that the inter-stimulus interval exceeds threshold *θ* |
-| *θ* (overloaded) | Reflective-processing threshold; minimum no-input duration that supports deliberation |
-| *φ<sub>b</sub>* | Biological phase (circadian, sleep-wake, attentional) |
-| *φ<sub>m</sub>* | Medium-delivery phase (the temporal envelope of *s<sub>t</sub>*) |
-| *ω<sub>b</sub>* | Body's intrinsic frequency |
-| *ω<sub>m</sub>* | Medium's intrinsic frequency |
-| *K<sub>bm</sub>* | Coupling strength between body and medium |
+| *m* | Medium index, $m \in \{R, V, L, H\}$ (Reading, Viewing, Listening, Haptic) |
+| $\tau_{m}$ | Inter-stimulus interval for medium *m* |
+| $P_{m}(\theta)$ | Pause measure: $\mathrm{Pr}(\tau_{m} > \theta)$ — probability that the inter-stimulus interval exceeds threshold $\theta$ |
+| $\theta$ (overloaded) | Reflective-processing threshold; minimum no-input duration that supports deliberation |
+| $\varphi_{b}$ | Biological phase (circadian, sleep-wake, attentional) |
+| $\varphi_{m}$ | Medium-delivery phase (the temporal envelope of $s_{t}$) |
+| $\omega_{b}$ | Body's intrinsic frequency |
+| $\omega_{m}$ | Medium's intrinsic frequency |
+| $K_{\mathrm{bm}}$ | Coupling strength between body and medium |
 
 **Cohort (meso) domain.**
 
 | Symbol | Definition |
 |---|---|
-| *&#123;u<sub>t</sub><sup>(i)</sup>&#125;<sub>i ∈ N</sub>* | Cohort population: collection of *N* users under common *π* |
-| *μ\*<sub>π</sub>* | Stationary distribution of *u<sub>t</sub>* under policy *π* |
-| *T<sub>mix</sub>* | Mixing time of the cohort under *π* — derived from the spectral gap of the induced transition operator |
-| *D(t, τ)* | Chrono-debt spectrum — *Λ<sub>◦</sub>(τ) − Λ(t, τ)*, the deficit in pause-time at scale *τ* at time *t* |
-| *Λ(t, τ)* | Realized survival functional — *Pr(τ<sub>m</sub> > τ)* at time *t* under the closed loop |
-| *Λ<sub>◦</sub>(τ)* | Baseline survival functional — *Pr(τ<sub>m</sub> > τ)* under the pre-closure regime |
-| *w(τ)* | Weighting function for the aggregate chrono-debt; default *w(τ) ∝ τ* |
+| $\{u_{t}^{(i)}\}_{i \in N}$ | Cohort population: collection of *N* users under common $\pi$ |
+| $\mu*_{\pi}$ | Stationary distribution of $u_{t}$ under policy $\pi$ |
+| $T_{\mathrm{mix}}$ | Mixing time of the cohort under $\pi$ — derived from the spectral gap of the induced transition operator |
+| $D(t, \tau)$ | Chrono-debt spectrum — $\Lambda_{◦}(\tau) - \Lambda(t, \tau)$, the deficit in pause-time at scale $\tau$ at time *t* |
+| $\Lambda(t, \tau)$ | Realized survival functional — $\mathrm{Pr}(\tau_{m} > \tau)$ at time *t* under the closed loop |
+| $\Lambda_{◦}(\tau)$ | Baseline survival functional — $\mathrm{Pr}(\tau_{m} > \tau)$ under the pre-closure regime |
+| $w(\tau)$ | Weighting function for the aggregate chrono-debt; default $w(\tau) ∝ \tau$ |
 
 **Engagement (surplus) domain.**
 
 | Symbol | Definition |
 |---|---|
-| *N<sub>t</sub><sup>i</sup>* | Counting process for engagement events marked with register *i* |
-| *λ<sup>i</sup>(t)* | Intensity (instantaneous arrival rate) of *N<sub>t</sub><sup>i</sup>* |
-| *α<sub>ij</sub>* | Cross-excitation: degree to which an *i*-marked event raises the intensity of *j*-marked events |
-| *ρ<sub>i</sub>* | Register-specific extraction kernel |
-| *Σ(T)* | Total accumulated libidinal surplus over horizon *T* |
-| *Σ<sup>i</sup>(T)* | Per-register surplus |
+| $N_{t}^{i}$ | Counting process for engagement events marked with register *i* |
+| $\lambda^{i}(t)$ | Intensity (instantaneous arrival rate) of $N_{t}^{i}$ |
+| $\alpha_{ij}$ | Cross-excitation: degree to which an *i*-marked event raises the intensity of *j*-marked events |
+| $\rho_{i}$ | Register-specific extraction kernel |
+| $\Sigma(T)$ | Total accumulated libidinal surplus over horizon *T* |
+| $\Sigma^{i}(T)$ | Per-register surplus |
 
 **Foreclosure (negative) domain.**
 
 | Symbol | Definition |
 |---|---|
-| *e<sub>t</sub>* | Exogenous channel; ≡ 0 by construction |
-| *τ<sup>(k)</sup>* | *k*-th inter-stimulus interval — time between the *k*-th and (*k*+1)-th delivered stimuli |
-| *S(τ; t)* | Survival function of inter-stimulus interval at policy time *t*: *Pr(τ<sup>(k)</sup> > τ \| θ<sub>t</sub>)* |
-| *E<sub>τ</sub>* | No-input window event: *&#123;s<sub>t'</sub> = 0 for t \< t' ≤ t+τ&#125;* |
-| *δ<sub>min</sub>* | Minimum technical inter-stimulus latency (platform's tick rate) |
-| *θ<sub>ref</sub>* | Reflective-processing threshold — minimum no-input duration supporting deliberation |
-| *λ<sub>max</sub>* | Maximum engagement-event rate: *λ<sub>max</sub> = 1/δ<sub>min</sub>* |
+| $e_{t}$ | Exogenous channel; ≡ 0 by construction |
+| $\tau^{(k)}$ | *k*-th inter-stimulus interval — time between the *k*-th and (*k*+1)-th delivered stimuli |
+| $S(\tau; t)$ | Survival function of inter-stimulus interval at policy time *t*: $\mathrm{Pr}(\tau^{(k)} > \tau \| \theta_{t})$ |
+| $E_{\tau}$ | No-input window event: $\{s_{t'} = 0 \,\text{for}\, t \< t' \le t+\tau\}$ |
+| $\delta_{\min}$ | Minimum technical inter-stimulus latency (platform's tick rate) |
+| $\theta_{\mathrm{ref}}$ | Reflective-processing threshold — minimum no-input duration supporting deliberation |
+| $\lambda_{\max}$ | Maximum engagement-event rate: $\lambda_{\max} = 1/\delta_{\min}$ |
 
 ---
 
@@ -205,9 +205,9 @@ These six assumptions are sufficient for the foreclosure proposition, the reclam
 
 The framework consists of six formal instruments. Each is a measurable quantity (or measurable-in-principle quantity) defined on the closed-loop dynamics. They are mathematically independent — none is a derivative of another — though they share the same architectural foundation. Each has its own mechanism plate on /the-dynamics: [surplus](/the-dynamics/surplus) (§3.1), [chrono-debt](/the-dynamics/chrono-debt) (§3.2), [libidinal routing](/the-dynamics/libidinal-routing) (§3.3), [metric superego](/the-dynamics/metric-superego) (§3.4), [somatic optimization](/the-dynamics/somatic-optimization) (§3.5), [captured resonance](/the-dynamics/captured-resonance) (§3.6). Their realization on a specific platform is walked through at [/the-dynamics/tiktok](/the-dynamics/tiktok).
 
-**3.1 Libidinal surplus.** The marked point process formulation in equation (5) yields *Σ(T)* as the accumulated yield over horizon *T*. The per-register decomposition *Σ<sup>i</sup>(T)* is what gives the instrument its analytic power: optimization is constrained because extracting too aggressively on any single register *i* causes attrition out of *N<sub>t</sub><sup>i</sup>*, lowering long-run *Σ<sup>i</sup>(T)*. The platform's policy therefore distributes extraction across registers in a manner that maximizes joint long-run yield. This distribution is observable: under the framework, the temporal density of register-marks in any user's engagement stream is an estimator for the policy's extraction priorities.
+**3.1 Libidinal surplus.** The marked point process formulation in equation (5) yields $\Sigma(T)$ as the accumulated yield over horizon *T*. The per-register decomposition $\Sigma^{i}(T)$ is what gives the instrument its analytic power: optimization is constrained because extracting too aggressively on any single register *i* causes attrition out of $N_{t}^{i}$, lowering long-run $\Sigma^{i}(T)$. The platform's policy therefore distributes extraction across registers in a manner that maximizes joint long-run yield. This distribution is observable: under the framework, the temporal density of register-marks in any user's engagement stream is an estimator for the policy's extraction priorities.
 
-**3.2 Chrono-debt spectrum.** Let *Λ<sub>◦</sub>(τ)* be the baseline survival function of *τ<sub>m</sub>* — the probability, under the pre-closure regime, that the inter-stimulus interval exceeds *τ*. Let *Λ(t, τ)* be the realized survival function under the closed loop at time *t*. The chrono-debt at scale *τ* is:
+**3.2 Chrono-debt spectrum.** Let $\Lambda_{◦}(\tau)$ be the baseline survival function of $\tau_{m}$ — the probability, under the pre-closure regime, that the inter-stimulus interval exceeds $\tau$. Let $\Lambda(t, \tau)$ be the realized survival function under the closed loop at time *t*. The chrono-debt at scale $\tau$ is:
 
 
 $$
@@ -215,7 +215,7 @@ D(t,\, \tau) = \Lambda_\circ(\tau) - \Lambda(t,\, \tau)
 $$
 
 
-This is a *spectrum*: *D* is defined for all *τ > 0*, and the framework's central observation is that *D(t, τ)* is non-zero across the entire spectrum simultaneously, not just at one preferred scale. The aggregate chrono-debt is:
+This is a *spectrum*: *D* is defined for all $\tau > 0$, and the framework's central observation is that $D(t, \tau)$ is non-zero across the entire spectrum simultaneously, not just at one preferred scale. The aggregate chrono-debt is:
 
 
 $$
@@ -223,9 +223,9 @@ D_w(t) = \int_0^\infty w(\tau)\, D(t,\, \tau)\, d\tau
 $$
 
 
-with default weighting *w(τ) ∝ τ*, so that longer foreclosed windows count more. The choice of *w* is not arbitrary but reflects the empirical claim that the developmental and political consequences of foreclosed pause-time scale with the scale of the foreclosed window — a foreclosed second is recoverable; a foreclosed adolescence is not.
+with default weighting $w(\tau) ∝ \tau$, so that longer foreclosed windows count more. The choice of *w* is not arbitrary but reflects the empirical claim that the developmental and political consequences of foreclosed pause-time scale with the scale of the foreclosed window — a foreclosed second is recoverable; a foreclosed adolescence is not.
 
-**3.3 Libidinal routing.** Let *I<sub>π</sub>(u<sup>i</sup>; u<sup>j</sup>)* denote the mutual information between registers *i* and *j* under the stationary distribution induced by policy *π*. Let *I<sub>◦</sub>(u<sup>i</sup>; u<sup>j</sup>)* denote the corresponding mutual information under the pre-closure regime. The libidinal routing claim is:
+**3.3 Libidinal routing.** Let $I_{\pi}(u^{i}; u^{j})$ denote the mutual information between registers *i* and *j* under the stationary distribution induced by policy $\pi$. Let $I_{◦}(u^{i}; u^{j})$ denote the corresponding mutual information under the pre-closure regime. The libidinal routing claim is:
 
 
 $$
@@ -233,9 +233,9 @@ I_\pi(u^i;\, u^j) \gg I_\circ(u^i;\, u^j),\quad \forall\, i \neq j
 $$
 
 
-That is, under the closed loop the four registers become statistically redundant in a way they were not under the historical apparatus. This is the structural fact behind the dividual condition: not that the individual is divided, but that the four registers have collapsed into a single jointly-observable object. The dividual condition is formally *H(u | y<sub>1:t</sub>) → 0* under *t → ∞* — the platform's posterior over the user's full state converges (in entropy) to a point mass as the engagement history accumulates.
+That is, under the closed loop the four registers become statistically redundant in a way they were not under the historical apparatus. This is the structural fact behind the dividual condition: not that the individual is divided, but that the four registers have collapsed into a single jointly-observable object. The dividual condition is formally $H(u | y_{1:t}) \to 0$ under $t \to \infty$ — the platform's posterior over the user's full state converges (in entropy) to a point mass as the engagement history accumulates.
 
-**3.4 Metric superego.** Let *ν<sub>u</sub>(t)* be the user's self-evaluative distribution — the posterior over their own value-states inferred from observed feedback. Let *R̂* be the platform's reward functional. The metric superego claim is:
+**3.4 Metric superego.** Let $\nu_{u}(t)$ be the user's self-evaluative distribution — the posterior over their own value-states inferred from observed feedback. Let $\hat{R}$ be the platform's reward functional. The metric superego claim is:
 
 
 $$
@@ -243,9 +243,9 @@ D_{KL}\!\left(\nu_u(t)\ \big\|\ \pi_{R̂}\right) \to 0\quad \text{as}\quad t \to
 $$
 
 
-where *π<sub>R̂</sub>* is the distribution induced over user actions by *R̂* (the user's image of what the platform rewards). The convergence is mechanism-agnostic: it can be realized by free-energy minimization (the user reduces variational free energy by aligning their generative model with the platform's reward), by operant reinforcement (the user is conditioned by the schedule of likes and metrics), or by social comparison (the user's reflexive estimate of value comes to track the distribution observed in the platform's surfaced peers). The framework does not adjudicate between these mechanisms; the prediction is that under any of them, *D<sub>KL</sub> → 0*.
+where $\pi_{\hat{R}}$ is the distribution induced over user actions by $\hat{R}$ (the user's image of what the platform rewards). The convergence is mechanism-agnostic: it can be realized by free-energy minimization (the user reduces variational free energy by aligning their generative model with the platform's reward), by operant reinforcement (the user is conditioned by the schedule of likes and metrics), or by social comparison (the user's reflexive estimate of value comes to track the distribution observed in the platform's surfaced peers). The framework does not adjudicate between these mechanisms; the prediction is that under any of them, $D_{\mathrm{KL}} \to 0$.
 
-**3.5 Somatic optimization (the marked point process).** The marked counting process *N<sub>t</sub><sup>i</sup>* has intensity:
+**3.5 Somatic optimization (the marked point process).** The marked counting process $N_{t}^{i}$ has intensity:
 
 
 $$
@@ -253,9 +253,9 @@ $$
 $$
 
 
-where *λ<sub>0</sub><sup>i</sup>* is the baseline intensity for register *i*, *α<sub>ij</sub>* is the cross-excitation coefficient (the degree to which a *j*-marked event raises the intensity of *i*-marked events), and *κ* is a temporal decay kernel. This is a self-exciting Hawkes process generalized to multi-mark, multi-register engagement. The "somatic" qualifier signals that the differential is the body — the dN<sup>i</sup><sub>t</sub> are micro-engagements (saccades, taps, scroll events, gaze shifts) produced by somatic activity, and the optimization is over these somatic micro-events, not over deliberative choice. The off-diagonal *α<sub>ij</sub>* is what generates libidinal routing: cross-register cross-excitation produces the joint observability that makes the dividual condition hold.
+where $\lambda_{0}^{i}$ is the baseline intensity for register *i*, $\alpha_{ij}$ is the cross-excitation coefficient (the degree to which a *j*-marked event raises the intensity of *i*-marked events), and $\kappa$ is a temporal decay kernel. This is a self-exciting Hawkes process generalized to multi-mark, multi-register engagement. The "somatic" qualifier signals that the differential is the body — the $dN^i_t$ are micro-engagements (saccades, taps, scroll events, gaze shifts) produced by somatic activity, and the optimization is over these somatic micro-events, not over deliberative choice. The off-diagonal $\alpha_{ij}$ is what generates libidinal routing: cross-register cross-excitation produces the joint observability that makes the dividual condition hold.
 
-**3.6 Captured resonance.** Let *φ<sub>b</sub>(t)* be the biological phase (the phase of a circadian or sleep-wake or attentional oscillator with intrinsic frequency *ω<sub>b</sub>*). Let *φ<sub>m</sub>(t)* be the medium-delivery phase (the phase of the temporal envelope of *s<sub>t</sub>*, which the platform can shape through delivery timing). Their coupled evolution follows a Kuramoto equation:
+**3.6 Captured resonance.** Let $\varphi_{b}(t)$ be the biological phase (the phase of a circadian or sleep-wake or attentional oscillator with intrinsic frequency $\omega_{b}$). Let $\varphi_{m}(t)$ be the medium-delivery phase (the phase of the temporal envelope of $s_{t}$, which the platform can shape through delivery timing). Their coupled evolution follows a Kuramoto equation:
 
 
 $$
@@ -271,7 +271,7 @@ K_{bm} > |\omega_b - \omega_m|
 $$
 
 
-phase locking occurs: the body entrains to the medium. This is the captured-resonance condition. The phenomenon is not metaphorical — it is the same Kuramoto-style entrainment observed in circadian biology, social synchronization, and neural population dynamics. Under the closed loop, the platform's policy can drive *K<sub>bm</sub>* above threshold by choosing delivery timing, since *φ<sub>m</sub>* is under the policy's control. The user's circadian rhythm, sleep-wake cycle, and attentional oscillation become forced oscillators whose driver is the apparatus.
+phase locking occurs: the body entrains to the medium. This is the captured-resonance condition. The phenomenon is not metaphorical — it is the same Kuramoto-style entrainment observed in circadian biology, social synchronization, and neural population dynamics. Under the closed loop, the platform's policy can drive $K_{\mathrm{bm}}$ above threshold by choosing delivery timing, since $\varphi_{m}$ is under the policy's control. The user's circadian rhythm, sleep-wake cycle, and attentional oscillation become forced oscillators whose driver is the apparatus.
 
 ---
 
@@ -281,7 +281,7 @@ The central result of the framework is the reclamation theorem. The theorem rest
 
 **4.1 Lemma 1 (foreclosure of the no-input window).**
 
-*Let τ<sup>(k)</sup> denote the k-th inter-stimulus interval — the time between the k-th and (k+1)-th delivered stimuli under policy π. Let S(τ; t) := Pr(τ<sup>(k)</sup> > τ | θ<sub>t</sub>) be its survival function under the policy at time t. Let θ<sub>ref</sub> > 0 be the reflective-processing threshold (the minimum no-input duration that supports deliberation). Under Assumptions (A1)–(A6):*
+$Let \tau^{(k)} denote the k-th inter-stimulus interval — the time between the k-th \,\text{and}\, (k+1)-th delivered stimuli \,\text{under}\, policy \pi. Let S(\tau; t) := \mathrm{Pr}(\tau^{(k)} > \tau | \theta_{t}) be its survival function \,\text{under}\, the policy at time t. Let \theta_{\mathrm{ref}} > 0 be the reflective-processing threshold (the minimum no-input duration that supports deliberation). \,\text{Under}\, Assumptions (A1)–(A6):$
 
 
 $$
@@ -291,7 +291,7 @@ $$
 
 **Proof.**
 
-By (A5), the policy parameters converge: *θ<sub>t</sub> → θ\** as *t → ∞*, where *θ\** is a stationary point of *F(θ) := E[R̂; θ]*. By (A6), *θ\** is isolated and non-degenerate; combined with the standard fact that stochastic gradient ascent under generic noise converges to local maxima rather than saddles (Pemantle, *Ann. Probab.* 1990; Ge–Huang–Jin–Yuan, *COLT* 2015), *θ\** is a local maximum of *F*. By (A2), *F* is non-decreasing in the long-run engagement rate *λ̄(θ) := lim<sub>T→∞</sub> E[N<sub>T</sub>]/T*; by (A3) the policy class contains policies attaining *λ̄ = λ<sub>max</sub> = 1/δ<sub>min</sub>*. Local maximality of *θ\** under (A2)+(A3) therefore implies:
+By (A5), the policy parameters converge: $\theta_{t} \to \theta*$ as $t \to \infty$, where $\theta*$ is a stationary point of $F(\theta) := E[\hat{R}; \theta]$. By (A6), $\theta*$ is isolated and non-degenerate; combined with the standard fact that stochastic gradient ascent under generic noise converges to local maxima rather than saddles (Pemantle, *Ann. Probab.* 1990; Ge–Huang–Jin–Yuan, *COLT* 2015), $\theta*$ is a local maximum of *F*. By (A2), *F* is non-decreasing in the long-run engagement rate $\bar{\lambda}(\theta) := lim_{T\to\infty} E[N_{T}]/T$; by (A3) the policy class contains policies attaining $\bar{\lambda} = \lambda_{\max} = 1/\delta_{\min}$. Local maximality of $\theta*$ under (A2)+(A3) therefore implies:
 
 
 $$
@@ -299,9 +299,9 @@ $$
 $$
 
 
-(Any *θ* with *λ̄(θ) < λ<sub>max</sub>* admits an ascent direction by (A2)+(A3), contradicting local maximality at *θ\**.)
+(Any $\theta$ with $\bar{\lambda}(\theta) < \lambda_{\max}$ admits an ascent direction by (A2)+(A3), contradicting local maximality at $\theta*$.)
 
-For the survival function: by (A1), the inter-arrival distribution has bounded coefficient of variation *c<sub>v</sub> < ∞* on the operating support. By (A4), there is positive arrival probability at every tick boundary following a non-zero stimulus, so the renewal structure is well-defined. For a renewal counting process with mean inter-arrival rate *λ̄* and bounded coefficient of variation, the survival function admits an exponential tail bound (Asmussen, *Applied Probability and Queues*, Ch. V):
+For the survival function: by (A1), the inter-arrival distribution has bounded coefficient of variation $c_{v} < \infty$ on the operating support. By (A4), there is positive arrival probability at every tick boundary following a non-zero stimulus, so the renewal structure is well-defined. For a renewal counting process with mean inter-arrival rate $\bar{\lambda}$ and bounded coefficient of variation, the survival function admits an exponential tail bound (Asmussen, *Applied Probability and Queues*, Ch. V):
 
 
 $$
@@ -309,7 +309,7 @@ S(\tau) \le C(c_v)\, \exp(-\bar\lambda\, \tau),
 $$
 
 
-where *C(c<sub>v</sub>) ≥ 1* is finite. (For a Poisson process, *C = 1*; for general renewal processes with bounded CoV, *C* is a finite multiplicative constant depending on *c<sub>v</sub>*.) Substituting *λ̄(θ\*) = λ<sub>max</sub> = 1/δ<sub>min</sub>*:
+where $C(c_{v}) \ge 1$ is finite. (For a Poisson process, *C = 1*; for general renewal processes with bounded CoV, *C* is a finite multiplicative constant depending on $c_{v}$.) Substituting $\bar{\lambda}(\theta*) = \lambda_{\max} = 1/\delta_{\min}$:
 
 
 $$
@@ -317,13 +317,13 @@ S(\theta_{\mathrm{ref}};\, \theta^*) \le C(c_v)\, \exp(-\theta_{\mathrm{ref}}/\d
 $$
 
 
-Since *θ<sub>ref</sub>/δ<sub>min</sub> ≫ 1* by the structural separation of timescales (the reflective threshold is seconds to minutes; the tick rate is milliseconds to sub-second), the bound is effectively zero. As the ratio grows — through continuous-time idealization or improving tick rates — *S(θ<sub>ref</sub>; θ\*) → 0*. ∎
+Since $\theta_{\mathrm{ref}}/\delta_{\min} ≫ 1$ by the structural separation of timescales (the reflective threshold is seconds to minutes; the tick rate is milliseconds to sub-second), the bound is effectively zero. As the ratio grows — through continuous-time idealization or improving tick rates — $S(\theta_{\mathrm{ref}}; \theta*) \to 0$. ∎
 
-**Remark (operational vs. strict form).** Lemma 1 establishes that *S(θ<sub>ref</sub>; θ\*)* is bounded above by a quantity that is effectively zero on operational timescales. The exponent *λ<sub>max</sub>·θ<sub>ref</sub> = θ<sub>ref</sub>/δ<sub>min</sub>* is on the order of *10<sup>3</sup>* to *10<sup>5</sup>* in practice (reflective threshold of ~30 seconds, tick rate of ~10 ms), so the bound is on the order of *e<sup>−1000</sup>* to *e<sup>−100000</sup>* — operationally indistinguishable from zero.
+**Remark (operational vs. strict form).** Lemma 1 establishes that $S(\theta_{\mathrm{ref}}; \theta*)$ is bounded above by a quantity that is effectively zero on operational timescales. The exponent $\lambda_{\max}\cdot\theta_{\mathrm{ref}} = \theta_{\mathrm{ref}}/\delta_{\min}$ is on the order of $10^{3}$ to $10^{5}$ in practice (reflective threshold of ~30 seconds, tick rate of ~10 ms), so the bound is on the order of $e^{-1000}$ to $e^{-100000}$ — operationally indistinguishable from zero.
 
-The *strict* form — *S(τ; θ\*) = 0* for all *τ > δ<sub>min</sub>* — requires three additional conditions. *First*, that *λ̄(θ\*) = λ<sub>max</sub>* exactly (not asymptotically); this in turn presumes SGD reaches the *global* maximum of *F* rather than a suboptimal local maximum. The proof above asserts this via the local-ascent-direction argument, but for non-convex *F* (the typical case for neural-network-parametrized policies) the argument is heuristic: local maximality of *θ\** doesn't strictly preclude a sub-maximal *λ̄(θ\*) < λ<sub>max</sub>*. Empirically, mature engagement-monetized training regimes — continuous re-training, large compute, hyperparameter search, exploration — reach policies with *λ̄* very close to *λ<sub>max</sub>*; the strict equality is an empirical idealization, not a consequence of (A5)+(A6) alone. *Second*, that the engagement process be Poisson with rate *λ<sub>max</sub>* (not merely a counting process with bounded CoV). *Third*, that the convergence in (A5) be exact rather than asymptotic. None of these holds in the strict sense for real platforms.
+The *strict* form — $S(\tau; \theta*) = 0$ for all $\tau > \delta_{\min}$ — requires three additional conditions. *First*, that $\bar{\lambda}(\theta*) = \lambda_{\max}$ exactly (not asymptotically); this in turn presumes SGD reaches the *global* maximum of *F* rather than a suboptimal local maximum. The proof above asserts this via the local-ascent-direction argument, but for non-convex *F* (the typical case for neural-network-parametrized policies) the argument is heuristic: local maximality of $\theta*$ doesn't strictly preclude a sub-maximal $\bar{\lambda}(\theta*) < \lambda_{\max}$. Empirically, mature engagement-monetized training regimes — continuous re-training, large compute, hyperparameter search, exploration — reach policies with $\bar{\lambda}$ very close to $\lambda_{\max}$; the strict equality is an empirical idealization, not a consequence of (A5)+(A6) alone. *Second*, that the engagement process be Poisson with rate $\lambda_{\max}$ (not merely a counting process with bounded CoV). *Third*, that the convergence in (A5) be exact rather than asymptotic. None of these holds in the strict sense for real platforms.
 
-The framework treats the strict-vs-operational distinction as immaterial for the reclamation theorem below: a conditioning event with probability bounded above by *e<sup>−1000</sup>* yields an estimator-divergent *I(τ)* for any sample-based construction, since the variance of any such estimator diverges as the conditioning probability tends to zero. And the operational form is robust to weakening of *λ̄(θ\*) = λ<sub>max</sub>*: substituting any *λ̄(θ\*) ≥ c·λ<sub>max</sub>* into the exponential bound gives *S(θ<sub>ref</sub>; θ\*) ≤ C·exp(−c·θ<sub>ref</sub>/δ<sub>min</sub>)*, which is operationally zero for any *c* bounded below by a non-trivial constant. Whether the limit object is "exactly undefined" (strict form) or "estimator-divergent" (operational form) is a distinction without an operational difference.
+The framework treats the strict-vs-operational distinction as immaterial for the reclamation theorem below: a conditioning event with probability bounded above by $e^{-1000}$ yields an estimator-divergent $I(\tau)$ for any sample-based construction, since the variance of any such estimator diverges as the conditioning probability tends to zero. And the operational form is robust to weakening of $\bar{\lambda}(\theta*) = \lambda_{\max}$: substituting any $\bar{\lambda}(\theta*) \ge c\cdot\lambda_{\max}$ into the exponential bound gives $S(\theta_{\mathrm{ref}}; \theta*) \le C\cdotexp(-c\cdot\theta_{\mathrm{ref}}/\delta_{\min})$, which is operationally zero for any *c* bounded below by a non-trivial constant. Whether the limit object is "exactly undefined" (strict form) or "estimator-divergent" (operational form) is a distinction without an operational difference.
 
 **4.2 Theorem 1 (reclamation theorem).**
 
@@ -335,15 +335,15 @@ I(\tau) := \mathrm{Cov}\!\left(u_t,\, u_{t+\tau}\ \big|\ E_\tau\right),\quad E_\
 $$
 
 
-*Let "reclamation" denote the recovery of I(τ) > 0 on a positive-measure set of trajectories at some τ > θ<sub>ref</sub>. Under (1)–(5) and (A1)–(A5):*
+$Let "reclamation" denote the recovery of I(\tau) > 0 on a positive-measure set of trajectories at some \tau > \theta_{\mathrm{ref}}. \,\text{Under}\, (1)–(5) \,\text{and}\, (A1)–(A5):$
 
-*Reclamation is structurally incoherent. The quantity I(τ) is undefined-on-trajectory in the limit t → ∞ for τ > θ<sub>ref</sub>.*
+$Reclamation is structurally incoherent. The quantity I(\tau) is undefined-on-trajectory in the limit t \to \infty \,\text{for}\, \tau > \theta_{\mathrm{ref}}.$
 
 **Proof.**
 
 The proof proceeds in four steps.
 
-*Step 1 (definition).* Reclamation, as the operational meaning of "interiority," requires the recovery of conditional autocorrelation of the user-state across no-input windows of duration *τ > θ<sub>ref</sub>*. Unconditional autocorrelation *Cov(u<sub>t</sub>, u<sub>t+τ</sub>)* mixes input-driven and internally-generated components. Letting *Z := 1<sub>E<sub>τ</sub></sub>* be the indicator of a no-input window, the law of total covariance gives:
+*Step 1 (definition).* Reclamation, as the operational meaning of "interiority," requires the recovery of conditional autocorrelation of the user-state across no-input windows of duration $\tau > \theta_{\mathrm{ref}}$. Unconditional autocorrelation $\mathrm{Cov}(u_{t}, u_{t+\tau})$ mixes input-driven and internally-generated components. Letting $Z := 1_{E_{\tau}}$ be the indicator of a no-input window, the law of total covariance gives:
 
 
 $$
@@ -351,15 +351,15 @@ $$
 $$
 
 
-The first conditional covariance is the *interiority component* — the autocovariance of the user-state across no-input windows, driven by internal dynamics alone. The second is the *stimulus-driven coupling component* — autocovariance over windows containing platform input. The cross term reflects the difference between conditional means. The framework's claim is that "reclamation" — the recovery of *the user's own dynamics* — picks out the first term specifically, which is what *I(τ) = Cov(u<sub>t</sub>, u<sub>t+τ</sub> | E<sub>τ</sub>)* formally captures.
+The first conditional covariance is the *interiority component* — the autocovariance of the user-state across no-input windows, driven by internal dynamics alone. The second is the *stimulus-driven coupling component* — autocovariance over windows containing platform input. The cross term reflects the difference between conditional means. The framework's claim is that "reclamation" — the recovery of *the user's own dynamics* — picks out the first term specifically, which is what $I(\tau) = \mathrm{Cov}(u_{t}, u_{t+\tau} | E_{\tau})$ formally captures.
 
-*Step 2 (conditional well-definedness).* The conditional expectation *E[X | E<sub>τ</sub>]* admits two distinct constructions when *Pr(E<sub>τ</sub>) > 0* and when *Pr(E<sub>τ</sub>) = 0*. In the elementary case (*Pr(E<sub>τ</sub>) > 0*), it is defined as *E[X · 1<sub>E<sub>τ</sub></sub>] / Pr(E<sub>τ</sub>)* — a canonical scalar. In the measure-zero case (*Pr(E<sub>τ</sub>) = 0*), this ratio is *0/0* and undefined elementarily. Regular conditional probabilities can be constructed via the disintegration theorem (Kallenberg, *Foundations of Modern Probability*, §6.3), which gives a *family* of probability measures *&#123;P<sub>ω</sub>&#125;* indexed by the conditioning σ-algebra such that *P(A | F)(ω) = P<sub>ω</sub>(A)* almost surely; however, on a measure-zero set the disintegration is non-unique, and the value *E[X | E<sub>τ</sub>]* depends on the choice of disintegration. The conditional autocovariance *I(τ)* thus admits no canonical value as *Pr(E<sub>τ</sub>) → 0*.
+*Step 2 (conditional well-definedness).* The conditional expectation $E[X | E_{\tau}]$ admits two distinct constructions when $\mathrm{Pr}(E_{\tau}) > 0$ and when $\mathrm{Pr}(E_{\tau}) = 0$. In the elementary case ($\mathrm{Pr}(E_{\tau}) > 0$), it is defined as $E[X \cdot 1_{E_{\tau}}] / \mathrm{Pr}(E_{\tau})$ — a canonical scalar. In the measure-zero case ($\mathrm{Pr}(E_{\tau}) = 0$), this ratio is *0/0* and undefined elementarily. Regular conditional probabilities can be constructed via the disintegration theorem (Kallenberg, *Foundations of Modern Probability*, §6.3), which gives a *family* of probability measures $\{P_{\omega}\}$ indexed by the conditioning σ-algebra such that $P(A | F)(\omega) = P_{\omega}(A)$ almost surely; however, on a measure-zero set the disintegration is non-unique, and the value $E[X | E_{\tau}]$ depends on the choice of disintegration. The conditional autocovariance $I(\tau)$ thus admits no canonical value as $\mathrm{Pr}(E_{\tau}) \to 0$.
 
-Operationally, this is the more relevant statement: any sample-based estimator *Î(τ)* — formed from a finite trajectory by conditioning on observed no-input windows — has variance scaling as *1/(N<sub>obs</sub>·Pr(E<sub>τ</sub>))*, where *N<sub>obs</sub>* is the trajectory length. As *Pr(E<sub>τ</sub>) → 0*, the variance diverges. There is no operationally well-defined *I(τ)* in the limit, regardless of which disintegration one selects.
+Operationally, this is the more relevant statement: any sample-based estimator $\hat{I}(\tau)$ — formed from a finite trajectory by conditioning on observed no-input windows — has variance scaling as $1/(N_{obs}\cdotPr(E_{\tau}))$, where $N_{obs}$ is the trajectory length. As $\mathrm{Pr}(E_{\tau}) \to 0$, the variance diverges. There is no operationally well-defined $I(\tau)$ in the limit, regardless of which disintegration one selects.
 
-*Step 3 (foreclosure).* By Lemma 1, *Pr(E<sub>τ</sub>; t) = S(τ; t) → 0* as *t → ∞* for *τ > θ<sub>ref</sub>*.
+*Step 3 (foreclosure).* By Lemma 1, $\mathrm{Pr}(E_{\tau}; t) = S(\tau; t) \to 0$ as $t \to \infty$ for $\tau > \theta_{\mathrm{ref}}$.
 
-*Step 4 (conclusion).* Combining Steps 2 and 3: at *τ > θ<sub>ref</sub>*, the conditioning event has measure tending to zero, and *I(τ)* is undefined-on-trajectory in the limit. The quantity that "reclamation" would recover is not literally zero — it is *uninstantiated*. There is no canonically-defined object that "the user's autocorrelation over reflective-threshold-length no-input windows" picks out under closed-loop convergence. ∎
+*Step 4 (conclusion).* Combining Steps 2 and 3: at $\tau > \theta_{\mathrm{ref}}$, the conditioning event has measure tending to zero, and $I(\tau)$ is undefined-on-trajectory in the limit. The quantity that "reclamation" would recover is not literally zero — it is *uninstantiated*. There is no canonically-defined object that "the user's autocorrelation over reflective-threshold-length no-input windows" picks out under closed-loop convergence. ∎
 
 The theorem is a *negative existence claim* about a specific formal object. It does not say that reclamation is hard. It says that reclamation, as a structural project under the closure, names an empty set. The structural conditions under which the theorem ceases to apply, and the three formally distinct modes of intervention that correspond to those conditions, are taken up in §5.
 
@@ -371,7 +371,7 @@ The reclamation theorem forecloses one specific structural project. It does not 
 
 **5.1 Mode A (architectural). Intervention at π, R̂, or α.**
 
-The architectural mode modifies the policy or the reward functional so that the structural foreclosure in Lemma 1 is broken at its source. Concretely, augment *R̂* with a *bonus* for long no-input windows. Let *b : [0, ∞) → [0, b<sub>max</sub>]* be a bounded, lower-semicontinuous function with *b(τ) > 0* for *τ > τ\** (some target no-input duration) and *b(τ) = 0* for *τ ≤ τ\**, and let *β > 0* be a regularization coefficient. Define the regularized objective:
+The architectural mode modifies the policy or the reward functional so that the structural foreclosure in Lemma 1 is broken at its source. Concretely, augment $\hat{R}$ with a *bonus* for long no-input windows. Let $b : [0, \infty) \to [0, b_{\max}]$ be a bounded, lower-semicontinuous function with $b(\tau) > 0$ for $\tau > \tau*$ (some target no-input duration) and $b(\tau) = 0$ for $\tau \le \tau*$, and let $\beta > 0$ be a regularization coefficient. Define the regularized objective:
 
 
 $$
@@ -379,13 +379,13 @@ $$
 $$
 
 
-The bonus term rewards the policy for inter-stimulus intervals that exceed the target *τ\**. Note the sign: under *R̂'*, the policy is incentivized *to* produce long pauses, not punished for producing them. (An equivalent dual formulation uses a penalty for short pauses; the bonus formulation is adopted here because it is the cleaner regulatory analog — a platform-regulator pays platforms for delivering pause-time, rather than fining them for not delivering it.)
+The bonus term rewards the policy for inter-stimulus intervals that exceed the target $\tau*$. Note the sign: under $\hat{R}'$, the policy is incentivized *to* produce long pauses, not punished for producing them. (An equivalent dual formulation uses a penalty for short pauses; the bonus formulation is adopted here because it is the cleaner regulatory analog — a platform-regulator pays platforms for delivering pause-time, rather than fining them for not delivering it.)
 
 Before stating Proposition 1, we establish a parametric-continuity lemma that the proof requires.
 
 **Lemma 2 (parametric continuity of regularized optima).**
 
-*Define F(θ) := E[R̂(y<sub>1:T</sub>, N<sub>T</sub>) | θ] and B(θ) := E[Σ<sub>k</sub> b(τ<sup>(k)</sup>) | θ]. Under (A1)–(A6), the gradient-ascent limit:*
+$Define F(\theta) := E[\hat{R}(y_{1:T}, N_{T}) | \theta] \,\text{and}\, B(\theta) := E[\Sigma_{k} b(\tau^{(k)}) | \theta]. \,\text{Under}\, (A1)–(A6), the gradient-ascent limit:$
 
 
 $$
@@ -393,13 +393,13 @@ $$
 $$
 
 
-*is well-defined locally for each β ≥ 0, with the following properties:*
+$is well-defined locally \,\text{for}\, each \beta \ge 0, \,\text{with}\, the following properties:$
 
-*(i) Continuity: β ↦ θ\**'*<sub>β</sub> is continuous.*
+$(i) Continuity: \beta ↦ \theta*$'$_{\beta} is continuous.$
 
-*(ii) Monotonicity: B(θ\**'*<sub>β</sub>) is non-decreasing in β, and F(θ\**'*<sub>β</sub>) is non-increasing in β.*
+$(ii) Monotonicity: B(\theta*$'$_{\beta}) is non-decreasing in \beta, \,\text{and}\, F(\theta*$'$_{\beta}) is non-increasing in \beta.$
 
-*(iii) Path existence and strict growth: There exists a continuous path β ↦ θ̃(β), defined on a maximal interval [0, β̄) ⊆ [0, ∞], with θ̃(0) = θ\* (the unregularized engagement-maximizer of Lemma 1) and with θ̃(β) a local maximum of F + βB along the entire path. The bonus achievement B(θ̃(β)) is non-decreasing in β. Provided the path's gradient direction is non-trivial — formally, ∇B(θ\*) ≠ 0, which holds generically since B and F have distinct extremizers — B(θ̃(β)) is strictly increasing on (0, β̄). The path's terminal value:*
+$(iii) Path existence \,\text{and}\, strict growth: There \,\text{exists}\, a continuous path \beta ↦ \thetã(\beta), defined on a maximal interval [0, \betā) ⊆ [0, \infty], \,\text{with}\, \thetã(0) = \theta* (the unregularized engagement-maximizer of Lemma 1) \,\text{and}\, \,\text{with}\, \thetã(\beta) a local maximum of F + \betaB along the entire path. The bonus achievement B(\thetã(\beta)) is non-decreasing in \beta. Provided the path's gradient direction is non-trivial — formally, \nablaB(\theta*) \ne 0, which \,\text{holds}\, generically since B \,\text{and}\, F have distinct extremizers — B(\thetã(\beta)) is strictly increasing on (0, \betā). The path's terminal value:$
 
 
 $$
@@ -407,11 +407,11 @@ B_{\max}^{\,\tilde\theta}\ :=\ \sup_{\beta \in [0,\, \bar\beta)}\, B(\tilde\thet
 $$
 
 
-*satisfies B<sup>θ̃</sup><sub>max</sub> > 0. The path's right endpoint β̄ is finite at most if a bifurcation interrupts the IFT continuation; under generic regularity (no codimension-one bifurcations along the path, which holds on an open dense set in the policy class), β̄ = ∞ and B<sup>θ̃</sup><sub>max</sub> attains a local maximum of B.*
+$satisfies B^{\thetã}_{\max} > 0. The path's right endpoint \betā is finite at most \,\text{if}\, a bifurcation interrupts the IFT continuation; \,\text{under}\, generic regularity (no codimension-one bifurcations along the path, which \,\text{holds}\, on an open dense set in the policy class), \betā = \infty \,\text{and}\, B^{\thetã}_{\max} attains a local maximum of B.$
 
 **Proof.**
 
-*(i)* By (A6), *F* and *B* are *C¹* on *Θ* with non-degenerate Hessians at the optima. The first-order condition at *θ\**'*<sub>β</sub>* is:
+*(i)* By (A6), *F* and *B* are *C¹* on $\Theta$ with non-degenerate Hessians at the optima. The first-order condition at $\theta*$'$_{\beta}$ is:
 
 
 $$
@@ -419,9 +419,9 @@ $$
 $$
 
 
-The Hessian of the regularized objective is *H<sub>F</sub>(θ\**'*<sub>β</sub>) + β H<sub>B</sub>(θ\**'*<sub>β</sub>)*, which is non-singular at *θ\**'*<sub>β</sub>* by (A6). The implicit function theorem applies: *θ\**'*<sub>β</sub>* is a *C¹* function of *β* in a neighborhood of any *β<sub>0</sub> ≥ 0*. Continuity follows.
+The Hessian of the regularized objective is $H_{F}(\theta*$'$_{\beta}) + \beta H_{B}(\theta*$'$_{\beta})$, which is non-singular at $\theta*$'$_{\beta}$ by (A6). The implicit function theorem applies: $\theta*$'$_{\beta}$ is a *C¹* function of $\beta$ in a neighborhood of any $\beta_{0} \ge 0$. Continuity follows.
 
-*(ii)* Differentiating the FOC with respect to *β*:
+*(ii)* Differentiating the FOC with respect to $\beta$:
 
 
 $$
@@ -429,7 +429,7 @@ $$
 $$
 
 
-Hence *dθ\**'*<sub>β</sub>/dβ = −[H<sub>F</sub> + β H<sub>B</sub>]<sup>−1</sup> ∇B*. The bracketed Hessian is negative definite at a local maximum (by (A6)), so its inverse is also negative definite. The rate of change of the bonus:
+Hence $d\theta*$'$_{\beta}/d\beta = -[H_{F} + \beta H_{B}]^{-1} \nablaB$. The bracketed Hessian is negative definite at a local maximum (by (A6)), so its inverse is also negative definite. The rate of change of the bonus:
 
 
 $$
@@ -437,35 +437,35 @@ $$
 $$
 
 
-since *−∇B<sup>⊤</sup>(neg. def.)<sup>−1</sup>∇B ≥ 0*. The monotonicity of *F* follows by the envelope theorem: at the optimum, *dF(θ\**'*<sub>β</sub>)/dβ = −β · dB(θ\**'*<sub>β</sub>)/dβ ≤ 0*.
+since $-\nablaB^{\top}(neg. def.)^{-1}\nablaB \ge 0$. The monotonicity of *F* follows by the envelope theorem: at the optimum, $dF(\theta*$'$_{\beta})/d\beta = -\beta \cdot dB(\theta*$'$_{\beta})/d\beta \le 0$.
 
-*(iii)* At *β = 0*, the regularization vanishes and *θ̃(0) = θ\**, the unregularized engagement-maximizer of Lemma 1. By part (i), the implicit function theorem gives a unique smooth continuation of *θ̃(β)* as long as the regularized Hessian *H<sub>F</sub>(θ̃(β)) + β H<sub>B</sub>(θ̃(β))* remains non-degenerate. Let *β̄* denote the supremum of β-values for which this continuation exists; *β̄ ∈ (0, ∞]*.
+*(iii)* At $\beta = 0$, the regularization vanishes and $\thetã(0) = \theta*$, the unregularized engagement-maximizer of Lemma 1. By part (i), the implicit function theorem gives a unique smooth continuation of $\thetã(\beta)$ as long as the regularized Hessian $H_{F}(\thetã(\beta)) + \beta H_{B}(\thetã(\beta))$ remains non-degenerate. Let $\betā$ denote the supremum of β-values for which this continuation exists; $\betā \in (0, \infty]$.
 
-By part (ii), *B(θ̃(β))* is non-decreasing on [0, β̄). For *strict* growth, we use the explicit derivative *dB/dβ = −∇B<sup>⊤</sup>[H<sub>F</sub> + βH<sub>B</sub>]<sup>−1</sup>∇B* (from part (ii)). The Hessian *H<sub>F</sub> + βH<sub>B</sub>* is negative definite at a local maximum, so its inverse is also negative definite, and the quadratic form *−∇B<sup>⊤</sup>(neg. def.)<sup>−1</sup>∇B > 0* whenever *∇B(θ̃(β)) ≠ 0*. Hence *B(θ̃(β))* is strictly increasing on any β-interval where *∇B* is non-vanishing along the path.
+By part (ii), $B(\thetã(\beta))$ is non-decreasing on [0, β̄). For *strict* growth, we use the explicit derivative $dB/d\beta = -\nablaB^{\top}[H_{F} + \betaH_{B}]^{-1}\nablaB$ (from part (ii)). The Hessian $H_{F} + \betaH_{B}$ is negative definite at a local maximum, so its inverse is also negative definite, and the quadratic form $-\nablaB^{\top}(neg. def.)^{-1}\nablaB > 0$ whenever $\nablaB(\thetã(\beta)) \ne 0$. Hence $B(\thetã(\beta))$ is strictly increasing on any β-interval where $\nablaB$ is non-vanishing along the path.
 
-The condition *∇B(θ̃(β)) ≠ 0* holds generically: *B* and *F* have distinct extremizers (the *B*-maximizer fires at rate *1/τ\** to maximize bonus-eligible intervals; the *F*-maximizer fires at *λ<sub>max</sub> = 1/δ<sub>min</sub>* to maximize engagement). Hence *∇B(θ\*) ≠ 0* — at the *F*-maximizer, the *B*-gradient is non-zero, since *B* prefers a different policy. By continuity, *∇B(θ̃(β)) ≠ 0* in a neighborhood of *β = 0*, and the path produces strictly positive *B(θ̃(β)) > B(θ\*) = 0* for any sufficiently small *β > 0*. Define *B<sup>θ̃</sup><sub>max</sub> := sup<sub>β ∈ [0, β̄)</sub> B(θ̃(β))* — strictly positive by this argument.
+The condition $\nablaB(\thetã(\beta)) \ne 0$ holds generically: *B* and *F* have distinct extremizers (the *B*-maximizer fires at rate $1/\tau*$ to maximize bonus-eligible intervals; the *F*-maximizer fires at $\lambda_{\max} = 1/\delta_{\min}$ to maximize engagement). Hence $\nablaB(\theta*) \ne 0$ — at the *F*-maximizer, the *B*-gradient is non-zero, since *B* prefers a different policy. By continuity, $\nablaB(\thetã(\beta)) \ne 0$ in a neighborhood of $\beta = 0$, and the path produces strictly positive $B(\thetã(\beta)) > B(\theta*) = 0$ for any sufficiently small $\beta > 0$. Define $B^{\thetã}_{\max} := sup_{\beta \in [0, \betā)} B(\thetã(\beta))$ — strictly positive by this argument.
 
-The path's right endpoint *β̄* is finite only if a bifurcation interrupts the IFT continuation (e.g., the regularized Hessian becomes degenerate). Bifurcations occur on a codimension-one stratum in *Θ × [0, ∞]* (Whitney stratification), and under generic policy-class regularity the chosen path avoids them — *β̄ = ∞*. In this regime, *θ̃(β) → arg max B* (or to a local maximum of *B*, depending on basin structure), and *B<sup>θ̃</sup><sub>max</sub> = b<sub>max</sub>·E[N<sub>T</sub>]/T = b<sub>max</sub>·(1/τ\*)·T* (with policy firing rate *1/τ\**). When *β̄* is finite, the framework's argument requires only that *B<sup>θ̃</sup><sub>max</sub> > 0*, which is the strict-growth conclusion above. ∎
+The path's right endpoint $\betā$ is finite only if a bifurcation interrupts the IFT continuation (e.g., the regularized Hessian becomes degenerate). Bifurcations occur on a codimension-one stratum in $\Theta × [0, \infty]$ (Whitney stratification), and under generic policy-class regularity the chosen path avoids them — $\betā = \infty$. In this regime, $\thetã(\beta) \to \mathrm{arg} max B$ (or to a local maximum of *B*, depending on basin structure), and $B^{\thetã}_{\max} = b_{\max}\cdotE[N_{T}]/T = b_{\max}\cdot(1/\tau*)\cdotT$ (with policy firing rate $1/\tau*$). When $\betā$ is finite, the framework's argument requires only that $B^{\thetã}_{\max} > 0$, which is the strict-growth conclusion above. ∎
 
 **Proposition 1 (Mode A breaks foreclosure).**
 
-*Under (A1)–(A6), define P(β) := Pr(τ<sup>(k)</sup> > τ\*; θ̃(β)) along the parametric path of Lemma 2(iii). Then:*
+$\,\text{Under}\, (A1)–(A6), define P(\beta) := \mathrm{Pr}(\tau^{(k)} > \tau*; \thetã(\beta)) along the parametric path of Lemma 2(iii). \,\text{Then}\,:$
 
-*(a) P(0) = S(τ\*; θ\*) ≤ C(c<sub>v</sub>)·e<sup>−τ\*/δ<sub>min</sub></sup>, which is operationally zero.*
+$(a) P(0) = S(\tau*; \theta*) \le C(c_{v})\cdote^{-\tau*/\delta_{\min}}, which is operationally zero.$
 
-*(b) P(β) is continuous in β on [0, β̄).*
+$(b) P(\beta) is continuous in \beta on [0, \betā).$
 
-*(c) There exists ε<sub>max</sub> := sup<sub>β ∈ [0, β̄)</sub> P(β) > 0.*
+$(c) There \,\text{exists}\, \epsilon_{\max} := sup_{\beta \in [0, \betā)} P(\beta) > 0.$
 
-*Consequently, for any ε ∈ (0, ε<sub>max</sub>), there exists β<sub>ε</sub> ∈ (0, β̄) with P(β<sub>ε</sub>) ≥ ε. For such β<sub>ε</sub>, Lemma 1 fails under R̂'(·; β<sub>ε</sub>), the conditioning event E<sub>τ\*</sub> has positive measure, and I(τ\*) is well-defined on a positive-measure set of trajectories. Mode A is the only mode of intervention that recovers what the reclamation theorem forecloses.*
+$Consequently, \,\text{for}\, any \epsilon \in (0, \epsilon_{\max}), there \,\text{exists}\, \beta_{\epsilon} \in (0, \betā) \,\text{with}\, P(\beta_{\epsilon}) \ge \epsilon. \,\text{For}\, such \beta_{\epsilon}, Lemma 1 fails \,\text{under}\, \hat{R}'(\cdot; \beta_{\epsilon}), the conditioning event E_{\tau*} has positive measure, \,\text{and}\, I(\tau*) is well-defined on a positive-measure set of trajectories. Mode A is the only mode of intervention that recovers what the reclamation theorem forecloses.$
 
 **Proof.**
 
-*(a)* Taking *τ\* ≥ θ<sub>ref</sub>* and applying Lemma 1: *S(τ\*; θ\*) ≤ C(c<sub>v</sub>)·e<sup>−τ\*/δ<sub>min</sub></sup>*. Since *θ̃(0) = θ\** by Lemma 2(iii), *P(0)* equals this operationally-zero bound.
+*(a)* Taking $\tau* \ge \theta_{\mathrm{ref}}$ and applying Lemma 1: $S(\tau*; \theta*) \le C(c_{v})\cdote^{-\tau*/\delta_{\min}}$. Since $\thetã(0) = \theta*$ by Lemma 2(iii), *P(0)* equals this operationally-zero bound.
 
-*(b)* Continuity of *P(β)*: by Lemma 2(i), *β ↦ θ̃(β)* is continuous on [0, β̄). The map *θ ↦ Pr(τ<sup>(k)</sup> > τ\*; θ)* is continuous on Θ by (A1) (continuous dependence of the inter-arrival distribution on policy parameters, via the bounded-variance noise assumption). The composition is therefore continuous.
+*(b)* Continuity of $P(\beta)$: by Lemma 2(i), $\beta ↦ \thetã(\beta)$ is continuous on [0, β̄). The map $\theta ↦ \mathrm{Pr}(\tau^{(k)} > \tau*; \theta)$ is continuous on Θ by (A1) (continuous dependence of the inter-arrival distribution on policy parameters, via the bounded-variance noise assumption). The composition is therefore continuous.
 
-*(c)* Strict positivity of *ε<sub>max</sub>*: by Lemma 2(iii), *B(θ̃(β))* is strictly increasing on (0, β̄), with *B(θ̃(0)) = 0* and *B<sup>θ̃</sup><sub>max</sub> > 0*. The bonus *b* is supported only on intervals *τ > τ\**: explicitly,
+*(c)* Strict positivity of $\epsilon_{\max}$: by Lemma 2(iii), $B(\thetã(\beta))$ is strictly increasing on (0, β̄), with $B(\thetã(0)) = 0$ and $B^{\thetã}_{\max} > 0$. The bonus *b* is supported only on intervals $\tau > \tau*$: explicitly,
 
 
 $$
@@ -473,19 +473,19 @@ B(\tilde\theta(\beta))\ =\ \mathbb{E}\!\left[\sum_{k} b(\tau^{(k)});\, \tilde\th
 $$
 
 
-Hence *B(θ̃(β)) > 0 ⟹ P(β) > 0*. Taking the supremum, *ε<sub>max</sub> ≥ B<sup>θ̃</sup><sub>max</sub>/(b<sub>max</sub>·sup<sub>β</sub> E[N<sub>T</sub>; θ̃(β)]) > 0*.
+Hence $B(\thetã(\beta)) > 0 ⟹ P(\beta) > 0$. Taking the supremum, $\epsilon_{\max} \ge B^{\thetã}_{\max}/(b_{\max}\cdotsup_{\beta} E[N_{T}; \thetã(\beta)]) > 0$.
 
-For the IVT conclusion: by (a), *P(0)* is operationally zero; by (c), *sup<sub>β</sub> P(β) = ε<sub>max</sub> > 0*; by (b), *P* is continuous. By the intermediate value theorem applied to *P* on [0, β̄), for any *ε ∈ (0, ε<sub>max</sub>)*, there exists *β<sub>ε</sub>* with *P(β<sub>ε</sub>) = ε*. The continuity of *P* and the non-decreasing nature of *B(θ̃(β))* in *β* (Lemma 2(ii)), composed with the monotone relationship between *B* and *P* via the bonus structure, give *P(β) ≥ ε* for *β* in a right-neighborhood of *β<sub>ε</sub>*. ∎
+For the IVT conclusion: by (a), *P(0)* is operationally zero; by (c), $sup_{\beta} P(\beta) = \epsilon_{\max} > 0$; by (b), *P* is continuous. By the intermediate value theorem applied to *P* on [0, β̄), for any $\epsilon \in (0, \epsilon_{\max})$, there exists $\beta_{\epsilon}$ with $P(\beta_{\epsilon}) = \epsilon$. The continuity of *P* and the non-decreasing nature of $B(\thetã(\beta))$ in $\beta$ (Lemma 2(ii)), composed with the monotone relationship between *B* and *P* via the bonus structure, give $P(\beta) \ge \epsilon$ for $\beta$ in a right-neighborhood of $\beta_{\epsilon}$. ∎
 
-The mode operates on the timescale of *T<sub>mix</sub>*. The intervention itself — a policy change, a regulatory imposition, a structural constraint on *π* or *R̂* — may be instantaneous in clock-time, but the cohort's empirical distribution converges to the new *μ\*<sub>π'</sub>* only over the mixing time of the modified loop. This is the framework's most consequential quantitative claim about architectural intervention: evaluations conducted at clock-time substantially less than *T<sub>mix</sub>(π')* will systematically underestimate the intervention's structural effect, and the pattern in the policy literature of declaring failure on the basis of one-quarter or two-quarter observation windows is a temporal misalignment masquerading as an empirical finding.
+The mode operates on the timescale of $T_{\mathrm{mix}}$. The intervention itself — a policy change, a regulatory imposition, a structural constraint on $\pi$ or $\hat{R}$ — may be instantaneous in clock-time, but the cohort's empirical distribution converges to the new $\mu*_{\pi'}$ only over the mixing time of the modified loop. This is the framework's most consequential quantitative claim about architectural intervention: evaluations conducted at clock-time substantially less than $T_{\mathrm{mix}}(\pi')$ will systematically underestimate the intervention's structural effect, and the pattern in the policy literature of declaring failure on the basis of one-quarter or two-quarter observation windows is a temporal misalignment masquerading as an empirical finding.
 
-The architectural mode is also the mode the platform's incentive structure most strongly resists. The bonus *b(τ<sub>m</sub>)* and the engagement reward *R̂* are antagonistic in expectation: maximizing *B* requires *τ<sub>m</sub> > τ\**, which costs *(λ<sub>max</sub> − 1/τ\*)* in foregone engagement-event rate. Any non-trivial *β* is, in expectation, a foregone gradient step on engagement. Voluntary adoption is therefore selected against under engagement competition; the mode under voluntary conditions exists only as marginal experimentation in segments insulated from the dominant incentive. The substantive content of Mode A is therefore the politics of platform regulation — the question of who imposes *β*, under what authority, with what jurisdictional reach, and against what counter-organized capital. The framework does not adjudicate this politics; it specifies its formal stakes.
+The architectural mode is also the mode the platform's incentive structure most strongly resists. The bonus $b(\tau_{m})$ and the engagement reward $\hat{R}$ are antagonistic in expectation: maximizing *B* requires $\tau_{m} > \tau*$, which costs $(\lambda_{\max} - 1/\tau*)$ in foregone engagement-event rate. Any non-trivial $\beta$ is, in expectation, a foregone gradient step on engagement. Voluntary adoption is therefore selected against under engagement competition; the mode under voluntary conditions exists only as marginal experimentation in segments insulated from the dominant incentive. The substantive content of Mode A is therefore the politics of platform regulation — the question of who imposes $\beta$, under what authority, with what jurisdictional reach, and against what counter-organized capital. The framework does not adjudicate this politics; it specifies its formal stakes.
 
-**5.2 Mode B (artisanal). Intervention at L<sub>m</sub> and ν<sub>u</sub>.**
+**5.2 Mode B (artisanal). Intervention at $L_m$ and $\nu_u$.**
 
-The artisanal mode does not modify *π*. It does not change *Pr(E<sub>τ</sub>)*. The foreclosure lemma continues to hold under the artisanal mode, and *I(τ)* at long *τ* remains undefined-on-trajectory. What the artisanal mode produces is a parallel structure: a user-side self-evaluative distribution *ν<sub>u</sub>* maintained against the platform's reward-induced distribution *π<sub>R̂</sub>* through ongoing maintenance labor.
+The artisanal mode does not modify $\pi$. It does not change $\mathrm{Pr}(E_{\tau})$. The foreclosure lemma continues to hold under the artisanal mode, and $I(\tau)$ at long $\tau$ remains undefined-on-trajectory. What the artisanal mode produces is a parallel structure: a user-side self-evaluative distribution $\nu_{u}$ maintained against the platform's reward-induced distribution $\pi_{\hat{R}}$ through ongoing maintenance labor.
 
-To state the proposition cleanly, both objects must live on the same sample space. Define *π<sub>R̂</sub>* as the conditional distribution over the user's behavioral states *u<sub>t</sub><sup>S,C,P,K</sup>* that would maximize the platform's reward *R̂* given current observations — the platform's implicit "ideal user" distribution. Define *ν<sub>u</sub>* as the user's self-evaluative distribution over the same space. Under the metric superego (§3.4), *D<sub>KL</sub>(ν<sub>u</sub> ‖ π<sub>R̂</sub>) → 0*. The artisanal intervention preserves a positive gap.
+To state the proposition cleanly, both objects must live on the same sample space. Define $\pi_{\hat{R}}$ as the conditional distribution over the user's behavioral states $u_{t}^{S,C,P,K}$ that would maximize the platform's reward $\hat{R}$ given current observations — the platform's implicit "ideal user" distribution. Define $\nu_{u}$ as the user's self-evaluative distribution over the same space. Under the metric superego (§3.4), $D_{\mathrm{KL}}(\nu_{u} \| \pi_{\hat{R}}) \to 0$. The artisanal intervention preserves a positive gap.
 
 **Proposition 2 (Mode B preserves a gap but does not break foreclosure).**
 
@@ -497,17 +497,17 @@ $$
 $$
 
 
-*where (a) h<sub>0</sub> : [0, ∞) → [0, ∞) is continuous, strictly increasing in β<sub>u</sub> (the platform pressure: a continuous, monotone increasing function of α, the policy's cumulative confidence H(u | y<sub>1:t</sub>)<sup>−1</sup>, and the duration of exposure t), with h<sub>0</sub>(0) = 0; (b) r : [0, ∞) → [0, ∞) is continuous, strictly increasing in L<sub>m</sub>, with r(0) = 0; (c) the contraction is reversible — for any β<sub>u</sub>, the inverse function L<sub>m</sub>\* := r<sup>−1</sup>(h<sub>0</sub>(β<sub>u</sub>)) exists in (0, L<sub>m,max</sub>] where L<sub>m,max</sub> is the user's metabolic budget.*
+$\,\text{where}\, (a) h_{0} : [0, \infty) \to [0, \infty) is continuous, strictly increasing in \beta_{u} (the platform pressure: a continuous, monotone increasing function of \alpha, the policy's cumulative confidence H(u | y_{1:t})^{-1}, \,\text{and}\, the duration of exposure t), \,\text{with}\, h_{0}(0) = 0; (b) r : [0, \infty) \to [0, \infty) is continuous, strictly increasing in L_{m}, \,\text{with}\, r(0) = 0; (c) the contraction is reversible — \,\text{for}\, any \beta_{u}, the inverse function L_{m}* := r^{-1}(h_{0}(\beta_{u})) \,\text{exists}\, in (0, L_{m,max}] \,\text{where}\, L_{m,max} is the user's metabolic budget.$
 
-*Then for L<sub>m</sub> ≥ L<sub>m</sub>\*(β<sub>u</sub>):*
+$\,\text{Then}\, \,\text{for}\, L_{m} \ge L_{m}*(\beta_{u}):$
 
-*(i) D<sub>KL</sub>(ν<sub>u</sub>(t) ‖ π<sub>R̂</sub>) ≥ γ > 0 is maintained over the user's exposure horizon, with γ given by the initial gap D<sub>KL</sub>(ν<sub>u</sub>(0) ‖ π<sub>R̂</sub>).*
+$(i) D_{\mathrm{KL}}(\nu_{u}(t) \| \pi_{\hat{R}}) \ge \gamma > 0 is maintained over the user's exposure horizon, \,\text{with}\, \gamma given by the initial gap D_{\mathrm{KL}}(\nu_{u}(0) \| \pi_{\hat{R}}).$
 
-*(ii) Lemma 1 continues to hold: Pr(E<sub>τ</sub>) → 0 for τ > θ<sub>ref</sub>.*
+$(ii) Lemma 1 continues to hold: \mathrm{Pr}(E_{\tau}) \to 0 \,\text{for}\, \tau > \theta_{\mathrm{ref}}.$
 
-**Remark on the structural assumption.** The decomposition *dD<sub>KL</sub>/dt = −h<sub>0</sub>(β<sub>u</sub>) + r(L<sub>m</sub>)* is *not* axiomatic; it is the first-order linearization of the user's internalization dynamics around the operating point *ν<sub>u</sub><sup>op</sup>* where *D<sub>KL</sub>(ν<sub>u</sub><sup>op</sup> ‖ π<sub>R̂</sub>) = γ*. The derivation differs across the three named mechanisms but each produces the same linearized form. The free-energy case is worked here explicitly; the other two are sketched.
+**Remark on the structural assumption.** The decomposition $dD_{\mathrm{KL}}/dt = -h_{0}(\beta_{u}) + r(L_{m})$ is *not* axiomatic; it is the first-order linearization of the user's internalization dynamics around the operating point $\nu_{u}^{\mathrm{op}}$ where $D_{\mathrm{KL}}(\nu_{u}^{\mathrm{op}} \| \pi_{\hat{R}}) = \gamma$. The derivation differs across the three named mechanisms but each produces the same linearized form. The free-energy case is worked here explicitly; the other two are sketched.
 
-— *Free-energy minimization (worked derivation).* Let *F<sub>u</sub>[ν<sub>u</sub>; π<sub>R̂</sub>] = D<sub>KL</sub>(ν<sub>u</sub> ‖ π<sub>R̂</sub>) − H[ν<sub>u</sub>]* be the user's variational free energy, where *H[ν<sub>u</sub>]* is the entropy of the self-evaluative distribution. Under the active-inference update rule (Friston 2010), *ν<sub>u</sub>* descends *F<sub>u</sub>* at rate *β<sub>u</sub>*:
+— *Free-energy minimization (worked derivation).* Let $F_{u}[\nu_{u}; \pi_{\hat{R}}] = D_{\mathrm{KL}}(\nu_{u} \| \pi_{\hat{R}}) - H[\nu_{u}]$ be the user's variational free energy, where $H[\nu_{u}]$ is the entropy of the self-evaluative distribution. Under the active-inference update rule (Friston 2010), $\nu_{u}$ descends $F_{u}$ at rate $\beta_{u}$:
 
 
 $$
@@ -515,7 +515,7 @@ $$
 $$
 
 
-The maintenance labor adds a counter-gradient term *L<sub>m</sub>·ê<sub>resist</sub>*, where *ê<sub>resist</sub>* is a unit vector in the direction the user actively maintains *ν<sub>u</sub>* distinct from *π<sub>R̂</sub>* — formally, *ê<sub>resist</sub> = ∇<sub>ν</sub>D<sub>KL</sub>/‖∇<sub>ν</sub>D<sub>KL</sub>‖* (the direction of maximum *D<sub>KL</sub>* increase). Then:
+The maintenance labor adds a counter-gradient term $L_{m}\cdotê_{resist}$, where $ê_{resist}$ is a unit vector in the direction the user actively maintains $\nu_{u}$ distinct from $\pi_{\hat{R}}$ — formally, $ê_{resist} = \nabla_{\nu}D_{\mathrm{KL}}/\|\nabla_{\nu}D_{\mathrm{KL}}\|$ (the direction of maximum $D_{\mathrm{KL}}$ increase). Then:
 
 
 $$
@@ -523,7 +523,7 @@ $$
 $$
 
 
-Differentiating *D<sub>KL</sub>* along this flow:
+Differentiating $D_{\mathrm{KL}}$ along this flow:
 
 
 $$
@@ -531,7 +531,7 @@ $$
 $$
 
 
-At the operating point *ν<sub>u</sub><sup>op</sup>*, denote *‖∇<sub>ν</sub>D<sub>KL</sub>‖<sub>op</sub> =: c<sub>op</sub>* (a constant in the linearization). The entropy gradient *∇<sub>ν</sub>H* is bounded and approximately orthogonal to *∇<sub>ν</sub>D<sub>KL</sub>* generically (entropy is symmetric under permutations of the support, *D<sub>KL</sub>* is not), so the middle term is *o(c<sub>op</sub><sup>2</sup>)*. Linearizing:
+At the operating point $\nu_{u}^{\mathrm{op}}$, denote $\|\nabla_{\nu}D_{\mathrm{KL}}\|_{\mathrm{op}} =: c_{\mathrm{op}}$ (a constant in the linearization). The entropy gradient $\nabla_{\nu}H$ is bounded and approximately orthogonal to $\nabla_{\nu}D_{\mathrm{KL}}$ generically (entropy is symmetric under permutations of the support, $D_{\mathrm{KL}}$ is not), so the middle term is $o(c_{\mathrm{op}}^{2})$. Linearizing:
 
 
 $$
@@ -539,45 +539,45 @@ $$
 $$
 
 
-with *h<sub>0</sub>(β<sub>u</sub>) := β<sub>u</sub>·c<sub>op</sub><sup>2</sup>* and *r(L<sub>m</sub>) := L<sub>m</sub>·c<sub>op</sub>*. Both linear in their respective arguments; the multiplicative separability is exact in the linearization. The validity of the linearization depends on *ν<sub>u</sub>* remaining in a neighborhood of *ν<sub>u</sub><sup>op</sup>* where *c<sub>op</sub>* is approximately constant — which is precisely what Proposition 2(i) establishes for *L<sub>m</sub> ≥ L<sub>m</sub>\**.
+with $h_{0}(\beta_{u}) := \beta_{u}\cdotc_{\mathrm{op}}^{2}$ and $r(L_{m}) := L_{m}\cdotc_{\mathrm{op}}$. Both linear in their respective arguments; the multiplicative separability is exact in the linearization. The validity of the linearization depends on $\nu_{u}$ remaining in a neighborhood of $\nu_{u}^{\mathrm{op}}$ where $c_{\mathrm{op}}$ is approximately constant — which is precisely what Proposition 2(i) establishes for $L_{m} \ge L_{m}*$.
 
-— *Operant reinforcement (sketch).* Under a Rescorla-Wagner update *ν<sub>u</sub>(t+dt) = ν<sub>u</sub>(t) + α<sub>RW</sub>·(π<sub>R̂</sub> − ν<sub>u</sub>(t))·dt*, with *α<sub>RW</sub>* the learning rate (proportional to the platform's reinforcement schedule density), *dD<sub>KL</sub>/dt = −α<sub>RW</sub>·(linearized correction term)*. Identifying *β<sub>u</sub>* with *α<sub>RW</sub>* gives *h<sub>0</sub>(β<sub>u</sub>) = β<sub>u</sub>·c<sub>op</sub><sup>(RW)</sup>* with a different constant *c<sub>op</sub><sup>(RW)</sup>* depending on the reward prediction-error variance. The maintenance term has the same structural form *r(L<sub>m</sub>) ∝ L<sub>m</sub>* under bounded counter-conditioning capacity.
+— *Operant reinforcement (sketch).* Under a Rescorla-Wagner update $\nu_{u}(t+dt) = \nu_{u}(t) + \alpha_{RW}\cdot(\pi_{\hat{R}} - \nu_{u}(t))\cdotdt$, with $\alpha_{RW}$ the learning rate (proportional to the platform's reinforcement schedule density), $dD_{\mathrm{KL}}/dt = -\alpha_{RW}\cdot(linearized correction term)$. Identifying $\beta_{u}$ with $\alpha_{RW}$ gives $h_{0}(\beta_{u}) = \beta_{u}\cdotc_{\mathrm{op}}^{(RW)}$ with a different constant $c_{\mathrm{op}}^{(RW)}$ depending on the reward prediction-error variance. The maintenance term has the same structural form $r(L_{m}) ∝ L_{m}$ under bounded counter-conditioning capacity.
 
-— *Social comparison (sketch).* Under Bayesian belief revision with platform-surfaced peer evidence at rate *λ<sub>surf</sub>* (proportional to platform pressure), *ν<sub>u</sub>* shifts toward the surfaced peer distribution at rate *β<sub>u</sub> ∝ λ<sub>surf</sub>·credibility*. *D<sub>KL</sub>* contracts at rate concave in *β<sub>u</sub>* (Bayesian information bound). *r(L<sub>m</sub>)* is the rate of extra-platform peer-group maintenance; concave in *L<sub>m</sub>* under diminishing returns.
+— *Social comparison (sketch).* Under Bayesian belief revision with platform-surfaced peer evidence at rate $\lambda_{surf}$ (proportional to platform pressure), $\nu_{u}$ shifts toward the surfaced peer distribution at rate $\beta_{u} ∝ \lambda_{surf}\cdotcredibility$. $D_{\mathrm{KL}}$ contracts at rate concave in $\beta_{u}$ (Bayesian information bound). $r(L_{m})$ is the rate of extra-platform peer-group maintenance; concave in $L_{m}$ under diminishing returns.
 
-In all three cases, the operating-point linearization produces the parametric form assumed in Proposition 2, with *r* and *h<sub>0</sub>* monotone and *L<sub>m</sub>\* := r<sup>−1</sup>(h<sub>0</sub>(β<sub>u</sub>))* well-defined. The framework's commitment to mechanism-agnosticism is therefore not an absence of mechanism but the explicit identification of a structural decomposition consistent with all three named mechanisms in their operating-point linearization. The proposition's conclusion holds under any mechanism with this structure; the explicit free-energy derivation is provided as the cleanest worked example.
+In all three cases, the operating-point linearization produces the parametric form assumed in Proposition 2, with *r* and $h_{0}$ monotone and $L_{m}* := r^{-1}(h_{0}(\beta_{u}))$ well-defined. The framework's commitment to mechanism-agnosticism is therefore not an absence of mechanism but the explicit identification of a structural decomposition consistent with all three named mechanisms in their operating-point linearization. The proposition's conclusion holds under any mechanism with this structure; the explicit free-energy derivation is provided as the cleanest worked example.
 
 **Proof.**
 
-*(i)* By the assumed parametric structure, *dD<sub>KL</sub>/dt = −h(L<sub>m</sub>, β<sub>u</sub>)*. For *L<sub>m</sub> = L<sub>m</sub>\*(β<sub>u</sub>) := r<sup>−1</sup>(h<sub>0</sub>(β<sub>u</sub>))*, we have *r(L<sub>m</sub>\*) = h<sub>0</sub>(β<sub>u</sub>)* and *h(L<sub>m</sub>\*, β<sub>u</sub>) = 0* — the contraction is exactly balanced by the resistance. For *L<sub>m</sub> > L<sub>m</sub>\**, *r(L<sub>m</sub>) > h<sub>0</sub>(β<sub>u</sub>)* and *h(L<sub>m</sub>, β<sub>u</sub>) < 0* — the resistance dominates and *D<sub>KL</sub>* is non-decreasing. Hence *D<sub>KL</sub>(ν<sub>u</sub>(t) ‖ π<sub>R̂</sub>) ≥ D<sub>KL</sub>(ν<sub>u</sub>(0) ‖ π<sub>R̂</sub>) =: γ > 0* over the exposure horizon, provided *L<sub>m</sub> ≥ L<sub>m</sub>\*(β<sub>u</sub>(t))* for all *t* (the threshold may rise with platform pressure, requiring *L<sub>m</sub>* to scale; this is the *metabolically bounded* qualification below).
+*(i)* By the assumed parametric structure, $dD_{\mathrm{KL}}/dt = -h(L_{m}, \beta_{u})$. For $L_{m} = L_{m}*(\beta_{u}) := r^{-1}(h_{0}(\beta_{u}))$, we have $r(L_{m}*) = h_{0}(\beta_{u})$ and $h(L_{m}*, \beta_{u}) = 0$ — the contraction is exactly balanced by the resistance. For $L_{m} > L_{m}*$, $r(L_{m}) > h_{0}(\beta_{u})$ and $h(L_{m}, \beta_{u}) < 0$ — the resistance dominates and $D_{\mathrm{KL}}$ is non-decreasing. Hence $D_{\mathrm{KL}}(\nu_{u}(t) \| \pi_{\hat{R}}) \ge D_{\mathrm{KL}}(\nu_{u}(0) \| \pi_{\hat{R}}) =: \gamma > 0$ over the exposure horizon, provided $L_{m} \ge L_{m}*(\beta_{u}(t))$ for all *t* (the threshold may rise with platform pressure, requiring $L_{m}$ to scale; this is the *metabolically bounded* qualification below).
 
-*(ii)* The closed-loop dynamics (1)–(4) do not depend on *ν<sub>u</sub>*: they depend on the platform's policy *π*, which evolves by stochastic gradient ascent on *R̂* given *y<sub>1:t</sub>*. The user's *ν<sub>u</sub>* may affect the user's behavioral output, which affects *y<sub>t</sub>*, which affects the policy's update. But under (A1)–(A6), the policy still converges to a *θ\** at which *λ̄(θ\*) = λ<sub>max</sub>*, and the foreclosure argument in Lemma 1 goes through unchanged. Indeed, if the user under artisanal resistance is *less* engagement-prone (the behavioral *y<sub>t</sub>* shows less response to delivered stimuli), the policy may *intensify* — fire more frequently, target more aggressively — to elicit the engagement that satisfies (A4). This strengthens the foreclosure rather than weakening it: the user's *ν<sub>u</sub>* may be preserved, but the platform's *Pr(E<sub>τ</sub>)* is driven harder toward zero. ∎
+*(ii)* The closed-loop dynamics (1)–(4) do not depend on $\nu_{u}$: they depend on the platform's policy $\pi$, which evolves by stochastic gradient ascent on $\hat{R}$ given $y_{1:t}$. The user's $\nu_{u}$ may affect the user's behavioral output, which affects $y_{t}$, which affects the policy's update. But under (A1)–(A6), the policy still converges to a $\theta*$ at which $\bar{\lambda}(\theta*) = \lambda_{\max}$, and the foreclosure argument in Lemma 1 goes through unchanged. Indeed, if the user under artisanal resistance is *less* engagement-prone (the behavioral $y_{t}$ shows less response to delivered stimuli), the policy may *intensify* — fire more frequently, target more aggressively — to elicit the engagement that satisfies (A4). This strengthens the foreclosure rather than weakening it: the user's $\nu_{u}$ may be preserved, but the platform's $\mathrm{Pr}(E_{\tau})$ is driven harder toward zero. ∎
 
 The mode is bounded in three structurally distinct ways, each of which has political consequences the prose discourse around individual practice does not typically acknowledge.
 
-*Cohort-bounded.* The maintenance labor's reference point — the *ν<sub>u</sub>* distinct from *π<sub>R̂</sub>* that the user is trying to preserve — exists only if it was constructed before or partly outside the closure. For a user whose *ν<sub>u</sub>* developed entirely under closed-loop conditions, *D<sub>KL</sub>(ν<sub>u</sub> ‖ π<sub>R̂</sub>)* is approximately zero at the outset; the artisanal target is not well-defined. This is the formal substrate of the cohort gradient (§6.1).
+*Cohort-bounded.* The maintenance labor's reference point — the $\nu_{u}$ distinct from $\pi_{\hat{R}}$ that the user is trying to preserve — exists only if it was constructed before or partly outside the closure. For a user whose $\nu_{u}$ developed entirely under closed-loop conditions, $D_{\mathrm{KL}}(\nu_{u} \| \pi_{\hat{R}})$ is approximately zero at the outset; the artisanal target is not well-defined. This is the formal substrate of the cohort gradient (§6.1).
 
-*Metabolically bounded.* *L<sub>m</sub>* is bounded above by the user's available energetic and attentional budget. The framework's claim is that this budget is structurally constrained in late capitalism by conditions exogenous to the loop but co-temporal with it: precarity, the maintenance labor of social reproduction, the absent or contracting welfare state, the second and third shifts. This is an empirical-political claim, not a structural derivation from (1)–(5); the framework asserts its consistency with the literature on time-poverty and social reproduction but does not prove it.
+*Metabolically bounded.* $L_{m}$ is bounded above by the user's available energetic and attentional budget. The framework's claim is that this budget is structurally constrained in late capitalism by conditions exogenous to the loop but co-temporal with it: precarity, the maintenance labor of social reproduction, the absent or contracting welfare state, the second and third shifts. This is an empirical-political claim, not a structural derivation from (1)–(5); the framework asserts its consistency with the literature on time-poverty and social reproduction but does not prove it.
 
-*Non-generalizable.* The mode produces a parallel structure for one user. The cohort's stationary distribution *μ\*<sub>π</sub>* is determined by the policy, and the population-level analytics on which platform optimization runs are insensitive to the artisanal practice of any individual member. Mode B is therefore real for the user who practices it and approximately invisible at the population level. The political consequence is that critique pitched at the artisanal level — the discourse of self-care, digital minimalism, intentional consumption, attention reclamation as an individual project — addresses something real about individual practice and structurally nothing about the form of the loop.
+*Non-generalizable.* The mode produces a parallel structure for one user. The cohort's stationary distribution $\mu*_{\pi}$ is determined by the policy, and the population-level analytics on which platform optimization runs are insensitive to the artisanal practice of any individual member. Mode B is therefore real for the user who practices it and approximately invisible at the population level. The political consequence is that critique pitched at the artisanal level — the discourse of self-care, digital minimalism, intentional consumption, attention reclamation as an individual project — addresses something real about individual practice and structurally nothing about the form of the loop.
 
-**5.3 Mode C (disruption-as-form). Intervention at η<sub>t</sub>.**
+**5.3 Mode C (disruption-as-form). Intervention at $\eta_t$.**
 
-The third mode operates on neither the policy nor the user's internal dynamics, but on the interface between them — the observation channel through which the engagement signal *y<sub>t</sub>* is produced. The dividual condition is the formal claim that *H(u<sub>t</sub> | y<sub>1:t</sub>) → 0*: under prolonged exposure, the platform's posterior over the user's full state converges in entropy to a point mass. The disruption-as-form mode prevents this contraction by injecting structural variance into *η<sub>t</sub>*.
+The third mode operates on neither the policy nor the user's internal dynamics, but on the interface between them — the observation channel through which the engagement signal $y_{t}$ is produced. The dividual condition is the formal claim that $H(u_{t} | y_{1:t}) \to 0$: under prolonged exposure, the platform's posterior over the user's full state converges in entropy to a point mass. The disruption-as-form mode prevents this contraction by injecting structural variance into $\eta_{t}$.
 
 **Proposition 3 (Mode C bounds surplus but does not break foreclosure).**
 
-*Suppose the user's behavioral practice (deliberate inauthenticity, obfuscation, modulation of engagement timing, refusal of legibility) results in an inflated observation-noise variance Var(η<sub>t</sub>) ≥ σ<sup>2</sup><sub>η</sub> > σ<sup>2</sup><sub>η,0</sub>, where σ<sup>2</sup><sub>η,0</sub> is the baseline observation noise. Then under (A1)–(A6):*
+$Suppose the user's behavioral practice (deliberate inauthenticity, obfuscation, modulation of engagement timing, refusal of legibility) results in an inflated observation-noise variance \mathrm{Var}(\eta_{t}) \ge \sigma^{2}_{\eta} > \sigma^{2}_{\eta,0}, \,\text{where}\, \sigma^{2}_{\eta,0} is the baseline observation noise. \,\text{Then}\, \,\text{under}\, (A1)–(A6):$
 
-*(i) The platform's residual entropy satisfies H(u<sub>t</sub> | y<sub>1:t</sub>) ≥ H<sub>res</sub>(σ<sup>2</sup><sub>η</sub>) > 0 for all t, with H<sub>res</sub>(·) strictly increasing.*
+$(i) The platform's residual entropy satisfies H(u_{t} | y_{1:t}) \ge H_{\mathrm{res}}(\sigma^{2}_{\eta}) > 0 \,\text{for}\, all t, \,\text{with}\, H_{\mathrm{res}}(\cdot) strictly increasing.$
 
-*(ii) The achievable expected reward satisfies E[R̂; θ\**(*σ<sup>2</sup><sub>η</sub>)] < E[R̂; θ\**(*σ<sup>2</sup><sub>η,0</sub>)], where θ\**(*σ<sup>2</sup><sub>η</sub>) is the policy limit under noise level σ<sup>2</sup><sub>η</sub>. Consequently, Σ(T) under Mode C is strictly bounded below Σ(T) under contracted observation.*
+$(ii) The achievable expected reward satisfies E[\hat{R}; \theta*$($\sigma^{2}_{\eta})] < E[\hat{R}; \theta*$($\sigma^{2}_{\eta,0})], \,\text{where}\, \theta*$($\sigma^{2}_{\eta}) is the policy limit \,\text{under}\, noise level \sigma^{2}_{\eta}. Consequently, \Sigma(T) \,\text{under}\, Mode C is strictly bounded below \Sigma(T) \,\text{under}\, contracted observation.$
 
-*(iii) Lemma 1 continues to hold: Pr(E<sub>τ</sub>) → 0 for τ > θ<sub>ref</sub>.*
+$(iii) Lemma 1 continues to hold: \mathrm{Pr}(E_{\tau}) \to 0 \,\text{for}\, \tau > \theta_{\mathrm{ref}}.$
 
 **Proof.**
 
-*(i)* By Bayes' rule, the platform's posterior *p(u<sub>t</sub> | y<sub>1:t</sub>)* is computed under likelihood *p(y<sub>t</sub> | u<sub>t</sub>) ∝ φ(y<sub>t</sub> − g(u<sub>t</sub>); σ<sup>2</sup><sub>η</sub>)*, where *φ* is the noise density. As *σ<sup>2</sup><sub>η</sub>* increases, the likelihood becomes less informative and the posterior contracts less. By the standard information-theoretic relation between posterior entropy and observation noise:
+*(i)* By Bayes' rule, the platform's posterior $p(u_{t} | y_{1:t})$ is computed under likelihood $p(y_{t} | u_{t}) ∝ \varphi(y_{t} - g(u_{t}); \sigma^{2}_{\eta})$, where $\varphi$ is the noise density. As $\sigma^{2}_{\eta}$ increases, the likelihood becomes less informative and the posterior contracts less. By the standard information-theoretic relation between posterior entropy and observation noise:
 
 
 $$
@@ -585,13 +585,13 @@ H(u_t\ |\ y_{1:t}) \ge H(u_t) - I(u_t;\, y_{1:t}) \ge H(u_t) - I(u_t;\, g(u_t) +
 $$
 
 
-The right-hand side is decreasing in *σ<sup>2</sup><sub>η</sub>* (mutual information drops as noise rises), and is bounded below by a strictly positive constant for any finite *σ<sup>2</sup><sub>η</sub>*.
+The right-hand side is decreasing in $\sigma^{2}_{\eta}$ (mutual information drops as noise rises), and is bounded below by a strictly positive constant for any finite $\sigma^{2}_{\eta}$.
 
-*(ii)* By definition *y<sub>t</sub> = g(u<sub>t</sub>) + η<sub>t</sub>*, so the engagement signal is a noisy observation of *g(u<sub>t</sub>)*. The mutual information *I(u<sub>t</sub>; y<sub>t</sub>)* is strictly decreasing in *σ<sup>2</sup><sub>η</sub>* (Cover & Thomas, *Elements of Information Theory*, Ch. 9). By a Blackwell-style sufficiency argument: if the observation channel at noise *σ<sup>2</sup><sub>η</sub>* is a garbling of the channel at noise *σ<sup>2</sup><sub>η,0</sub> < σ<sup>2</sup><sub>η</sub>* (which it is, since additive Gaussian noise of higher variance is informationally weaker), then the optimal expected reward under the higher-noise channel is no greater than under the lower-noise channel — formally, *sup<sub>π</sub> E[R̂; π, σ<sup>2</sup><sub>η</sub>] ≤ sup<sub>π</sub> E[R̂; π, σ<sup>2</sup><sub>η,0</sub>]* — with strict inequality whenever *R̂* depends non-trivially on *u<sub>t</sub>* (which it does by (A2): *R̂* is engagement-driven and engagement is *u<sub>t</sub>*-targeted). Hence *E[R̂; θ\**(*σ<sup>2</sup><sub>η</sub>)] < E[R̂; θ\**(*σ<sup>2</sup><sub>η,0</sub>)]*, and *Σ(T)* is correspondingly bounded.
+*(ii)* By definition $y_{t} = g(u_{t}) + \eta_{t}$, so the engagement signal is a noisy observation of $g(u_{t})$. The mutual information $I(u_{t}; y_{t})$ is strictly decreasing in $\sigma^{2}_{\eta}$ (Cover & Thomas, *Elements of Information Theory*, Ch. 9). By a Blackwell-style sufficiency argument: if the observation channel at noise $\sigma^{2}_{\eta}$ is a garbling of the channel at noise $\sigma^{2}_{\eta,0} < \sigma^{2}_{\eta}$ (which it is, since additive Gaussian noise of higher variance is informationally weaker), then the optimal expected reward under the higher-noise channel is no greater than under the lower-noise channel — formally, $sup_{\pi} E[\hat{R}; \pi, \sigma^{2}_{\eta}] \le sup_{\pi} E[\hat{R}; \pi, \sigma^{2}_{\eta,0}]$ — with strict inequality whenever $\hat{R}$ depends non-trivially on $u_{t}$ (which it does by (A2): $\hat{R}$ is engagement-driven and engagement is $u_{t}$-targeted). Hence $E[\hat{R}; \theta*$($\sigma^{2}_{\eta})] < E[\hat{R}; \theta*$($\sigma^{2}_{\eta,0})]$, and $\Sigma(T)$ is correspondingly bounded.
 
-*(iii)* The foreclosure argument in Lemma 1 depends on the policy gradient-ascending on *R̂* and on (A2)–(A5). None of these is changed by an increase in *σ<sup>2</sup><sub>η</sub>*: the policy still updates, still seeks to maximize *E[R̂]*, still has access to a sufficiently expressive policy class, and still converges. The maximum achievable rate may be lower under disrupted observation (the policy targets less effectively), but the policy still drives toward whatever maximum is achievable, and the inter-stimulus interval distribution still concentrates near the minimum technical latency *δ<sub>min</sub>*. Hence *Pr(E<sub>τ</sub>) → 0* for *τ > θ<sub>ref</sub>*. ∎
+*(iii)* The foreclosure argument in Lemma 1 depends on the policy gradient-ascending on $\hat{R}$ and on (A2)–(A5). None of these is changed by an increase in $\sigma^{2}_{\eta}$: the policy still updates, still seeks to maximize $E[\hat{R}]$, still has access to a sufficiently expressive policy class, and still converges. The maximum achievable rate may be lower under disrupted observation (the policy targets less effectively), but the policy still drives toward whatever maximum is achievable, and the inter-stimulus interval distribution still concentrates near the minimum technical latency $\delta_{\min}$. Hence $\mathrm{Pr}(E_{\tau}) \to 0$ for $\tau > \theta_{\mathrm{ref}}$. ∎
 
-A fourth claim sometimes attributed to Mode C — that the cohort's mixing time *T<sub>mix</sub>* strictly increases under disrupted observation — is *not* established by this proposition and is left here as a conjecture (cf. §10). The argument that disrupted observation slows convergence depends on whether the policy's "pull" toward *μ\*<sub>π</sub>* is the dominant convergence driver (in which case weaker pull means slower mixing) or whether the diffusion of the effective dynamics under uncertain targeting speeds convergence to a more diffuse but reachable stationary distribution. The framework's intuition is the former, but the proof requires additional structure on *f, g,* and the policy class that the framework does not currently specify.
+A fourth claim sometimes attributed to Mode C — that the cohort's mixing time $T_{\mathrm{mix}}$ strictly increases under disrupted observation — is *not* established by this proposition and is left here as a conjecture (cf. §10). The argument that disrupted observation slows convergence depends on whether the policy's "pull" toward $\mu*_{\pi}$ is the dominant convergence driver (in which case weaker pull means slower mixing) or whether the diffusion of the effective dynamics under uncertain targeting speeds convergence to a more diffuse but reachable stationary distribution. The framework's intuition is the former, but the proof requires additional structure on *f, g,* and the policy class that the framework does not currently specify.
 
 Disruption-as-form is the framework's honest answer to the question of what subjective political practice remains under the closure. It does not recover what has been foreclosed. It does not require the cohort-bounded conditions Mode B depends on. It does not require the external imposition Mode A requires. It operates at the level of the user's relation to the observation function, and the political form it takes is, properly, a form: camouflage, inauthenticity, refusal of legibility, the strategic noise that prevents the apparatus from collapsing the four-register coupling onto a single point.
 
@@ -602,20 +602,20 @@ The mode is also the most easily mistaken — for substantive politics, or for p
 The three modes are not interchangeable, and their non-interchangeability is formal rather than rhetorical. Propositions 1, 2, and 3 together establish the structural asymmetry:
 
 - **Proposition 1** (Mode A) breaks Lemma 1.
-- **Proposition 2** (Mode B) preserves a positive *D<sub>KL</sub>* between *ν<sub>u</sub>* and *π<sub>R̂</sub>* but does not break Lemma 1.
-- **Proposition 3** (Mode C) bounds *Σ(T)* below *E[R̂]*'s supremum and preserves *H<sub>res</sub> > 0* but does not break Lemma 1.
+- **Proposition 2** (Mode B) preserves a positive $D_{\mathrm{KL}}$ between $\nu_{u}$ and $\pi_{\hat{R}}$ but does not break Lemma 1.
+- **Proposition 3** (Mode C) bounds $\Sigma(T)$ below $E[\hat{R}]$'s supremum and preserves $H_{\mathrm{res}} > 0$ but does not break Lemma 1.
 
 The framework does not weight the modes ethically — Mode B is not a lesser politics than Mode A, nor Mode C than either — but it specifies that they address structurally different problems. Mode A is the only mode that addresses *what the theorem forecloses*. The others address *what remains structurally possible while the foreclosure stands*. Mistaking the latter for the former is the dominant failure mode of the literature.
 
 Each mode operates on a distinct timescale, and each timescale corresponds to a specific point in the apparatus:
 
-- Mode A operates on *T<sub>mix</sub>(π')*, the inverse of the spectral gap of the transition operator under the modified policy. For typical engagement-monetized *π*, *T<sub>mix</sub>* is on the order of months to years.
-- Mode B operates on the user's *L<sub>m</sub>* metabolic cycle, bounded above by the available energetic budget and below by the marginal effectiveness of the maintenance labor. The effective timescale is daily to weekly.
-- Mode C operates per-event, with the structural effect (the bounding of *Σ(T)*) compounding through prolonged practice; the relevant aggregate timescale is the user's exposure horizon.
+- Mode A operates on $T_{\mathrm{mix}}(\pi')$, the inverse of the spectral gap of the transition operator under the modified policy. For typical engagement-monetized $\pi$, $T_{\mathrm{mix}}$ is on the order of months to years.
+- Mode B operates on the user's $L_{m}$ metabolic cycle, bounded above by the available energetic budget and below by the marginal effectiveness of the maintenance labor. The effective timescale is daily to weekly.
+- Mode C operates per-event, with the structural effect (the bounding of $\Sigma(T)$) compounding through prolonged practice; the relevant aggregate timescale is the user's exposure horizon.
 
 The intervention window is the framework's claim that interventions imposed at one timescale cannot be evaluated, or substituted for, by interventions imposed at another. The dominant pattern of contemporary critique is precisely this confusion: addressing the architectural problem at the artisanal level (the self-care literature treating individual practice as the answer to structural form); addressing the artisanal problem at the architectural level (techno-utopian platform reform that does not engage the user-side dynamics of cohort displacement); addressing both through pure Mode C (the empty form of refusal that produces aesthetic dissonance and no structural change).
 
-The intervention window is also non-fungible. There is no rate at which Mode B intervention substitutes for Mode A; there is no exchange ratio between *L<sub>m</sub>* and *T<sub>mix</sub>*. The substitutability assumption — that enough individual practice eventually adds up to structural change, that enough architectural intervention eventually substitutes for individual effort — is the political form of the timescale confusion. The framework rejects it formally: the three timescales correspond to three formally distinct quantities in the apparatus, and they do not exchange.
+The intervention window is also non-fungible. There is no rate at which Mode B intervention substitutes for Mode A; there is no exchange ratio between $L_{m}$ and $T_{\mathrm{mix}}$. The substitutability assumption — that enough individual practice eventually adds up to structural change, that enough architectural intervention eventually substitutes for individual effort — is the political form of the timescale confusion. The framework rejects it formally: the three timescales correspond to three formally distinct quantities in the apparatus, and they do not exchange.
 
 What the framework does not adjudicate is the politics between the modes. Mode A is the substantive political project descending from the theorem; this is a structural claim. Whether it should be pursued, by whom, under what political form, against what counter-organized capital — these are questions the framework specifies the stakes of without answering. The available subjective practice while Mode A is pursued is Mode C. The available individual practice, cohort-bounded as it is, is Mode B. The framework's contribution is to make the formal differences explicit and the timescale confusions costly to maintain.
 
@@ -623,13 +623,13 @@ What the framework does not adjudicate is the politics between the modes. Mode A
 
 ## §6. Other named results
 
-**6.1 Cohort gradient (developmental moderation of I(τ)).** Let *u<sub>0</sub><sup>(i)</sup>* denote the user-state at the time of first exposure to the closed-loop regime for user *i*. Let *a<sub>i</sub>* denote the developmental stage at first exposure. Under the framework, *I(τ)* at long lags is moderated by *a<sub>i</sub>*: users exposed at earlier developmental stages have lower realized *I(τ)* even after controlling for total exposure duration. The mechanism is that *ν<sub>u</sub>* (the user's self-evaluative distribution; see §3.4 and §5.2) develops under the closure, and the cohort that constructs *ν<sub>u</sub>* under the closure has no exogenous baseline to which it can return — Proposition 2's resistance threshold *L<sub>m</sub>\** is therefore inaccessible because *γ ≈ 0* at the outset. This is the framework's most direct empirical prediction. It is falsifiable: under sufficient data on attentional autocorrelation across age-of-first-exposure cohorts, the prediction either holds or it does not. The predicted curve and the falsification threshold are rendered at [/the-dynamics/cohort-gradient](/the-dynamics/cohort-gradient).
+**6.1 Cohort gradient (developmental moderation of I(τ)).** Let $u_{0}^{(i)}$ denote the user-state at the time of first exposure to the closed-loop regime for user *i*. Let $a_{i}$ denote the developmental stage at first exposure. Under the framework, $I(\tau)$ at long lags is moderated by $a_{i}$: users exposed at earlier developmental stages have lower realized $I(\tau)$ even after controlling for total exposure duration. The mechanism is that $\nu_{u}$ (the user's self-evaluative distribution; see §3.4 and §5.2) develops under the closure, and the cohort that constructs $\nu_{u}$ under the closure has no exogenous baseline to which it can return — Proposition 2's resistance threshold $L_{m}*$ is therefore inaccessible because $\gamma \approx 0$ at the outset. This is the framework's most direct empirical prediction. It is falsifiable: under sufficient data on attentional autocorrelation across age-of-first-exposure cohorts, the prediction either holds or it does not. The predicted curve and the falsification threshold are rendered at [/the-dynamics/cohort-gradient](/the-dynamics/cohort-gradient).
 
-**6.2 Mixing time (T<sub>mix</sub>).** Let *P<sub>π</sub>* be the transition operator induced on the user-state by the closed loop under policy *π*. The mixing time *T<sub>mix</sub>(π)* is the time required for the empirical distribution of *u<sub>t</sub><sup>(i)</sup>* across the cohort to converge to within ε (in total variation) of *μ\*<sub>π</sub>*. Under (1)–(4), *T<sub>mix</sub>(π)* is finite and bounded by *T<sub>mix</sub>(π) ≤ (1/γ<sub>π</sub>) · log(1/ε)*, where *γ<sub>π</sub>* is the spectral gap of *P<sub>π</sub>*. The framework's claim is that *T<sub>mix</sub>(π)* is non-trivial — on the order of months to years rather than days — for engagement-monetized policies. Mode A intervention replaces *π* with *π'*; the new mixing time *T<sub>mix</sub>(π')* governs the timescale over which the modified cohort distribution converges to *μ\*<sub>π'</sub>*. Mode B intervention does not modify *π* and so does not modify *T<sub>mix</sub>*; its effect is on individual *ν<sub>u</sub>* trajectories within the unchanged cohort dynamics. Mode C intervention modifies the effective observation channel but its effect on *T<sub>mix</sub>* is direction-uncertain (Open Question 8.1).
+**6.2 Mixing time ($T_{\mathrm{mix}}$).** Let $P_{\pi}$ be the transition operator induced on the user-state by the closed loop under policy $\pi$. The mixing time $T_{\mathrm{mix}}(\pi)$ is the time required for the empirical distribution of $u_{t}^{(i)}$ across the cohort to converge to within ε (in total variation) of $\mu*_{\pi}$. Under (1)–(4), $T_{\mathrm{mix}}(\pi)$ is finite and bounded by $T_{\mathrm{mix}}(\pi) \le (1/\gamma_{\pi}) \cdot \mathrm{log}(1/\epsilon)$, where $\gamma_{\pi}$ is the spectral gap of $P_{\pi}$. The framework's claim is that $T_{\mathrm{mix}}(\pi)$ is non-trivial — on the order of months to years rather than days — for engagement-monetized policies. Mode A intervention replaces $\pi$ with $\pi'$; the new mixing time $T_{\mathrm{mix}}(\pi')$ governs the timescale over which the modified cohort distribution converges to $\mu*_{\pi'}$. Mode B intervention does not modify $\pi$ and so does not modify $T_{\mathrm{mix}}$; its effect is on individual $\nu_{u}$ trajectories within the unchanged cohort dynamics. Mode C intervention modifies the effective observation channel but its effect on $T_{\mathrm{mix}}$ is direction-uncertain (Open Question 8.1).
 
-**6.3 Surplus extraction (per-register decomposition).** From (5), the per-register surplus *Σ<sup>i</sup>(T)* is observable through the marked point process *N<sub>t</sub><sup>i</sup>* and the kernel *ρ<sub>i</sub>*. The framework's claim is that under any *π* converged on *R̂*, the joint distribution of *Σ<sup>i</sup>(T)* across *i* approaches a specific operating point: not equal extraction across registers, but extraction proportional to the marginal yield of each register conditional on the cross-excitation matrix *α<sub>ij</sub>*. This is observable in the platform's content metadata; it is also a structural prediction.
+**6.3 Surplus extraction (per-register decomposition).** From (5), the per-register surplus $\Sigma^{i}(T)$ is observable through the marked point process $N_{t}^{i}$ and the kernel $\rho_{i}$. The framework's claim is that under any $\pi$ converged on $\hat{R}$, the joint distribution of $\Sigma^{i}(T)$ across *i* approaches a specific operating point: not equal extraction across registers, but extraction proportional to the marginal yield of each register conditional on the cross-excitation matrix $\alpha_{ij}$. This is observable in the platform's content metadata; it is also a structural prediction.
 
-**6.4 Chrono-debt as a survival-functional comparison.** From §3.2, *D(t, τ) = Λ<sub>◦</sub>(τ) − Λ(t, τ)*. The framework's empirical claim is that *Λ(t, τ)* under the closed loop converges to a distribution with vanishing mass at long *τ*, while *Λ<sub>◦</sub>(τ)* retains substantial mass at long *τ*. The spectrum *D(t, τ)* therefore has a characteristic shape — small at very short *τ* (where even the closed loop has inter-stimulus intervals), large at intermediate *τ* (where the policy has driven foreclosure most aggressively), and asymptotic at very long *τ* (where neither regime ever had measure). The full spectrum is the framework's signature instrument for chronopolitical analysis.
+**6.4 Chrono-debt as a survival-functional comparison.** From §3.2, $D(t, \tau) = \Lambda_{◦}(\tau) - \Lambda(t, \tau)$. The framework's empirical claim is that $\Lambda(t, \tau)$ under the closed loop converges to a distribution with vanishing mass at long $\tau$, while $\Lambda_{◦}(\tau)$ retains substantial mass at long $\tau$. The spectrum $D(t, \tau)$ therefore has a characteristic shape — small at very short $\tau$ (where even the closed loop has inter-stimulus intervals), large at intermediate $\tau$ (where the policy has driven foreclosure most aggressively), and asymptotic at very long $\tau$ (where neither regime ever had measure). The full spectrum is the framework's signature instrument for chronopolitical analysis.
 
 ---
 
@@ -641,7 +641,7 @@ The model does not claim that intervention is impossible. The formal treatment o
 
 The model does not claim mechanism. The metric superego, in particular, is mechanism-agnostic by design. Where the formalism is silent on whether convergence is realized by free-energy minimization, by operant conditioning, or by social comparison, the silence is a feature: the framework's prediction is the convergence, not the route. Empirical work that distinguishes the routes is downstream of the framework, not constitutive of it.
 
-The model does not claim falsification-immunity. The reclamation theorem rests on Lemma 1, which rests on (1)–(5) under Assumptions (A1)–(A6). A platform that adopted explicit no-input regularization — augmenting *R̂* with a positive bonus *β·B* on inter-stimulus intervals exceeding some *τ\**, in the sense of Proposition 1, with *β* large enough to produce *Pr(τ<sup>(k)</sup> > τ\*) ≥ ε* for some non-trivial *ε* — would falsify the foreclosure lemma by example. The framework's prediction is that no platform under engagement-monetization will do so voluntarily, since voluntary adoption violates (A2); that prediction is itself falsifiable.
+The model does not claim falsification-immunity. The reclamation theorem rests on Lemma 1, which rests on (1)–(5) under Assumptions (A1)–(A6). A platform that adopted explicit no-input regularization — augmenting $\hat{R}$ with a positive bonus $\beta\cdotB$ on inter-stimulus intervals exceeding some $\tau*$, in the sense of Proposition 1, with $\beta$ large enough to produce $\mathrm{Pr}(\tau^{(k)} > \tau*) \ge \epsilon$ for some non-trivial $\epsilon$ — would falsify the foreclosure lemma by example. The framework's prediction is that no platform under engagement-monetization will do so voluntarily, since voluntary adoption violates (A2); that prediction is itself falsifiable.
 
 The model does not claim ethical conclusions. The closed-loop economy is a description, not a verdict. The verdict that follows from the description — that the contemporary user is not a subject in the sense the historical apparatus presupposed, that political intervention pitched at the historical subject is temporally misaligned, that the body has become the differential of a process whose integral is extracted as surplus — is the work of the prose. The mathematics gives the work its structural form. It does not give it its claim on the reader.
 
@@ -651,27 +651,27 @@ The model does not claim ethical conclusions. The closed-loop economy is a descr
 
 The framework's central architecture — Lemma 1, Theorem 1, and Propositions 1–3 — is now fully proved under the explicit assumptions (A1)–(A6). What remains genuinely open are three questions of different kinds: a direction-of-effect question (comparative statics under Mode C), a structural-mechanism question (the developmental moderator predicted in §6.1), and a constrained-optimization question (the explicit operating-point characterization in §6.3). They are listed here in descending order of how much weight they carry in the framework's argumentative structure.
 
-**8.1 The mixing-time direction under Mode C.** Proposition 3 establishes that disrupted observation bounds the platform's expected reward, but does not establish the direction of effect on *T<sub>mix</sub>*. The framework's intuition is that disrupted observation slows convergence (the policy's targeting weakens, hence the pull toward *μ\*<sub>π</sub>* weakens, hence the spectral gap shrinks). The competing intuition is that disrupted observation diffuses the effective dynamics to a more reachable but more entropic stationary distribution, which mixes faster. Resolving the direction requires additional structure on the response dynamics *f* and the policy class that the framework does not currently specify. The framework's prose treatment in §5.3 has been amended to flag this rather than assert the unproved direction. This is the most consequential open question, because Mode C's strategic role in the political-action ledger depends partly on whether it slows the cohort's capture or merely modifies its endpoint.
+**8.1 The mixing-time direction under Mode C.** Proposition 3 establishes that disrupted observation bounds the platform's expected reward, but does not establish the direction of effect on $T_{\mathrm{mix}}$. The framework's intuition is that disrupted observation slows convergence (the policy's targeting weakens, hence the pull toward $\mu*_{\pi}$ weakens, hence the spectral gap shrinks). The competing intuition is that disrupted observation diffuses the effective dynamics to a more reachable but more entropic stationary distribution, which mixes faster. Resolving the direction requires additional structure on the response dynamics *f* and the policy class that the framework does not currently specify. The framework's prose treatment in §5.3 has been amended to flag this rather than assert the unproved direction. This is the most consequential open question, because Mode C's strategic role in the political-action ledger depends partly on whether it slows the cohort's capture or merely modifies its endpoint.
 
-**8.2 The cohort gradient mechanism.** The cohort gradient (§6.1) — that *I(τ)* at long lags is moderated by *a<sub>i</sub>*, the developmental stage at first exposure — is asserted as a structural prediction but the formal mechanism connecting (1)–(5) to a developmentally-modulated *I(τ)* is not derived. The argument is intuitive: pre-closure users have a *ν<sub>u</sub>* distinct from *π<sub>R̂</sub>* at first exposure; post-closure users do not; Proposition 2's *L<sub>m</sub>\** is therefore inaccessible (since *γ ≈ 0* at the outset). A formal derivation would specify the developmental learning dynamics of *ν<sub>u</sub>* — how *ν<sub>u</sub>(0)* depends on *a<sub>i</sub>* — and the contractive properties of *f* under closed-loop *s<sub>t</sub>* relative to pre-closure conditions. The framework presents the cohort gradient as falsifiable in its empirical form; the structural derivation is a research target.
+**8.2 The cohort gradient mechanism.** The cohort gradient (§6.1) — that $I(\tau)$ at long lags is moderated by $a_{i}$, the developmental stage at first exposure — is asserted as a structural prediction but the formal mechanism connecting (1)–(5) to a developmentally-modulated $I(\tau)$ is not derived. The argument is intuitive: pre-closure users have a $\nu_{u}$ distinct from $\pi_{\hat{R}}$ at first exposure; post-closure users do not; Proposition 2's $L_{m}*$ is therefore inaccessible (since $\gamma \approx 0$ at the outset). A formal derivation would specify the developmental learning dynamics of $\nu_{u}$ — how $\nu_{u}(0)$ depends on $a_{i}$ — and the contractive properties of *f* under closed-loop $s_{t}$ relative to pre-closure conditions. The framework presents the cohort gradient as falsifiable in its empirical form; the structural derivation is a research target.
 
-**8.3 The surplus-extraction operating point.** §6.3 asserts that *Σ<sup>i</sup>(T)* approaches a specific operating point — extraction proportional to the marginal yield of each register conditional on the cross-excitation matrix *α<sub>ij</sub>*. The argument is intuitive (under any *π* converged on *R̂*, the policy distributes extraction to equate marginal yields) but the explicit derivation requires modeling the constraints on extraction (retention, saturation, attrition) and applying a Lagrangian or KKT argument over the policy's action space. The framework treats this as a downstream technical exercise; the qualitative claim that distribution is unequal across registers and structured by *α<sub>ij</sub>* is what the framework argumentatively requires.
+**8.3 The surplus-extraction operating point.** §6.3 asserts that $\Sigma^{i}(T)$ approaches a specific operating point — extraction proportional to the marginal yield of each register conditional on the cross-excitation matrix $\alpha_{ij}$. The argument is intuitive (under any $\pi$ converged on $\hat{R}$, the policy distributes extraction to equate marginal yields) but the explicit derivation requires modeling the constraints on extraction (retention, saturation, attrition) and applying a Lagrangian or KKT argument over the policy's action space. The framework treats this as a downstream technical exercise; the qualitative claim that distribution is unequal across registers and structured by $\alpha_{ij}$ is what the framework argumentatively requires.
 
 **Resolved in this revision.**
 
 The following questions, flagged in earlier drafts, have been addressed by the present revision:
 
-— *The strict vs. operational form of Lemma 1.* Now addressed by the Remark following Lemma 1, which makes explicit the operational form (effectively zero on the timescales of interest, *e<sup>−10<sup>3</sup></sup>* to *e<sup>−10<sup>5</sup></sup>* under realistic *θ<sub>ref</sub>/δ<sub>min</sub>* ratios) and notes the additional conditions required for the strict form. The framework's argument is unaffected by the distinction.
+— *The strict vs. operational form of Lemma 1.* Now addressed by the Remark following Lemma 1, which makes explicit the operational form (effectively zero on the timescales of interest, $e^{-10^{3}}$ to $e^{-10^{5}}$ under realistic $\theta_{\mathrm{ref}}/\delta_{\min}$ ratios) and notes the additional conditions required for the strict form. The framework's argument is unaffected by the distinction.
 
 — *The parametric-continuity argument in Proposition 1.* Now formalized as Lemma 2, with explicit appeal to the implicit function theorem under the non-degeneracy assumption (A6) and the standard envelope-theorem properties. The sign error in the original regularization formulation (penalty for long pauses, which was the wrong direction) has been corrected to a bonus for long pauses.
 
-— *The measure-theoretic conditioning subtlety in Theorem 1, Step 2.* Now explicit, with reference to Kallenberg's treatment of disintegration and a clean operational statement: any sample-based estimator *Î(τ)* has variance scaling as *1/(N<sub>obs</sub>·Pr(E<sub>τ</sub>))* and diverges as *Pr(E<sub>τ</sub>) → 0*, regardless of the chosen disintegration. The operational meaning of "undefined-on-trajectory" is therefore preserved.
+— *The measure-theoretic conditioning subtlety in Theorem 1, Step 2.* Now explicit, with reference to Kallenberg's treatment of disintegration and a clean operational statement: any sample-based estimator $\hat{I}(\tau)$ has variance scaling as $1/(N_{obs}\cdotPr(E_{\tau}))$ and diverges as $\mathrm{Pr}(E_{\tau}) \to 0$, regardless of the chosen disintegration. The operational meaning of "undefined-on-trajectory" is therefore preserved.
 
-— *The parametric premise of Proposition 2.* The decomposition *dD<sub>KL</sub>/dt = −h<sub>0</sub>(β<sub>u</sub>) + r(L<sub>m</sub>)* is now derived explicitly as the first-order linearization around the operating point *ν<sub>u</sub><sup>op</sup>*. The free-energy minimization case is worked in full — under the variational free-energy gradient with maintenance counter-gradient *L<sub>m</sub>·ê<sub>resist</sub>*, the linearized dynamics give *h<sub>0</sub>(β<sub>u</sub>) = β<sub>u</sub>·c<sub>op</sub><sup>2</sup>* and *r(L<sub>m</sub>) = L<sub>m</sub>·c<sub>op</sub>* with *c<sub>op</sub> := ‖∇<sub>ν</sub>D<sub>KL</sub>‖<sub>op</sub>*. The operant reinforcement and social comparison cases produce the same linearized form with different constants. The framework's commitment to mechanism-agnosticism is now formalized: not as an absence of mechanism, but as the explicit identification of a structural decomposition derived (in linearization) from each of the named mechanisms.
+— *The parametric premise of Proposition 2.* The decomposition $dD_{\mathrm{KL}}/dt = -h_{0}(\beta_{u}) + r(L_{m})$ is now derived explicitly as the first-order linearization around the operating point $\nu_{u}^{\mathrm{op}}$. The free-energy minimization case is worked in full — under the variational free-energy gradient with maintenance counter-gradient $L_{m}\cdotê_{resist}$, the linearized dynamics give $h_{0}(\beta_{u}) = \beta_{u}\cdotc_{\mathrm{op}}^{2}$ and $r(L_{m}) = L_{m}\cdotc_{\mathrm{op}}$ with $c_{\mathrm{op}} := \|\nabla_{\nu}D_{\mathrm{KL}}\|_{\mathrm{op}}$. The operant reinforcement and social comparison cases produce the same linearized form with different constants. The framework's commitment to mechanism-agnosticism is now formalized: not as an absence of mechanism, but as the explicit identification of a structural decomposition derived (in linearization) from each of the named mechanisms.
 
-— *The bifurcation/basin-connectedness handwave in Lemma 2(iii).* Replaced by a clean strict-growth argument: provided *∇B(θ\*) ≠ 0* (which holds generically since *B* and *F* have distinct extremizers — the *F*-maximizer fires at *λ<sub>max</sub>*, the *B*-maximizer at *1/τ\**), the path *β ↦ θ̃(β)* produces strictly positive *B(θ̃(β)) > 0* for sufficiently small *β > 0*. This implies *ε<sub>max</sub> := sup<sub>β</sub> P(β) > 0*, which is the substantive content the framework requires. The full claim *P(β) → 1 as β → ∞* requires the additional generic regularity (no codimension-one bifurcations along the path), but Proposition 1 needs only *ε<sub>max</sub> > 0* — which holds without the bifurcation regularity.
+— *The bifurcation/basin-connectedness handwave in Lemma 2(iii).* Replaced by a clean strict-growth argument: provided $\nablaB(\theta*) \ne 0$ (which holds generically since *B* and *F* have distinct extremizers — the *F*-maximizer fires at $\lambda_{\max}$, the *B*-maximizer at $1/\tau*$), the path $\beta ↦ \thetã(\beta)$ produces strictly positive $B(\thetã(\beta)) > 0$ for sufficiently small $\beta > 0$. This implies $\epsilon_{\max} := sup_{\beta} P(\beta) > 0$, which is the substantive content the framework requires. The full claim $P(\beta) \to 1 as \beta \to \infty$ requires the additional generic regularity (no codimension-one bifurcations along the path), but Proposition 1 needs only $\epsilon_{\max} > 0$ — which holds without the bifurcation regularity.
 
-— *The metabolically-bounded premise of Mode B.* The empirical-political claim about late-capitalist constraints on *L<sub>m,max</sub>* is now explicitly marked as external to the formal model — consistent with but not derived from (1)–(5). The framework asserts its consistency with the literature on time-poverty and social reproduction without claiming to prove it.
+— *The metabolically-bounded premise of Mode B.* The empirical-political claim about late-capitalist constraints on $L_{m,max}$ is now explicitly marked as external to the formal model — consistent with but not derived from (1)–(5). The framework asserts its consistency with the literature on time-poverty and social reproduction without claiming to prove it.
 
 These three remaining open questions (8.1–8.3) do not undermine the central argumentative structure. The reclamation theorem follows from Lemma 1 and the conditioning argument; Lemma 1 follows from (A1)–(A6); Propositions 1–3 follow from (A1)–(A6) and the parametric premises stated locally. What remains open is the direction of a comparative-statics claim under Mode C, the formal derivation of a developmental moderator, and the explicit operating-point characterization of the surplus distribution. The framework's structural conclusions — that reclamation is foreclosed, that Mode A is the only mode that breaks the foreclosure, that the modes do not exchange — are not in dispute.
 

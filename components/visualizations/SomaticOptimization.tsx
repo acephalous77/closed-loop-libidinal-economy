@@ -157,8 +157,7 @@ export function SomaticOptimization() {
               key={reg.id}
               label={
                 <span>
-                  dN<sup>{reg.id.toLowerCase()}</sup>
-                  <sub>t</sub> · <b>{reg.label}</b>
+                  dN^{reg.id.toLowerCase()}_t · <b>{reg.label}</b>
                 </span>
               }
               events={eventsByReg[reg.id]}
@@ -188,7 +187,7 @@ export function SomaticOptimization() {
       <figcaption className="mt-sm font-serif text-sm text-ink-70 max-w-[var(--container-prose)]">
         <span className="font-mono text-xs text-oxblood">§3.5.</span> Stimulus
         events <span className="font-mono">s_t</span> at the top, per-register
-        engagement events <span className="font-mono">dN<sup>i</sup><sub>t</sub></span>{" "}
+        engagement events <span className="font-mono">dN^i_t</span>{" "}
         below. Each tick is a marked point process: the differential of the
         body — saccades, taps, scroll-events, gaze shifts — under Hawkes
         intensity <span className="font-mono">λ^i(t) = λ_0^i + Σ_j α_ij ∫ κ(t−s) dN_s^j</span>.

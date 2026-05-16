@@ -74,7 +74,7 @@ export default function ReclamationTrajectoriesPage() {
               </a>
               , architectural — and re-run. Now oxblood trajectories emerge. The
               regularized objective{" "}
-              <span className="font-mono">R̂'(θ; β) = E[R̂] + β · E[∑ b(τ<sup>(k)</sup>)]</span>{" "}
+              <span className="font-mono">R̂'(θ; β) = E[R̂] + β · E[∑ b(τ^(k))]</span>{" "}
               rewards inter-stimulus intervals τ &gt; τ*; the operating point along the
               path θ̃(β) moves to one with positive probability on long windows. The
               contrast is the framework's central political claim: only the architectural

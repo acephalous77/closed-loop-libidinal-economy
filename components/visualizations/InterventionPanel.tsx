@@ -110,7 +110,7 @@ export function InterventionPanel() {
                 <span className="font-mono">H_res &gt; 0</span> is held.
               </>
             }
-            knobLabel={<><span className="font-mono">σ_η<sup>+</sup></span> <span className="text-ink-50">added noise</span></>}
+            knobLabel={<><span className="font-mono">σ_η^+</span> <span className="text-ink-50">added noise</span></>}
             knobValue={sigmaC}
             knobMin={0}
             knobMax={0.6}

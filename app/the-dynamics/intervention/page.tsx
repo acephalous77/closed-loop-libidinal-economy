@@ -83,7 +83,7 @@ export default function InterventionPage() {
               status flips at the threshold{" "}
               <span className="font-mono">L_m* ≈ 0.80</span>, but the Lemma 1
               status at the bottom does not change. Sweep{" "}
-              <span className="font-mono">σ_η<sup>+</sup></span> in Mode C and
+              <span className="font-mono">σ_η^+</span> in Mode C and
               the status notes "bounds Σ(T) strictly below sup", again without
               touching Lemma 1.
             </p>

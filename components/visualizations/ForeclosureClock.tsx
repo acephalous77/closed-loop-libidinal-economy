@@ -129,9 +129,9 @@ export function ForeclosureClock() {
             ratio θ_ref / δ_min = <span className="text-ink-90">{formatRatio(ratio)}</span>
           </p>
           <p>
-            S(θ_ref; θ*) ≤ C(c<sub>v</sub>) · e<sup>−{formatRatio(ratio)}</sup>{" "}
+            S(θ_ref; θ*) ≤ C(c_v) · e^(−{formatRatio(ratio)}){" "}
             <span className="text-ink-50">
-              (≈ 10<sup>{Math.round(boundMag).toLocaleString("en-US")}</sup>)
+              (≈ 10^{Math.round(boundMag).toLocaleString("en-US")})
             </span>
           </p>
         </div>
@@ -180,13 +180,13 @@ export function ForeclosureClock() {
         <span className="font-mono text-xs text-oxblood">Lemma 1.</span> Under
         Assumptions (A1)–(A6), the survival function of the inter-stimulus
         interval at the converged policy θ* satisfies{" "}
-        <span className="font-mono">S(θ_ref; θ*) ≤ C(c<sub>v</sub>) · e<sup>−θ_ref/δ_min</sup></span>.
+        <span className="font-mono">S(θ_ref; θ*) ≤ C(c_v) · e^(−θ_ref/δ_min)</span>.
         At realistic parameter values — a reflective threshold of seconds to
         minutes, a tick rate of milliseconds to sub-second — the exponent
-        θ_ref/δ_min is on the order of <span className="font-mono">10<sup>3</sup></span>{" "}
-        to <span className="font-mono">10<sup>5</sup></span>, so the bound is on the
-        order of <span className="font-mono">e<sup>−1000</sup></span> to{" "}
-        <span className="font-mono">e<sup>−100,000</sup></span>: mathematically positive,
+        θ_ref/δ_min is on the order of <span className="font-mono">10^3</span>{" "}
+        to <span className="font-mono">10^5</span>, so the bound is on the
+        order of <span className="font-mono">e^(−1000)</span> to{" "}
+        <span className="font-mono">e^(−100,000)</span>: mathematically positive,
         operationally indistinguishable from zero.
       </figcaption>
     </figure>

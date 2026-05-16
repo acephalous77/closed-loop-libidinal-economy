@@ -163,7 +163,7 @@ export function LibidinalRouting() {
         they collapse onto a single delivery surface. Off-diagonal entries
         I(u^i; u^j) measure how much knowing one register tells the platform
         about the other. Switch from baseline to converged: the off-diagonals
-        fill in. The dividual condition H(u | y<sub>1:t</sub>) → 0 follows: the
+        fill in. The dividual condition H(u | y_1:t) → 0 follows: the
         platform's posterior over the user's full state converges to a point.
       </figcaption>
     </figure>

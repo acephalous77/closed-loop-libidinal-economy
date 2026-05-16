@@ -89,7 +89,7 @@ export function SurplusBreakdown() {
                 <div className="flex items-baseline justify-between font-mono text-sm gap-x-sm">
                   <span className="text-ink-90">
                     <span className="italic font-serif">Σ</span>
-                    <sub>{reg.id}</sub> · {reg.label}
+                    _{reg.id} · {reg.label}
                     <span className="text-ink-50 ml-xs italic font-serif">
                       ({reg.apparatus})
                     </span>

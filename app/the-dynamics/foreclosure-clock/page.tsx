@@ -41,7 +41,7 @@ export default function ForeclosureClockPage() {
             </a>{" "}
             establishes that the survival function of the inter-stimulus interval at the
             converged policy θ* satisfies{" "}
-            <span className="font-mono">S(θ_ref; θ*) ≤ C(c<sub>v</sub>) · e<sup>−θ_ref/δ_min</sup></span>{" "}
+            <span className="font-mono">S(θ_ref; θ*) ≤ C(c_v) · e^(−θ_ref/δ_min)</span>{" "}
             (Asmussen, Ch. V). The exponent θ_ref / δ_min is on the order of a thousand
             to a hundred thousand for realistic platforms. The bound is therefore
             mathematically positive but operationally indistinguishable from zero. The
