@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: PATH,
     publishedTime: "2026-05-15T00:00:00.000Z",
-    authors: ["A.S."],
+    authors: ["Adnan Selimović"],
     section: "Mathematics",
     tags: [
       "closed-loop dynamics",
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
   other: {
     // Google Scholar / academic indexer hints
     "citation_title": "The Closed-Loop Libidinal Economy — Mathematical Exposition",
-    "citation_author": "A.S.",
+    "citation_author": "Adnan Selimović",
     "citation_publication_date": "2026/05/15",
     "citation_online_date": "2026/05/15",
     "citation_keywords":
       "libidinal economy; closed-loop dynamics; Hawkes process; Kuramoto coupling; foreclosure lemma; reclamation theorem; Mode A architectural intervention; metric superego",
     "DC.title": "The Closed-Loop Libidinal Economy — Mathematical Exposition",
-    "DC.creator": "A.S.",
+    "DC.creator": "Adnan Selimović",
     "DC.date": "2026-05-15",
     "DC.type": "Text",
     "DC.format": "text/html",

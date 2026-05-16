@@ -41,7 +41,7 @@ export default function Cover() {
 
         {/* Author / place / year — lives above the global SiteFooter */}
         <p className="font-mono text-xs text-ink-50 mt-xl text-center">
-          A.S. — 2026
+          A. Selimović, Ph.D. — Blacksburg, Virginia — 2026
         </p>
       </div>
     </main>

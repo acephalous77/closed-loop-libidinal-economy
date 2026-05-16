@@ -26,8 +26,8 @@ const SITE_URL =
 
 const AUTHOR = {
   "@type": "Person",
-  name: "A.S.",
-  alternateName: "A.S.",
+  name: "Adnan Selimović",
+  alternateName: "A. Selimović",
 };
 
 const PUBLISHER = {

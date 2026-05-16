@@ -40,7 +40,7 @@ function App() {
           </div>
         </div>
         <div className="byline">
-          A.S.
+          A. Selimović
           <span>after the closed-loop exposition</span>
         </div>
       </header>

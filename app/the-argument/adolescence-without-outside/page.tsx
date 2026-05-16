@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: PATH,
     publishedTime: "2026-05-15T00:00:00.000Z",
-    authors: ["A.S."],
+    authors: ["Adnan Selimović"],
     section: "Essay",
     tags: [
       "libidinal economy",
@@ -36,12 +36,12 @@ export const metadata: Metadata = {
   },
   other: {
     "citation_title": piece.title,
-    "citation_author": "A.S.",
+    "citation_author": "Adnan Selimović",
     "citation_publication_date": "2026/05/15",
     "citation_online_date": "2026/05/15",
     "citation_keywords": 'libidinal economy; attention economy; platform capitalism; closed-loop dynamics; metric superego; cohort gradient',
     "DC.title": piece.title,
-    "DC.creator": "A.S.",
+    "DC.creator": "Adnan Selimović",
     "DC.date": "2026-05-15",
     "DC.type": "Text",
     "DC.format": "text/html",

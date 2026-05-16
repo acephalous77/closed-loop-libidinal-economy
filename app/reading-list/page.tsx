@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     url: PATH,
     publishedTime: "2026-05-15T00:00:00.000Z",
-    authors: ["A.S."],
+    authors: ["Adnan Selimović"],
     section: "References",
   },
   twitter: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   other: {
     "DC.title": "The Closed-Loop Libidinal Economy — Reading List",
-    "DC.creator": "A.S.",
+    "DC.creator": "Adnan Selimović",
     "DC.date": "2026-05-15",
     "DC.type": "Text",
     "DC.format": "text/html",

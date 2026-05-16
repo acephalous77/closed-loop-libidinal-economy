@@ -68,9 +68,9 @@ export const metadata: Metadata = {
     "Sloterdijk",
     "Burroughs",
   ],
-  authors: [{ name: "A.S." }],
-  creator: "A.S.",
-  publisher: "A.S.",
+  authors: [{ name: "Adnan Selimović" }],
+  creator: "Adnan Selimović",
+  publisher: "Adnan Selimović",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

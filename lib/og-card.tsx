@@ -29,7 +29,7 @@ export async function ogCard({
   title,
   italicTitle,
   subtitle,
-  footerLeft = "A.S.",
+  footerLeft = "A. Selimović, Ph.D.",
   footerRight = "2026",
 }: OGCardProps): Promise<ImageResponse> {
   const ebSerif = readFont("EBGaramond-Regular.ttf");
