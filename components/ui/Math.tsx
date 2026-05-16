@@ -78,7 +78,7 @@ export function SvgM({
   return (
     <foreignObject x={x} y={y} width={w} height={h} style={{ overflow: "visible" }}>
       <div
-        xmlns="http://www.w3.org/1999/xhtml"
+        {...{ xmlns: "http://www.w3.org/1999/xhtml" }}
         style={{
           width: "100%",
           height: "100%",
