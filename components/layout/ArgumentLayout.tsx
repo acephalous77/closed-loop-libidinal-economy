@@ -89,7 +89,7 @@ export function ArgumentLayout({
         <div className="lg:col-span-6 lg:col-start-4 mt-2xl">
           <hr className="border-0 border-t border-paper-85 max-w-[var(--measure)] mx-auto" />
           <p className="font-serif italic text-sm text-ink-70 text-right max-w-[var(--measure)] mx-auto mt-sm">
-            A. Selimović
+            A.S.
           </p>
         </div>
       </div>

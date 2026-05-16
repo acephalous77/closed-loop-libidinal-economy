@@ -596,7 +596,7 @@ function MindMap() {
             Every formal relation as an edge. Use the modes below to interrogate the causal chains.
           </div>
         </div>
-        <div className="byline">A. Selimović<span>— relational atlas</span></div>
+        <div className="byline">A.S.<span>— relational atlas</span></div>
       </header>
 
       <div className="mm-controls">

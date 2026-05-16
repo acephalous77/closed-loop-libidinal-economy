@@ -35,8 +35,8 @@ const garamondMath = localFont({
 export const metadata: Metadata = {
   title: "The Closed-Loop Libidinal Economy",
   description:
-    "A framework for attention capture under platform capitalism. Adnan Selimović, Ph.D.",
-  authors: [{ name: "Adnan Selimović" }],
+    "A framework for attention capture under platform capitalism.",
+  authors: [{ name: "A.S." }],
   openGraph: {
     title: "The Closed-Loop Libidinal Economy",
     description:
