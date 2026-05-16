@@ -170,3 +170,98 @@ body {
   overflow-x: auto;
 }
 
+/* ── Math tooltips ──────────────────────────────────────────────────
+   Symbols with a glossary entry get a discreet dotted oxblood underline
+   on hover; on hover or tap a small popover appears with the gloss and
+   (optional) link to the math doc section where the symbol is defined. */
+
+.math-tip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.math-tip__symbol {
+  border-bottom: 1px dotted transparent;
+  transition: border-color 0.15s ease;
+}
+
+.math-tip:hover .math-tip__symbol,
+.math-tip:focus-within .math-tip__symbol {
+  border-bottom-color: var(--color-oxblood);
+}
+
+.math-tip__popover {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  min-width: 14rem;
+  max-width: 22rem;
+  padding: 0.65em 0.85em;
+
+  background: var(--color-ink);
+  color: var(--color-paper-95);
+  border: 1px solid var(--color-ink-70);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+
+  font-family: var(--font-serif);
+  font-style: normal;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-align: left;
+  white-space: normal;
+
+  pointer-events: auto;
+  animation: math-tip-fade-in 0.12s ease;
+}
+
+/* Little triangle pointing down at the symbol */
+.math-tip__popover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--color-ink);
+}
+
+.math-tip__gloss {
+  display: block;
+}
+
+.math-tip__link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-paper-85);
+  text-decoration: underline;
+  text-decoration-color: var(--color-ink-70);
+  text-underline-offset: 2px;
+}
+
+.math-tip__link:hover {
+  color: var(--color-paper);
+  text-decoration-color: var(--color-oxblood);
+}
+
+@keyframes math-tip-fade-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(2px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* If the popover would clip on small screens, switch to bottom placement. */
+@media (max-width: 480px) {
+  .math-tip__popover {
+    min-width: 11rem;
+    max-width: 90vw;
+    font-size: 0.85rem;
+  }
+}
+
