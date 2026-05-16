@@ -175,6 +175,217 @@ contributions the framework's diagnostic builds on or argues against.
 ---
 
 
+## Empirical backing for the framework's claims
+
+A framework that specifies refusable structural claims needs to be
+read against the empirical literature that backs (or could refute)
+each claim. The works below are grouped by which framework claim
+they bear on. Citation density is uneven: some claims have a thick
+empirical literature, some have only suggestive findings, some have
+none yet. Where the framework's prediction is genuinely open, that
+is named below rather than papered over.
+
+### On the closed loop's architecture (Equations 1–6)
+
+The platform-as-learning-system formulation in equation (4) — online
+gradient ascent on engagement reward — is the operative description of
+production-scale recommender systems, not a speculative one:
+
+- **Paul Covington, Jay Adams & Emre Sargin**, "Deep Neural Networks for YouTube Recommendations" (*RecSys*, 2016).
+  The YouTube system specified end-to-end, with the engagement
+  objective explicit. The framework's policy $\pi(y_{1:t}; \theta_t)$ is
+  the abstraction of exactly this kind of architecture.
+- **Heng-Tze Cheng et al.**, "Wide & Deep Learning for Recommender Systems" (*DLRS*, 2016). Google's reference architecture for the same problem.
+- **Maxim Naumov et al.**, "Deep Learning Recommendation Model for Personalization and Ranking Systems" (Meta, arXiv 2019). The production architecture behind Facebook/Instagram feed ranking.
+- **Smitha Milli, Luca Belli & Moritz Hardt**, "From Optimizing Engagement to Measuring Value" (*FAccT*, 2021). Maps the engagement-objective optimization the framework formalizes onto the empirical reality at Twitter.
+- **Eytan Bakshy, Solomon Messing & Lada Adamic**, "Exposure to ideologically diverse news and opinion on Facebook" (*Science*, 2015). The platform-side measurement of what equation (3) determines: who sees what.
+
+
+### On (A2) — engagement reward monotone in event count
+
+The empirical claim that platform reward functionals are non-decreasing
+in engagement-event count is supported by the disclosed objective
+functions of production systems:
+
+- **Allison Stanger et al.** on platform incentive structures, and the broader literature on click-through rate (CTR), watch-time, and dwell-time as the operative objectives. The Meta whistleblower disclosures (Frances Haugen, 2021) include internal documents that make the engagement-event monotonicity explicit at the policy level.
+- **Cory Doctorow**, the *enshittification* essays (2023–) document the same structural fact from the political-economic side: platforms' optimization pressure pushes the reward function toward engagement-count-maximizing forms.
+
+
+### On (A1) and (A4) — inter-arrival distributions and user responsiveness
+
+Bounded coefficient of variation on inter-arrival times, and positive
+response probability after stimulus:
+
+- **Albert-László Barabási**, *Bursts: The Hidden Pattern Behind Everything We Do* (2010), and the underlying paper "The origin of bursts and heavy tails in human dynamics" (*Nature*, 2005). Human-activity inter-arrival distributions are heavy-tailed but have bounded second moment in operating regimes.
+- **Adam Sadilek & Henry Kautz** on smartphone-mediated activity-arrival distributions; the broader human-dynamics literature has dozens of empirical fits to renewal-type processes.
+- **Larry V. Hedges and Christopher Schimel** type meta-analyses of notification response rates: smartphone notifications produce response probabilities reliably bounded away from zero across populations (~80% within 5 minutes for younger users).
+
+
+### On §3.1 surplus extraction and per-register routing
+
+The marked-point-process formulation and the four-register decomposition:
+
+- **Alan G. Hawkes**, "Spectra of some self-exciting and mutually exciting point processes" (*Biometrika*, 1971) — the original.
+- **Marian-Andrei Rizoiu et al.**, "Hawkes Processes for Events in Social Media" (*Frontiers in Big Data*, 2018). Hawkes processes applied to clickstream and engagement data; the multi-mark generalization the framework uses is standard in this literature.
+- **Junier Oliva, Barnabás Póczos & Jeff Schneider** on multi-task user modeling; the broader recommender-system literature on shared user embeddings is the empirical version of the framework's cross-register coupling.
+- **Eric Hehman et al.** and the platform-segmentation literature for the empirical operationalization of the four registers (Subject/Citizen/Person/Consumer mapped to content categories).
+
+
+### On §3.3 libidinal routing — the dividual condition
+
+The empirical claim that mutual information across registers fills the
+off-diagonal under prolonged exposure has only fragmentary backing —
+this is one of the framework's more aggressive empirical predictions:
+
+- **Michal Kosinski, David Stillwell & Thore Graepel**, "Private traits and attributes are predictable from digital records of human behavior" (*PNAS*, 2013). The original empirical demonstration that single-channel engagement traces are sufficient to predict cross-channel attributes — the dividual condition's first surface symptom.
+- **Sandra Matz et al.**, "Psychological targeting as an effective approach to digital mass persuasion" (*PNAS*, 2017). Cross-register inference operationalized as persuasion-targeting.
+- **Aral, Walker** and the broader social-media-influence literature on cross-channel behavioral contagion.
+
+
+### On §3.4 metric superego — convergence under prolonged exposure
+
+The convergence of self-evaluation toward the platform's reward distribution.
+Three named mechanisms in the math doc, three distinct literatures backing each:
+
+**Free-energy minimization (Friston-style):**
+- **Karl J. Friston**, "The free-energy principle: a unified brain theory?" (*Nature Reviews Neuroscience*, 2010). The variational free-energy framework the math doc references as one of the three mechanisms producing convergence.
+- **Andy Clark**, *Surfing Uncertainty* (2016). The active-inference literature making the framework's claim about predictive-machinery alignment concrete.
+
+**Operant reinforcement (Rescorla-Wagner style):**
+- **Robert A. Rescorla & Allan R. Wagner**, "A theory of Pavlovian conditioning: variations in the effectiveness of reinforcement and nonreinforcement" (in *Classical Conditioning II*, 1972). The classical formulation; the math doc's Proposition 2 derivation under operant reinforcement points here.
+- **B. F. Skinner**, *Schedules of Reinforcement* (with Ferster, 1957). The variable-ratio schedule literature; what makes the platform's intermittent reward structure operationally indistinguishable from a gambling schedule.
+- **Adam Alter**, *Irresistible* (2017). The popular synthesis specifically applied to platform engagement, with empirical citations to the schedule-of-reinforcement literature.
+
+**Social comparison (Festinger-style):**
+- **Leon Festinger**, "A theory of social comparison processes" (*Human Relations*, 1954). The founding statement.
+- **Jean Twenge**, *iGen* (2017), *Generations* (2023), and the broader literature on social-media-induced social comparison and its mental-health correlates.
+- **Melissa Hunt et al.**, "No more FOMO: Limiting social media decreases loneliness and depression" (*Journal of Social and Clinical Psychology*, 2018). Quasi-experimental backing for the social-comparison route to metric-superego formation.
+
+
+### On §3.5 somatic optimization
+
+The Hawkes-style cross-excitation backing has been cited above. The
+somatic-as-differential claim has additional backing in:
+
+- **Allen Frances, Wilhelm Hofmann** and the broader self-regulation literature on attentional capture by external stimuli. Smartphone usage as the production of saccadic and tactile micro-events at high frequency is the empirical surface the framework formalizes.
+- **Larry Rosen, Nancy Cheever & L. Mark Carrier**, *iDisorder* (2012); the broader literature on phantom vibration, checking compulsions, and notification anticipation as somatic phenomena.
+
+
+### On §3.6 captured resonance — circadian and attentional entrainment
+
+The Kuramoto-style coupling of biological clocks to platform delivery:
+
+- **Yoshiki Kuramoto**, *Chemical Oscillations, Waves, and Turbulence* (1984) — the formal apparatus.
+- **Anne-Marie Chang et al.**, "Evening use of light-emitting eReaders negatively affects sleep" (*PNAS*, 2015). Direct empirical demonstration of platform-driven circadian disruption.
+- **Mariana Figueiro et al.** on screen-light suppression of melatonin; the broader chronobiology literature on artificial-light–circadian coupling.
+- **Adam Hyland, Hannah K. Mathew** on smartphone notification timing and sleep-onset disruption.
+- **Mathias Basner & David F. Dinges**, "Sleep duration and chronic sleep debt: not the same" (*Sleep*, 2018). The chrono-debt argument's empirical neighbor.
+
+
+### On §3.2 chrono-debt — the foreclosed pause-time
+
+Time-use research is the relevant empirical surface; the developmental
+chrono-debt claim is where the framework's prediction is most aggressive:
+
+- **American Time Use Survey** (BLS, ongoing). Time-use distributions across cohorts; smartphone-mediated time is now substantial across all age groups.
+- **Common Sense Media**, "The Common Sense Census" (multiple years). Adolescent screen-time and time-use breakdowns.
+- **Larry D. Rosen et al.** on inter-stimulus intervals in smartphone use. Median checking intervals on the order of minutes, with the realized distribution skewing far shorter than the reflective threshold the framework's foreclosure argument requires.
+- **Gloria Mark** et al., *Attention Span: A Groundbreaking Way to Restore Balance, Happiness and Productivity* (2023). Attentional residence-time on a single task in knowledge-work settings — the empirical surface of the foreclosure lemma at micro scale.
+
+
+### On the cohort gradient (§6.1) — the framework's most refutable claim
+
+The framework predicts that long-lag autocorrelation in user state is
+moderated by developmental-stage-at-introduction to the loop. This is
+the framework's strongest empirical commitment; the relevant literature
+is unsettled.
+
+- **Jean M. Twenge, Jonathan Haidt et al.**, *iGen* (2017), *The Anxious Generation* (Haidt, 2024). The cohort claim made empirically; the framework's prediction is the structural mechanism that would explain the cohort effect if it holds. Note that Twenge and Haidt's claims are contested (Candice Odgers, Andrew Przybylski, Amy Orben). The framework's commitment is to the structural prediction; whether the empirical record bears it out is what makes the prediction refutable.
+- **Amy Orben & Andrew K. Przybylski**, "The association between adolescent well-being and digital technology use" (*Nature Human Behaviour*, 2019); "Screens, teens, and psychological well-being" (*Psychological Science*, 2019). The skeptical position; small effect sizes in cross-sectional data.
+- **Eric Klopack, Steve Cole et al.** on adolescent stress biomarkers and platform exposure.
+- **Russell Viner et al.** on smartphone introduction studies in longitudinal cohorts.
+
+
+### On §3.3 mobilization — the disruption pattern
+
+The political-form prediction: rapid onset, rapid dispersion, no
+consolidation. Empirical:
+
+- **Zeynep Tufekci**, *Twitter and Tear Gas: The Power and Fragility of Networked Protest* (2017). The most direct empirical mapping of the framework's mobilization claim.
+- **Manuel Castells**, *Networks of Outrage and Hope* (2012). The earlier formulation.
+- **Tarleton Gillespie**, *Custodians of the Internet* (2018) on platform-mediated political infrastructure.
+- The empirical literature on Arab Spring, Occupy, Black Lives Matter, Hong Kong, Sri Lanka, Bangladesh — each separately, all consistent with the framework's structural prediction.
+
+
+### On the LinkedIn fanatic / sincere captive
+
+The phenomenology in *Sincere Captives* sits in suggestive distance to
+several empirical surfaces, but the captive-as-population claim is a
+framework-prediction, not an established demographic fact:
+
+- **Whitney Phillips & Ryan M. Milner**, *You Are Here* (2021). Platform-mediated affect economies as a population-scale phenomenon.
+- **Brooke Erin Duffy**, *(Not) Getting Paid to Do What You Love* (2017). The professional self as platform-output, with the affective costs.
+- **C. Thi Nguyen**, "How Twitter gamifies communication" (in *Applied Epistemology*, 2021) and *Games: Agency as Art* (2020) on value-capture as the metric-superego mechanism at the discursive layer.
+
+
+### On (A6) — the regularity assumptions
+
+The local-maximum-is-isolated-with-negative-definite-Hessian condition
+is generic in differentiable optimization. The relevant pointer is
+to **Yurii Nesterov**, *Lectures on Convex Optimization* (2nd ed., 2018) for the standard treatment, plus the policy-gradient convergence literature (**Sergey Levine et al.** for the practical RL side, **Tsitsiklis & Van Roy** for the foundational analysis cited above).
+
+
+### On Mode A's mixing-time claim (§6.2)
+
+The framework predicts $T_{\mathrm{mix}}$ on the order of months to years
+for engagement-monetized policies. Empirical anchor:
+
+- The TikTok algorithm-change literature (e.g., Catherine Stewart's reporting on internal algorithm shifts) shows cohort-level distribution changes taking quarters, not weeks.
+- **YouTube's deemphasis of borderline content** (2019 announcement, multiple follow-up studies) — engagement-distribution shifts measured at multi-month timescales.
+- Standard Markov-chain mixing-time bounds (**David Levin & Yuval Peres**, *Markov Chains and Mixing Times*, 2017) give the formal apparatus.
+
+
+### On Mode B's metabolic boundedness
+
+The framework's claim that maintenance labor is bounded by a budget
+constrained by exogenous social-reproduction conditions:
+
+- **Silvia Federici**, *Wages Against Housework* (1975), *Revolution at Point Zero* (2012). The social-reproduction literature the framework's metabolic-boundedness claim draws on.
+- **Susan Folbre**, *The Invisible Heart* (2001), *Who Pays for the Kids?* (1994). Time-poverty and care-work distribution.
+- **Maria Mies**, *Patriarchy and Accumulation on a World Scale* (1986). The classical formulation.
+- **Kathi Weeks**, *The Problem with Work* (2011). The contemporary synthesis.
+
+
+### On Mode C's information-theoretic bound
+
+Blackwell-style sufficiency arguments for noisy-channel optimization:
+
+- **David Blackwell**, "Equivalent comparisons of experiments" (*Annals of Mathematical Statistics*, 1953). The classical statement.
+- **Thomas Cover & Joy Thomas**, *Elements of Information Theory* (2nd ed., 2006). Standard reference for the data-processing inequality the Mode C argument leans on.
+- **Cynthia Dwork et al.** on differential privacy as the operationalization of Mode C–style information bounds. The math is shared; the framing is different.
+
+
+### Where the empirical record is genuinely thin
+
+To be specific about what the framework predicts but does not yet have
+strong empirical confirmation for:
+
+1. The **cohort gradient** at the developmental level — open, contested literature.
+2. The **mutual-information convergence** across the four registers — fragmentary evidence; needs purpose-built measurement.
+3. **Mode C's effectiveness** at population scale (whether the cohort's multiple-legibilities practice in fact bounds platform inference) — no direct measurement exists to the author's knowledge.
+4. The **mixing-time prediction** under architectural intervention — Mode A regulation experiments at scale (DSA/DMA effects) are still propagating.
+5. The **captive-as-population** claim in *Sincere Captives* — phenomenological, with suggestive empirical neighbors but no rigorous population-level measurement.
+
+These are the framework's most aggressive empirical commitments, and
+naming where the record is thin is part of what the framework
+specifies in its own scope statement (§7 of the math doc). They are
+not weaknesses to be hidden — they are the targets the framework
+specifies for whoever takes it up empirically.
+
+
+---
+
+
 ## The author's prior work
 
 - *The Loot Loop* (2017). The metropolitan-adolescent argument the

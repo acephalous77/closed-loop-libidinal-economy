@@ -15,6 +15,7 @@ const TOC = [
   { number: "·", title: "the body and the affect-grammar", slug: "the-body-and-the-affect-grammar" },
   { number: "·", title: "the mathematical apparatus", slug: "the-mathematical-apparatus" },
   { number: "·", title: "recent / contemporary", slug: "recent--contemporary" },
+  { number: "·", title: "empirical backing for the framework's claims", slug: "empirical-backing-for-the-frameworks-claims" },
   { number: "·", title: "the author's prior work", slug: "the-authors-prior-work" },
   { number: "·", title: "a note on use", slug: "a-note-on-use" },
 ];
