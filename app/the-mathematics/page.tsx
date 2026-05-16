@@ -42,7 +42,7 @@ export default function TheMathematicsPage() {
 
           <article className="lg:col-span-8 lg:col-start-4 mathematics-prose">
             <h1 className="font-serif text-2xl text-ink leading-tight mb-lg">
-              the mathematics
+              the mathematics.
             </h1>
             <Mathematics />
           </article>

@@ -65,8 +65,9 @@ export function ArgumentLayout({
             {children}
           </article>
 
-          {/* Right: marginalia placeholder (footnote system, future) */}
-          <aside className="hidden lg:block lg:col-span-3 lg:col-start-10" />
+          {/* Right column intentionally left as quiet whitespace — keeps
+              prose at narrow measure on wide viewports without a visible
+              empty box. */}
         </div>
 
         {/* Footer slot (e.g. inter-essay navigation) */}

@@ -84,8 +84,8 @@ export default function CohortGradientPage() {
               The three dotted curves are the alternative empirical outcomes:
               <em> confirming</em> (close to the prediction),{" "}
               <em>null</em> (flat — no cohort effect), and{" "}
-              <em>disconfirming</em> (inverted — younger cohorts retain MORE
-              autocovariance, the opposite of the prediction). Data that
+              <em>disconfirming</em> (inverted — younger cohorts retain{" "}
+              <em>more</em> autocovariance, the opposite of the prediction). Data that
               produces the null or disconfirming shape would falsify this part
               of the framework. This is the framework's most direct empirical
               commitment.

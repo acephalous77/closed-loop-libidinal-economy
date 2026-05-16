@@ -24,6 +24,8 @@ const ROUTES = [
   "/the-dynamics/causal-chain",
   "/the-dynamics/intervention",
   "/the-dynamics/cohort-gradient",
+  "/the-dynamics/mode-space",
+  "/the-dynamics/tiktok",
   "/instrumentation",
   "/colophon",
 ];

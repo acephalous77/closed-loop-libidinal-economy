@@ -22,7 +22,7 @@ const ENTRIES: Record<string, GlossEntry> = {
   // ── Core platform / policy ─────────────────────────────────────────
   [String.raw`\theta^*`]: {
     gloss: "the converged platform policy — what gradient ascent settles on",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\theta_{\mathrm{ref}}`]: {
     gloss: "the reflective-processing threshold — minimum no-input duration that supports deliberation (seconds to minutes)",
@@ -48,7 +48,7 @@ const ENTRIES: Record<string, GlossEntry> = {
   // ── Engagement reward ─────────────────────────────────────────────
   [String.raw`\hat{R}`]: {
     gloss: "the engagement reward the platform actually optimizes — session length, retention, ad value",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\hat{R}'`]: {
     gloss: "Mode A's modified reward — R̂ plus a bonus on long inter-stimulus intervals",
@@ -146,7 +146,7 @@ const ENTRIES: Record<string, GlossEntry> = {
   // ── Mode C: disruption-as-form ────────────────────────────────────
   [String.raw`\eta_t`]: {
     gloss: "observation noise — discrepancy between user behavior and what the platform sees",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\mathrm{Var}(\eta_t)`]: {
     gloss: "noise variance — how illegible the user is to the platform",
@@ -161,7 +161,7 @@ const ENTRIES: Record<string, GlossEntry> = {
   },
   [String.raw`H(u \mid y_{1:t})`]: {
     gloss: "residual entropy — what the platform still doesn't know about you given observations",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`H(u \mid y_{1:t}) \to 0`]: {
     gloss: "the dividual condition — under closure, platform's uncertainty collapses",
@@ -202,15 +202,15 @@ const ENTRIES: Record<string, GlossEntry> = {
   // ── Hawkes / somatic ──────────────────────────────────────────────
   [String.raw`s_t`]: {
     gloss: "the stimulus at time t — whatever the platform delivers",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\lambda^i(t)`]: {
     gloss: "the firing rate for register i at time t (Subject/Citizen/Person/Consumer)",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\lambda^i(t) = \lambda_0^i + \sum_j \alpha_{ij} \int \kappa(t-s)\, dN_s^j`]: {
     gloss: "Hawkes intensity: a baseline plus accumulated influence of past events across all registers",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`dN^i_t`]: {
     gloss: "the engagement-event differential for register i — what your body produces at this tick",
@@ -221,14 +221,14 @@ const ENTRIES: Record<string, GlossEntry> = {
   [String.raw`dN^k_t`]: { gloss: "engagement event in the Consumer register" },
   [String.raw`I(u^i; u^j)`]: {
     gloss: "mutual information between two registers — how much one tells the platform about the other",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
 
   // ── Surplus / cohort ──────────────────────────────────────────────
   [String.raw`\Sigma`]: { gloss: "total surplus — the platform's accumulated yield" },
   [String.raw`\Sigma(T)`]: {
     gloss: "total platform surplus accumulated over horizon T",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\Sigma^i(T) = \int_0^T \rho_i(u_{t^-}, y_{t^-})\, dN^i_t`]: {
     gloss: "per-register surplus — the integral of the surplus kernel against engagement events",
@@ -244,7 +244,7 @@ const ENTRIES: Record<string, GlossEntry> = {
   // ── Captured resonance (Kuramoto) ─────────────────────────────────
   [String.raw`\varphi_b`]: {
     gloss: "biological phase — the body's intrinsic rhythm (circadian, attentional)",
-    href: "/the-mathematics#3-the-closed-loop-dynamics",
+    href: "/the-mathematics#1-the-closed-loop-dynamics",
   },
   [String.raw`\varphi_m`]: {
     gloss: "medium phase — the temporal envelope of the platform's delivery",

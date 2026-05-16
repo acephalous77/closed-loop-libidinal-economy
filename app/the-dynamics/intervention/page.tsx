@@ -85,8 +85,8 @@ export default function InterventionPage() {
               <M>{String.raw`L_m^* \approx 0.80`}</M>, but the Lemma 1
               status at the bottom does not change. Sweep{" "}
               <M>{String.raw`\sigma_\eta^+`}</M> in Mode C and
-              the status notes "bounds <M>{String.raw`\Sigma(T)`}</M> strictly below sup", again without
-              touching Lemma 1.
+              the status notes that <M>{String.raw`\Sigma(T)`}</M> is bounded strictly below{" "}
+              <M>{String.raw`\sup_\pi \mathbb{E}[\hat{R}]`}</M>, again without touching Lemma 1.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               The three modes operate on three distinct timescales — Mode A on{" "}

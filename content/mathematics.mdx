@@ -194,7 +194,7 @@ These six assumptions are sufficient for the foreclosure proposition, the reclam
 | $e_{t}$ | Exogenous channel; ≡ 0 by construction |
 | $\tau^{(k)}$ | *k*-th inter-stimulus interval — time between the *k*-th and (*k*+1)-th delivered stimuli |
 | $S(\tau; t)$ | Survival function of inter-stimulus interval at policy time *t*: $\mathrm{Pr}(\tau^{(k)} > \tau \| \theta_{t})$ |
-| $E_{\tau}$ | No-input window event: $\{s_{t'} = 0 \,\text{for}\, t \< t' \le t+\tau\}$ |
+| $E_{\tau}$ | No-input window event: $\{s_{t'} = 0 \text{ for } t < t' \le t+\tau\}$ |
 | $\delta_{\min}$ | Minimum technical inter-stimulus latency (platform's tick rate) |
 | $\theta_{\mathrm{ref}}$ | Reflective-processing threshold — minimum no-input duration supporting deliberation |
 | $\lambda_{\max}$ | Maximum engagement-event rate: $\lambda_{\max} = 1/\delta_{\min}$ |
@@ -403,7 +403,7 @@ $$
 
 
 $$
-B_{\max}^{\,\tilde\theta}\ :=\ \\sup_{\beta \in [0,\, \bar\beta)}\, B(\tilde\theta(\beta))
+B_{\max}^{\,\tilde\theta}\ :=\ \sup_{\beta \in [0,\, \bar\beta)}\, B(\tilde\theta(\beta))
 $$
 
 
@@ -455,9 +455,9 @@ The path's right endpoint $\bar\beta$ is finite only if a bifurcation interrupts
 
 *(b) $P(\beta)$ is continuous in $\beta$ on $[0, \bar\beta)$.*
 
-*(c) There exists $\epsilon_{\max} := \\sup_{\beta \in [0, \bar\beta)} P(\beta) > 0$.*
+*(c) There exists $\epsilon_{\max} := \sup_{\beta \in [0, \bar\beta)} P(\beta) > 0$.*
 
-*Consequently, for any $\epsilon \in (0, \epsilon_{\max})$, there exists $\beta_\epsilon \in (0, \bar\beta)$ with $P(\beta_\epsilon) \ge \epsilon$. For such $\beta_\epsilon$, Lemma 1 fails under $\hat{R}’(\cdot; \beta_\epsilon)$, the conditioning event $E_{\tau^*}$ has positive measure, and $I(\tau^*)$ is well-defined on a positive-measure set of trajectories. Mode A is the only mode of intervention that recovers what the reclamation theorem forecloses.*
+*Consequently, for any $\epsilon \in (0, \epsilon_{\max})$, there exists $\beta_\epsilon \in (0, \bar\beta)$ with $P(\beta_\epsilon) \ge \epsilon$. For such $\beta_\epsilon$, Lemma 1 fails under $\hat{R}'(\cdot; \beta_\epsilon)$, the conditioning event $E_{\tau^*}$ has positive measure, and $I(\tau^*)$ is well-defined on a positive-measure set of trajectories. Mode A is the only mode of intervention that recovers what the reclamation theorem forecloses.*
 
 **Proof.**
 
@@ -515,7 +515,7 @@ $$
 $$
 
 
-The maintenance labor adds a counter-gradient term $L_{m}\cdotê_{resist}$, where $ê_{resist}$ is a unit vector in the direction the user actively maintains $\nu_{u}$ distinct from $\pi_{\hat{R}}$ — formally, $ê_{resist} = \nabla_{\nu}D_{\mathrm{KL}}/\|\nabla_{\nu}D_{\mathrm{KL}}\|$ (the direction of maximum $D_{\mathrm{KL}}$ increase). Then:
+The maintenance labor adds a counter-gradient term $L_{m}\cdot \hat{e}_{\mathrm{resist}}$, where $\hat{e}_{\mathrm{resist}}$ is a unit vector in the direction the user actively maintains $\nu_{u}$ distinct from $\pi_{\hat{R}}$ — formally, $\hat{e}_{\mathrm{resist}} = \nabla_{\nu}D_{\mathrm{KL}}/\|\nabla_{\nu}D_{\mathrm{KL}}\|$ (the direction of maximum $D_{\mathrm{KL}}$ increase). Then:
 
 
 $$
@@ -539,11 +539,11 @@ $$
 $$
 
 
-with $h_{0}(\beta_{u}) := \beta_{u}\cdotc_{\mathrm{op}}^{2}$ and $r(L_{m}) := L_{m}\cdotc_{\mathrm{op}}$. Both linear in their respective arguments; the multiplicative separability is exact in the linearization. The validity of the linearization depends on $\nu_{u}$ remaining in a neighborhood of $\nu_{u}^{\mathrm{op}}$ where $c_{\mathrm{op}}$ is approximately constant — which is precisely what Proposition 2(i) establishes for $L_{m} \ge L_{m}*$.
+with $h_{0}(\beta_{u}) := \beta_{u}\cdot c_{\mathrm{op}}^{2}$ and $r(L_{m}) := L_{m}\cdot c_{\mathrm{op}}$. Both linear in their respective arguments; the multiplicative separability is exact in the linearization. The validity of the linearization depends on $\nu_{u}$ remaining in a neighborhood of $\nu_{u}^{\mathrm{op}}$ where $c_{\mathrm{op}}$ is approximately constant — which is precisely what Proposition 2(i) establishes for $L_{m} \ge L_{m}*$.
 
-— *Operant reinforcement (sketch).* Under a Rescorla-Wagner update $\nu_{u}(t+dt) = \nu_{u}(t) + \alpha_{RW}\cdot(\pi_{\hat{R}} - \nu_{u}(t))\cdotdt$, with $\alpha_{RW}$ the learning rate (proportional to the platform's reinforcement schedule density), $dD_{\mathrm{KL}}/dt = -\alpha_{RW}\cdot(linearized correction term)$. Identifying $\beta_{u}$ with $\alpha_{RW}$ gives $h_{0}(\beta_{u}) = \beta_{u}\cdotc_{\mathrm{op}}^{(RW)}$ with a different constant $c_{\mathrm{op}}^{(RW)}$ depending on the reward prediction-error variance. The maintenance term has the same structural form $r(L_{m}) ∝ L_{m}$ under bounded counter-conditioning capacity.
+— *Operant reinforcement (sketch).* Under a Rescorla-Wagner update $\nu_{u}(t+dt) = \nu_{u}(t) + \alpha_{RW}\cdot(\pi_{\hat{R}} - \nu_{u}(t))\cdot dt$, with $\alpha_{RW}$ the learning rate (proportional to the platform's reinforcement schedule density), $dD_{\mathrm{KL}}/dt = -\alpha_{RW}\cdot\text{(linearized correction term)}$. Identifying $\beta_{u}$ with $\alpha_{RW}$ gives $h_{0}(\beta_{u}) = \beta_{u}\cdot c_{\mathrm{op}}^{(RW)}$ with a different constant $c_{\mathrm{op}}^{(RW)}$ depending on the reward prediction-error variance. The maintenance term has the same structural form $r(L_{m}) ∝ L_{m}$ under bounded counter-conditioning capacity.
 
-— *Social comparison (sketch).* Under Bayesian belief revision with platform-surfaced peer evidence at rate $\lambda_{surf}$ (proportional to platform pressure), $\nu_{u}$ shifts toward the surfaced peer distribution at rate $\beta_{u} ∝ \lambda_{surf}\cdotcredibility$. $D_{\mathrm{KL}}$ contracts at rate concave in $\beta_{u}$ (Bayesian information bound). $r(L_{m})$ is the rate of extra-platform peer-group maintenance; concave in $L_{m}$ under diminishing returns.
+— *Social comparison (sketch).* Under Bayesian belief revision with platform-surfaced peer evidence at rate $\lambda_{surf}$ (proportional to platform pressure), $\nu_{u}$ shifts toward the surfaced peer distribution at rate $\beta_{u} ∝ \lambda_{surf}\cdot \mathrm{credibility}$. $D_{\mathrm{KL}}$ contracts at rate concave in $\beta_{u}$ (Bayesian information bound). $r(L_{m})$ is the rate of extra-platform peer-group maintenance; concave in $L_{m}$ under diminishing returns.
 
 In all three cases, the operating-point linearization produces the parametric form assumed in Proposition 2, with *r* and $h_{0}$ monotone and $L_{m}* := r^{-1}(h_{0}(\beta_{u}))$ well-defined. The framework's commitment to mechanism-agnosticism is therefore not an absence of mechanism but the explicit identification of a structural decomposition consistent with all three named mechanisms in their operating-point linearization. The proposition's conclusion holds under any mechanism with this structure; the explicit free-energy derivation is provided as the cleanest worked example.
 
@@ -591,7 +591,7 @@ The right-hand side is decreasing in $\sigma^{2}_{\eta}$ (mutual information dro
 
 *(iii)* The foreclosure argument in Lemma 1 depends on the policy gradient-ascending on $\hat{R}$ and on (A2)–(A5). None of these is changed by an increase in $\sigma^{2}_{\eta}$: the policy still updates, still seeks to maximize $E[\hat{R}]$, still has access to a sufficiently expressive policy class, and still converges. The maximum achievable rate may be lower under disrupted observation (the policy targets less effectively), but the policy still drives toward whatever maximum is achievable, and the inter-stimulus interval distribution still concentrates near the minimum technical latency $\delta_{\min}$. Hence $\mathrm{Pr}(E_{\tau}) \to 0$ for $\tau > \theta_{\mathrm{ref}}$. ∎
 
-A fourth claim sometimes attributed to Mode C — that the cohort's mixing time $T_{\mathrm{mix}}$ strictly increases under disrupted observation — is *not* established by this proposition and is left here as a conjecture (cf. §10). The argument that disrupted observation slows convergence depends on whether the policy's "pull" toward $\mu*_{\pi}$ is the dominant convergence driver (in which case weaker pull means slower mixing) or whether the diffusion of the effective dynamics under uncertain targeting speeds convergence to a more diffuse but reachable stationary distribution. The framework's intuition is the former, but the proof requires additional structure on *f, g,* and the policy class that the framework does not currently specify.
+A fourth claim sometimes attributed to Mode C — that the cohort's mixing time $T_{\mathrm{mix}}$ strictly increases under disrupted observation — is *not* established by this proposition and is left here as a conjecture (cf. §8). The argument that disrupted observation slows convergence depends on whether the policy's "pull" toward $\mu*_{\pi}$ is the dominant convergence driver (in which case weaker pull means slower mixing) or whether the diffusion of the effective dynamics under uncertain targeting speeds convergence to a more diffuse but reachable stationary distribution. The framework's intuition is the former, but the proof requires additional structure on *f, g,* and the policy class that the framework does not currently specify.
 
 Disruption-as-form is the framework's honest answer to the question of what subjective political practice remains under the closure. It does not recover what has been foreclosed. It does not require the cohort-bounded conditions Mode B depends on. It does not require the external imposition Mode A requires. It operates at the level of the user's relation to the observation function, and the political form it takes is, properly, a form: camouflage, inauthenticity, refusal of legibility, the strategic noise that prevents the apparatus from collapsing the four-register coupling onto a single point.
 
@@ -667,7 +667,7 @@ The following questions, flagged in earlier drafts, have been addressed by the p
 
 — *The measure-theoretic conditioning subtlety in Theorem 1, Step 2.* Now explicit, with reference to Kallenberg's treatment of disintegration and a clean operational statement: any sample-based estimator $\hat{I}(\tau)$ has variance scaling as $1/(N_{obs}\cdot \mathrm{Pr}(E_{\tau}))$ and diverges as $\mathrm{Pr}(E_{\tau}) \to 0$, regardless of the chosen disintegration. The operational meaning of "undefined-on-trajectory" is therefore preserved.
 
-— *The parametric premise of Proposition 2.* The decomposition $dD_{\mathrm{KL}}/dt = -h_{0}(\beta_{u}) + r(L_{m})$ is now derived explicitly as the first-order linearization around the operating point $\nu_{u}^{\mathrm{op}}$. The free-energy minimization case is worked in full — under the variational free-energy gradient with maintenance counter-gradient $L_{m}\cdotê_{resist}$, the linearized dynamics give $h_{0}(\beta_{u}) = \beta_{u}\cdotc_{\mathrm{op}}^{2}$ and $r(L_{m}) = L_{m}\cdotc_{\mathrm{op}}$ with $c_{\mathrm{op}} := \|\nabla_{\nu}D_{\mathrm{KL}}\|_{\mathrm{op}}$. The operant reinforcement and social comparison cases produce the same linearized form with different constants. The framework's commitment to mechanism-agnosticism is now formalized: not as an absence of mechanism, but as the explicit identification of a structural decomposition derived (in linearization) from each of the named mechanisms.
+— *The parametric premise of Proposition 2.* The decomposition $dD_{\mathrm{KL}}/dt = -h_{0}(\beta_{u}) + r(L_{m})$ is now derived explicitly as the first-order linearization around the operating point $\nu_{u}^{\mathrm{op}}$. The free-energy minimization case is worked in full — under the variational free-energy gradient with maintenance counter-gradient $L_{m}\cdot \hat{e}_{\mathrm{resist}}$, the linearized dynamics give $h_{0}(\beta_{u}) = \beta_{u}\cdot c_{\mathrm{op}}^{2}$ and $r(L_{m}) = L_{m}\cdot c_{\mathrm{op}}$ with $c_{\mathrm{op}} := \|\nabla_{\nu}D_{\mathrm{KL}}\|_{\mathrm{op}}$. The operant reinforcement and social comparison cases produce the same linearized form with different constants. The framework's commitment to mechanism-agnosticism is now formalized: not as an absence of mechanism, but as the explicit identification of a structural decomposition derived (in linearization) from each of the named mechanisms.
 
 — *The bifurcation/basin-connectedness handwave in Lemma 2(iii).* Replaced by a clean strict-growth argument: provided $\nabla B(\theta*) \ne 0$ (which holds generically since *B* and *F* have distinct extremizers — the *F*-maximizer fires at $\lambda_{\max}$, the *B*-maximizer at $1/\tau*$), the path $\beta ↦ \tilde\theta(\beta)$ produces strictly positive $B(\tilde\theta(\beta)) > 0$ for sufficiently small $\beta > 0$. This implies $\epsilon_{\max} := \sup_{\beta} P(\beta) > 0$, which is the substantive content the framework requires. The full claim $P(\beta) \to 1 \text{ as } \beta \to \infty$ requires the additional generic regularity (no codimension-one bifurcations along the path), but Proposition 1 needs only $\epsilon_{\max} > 0$ — which holds without the bifurcation regularity.
 

@@ -44,13 +44,14 @@ export default function ChronoDebtPage() {
             (§3.2). Let{" "}
             <M>{String.raw`\Lambda_\circ(\tau)`}</M> be the pre-closure survival
             function of the inter-stimulus interval — the probability under the
-            historical regime that the inter-stimulus interval exceeded τ. Let{" "}
+            historical regime that the inter-stimulus interval exceeded{" "}
+            <M>{String.raw`\tau`}</M>. Let{" "}
             <M>{String.raw`\Lambda(t,\tau)`}</M> be the realized survival
-            under the closed loop at time t. The{" "}
-            <em>chrono-debt at scale τ</em> is{" "}
+            under the closed loop at time <M>{String.raw`t`}</M>. The{" "}
+            <em>chrono-debt at scale <M>{String.raw`\tau`}</M></em> is{" "}
             <M>{String.raw`D(t,\tau) = \Lambda_\circ(\tau) - \Lambda(t,\tau)`}</M>. The
-            framework's central observation is that D is a{" "}
-            <em>spectrum</em> — non-zero across the entire τ axis at once.
+            framework's central observation is that <M>{String.raw`D`}</M> is a{" "}
+            <em>spectrum</em> — non-zero across the entire <M>{String.raw`\tau`}</M> axis at once.
           </p>
 
           <ChronoDebt />

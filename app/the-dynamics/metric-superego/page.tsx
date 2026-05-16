@@ -47,7 +47,8 @@ export default function MetricSuperegoPage() {
             <M>{String.raw`\pi_{\hat{R}}`}</M> be the distribution induced
             over user actions by the platform's reward functional{" "}
             <M>{String.raw`\hat{R}`}</M>. The metric-superego claim is{" "}
-            <M>{String.raw`D_{\mathrm{KL}}(\nu_u(t) \,\|\, \pi_{\hat{R}}) \to 0`}</M> as t → ∞
+            <M>{String.raw`D_{\mathrm{KL}}(\nu_u(t) \,\|\, \pi_{\hat{R}}) \to 0`}</M>{" "}
+            as <M>{String.raw`t \to \infty`}</M>
             — the user's image of what is valuable converges to the platform's.
             The convergence is mechanism-agnostic: free-energy minimization,
             operant reinforcement, or social comparison each produce it.

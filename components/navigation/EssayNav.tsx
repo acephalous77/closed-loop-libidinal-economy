@@ -15,7 +15,7 @@ export function EssayNav({
   prev,
   next,
   indexHref = "/the-argument",
-  indexLabel = "the four pieces",
+  indexLabel = "the argument",
 }: EssayNavProps) {
   return (
     <nav

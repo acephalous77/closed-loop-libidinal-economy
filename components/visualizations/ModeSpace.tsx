@@ -3,6 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Line, Html } from "@react-three/drei";
 import { useState } from "react";
+import { M } from "@/components/ui/Math";
 
 /**
  * Mode-Space — three orthogonal axes (R̂ · B · D_KL) with the three
@@ -73,36 +74,33 @@ function Axes() {
       <Html position={[AXIS_LENGTH + 0.05, 0, 0]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "11px",
+            fontSize: "12px",
             color: COLORS.ink90,
             whiteSpace: "nowrap",
           }}
         >
-          R̂_max
+          <M>{String.raw`\hat{R}_{\max}`}</M>
         </span>
       </Html>
       <Html position={[0, AXIS_LENGTH + 0.05, 0]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "11px",
+            fontSize: "12px",
             color: COLORS.ink90,
           }}
         >
-          B_max
+          <M>{String.raw`B_{\max}`}</M>
         </span>
       </Html>
       <Html position={[0, 0, AXIS_LENGTH + 0.05]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "11px",
+            fontSize: "12px",
             color: COLORS.ink90,
             whiteSpace: "nowrap",
           }}
         >
-          D_KL_max
+          <M>{String.raw`D_{\mathrm{KL},\,\max}`}</M>
         </span>
       </Html>
     </>
@@ -119,13 +117,16 @@ function OperatingPoint() {
       <Html position={[OP_POINT[0] + 0.05, OP_POINT[1] + 0.05, OP_POINT[2]]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "10px",
+            fontSize: "11px",
             color: COLORS.ink70,
             whiteSpace: "nowrap",
+            display: "inline-flex",
+            alignItems: "baseline",
+            gap: "4px",
           }}
         >
-          θ* · closed-loop
+          <M>{String.raw`\theta^*`}</M>
+          <span style={{ fontFamily: "var(--font-mono)" }}>· closed-loop</span>
         </span>
       </Html>
     </>
@@ -151,13 +152,16 @@ function ModeAPath() {
       <Html position={[0.3, 0.85, 0]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "10px",
+            fontSize: "11px",
             color: COLORS.oxblood,
             whiteSpace: "nowrap",
+            display: "inline-flex",
+            alignItems: "baseline",
+            gap: "4px",
           }}
         >
-          Mode A · β R̂'
+          <span style={{ fontFamily: "var(--font-mono)" }}>Mode A ·</span>
+          <M>{String.raw`\beta\, \hat{R}'`}</M>
         </span>
       </Html>
     </>
@@ -182,13 +186,16 @@ function ModeBPath() {
       <Html position={[1, 0, 0.85]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "10px",
+            fontSize: "11px",
             color: COLORS.ink90,
             whiteSpace: "nowrap",
+            display: "inline-flex",
+            alignItems: "baseline",
+            gap: "4px",
           }}
         >
-          Mode B · L_m
+          <span style={{ fontFamily: "var(--font-mono)" }}>Mode B ·</span>
+          <M>{String.raw`L_m`}</M>
         </span>
       </Html>
     </>
@@ -236,13 +243,16 @@ function ModeCRegion() {
       <Html position={[(x0 + x1) / 2, y1 + 0.08, (z0 + z1) / 2]} center>
         <span
           style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "10px",
+            fontSize: "11px",
             color: COLORS.ink70,
             whiteSpace: "nowrap",
+            display: "inline-flex",
+            alignItems: "baseline",
+            gap: "4px",
           }}
         >
-          Mode C · σ_η⁺
+          <span style={{ fontFamily: "var(--font-mono)" }}>Mode C ·</span>
+          <M>{String.raw`\sigma_\eta^+`}</M>
         </span>
       </Html>
     </>
@@ -321,18 +331,22 @@ export function ModeSpace() {
         </div>
 
         {/* Legend */}
-        <div className="mt-md font-mono text-xs text-ink-70 space-y-xs">
+        <div className="mt-md text-xs text-ink-70 space-y-xs">
           <p>
-            <span className="text-ink-90">Mode A</span> · modifies R̂ to include
-            B; moves the policy along the R̂-B plane.
+            <span className="text-ink-90 font-mono">Mode A</span>
+            <span className="font-mono"> · </span>
+            modifies <M>{String.raw`\hat{R}`}</M> to include <M>{String.raw`B`}</M>;
+            moves the policy along the <M>{String.raw`\hat{R}\text{-}B`}</M> plane.
           </p>
           <p>
-            <span className="text-ink-90">Mode B</span> · preserves a gap in
-            D_KL; does not modify the policy at all.
+            <span className="text-ink-90 font-mono">Mode B</span>
+            <span className="font-mono"> · </span>
+            preserves a gap in <M>{String.raw`D_{\mathrm{KL}}`}</M>; does not modify the policy at all.
           </p>
           <p>
-            <span className="text-ink-90">Mode C</span> · bounds the operating
-            region; reduces the achievable R̂.
+            <span className="text-ink-90 font-mono">Mode C</span>
+            <span className="font-mono"> · </span>
+            bounds the operating region; reduces the achievable <M>{String.raw`\hat{R}`}</M>.
           </p>
         </div>
       </div>

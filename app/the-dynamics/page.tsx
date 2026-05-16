@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
+import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
   title: "the dynamics — The Closed-Loop Libidinal Economy",
   description:
-    "Five visualizations of the closed-loop dynamics: foreclosure clock, reclamation trajectories, mode-space, cohort gradient, TikTok worked example.",
+    "Five composite plates and nine isolated mechanism dimensions of the closed-loop dynamics, plus the live simulator and relational atlas.",
 };
 
 interface Plate {
   numeral: string;
   slug: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
 }
 
 interface Mechanism {
   slug: string;
   title: string;
-  description: string;
+  description: React.ReactNode;
   section: string;
 }
 
@@ -31,13 +32,13 @@ const MECHANISMS: Mechanism[] = [
   {
     slug: "captured-resonance",
     title: "captured resonance",
-    description: "the body as forced oscillator under the medium's delivery phase; Kuramoto coupling and the lock transition K_bm > |ω_b − ω_m|",
+    description: <>the body as forced oscillator under the medium&apos;s delivery phase; Kuramoto coupling and the lock transition <M>{String.raw`K_{bm} > |\omega_b - \omega_m|`}</M></>,
     section: "§3.6",
   },
   {
     slug: "chrono-debt",
     title: "chrono-debt spectrum",
-    description: "the deficit in pause-time at every scale simultaneously; D(t,τ) = Λ_◦(τ) − Λ(t,τ) as a spectrum, not a quantity at one scale",
+    description: <>the deficit in pause-time at every scale simultaneously; <M>{String.raw`D(t,\tau) = \Lambda_\circ(\tau) - \Lambda(t,\tau)`}</M> as a spectrum, not a quantity at one scale</>,
     section: "§3.2",
   },
   {
@@ -55,25 +56,25 @@ const MECHANISMS: Mechanism[] = [
   {
     slug: "surplus",
     title: "libidinal surplus",
-    description: "Σ(T) = Σ_i ∫ ρ_i dN^i_t — the platform's accumulated yield decomposed across the four registers; the asymmetric distribution is the policy's signature",
+    description: <><M>{String.raw`\Sigma(T) = \sum_i \int \rho_i\, dN^i_t`}</M> — the platform&apos;s accumulated yield decomposed across the four registers; the asymmetric distribution is the policy&apos;s signature</>,
     section: "§3.1",
   },
   {
     slug: "metric-superego",
     title: "metric superego",
-    description: "D_KL(ν_u ‖ π_R̂) trajectory under maintenance labor; the user's self-evaluative distribution converges to the platform's reward distribution unless L_m ≥ L_m*",
+    description: <><M>{String.raw`D_{\mathrm{KL}}(\nu_u \,\|\, \pi_{\hat{R}})`}</M> trajectory under maintenance labor; the user&apos;s self-evaluative distribution converges to the platform&apos;s reward distribution unless <M>{String.raw`L_m \ge L_m^*`}</M></>,
     section: "§3.4",
   },
   {
     slug: "causal-chain",
     title: "the causal chain",
-    description: "the proof of Theorem 1 as a directed graph from (A1)–(A6) to RECLAMATION ⌀; Mode A cuts the chain at θ*, Modes B and C operate on parallel structures",
+    description: <>the proof of Theorem 1 as a directed graph from (A1)–(A6) to <span className="font-mono">RECLAMATION ⌀</span>; Mode A cuts the chain at <M>{String.raw`\theta^*`}</M>, Modes B and C operate on parallel structures</>,
     section: "§4",
   },
   {
     slug: "intervention",
     title: "the three modes of intervention",
-    description: "Mode A (architectural · β) / Mode B (artisanal · L_m) / Mode C (disruption-as-form · σ_η⁺) side by side; sweep each knob to see which structurally distinct claim it modifies",
+    description: <>Mode A (architectural · <M>{String.raw`\beta`}</M>) / Mode B (artisanal · <M>{String.raw`L_m`}</M>) / Mode C (disruption-as-form · <M>{String.raw`\sigma_\eta^+`}</M>) side by side; sweep each knob to see which structurally distinct claim it modifies</>,
     section: "§5",
   },
 ];

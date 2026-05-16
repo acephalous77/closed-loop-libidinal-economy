@@ -62,7 +62,7 @@ export default function CapturedResonancePage() {
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               At <M>{String.raw`K_{bm} = 0`}</M> the body vector and
               the medium vector rotate at their own intrinsic rates; the angular
-              gap Δφ drifts continuously. Step{" "}
+              gap <M>{String.raw`\Delta\varphi`}</M> drifts continuously. Step{" "}
               <M>{String.raw`K_{bm}`}</M> up across the threshold
               (≈ 0.007 here) and watch the gap settle to a constant — the
               vectors phase-lock and the lock indicator turns oxblood.
