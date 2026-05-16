@@ -4,11 +4,40 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PrintButton } from "@/components/ui/PrintButton";
 import { ReadingProgress } from "@/components/ui/ReadingProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
+
+const PATH = "/open-questions";
+const TITLE = "open questions";
+const DESCRIPTION =
+  "Ten open questions the framework names as research targets — three formal mathematical (math doc §8: T_mix under Mode C, the cohort gradient mechanism, the operating-point characterization), two structural-empirical from the prose, five where the empirical record is genuinely thin. Each with what would refute, what would confirm.";
 
 export const metadata: Metadata = {
-  title: "open questions — The Closed-Loop Libidinal Economy",
-  description:
-    "Ten open questions the framework names as research targets: three formal mathematical, two structural-empirical, five where the empirical record is thin. Each with what would refute, what would confirm.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: "article",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: PATH,
+    publishedTime: "2026-05-15T00:00:00.000Z",
+    authors: ["A.S."],
+    section: "Research",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  other: {
+    "DC.title": "The Closed-Loop Libidinal Economy — Open Questions",
+    "DC.creator": "A.S.",
+    "DC.date": "2026-05-15",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
 
 const TOC = [
@@ -31,6 +60,19 @@ const TOC = [
 export default function OpenQuestionsPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: "Open questions — The Closed-Loop Libidinal Economy",
+            description: DESCRIPTION,
+            path: PATH,
+          }),
+          breadcrumbJsonLd([
+            { label: "the closed-loop libidinal economy", href: "/" },
+            { label: "open questions", href: PATH },
+          ]),
+        ]}
+      />
       <ReadingProgress />
       <BackToTop />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">

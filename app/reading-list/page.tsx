@@ -4,11 +4,40 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PrintButton } from "@/components/ui/PrintButton";
 import { ReadingProgress } from "@/components/ui/ReadingProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
+
+const PATH = "/reading-list";
+const TITLE = "reading list";
+const DESCRIPTION =
+  "Works the framework draws on, works it argues against, and the works that did the formal heavy lifting. Adorno, Marcuse, Stiegler, Han, Crary, Lyotard, Deleuze, Mannheim, Sloterdijk, Burroughs, Asmussen, Kallenberg, Kuramoto, Hawkes, plus contemporary work. Also: empirical backing for each framework claim.";
 
 export const metadata: Metadata = {
-  title: "reading list — The Closed-Loop Libidinal Economy",
-  description:
-    "Works the framework draws on, works it argues against, and the works that did the formal heavy lifting. Grouped by what kind of crossing each work performs with the closed-loop argument.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: "article",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: PATH,
+    publishedTime: "2026-05-15T00:00:00.000Z",
+    authors: ["A.S."],
+    section: "References",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  other: {
+    "DC.title": "The Closed-Loop Libidinal Economy — Reading List",
+    "DC.creator": "A.S.",
+    "DC.date": "2026-05-15",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
 
 const TOC = [
@@ -26,6 +55,19 @@ const TOC = [
 export default function ReadingListPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: "Reading list — The Closed-Loop Libidinal Economy",
+            description: DESCRIPTION,
+            path: PATH,
+          }),
+          breadcrumbJsonLd([
+            { label: "the closed-loop libidinal economy", href: "/" },
+            { label: "reading list", href: PATH },
+          ]),
+        ]}
+      />
       <ReadingProgress />
       <BackToTop />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">

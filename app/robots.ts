@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://closed-loop-libidinal-economy.vercel.app";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://closed-loop-libidinal-economy.vercel.app";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -8,8 +10,10 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: ["/simulator/*.jsx", "/simulator/*.css"],
       },
     ],
-    sitemap: `${BASE}/sitemap.xml`,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

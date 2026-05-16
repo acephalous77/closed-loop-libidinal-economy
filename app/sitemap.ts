@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
-const BASE = "https://closed-loop-libidinal-economy.vercel.app";
+const BASE =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://closed-loop-libidinal-economy.vercel.app";
 
 const ROUTES = [
   "/",

@@ -4,6 +4,7 @@ import "./globals.css";
 import "katex/dist/katex.min.css";
 import { MdxMathTooltips } from "@/components/ui/MdxMathTooltips";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { JsonLd, websiteJsonLd } from "@/lib/jsonld";
 
 const ebGaramond = localFont({
   src: [
@@ -32,18 +33,76 @@ const garamondMath = localFont({
   display: "swap",
 });
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://closed-loop-libidinal-economy.vercel.app";
+
 export const metadata: Metadata = {
-  title: "The Closed-Loop Libidinal Economy",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "The Closed-Loop Libidinal Economy",
+    template: "%s — The Closed-Loop Libidinal Economy",
+  },
   description:
-    "A framework for attention capture under platform capitalism.",
+    "A framework for the dynamics of attention under platform capture: four prose pieces, a formal mathematical exposition, and a set of interactive visualizations. The closed-loop architecture, the foreclosure lemma, the reclamation theorem, and the three modes of intervention.",
+  keywords: [
+    "libidinal economy",
+    "attention economy",
+    "platform capitalism",
+    "closed-loop dynamics",
+    "metric superego",
+    "captured resonance",
+    "chrono-debt",
+    "cohort gradient",
+    "Mode A intervention",
+    "Mode B intervention",
+    "Mode C intervention",
+    "Adorno",
+    "Marcuse",
+    "Stiegler",
+    "Han",
+    "Crary",
+    "Lyotard",
+    "Deleuze",
+    "Mannheim",
+    "Sloterdijk",
+    "Burroughs",
+  ],
   authors: [{ name: "A.S." }],
+  creator: "A.S.",
+  publisher: "A.S.",
+  alternates: { canonical: "/" },
   openGraph: {
+    type: "website",
+    siteName: "The Closed-Loop Libidinal Economy",
     title: "The Closed-Loop Libidinal Economy",
     description:
-      "A framework for attention capture under platform capitalism.",
-    type: "website",
+      "A framework for the dynamics of attention under platform capture. Prose, mathematics, dynamics.",
+    url: SITE_URL,
+    locale: "en_US",
   },
-  robots: { index: true, follow: true },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Closed-Loop Libidinal Economy",
+    description:
+      "A framework for the dynamics of attention under platform capture. Prose, mathematics, dynamics.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
 };
 
 export default function RootLayout({
@@ -55,6 +114,7 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
     >
       <body>
+        <JsonLd data={websiteJsonLd()} />
         <a href="#main-content" className="skip-to-content">
           skip to content
         </a>

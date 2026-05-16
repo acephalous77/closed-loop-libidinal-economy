@@ -6,11 +6,56 @@ import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { PrintButton } from "@/components/ui/PrintButton";
 import { ReadingProgress } from "@/components/ui/ReadingProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
+
+const PATH = "/the-mathematics";
+const TITLE = "the mathematics";
+const DESCRIPTION =
+  "Full mathematical exposition of the closed-loop libidinal economy: six governing equations, six instruments (libidinal surplus, chrono-debt, libidinal routing, metric superego, somatic optimization, captured resonance), the foreclosure lemma, the reclamation theorem (with full proofs), and three formally distinct modes of intervention.";
 
 export const metadata: Metadata = {
-  title: "the mathematics — The Closed-Loop Libidinal Economy",
-  description:
-    "The full mathematical apparatus of the closed-loop libidinal economy. Closed-loop dynamics, the six instruments, the foreclosure lemma, the reclamation theorem, the three modes.",
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: { canonical: PATH },
+  openGraph: {
+    type: "article",
+    title: TITLE,
+    description: DESCRIPTION,
+    url: PATH,
+    publishedTime: "2026-05-15T00:00:00.000Z",
+    authors: ["A.S."],
+    section: "Mathematics",
+    tags: [
+      "closed-loop dynamics",
+      "Hawkes process",
+      "Kuramoto coupling",
+      "foreclosure lemma",
+      "reclamation theorem",
+      "Mode A architectural intervention",
+      "metric superego",
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
+  other: {
+    // Google Scholar / academic indexer hints
+    "citation_title": "The Closed-Loop Libidinal Economy — Mathematical Exposition",
+    "citation_author": "A.S.",
+    "citation_publication_date": "2026/05/15",
+    "citation_online_date": "2026/05/15",
+    "citation_keywords":
+      "libidinal economy; closed-loop dynamics; Hawkes process; Kuramoto coupling; foreclosure lemma; reclamation theorem; Mode A architectural intervention; metric superego",
+    "DC.title": "The Closed-Loop Libidinal Economy — Mathematical Exposition",
+    "DC.creator": "A.S.",
+    "DC.date": "2026-05-15",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
 
 const TOC = [
@@ -29,6 +74,20 @@ const TOC = [
 export default function TheMathematicsPage() {
   return (
     <main className="min-h-screen">
+      <JsonLd
+        data={[
+          articleJsonLd({
+            headline: TITLE,
+            description: DESCRIPTION,
+            path: PATH,
+            scholarly: true,
+          }),
+          breadcrumbJsonLd([
+            { label: "the closed-loop libidinal economy", href: "/" },
+            { label: "the mathematics", href: PATH },
+          ]),
+        ]}
+      />
       <ReadingProgress />
       <BackToTop />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
