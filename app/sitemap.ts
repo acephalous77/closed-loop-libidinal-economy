@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 const BASE =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://closed-loop-libidinal-economy.vercel.app";
+  "https://autostimulus.org";
 
 const ROUTES = [
   "/",

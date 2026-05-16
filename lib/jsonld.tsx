@@ -22,7 +22,7 @@ export function JsonLd({ data }: JsonLdProps) {
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://closed-loop-libidinal-economy.vercel.app";
+  "https://autostimulus.org";
 
 const AUTHOR = {
   "@type": "Person",
