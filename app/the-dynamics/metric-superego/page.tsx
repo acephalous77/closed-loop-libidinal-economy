@@ -8,7 +8,7 @@ import { M } from "@/components/ui/Math";
 export const metadata: Metadata = {
   title: "metric superego — The Closed-Loop Libidinal Economy",
   description:
-    "Mechanism §3.4. D_KL(ν_u ‖ π_R̂) trajectory under maintenance labor. The metric superego forms when L_m < L_m*; Mode B holds the gap when L_m ≥ L_m*.",
+    "Mechanism §3.4. The user's self-evaluative distribution drifts toward the platform's reward-induced distribution under prolonged exposure; Mode B holds a positive gap when maintenance labor crosses the threshold.",
 };
 
 export default function MetricSuperegoPage() {

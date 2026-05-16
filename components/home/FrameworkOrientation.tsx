@@ -185,6 +185,17 @@ function DocumentMap() {
           </li>
         ))}
       </ol>
+      <p className="mt-md font-serif italic text-sm text-ink-50 leading-snug">
+        First-time reader? Start with{" "}
+        <a
+          href="/the-argument/the-loop"
+          className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+        >
+          the loop
+        </a>{" "}
+        — the framework laid out in prose. The mathematics is for readers who
+        want the proofs; the dynamics for those who want the mechanisms running.
+      </p>
     </div>
   );
 }
