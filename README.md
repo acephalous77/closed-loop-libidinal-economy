@@ -5,7 +5,7 @@ The formal home of a framework on attention capture under platform capitalism.
 A long-form prose argument, a mathematical exposition, and (in progress) five
 interactive visualizations of the closed-loop dynamics. By Adnan Selimović.
 
-Live at [closed-loop-libidinal-economy.vercel.app](https://closed-loop-libidinal-economy.vercel.app/).
+Live at [https://autostimulus.org].
 
 ## What the site is
 
@@ -59,5 +59,5 @@ code under MIT. See [LICENSE](./LICENSE). Fonts under SIL Open Font License 1.1.
 
 ## Citation
 
-Selimović, Adnan. *The Closed-Loop Libidinal Economy*. 2026.
-https://closed-loop-libidinal-economy.vercel.app/
+S.,A. *The Closed-Loop Libidinal Economy*. 2026.
+https://autostimulus.org
