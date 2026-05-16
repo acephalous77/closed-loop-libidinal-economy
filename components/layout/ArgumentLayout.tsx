@@ -1,6 +1,7 @@
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MarginTOC } from "@/components/navigation/MarginTOC";
 import { PrintButton } from "@/components/ui/PrintButton";
+import { ReadingProgress } from "@/components/ui/ReadingProgress";
 
 interface TocEntry {
   number: string;
@@ -40,6 +41,7 @@ export function ArgumentLayout({
 
   return (
     <main className="min-h-screen">
+      <ReadingProgress />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         {/* Breadcrumb */}
         <div className="mb-lg">

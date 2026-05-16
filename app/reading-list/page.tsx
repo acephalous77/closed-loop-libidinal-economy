@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import ReadingList from "@/content/reading-list.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PrintButton } from "@/components/ui/PrintButton";
+import { ReadingProgress } from "@/components/ui/ReadingProgress";
 
 export const metadata: Metadata = {
   title: "reading list — The Closed-Loop Libidinal Economy",
@@ -24,6 +25,7 @@ const TOC = [
 export default function ReadingListPage() {
   return (
     <main className="min-h-screen">
+      <ReadingProgress />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb

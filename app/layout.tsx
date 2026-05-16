@@ -55,8 +55,13 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
     >
       <body>
+        <a href="#main-content" className="skip-to-content">
+          skip to content
+        </a>
         <div className="min-h-screen flex flex-col">
-          <div className="flex-1">{children}</div>
+          <div id="main-content" className="flex-1">
+            {children}
+          </div>
           <SiteFooter />
         </div>
         <MdxMathTooltips />

@@ -74,6 +74,22 @@ body {
   color: var(--color-ink-90);
 }
 
+html {
+  /* Smooth scroll for anchor jumps (TOC entries, in-page links). The
+     prefers-reduced-motion override below restores instant jumps for
+     readers who've requested less motion. */
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   font-family: var(--font-serif);
   font-size: var(--text-base);
@@ -82,6 +98,54 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Give anchored headings breathing room when scrolled to (so they
+   don't sit flush against the viewport edge). */
+h1, h2, h3, h4 {
+  scroll-margin-top: 1.5rem;
+}
+
+/* ── Keyboard focus ─────────────────────────────────────────────
+   Visible focus ring on interactive elements when keyboard-navigated
+   (Tab), suppressed on mouse-click. */
+*:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* ── Skip-to-content link ──────────────────────────────────────
+   First focusable element on every page; invisible until focused.
+   Lets keyboard / screen-reader users jump past the breadcrumb and
+   site chrome straight to the page's main content. */
+.skip-to-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration: none;
+  z-index: 100;
+  transform: translateY(-200%);
+  transition: transform 0.15s ease;
+}
+
+.skip-to-content:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--color-oxblood);
+  outline-offset: 2px;
 }
 
 ::selection {

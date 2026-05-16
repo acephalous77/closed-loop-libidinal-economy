@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MarginTOC } from "@/components/navigation/MarginTOC";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { PrintButton } from "@/components/ui/PrintButton";
+import { ReadingProgress } from "@/components/ui/ReadingProgress";
 
 export const metadata: Metadata = {
   title: "the mathematics — The Closed-Loop Libidinal Economy",
@@ -27,6 +28,7 @@ const TOC = [
 export default function TheMathematicsPage() {
   return (
     <main className="min-h-screen">
+      <ReadingProgress />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb
