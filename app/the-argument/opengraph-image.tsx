@@ -9,6 +9,6 @@ export default async function Image() {
     eyebrow: "the closed-loop libidinal economy",
     title: "the argument",
     subtitle:
-      "the logic without the formal apparatus, the argument without the proofs",
+      "four prose pieces and a coda — the framework laid out in the registers where it is lived",
   });
 }

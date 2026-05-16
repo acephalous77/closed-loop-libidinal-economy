@@ -5,6 +5,11 @@ const BASE = "https://closed-loop-libidinal-economy.vercel.app";
 const ROUTES = [
   "/",
   "/the-argument",
+  "/the-argument/the-loop",
+  "/the-argument/citizen-after-the-pause",
+  "/the-argument/adolescence-without-outside",
+  "/the-argument/sincere-captives",
+  "/the-argument/note",
   "/the-mathematics",
   "/the-dynamics",
   "/the-dynamics/foreclosure-clock",

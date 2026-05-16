@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "katex/dist/katex.min.css";
+import { MdxMathTooltips } from "@/components/ui/MdxMathTooltips";
 
 const ebGaramond = localFont({
   src: [
@@ -52,7 +53,10 @@ export default function RootLayout({
       lang="en"
       className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <MdxMathTooltips />
+      </body>
     </html>
   );
 }
