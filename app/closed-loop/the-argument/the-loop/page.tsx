@@ -11,7 +11,10 @@ const PATH = "/closed-loop/the-argument/the-loop";
 const DESCRIPTION = 'The framework laid out in prose: the closed-loop architecture of platforms that learn from your engagement, the foreclosure of the no-input window, the three formally distinct modes of intervention, and the recursive limit the framework cannot exit.';
 
 export const metadata: Metadata = {
-  title: piece.title,
+  // Browser-tab title — short form, avoids "X — X" double when the
+  // piece title is the same as the project title. OG/Twitter below
+  // keep the full piece title for sharing.
+  title: "the loop",
   description: DESCRIPTION,
   alternates: { canonical: PATH },
   openGraph: {
