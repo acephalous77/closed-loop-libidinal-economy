@@ -1,11 +1,10 @@
 # The Closed-Loop Libidinal Economy
 
 The formal home of a framework on attention capture under platform capitalism.
+A long-form prose argument. A mathematical exposition. Fourteen interactive
+plates of the closed-loop dynamics. By Adnan Selimović.
 
-A long-form prose argument, a mathematical exposition, and (in progress) five
-interactive visualizations of the closed-loop dynamics. By Adnan Selimović.
-
-Live at [https://autostimulus.org].
+Live at [https://www.autostimulus.org].
 
 ## What the site is
 

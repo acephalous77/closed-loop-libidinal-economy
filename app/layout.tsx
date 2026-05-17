@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s — The Closed-Loop Libidinal Economy",
   },
   description:
-    "A framework for the dynamics of attention under platform capture: four prose pieces, a formal mathematical exposition, and a set of interactive visualizations. The closed-loop architecture, the foreclosure lemma, the reclamation theorem, and the three modes of intervention.",
+    "A framework for the dynamics of attention under platform capture. The closed-loop architecture, the foreclosure lemma, the reclamation theorem, the three modes of intervention. Mathematics, prose, and operable instruments.",
   keywords: [
     "libidinal economy",
     "attention economy",

@@ -8,7 +8,7 @@ import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 const piece = getPieceBySlug("citizen-after-the-pause")!;
 const { prev, next } = getNeighbors("citizen-after-the-pause");
 const PATH = "/the-argument/citizen-after-the-pause";
-const DESCRIPTION = 'Companion to the framework. Adolescence-as-class, the foreclosure of democratic substrate, the political form already present, and why deliberative-democratic repair runs into the same structural foreclosure it tries to address.';
+const DESCRIPTION = 'Adolescence-as-class. The foreclosure of democratic substrate. The political form already present. Why deliberative-democratic repair runs into the same structural foreclosure it tries to address.';
 
 export const metadata: Metadata = {
   title: piece.title,

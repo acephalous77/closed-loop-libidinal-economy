@@ -66,7 +66,7 @@ export function websiteJsonLd() {
     alternateName: "Closed-Loop Libidinal Economy",
     url: SITE_URL,
     description:
-      "A framework for the dynamics of attention under platform capture. Four prose pieces, a mathematical exposition, interactive visualizations.",
+      "A framework for the dynamics of attention under platform capture. Prose, mathematics, interactive instruments.",
     inLanguage: "en",
     author: AUTHOR,
     publisher: PUBLISHER,
@@ -170,7 +170,7 @@ export function frameworkJsonLd() {
     name: "The Closed-Loop Libidinal Economy",
     alternateName: "Closed-Loop Libidinal Economy Framework",
     description:
-      "A formal framework for the dynamics of attention under platform capture, comprising a mathematical exposition with explicit lemmas and theorems, four prose essays, and a set of interactive visualizations.",
+      "A formal framework for the dynamics of attention under platform capture. The mathematics is the spine; the prose is the body; the dynamics is the operable instrument. Explicit lemmas, named theorems, four essays, fourteen plates.",
     url: SITE_URL,
     author: AUTHOR,
     publisher: PUBLISHER,

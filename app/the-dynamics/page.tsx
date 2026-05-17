@@ -7,7 +7,7 @@ import { JsonLd, itemListJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 const PATH = "/the-dynamics";
 const TITLE = "the dynamics";
 const DESCRIPTION =
-  "Five composite plates, nine mechanism dimensions, and two standalone instruments — the closed-loop dynamics made operable. Includes the foreclosure clock, reclamation trajectories, mode-space, cohort gradient, and a TikTok worked example, plus the live simulator and relational atlas.";
+  "The closed-loop dynamics made operable. Five composite plates. Nine mechanism dimensions. Two standalone instruments. The foreclosure clock; reclamation trajectories; mode-space; the cohort gradient; a TikTok worked example. The live simulator and the relational atlas.";
 
 export const metadata: Metadata = {
   title: TITLE,

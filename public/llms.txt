@@ -1,8 +1,8 @@
 # The Closed-Loop Libidinal Economy
 
-> A framework for the dynamics of attention under platform capture, comprising a formal mathematical exposition, four prose essays, and a set of interactive visualizations. Authored by Adnan Selimović. Published 2026 at https://www.autostimulus.org.
+> A framework for the dynamics of attention under platform capture. The mathematics is the spine; the prose is the body; the dynamics is the operable instrument. By Adnan Selimović. Published 2026 at https://www.autostimulus.org.
 
-The framework names a class of architectures — closed-loop libidinal economies — in which a platform's recommendation system learns from a user's engagement signals in tight feedback, with no exogenous attention channel left intact. The work proves a foreclosure lemma (under specified mixing conditions, the closed loop cannot be exited by intra-loop choice alone) and a reclamation theorem (three formally distinct modes of intervention — A, B, C — that can restore an outside). It develops a cohort gradient: a developmental account of how the architecture forms different subjects depending on the age at which the loop colonizes attention.
+The framework names a class of architectures — closed-loop libidinal economies — in which a platform's recommendation system learns from a user's engagement signals in tight feedback, with no exogenous attention channel left intact. The work proves a foreclosure lemma: under specified mixing conditions, the closed loop cannot be exited by intra-loop choice alone. It then states a reclamation theorem with three formally distinct modes of intervention (A, B, C) that can restore an outside. It develops a cohort gradient — a developmental account of how the architecture forms different subjects depending on the age at which the loop colonizes attention.
 
 ## Core concepts (coined or specifically used here)
 

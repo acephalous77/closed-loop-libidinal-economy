@@ -11,7 +11,7 @@ import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 const PATH = "/the-mathematics";
 const TITLE = "the mathematics";
 const DESCRIPTION =
-  "Full mathematical exposition of the closed-loop libidinal economy: six governing equations, six instruments (libidinal surplus, chrono-debt, libidinal routing, metric superego, somatic optimization, captured resonance), the foreclosure lemma, the reclamation theorem (with full proofs), and three formally distinct modes of intervention.";
+  "The formal exposition. Six governing equations. Six instruments — libidinal surplus, chrono-debt, libidinal routing, the metric superego, somatic optimization, captured resonance. The foreclosure lemma. The reclamation theorem, proved. Three formally distinct modes of intervention: A architectural, B artisanal, C disruption-as-form.";
 
 export const metadata: Metadata = {
   title: TITLE,
