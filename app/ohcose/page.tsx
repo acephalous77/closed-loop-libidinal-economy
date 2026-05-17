@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { PageFrame } from "./_components/PageFrame";
+import { SealWatermark } from "./_components/SealWatermark";
 
 export const metadata: Metadata = {
-  // Bypass project template "%s — OHCOSE" on the landing
   title: { absolute: "OHCOSE — Office of Human Continuity and Social Equilibrium" },
   alternates: { canonical: "/ohcose" },
 };
 
-/**
- * Seven-phase Schedule of the Standard Consumer-Citizen Lifecycle.
- * The structural spine of the work; rendered as a Schedule of Phases
- * here, with each Phase linking to its own parent page (and from there
- * to the modular sub-section pages).
- */
 const SCHEDULE = [
   {
     numeral: "I",
@@ -74,108 +68,103 @@ const SCHEDULE = [
 
 export default function OhcosePortal() {
   return (
-    <main className="min-h-screen px-sm pt-md pb-2xl">
-      {/* ============= MASTHEAD ============= */}
-      <header
-        className="mx-auto max-w-[var(--container-page)] pb-lg"
-        style={{ borderBottom: "2px solid var(--color-ink)" }}
-      >
-        {/* Top classification bar */}
-        <div className="flex items-center justify-between mb-md">
-          <div className="ohcose-docnum">
-            OHCOSE / REG / PSCC / 2026.05
-          </div>
-          <div className="ohcose-stamp">for public intake</div>
-        </div>
-
-        {/* Seal + agency name */}
-        <div className="flex flex-col sm:flex-row items-center sm:items-start gap-md">
-          <Image
-            src="/ohcose/seal.png"
-            alt="Official seal of the Office of Human Continuity and Social Equilibrium"
-            width={160}
-            height={160}
-            priority
-            className="shrink-0"
-          />
-          <div className="flex-1 text-center sm:text-left">
-            <p className="ohcose-docnum mb-xs">est. 2031 · Schedule of Phases · Public Intake Portal</p>
-            <h1
-              className="font-mono font-bold text-xl tracking-tight leading-tight"
-              style={{ color: "var(--color-ink)" }}
-            >
-              Office of Human Continuity
-              <br />
-              and Social Equilibrium
-            </h1>
-            <p
-              className="text-md mt-sm leading-snug"
-              style={{ color: "var(--color-ink-70)" }}
-            >
-              A cradle-to-grave partnership for the Standard Consumer-Citizen
-              (Gen C Model). Optimizing every phase of life for the greater
-              economic good.
-            </p>
-          </div>
-        </div>
-      </header>
-
-      {/* ============= WELCOME STATEMENT ============= */}
-      <section className="mx-auto max-w-[var(--measure)] mt-2xl">
-        <div className="ohcose-section-head">Welcome Statement</div>
-
-        <div className="text-base leading-snug space-y-md">
+    <PageFrame pageNum="i" secCode="OHCOSE / LR / Cover">
+      {/* ============== COVER: seal as centerpiece ============== */}
+      <section className="mt-2xl mb-2xl">
+        <SealWatermark prominent />
+        <div className="text-center mt-md max-w-[var(--measure)] mx-auto">
           <p
-            className="italic pl-sm border-l-2"
+            className="font-mono uppercase mb-xs"
             style={{
-              color: "var(--color-ink-70)",
-              borderColor: "var(--color-paper-85)",
+              fontSize: "0.7rem",
+              letterSpacing: "0.25em",
+              color: "var(--color-ink-50)",
             }}
           >
-            From each according to their capacity for consumption, to each
-            according to their need for regulation.
+            Public Intake Portal — est. 2031
           </p>
-          <p style={{ color: "var(--color-ink-90)" }}>
-            The Office welcomes you to the Standard Consumer-Citizen program.
-            Whether you are reading this on behalf of yourself, a newly
-            biometrically-enrolled dependent, or a senior approaching the
-            Exit phase, the Office is here to ensure your continued
-            participation in the cycle proceeds with minimum friction and
-            maximum yield.
-          </p>
-          <p style={{ color: "var(--color-ink-90)" }}>
-            The Schedule below outlines the seven Phases of the Standard
-            Consumer-Citizen Lifecycle, plus the closing Annex on the
-            apparatus that returns extracted surplus to the next cohort.
-            Each Phase has been subdivided into the discrete sub-protocols
-            by which the Office administers it. Select a Phase to access
-            its public documentation.
+          <h1
+            className="font-serif font-bold tracking-tight leading-tight"
+            style={{
+              fontSize: "1.6rem",
+              color: "var(--color-ink)",
+            }}
+          >
+            Office of Human Continuity
+            <br />
+            and Social Equilibrium
+          </h1>
+          <p
+            className="mt-md text-base leading-snug"
+            style={{ color: "var(--color-ink-70)" }}
+          >
+            A cradle-to-grave partnership for the Standard Consumer-Citizen,
+            Gen-C Model. Optimizing every phase of life for the greater
+            economic good.
           </p>
         </div>
       </section>
 
-      {/* ============= SCHEDULE OF PHASES ============= */}
+      {/* ============== WELCOME STATEMENT ============== */}
+      <section
+        className="mx-auto max-w-[var(--measure)] py-lg"
+        style={{ borderTop: "1px solid var(--color-paper-85)", borderBottom: "1px solid var(--color-paper-85)" }}
+      >
+        <p
+          className="italic text-center mb-md"
+          style={{
+            fontSize: "1rem",
+            color: "var(--color-ink-70)",
+          }}
+        >
+          “From each according to their capacity for consumption,<br />
+          to each according to their need for regulation.”
+        </p>
+        <p className="text-xs uppercase tracking-widest text-center" style={{ color: "var(--color-ink-50)" }}>
+          — Excerpt, OHCOSE New Parent Orientation Brochure, 2035
+        </p>
+      </section>
+
+      {/* ============== SCHEDULE OF PHASES (report-TOC style) ============== */}
       <section className="mx-auto max-w-[var(--container-prose)] mt-2xl">
-        <div className="ohcose-section-head">Schedule of Phases</div>
+        <div
+          className="font-mono uppercase mb-md"
+          style={{
+            fontSize: "0.7rem",
+            letterSpacing: "0.2em",
+            color: "var(--color-ink-70)",
+            textAlign: "center",
+          }}
+        >
+          Schedule of Phases
+        </div>
 
         <ol>
           {SCHEDULE.map((phase) => (
-            <li key={phase.slug} className="ohcose-form-row">
+            <li
+              key={phase.slug}
+              className="py-sm flex items-baseline gap-md"
+              style={{ borderBottom: "1px solid var(--color-paper-85)" }}
+            >
               <a
                 href={`/ohcose/${phase.slug}`}
                 className="contents group"
                 aria-label={`Phase ${phase.numeral}: ${phase.name}`}
               >
                 <span
-                  className="font-mono font-bold text-md tabular-nums"
-                  style={{ color: "var(--color-ink)" }}
+                  className="font-mono font-bold tabular-nums"
+                  style={{ color: "var(--color-ink)", fontSize: "0.9rem", width: "2rem" }}
                 >
                   {phase.numeral}.
                 </span>
-                <span className="block">
+                <span className="flex-1">
                   <span
-                    className="block text-base font-semibold transition-colors duration-100 group-hover:underline"
-                    style={{ color: "var(--color-ink-90)" }}
+                    className="block group-hover:underline"
+                    style={{
+                      color: "var(--color-ink-90)",
+                      fontSize: "1.05rem",
+                      fontWeight: 600,
+                    }}
                   >
                     {phase.name}
                   </span>
@@ -187,8 +176,15 @@ export default function OhcosePortal() {
                   </span>
                 </span>
                 <span
-                  className="font-mono text-xs whitespace-nowrap"
-                  style={{ color: "var(--color-ink-50)" }}
+                  className="font-mono"
+                  style={{
+                    color: "var(--color-oxblood)",
+                    fontSize: "0.85rem",
+                    fontWeight: 700,
+                    whiteSpace: "nowrap",
+                    width: "5rem",
+                    textAlign: "right",
+                  }}
                 >
                   {phase.ages}
                 </span>
@@ -198,22 +194,16 @@ export default function OhcosePortal() {
         </ol>
       </section>
 
-      {/* ============= NOTICE TO PUBLIC ============= */}
-      <section className="mx-auto max-w-[var(--measure)] mt-2xl">
-        <div className="ohcose-section-head">Notice to Public</div>
+      {/* ============== NOTICE ============== */}
+      <section className="mx-auto max-w-[var(--measure)] mt-2xl mb-2xl text-center">
         <p
-          className="text-sm leading-snug"
-          style={{ color: "var(--color-ink-70)" }}
+          className="text-xs leading-snug uppercase tracking-wider"
+          style={{ color: "var(--color-ink-50)" }}
         >
-          All Standard Consumer-Citizens are encouraged to familiarize
-          themselves with the Schedule above. Non-compliance with phase
-          protocols does not absolve participation. The cycle continues
-          regardless. Questions regarding the Office's mandate may be
-          addressed to your Phase Administrator at your earliest scheduled
-          touch-point. The Office thanks you for your continued contribution
-          to the equilibrium.
+          Non-compliance with phase protocols does not absolve participation.<br />
+          The cycle continues regardless.
         </p>
       </section>
-    </main>
+    </PageFrame>
   );
 }

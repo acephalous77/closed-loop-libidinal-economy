@@ -7,10 +7,11 @@ import type { Metadata } from "next";
  * globals.css). The atelier's cream/EB-Garamond register does not
  * leak in here.
  *
- * Performance-piece logic: the visitor lands on what reads as the
- * actual public-intake portal of the Office. The closed-loop site's
- * literary register is set aside entirely. No author surfacing; the
- * Office speaks.
+ * Page chrome (gray frame, OHCOSE word-mark top-right, barcode +
+ * page number + doc-code stamp bottom) lives in <PageFrame> and is
+ * applied per-page so each page declares its own page number. The
+ * layout is otherwise minimal — just the theme wrapper and a tiny
+ * atelier-back link.
  */
 
 const SITE_URL =
@@ -45,49 +46,27 @@ export default function OhcoseLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <div className="ohcose-theme min-h-screen">
+    <div className="ohcose-theme min-h-screen pb-md">
       {children}
-      <OhcoseFooter />
-    </div>
-  );
-}
-
-/**
- * Project footer — in-character. Document number, classification
- * stamp, mock-jurisdiction boilerplate. Atelier-back link is a tiny
- * monospaced glyph at the very bottom, easy to miss — the performance
- * piece stays unbroken for readers who don't look for the exit.
- */
-function OhcoseFooter() {
-  return (
-    <footer className="print-hide w-full mt-2xl pt-md pb-md border-t-2 border-paper-85">
-      <div className="mx-auto max-w-[var(--container-page)] px-sm">
-        <div className="flex flex-col sm:flex-row items-baseline justify-between gap-sm">
-          <div className="ohcose-docnum">
-            OHCOSE / REG / PSCC / 2026.05 — for public intake
-          </div>
-          <div className="ohcose-stamp">restricted distribution</div>
-        </div>
-        <p
-          className="font-mono text-xs mt-sm leading-snug"
-          style={{ color: "var(--color-ink-50)" }}
+      {/* Atelier-back link — tiny, easy to miss; preserves the
+          performance for casual visitors. The reader who tracks
+          it down still gets out. */}
+      <div
+        className="mx-auto text-center pt-md"
+        style={{ maxWidth: "var(--container-page)" }}
+      >
+        <a
+          href="/"
+          className="font-mono uppercase hover:underline"
+          style={{
+            fontSize: "0.55rem",
+            letterSpacing: "0.2em",
+            color: "var(--color-ink-50)",
+          }}
         >
-          Property of the Office of Human Continuity and Social Equilibrium.
-          Reproduction without authorization is prohibited under Title 7,
-          Subtitle C, Sections 14–28. Submit FOIA inquiries via Form 9-B
-          (paper only). The Office does not respond to electronic
-          correspondence regarding Standard Consumer-Citizen status.
-        </p>
-        <div className="mt-md text-right">
-          <a
-            href="/"
-            className="font-mono text-xs transition-colors duration-100"
-            style={{ color: "var(--color-ink-50)" }}
-          >
-            ↑ exit portal
-          </a>
-        </div>
+          ↑ exit portal
+        </a>
       </div>
-    </footer>
+    </div>
   );
 }
