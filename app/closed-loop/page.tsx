@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { FrameworkOrientation } from "@/components/home/FrameworkOrientation";
 import { JsonLd, frameworkJsonLd, itemListJsonLd } from "@/lib/jsonld";
+
+export const metadata: Metadata = {
+  // Bypass the root atelier template ("%s — autostimulus") so the
+  // project cover reads cleanly as the work's title alone, not
+  // "The Closed-Loop Libidinal Economy — autostimulus".
+  title: { absolute: "The Closed-Loop Libidinal Economy" },
+  alternates: { canonical: "/closed-loop" },
+};
 
 export default function Cover() {
   return (
