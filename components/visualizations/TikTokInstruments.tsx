@@ -42,7 +42,7 @@ const PANELS: Panel[] = [
       </>
     ),
     mathSection: "#3-the-six-instruments",
-    mechanismPlate: "/the-dynamics/surplus",
+    mechanismPlate: "/closed-loop/the-dynamics/surplus",
     Diagram: FYPDiagram,
   },
   {
@@ -63,7 +63,7 @@ const PANELS: Panel[] = [
       </>
     ),
     mathSection: "#3-the-six-instruments",
-    mechanismPlate: "/the-dynamics/chrono-debt",
+    mechanismPlate: "/closed-loop/the-dynamics/chrono-debt",
     Diagram: VideoTickDiagram,
   },
   {
@@ -84,7 +84,7 @@ const PANELS: Panel[] = [
       </>
     ),
     mathSection: "#3-the-six-instruments",
-    mechanismPlate: "/the-dynamics/libidinal-routing",
+    mechanismPlate: "/closed-loop/the-dynamics/libidinal-routing",
     Diagram: RoutingDiagram,
   },
   {
@@ -105,7 +105,7 @@ const PANELS: Panel[] = [
       </>
     ),
     mathSection: "#3-the-six-instruments",
-    mechanismPlate: "/the-dynamics/metric-superego",
+    mechanismPlate: "/closed-loop/the-dynamics/metric-superego",
     Diagram: MetricOverlayDiagram,
   },
   {
@@ -125,7 +125,7 @@ const PANELS: Panel[] = [
       </>
     ),
     mathSection: "#3-the-six-instruments",
-    mechanismPlate: "/the-dynamics/somatic-optimization",
+    mechanismPlate: "/closed-loop/the-dynamics/somatic-optimization",
     Diagram: ThumbScrollDiagram,
   },
   {
@@ -146,7 +146,7 @@ const PANELS: Panel[] = [
       </>
     ),
     mathSection: "#3-the-six-instruments",
-    mechanismPlate: "/the-dynamics/captured-resonance",
+    mechanismPlate: "/closed-loop/the-dynamics/captured-resonance",
     Diagram: ResonanceDiagram,
   },
 ];

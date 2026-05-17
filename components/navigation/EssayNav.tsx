@@ -14,7 +14,7 @@ interface EssayNavProps {
 export function EssayNav({
   prev,
   next,
-  indexHref = "/the-argument",
+  indexHref = "/closed-loop/the-argument",
   indexLabel = "the argument",
 }: EssayNavProps) {
   return (

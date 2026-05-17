@@ -4,35 +4,39 @@ const BASE =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://www.autostimulus.org";
 
-const ROUTES = [
-  "/",
-  "/the-argument",
-  "/the-argument/the-loop",
-  "/the-argument/citizen-after-the-pause",
-  "/the-argument/adolescence-without-outside",
-  "/the-argument/sincere-captives",
-  "/the-argument/note",
-  "/the-mathematics",
-  "/the-dynamics",
-  "/the-dynamics/foreclosure-clock",
-  "/the-dynamics/reclamation-trajectories",
-  "/the-dynamics/closed-loop",
-  "/the-dynamics/libidinal-routing",
-  "/the-dynamics/chrono-debt",
-  "/the-dynamics/captured-resonance",
-  "/the-dynamics/somatic-optimization",
-  "/the-dynamics/surplus",
-  "/the-dynamics/metric-superego",
-  "/the-dynamics/causal-chain",
-  "/the-dynamics/intervention",
-  "/the-dynamics/cohort-gradient",
-  "/the-dynamics/mode-space",
-  "/the-dynamics/tiktok",
-  "/reading-list",
-  "/open-questions",
-  "/instrumentation",
-  "/colophon",
+const ATELIER_ROUTES = ["/"];
+
+const CLOSED_LOOP_ROUTES = [
+  "/closed-loop",
+  "/closed-loop/the-argument",
+  "/closed-loop/the-argument/the-loop",
+  "/closed-loop/the-argument/citizen-after-the-pause",
+  "/closed-loop/the-argument/adolescence-without-outside",
+  "/closed-loop/the-argument/sincere-captives",
+  "/closed-loop/the-argument/note",
+  "/closed-loop/the-mathematics",
+  "/closed-loop/the-dynamics",
+  "/closed-loop/the-dynamics/foreclosure-clock",
+  "/closed-loop/the-dynamics/reclamation-trajectories",
+  "/closed-loop/the-dynamics/closed-loop",
+  "/closed-loop/the-dynamics/libidinal-routing",
+  "/closed-loop/the-dynamics/chrono-debt",
+  "/closed-loop/the-dynamics/captured-resonance",
+  "/closed-loop/the-dynamics/somatic-optimization",
+  "/closed-loop/the-dynamics/surplus",
+  "/closed-loop/the-dynamics/metric-superego",
+  "/closed-loop/the-dynamics/causal-chain",
+  "/closed-loop/the-dynamics/intervention",
+  "/closed-loop/the-dynamics/cohort-gradient",
+  "/closed-loop/the-dynamics/mode-space",
+  "/closed-loop/the-dynamics/tiktok",
+  "/closed-loop/reading-list",
+  "/closed-loop/open-questions",
+  "/closed-loop/instrumentation",
+  "/closed-loop/colophon",
 ];
+
+const ROUTES = [...ATELIER_ROUTES, ...CLOSED_LOOP_ROUTES];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -40,6 +44,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency: "monthly" as const,
-    priority: path === "/" ? 1.0 : path.startsWith("/the-") ? 0.8 : 0.5,
+    priority:
+      path === "/"
+        ? 1.0
+        : path === "/closed-loop"
+        ? 0.9
+        : path.startsWith("/closed-loop/the-")
+        ? 0.8
+        : 0.5,
   }));
 }

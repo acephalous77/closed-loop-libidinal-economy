@@ -38,7 +38,7 @@ const AUTHOR = {
   "@type": "Person",
   name: "Adnan Selimović",
   alternateName: "A. Selimović",
-  url: `${SITE_URL}/colophon`,
+  url: `${SITE_URL}/closed-loop/colophon`,
   ...(AUTHOR_SAME_AS.length ? { sameAs: AUTHOR_SAME_AS } : {}),
 };
 
@@ -49,22 +49,24 @@ const PUBLISHER = {
 };
 
 /** The framework as a CreativeWork — used as isPartOf on every
- *  child article so search engines understand the corpus structure. */
+ *  child article so search engines understand the corpus structure.
+ *  Now lives at /closed-loop within the autostimulus atelier. */
 const FRAMEWORK_PART_OF = {
   "@type": "CreativeWork",
   name: "The Closed-Loop Libidinal Economy",
-  url: SITE_URL,
+  url: `${SITE_URL}/closed-loop`,
 };
 
-/** WebSite schema — goes at the root layout / cover. Helps Google
- *  generate site-wide search box and recognize the site identity. */
+/** WebSite schema for the closed-loop project — mounted from the
+ *  project layout (app/closed-loop/layout.tsx), not the atelier root.
+ *  The atelier root has its own minimal WebSite schema in page.tsx. */
 export function websiteJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "The Closed-Loop Libidinal Economy",
     alternateName: "Closed-Loop Libidinal Economy",
-    url: SITE_URL,
+    url: `${SITE_URL}/closed-loop`,
     description:
       "A framework for the dynamics of attention under platform capture. Prose, mathematics, interactive instruments.",
     inLanguage: "en",
@@ -78,7 +80,7 @@ interface ArticleArgs {
   headline: string;
   /** One-sentence description. */
   description: string;
-  /** Pathname (e.g. "/the-mathematics"). The site URL is prepended. */
+  /** Pathname (e.g. "/closed-loop/the-mathematics"). The site URL is prepended. */
   path: string;
   /** ISO date string for first publication; defaults to 2026-05-15. */
   datePublished?: string;
@@ -171,7 +173,7 @@ export function frameworkJsonLd() {
     alternateName: "Closed-Loop Libidinal Economy Framework",
     description:
       "A formal framework for the dynamics of attention under platform capture. The mathematics is the spine; the prose is the body; the dynamics is the operable instrument. Explicit lemmas, named theorems, four essays, fourteen plates.",
-    url: SITE_URL,
+    url: `${SITE_URL}/closed-loop`,
     author: AUTHOR,
     publisher: PUBLISHER,
     inLanguage: "en",
@@ -190,11 +192,11 @@ export function frameworkJsonLd() {
       "cohort gradient",
     ].join(", "),
     hasPart: [
-      { "@type": "ScholarlyArticle", name: "The Mathematics", url: `${SITE_URL}/the-mathematics` },
-      { "@type": "Article", name: "The Argument", url: `${SITE_URL}/the-argument` },
-      { "@type": "CollectionPage", name: "The Dynamics", url: `${SITE_URL}/the-dynamics` },
-      { "@type": "Article", name: "Reading List", url: `${SITE_URL}/reading-list` },
-      { "@type": "Article", name: "Open Questions", url: `${SITE_URL}/open-questions` },
+      { "@type": "ScholarlyArticle", name: "The Mathematics", url: `${SITE_URL}/closed-loop/the-mathematics` },
+      { "@type": "Article", name: "The Argument", url: `${SITE_URL}/closed-loop/the-argument` },
+      { "@type": "CollectionPage", name: "The Dynamics", url: `${SITE_URL}/closed-loop/the-dynamics` },
+      { "@type": "Article", name: "Reading List", url: `${SITE_URL}/closed-loop/reading-list` },
+      { "@type": "Article", name: "Open Questions", url: `${SITE_URL}/closed-loop/open-questions` },
     ],
   };
 }

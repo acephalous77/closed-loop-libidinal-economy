@@ -76,7 +76,7 @@ export function PiecesArc({ pieces }: { pieces: ArgumentPiece[] }) {
           if (!piece) return null;
           const isCoda = n.slug === "note";
           return (
-            <a key={n.slug} href={`/the-argument/${n.slug}`}>
+            <a key={n.slug} href={`/closed-loop/the-argument/${n.slug}`}>
               <g>
                 <circle
                   cx={n.x}

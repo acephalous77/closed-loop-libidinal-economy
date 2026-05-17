@@ -1,21 +1,29 @@
-# The Closed-Loop Libidinal Economy
+# autostimulus
 
-The formal home of a framework on attention capture under platform capitalism.
-A long-form prose argument. A mathematical exposition. Fourteen interactive
-plates of the closed-loop dynamics. By Adnan Selimović.
+The atelier of A. Selimović — critical theory, media psychology, political
+economy. Multiple projects under one roof. Live at
+[https://www.autostimulus.org].
 
-Live at [https://www.autostimulus.org].
+## Works
+
+| Slug                    | Title                                           | Status         |
+| ----------------------- | ----------------------------------------------- | -------------- |
+| `/closed-loop`          | The Closed-Loop Libidinal Economy               | live (2026)    |
+| `/ohcose`               | OHCOSE Manual                                   | in production  |
+| `/chair`                | The Ouroboros Chair                             | in production  |
+| `/patriotic-times`      | Patriotic Times — A Coloring Book               | in production  |
 
 ## What the site is
 
-The framework critiques attention-economy design conventions, and the site is
-built to refuse them: no analytics, no tracking, no engagement loops, no
-SaaS-aesthetic chrome. The aesthetic register is Semiotext(e) / *October* /
-Zone Books — gravity and strangeness applied to the web.
+The framework at `/closed-loop` critiques attention-economy design
+conventions; the atelier is built to refuse them: no analytics, no tracking,
+no engagement loops, no SaaS-aesthetic chrome. Aesthetic register is
+Semiotext(e) / *October* / Zone Books — gravity and strangeness applied to
+the web. Each project may override the register inside its own subroute.
 
-See `/instrumentation` on the live site for the full disclosure of what this
-site does and does not log (nothing, beyond the seven-day HTTP server logs
-that the web requires to function).
+See `/closed-loop/instrumentation` on the live site for the full disclosure
+of what this site does and does not log (nothing, beyond the seven-day HTTP
+server logs that the web requires to function).
 
 ## Stack
 
@@ -45,18 +53,35 @@ prose surfaces.
 ## Project structure
 
 ```
-app/                  Next.js routes (one directory per page)
-content/              MDX source for prose and math pages
-components/           Typography, navigation, and layout primitives
-public/fonts/         Self-hosted typefaces
+app/
+├── page.tsx              Atelier index
+├── layout.tsx            Root HTML shell, fonts, atelier metadata
+└── closed-loop/          Project: closed-loop libidinal economy (live)
+    ├── layout.tsx        Project chrome (footer, math tooltips)
+    ├── page.tsx          Project cover
+    ├── the-argument/     Four prose pieces and a coda
+    ├── the-mathematics/  Formal exposition
+    ├── the-dynamics/     Fourteen interactive plates
+    ├── reading-list/
+    ├── open-questions/
+    ├── colophon/
+    └── instrumentation/
+
+content/                  MDX prose for closed-loop pages
+components/               Typography, navigation, layout primitives
+public/fonts/             Self-hosted typefaces
 ```
+
+Future projects (`/ohcose`, `/chair`, `/patriotic-times`) will add their
+own subdirectories under `app/`, each with its own `layout.tsx` defining
+that project's register.
 
 ## License
 
 Dual-licensed: textual content under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/),
 code under MIT. See [LICENSE](./LICENSE). Fonts under SIL Open Font License 1.1.
 
-## Citation
+## Citation (closed-loop framework)
 
-S.,A. *The Closed-Loop Libidinal Economy*. 2026.
-https://autostimulus.org
+Selimović, A. *The Closed-Loop Libidinal Economy*. 2026.
+https://www.autostimulus.org/closed-loop

@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import "katex/dist/katex.min.css";
-import { MdxMathTooltips } from "@/components/ui/MdxMathTooltips";
-import { SiteFooter } from "@/components/layout/SiteFooter";
-import { JsonLd, websiteJsonLd } from "@/lib/jsonld";
 
 const ebGaramond = localFont({
   src: [
@@ -37,55 +34,39 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://www.autostimulus.org";
 
+/**
+ * Atelier-level metadata. Applies to the root index and is overridden
+ * by per-project layouts (e.g. app/closed-loop/layout.tsx) and per-page
+ * metadata further down. Project-specific chrome — footers, math
+ * tooltip handlers, project-specific JSON-LD — lives inside the
+ * project's own layout, not here.
+ */
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "The Closed-Loop Libidinal Economy",
-    template: "%s — The Closed-Loop Libidinal Economy",
+    default: "autostimulus",
+    template: "%s — autostimulus",
   },
   description:
-    "A framework for the dynamics of attention under platform capture. The closed-loop architecture, the foreclosure lemma, the reclamation theorem, the three modes of intervention. Mathematics, prose, and operable instruments.",
-  keywords: [
-    "libidinal economy",
-    "attention economy",
-    "platform capitalism",
-    "closed-loop dynamics",
-    "metric superego",
-    "captured resonance",
-    "chrono-debt",
-    "cohort gradient",
-    "Mode A intervention",
-    "Mode B intervention",
-    "Mode C intervention",
-    "Adorno",
-    "Marcuse",
-    "Stiegler",
-    "Han",
-    "Crary",
-    "Lyotard",
-    "Deleuze",
-    "Mannheim",
-    "Sloterdijk",
-    "Burroughs",
-  ],
+    "Works by A. Selimović. Critical theory, media psychology, political economy. The closed-loop libidinal economy, the OHCOSE manual, the ouroboros chair, the patriotic-times coloring book, and the work to come.",
   authors: [{ name: "Adnan Selimović" }],
   creator: "Adnan Selimović",
   publisher: "Adnan Selimović",
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    siteName: "The Closed-Loop Libidinal Economy",
-    title: "The Closed-Loop Libidinal Economy",
+    siteName: "autostimulus",
+    title: "autostimulus",
     description:
-      "A framework for the dynamics of attention under platform capture. Prose, mathematics, dynamics.",
+      "Works by A. Selimović.",
     url: SITE_URL,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Closed-Loop Libidinal Economy",
+    title: "autostimulus",
     description:
-      "A framework for the dynamics of attention under platform capture. Prose, mathematics, dynamics.",
+      "Works by A. Selimović.",
   },
   robots: {
     index: true,
@@ -117,7 +98,6 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
     >
       <body>
-        <JsonLd data={websiteJsonLd()} />
         <a href="#main-content" className="skip-to-content">
           skip to content
         </a>
@@ -125,9 +105,7 @@ export default function RootLayout({
           <div id="main-content" className="flex-1">
             {children}
           </div>
-          <SiteFooter />
         </div>
-        <MdxMathTooltips />
       </body>
     </html>
   );

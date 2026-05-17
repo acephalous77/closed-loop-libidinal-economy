@@ -127,7 +127,7 @@ export function InstrumentsConstellation() {
         })}
 
         {/* Center: the closed loop */}
-        <a href="/the-dynamics/closed-loop">
+        <a href="/closed-loop/the-dynamics/closed-loop">
           <g>
             <circle
               cx={cx}
@@ -161,7 +161,7 @@ export function InstrumentsConstellation() {
           const lbX =
             lp.align === "right" ? lp.x - lbW : lp.align === "left" ? lp.x : lp.x - lbW / 2;
           return (
-            <a key={inst.slug} href={`/the-dynamics/${inst.slug}`}>
+            <a key={inst.slug} href={`/closed-loop/the-dynamics/${inst.slug}`}>
               <g>
                 <circle
                   cx={v.x}

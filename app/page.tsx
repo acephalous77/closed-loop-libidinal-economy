@@ -1,49 +1,168 @@
-import { FrameworkOrientation } from "@/components/home/FrameworkOrientation";
-import { JsonLd, frameworkJsonLd, itemListJsonLd } from "@/lib/jsonld";
+import type { Metadata } from "next";
+import { JsonLd } from "@/lib/jsonld";
 
-export default function Cover() {
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://www.autostimulus.org";
+
+export const metadata: Metadata = {
+  // Use absolute so the root layout's "%s — autostimulus" template
+  // doesn't produce "autostimulus — autostimulus" here.
+  title: { absolute: "autostimulus" },
+  description:
+    "Works by A. Selimović. Critical theory, media psychology, political economy. The closed-loop libidinal economy, the OHCOSE manual, the ouroboros chair, the patriotic-times coloring book, and the work to come.",
+};
+
+interface Work {
+  title: string;
+  year: string;
+  register: string;
+  blurb: string;
+  href: string;
+  status: "live" | "in production" | "drafting";
+}
+
+const WORKS: Work[] = [
+  {
+    title: "The Closed-Loop Libidinal Economy",
+    year: "2026",
+    register: "framework · essays · mathematics · interactive plates",
+    blurb:
+      "A formal framework for the dynamics of attention under platform capture. The foreclosure lemma, the reclamation theorem, three modes of intervention. Mathematics, prose, and operable instruments.",
+    href: "/closed-loop",
+    status: "live",
+  },
+  {
+    title: "OHCOSE Manual",
+    year: "2025",
+    register: "bureaucratic-dystopian protocol manual",
+    blurb:
+      "[in production]",
+    href: "/ohcose",
+    status: "in production",
+  },
+  {
+    title: "The Ouroboros Chair",
+    year: "2025",
+    register: "dystopian art project · installation",
+    blurb:
+      "[in production] full-spectrum live-work-feed-sleep installation.",
+    href: "/chair",
+    status: "in production",
+  },
+  {
+    title: "Patriotic Times — A Coloring Book",
+    year: "2025",
+    register: "image · line art · political",
+    blurb:
+      "[in production] scenes of US democratic state failings and the emergence of fascism, rendered as line art.",
+    href: "/patriotic-times",
+    status: "in production",
+  },
+];
+
+export default function AtelierIndex() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col items-center px-sm pt-[6rem] pb-2xl">
       <JsonLd
-        data={[
-          frameworkJsonLd(),
-          itemListJsonLd("Three paths through the material", [
-            { name: "the argument", url: "/the-argument", description: "four prose pieces and a coda" },
-            { name: "the mathematics", url: "/the-mathematics", description: "the formal apparatus" },
-            { name: "the dynamics", url: "/the-dynamics", description: "interactive plates and the live simulator" },
-          ]),
-        ]}
+        data={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "autostimulus",
+          url: SITE_URL,
+          description:
+            "Works by Adnan Selimović. Critical theory, media psychology, political economy.",
+          inLanguage: "en",
+          author: {
+            "@type": "Person",
+            name: "Adnan Selimović",
+            alternateName: "A. Selimović",
+            url: `${SITE_URL}/closed-loop/colophon`,
+          },
+        }}
       />
-      <div className="flex-1 flex flex-col items-center px-sm pt-[6rem] pb-md">
-        {/* Title — two lines, EB Garamond 3xl, lowercase per spec */}
-        <h1 className="font-serif text-3xl text-ink leading-none tracking-tight text-center">
-          <span className="block">the closed-loop</span>
-          <span className="block">libidinal economy</span>
-        </h1>
 
-        {/* Subtitle — directly below title, no asterisk separator */}
-        <p className="font-serif italic text-lg text-ink-70 mt-md max-w-[34rem] text-center leading-snug">
-          a framework for the dynamics of attention under platform capture
+      <div className="max-w-[var(--measure)] w-full">
+        {/* Masthead */}
+        <header className="text-center mb-2xl">
+          <h1 className="font-mono text-2xl text-ink tracking-tight">
+            autostimulus
+          </h1>
+          <p className="font-mono text-xs text-ink-50 mt-xs uppercase tracking-[0.2em]">
+            a. selimović
+          </p>
+          <div
+            className="mx-auto mt-md border-t border-paper-85"
+            style={{ width: "8rem" }}
+            aria-hidden="true"
+          />
+        </header>
+
+        {/* Section label */}
+        <p className="font-mono text-xs text-ink-50 mb-lg uppercase tracking-wider text-center">
+          works
         </p>
 
-        {/* Orientation block — what this is + the central image + 3 paths */}
-        <FrameworkOrientation />
+        {/* Works list — single column, mono-spaced */}
+        <ol className="flex flex-col gap-xl">
+          {WORKS.map((w) => {
+            const isLive = w.status === "live";
+            return (
+              <li key={w.href}>
+                {isLive ? (
+                  <a
+                    href={w.href}
+                    className="group block"
+                  >
+                    <WorkRow work={w} live />
+                  </a>
+                ) : (
+                  <div className="opacity-60">
+                    <WorkRow work={w} live={false} />
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ol>
 
-        {/* Epigraph — tightened spacing */}
-        <figure className="mt-lg max-w-[34rem] text-center">
-          <blockquote className="font-serif italic text-md text-ink-70 leading-snug">
-            &ldquo;The splinter in your eye is the best magnifying glass.&rdquo;
-          </blockquote>
-          <figcaption className="font-mono text-xs text-ink-50 mt-xs">
-            — Adorno, Minima Moralia §50
-          </figcaption>
-        </figure>
-
-        {/* Author / place / year — lives above the global SiteFooter */}
-        <p className="font-mono text-xs text-ink-50 mt-xl text-center">
-          A. Selimović, Ph.D. — Blacksburg, Virginia — 2026
+        {/* Footer note — minimal */}
+        <p className="font-mono text-xs text-ink-50 mt-2xl text-center">
+          {/* No nav, no social, no get-in-touch. The works are the works. */}
+          2026 · CC BY-SA 4.0 (text) · MIT (code)
         </p>
       </div>
     </main>
+  );
+}
+
+function WorkRow({ work, live }: { work: Work; live: boolean }) {
+  return (
+    <div>
+      <div className="flex items-baseline justify-between gap-sm">
+        <h2
+          className={
+            "font-serif text-lg text-ink-90 " +
+            (live ? "group-hover:text-oxblood transition-colors duration-100" : "")
+          }
+        >
+          {work.title}
+        </h2>
+        <span className="font-mono text-xs text-ink-50 shrink-0">
+          {work.year}
+        </span>
+      </div>
+      <p className="font-mono text-xs text-ink-50 mt-xs">
+        {work.register}
+      </p>
+      <p className="font-serif text-base text-ink-70 mt-xs leading-snug">
+        {work.blurb}
+      </p>
+      {live && (
+        <p className="font-mono text-xs text-ink-50 mt-xs">
+          → {work.href}
+        </p>
+      )}
+    </div>
   );
 }

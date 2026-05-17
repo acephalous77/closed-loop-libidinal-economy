@@ -2,7 +2,7 @@
  * The four prose pieces + coda that make up "the argument".
  *
  * The order here is the sequence's reading order. Each piece's `slug`
- * is its URL segment under `/the-argument/`.
+ * is its URL segment under `/closed-loop/the-argument/`.
  */
 
 export interface PieceTocEntry {
@@ -12,7 +12,7 @@ export interface PieceTocEntry {
 }
 
 export interface ArgumentPiece {
-  /** URL segment under `/the-argument/`. */
+  /** URL segment under `/closed-loop/the-argument/`. */
   slug: string;
   /** Short ordinal shown in the index (e.g. "I.", "II.", "Coda"). */
   numeral: string;

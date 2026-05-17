@@ -193,17 +193,17 @@ function ClosedLoopGlyph() {
 function DocumentMap() {
   const paths: { href: string; label: string; sub: string }[] = [
     {
-      href: "/the-argument",
+      href: "/closed-loop/the-argument",
       label: "the argument",
       sub: "four prose pieces and a coda — the body of the work, traversing cohort time forward",
     },
     {
-      href: "/the-mathematics",
+      href: "/closed-loop/the-mathematics",
       label: "the mathematics",
       sub: "the formal apparatus — the spine, what makes the prose refusable",
     },
     {
-      href: "/the-dynamics",
+      href: "/closed-loop/the-dynamics",
       label: "the dynamics",
       sub: "interactive plates and the live simulator — the mechanisms made operable",
     },
@@ -217,7 +217,7 @@ function DocumentMap() {
       <p className="mt-sm font-serif italic text-sm text-ink-50 leading-snug text-center max-w-[36rem] mx-auto">
         First-time reader: start with{" "}
         <a
-          href="/the-argument/the-loop"
+          href="/closed-loop/the-argument/the-loop"
           className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
         >
           the loop

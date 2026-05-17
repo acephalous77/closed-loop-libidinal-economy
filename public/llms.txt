@@ -1,6 +1,21 @@
+# autostimulus
+
+> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute.
+
+## Works
+
+- **The Closed-Loop Libidinal Economy** (2026, live) — A formal framework for the dynamics of attention under platform capture. Mathematics, prose, and operable instruments. Project root: https://www.autostimulus.org/closed-loop
+- **OHCOSE Manual** (2025, in production) — bureaucratic-dystopian protocol manual. Project root: https://www.autostimulus.org/ohcose
+- **The Ouroboros Chair** (2025, in production) — dystopian art project; full-spectrum live-work-feed-sleep installation. Project root: https://www.autostimulus.org/chair
+- **Patriotic Times — A Coloring Book** (2025, in production) — scenes of US democratic state failings and the emergence of fascism, rendered as line art. Project root: https://www.autostimulus.org/patriotic-times
+
+What follows below treats the one live work in detail. Other works will populate their subroutes as they ship.
+
+---
+
 # The Closed-Loop Libidinal Economy
 
-> A framework for the dynamics of attention under platform capture. The mathematics is the spine; the prose is the body; the dynamics is the operable instrument. By Adnan Selimović. Published 2026 at https://www.autostimulus.org.
+> A framework for the dynamics of attention under platform capture. The mathematics is the spine; the prose is the body; the dynamics is the operable instrument. By Adnan Selimović. Published 2026 at https://www.autostimulus.org/closed-loop.
 
 The framework names a class of architectures — closed-loop libidinal economies — in which a platform's recommendation system learns from a user's engagement signals in tight feedback, with no exogenous attention channel left intact. The work proves a foreclosure lemma: under specified mixing conditions, the closed loop cannot be exited by intra-loop choice alone. It then states a reclamation theorem with three formally distinct modes of intervention (A, B, C) that can restore an outside. It develops a cohort gradient — a developmental account of how the architecture forms different subjects depending on the age at which the loop colonizes attention.
 
@@ -25,20 +40,20 @@ The framework reads through and against Adorno, Marcuse, Stiegler, Han, Crary, L
 
 ## Canonical reading order
 
-1. [The Mathematics](https://www.autostimulus.org/the-mathematics) — the formal apparatus, lemmas, theorems, propositions, and the eight open questions of §8. ~11,000 words, 55 min.
-2. [The Argument](https://www.autostimulus.org/the-argument) — four prose pieces and a coda, traversing cohort time:
-   - [The Loop](https://www.autostimulus.org/the-argument/the-loop) — the architecture laid out in prose
-   - [The Citizen After the Pause](https://www.autostimulus.org/the-argument/citizen-after-the-pause) — democratic substrate
-   - [Adolescence Without Outside](https://www.autostimulus.org/the-argument/adolescence-without-outside) — formation
-   - [Sincere Captives](https://www.autostimulus.org/the-argument/sincere-captives) — adult end-state
-   - [Note on the Document](https://www.autostimulus.org/the-argument/note) — the closing coda
-3. [The Dynamics](https://www.autostimulus.org/the-dynamics) — fourteen interactive plates that visualize the formal claims
-4. [Open Questions](https://www.autostimulus.org/open-questions) — ten named research targets: three formal-mathematical, two structural-empirical, five where the empirical record is thin
-5. [Reading List](https://www.autostimulus.org/reading-list) — works the framework draws on, argues against, and the formal references
+1. [The Mathematics](https://www.autostimulus.org/closed-loop/the-mathematics) — the formal apparatus, lemmas, theorems, propositions, and the eight open questions of §8. ~11,000 words, 55 min.
+2. [The Argument](https://www.autostimulus.org/closed-loop/the-argument) — four prose pieces and a coda, traversing cohort time:
+   - [The Loop](https://www.autostimulus.org/closed-loop/the-argument/the-loop) — the architecture laid out in prose
+   - [The Citizen After the Pause](https://www.autostimulus.org/closed-loop/the-argument/citizen-after-the-pause) — democratic substrate
+   - [Adolescence Without Outside](https://www.autostimulus.org/closed-loop/the-argument/adolescence-without-outside) — formation
+   - [Sincere Captives](https://www.autostimulus.org/closed-loop/the-argument/sincere-captives) — adult end-state
+   - [Note on the Document](https://www.autostimulus.org/closed-loop/the-argument/note) — the closing coda
+3. [The Dynamics](https://www.autostimulus.org/closed-loop/the-dynamics) — fourteen interactive plates that visualize the formal claims
+4. [Open Questions](https://www.autostimulus.org/closed-loop/open-questions) — ten named research targets: three formal-mathematical, two structural-empirical, five where the empirical record is thin
+5. [Reading List](https://www.autostimulus.org/closed-loop/reading-list) — works the framework draws on, argues against, and the formal references
 
 ## Author
 
-Adnan Selimović. See the [colophon](https://www.autostimulus.org/colophon) for full attribution.
+Adnan Selimović. See the [colophon](https://www.autostimulus.org/closed-loop/colophon) for full attribution.
 
 ## License
 
