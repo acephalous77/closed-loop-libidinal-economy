@@ -33,13 +33,13 @@ const WORKS: Work[] = [
     status: "live",
   },
   {
-    title: "OHCOSE Manual",
-    year: "2025",
-    register: "bureaucratic-dystopian protocol manual",
+    title: "OHCOSE — Office of Human Continuity and Social Equilibrium",
+    year: "2026",
+    register: "performance piece · institutional manual · in character",
     blurb:
-      "[in production]",
+      "A cradle-to-grave partnership for the Standard Consumer-Citizen (Gen C Model). Public Intake Portal of a fictional federal agency whose mandate is the optimization of every phase of human life for the greater economic good.",
     href: "/ohcose",
-    status: "in production",
+    status: "live",
   },
   {
     title: "The Ouroboros Chair",
