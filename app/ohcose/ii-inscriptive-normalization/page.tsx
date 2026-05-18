@@ -78,7 +78,7 @@ export default function PhaseIIInscriptiveNormalization() {
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div
           className="font-mono uppercase mb-md"
-          style={{ fontSize: "0.85rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
+          style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
         >
           Phase Statement
         </div>
@@ -107,7 +107,7 @@ export default function PhaseIIInscriptiveNormalization() {
       <section className="mt-2xl max-w-[var(--container-prose)] mx-auto">
         <div
           className="font-mono uppercase mb-md text-center"
-          style={{ fontSize: "0.85rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
+          style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
         >
           Schedule of Sub-Protocols
         </div>

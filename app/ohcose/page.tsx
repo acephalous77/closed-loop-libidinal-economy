@@ -70,13 +70,13 @@ export default function OhcosePortal() {
   return (
     <PageFrame pageNum="i" secCode="OHCOSE / LR / Cover">
       {/* ============== COVER: seal as centerpiece ============== */}
-      <section className="mt-2xl mb-2xl">
+      <section className="mt-md mb-2xl">
         <SealWatermark prominent />
         <div className="text-center mt-md max-w-[var(--measure)] mx-auto">
           <p
             className="font-mono uppercase mb-xs"
             style={{
-              fontSize: "0.7rem",
+              fontSize: "0.85rem",
               letterSpacing: "0.25em",
               color: "var(--color-ink-50)",
             }}
@@ -86,7 +86,7 @@ export default function OhcosePortal() {
           <h1
             className="font-serif font-bold tracking-tight leading-tight"
             style={{
-              fontSize: "1.6rem",
+              fontSize: "2.5rem",
               color: "var(--color-ink)",
             }}
           >
@@ -130,7 +130,7 @@ export default function OhcosePortal() {
         <div
           className="font-mono uppercase mb-md"
           style={{
-            fontSize: "0.9rem",
+            fontSize: "1rem",
             letterSpacing: "0.2em",
             color: "var(--color-ink-70)",
             textAlign: "center",

@@ -8,6 +8,7 @@ const ATELIER_ROUTES = ["/"];
 
 const OHCOSE_ROUTES = [
   "/ohcose",
+  "/ohcose/colophon",
   "/ohcose/i-ontogenesis",
   "/ohcose/i-ontogenesis/cradle-anchoring",
   "/ohcose/i-ontogenesis/algorithmic-nurseries",

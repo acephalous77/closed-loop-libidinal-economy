@@ -660,18 +660,14 @@ input:focus-visible,
   letter-spacing: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .ohcose-theme {
-    --color-ink: #d8d3c7;
-    --color-ink-90: #c0bbaf;
-    --color-ink-70: #8c877c;
-    --color-ink-50: #6a655c;
-    --color-paper: #161513;
-    --color-paper-95: #1d1c19;
-    --color-paper-85: #2a2825;
-    --color-oxblood: #c83838;
-    --color-oxblood-dark: #d44a4a;
-  }
+/* OHCOSE intentionally does NOT have a dark mode. Federal documents
+   are not dark-mode. The performance piece breaks if the institutional
+   eggshell shifts. The user-agent's prefers-color-scheme is ignored
+   inside .ohcose-theme; the palette stays light always.
+   color-scheme: light forces the browser's UA stylesheet (form
+   controls, scrollbars) to render in light register too. */
+.ohcose-theme {
+  color-scheme: light;
 }
 
 /* OHCOSE chrome — classification stamp, used in masthead + footer

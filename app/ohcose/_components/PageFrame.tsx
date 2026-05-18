@@ -35,7 +35,10 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
     <div
       className="mx-auto"
       style={{
-        maxWidth: "var(--container-page)",
+        // Letter-page-with-margins width. Anything wider divorces the
+        // top-right wordmark and bottom-right doc-code stamp from the
+        // article column, breaking the "scanned leaf" composition.
+        maxWidth: "880px",
         minHeight: "100vh",
         padding: "0 1rem",
       }}
@@ -43,8 +46,9 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
       <div
         className="relative"
         style={{
-          // The "scanned report leaf" frame
-          border: "1px solid var(--color-paper-85)",
+          // The "scanned report leaf" frame — visible at 2px against
+          // eggshell, with darker ink to register without being heavy.
+          border: "2px solid var(--color-ink-50)",
           outline: "6px solid var(--color-paper-95)",
           outlineOffset: "-6px",
           background: "var(--color-paper)",
@@ -135,10 +139,10 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
                   style={{
                     background: "var(--color-oxblood)",
                     color: "var(--color-paper)",
-                    fontSize: "0.7rem",
+                    fontSize: "0.78rem",
                     fontWeight: 700,
                     letterSpacing: "0.1em",
-                    padding: "0.2rem 0.45rem",
+                    padding: "0.22rem 0.5rem",
                   }}
                 >
                   {c}

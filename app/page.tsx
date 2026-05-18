@@ -46,7 +46,7 @@ const WORKS: Work[] = [
     year: "2025",
     register: "dystopian art project · installation",
     blurb:
-      "[in production] full-spectrum live-work-feed-sleep installation.",
+      "Full-spectrum live-work-feed-sleep installation.",
     href: "/chair",
     status: "in production",
   },
@@ -55,7 +55,7 @@ const WORKS: Work[] = [
     year: "2025",
     register: "image · line art · political",
     blurb:
-      "[in production] scenes of US democratic state failings and the emergence of fascism, rendered as line art.",
+      "Scenes of US democratic state failings and the emergence of fascism, rendered as line art.",
     href: "/patriotic-times",
     status: "in production",
   },
@@ -148,9 +148,26 @@ function WorkRow({ work, live }: { work: Work; live: boolean }) {
         >
           {work.title}
         </h2>
-        <span className="font-mono text-xs text-ink-50 shrink-0">
-          {work.year}
-        </span>
+        <div className="flex items-baseline gap-sm shrink-0">
+          <span
+            className="font-mono uppercase"
+            style={{
+              fontSize: "0.6rem",
+              fontWeight: 700,
+              letterSpacing: "0.15em",
+              padding: "0.15rem 0.45rem",
+              color: live ? "var(--color-oxblood)" : "var(--color-ink-50)",
+              border: live
+                ? "1px solid var(--color-oxblood)"
+                : "1px solid var(--color-paper-85)",
+            }}
+          >
+            {live ? "live" : "in production"}
+          </span>
+          <span className="font-mono text-xs text-ink-50">
+            {work.year}
+          </span>
+        </div>
       </div>
       <p className="font-mono text-xs text-ink-50 mt-xs">
         {work.register}

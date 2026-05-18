@@ -48,18 +48,31 @@ export default function OhcoseLayout({
   return (
     <div className="ohcose-theme min-h-screen pb-md">
       {children}
-      {/* Atelier-back link — tiny, easy to miss; preserves the
-          performance for casual visitors. The reader who tracks
-          it down still gets out. */}
+      {/* Atelier-back link + colophon — tiny, easy to miss;
+          preserves the performance for casual visitors. The reader
+          who tracks them down still gets out, and the colophon is
+          where the meta-frame lives. */}
       <div
-        className="mx-auto text-center pt-md"
-        style={{ maxWidth: "var(--container-page)" }}
+        className="mx-auto text-center pt-md flex items-baseline justify-center gap-md"
+        style={{ maxWidth: "880px" }}
       >
+        <a
+          href="/ohcose/colophon"
+          className="font-mono uppercase hover:underline"
+          style={{
+            fontSize: "0.65rem",
+            letterSpacing: "0.2em",
+            color: "var(--color-ink-50)",
+          }}
+        >
+          colophon
+        </a>
+        <span style={{ color: "var(--color-ink-50)", fontSize: "0.55rem" }}>·</span>
         <a
           href="/"
           className="font-mono uppercase hover:underline"
           style={{
-            fontSize: "0.55rem",
+            fontSize: "0.65rem",
             letterSpacing: "0.2em",
             color: "var(--color-ink-50)",
           }}
