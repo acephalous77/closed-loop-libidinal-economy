@@ -25,7 +25,7 @@ export default function SurplusExtraction() {
         <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
           Sub-Protocol 1.4
         </p>
-        <h1 className="font-serif font-bold tracking-tight leading-tight" style={{ fontSize: "1.5rem", color: "var(--color-ink)" }}>
+        <h1 className="font-serif font-bold tracking-tight leading-tight" style={{ fontSize: "1.85rem", color: "var(--color-ink)" }}>
           Infant Desire, Distress &amp;<br />
           the Extraction of Psychic Surplus
         </h1>
@@ -186,8 +186,8 @@ export default function SurplusExtraction() {
 function SectionHead({ code, title }: { code: string; title: string }) {
   return (
     <div className="mb-md flex items-baseline gap-sm pb-xs" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-      <span className="font-mono font-bold tabular-nums" style={{ fontSize: "0.85rem", color: "var(--color-oxblood)" }}>{code}</span>
-      <span className="font-serif font-bold" style={{ fontSize: "1rem", color: "var(--color-ink)", letterSpacing: "0.02em" }}>{title}</span>
+      <span className="font-mono font-bold tabular-nums" style={{ fontSize: "1.05rem", color: "var(--color-oxblood)" }}>{code}</span>
+      <span className="font-serif font-bold" style={{ fontSize: "1.25rem", color: "var(--color-ink)", letterSpacing: "0.02em" }}>{title}</span>
     </div>
   );
 }

@@ -634,11 +634,24 @@ input:focus-visible,
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono",
                Menlo, monospace;
 
-  /* Tighter line-height — institutional documents pack denser */
-  --text-base--line-height: 1.45;
-  --text-md--line-height: 1.3;
+  /* Type scale — boosted for legibility. Comfortable on desktop;
+     scales SVG-visualization internal text proportionally as their
+     containers grow with the wider measure. */
+  --text-base: 1.235rem;        /* was 1.125rem */
+  --text-base--line-height: 1.55;
+  --text-sm: 1.05rem;           /* was 0.937rem */
+  --text-md: 1.5rem;            /* was 1.350rem */
+  --text-md--line-height: 1.35;
+  --text-lg: 1.85rem;           /* was 1.620rem */
   --text-lg--line-height: 1.3;
-  --text-xl--line-height: 1.15;
+  --text-xl: 2.25rem;           /* was 1.944rem */
+  --text-xl--line-height: 1.2;
+
+  /* Wider measure inside OHCOSE — institutional documents are denser
+     than the atelier's literary register and benefit from a wider
+     prose column. Visualizations get the prose-container width. */
+  --measure: 38rem;             /* was 32rem (atelier) */
+  --container-prose: 46rem;     /* was 38rem (atelier) */
 
   background: var(--color-paper);
   color: var(--color-ink);

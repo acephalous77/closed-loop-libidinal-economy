@@ -60,7 +60,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
             right: "1.75rem",
             fontFamily: "var(--font-serif)",
             fontWeight: 800,
-            fontSize: "1.5rem",
+            fontSize: "2rem",
             letterSpacing: "0.06em",
             color: "var(--color-ink)",
           }}
@@ -95,7 +95,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
               className="font-mono font-bold tabular-nums"
               style={{
                 color: "var(--color-oxblood)",
-                fontSize: "1.1rem",
+                fontSize: "1.5rem",
                 letterSpacing: "0.04em",
               }}
             >
@@ -105,7 +105,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
               <div
                 className="font-mono mt-xs uppercase"
                 style={{
-                  fontSize: "0.55rem",
+                  fontSize: "0.7rem",
                   letterSpacing: "0.15em",
                   color: "var(--color-ink-50)",
                 }}
@@ -120,7 +120,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
             <div
               className="font-mono uppercase mb-xs"
               style={{
-                fontSize: "0.55rem",
+                fontSize: "0.7rem",
                 letterSpacing: "0.18em",
                 color: "var(--color-ink-50)",
               }}
@@ -135,10 +135,10 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
                   style={{
                     background: "var(--color-oxblood)",
                     color: "var(--color-paper)",
-                    fontSize: "0.55rem",
+                    fontSize: "0.7rem",
                     fontWeight: 700,
                     letterSpacing: "0.1em",
-                    padding: "0.15rem 0.35rem",
+                    padding: "0.2rem 0.45rem",
                   }}
                 >
                   {c}

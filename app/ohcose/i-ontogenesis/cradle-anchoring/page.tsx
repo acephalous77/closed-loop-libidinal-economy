@@ -33,7 +33,7 @@ export default function CradleAnchoring() {
         </p>
         <h1
           className="font-serif font-bold tracking-tight leading-tight"
-          style={{ fontSize: "1.5rem", color: "var(--color-ink)" }}
+          style={{ fontSize: "1.85rem", color: "var(--color-ink)" }}
         >
           Biometric Registration<br />
           &amp; Cradle Anchoring

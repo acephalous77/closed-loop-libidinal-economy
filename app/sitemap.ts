@@ -15,6 +15,13 @@ const OHCOSE_ROUTES = [
   "/ohcose/i-ontogenesis/surplus-extraction",
   "/ohcose/i-ontogenesis/normative-metrics",
   "/ohcose/i-ontogenesis/trust-attachment-optimization",
+  "/ohcose/ii-inscriptive-normalization",
+  "/ohcose/ii-inscriptive-normalization/desk-as-altar",
+  "/ohcose/ii-inscriptive-normalization/algorithmic-calibration",
+  "/ohcose/ii-inscriptive-normalization/emotional-hygiene",
+  "/ohcose/ii-inscriptive-normalization/recess-as-release-valve",
+  "/ohcose/ii-inscriptive-normalization/playing-at-consumption",
+  "/ohcose/ii-inscriptive-normalization/temporal-corridor",
 ];
 
 const CLOSED_LOOP_ROUTES = [
@@ -60,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1.0
         : path === "/closed-loop" || path === "/ohcose"
         ? 0.9
-        : path.startsWith("/closed-loop/the-") || path.startsWith("/ohcose/i-")
+        : path.startsWith("/closed-loop/the-") || path.startsWith("/ohcose/i-") || path.startsWith("/ohcose/ii-")
         ? 0.8
         : 0.5,
   }));

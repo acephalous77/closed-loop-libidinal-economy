@@ -29,7 +29,7 @@ export function Barcode() {
       role="img"
       aria-label="OHCOSE document barcode"
       style={{
-        width: "5.5rem",
+        width: "8rem",
         height: "auto",
         display: "block",
       }}
