@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function AlgorithmicNurseries() {
   return (
     <PageFrame pageNum="1.2" secCode="OHCOSE / LR / SP-1.2">
-      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
         <a href="/ohcose" className="hover:underline">← schedule of phases</a>
         <a href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</a>
       </nav>
@@ -22,7 +22,7 @@ export default function AlgorithmicNurseries() {
       <PhaseBanner code="Sub-Protocol 1.2" title="Algorithmic Nurseries" qualifier="Phase I · Ontogenesis" />
 
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
-        <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+        <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
           Sub-Protocol 1.2
         </p>
         <h1 className="font-serif font-bold tracking-tight leading-tight" style={{ fontSize: "1.85rem", color: "var(--color-ink)" }}>
@@ -174,8 +174,8 @@ export default function AlgorithmicNurseries() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/i-ontogenesis/cradle-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.1 cradle anchoring</a>
-          <a href="/ohcose/i-ontogenesis/caregiver-as-infrastructure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>1.3 caregiver →</a>
+          <a href="/ohcose/i-ontogenesis/cradle-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.1 cradle anchoring</a>
+          <a href="/ohcose/i-ontogenesis/caregiver-as-infrastructure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>1.3 caregiver →</a>
         </nav>
       </article>
     </PageFrame>

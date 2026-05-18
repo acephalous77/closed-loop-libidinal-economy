@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function NormativeMetrics() {
   return (
     <PageFrame pageNum="1.5" secCode="OHCOSE / LR / SP-1.5">
-      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
         <a href="/ohcose" className="hover:underline">← schedule of phases</a>
         <a href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</a>
       </nav>
@@ -22,7 +22,7 @@ export default function NormativeMetrics() {
       <PhaseBanner code="Sub-Protocol 1.5" title="Normative Metrics" qualifier="Phase I · Ontogenesis" />
 
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
-        <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+        <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
           Sub-Protocol 1.5
         </p>
         <h1 className="font-serif font-bold tracking-tight leading-tight" style={{ fontSize: "1.85rem", color: "var(--color-ink)" }}>
@@ -147,8 +147,8 @@ export default function NormativeMetrics() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/i-ontogenesis/surplus-extraction" className="font-mono uppercase hover:underline" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.4 surplus extraction</a>
-          <a href="/ohcose/i-ontogenesis/trust-attachment-optimization" className="font-mono uppercase hover:underline" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>1.6 trust-attachment →</a>
+          <a href="/ohcose/i-ontogenesis/surplus-extraction" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.4 surplus extraction</a>
+          <a href="/ohcose/i-ontogenesis/trust-attachment-optimization" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>1.6 trust-attachment →</a>
         </nav>
       </article>
     </PageFrame>

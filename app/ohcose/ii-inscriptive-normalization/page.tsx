@@ -67,7 +67,7 @@ export default function PhaseIIInscriptiveNormalization() {
         <a
           href="/ohcose"
           className="font-mono uppercase hover:underline"
-          style={{ fontSize: "0.75rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
+          style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           ← schedule of phases
         </a>

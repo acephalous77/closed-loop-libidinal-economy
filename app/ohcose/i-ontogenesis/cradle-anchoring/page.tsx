@@ -15,7 +15,7 @@ export default function CradleAnchoring() {
   return (
     <PageFrame pageNum="1.1" secCode="OHCOSE / LR / SP-1.1">
       {/* Breadcrumbs */}
-      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
         <a href="/ohcose" className="hover:underline">← schedule of phases</a>
         <a href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</a>
       </nav>
@@ -27,7 +27,7 @@ export default function CradleAnchoring() {
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
         <p
           className="font-mono uppercase mb-xs"
-          style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
+          style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           Sub-Protocol 1.1
         </p>
@@ -197,7 +197,7 @@ export default function CradleAnchoring() {
           <a
             href="/ohcose/i-ontogenesis"
             className="font-mono uppercase hover:underline"
-            style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
+            style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
           >
             ← phase I
           </a>

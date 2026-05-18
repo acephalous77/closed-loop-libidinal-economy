@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function TrustAttachmentOptimization() {
   return (
     <PageFrame pageNum="1.6" secCode="OHCOSE / LR / SP-1.6">
-      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
         <a href="/ohcose" className="hover:underline">← schedule of phases</a>
         <a href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</a>
       </nav>
@@ -22,7 +22,7 @@ export default function TrustAttachmentOptimization() {
       <PhaseBanner code="Sub-Protocol 1.6" title="Trust-Attachment Optimization" qualifier="Phase I · Ontogenesis" />
 
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
-        <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+        <p className="font-mono uppercase mb-xs" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
           Sub-Protocol 1.6
         </p>
         <h1 className="font-serif font-bold tracking-tight leading-tight" style={{ fontSize: "1.85rem", color: "var(--color-ink)" }}>
@@ -174,8 +174,8 @@ export default function TrustAttachmentOptimization() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/i-ontogenesis/normative-metrics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.5 normative metrics</a>
-          <a href="/ohcose/i-ontogenesis" className="font-mono uppercase hover:underline" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase I</a>
+          <a href="/ohcose/i-ontogenesis/normative-metrics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.5 normative metrics</a>
+          <a href="/ohcose/i-ontogenesis" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase I</a>
         </nav>
       </article>
     </PageFrame>

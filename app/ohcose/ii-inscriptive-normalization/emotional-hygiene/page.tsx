@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function EmotionalHygiene() {
   return (
     <PageFrame pageNum="2.3" secCode="OHCOSE / LR / SP-2.3">
-      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
+      <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
         <a href="/ohcose" className="hover:underline">← schedule of phases</a>
         <a href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</a>
       </nav>
@@ -143,8 +143,8 @@ export default function EmotionalHygiene() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/ii-inscriptive-normalization/algorithmic-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.2 algorithmic calibration</a>
-          <a href="/ohcose/ii-inscriptive-normalization/recess-as-release-valve" className="font-mono uppercase hover:underline" style={{ fontSize: "0.75rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.4 recess →</a>
+          <a href="/ohcose/ii-inscriptive-normalization/algorithmic-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.2 algorithmic calibration</a>
+          <a href="/ohcose/ii-inscriptive-normalization/recess-as-release-valve" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.4 recess →</a>
         </nav>
       </article>
     </PageFrame>

@@ -26,7 +26,7 @@ export default function PhaseIOntogenesis() {
         <a
           href="/ohcose"
           className="font-mono uppercase hover:underline"
-          style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
+          style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           ← schedule of phases
         </a>
@@ -39,7 +39,7 @@ export default function PhaseIOntogenesis() {
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div
           className="font-mono uppercase mb-md"
-          style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
+          style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
         >
           Phase Statement
         </div>
@@ -67,7 +67,7 @@ export default function PhaseIOntogenesis() {
       <section className="mt-2xl max-w-[var(--container-prose)] mx-auto">
         <div
           className="font-mono uppercase mb-md text-center"
-          style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
+          style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
         >
           Schedule of Sub-Protocols
         </div>

@@ -130,7 +130,7 @@ export default function OhcosePortal() {
         <div
           className="font-mono uppercase mb-md"
           style={{
-            fontSize: "0.7rem",
+            fontSize: "0.9rem",
             letterSpacing: "0.2em",
             color: "var(--color-ink-70)",
             textAlign: "center",

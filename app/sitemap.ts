@@ -22,6 +22,13 @@ const OHCOSE_ROUTES = [
   "/ohcose/ii-inscriptive-normalization/recess-as-release-valve",
   "/ohcose/ii-inscriptive-normalization/playing-at-consumption",
   "/ohcose/ii-inscriptive-normalization/temporal-corridor",
+  "/ohcose/iii-adolescent-calibration",
+  "/ohcose/iii-adolescent-calibration/calibrating-desire",
+  "/ohcose/iii-adolescent-calibration/rebellion-packaged",
+  "/ohcose/iii-adolescent-calibration/digital-architectures",
+  "/ohcose/iii-adolescent-calibration/pharmacopornographic-order",
+  "/ohcose/iii-adolescent-calibration/quantified-selfhood",
+  "/ohcose/iii-adolescent-calibration/the-initiate",
 ];
 
 const CLOSED_LOOP_ROUTES = [
@@ -67,7 +74,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 1.0
         : path === "/closed-loop" || path === "/ohcose"
         ? 0.9
-        : path.startsWith("/closed-loop/the-") || path.startsWith("/ohcose/i-") || path.startsWith("/ohcose/ii-")
+        : path.startsWith("/closed-loop/the-") || path.startsWith("/ohcose/i-") || path.startsWith("/ohcose/ii-") || path.startsWith("/ohcose/iii-")
         ? 0.8
         : 0.5,
   }));
