@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 const SUB_PROTOCOLS = [
   { slug: "cradle-anchoring", code: "1.1", name: "Biometric Registration & Cradle Anchoring", summary: "Assignment of the C-ID. Capture of newborn neural, biometric, and genetic baselines. Anchoring of the subject to the Office's ledger.", status: "live" },
-  { slug: "algorithmic-nurseries", code: "1.2", name: "Algorithmic Nurseries & Early Brand Entrainment", summary: "Smart-crib instrumentation. Brand-primer mobile rotation. Algorithmic conditioning of the infant sensorium.", status: "draft" },
-  { slug: "caregiver-as-infrastructure", code: "1.3", name: "Caregiver Behavior as Outsourced Affective Infrastructure", summary: "Caregivers as unpaid Office contractors. Parenting-app compliance regime. Standardization of the affective bond.", status: "draft" },
-  { slug: "surplus-extraction", code: "1.4", name: "Infant Desire, Distress & the Extraction of Psychic Surplus", summary: "Conversion of cry, coo, and reach into surplus-value events. The smart-teddy protocol. Conditioning loops.", status: "draft" },
-  { slug: "normative-metrics", code: "1.5", name: "Metrics of Normative Development & Proto-Brand Loyalty", summary: "Trust-Attachment Index (TAI). Brand Recognition & Affect (BR-A) score. Phase-I Growth & Compliance reports.", status: "draft" },
-  { slug: "trust-attachment-optimization", code: "1.6", name: "Optimizing Trust-Attachment for Market-Normative Socialization", summary: "Phase-I exit criteria. Pre-installation of the consumer trust posture. Hand-off to Phase II Inscriptive Normalization.", status: "draft" },
+  { slug: "algorithmic-nurseries", code: "1.2", name: "Algorithmic Nurseries & Early Brand Entrainment", summary: "Smart-crib instrumentation. Brand-primer mobile rotation. Algorithmic conditioning of the infant sensorium.", status: "live" },
+  { slug: "caregiver-as-infrastructure", code: "1.3", name: "Caregiver Behavior as Outsourced Affective Infrastructure", summary: "Caregivers as unpaid Office contractors. Parenting-app compliance regime. Standardization of the affective bond.", status: "live" },
+  { slug: "surplus-extraction", code: "1.4", name: "Infant Desire, Distress & the Extraction of Psychic Surplus", summary: "Conversion of cry, coo, and reach into surplus-value events. The smart-teddy protocol. Conditioning loops.", status: "live" },
+  { slug: "normative-metrics", code: "1.5", name: "Metrics of Normative Development & Proto-Brand Loyalty", summary: "Trust-Attachment Index (TAI). Brand Recognition & Affect (BR-A) score. Phase-I Growth & Compliance reports.", status: "live" },
+  { slug: "trust-attachment-optimization", code: "1.6", name: "Optimizing Trust-Attachment for Market-Normative Socialization", summary: "Phase-I exit criteria. Pre-installation of the consumer trust posture. Hand-off to Phase II Inscriptive Normalization.", status: "live" },
 ];
 
 export default function PhaseIOntogenesis() {

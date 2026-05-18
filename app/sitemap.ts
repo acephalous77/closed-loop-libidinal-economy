@@ -10,6 +10,11 @@ const OHCOSE_ROUTES = [
   "/ohcose",
   "/ohcose/i-ontogenesis",
   "/ohcose/i-ontogenesis/cradle-anchoring",
+  "/ohcose/i-ontogenesis/algorithmic-nurseries",
+  "/ohcose/i-ontogenesis/caregiver-as-infrastructure",
+  "/ohcose/i-ontogenesis/surplus-extraction",
+  "/ohcose/i-ontogenesis/normative-metrics",
+  "/ohcose/i-ontogenesis/trust-attachment-optimization",
 ];
 
 const CLOSED_LOOP_ROUTES = [
