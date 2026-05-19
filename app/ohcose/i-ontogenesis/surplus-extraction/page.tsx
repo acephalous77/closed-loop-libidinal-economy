@@ -230,10 +230,10 @@ function ExtractionLoop() {
 
       {/* Center label */}
       <g>
-        <text x="300" y="170" fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={accent}>
+        <text x="300" y="170" fontSize="16" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={accent}>
           PHASE-I LOOP
         </text>
-        <text x="300" y="186" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+        <text x="300" y="186" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
           steady state · 96%+ extraction
         </text>
       </g>
@@ -242,10 +242,10 @@ function ExtractionLoop() {
       {nodes.map((n, i) => (
         <g key={`n${i}`}>
           <circle cx={n.x} cy={n.y} r="48" fill={fill} stroke={stroke} strokeWidth="1.5" />
-          <text x={n.x} y={n.y - 4} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
+          <text x={n.x} y={n.y - 4} fontSize="16" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
             {n.label}
           </text>
-          <text x={n.x} y={n.y + 12} fontSize="8" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+          <text x={n.x} y={n.y + 12} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
             {n.sub}
           </text>
         </g>

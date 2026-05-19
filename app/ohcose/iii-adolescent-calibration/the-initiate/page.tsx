@@ -103,7 +103,7 @@ export default function TheInitiate() {
 
           <InitiationCertificate />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 3.6.A — Specimen Initiation Certificate (Phase III → Phase IV)
           </p>
         </section>

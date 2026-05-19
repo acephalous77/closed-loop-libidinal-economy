@@ -252,25 +252,25 @@ function CradleAnchoringSchematic() {
 
   return (
     <svg
-      viewBox="0 0 600 240"
+      viewBox="0 0 600 300"
       role="img"
       aria-label="Cradle Anchoring schematic"
       className="w-full"
       style={{ color: "var(--color-ink)" }}
     >
       <g>
-        <circle cx="60" cy="120" r="36" fill={fill} stroke={stroke} strokeWidth="1.5" />
-        <text x="60" y="124" fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
+        <circle cx="60" cy="140" r="40" fill={fill} stroke={stroke} strokeWidth="1.5" />
+        <text x="60" y="146" fontSize="16" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
           subject
         </text>
       </g>
 
-      <line x1="100" y1="120" x2="170" y2="120" stroke={stroke} strokeWidth="1.5" />
-      <polygon points="170,116 178,120 170,124" fill={stroke} />
+      <line x1="100" y1="140" x2="170" y2="140" stroke={stroke} strokeWidth="1.5" />
+      <polygon points="170,136 178,140 170,144" fill={stroke} />
 
       <g>
-        <rect x="180" y="60" width="120" height="120" fill={fill} stroke={stroke} strokeWidth="1.5" />
-        <text x="240" y="80" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+        <rect x="180" y="60" width="135" height="170" fill={fill} stroke={stroke} strokeWidth="1.5" />
+        <text x="247" y="84" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight} fontWeight="700">
           BIOMETRIC INSTRUMENTS
         </text>
         {[
@@ -281,50 +281,50 @@ function CradleAnchoringSchematic() {
           "GMP · heel-prick",
           "EMP · swab",
         ].map((label, i) => (
-          <text key={i} x="190" y={100 + i * 12} fontSize="9" fontFamily="ui-monospace, monospace" fill={stroke}>
+          <text key={i} x="192" y={112 + i * 18} fontSize="14" fontFamily="ui-monospace, monospace" fill={stroke}>
             • {label}
           </text>
         ))}
       </g>
 
-      <line x1="305" y1="120" x2="365" y2="120" stroke={stroke} strokeWidth="1.5" />
-      <polygon points="365,116 373,120 365,124" fill={stroke} />
+      <line x1="320" y1="140" x2="370" y2="140" stroke={stroke} strokeWidth="1.5" />
+      <polygon points="370,136 378,140 370,144" fill={stroke} />
 
       <g>
-        <rect x="375" y="92" width="100" height="56" fill={fill} stroke={accent} strokeWidth="2" />
-        <text x="425" y="110" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={accent} fontWeight="700">
+        <rect x="380" y="105" width="110" height="70" fill={fill} stroke={accent} strokeWidth="2" />
+        <text x="435" y="125" fontSize="15" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={accent} fontWeight="700">
           C-ID
         </text>
-        <text x="425" y="124" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
+        <text x="435" y="143" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
           provisioning
         </text>
-        <text x="425" y="140" fontSize="8" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+        <text x="435" y="161" fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
           ≤ 2 sec
         </text>
       </g>
 
-      <line x1="480" y1="120" x2="540" y2="120" stroke={stroke} strokeWidth="1.5" />
-      <polygon points="540,116 548,120 540,124" fill={stroke} />
+      <line x1="495" y1="140" x2="535" y2="140" stroke={stroke} strokeWidth="1.5" />
+      <polygon points="535,136 543,140 535,144" fill={stroke} />
 
       <g>
-        <rect x="540" y="84" width="55" height="72" fill={fill} stroke={stroke} strokeWidth="1.5" />
+        <rect x="535" y="95" width="60" height="90" fill={fill} stroke={stroke} strokeWidth="1.5" />
         {[0, 1, 2, 3, 4, 5].map((i) => (
-          <line key={i} x1="548" y1={100 + i * 10} x2="588" y2={100 + i * 10} stroke={strokeLight} strokeWidth="0.5" />
+          <line key={i} x1="544" y1={113 + i * 11} x2="586" y2={113 + i * 11} stroke={strokeLight} strokeWidth="0.5" />
         ))}
-        <text x="567" y="172" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
+        <text x="565" y="200" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
           ledger
         </text>
       </g>
 
       <path
-        d="M 60 156 Q 60 220 300 220 Q 540 220 540 156"
+        d="M 60 180 Q 60 260 300 260 Q 540 260 540 185"
         fill="none"
         stroke={strokeLight}
         strokeWidth="1"
         strokeDasharray="4 4"
       />
-      <polygon points="56,156 60,148 64,156" fill={strokeLight} />
-      <text x="300" y="234" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+      <polygon points="56,180 60,172 64,180" fill={strokeLight} />
+      <text x="300" y="284" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
         subject returned to caregiver; baseline persists in ledger
       </text>
     </svg>

@@ -73,7 +73,7 @@ export default function TemporalCorridor() {
 
           <CorridorPassage />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 2.6.A — Phase-II passage diagram (subject path + surplus current)
           </p>
         </section>
@@ -148,10 +148,10 @@ function CorridorPassage() {
   const paper = "var(--color-paper)";
   const paper95 = "var(--color-paper-95)";
 
-  const wallTop = 80;
-  const wallBottom = 200;
-  const corridorLeft = 80;
-  const corridorRight = 540;
+  const wallTop = 110;
+  const wallBottom = 230;
+  const corridorLeft = 120;
+  const corridorRight = 640;
 
   const subProtocols = [
     "2.1 desk",
@@ -163,12 +163,12 @@ function CorridorPassage() {
   ];
 
   return (
-    <svg viewBox="0 0 620 320" className="w-full" role="img" aria-label="Phase-II corridor passage diagram">
+    <svg viewBox="0 0 760 360" className="w-full" role="img" aria-label="Phase-II corridor passage diagram">
       {/* Office archive at top — receives surplus */}
       <g>
-        <rect x={220} y={10} width={180} height={40} fill={paper} stroke={stroke} strokeWidth="1.5" />
-        <text x={310} y={28} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>OFFICE ARCHIVE</text>
-        <text x={310} y={42} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>lifelong record</text>
+        <rect x={290} y={10} width={180} height={48} fill={paper} stroke={stroke} strokeWidth="1.5" />
+        <text x={380} y={32} fontSize="16" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>OFFICE ARCHIVE</text>
+        <text x={380} y={48} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>lifelong record</text>
       </g>
 
       {/* Corridor walls (top/bottom horizontal lines) */}
@@ -178,13 +178,13 @@ function CorridorPassage() {
       {/* Sub-protocol wall labels (alternating top/bottom) */}
       {subProtocols.map((sp, i) => {
         const x = corridorLeft + ((corridorRight - corridorLeft) / (subProtocols.length)) * (i + 0.5);
-        const y = i % 2 === 0 ? wallTop - 8 : wallBottom + 18;
+        const y = i % 2 === 0 ? wallTop - 12 : wallBottom + 22;
         const tickStart = i % 2 === 0 ? wallTop : wallBottom;
-        const tickEnd = i % 2 === 0 ? wallTop - 4 : wallBottom + 4;
+        const tickEnd = i % 2 === 0 ? wallTop - 6 : wallBottom + 6;
         return (
           <g key={i}>
             <line x1={x} y1={tickStart} x2={x} y2={tickEnd} stroke={stroke} strokeWidth="1" />
-            <text x={x} y={y} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+            <text x={x} y={y} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
               {sp}
             </text>
           </g>
@@ -192,25 +192,25 @@ function CorridorPassage() {
       })}
 
       {/* Subject path through corridor (left to right) */}
-      <line x1={corridorLeft - 30} y1={140} x2={corridorRight + 30} y2={140} stroke={accent} strokeWidth="2.5" />
-      <polygon points={`${corridorRight + 30},135 ${corridorRight + 42},140 ${corridorRight + 30},145`} fill={accent} />
+      <line x1={corridorLeft - 30} y1={170} x2={corridorRight + 30} y2={170} stroke={accent} strokeWidth="2.5" />
+      <polygon points={`${corridorRight + 30},164 ${corridorRight + 42},170 ${corridorRight + 30},176`} fill={accent} />
 
       {/* Subject path dots */}
       {[0.1, 0.3, 0.5, 0.7, 0.9].map((t, i) => (
-        <circle key={i} cx={corridorLeft + (corridorRight - corridorLeft) * t} cy={140} r={3} fill={accent} />
+        <circle key={i} cx={corridorLeft + (corridorRight - corridorLeft) * t} cy={170} r={4} fill={accent} />
       ))}
 
       {/* Entry / exit labels */}
-      <text x={corridorLeft - 32} y={130} fontSize="10" fontFamily="ui-monospace, monospace" textAnchor="end" fontWeight="700" fill={stroke}>
+      <text x={corridorLeft - 36} y={162} fontSize="15" fontFamily="ui-monospace, monospace" textAnchor="end" fontWeight="700" fill={stroke}>
         Phase I
       </text>
-      <text x={corridorLeft - 32} y={156} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="end" fill={strokeLight}>
+      <text x={corridorLeft - 36} y={186} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="end" fill={strokeLight}>
         age 4 entry
       </text>
-      <text x={corridorRight + 44} y={130} fontSize="10" fontFamily="ui-monospace, monospace" fontWeight="700" fill={stroke}>
+      <text x={corridorRight + 50} y={162} fontSize="15" fontFamily="ui-monospace, monospace" fontWeight="700" fill={stroke}>
         Phase III
       </text>
-      <text x={corridorRight + 44} y={156} fontSize="9" fontFamily="ui-monospace, monospace" fill={strokeLight}>
+      <text x={corridorRight + 50} y={186} fontSize="13" fontFamily="ui-monospace, monospace" fill={strokeLight}>
         age 12 exit
       </text>
 
@@ -219,22 +219,25 @@ function CorridorPassage() {
         const x = corridorLeft + (corridorRight - corridorLeft) * t;
         return (
           <g key={`s${i}`}>
-            <line x1={x} y1={wallTop - 4} x2={x} y2={56} stroke={stroke} strokeWidth="0.8" strokeDasharray="3 2" />
-            <polygon points={`${x - 3},56 ${x},48 ${x + 3},56`} fill={stroke} />
+            <line x1={x} y1={wallTop - 8} x2={x} y2={66} stroke={stroke} strokeWidth="0.8" strokeDasharray="3 2" />
+            <polygon points={`${x - 4},66 ${x},58 ${x + 4},66`} fill={stroke} />
           </g>
         );
       })}
 
-      {/* Surplus label */}
-      <text x={310} y={70} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
-        surplus current — captured throughout passage
+      {/* Surplus label — to the left of the archive, vertically aligned with it */}
+      <text x={270} y={32} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="end" fill={strokeLight}>
+        surplus current
+      </text>
+      <text x={270} y={48} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="end" fill={strokeLight}>
+        captured throughout passage
       </text>
 
       {/* Bottom-axis label for time */}
-      <text x={310} y={260} fontSize="10" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
+      <text x={380} y={300} fontSize="15" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
         nine years of inscriptive normalization
       </text>
-      <text x={310} y={276} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+      <text x={380} y={324} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
         one-way passage · subject does not retrace
       </text>
     </svg>

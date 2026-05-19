@@ -94,7 +94,7 @@ export default function AlgorithmicCalibration() {
               ))}
             </tbody>
           </table>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Tbl. 2.2.A — Phase-II classroom-instrument sampling spec
           </p>
         </section>
@@ -111,7 +111,7 @@ export default function AlgorithmicCalibration() {
 
           <PTFRRubric />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 2.2.A — Specimen Form OHCOSE-PTFR/GenC, age 7
           </p>
         </section>

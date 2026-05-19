@@ -79,7 +79,7 @@ export default function DigitalArchitectures() {
 
           <FeedCompositionChart />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 3.3.A — Standard Phase-III feed composition (sample week)
           </p>
         </section>
@@ -160,17 +160,20 @@ function FeedCompositionChart() {
   ];
 
   const W = 620;
-  const barY = 64;
-  const barH = 56;
-  const labelsY = 150;
+  const barY = 80;
+  const barH = 68;
+  // Two rows of labels — wider vertical spacing prevents overlap when text is bigger.
+  const labelsRowA = 180; // even-indexed
+  const labelsRowB = 208; // odd-indexed
+  const VB_H = 260;
 
   let cumX = 30;
   return (
-    <svg viewBox={`0 0 ${W} 200`} className="w-full" role="img" aria-label="Phase-III feed composition">
-      <text x={W / 2} y={28} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
+    <svg viewBox={`0 0 ${W} ${VB_H}`} className="w-full" role="img" aria-label="Phase-III feed composition">
+      <text x={W / 2} y={32} fontSize="17" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
         FEED COMPOSITION · % of daily engagement minutes
       </text>
-      <text x={W / 2} y={44} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+      <text x={W / 2} y={54} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
         median daily feed exposure: 4 h 12 m
       </text>
 
@@ -179,24 +182,26 @@ function FeedCompositionChart() {
         const w = ((W - 60) * c.pct) / 100;
         const x = cumX;
         cumX += w;
+        const isRowA = i % 2 === 0;
+        const labelY = isRowA ? labelsRowA : labelsRowB;
         return (
           <g key={i}>
             <rect x={x} y={barY} width={w} height={barH} fill={c.fill} stroke={stroke} strokeWidth="0.8" />
-            {w > 35 && (
-              <text x={x + w / 2} y={barY + barH / 2 + 4} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={c.textFill}>
+            {w > 38 && (
+              <text x={x + w / 2} y={barY + barH / 2 + 6} fontSize="17" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={c.textFill}>
                 {c.pct}%
               </text>
             )}
             {/* Connector + label below */}
-            <line x1={x + w / 2} y1={barY + barH} x2={x + w / 2} y2={labelsY - 14 + (i % 2) * 12} stroke={strokeLight} strokeWidth="0.5" />
-            <text x={x + w / 2} y={labelsY + (i % 2) * 12} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
+            <line x1={x + w / 2} y1={barY + barH} x2={x + w / 2} y2={labelY - 16} stroke={strokeLight} strokeWidth="0.5" />
+            <text x={x + w / 2} y={labelY} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>
               {c.label}
             </text>
           </g>
         );
       })}
 
-      <text x={W / 2} y={186} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+      <text x={W / 2} y={VB_H - 12} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
         proportions adjusted weekly per subject; cohort means published in Annex 7
       </text>
     </svg>

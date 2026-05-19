@@ -76,7 +76,7 @@ export default function QuantifiedSelfhood() {
 
           <WellnessDashboard />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 3.5.A — Specimen Wellness Dashboard, evening view
           </p>
         </section>
@@ -188,7 +188,7 @@ function WellnessDashboard() {
           <circle cx="60" cy="60" r={ringR} fill="none" stroke="var(--color-paper-85)" strokeWidth="10" />
           <circle cx="60" cy="60" r={ringR} fill="none" stroke={accent} strokeWidth="10" strokeDasharray={`${ringDash} ${ringC - ringDash}`} strokeDashoffset={ringC / 4} transform="rotate(-90 60 60)" strokeLinecap="butt" />
           <text x="60" y="62" fontSize="22" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={ink}>{composite}</text>
-          <text x="60" y="80" fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={ink70}>/ 100</text>
+          <text x="60" y="80" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={ink70}>/ 100</text>
         </svg>
         <div className="flex-1">
           <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>Composite Wellness</div>

@@ -75,7 +75,7 @@ export default function DeskAsAltar() {
 
           <BellScheduleTimeline />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 2.1.A — Standard Phase-II school day (bell-keyed)
           </p>
         </section>
@@ -159,8 +159,8 @@ function BellScheduleTimeline() {
   const end = 15;
   const span = end - start;
   const W = 720;
-  const cellH = 44;
-  const yTop = 28;
+  const cellH = 56;
+  const yTop = 38;
 
   const fillFor = (cat: string) => {
     switch (cat) {
@@ -177,7 +177,7 @@ function BellScheduleTimeline() {
   };
 
   return (
-    <svg viewBox={`0 0 ${W} 130`} className="w-full" role="img" aria-label="Bell-keyed Phase-II school day">
+    <svg viewBox={`0 0 ${W} 180`} className="w-full" role="img" aria-label="Bell-keyed Phase-II school day">
       {/* Period blocks */}
       {periods.map((p, i) => {
         const x = ((p.start - start) / span) * W;
@@ -185,7 +185,7 @@ function BellScheduleTimeline() {
         return (
           <g key={i}>
             <rect x={x} y={yTop} width={w} height={cellH} fill={fillFor(p.cat)} stroke={stroke} strokeWidth="0.6" />
-            <text x={x + w / 2} y={yTop + cellH / 2 + 3} fontSize="10" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={textFor(p.cat)}>
+            <text x={x + w / 2} y={yTop + cellH / 2 + 3} fontSize="15" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={textFor(p.cat)}>
               {p.label}
             </text>
           </g>
@@ -209,7 +209,7 @@ function BellScheduleTimeline() {
         return (
           <g key={h}>
             <line x1={x} y1={yTop + cellH} x2={x} y2={yTop + cellH + 4} stroke={stroke} strokeWidth="0.5" />
-            <text x={x} y={yTop + cellH + 16} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor={h === 8 ? "start" : h === 15 ? "end" : "middle"} fill={strokeLight}>
+            <text x={x} y={yTop + cellH + 18} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor={h === 8 ? "start" : h === 15 ? "end" : "middle"} fill={strokeLight}>
               {h % 12 === 0 ? 12 : h % 12}:00{h < 12 ? "a" : "p"}
             </text>
           </g>
@@ -217,16 +217,16 @@ function BellScheduleTimeline() {
       })}
 
       {/* Legend */}
-      <g transform="translate(0, 102)">
+      <g transform="translate(0, 145)">
         {[
           { cat: "study",  label: "study" },
           { cat: "recess", label: "recess" },
           { cat: "feed",   label: "feed" },
           { cat: "ritual", label: "ritual (open / close)" },
         ].map((item, i) => (
-          <g key={item.cat} transform={`translate(${i * 170}, 0)`}>
-            <rect x={0} y={4} width={14} height={14} fill={fillFor(item.cat)} stroke={stroke} strokeWidth="0.5" />
-            <text x={20} y={15} fontSize="10" fontFamily="ui-monospace, monospace" fill={stroke}>{item.label}</text>
+          <g key={item.cat} transform={`translate(${i * 180}, 0)`}>
+            <rect x={0} y={2} width={18} height={18} fill={fillFor(item.cat)} stroke={stroke} strokeWidth="0.5" />
+            <text x={26} y={16} fontSize="15" fontFamily="ui-monospace, monospace" fill={stroke}>{item.label}</text>
           </g>
         ))}
       </g>
@@ -234,7 +234,7 @@ function BellScheduleTimeline() {
       {/* Bell marker label */}
       <g transform="translate(0, 8)">
         <circle cx={5} cy={6} r="3" fill={accent} />
-        <text x={14} y={10} fontSize="9" fontFamily="ui-monospace, monospace" fill={strokeLight}>bell strike</text>
+        <text x={14} y={10} fontSize="14" fontFamily="ui-monospace, monospace" fill={strokeLight}>bell strike</text>
       </g>
     </svg>
   );

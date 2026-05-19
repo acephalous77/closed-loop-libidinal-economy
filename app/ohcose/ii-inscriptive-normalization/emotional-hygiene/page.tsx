@@ -122,7 +122,7 @@ export default function EmotionalHygiene() {
               ))}
             </tbody>
           </table>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Tbl. 2.3.A — Phase-II designation pathways (rev. 21.2)
           </p>
         </section>
@@ -137,7 +137,7 @@ export default function EmotionalHygiene() {
 
           <EmotionalHygieneReport />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 2.3.A — Specimen Emotional Hygiene Compliance Report
           </p>
         </section>

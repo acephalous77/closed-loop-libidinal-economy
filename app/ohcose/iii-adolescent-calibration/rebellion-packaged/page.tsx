@@ -74,7 +74,7 @@ export default function RebellionPackaged() {
 
           <RecuperationFlow />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 3.2.A — Standard subculture recuperation pathway
           </p>
         </section>
@@ -147,12 +147,12 @@ function RecuperationFlow() {
   ];
 
   const W = 620;
-  const stageH = 60;
-  const yMid = 100;
+  const stageH = 92;
+  const yMid = 120;
   const stageW = (W - 60) / stages.length;
 
   return (
-    <svg viewBox={`0 0 ${W} 200`} className="w-full" role="img" aria-label="Subculture recuperation pathway">
+    <svg viewBox={`0 0 ${W} 240`} className="w-full" role="img" aria-label="Subculture recuperation pathway">
       {/* Stage boxes left-to-right */}
       {stages.map((s, i) => {
         const x = 30 + i * stageW;
@@ -160,13 +160,13 @@ function RecuperationFlow() {
         return (
           <g key={i}>
             <rect x={x + 4} y={yMid - stageH / 2} width={stageW - 8} height={stageH} fill={isLast ? accent : paper95} stroke={stroke} strokeWidth="1.5" />
-            <text x={x + stageW / 2} y={yMid - 6} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={isLast ? paper : stroke}>
+            <text x={x + stageW / 2} y={yMid - 14} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={isLast ? paper : stroke}>
               {s.label}
             </text>
-            <text x={x + stageW / 2} y={yMid + 10} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={isLast ? paper : strokeLight}>
+            <text x={x + stageW / 2} y={yMid + 8} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={isLast ? paper : strokeLight}>
               {s.t}
             </text>
-            <text x={x + stageW / 2} y={yMid + 24} fontSize="8" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={isLast ? paper : strokeLight}>
+            <text x={x + stageW / 2} y={yMid + 28} fontSize="12" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={isLast ? paper : strokeLight}>
               {s.note}
             </text>
             {/* Connector arrow */}
@@ -183,13 +183,13 @@ function RecuperationFlow() {
       {/* Out-of-bounds rejection path — fork down at "raw emergence" */}
       <g>
         <path d={`M ${30 + stageW / 2} ${yMid + stageH / 2} L ${30 + stageW / 2} ${yMid + stageH / 2 + 30}`} stroke={accent} strokeWidth="1.5" strokeDasharray="3 3" fill="none" />
-        <text x={30 + stageW / 2} y={yMid + stageH / 2 + 46} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={accent}>
+        <text x={30 + stageW / 2} y={yMid + stageH / 2 + 46} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={accent}>
           if out-of-bounds: see 3.2.3
         </text>
       </g>
 
       {/* Header label */}
-      <text x={W / 2} y={28} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
+      <text x={W / 2} y={36} fontSize="16" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
         STANDARD RECUPERATION PATHWAY · 12–18 mo
       </text>
     </svg>

@@ -75,7 +75,7 @@ export default function PlayingAtConsumption() {
 
           <ConsumptionPipeline />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 2.5.A — Phase-II consumption pipeline (standard pathway)
           </p>
         </section>
@@ -146,56 +146,56 @@ function ConsumptionPipeline() {
   const paper95 = "var(--color-paper-95)";
 
   const stages = [
-    { label: "cradle toy", age: "age 4", width: 80 },
-    { label: "+ accessory line", age: "age 5–6", width: 100 },
-    { label: "+ character ecosystem", age: "age 6–8", width: 120 },
-    { label: "+ digital extension", age: "age 8–10", width: 110 },
-    { label: "+ social status", age: "age 10–12", width: 100 },
+    { label: "cradle toy", age: "age 4", width: 95 },
+    { label: "+ accessory line", age: "age 5–6", width: 130 },
+    { label: "+ character ecosystem", age: "age 6–8", width: 160 },
+    { label: "+ digital extension", age: "age 8–10", width: 140 },
+    { label: "+ social status", age: "age 10–12", width: 130 },
   ];
+  const VB_W = 720;
+  const VB_H = 280;
+  const stageMidY = 110;
 
   return (
-    <svg viewBox="0 0 600 220" className="w-full" role="img" aria-label="Phase-II consumption pipeline">
+    <svg viewBox={`0 0 ${VB_W} ${VB_H}`} className="w-full" role="img" aria-label="Phase-II consumption pipeline">
       {/* Stage funnel — boxes left-to-right, getting wider/taller */}
       {(() => {
-        let x = 30;
+        let x = 16;
         return stages.map((s, i) => {
           const w = s.width;
-          const h = 50 + i * 8;
-          const y = 80 - h / 2;
+          const h = 70 + i * 10;
+          const y = stageMidY - h / 2;
+          const isLast = i === stages.length - 1;
           const el = (
             <g key={i}>
-              <rect x={x} y={y} width={w} height={h} fill={i === stages.length - 1 ? accent : paper95} stroke={stroke} strokeWidth="1.5" />
-              <text x={x + w / 2} y={80 - 4} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={i === stages.length - 1 ? paper : stroke}>
+              <rect x={x} y={y} width={w} height={h} fill={isLast ? accent : paper95} stroke={stroke} strokeWidth="1.5" />
+              <text x={x + w / 2} y={stageMidY - 4} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={isLast ? paper : stroke}>
                 {s.label}
               </text>
-              <text x={x + w / 2} y={80 + 12} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={i === stages.length - 1 ? paper : strokeLight}>
+              <text x={x + w / 2} y={stageMidY + 16} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={isLast ? paper : strokeLight}>
                 {s.age}
               </text>
             </g>
           );
-          x += w + 8;
+          x += w + 4;
           return el;
         });
       })()}
 
-      {/* Arrow from end of pipeline to "Phase IV brand-loyalty profile" */}
-      <line x1={555} y1={80} x2={580} y2={80} stroke={stroke} strokeWidth="1.5" />
-      <polygon points="580,76 588,80 580,84" fill={stroke} />
-
       {/* Output node */}
       <g>
-        <rect x={20} y={170} width={560} height={36} fill={paper} stroke={stroke} strokeWidth="1" strokeDasharray="3 3" />
-        <text x={300} y={185} fontSize="10" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
+        <rect x={30} y={220} width={VB_W - 60} height={50} fill={paper} stroke={stroke} strokeWidth="1" strokeDasharray="3 3" />
+        <text x={VB_W / 2} y={240} fontSize="15" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={stroke}>
           OUTPUT: Phase IV onboarding · brand-loyalty profile installed
         </text>
-        <text x={300} y={198} fontSize="9" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
+        <text x={VB_W / 2} y={258} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>
           subject arrives at age 19 with pre-calibrated consumer preferences
         </text>
       </g>
 
       {/* Connector arrow pipeline → output */}
-      <path d="M 300 105 L 300 168" stroke={stroke} strokeWidth="0.8" strokeDasharray="2 2" fill="none" />
-      <polygon points="296,168 300,176 304,168" fill={stroke} />
+      <path d={`M ${VB_W / 2} 168 L ${VB_W / 2} 218`} stroke={stroke} strokeWidth="0.8" strokeDasharray="2 2" fill="none" />
+      <polygon points={`${VB_W / 2 - 4},218 ${VB_W / 2},226 ${VB_W / 2 + 4},218`} fill={stroke} />
     </svg>
   );
 }

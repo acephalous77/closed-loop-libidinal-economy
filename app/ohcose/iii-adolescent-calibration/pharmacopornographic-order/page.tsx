@@ -105,7 +105,7 @@ export default function PharmacopornographicOrder() {
 
           <SubstanceSchedule />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Tbl. 3.4.A — Phase-III Substance Schedule (extract, rev. 33.7)
           </p>
         </section>

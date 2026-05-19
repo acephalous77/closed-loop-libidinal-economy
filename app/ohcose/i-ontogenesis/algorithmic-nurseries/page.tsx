@@ -249,14 +249,20 @@ function DailyStimulusTimeline() {
     return cat === "brand" || cat === "soothe" ? paper : stroke;
   };
 
+  // Boosted dimensions: bar 56 → 64, with breathing room top/bottom.
+  const CELL_H = 64;
+  const BAR_Y = 30;
+  const LEGEND_Y = BAR_Y + CELL_H + 28;
+  const VB_H = LEGEND_Y + 36;
+
   return (
-    <svg viewBox={`0 0 ${W} 100`} className="w-full" role="img" aria-label="Daily stimulus timeline">
+    <svg viewBox={`0 0 ${W} ${VB_H}`} className="w-full" role="img" aria-label="Daily stimulus timeline">
       {/* Hour cells */}
       {HOURS.map((b) => (
         <g key={b.h}>
-          <rect x={b.h * cellW} y={20} width={cellW} height={cellH} fill={fillForCat(b.cat)} stroke={stroke} strokeWidth="0.5" />
+          <rect x={b.h * cellW} y={BAR_Y} width={cellW} height={CELL_H} fill={fillForCat(b.cat)} stroke={stroke} strokeWidth="0.5" />
           {b.label && (
-            <text x={b.h * cellW + cellW / 2} y={20 + cellH / 2 + 3} fontSize="7" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={textColorForCat(b.cat)}>
+            <text x={b.h * cellW + cellW / 2} y={BAR_Y + CELL_H / 2 + 5} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={textColorForCat(b.cat)}>
               {b.label}
             </text>
           )}
@@ -266,24 +272,24 @@ function DailyStimulusTimeline() {
       {/* Hour labels at top */}
       {[0, 6, 12, 18, 24].map((h) => (
         <g key={h}>
-          <line x1={h * cellW} y1={10} x2={h * cellW} y2={20} stroke={stroke} strokeWidth="0.5" />
-          <text x={h * cellW} y={8} fontSize="8" fontFamily="ui-monospace, monospace" textAnchor={h === 0 ? "start" : h === 24 ? "end" : "middle"} fill={strokeLight}>
+          <line x1={h * cellW} y1={BAR_Y - 8} x2={h * cellW} y2={BAR_Y} stroke={stroke} strokeWidth="0.5" />
+          <text x={h * cellW} y={BAR_Y - 12} fontSize="13" fontFamily="ui-monospace, monospace" textAnchor={h === 0 ? "start" : h === 24 ? "end" : "middle"} fill={strokeLight}>
             {h.toString().padStart(2, "0")}:00
           </text>
         </g>
       ))}
 
       {/* Legend */}
-      <g transform="translate(0, 72)">
+      <g transform={`translate(0, ${LEGEND_Y})`}>
         {[
           { cat: "brand", label: "brand-primer" },
           { cat: "soothe", label: "soothe" },
           { cat: "motor", label: "motor" },
           { cat: "rest", label: "rest / sleep" },
         ].map((item, i) => (
-          <g key={item.cat} transform={`translate(${i * 130}, 0)`}>
-            <rect x={0} y={4} width={14} height={14} fill={fillForCat(item.cat)} stroke={stroke} strokeWidth="0.5" />
-            <text x={20} y={15} fontSize="9" fontFamily="ui-monospace, monospace" fill={stroke}>
+          <g key={item.cat} transform={`translate(${i * 165}, 0)`}>
+            <rect x={0} y={0} width={20} height={20} fill={fillForCat(item.cat)} stroke={stroke} strokeWidth="0.5" />
+            <text x={28} y={15} fontSize="14" fontFamily="ui-monospace, monospace" fill={stroke}>
               {item.label}
             </text>
           </g>

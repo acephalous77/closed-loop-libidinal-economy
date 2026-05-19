@@ -74,7 +74,7 @@ export default function CalibratingDesire() {
 
           <SubjectivityCatalogue />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.7rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
             Fig. 3.1.A — Sample page from the Phase-III Subjectivity Catalogue
           </p>
         </section>
