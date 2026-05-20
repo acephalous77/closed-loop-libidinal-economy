@@ -603,12 +603,38 @@ export default function ZineSpread() {
           </div>
         </div>
 
-        {/* Stamps — kept within viewport, anchored to title block */}
-        <div style={{ position: "absolute", top: 56, right: 32, zIndex: 11, opacity: 0.94, transform: "translateX(-12px)" }}>
-          <RubberStamp text="NO EGRESS · 360°" rotate={-9} color={STAMP_RED} size={0.78} />
+        {/* Stamps — kept fully within viewport. The SVG itself is ~190x47
+           and gets rotated; rotation makes the bounding box wider, so we
+           anchor with explicit padding instead of right:0. */}
+        <div
+          style={{
+            position: "absolute",
+            top: 60,
+            right: 56,
+            zIndex: 11,
+            opacity: 0.94,
+            width: 200,
+            display: "flex",
+            justifyContent: "flex-end",
+            pointerEvents: "none",
+          }}
+        >
+          <RubberStamp text="NO EGRESS · 360°" rotate={-9} color={STAMP_RED} size={0.74} />
         </div>
-        <div style={{ position: "absolute", top: 124, right: 32, zIndex: 11, opacity: 0.88, transform: "translateX(-44px)" }}>
-          <RubberStamp text="CIRCULATE FAST" rotate={6} color={NEON_GREEN} size={0.66} />
+        <div
+          style={{
+            position: "absolute",
+            top: 128,
+            right: 88,
+            zIndex: 11,
+            opacity: 0.88,
+            width: 180,
+            display: "flex",
+            justifyContent: "flex-end",
+            pointerEvents: "none",
+          }}
+        >
+          <RubberStamp text="CIRCULATE FAST" rotate={6} color={NEON_GREEN} size={0.62} />
         </div>
 
         {/* Title — explicit max-width to prevent overflow */}
