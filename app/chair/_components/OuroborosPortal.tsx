@@ -3,22 +3,32 @@
 /**
  * OuroborosPortal — the chair page, end to end.
  *
- * Single unified register: Geist + Geist Mono, warm cream paper, vivid
- * red accent. The chair-as-altar is sticky from first paint. The harvest
- * strip is the chrome. The six phases are the page's only structure.
+ * No chair illustration. The chair was the weak link — every attempt at
+ * an SVG chair read as either a kiosk or a frankenstein, and surrounding
+ * a small chair with a big ring just exposed the empty whitespace
+ * between them. The page now does the work through typography and
+ * small focused diagrams: a footprint plan, a sedation curve, a port
+ * map, a live harvest dashboard, a Form §6 flowchart, a re-issue clock.
  *
- * The product-launch elements (tiers + pricing, testimonial, fitting
- * inquiry) are folded into the phases where they belong:
- *   • Phase 02 Habitualization → tier table (Essential / Pro / Eternal)
- *   • Phase 04 Obsolescence    → testimonial-as-reading
- *   • Phase 06 Exit            → fitting inquiry (the loop accepts the
- *                                next occupant)
+ * The harvest strip is the chrome. The visitor's own activity is the
+ * apparatus. Cursor particles drift toward the Ψ readout — the reader
+ * watches their own cursor converted into psychic surplus.
  *
- * Imperial Archive dotted-underline anchors woven across all phases.
+ * Product-launch elements still folded into phases:
+ *   • Phase 02 Habitualization → TIERS block (Essential / Pro / Eternal)
+ *   • Phase 04 Obsolescence    → READING block (testimonial as a reading)
+ *   • Phase 06 Exit            → ACCEPTANCE block (fitting inquiry)
  */
 
 import React, { useEffect, useRef, useState, type ReactNode } from "react";
-import ChairSVG from "./ChairSVG";
+import {
+  FootprintPlan,
+  SedationCurve,
+  PortMap,
+  HarvestDashboard,
+  Form6Flow,
+  ReissueClock,
+} from "./PhaseDiagrams";
 
 // ─── Design-bundle palette tokens ─────────────────────────────────────
 const BG = "#f1efea";
@@ -27,7 +37,6 @@ const PAPER = "#ffffff";
 const INK = "#0a0a0a";
 const INK_SOFT = "#1a1a1a";
 const MUTED = "#6b6b66";
-const HAIR = "rgba(10,10,10,0.55)";
 const LINE = "rgba(10,10,10,0.14)";
 const LINE_SOFT = "rgba(10,10,10,0.07)";
 const ACCENT = "#e23b2a";
@@ -64,6 +73,269 @@ function A({
   );
 }
 
+// ─── Glitch dictionary ────────────────────────────────────────────────
+const GLITCH_WORDS: Record<string, string[]> = {
+  Effortless: ["Inescapable", "Mandatory", "Total"],
+  effortless: ["inescapable", "mandatory", "total"],
+  life: ["surplus", "throughput", "yield"],
+  comfort: ["compliance", "containment"],
+  lifestyle: ["enclosure", "occupancy"],
+  occupant: ["subject", "tenant", "substrate"],
+  product: ["apparatus", "enclosure"],
+  living: ["being-housed", "being-fed"],
+  freedom: ["interpellation", "choice-set"],
+  standing: ["exit", "withdrawal", "refusal"],
+  system: ["regime", "apparatus", "mechanism"],
+};
+
+function GlitchText({
+  children,
+  intensity = 0.5,
+  style,
+}: {
+  children: string;
+  intensity?: number;
+  style?: React.CSSProperties;
+}) {
+  const [text, setText] = useState(children);
+  useEffect(() => {
+    if (intensity <= 0) {
+      setText(children);
+      return;
+    }
+    const id = window.setInterval(() => {
+      if (Math.random() > intensity * 0.45) {
+        setText(children);
+        return;
+      }
+      let t = children;
+      for (const [w, repls] of Object.entries(GLITCH_WORDS)) {
+        const re = new RegExp(`\\b${w}\\b`);
+        if (re.test(t) && Math.random() < 0.55) {
+          t = t.replace(re, repls[(Math.random() * repls.length) | 0]);
+        }
+      }
+      setText(t);
+      window.setTimeout(() => setText(children), 240 + Math.random() * 500);
+    }, 2200 + Math.random() * 2400);
+    return () => window.clearInterval(id);
+  }, [children, intensity]);
+  return <span style={style}>{text}</span>;
+}
+
+// ─── Visitor-harvest hook ─────────────────────────────────────────────
+interface Harvest {
+  TI: number;
+  CI: number;
+  EI: number;
+  LI: number;
+  CE: number;
+  RE: number;
+  PS: number;
+  moves: number;
+  clicks: number;
+  scrolls: number;
+  dwellSec: number;
+  surplusLevel: number;
+}
+
+function useVisitorHarvest(rate = 1): Harvest {
+  const [m, setM] = useState<Harvest>({
+    TI: 0,
+    CI: 0,
+    EI: 0,
+    LI: 0,
+    CE: 0,
+    RE: 0,
+    PS: 0,
+    moves: 0,
+    clicks: 0,
+    scrolls: 0,
+    dwellSec: 0,
+    surplusLevel: 0,
+  });
+  const s = useRef({
+    moves: 0,
+    clicks: 0,
+    scrolls: 0,
+    dwellSec: 0,
+    cogAccum: 0,
+    emoAccum: 0,
+    surplus: 0,
+  });
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      s.current.moves += 1;
+      s.current.cogAccum += Math.hypot(e.movementX || 0, e.movementY || 0) * 0.002;
+    };
+    const onScroll = () => {
+      s.current.scrolls += 1;
+      s.current.cogAccum += 0.4;
+    };
+    const onClick = () => {
+      s.current.clicks += 1;
+      s.current.emoAccum += 1.4;
+    };
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("click", onClick);
+    const tick = window.setInterval(() => {
+      s.current.dwellSec += 0.5;
+      const TI = Math.log1p(s.current.dwellSec) * 6 * rate;
+      const CI = Math.log1p(s.current.cogAccum) * 4.5 * rate;
+      const EI = Math.log1p(s.current.emoAccum) * 3 * rate;
+      const LI = TI + CI + EI;
+      const total = s.current.moves + s.current.scrolls + s.current.clicks;
+      const CE =
+        total > 0 ? Math.min(1, (s.current.clicks * 8 + s.current.scrolls) / total) : 0;
+      const RE = LI * 0.07;
+      const PS = LI * CE;
+      s.current.surplus += PS * 0.0002 * rate;
+      if (s.current.surplus > 1) s.current.surplus = 0;
+      setM({
+        TI,
+        CI,
+        EI,
+        LI,
+        CE,
+        RE,
+        PS,
+        moves: s.current.moves,
+        clicks: s.current.clicks,
+        scrolls: s.current.scrolls,
+        dwellSec: s.current.dwellSec,
+        surplusLevel: s.current.surplus,
+      });
+    }, 500);
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("click", onClick);
+      window.clearInterval(tick);
+    };
+  }, [rate]);
+  return m;
+}
+
+// ─── Cursor trail being absorbed by Ψ readout ─────────────────────────
+function CursorTrail({
+  target,
+}: {
+  target: React.MutableRefObject<{ x: number; y: number }>;
+}) {
+  const ref = useRef<HTMLCanvasElement>(null);
+  const particles = useRef<
+    Array<{ x: number; y: number; born: number; life: number; sx: number; sy: number }>
+  >([]);
+  const last = useRef({ x: 0, y: 0, t: 0 });
+
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const onMove = (e: MouseEvent) => {
+      const now = performance.now();
+      const dt = now - last.current.t;
+      if (dt < 18) return;
+      last.current = { x: e.clientX, y: e.clientY, t: now };
+      particles.current.push({
+        x: e.clientX,
+        y: e.clientY,
+        born: now,
+        life: 1200 + Math.random() * 600,
+        sx: e.clientX,
+        sy: e.clientY,
+      });
+      if (particles.current.length > 120) particles.current.shift();
+    };
+    window.addEventListener("mousemove", onMove);
+
+    let raf = 0;
+    const loop = () => {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      const now = performance.now();
+      const tx = target.current?.x ?? window.innerWidth / 2;
+      const ty = target.current?.y ?? 30;
+      particles.current = particles.current.filter((p) => {
+        const age = (now - p.born) / p.life;
+        if (age >= 1) return false;
+        const e = age * age;
+        p.x = p.sx + (tx - p.sx) * e;
+        p.y = p.sy + (ty - p.sy) * e;
+        const alpha = (1 - age) * 0.5;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 2.2 * (1 - age) + 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(122, 29, 28, ${alpha})`;
+        ctx.fill();
+        ctx.strokeStyle = `rgba(122, 29, 28, ${alpha * 0.5})`;
+        ctx.lineWidth = 0.4;
+        ctx.beginPath();
+        ctx.moveTo(p.sx, p.sy);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+        return true;
+      });
+      raf = requestAnimationFrame(loop);
+    };
+    loop();
+    return () => {
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("mousemove", onMove);
+      cancelAnimationFrame(raf);
+    };
+  }, [target]);
+
+  return (
+    <canvas
+      ref={ref}
+      style={{
+        position: "fixed",
+        inset: 0,
+        pointerEvents: "none",
+        zIndex: 5,
+        mixBlendMode: "multiply",
+      }}
+      aria-hidden
+    />
+  );
+}
+
+// ─── Loop-back: scroll to end → return to top ─────────────────────────
+function useLoopBack(enabled: boolean) {
+  useEffect(() => {
+    if (!enabled) return;
+    let triggered = false;
+    const onScroll = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (window.scrollY >= max - 4 && !triggered) {
+        triggered = true;
+        window.setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+          window.setTimeout(() => {
+            triggered = false;
+          }, 1500);
+        }, 600);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [enabled]);
+}
+
 // ─── OHCOSE phases ────────────────────────────────────────────────────
 interface Phase {
   id: string;
@@ -76,7 +348,8 @@ interface Phase {
   spec: Array<[string, ReactNode]>;
   leak: ReactNode;
   leakCite: string;
-  extra?: ReactNode; // testimonial, tier table, fitting block — folded in
+  diagram: (m: Harvest) => ReactNode;
+  extra?: ReactNode;
 }
 
 const PHASES: Phase[] = [
@@ -111,6 +384,7 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Zuboff, on the new economic unit",
+    diagram: () => <FootprintPlan />,
   },
   {
     id: "habitualization",
@@ -132,14 +406,13 @@ const PHASES: Phase[] = [
       ["Cooling-off", "30 days"],
       [
         "Posthumous mode",
-        <>
-          <A
-            to="eternal-tier"
-            title="Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity"
-          >
-            available
-          </A>
-        </>,
+        <A
+          key="post"
+          to="eternal-tier"
+          title="Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity"
+        >
+          available
+        </A>,
       ],
       ["Fitting", "in-residence · 4 h"],
     ],
@@ -153,7 +426,7 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— after Stiegler",
-    // Tier table — the product-launch Configurations, folded in.
+    diagram: () => <SedationCurve />,
     extra: <TierTable />,
   },
   {
@@ -181,6 +454,7 @@ const PHASES: Phase[] = [
         <>
           14–22 W · sold per{" "}
           <A
+            key="kwh"
             to="waste-subsystem"
             title="Imperial Archive 2197.34 — On the waste-extraction subsystem"
           >
@@ -198,6 +472,7 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Marcuse · Preciado · Berardi",
+    diagram: () => <PortMap />,
   },
   {
     id: "obsolescence",
@@ -231,7 +506,7 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Zuboff · Selimović",
-    // Testimonial-as-reading — the product-launch testimonial, folded in.
+    diagram: (m) => <HarvestDashboard {...m} />,
     extra: <Reading />,
   },
   {
@@ -270,6 +545,7 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Terms of Occupancy, §3",
+    diagram: () => <Form6Flow />,
   },
   {
     id: "exit",
@@ -295,8 +571,7 @@ const PHASES: Phase[] = [
     ],
     leak: <>The serpent does not bite its tail. It eats. Slowly. Forever.</>,
     leakCite: "— Selimović, on the form of the loop",
-    // Fitting inquiry — the product-launch CTA, folded in as the loop's
-    // mouth opening for the next occupant.
+    diagram: (m) => <ReissueClock dwellSec={m.dwellSec} />,
     extra: <FittingInquiry />,
   },
 ];
@@ -458,7 +733,6 @@ function Reading() {
           margin: "0 0 12px",
           fontWeight: 400,
           letterSpacing: "-0.005em",
-          textWrap: "pretty" as const,
         }}
       >
         &ldquo;
@@ -527,7 +801,6 @@ function FittingInquiry() {
           margin: "0 0 18px",
           fontWeight: 400,
           letterSpacing: "-0.005em",
-          textWrap: "pretty" as const,
         }}
       >
         A certified Ouroboros Life System{" "}
@@ -570,270 +843,7 @@ function FittingInquiry() {
   );
 }
 
-// ─── Glitch dictionary ────────────────────────────────────────────────
-const GLITCH_WORDS: Record<string, string[]> = {
-  Effortless: ["Inescapable", "Mandatory", "Total"],
-  effortless: ["inescapable", "mandatory", "total"],
-  life: ["surplus", "throughput", "yield"],
-  comfort: ["compliance", "containment"],
-  lifestyle: ["enclosure", "occupancy"],
-  occupant: ["subject", "tenant", "substrate"],
-  product: ["apparatus", "enclosure"],
-  living: ["being-housed", "being-fed"],
-  freedom: ["interpellation", "choice-set"],
-  standing: ["exit", "withdrawal", "refusal"],
-  system: ["regime", "apparatus", "mechanism"],
-};
-
-function GlitchText({
-  children,
-  intensity = 0.5,
-  style,
-}: {
-  children: string;
-  intensity?: number;
-  style?: React.CSSProperties;
-}) {
-  const [text, setText] = useState(children);
-  useEffect(() => {
-    if (intensity <= 0) {
-      setText(children);
-      return;
-    }
-    const id = window.setInterval(() => {
-      if (Math.random() > intensity * 0.45) {
-        setText(children);
-        return;
-      }
-      let t = children;
-      for (const [w, repls] of Object.entries(GLITCH_WORDS)) {
-        const re = new RegExp(`\\b${w}\\b`);
-        if (re.test(t) && Math.random() < 0.55) {
-          t = t.replace(re, repls[(Math.random() * repls.length) | 0]);
-        }
-      }
-      setText(t);
-      window.setTimeout(() => setText(children), 240 + Math.random() * 500);
-    }, 2200 + Math.random() * 2400);
-    return () => window.clearInterval(id);
-  }, [children, intensity]);
-  return <span style={style}>{text}</span>;
-}
-
-// ─── Visitor-harvest hook ─────────────────────────────────────────────
-interface Harvest {
-  TI: number;
-  CI: number;
-  EI: number;
-  LI: number;
-  CE: number;
-  RE: number;
-  PS: number;
-  moves: number;
-  clicks: number;
-  scrolls: number;
-  dwellSec: number;
-  surplusLevel: number;
-}
-
-function useVisitorHarvest(rate = 1): Harvest {
-  const [m, setM] = useState<Harvest>({
-    TI: 0,
-    CI: 0,
-    EI: 0,
-    LI: 0,
-    CE: 0,
-    RE: 0,
-    PS: 0,
-    moves: 0,
-    clicks: 0,
-    scrolls: 0,
-    dwellSec: 0,
-    surplusLevel: 0,
-  });
-  const s = useRef({
-    moves: 0,
-    clicks: 0,
-    scrolls: 0,
-    dwellSec: 0,
-    cogAccum: 0,
-    emoAccum: 0,
-    surplus: 0,
-  });
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      s.current.moves += 1;
-      s.current.cogAccum += Math.hypot(e.movementX || 0, e.movementY || 0) * 0.002;
-    };
-    const onScroll = () => {
-      s.current.scrolls += 1;
-      s.current.cogAccum += 0.4;
-    };
-    const onClick = () => {
-      s.current.clicks += 1;
-      s.current.emoAccum += 1.4;
-    };
-    window.addEventListener("mousemove", onMove);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("click", onClick);
-    const tick = window.setInterval(() => {
-      s.current.dwellSec += 0.5;
-      const TI = Math.log1p(s.current.dwellSec) * 6 * rate;
-      const CI = Math.log1p(s.current.cogAccum) * 4.5 * rate;
-      const EI = Math.log1p(s.current.emoAccum) * 3 * rate;
-      const LI = TI + CI + EI;
-      const total = s.current.moves + s.current.scrolls + s.current.clicks;
-      const CE =
-        total > 0 ? Math.min(1, (s.current.clicks * 8 + s.current.scrolls) / total) : 0;
-      const RE = LI * 0.07;
-      const PS = LI * CE;
-      s.current.surplus += PS * 0.0002 * rate;
-      if (s.current.surplus > 1) s.current.surplus = 0;
-      setM({
-        TI,
-        CI,
-        EI,
-        LI,
-        CE,
-        RE,
-        PS,
-        moves: s.current.moves,
-        clicks: s.current.clicks,
-        scrolls: s.current.scrolls,
-        dwellSec: s.current.dwellSec,
-        surplusLevel: s.current.surplus,
-      });
-    }, 500);
-    return () => {
-      window.removeEventListener("mousemove", onMove);
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("click", onClick);
-      window.clearInterval(tick);
-    };
-  }, [rate]);
-  return m;
-}
-
-// ─── Cursor trail being absorbed by the chair ─────────────────────────
-function CursorTrail({
-  chairCenter,
-}: {
-  chairCenter: React.MutableRefObject<{ x: number; y: number }>;
-}) {
-  const ref = useRef<HTMLCanvasElement>(null);
-  const particles = useRef<
-    Array<{ x: number; y: number; born: number; life: number; sx: number; sy: number }>
-  >([]);
-  const last = useRef({ x: 0, y: 0, t: 0 });
-
-  useEffect(() => {
-    const canvas = ref.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      canvas.style.width = window.innerWidth + "px";
-      canvas.style.height = window.innerHeight + "px";
-      ctx.setTransform(1, 0, 0, 1, 0, 0);
-      ctx.scale(dpr, dpr);
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const onMove = (e: MouseEvent) => {
-      const now = performance.now();
-      const dt = now - last.current.t;
-      if (dt < 18) return;
-      last.current = { x: e.clientX, y: e.clientY, t: now };
-      particles.current.push({
-        x: e.clientX,
-        y: e.clientY,
-        born: now,
-        life: 1200 + Math.random() * 600,
-        sx: e.clientX,
-        sy: e.clientY,
-      });
-      if (particles.current.length > 120) particles.current.shift();
-    };
-    window.addEventListener("mousemove", onMove);
-
-    let raf = 0;
-    const loop = () => {
-      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-      const now = performance.now();
-      const cx = chairCenter.current?.x ?? window.innerWidth / 2;
-      const cy = chairCenter.current?.y ?? window.innerHeight / 2;
-      particles.current = particles.current.filter((p) => {
-        const age = (now - p.born) / p.life;
-        if (age >= 1) return false;
-        const e = age * age;
-        p.x = p.sx + (cx - p.sx) * e;
-        p.y = p.sy + (cy - p.sy) * e;
-        const alpha = (1 - age) * 0.5;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2.2 * (1 - age) + 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(122, 29, 28, ${alpha})`;
-        ctx.fill();
-        ctx.strokeStyle = `rgba(122, 29, 28, ${alpha * 0.5})`;
-        ctx.lineWidth = 0.4;
-        ctx.beginPath();
-        ctx.moveTo(p.sx, p.sy);
-        ctx.lineTo(p.x, p.y);
-        ctx.stroke();
-        return true;
-      });
-      raf = requestAnimationFrame(loop);
-    };
-    loop();
-    return () => {
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, [chairCenter]);
-
-  return (
-    <canvas
-      ref={ref}
-      style={{
-        position: "fixed",
-        inset: 0,
-        pointerEvents: "none",
-        zIndex: 5,
-        mixBlendMode: "multiply",
-      }}
-      aria-hidden
-    />
-  );
-}
-
-// ─── Loop-back: scroll to end → return to top ─────────────────────────
-function useLoopBack(enabled: boolean) {
-  useEffect(() => {
-    if (!enabled) return;
-    let triggered = false;
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (window.scrollY >= max - 4 && !triggered) {
-        triggered = true;
-        window.setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          window.setTimeout(() => {
-            triggered = false;
-          }, 1500);
-        }, 600);
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [enabled]);
-}
-
-// ─── Sub-components ───────────────────────────────────────────────────
+// ─── Phase strip in harvest header ────────────────────────────────────
 function PhaseStrip({ phase }: { phase: number }) {
   return (
     <div style={{ display: "flex", gap: 2 }}>
@@ -873,11 +883,13 @@ function Metric({
   value,
   big,
   accent,
+  forwardRef,
 }: {
   label: string;
   value: string;
   big?: boolean;
   accent?: boolean;
+  forwardRef?: React.Ref<HTMLSpanElement>;
 }) {
   return (
     <div
@@ -901,6 +913,7 @@ function Metric({
         {label}
       </span>
       <span
+        ref={forwardRef}
         style={{
           color: accent ? ACCENT : INK,
           fontVariantNumeric: "tabular-nums",
@@ -914,7 +927,15 @@ function Metric({
   );
 }
 
-function HarvestStrip({ m, phase }: { m: Harvest; phase: number }) {
+function HarvestStrip({
+  m,
+  phase,
+  psiRef,
+}: {
+  m: Harvest;
+  phase: number;
+  psiRef: React.Ref<HTMLSpanElement>;
+}) {
   const fmt = (n: number, d = 2) => n.toFixed(d);
   return (
     <header
@@ -987,7 +1008,7 @@ function HarvestStrip({ m, phase }: { m: Harvest; phase: number }) {
         <Metric label="EI" value={fmt(m.EI)} />
         <Metric label="LI" value={fmt(m.LI)} big />
         <Metric label="CE" value={fmt(m.CE * 100, 1) + "%"} />
-        <Metric label="Ψ" value={fmt(m.PS)} big accent />
+        <Metric label="Ψ" value={fmt(m.PS)} big accent forwardRef={psiRef} />
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 18, whiteSpace: "nowrap" }}>
         <div
@@ -1013,12 +1034,14 @@ function PhaseSection({
   onActive,
   glitch,
   isLast,
+  harvest,
 }: {
   phaseData: Phase;
   idx: number;
   onActive: (i: number) => void;
   glitch: number;
   isLast: boolean;
+  harvest: Harvest;
 }) {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -1038,193 +1061,193 @@ function PhaseSection({
     <section
       ref={ref}
       style={{
-        padding: "0 0 110px",
+        padding: "80px 0 100px",
+        borderBottom: isLast ? "none" : `1px solid ${LINE_SOFT}`,
         position: "relative",
       }}
       data-phase={phaseData.id}
     >
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div style={{ marginBottom: 36 }}>
-          <div
+      <div style={{ marginBottom: 36 }}>
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: 11,
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+            color: MUTED,
+            marginBottom: 18,
+            fontWeight: 500,
+          }}
+        >
+          {phaseData.eyebrow} · {phaseData.n} · {phaseData.name}
+        </div>
+        <h2
+          style={{
+            fontFamily: SANS,
+            fontWeight: 650,
+            fontSize: "clamp(44px, 5.2vw, 84px)",
+            lineHeight: 1.0,
+            letterSpacing: "-0.035em",
+            margin: "0 0 16px",
+            color: INK,
+            textWrap: "balance" as const,
+          }}
+        >
+          <GlitchText intensity={glitch}>{phaseData.headline}</GlitchText>
+        </h2>
+        <p
+          style={{
+            fontFamily: SANS,
+            fontSize: 19,
+            color: MUTED,
+            margin: 0,
+            fontWeight: 400,
+            letterSpacing: "-0.005em",
+          }}
+        >
+          {phaseData.sub}
+        </p>
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
+        <p
+          style={{
+            fontFamily: SANS,
+            fontSize: 19,
+            lineHeight: 1.6,
+            color: INK_SOFT,
+            margin: 0,
+            maxWidth: "60ch",
+            fontWeight: 420,
+          }}
+        >
+          {phaseData.body}
+        </p>
+
+        {/* PER-PHASE DIAGRAM */}
+        {phaseData.diagram(harvest)}
+
+        <dl
+          style={{
+            display: "grid",
+            gridTemplateColumns: "minmax(180px, 1fr) 2fr",
+            gap: "0 28px",
+            margin: 0,
+            borderTop: `1px solid ${LINE}`,
+            paddingTop: 4,
+          }}
+        >
+          {phaseData.spec.map(([k, v], i) => (
+            <React.Fragment key={i}>
+              <dt
+                style={{
+                  fontFamily: MONO,
+                  fontSize: 11,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: MUTED,
+                  padding: "14px 0",
+                  borderBottom: `1px solid ${LINE_SOFT}`,
+                  fontWeight: 500,
+                }}
+              >
+                {k}
+              </dt>
+              <dd
+                style={{
+                  fontFamily: SANS,
+                  fontSize: 15,
+                  color: INK,
+                  margin: 0,
+                  padding: "14px 0",
+                  borderBottom: `1px solid ${LINE_SOFT}`,
+                  fontVariantNumeric: "tabular-nums",
+                  fontWeight: 420,
+                }}
+              >
+                {v}
+              </dd>
+            </React.Fragment>
+          ))}
+        </dl>
+
+        <blockquote
+          style={{
+            margin: "4px 0 0",
+            padding: "24px 24px 22px",
+            background: PAPER,
+            border: `1px solid ${LINE}`,
+            borderLeft: `3px solid ${ACCENT}`,
+            position: "relative",
+          }}
+        >
+          <span
+            aria-hidden
             style={{
+              position: "absolute",
+              top: -7,
+              left: 22,
+              background: BG,
+              color: ACCENT,
               fontFamily: MONO,
-              fontSize: 11,
+              fontSize: 10,
+              letterSpacing: "0.16em",
+              fontWeight: 600,
+              padding: "0 8px",
               textTransform: "uppercase",
-              letterSpacing: "0.2em",
-              color: MUTED,
-              marginBottom: 18,
-              fontWeight: 500,
             }}
           >
-            {phaseData.eyebrow} · {phaseData.n} · {phaseData.name}
-          </div>
-          <h2
-            style={{
-              fontFamily: SANS,
-              fontWeight: 650,
-              fontSize: "clamp(42px, 4.8vw, 72px)",
-              lineHeight: 1.0,
-              letterSpacing: "-0.035em",
-              margin: "0 0 14px",
-              color: INK,
-              textWrap: "balance" as const,
-            }}
-          >
-            <GlitchText intensity={glitch}>{phaseData.headline}</GlitchText>
-          </h2>
+            Leakage
+          </span>
           <p
             style={{
               fontFamily: SANS,
-              fontSize: 17,
-              color: MUTED,
-              margin: 0,
+              fontSize: 19,
+              lineHeight: 1.5,
+              color: INK,
+              margin: "0 0 12px",
               fontWeight: 400,
               letterSpacing: "-0.005em",
             }}
           >
-            {phaseData.sub}
+            {phaseData.leak}
           </p>
-        </div>
-
-        <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
-          <p
+          <cite
             style={{
-              fontFamily: SANS,
-              fontSize: 17,
-              lineHeight: 1.6,
-              color: INK_SOFT,
-              margin: 0,
-              maxWidth: "58ch",
-              textWrap: "pretty" as const,
-              fontWeight: 420,
-            }}
-          >
-            {phaseData.body}
-          </p>
-
-          <dl
-            style={{
-              display: "grid",
-              gridTemplateColumns: "minmax(160px, 1fr) 2fr",
-              gap: "0 28px",
-              margin: 0,
-              borderTop: `1px solid ${LINE}`,
-              paddingTop: 4,
-            }}
-          >
-            {phaseData.spec.map(([k, v], i) => (
-              <React.Fragment key={i}>
-                <dt
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: 11,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    color: MUTED,
-                    padding: "14px 0",
-                    borderBottom: `1px solid ${LINE_SOFT}`,
-                    fontWeight: 500,
-                  }}
-                >
-                  {k}
-                </dt>
-                <dd
-                  style={{
-                    fontFamily: SANS,
-                    fontSize: 15,
-                    color: INK,
-                    margin: 0,
-                    padding: "14px 0",
-                    borderBottom: `1px solid ${LINE_SOFT}`,
-                    fontVariantNumeric: "tabular-nums",
-                    fontWeight: 420,
-                  }}
-                >
-                  {v}
-                </dd>
-              </React.Fragment>
-            ))}
-          </dl>
-
-          <blockquote
-            style={{
-              margin: "4px 0 0",
-              padding: "22px 22px 20px",
-              background: PAPER,
-              border: `1px solid ${LINE}`,
-              borderLeft: `3px solid ${ACCENT}`,
-              position: "relative",
-            }}
-          >
-            <span
-              aria-hidden
-              style={{
-                position: "absolute",
-                top: -7,
-                left: 22,
-                background: BG,
-                color: ACCENT,
-                fontFamily: MONO,
-                fontSize: 10,
-                letterSpacing: "0.16em",
-                fontWeight: 600,
-                padding: "0 8px",
-                textTransform: "uppercase",
-              }}
-            >
-              Leakage
-            </span>
-            <p
-              style={{
-                fontFamily: SANS,
-                fontSize: 18,
-                lineHeight: 1.5,
-                color: INK,
-                margin: "0 0 12px",
-                fontWeight: 400,
-                letterSpacing: "-0.005em",
-                textWrap: "pretty" as const,
-              }}
-            >
-              {phaseData.leak}
-            </p>
-            <cite
-              style={{
-                fontFamily: MONO,
-                fontStyle: "normal",
-                fontSize: 10.5,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-                color: MUTED,
-                fontWeight: 500,
-              }}
-            >
-              {phaseData.leakCite}
-            </cite>
-          </blockquote>
-
-          {phaseData.extra}
-        </div>
-
-        {isLast && (
-          <div
-            style={{
-              marginTop: 90,
-              textAlign: "center",
-              padding: "32px 0",
-              borderTop: `1px solid ${LINE}`,
-              borderBottom: `1px solid ${LINE}`,
-              color: MUTED,
               fontFamily: MONO,
-              fontSize: 11,
+              fontStyle: "normal",
+              fontSize: 10.5,
+              letterSpacing: "0.08em",
               textTransform: "uppercase",
-              letterSpacing: "0.2em",
+              color: MUTED,
+              fontWeight: 500,
             }}
           >
-            — the loop —
-          </div>
-        )}
+            {phaseData.leakCite}
+          </cite>
+        </blockquote>
+
+        {phaseData.extra}
       </div>
+
+      {isLast && (
+        <div
+          style={{
+            marginTop: 90,
+            textAlign: "center",
+            padding: "32px 0",
+            borderTop: `1px solid ${LINE}`,
+            borderBottom: `1px solid ${LINE}`,
+            color: MUTED,
+            fontFamily: MONO,
+            fontSize: 11,
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+          }}
+        >
+          — the loop —
+        </div>
+      )}
     </section>
   );
 }
@@ -1284,21 +1307,21 @@ function EulaMarquee() {
 export default function OuroborosPortal() {
   const m = useVisitorHarvest(1);
   const [phase, setPhase] = useState(0);
-  const chairBoxRef = useRef({ x: 0, y: 0 });
-  const chairElRef = useRef<HTMLDivElement>(null);
+  const psiTargetRef = useRef({ x: 0, y: 0 });
+  const psiElRef = useRef<HTMLSpanElement>(null);
 
   useLoopBack(true);
 
-  // Track chair-center for cursor-trail target
+  // Track the Ψ readout position for cursor-trail absorption
   useEffect(() => {
     const update = () => {
-      const el = chairElRef.current;
+      const el = psiElRef.current;
       if (!el) return;
       const r = el.getBoundingClientRect();
-      chairBoxRef.current = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      psiTargetRef.current = { x: r.left + r.width / 2, y: r.top + r.height / 2 };
     };
     update();
-    const id = window.setInterval(update, 200);
+    const id = window.setInterval(update, 250);
     window.addEventListener("scroll", update, { passive: true });
     window.addEventListener("resize", update);
     return () => {
@@ -1331,251 +1354,147 @@ export default function OuroborosPortal() {
         }
       `}</style>
 
-      <HarvestStrip m={m} phase={phase} />
+      <HarvestStrip m={m} phase={phase} psiRef={psiElRef} />
 
+      {/* Single centered column, magazine-essay layout */}
       <main
         style={{
-          position: "relative",
-          display: "grid",
-          gridTemplateColumns: "minmax(440px, 1fr) minmax(380px, 540px)",
-          gap: 0,
-          maxWidth: 1640,
+          maxWidth: 820,
           margin: "0 auto",
-          padding: 0,
+          padding: "80px 32px 60px",
         }}
-        className="ols-stage"
       >
-        {/* Sticky chair column */}
+        {/* ─── OVERTURE ─── */}
         <div
           style={{
-            position: "sticky",
-            top: 64,
-            height: "calc(100vh - 64px)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "24px 40px",
+            paddingBottom: 64,
+            borderBottom: `1px solid ${LINE}`,
+            marginBottom: 24,
           }}
-          className="ols-chair-col"
         >
           <div
-            ref={chairElRef}
             style={{
-              width: "100%",
-              maxWidth: 620,
-              maxHeight: "calc(100vh - 140px)",
-              aspectRatio: "800 / 1100",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              position: "relative",
-              filter: "drop-shadow(0 30px 60px rgba(10,10,10,0.10))",
-            }}
-          >
-            <ChairSVG
-              phase={phase}
-              theme="light"
-              surplusLevel={m.surplusLevel}
-              glitch={effectiveGlitch}
-              showAnnotations
-            />
-          </div>
-          <div
-            style={{
-              marginTop: 18,
-              textAlign: "center",
-              color: MUTED,
               fontFamily: MONO,
-              fontSize: 10.5,
-              letterSpacing: "0.16em",
+              fontSize: 11,
               textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: MUTED,
+              fontWeight: 500,
             }}
           >
-            ILS-Ω · Unit 001
+            Ouroboros Industries LLC · ILS-Ω · 2026 · an apparatus by{" "}
+            <A
+              to="proto-apparatuses"
+              title="Imperial Archive 2197.14 — Proto-Apparatuses: The Social-Media Ancestry"
+            >
+              A. Selimović
+            </A>
           </div>
-        </div>
-
-        {/* Narrative column */}
-        <div
-          style={{
-            padding: "88px 64px 88px 24px",
-            maxWidth: 640,
-            position: "relative",
-          }}
-          className="ols-narrative-col"
-        >
-          {/* ─── OVERTURE — the only "hero" on the page ─── */}
-          <div
+          <h1
             style={{
-              paddingBottom: 70,
-              borderBottom: `1px solid ${LINE}`,
-              marginBottom: 80,
+              fontFamily: SANS,
+              fontWeight: 700,
+              fontSize: "clamp(72px, 9.6vw, 156px)",
+              lineHeight: 0.88,
+              letterSpacing: "-0.05em",
+              margin: "32px 0 28px",
+              color: INK,
             }}
           >
-            <div
+            <span style={{ display: "block" }}>The Ouroboros</span>
+            <em
               style={{
-                fontFamily: MONO,
-                fontSize: 11,
-                textTransform: "uppercase",
-                letterSpacing: "0.2em",
-                color: MUTED,
-                fontWeight: 500,
-              }}
-            >
-              Ouroboros Industries LLC · ILS-Ω · 2026 · an apparatus by{" "}
-              <A
-                to="proto-apparatuses"
-                title="Imperial Archive 2197.14 — Proto-Apparatuses: The Social-Media Ancestry"
-              >
-                A. Selimović
-              </A>
-            </div>
-            <h1
-              style={{
-                fontFamily: SANS,
-                fontWeight: 500,
-                fontSize: "clamp(60px, 6.8vw, 108px)",
-                lineHeight: 0.92,
-                letterSpacing: "-0.045em",
-                margin: "24px 0 28px",
-                color: INK,
-              }}
-            >
-              <span style={{ display: "block" }}>The Ouroboros</span>
-              <em
-                style={{
-                  display: "block",
-                  fontStyle: "normal",
-                  fontWeight: 400,
-                  color: INK_SOFT,
-                }}
-              >
-                Life System.
-              </em>
-            </h1>
-            <p
-              style={{
-                fontFamily: SANS,
-                fontSize: 22,
-                color: INK,
+                display: "block",
+                fontStyle: "normal",
                 fontWeight: 400,
-                margin: "22px 0 14px",
-                letterSpacing: "-0.01em",
-                lineHeight: 1.3,
+                color: INK_SOFT,
               }}
             >
-              <GlitchText intensity={effectiveGlitch}>
-                Because life should be effortless.
-              </GlitchText>
-            </p>
-            <p
-              style={{
-                fontFamily: SANS,
-                color: MUTED,
-                fontSize: 16,
-                lineHeight: 1.6,
-                margin: "18px 0 0",
-                maxWidth: "48ch",
-              }}
-            >
-              An apparatus, a portal, an essay, an art-object in six
-              phases — scroll to advance the lifecycle of the occupant.
-            </p>
-          </div>
-
-          {/* Marginalia — opening */}
-          <aside
+              Life System.
+            </em>
+          </h1>
+          <p
             style={{
-              position: "relative",
-              margin: "-12px 0 70px",
-              padding: "14px 16px",
               fontFamily: SANS,
-              fontSize: 14,
-              lineHeight: 1.55,
-              color: MUTED,
-              maxWidth: "44ch",
-              letterSpacing: "-0.003em",
+              fontSize: 26,
+              color: INK,
+              fontWeight: 500,
+              margin: "32px 0 16px",
+              letterSpacing: "-0.015em",
+              lineHeight: 1.25,
+              maxWidth: "20ch",
             }}
           >
-            <span
-              style={{
-                display: "inline-block",
-                width: 28,
-                height: 2,
-                background: ACCENT,
-                marginBottom: 10,
-              }}
-            />
-            <span style={{ display: "block" }}>
-              &ldquo;Lifetime value&rdquo; is the projected profit if
-              every moment of an existence is commodified in one form or
-              another.{" "}
-              <em style={{ color: INK, fontStyle: "italic" }}>— Zuboff</em>
-            </span>
-          </aside>
-
-          {PHASES.map((p, i) => (
-            <PhaseSection
-              key={p.id}
-              phaseData={p}
-              idx={i}
-              onActive={setPhase}
-              glitch={effectiveGlitch}
-              isLast={i === PHASES.length - 1}
-            />
-          ))}
-
-          {/* Marginalia — closing */}
-          <aside
+            <GlitchText intensity={effectiveGlitch}>
+              Because life should be effortless.
+            </GlitchText>
+          </p>
+          <p
             style={{
-              position: "relative",
-              margin: "20px 0 60px auto",
-              padding: "14px 16px",
               fontFamily: SANS,
-              fontSize: 14,
-              lineHeight: 1.55,
               color: MUTED,
-              maxWidth: "44ch",
-              letterSpacing: "-0.003em",
-              textAlign: "right",
+              fontSize: 17,
+              lineHeight: 1.6,
+              margin: "20px 0 0",
+              maxWidth: "52ch",
+              fontWeight: 420,
             }}
           >
-            <span
-              style={{
-                display: "inline-block",
-                width: 28,
-                height: 2,
-                background: ACCENT,
-                marginBottom: 10,
-              }}
-            />
-            <span style={{ display: "block" }}>
-              The serpent does not bite its tail. It eats. Slowly.
-              Forever.
-            </span>
-          </aside>
+            An apparatus, a portal, an essay, an art-object in six
+            phases — scroll to advance the lifecycle of the occupant.
+            The harvest above the fold is yours: every motion, every
+            scroll, every click is being counted.
+          </p>
         </div>
+
+        {PHASES.map((p, i) => (
+          <PhaseSection
+            key={p.id}
+            phaseData={p}
+            idx={i}
+            onActive={setPhase}
+            glitch={effectiveGlitch}
+            isLast={i === PHASES.length - 1}
+            harvest={m}
+          />
+        ))}
+
+        {/* Closing marginalia */}
+        <aside
+          style={{
+            position: "relative",
+            margin: "60px 0 0",
+            padding: "24px 0 0",
+            borderTop: `1px solid ${LINE}`,
+            fontFamily: SANS,
+            fontSize: 14,
+            lineHeight: 1.55,
+            color: MUTED,
+            textAlign: "center",
+            letterSpacing: "-0.003em",
+          }}
+        >
+          <span
+            style={{
+              display: "inline-block",
+              width: 28,
+              height: 2,
+              background: ACCENT,
+              marginBottom: 14,
+            }}
+          />
+          <div>
+            The serpent does not bite its tail. It eats. Slowly. Forever.
+          </div>
+          <div style={{ marginTop: 6, fontSize: 12, fontFamily: MONO, letterSpacing: "0.08em" }}>
+            Session yielded {m.PS.toFixed(2)} Ψ across {m.moves} micro-movements
+          </div>
+        </aside>
       </main>
 
       <EulaMarquee />
 
-      <CursorTrail chairCenter={chairBoxRef} />
-
-      {/* mobile collapse */}
-      <style>{`
-        @media (max-width: 1100px) {
-          .ols-stage { grid-template-columns: 1fr !important; }
-          .ols-chair-col {
-            position: relative !important;
-            top: auto !important;
-            height: auto !important;
-            padding: 24px 20px 36px !important;
-            border-bottom: 1px solid ${LINE};
-          }
-          .ols-narrative-col { padding: 48px 24px !important; max-width: none !important; }
-        }
-      `}</style>
+      <CursorTrail target={psiTargetRef} />
     </div>
   );
 }
