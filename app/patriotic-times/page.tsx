@@ -52,6 +52,11 @@ const CHAPTERS: Chapter[] = [
       { year: "2008", title: "St. Paul RNC Preemptive Raids", note: "Domestic activists as terror threats." },
       { year: "2009", title: "Portsmouth Town Hall", note: "Armed intimidation enters mainstream politics." },
     ],
+    plate: {
+      src: "/patriotic-times/plate-i-brooks-brothers.png",
+      caption: "The Brooks Brothers Riot",
+      sub: "Fig. I.i — Miami-Dade canvassing board, November 2000. Corporate intimidation halts the count.",
+    },
   },
   {
     no: "II",
@@ -94,6 +99,11 @@ const CHAPTERS: Chapter[] = [
       { year: "2020", title: "Operation Diligent Valor in Portland", note: "Unidentified federal agents in unmarked vans." },
       { year: "2020", title: "The Plot to Kidnap Governor Whitmer", note: "Escalation to domestic terror plots." },
     ],
+    plate: {
+      src: "/patriotic-times/plate-iii-lafayette-square.png",
+      caption: "Lafayette Square, June 1, 2020",
+      sub: "Fig. III.v — Tear-gassed protesters cleared from a park for the Bible photo-op at St. John's.",
+    },
   },
   {
     no: "IV",
