@@ -2,15 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 
 /**
- * Chair project layout — the apparatus's own world.
+ * Chair project layout — cinematic dark, slow horror register.
  *
- * Single unified register: Geist + Geist Mono, warm cream paper (#f1efea),
- * true black ink, vivid red accent (#e23b2a). This is NOT the atelier
- * landing's clinical product-launch (that lives at /). It is also not
- * the closed-loop project's literary EB-Garamond cream paper, nor the
- * OHCOSE manual's federal-bureaucratic eggshell. The chair page is its
- * own enclosed object — the design-bundle register, end to end, with no
- * marketing wrapper to interrupt the altar.
+ * Deep black ground, warm off-white type, blood-red accent. The chair
+ * page lives in this register end-to-end: there's no marketing wrapper
+ * and no design-bundle cream-paper interlude. The page is one slow
+ * descent through six scenes, an art-object posing as a product page.
  */
 
 const geistSans = Geist({
@@ -53,11 +50,12 @@ export const metadata: Metadata = {
   },
 };
 
-// Design-bundle palette tokens
-const BG = "#f1efea";
-const INK = "#0a0a0a";
-const MUTED = "#6b6b66";
-const LINE = "rgba(10,10,10,0.14)";
+// Cinematic dark palette
+const BG = "#0a0908";
+const INK = "#f0ebe2";
+const MUTED = "#6b6760";
+const LINE = "rgba(240,235,226,0.10)";
+const ACCENT = "#ff3a25";
 
 export default function ChairLayout({
   children,
@@ -72,34 +70,58 @@ export default function ChairLayout({
         fontFamily: `var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif`,
         fontWeight: 380,
         letterSpacing: "-0.005em",
-        colorScheme: "light",
-        // selection color → accent
-        // (applied via inline <style> below since pseudo-elements can't be inlined)
+        colorScheme: "dark",
+        position: "relative",
       }}
     >
       <style>{`
-        .chair-theme ::selection { background: #e23b2a; color: ${BG}; }
-        .chair-theme a:focus-visible { outline: 2px solid #e23b2a; outline-offset: 2px; }
+        .chair-theme ::selection { background: ${ACCENT}; color: ${BG}; }
+        .chair-theme a:focus-visible { outline: 2px solid ${ACCENT}; outline-offset: 2px; }
+
+        /* Film-grain overlay — subtle, ever-present */
+        .chair-theme::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: 100;
+          opacity: 0.06;
+          mix-blend-mode: overlay;
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+        }
+
+        /* Subtle vignette to deepen the edges of the viewport */
+        .chair-theme::after {
+          content: "";
+          position: fixed;
+          inset: 0;
+          pointer-events: none;
+          z-index: 99;
+          background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+        }
       `}</style>
+
       {children}
-      {/* Tiny atelier-back link — the only marketing chrome that survives,
-          and it survives because it's a portal out, not a portal in. */}
+
+      {/* Foot — faint, ceremonial */}
       <div
         style={{
-          padding: "4rem 5vw 3rem",
+          padding: "5rem 5vw 4rem",
           textAlign: "center",
           fontSize: "0.7rem",
           fontFamily: `var(--font-geist-mono), ui-monospace, monospace`,
           textTransform: "uppercase",
-          letterSpacing: "0.2em",
+          letterSpacing: "0.3em",
           color: MUTED,
           borderTop: `1px solid ${LINE}`,
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
           ↑ autostimulus
         </a>
-        <span style={{ margin: "0 1rem", opacity: 0.4 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair/colophon" style={{ color: "inherit", textDecoration: "none" }}>
           colophon
         </a>
