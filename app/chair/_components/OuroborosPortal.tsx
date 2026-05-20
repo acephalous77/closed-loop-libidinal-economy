@@ -945,20 +945,19 @@ function Scene({
   harvest: Harvest;
 }) {
   const ref = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
 
+  // Only track phase changes for the harvest-strip indicator —
+  // don't fade scene opacity. The fade was making images on faded
+  // sections look black-on-black, and was a major contributor to
+  // the previous "messy/hard to follow" feel.
   useEffect(() => {
     if (!ref.current) return;
     const el = ref.current;
     const io = new IntersectionObserver(
-      (entries) => {
-        const e = entries[0];
-        if (e.isIntersecting) {
-          onActive(idx);
-          if (e.intersectionRatio > 0.2) setVisible(true);
-        }
+      ([e]) => {
+        if (e.isIntersecting) onActive(idx);
       },
-      { rootMargin: "-25% 0px -25% 0px", threshold: [0.01, 0.2, 0.5] }
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0.01 }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -974,8 +973,6 @@ function Scene({
         justifyContent: "center",
         padding: "120px 32px 120px",
         position: "relative",
-        opacity: visible ? 1 : 0.55,
-        transition: "opacity 1.2s ease",
       }}
       data-phase={phaseData.id}
     >
