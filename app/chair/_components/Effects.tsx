@@ -186,9 +186,10 @@ export function Artifact({
           style={{
             objectFit: "cover",
             filter: filterMap[treatment],
+            zIndex: 1,
           }}
         />
-        {/* Paper texture overlay — subtle */}
+        {/* Paper texture overlay — subtle, ABOVE image */}
         <div
           aria-hidden
           style={{
@@ -198,7 +199,8 @@ export function Artifact({
               "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.75  0 0 0 0 0.65  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>\")",
             mixBlendMode: "overlay",
             pointerEvents: "none",
-            opacity: 0.6,
+            opacity: 0.35,
+            zIndex: 2,
           }}
         />
         {/* Subtle vignette */}
@@ -208,8 +210,9 @@ export function Artifact({
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.45) 100%)",
+              "radial-gradient(ellipse at center, transparent 65%, rgba(0,0,0,0.35) 100%)",
             pointerEvents: "none",
+            zIndex: 3,
           }}
         />
         {/* Inventory stamp (top-left corner) */}
