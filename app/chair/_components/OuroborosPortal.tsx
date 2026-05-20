@@ -556,6 +556,7 @@ function TierTable() {
         — TIERS —
       </div>
       <dl
+        data-ols-tier-table
         style={{
           display: "grid",
           gridTemplateColumns: "minmax(140px, auto) minmax(120px, auto) 1fr",
@@ -1156,6 +1157,11 @@ export default function OuroborosPortal() {
 
         /* ─── RESPONSIVE — tablet & mobile ──────────────────────────── */
 
+        /* Safety net: no horizontal scroll, ever. */
+        [data-ols-root] {
+          overflow-x: hidden;
+        }
+
         /* Tablet (≤ 1024px): tighten harvest line + scene padding */
         @media (max-width: 1024px) {
           [data-ols-harvest] {
@@ -1171,9 +1177,7 @@ export default function OuroborosPortal() {
 
         /* Mobile (≤ 720px): heavy responsive overhaul */
         @media (max-width: 720px) {
-          /* Harvest line: collapse — show ONLY metrics, hide brand+session
-             to keep the strip from overflowing. Phase tracking still
-             happens internally; the visible chrome just gets quieter. */
+          /* Harvest line: collapse to metrics-only row */
           [data-ols-harvest] {
             grid-template-columns: 1fr !important;
             padding: 10px 16px !important;
@@ -1184,28 +1188,28 @@ export default function OuroborosPortal() {
             display: none !important;
           }
           [data-ols-harvest] > div:nth-child(2) {
-            gap: 16px !important;
+            gap: 14px !important;
             justify-content: space-between !important;
+            flex-wrap: wrap !important;
           }
 
-          /* Scenes: tighter padding, less top-bottom dead space */
+          /* Scenes: tighter padding, drop forced 100vh */
           [data-ols-root] section {
-            padding: 80px 20px !important;
+            padding: 72px 20px !important;
             min-height: auto !important;
           }
-          /* Faded scenes: only dim slightly so they stay readable */
+          /* Faded scenes: keep readable */
           [data-ols-root] section[data-phase] {
             opacity: 1 !important;
           }
 
-          /* Overture H1: drop max font size, allow wrap on narrow word */
+          /* Overture H1 */
           [data-ols-root] h1 {
             font-size: clamp(48px, 13vw, 80px) !important;
             line-height: 0.95 !important;
             margin-top: 16px !important;
             word-break: break-word !important;
           }
-          /* Overture tagline ("Because life…") */
           [data-ols-root] h1 + p,
           [data-ols-root] h1 ~ p {
             font-size: clamp(20px, 5vw, 28px) !important;
@@ -1213,7 +1217,7 @@ export default function OuroborosPortal() {
 
           /* Phase H2 */
           [data-ols-root] h2 {
-            font-size: clamp(38px, 9vw, 56px) !important;
+            font-size: clamp(36px, 9vw, 56px) !important;
             line-height: 1.0 !important;
             max-width: 100% !important;
           }
@@ -1230,41 +1234,46 @@ export default function OuroborosPortal() {
             font-size: 18px !important;
           }
 
-          /* Tier table: collapse 3-col grid to single column stacks */
-          [data-ols-root] dl[style*="minmax(140px"] {
+          /* Tier table: single column stacks */
+          [data-ols-tier-table] {
             grid-template-columns: 1fr !important;
+            gap: 0 !important;
           }
-          [data-ols-root] dl[style*="minmax(140px"] dt {
-            padding-top: 18px !important;
-            padding-bottom: 4px !important;
+          [data-ols-tier-table] dt {
+            padding: 18px 0 4px !important;
+            border-top: 1px solid rgba(240,235,226,0.06) !important;
           }
-          [data-ols-root] dl[style*="minmax(140px"] dd {
-            padding-top: 4px !important;
-            padding-bottom: 6px !important;
+          [data-ols-tier-table] dd {
+            padding: 4px 0 !important;
             border-top: none !important;
           }
-          [data-ols-root] dl[style*="minmax(140px"] dt + dd {
+          [data-ols-tier-table] > *:first-child {
             border-top: none !important;
           }
 
-          /* Live ticker (Phase 04): stack vertically on mobile */
-          [data-ols-root] div[style*="grid-template-columns: repeat(3"] {
+          /* Live ticker (Phase 04): stack to single column */
+          [data-ols-ticker-grid] {
             grid-template-columns: 1fr !important;
-            gap: 24px !important;
+            gap: 28px !important;
+          }
+          [data-ols-ticker-grid] > div {
+            text-align: left !important;
+          }
+          [data-ols-ticker-grid] > div > div:nth-child(2) {
+            font-size: clamp(56px, 14vw, 84px) !important;
           }
 
-          /* §6 letter: reduce padding */
-          [data-ols-root] [style*="OUROBOROS INDUSTRIES LLC · OCCUPANT"] {
-            padding: 32px 24px !important;
-            max-width: 100% !important;
+          /* §6 letter: padded tighter */
+          [data-ols-letter] {
+            padding: 28px 22px !important;
           }
 
-          /* Countdown clock — slightly bigger headroom */
-          [data-ols-root] [style*="T-MINUS NEXT OCCUPANT"] + div {
-            font-size: clamp(72px, 18vw, 120px) !important;
+          /* Countdown clock — slightly tamer on small screens */
+          [data-ols-countdown-time] {
+            font-size: clamp(64px, 18vw, 100px) !important;
           }
 
-          /* SVG figure containers: drop generous side padding */
+          /* SVG figures */
           [data-ols-root] svg {
             max-width: 100% !important;
           }

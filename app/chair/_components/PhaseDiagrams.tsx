@@ -292,6 +292,7 @@ export function LiveTicker(m: TickerProps) {
   const fmt = (n: number, d = 2) => n.toFixed(d);
   return (
     <div
+      data-ols-ticker
       style={{
         margin: "60px auto",
         width: "100%",
@@ -302,6 +303,7 @@ export function LiveTicker(m: TickerProps) {
       }}
     >
       <div
+        data-ols-ticker-grid
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -374,6 +376,7 @@ export function LiveTicker(m: TickerProps) {
 export function ReturnedUndeliverable() {
   return (
     <div
+      data-ols-letter
       style={{
         margin: "60px auto",
         width: "100%",
@@ -443,6 +446,7 @@ export function ReissueCountdown({ dwellSec }: { dwellSec: number }) {
 
   return (
     <div
+      data-ols-countdown
       style={{
         margin: "60px auto",
         width: "100%",
@@ -463,6 +467,7 @@ export function ReissueCountdown({ dwellSec }: { dwellSec: number }) {
         T-MINUS NEXT OCCUPANT
       </div>
       <div
+        data-ols-countdown-time
         style={{
           fontFamily: SANS,
           fontSize: "clamp(96px, 16vw, 220px)",
