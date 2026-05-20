@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Anton, Permanent_Marker, Caveat } from "next/font/google";
 
 /**
  * Chair project layout — cinematic dark, slow horror register.
@@ -21,6 +21,27 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   display: "swap",
   weight: ["300", "400", "500", "600"],
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  display: "swap",
+  weight: "400",
+});
+
+const permanentMarker = Permanent_Marker({
+  subsets: ["latin"],
+  variable: "--font-permanent-marker",
+  display: "swap",
+  weight: "400",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
+  display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 const SITE_URL =
@@ -62,7 +83,7 @@ export default function ChairLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div
-      className={`chair-theme ${geistSans.variable} ${geistMono.variable}`}
+      className={`chair-theme ${geistSans.variable} ${geistMono.variable} ${anton.variable} ${permanentMarker.variable} ${caveat.variable}`}
       style={{
         minHeight: "100vh",
         background: BG,

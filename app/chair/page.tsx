@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ZineSpread from "./_components/ZineSpread";
 import OuroborosPortal from "./_components/OuroborosPortal";
 
 export const metadata: Metadata = {
@@ -7,14 +8,23 @@ export const metadata: Metadata = {
 };
 
 /**
- * /chair — the apparatus, end to end.
+ * /chair — demo state.
  *
- * No masthead. No hero text. No marketing wrapper. The chair is the page
- * from first paint. The harvest strip is the chrome. The six phases are
- * the only structure. The product-launch elements (tiers, pricing,
- * testimonial, fitting inquiry) are folded into the phases where they
- * belong — Habitualization, Obsolescence, Exit.
+ * The top of the page is the new SAMIZDAT PUNK ZINE register: cover +
+ * Phase 01 Ontogenesis spread. Original drawn assets (Ω-serpent logotype,
+ * chair stencil, distressed rubber stamps, hand-drawn arrows) + the Dec
+ * 2025 Substack illustrations (the better batch). Broken grid, halftone,
+ * neon palette, stencil/marker typography.
+ *
+ * Below it the existing cinematic-dark portal continues from Phase 02
+ * onward — that's the comparison surface. If the zine register lands,
+ * the rest of the page follows.
  */
 export default function ChairLanding() {
-  return <OuroborosPortal />;
+  return (
+    <>
+      <ZineSpread />
+      <OuroborosPortal />
+    </>
+  );
 }
