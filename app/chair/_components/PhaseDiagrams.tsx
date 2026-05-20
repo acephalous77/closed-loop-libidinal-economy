@@ -321,10 +321,10 @@ export function PortMap() {
   const portY = 200;
 
   const manifolds = [
-    { x: 60, color: SAGE, label: "Analgesic", ports: ["Cervical L", "Cervical R"], dir: "IN" },
-    { x: 200, color: COBALT, label: "Nutrient", ports: ["Abdominal L", "Abdominal R"], dir: "IN" },
-    { x: 340, color: AMBER, label: "Chemical", ports: ["Brachial L", "Brachial R"], dir: "IN" },
-    { x: 460, color: ACCENT, label: "Energy", ports: ["Lumbar out L", "Lumbar out R"], dir: "OUT" },
+    { x: 80, color: SAGE, label: "Analgesic", ports: ["Cerv L", "Cerv R"], dir: "IN" },
+    { x: 200, color: COBALT, label: "Nutrient", ports: ["Abd L", "Abd R"], dir: "IN" },
+    { x: 320, color: AMBER, label: "Chemical", ports: ["Brach L", "Brach R"], dir: "IN" },
+    { x: 440, color: ACCENT, label: "Energy", ports: ["Lumb-out L", "Lumb-out R"], dir: "OUT" },
   ];
 
   return (
@@ -402,7 +402,7 @@ export function PortMap() {
               </text>
               {/* Branches to two ports */}
               {m.ports.map((portLabel, j) => {
-                const px = m.x + (j === 0 ? -22 : 22);
+                const px = m.x + (j === 0 ? -28 : 28);
                 return (
                   <g key={portLabel}>
                     <path
@@ -419,7 +419,7 @@ export function PortMap() {
                       y={portY + 18}
                       textAnchor="middle"
                       fontFamily={MONO}
-                      fontSize="8.5"
+                      fontSize="9"
                       fill={INK}
                       fontWeight={500}
                     >
@@ -432,22 +432,22 @@ export function PortMap() {
           );
         })}
 
-        {/* Footer summary */}
+        {/* Footer summary — two rows, no horizontal collision */}
         <g>
-          <line x1="40" y1={H - 30} x2={W - 20} y2={H - 30} stroke={LINE} strokeWidth="0.6" />
-          <text x="40" y={H - 14} fontFamily={MONO} fontSize="9" fill={MUTED} letterSpacing="0.08em">
-            6 cutaneous ports · self-sealing · auto-analgesic
+          <line x1="40" y1={H - 42} x2={W - 20} y2={H - 42} stroke={LINE} strokeWidth="0.6" />
+          <text x={W / 2 + 10} y={H - 26} textAnchor="middle" fontFamily={MONO} fontSize="9" fill={MUTED} letterSpacing="0.16em">
+            6 CUTANEOUS PORTS · SELF-SEALING · AUTO-ANALGESIC
           </text>
           <text
-            x={W - 20}
-            y={H - 14}
-            textAnchor="end"
+            x={W / 2 + 10}
+            y={H - 12}
+            textAnchor="middle"
             fontFamily={MONO}
             fontSize="9"
             fill={ACCENT}
-            letterSpacing="0.08em"
+            letterSpacing="0.16em"
           >
-            2 outlets · sold per kWh
+            2 OUTLETS · SOLD PER kWh
           </text>
         </g>
       </svg>
