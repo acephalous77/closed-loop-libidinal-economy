@@ -195,6 +195,19 @@ export default function ChairLanding() {
             }}
           >
             Fig. 01 — Standard chair configuration, showroom view
+            {" "}
+            <a
+              href="/chair/archive/ouroboros-ring"
+              title="Imperial Archive Entry 2197.04 — On the Ouroboros Ring"
+              style={{
+                color: "#7a3a14",
+                textDecoration: "none",
+                marginLeft: "0.4rem",
+                fontWeight: 700,
+              }}
+            >
+              [2197.04]
+            </a>
           </p>
         </div>
       </section>
@@ -391,6 +404,19 @@ export default function ChairLanding() {
               }}
             >
               Fig. 02 — Integration diagram
+              {" "}
+              <a
+                href="/chair/archive/period-typography"
+                title="Imperial Archive Entry 2197.07 — On the period typographic errors visible in this and other marketing materials"
+                style={{
+                  color: "#7a3a14",
+                  textDecoration: "none",
+                  marginLeft: "0.4rem",
+                  fontWeight: 700,
+                }}
+              >
+                [2197.07]
+              </a>
             </p>
           </div>
         </div>
@@ -525,6 +551,7 @@ export default function ChairLanding() {
                 features: ["Nutrient + hydration", "Standard work terminal", "Single-screen interface", "12 yr polymer"],
                 cta: "Configure",
                 accent: false,
+                archive: null,
               },
               {
                 tier: "Pro",
@@ -533,6 +560,7 @@ export default function ChairLanding() {
                 features: ["All Essential features", "Sleep induction subsystem", "Triple-screen interface", "Neural-feedback work terminal", "Priority service"],
                 cta: "Configure",
                 accent: true,
+                archive: { code: "2197.11", slug: "pro-tier-moratorium" },
               },
               {
                 tier: "Eternal",
@@ -541,6 +569,7 @@ export default function ChairLanding() {
                 features: ["All Pro features", "Lifetime polymer warranty", "Estate transfer protocols", "Phase VII–compatible exit"],
                 cta: "Inquire",
                 accent: false,
+                archive: { code: "2197.22", slug: "eternal-tier" },
               },
             ].map((c) => (
               <div
@@ -563,9 +592,27 @@ export default function ChairLanding() {
                     letterSpacing: "0.2em",
                     color: c.accent ? INK_70 : "#999",
                     marginBottom: "0.6rem",
+                    display: "flex",
+                    alignItems: "baseline",
+                    justifyContent: "space-between",
                   }}
                 >
-                  {c.tier}
+                  <span>{c.tier}</span>
+                  {c.archive && (
+                    <a
+                      href={`/chair/archive/${c.archive.slug}`}
+                      title={`Imperial Archive Entry ${c.archive.code}`}
+                      style={{
+                        color: c.accent ? "#7a3a14" : "#7a3a14",
+                        textDecoration: "none",
+                        fontSize: "0.65rem",
+                        fontWeight: 700,
+                        letterSpacing: "0.15em",
+                      }}
+                    >
+                      [{c.archive.code}]
+                    </a>
+                  )}
                 </div>
                 <div
                   style={{
@@ -657,6 +704,19 @@ export default function ChairLanding() {
           }}
         >
           — M.K., Pro tier · Cohort 2026.04
+          {" "}
+          <a
+            href="/chair/archive/testimonial-analysis"
+            title="Imperial Archive Entry 2197.26 — On the testimonial voice"
+            style={{
+              color: "#7a3a14",
+              textDecoration: "none",
+              marginLeft: "0.4rem",
+              fontWeight: 700,
+            }}
+          >
+            [2197.26]
+          </a>
         </div>
       </section>
 
