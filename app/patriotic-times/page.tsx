@@ -123,7 +123,7 @@ const CHAPTERS: Chapter[] = [
     plate: {
       src: "/patriotic-times/plate-01-january-6.png",
       caption: "January 6, 2021 — the gallows on the National Mall",
-      sub: "Fig. IV.i — Patriot iconography in service of the breach. The Capitol behind.",
+      sub: "Fig. IV.i — Patriot iconography in service of the breach. The Capitol behind. (Plate 25: The Gallows)",
     },
   },
 ];
@@ -202,7 +202,7 @@ export default function PatrioticTimesLanding() {
           }}
         >
           A coloring book of US democratic state failures and the
-          emergence of fascism. Four chapters. Thirty-five plates.
+          emergence of fascism. Four chapters. Twenty-five plates.
           Twenty-six years.
         </p>
       </header>
@@ -456,7 +456,7 @@ export default function PatrioticTimesLanding() {
         ))}
       </section>
 
-      {/* ============ COLOPHON CALL ============ */}
+      {/* ============ PLATES CALL ============ */}
       <section
         style={{
           padding: "5rem 5vw",
@@ -475,27 +475,53 @@ export default function PatrioticTimesLanding() {
             margin: "0 auto",
           }}
         >
-          Plates are released as printable sheets through the project&apos;s
-          colophon. Color them or do not.
+          Open any plate to color it in the browser. Print your version
+          when you&apos;re done — or print the blank line art and color
+          it by hand. The act is the project.
         </p>
-        <a
-          href="/patriotic-times/colophon"
+        <div
           style={{
-            display: "inline-block",
             marginTop: "2rem",
-            fontFamily: MONO,
-            fontSize: "0.78rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-            color: RED,
-            textDecoration: "none",
-            padding: "0.85rem 2rem",
-            border: `2px solid ${RED}`,
-            fontWeight: 700,
+            display: "flex",
+            gap: "1rem",
+            justifyContent: "center",
+            flexWrap: "wrap",
           }}
         >
-          → Project colophon
-        </a>
+          <a
+            href="/patriotic-times/plates"
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.85rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: "#f4ecdc",
+              background: INK,
+              textDecoration: "none",
+              padding: "0.95rem 2rem",
+              border: `2px solid ${INK}`,
+              fontWeight: 700,
+            }}
+          >
+            → The plates (25)
+          </a>
+          <a
+            href="/patriotic-times/colophon"
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.85rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: RED,
+              textDecoration: "none",
+              padding: "0.95rem 2rem",
+              border: `2px solid ${RED}`,
+              fontWeight: 700,
+            }}
+          >
+            → Project colophon
+          </a>
+        </div>
       </section>
 
       <style>{`

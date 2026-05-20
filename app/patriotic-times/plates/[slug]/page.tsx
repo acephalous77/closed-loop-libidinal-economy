@@ -1,0 +1,188 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { PLATES, getPlateBySlug } from "../_data";
+import { ColoringCanvas } from "../_components/ColoringCanvas";
+
+/**
+ * Per-plate interactive coloring page. Only generated for plates that
+ * have a `src` (image file deployed). Plates pending publication are
+ * rendered as placeholder cards on /patriotic-times/plates and have
+ * no individual route.
+ */
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return PLATES.filter((p) => p.src !== null).map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const plate = getPlateBySlug(slug);
+  if (!plate) return { title: "Plate not found" };
+  return {
+    title: `Plate ${plate.pageNo} — ${plate.title}`,
+    description: `Patriotic Times, Plate ${plate.pageNo}: ${plate.title} (${plate.caption}). ${plate.scene}`,
+    alternates: { canonical: `/patriotic-times/plates/${plate.slug}` },
+  };
+}
+
+const INK = "#0a0a0a";
+const INK_70 = "#3d342a";
+const INK_50 = "#6b5e4d";
+const RED = "#b8222a";
+
+const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
+const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
+const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
+
+export default async function PlateColorPage({ params }: PageProps) {
+  const { slug } = await params;
+  const plate = getPlateBySlug(slug);
+  if (!plate || !plate.src) notFound();
+
+  // Determine prev/next within the same section first, then across
+  // all plates with src
+  const livePlates = PLATES.filter((p) => p.src !== null);
+  const idx = livePlates.findIndex((p) => p.slug === plate.slug);
+  const prev = idx > 0 ? livePlates[idx - 1] : null;
+  const next = idx < livePlates.length - 1 ? livePlates[idx + 1] : null;
+
+  return (
+    <main style={{ padding: "3rem 5vw 4rem", maxWidth: "1400px", margin: "0 auto" }}>
+      {/* Breadcrumb + nav */}
+      <nav
+        className="print-hide"
+        style={{
+          marginBottom: "2rem",
+          display: "flex",
+          gap: "1.5rem",
+          flexWrap: "wrap",
+        }}
+      >
+        <a
+          href="/patriotic-times"
+          style={{ ...crumbStyle }}
+        >
+          ← Patriotic Times
+        </a>
+        <a
+          href="/patriotic-times/plates"
+          style={{ ...crumbStyle }}
+        >
+          ← All plates
+        </a>
+      </nav>
+
+      {/* Header */}
+      <header
+        className="print-hide"
+        style={{ marginBottom: "2.5rem", maxWidth: "44rem" }}
+      >
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.8rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.25em",
+            color: RED,
+            fontWeight: 700,
+            marginBottom: "0.5rem",
+          }}
+        >
+          Section {plate.section} · {plate.sectionTitle} · Page {plate.pageNo.toString().padStart(2, "0")}
+        </div>
+        <h1
+          style={{
+            fontFamily: DISPLAY,
+            fontWeight: 900,
+            fontSize: "clamp(2.2rem, 5vw, 4rem)",
+            lineHeight: 0.95,
+            letterSpacing: "-0.035em",
+            textTransform: "uppercase",
+            margin: 0,
+            color: INK,
+          }}
+        >
+          {plate.title}
+        </h1>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontSize: "1.15rem",
+            fontStyle: "italic",
+            lineHeight: 1.45,
+            color: INK_70,
+            marginTop: "1rem",
+            marginBottom: 0,
+          }}
+        >
+          {plate.caption}
+        </p>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontSize: "1rem",
+            lineHeight: 1.55,
+            color: INK_50,
+            marginTop: "1rem",
+            maxWidth: "38rem",
+          }}
+        >
+          {plate.scene}
+        </p>
+      </header>
+
+      {/* Canvas */}
+      <ColoringCanvas src={plate.src!} alt={`${plate.title} — line art for coloring`} />
+
+      {/* Prev / next nav (skipped if neither) */}
+      {(prev || next) && (
+        <nav
+          className="print-hide"
+          style={{
+            marginTop: "3.5rem",
+            paddingTop: "1.5rem",
+            borderTop: `1px solid ${INK}`,
+            display: "flex",
+            justifyContent: "space-between",
+            gap: "1.5rem",
+            flexWrap: "wrap",
+          }}
+        >
+          {prev ? (
+            <a href={`/patriotic-times/plates/${prev.slug}`} style={navLinkStyle}>
+              ← Page {prev.pageNo.toString().padStart(2, "0")} · {prev.title}
+            </a>
+          ) : <span />}
+          {next ? (
+            <a href={`/patriotic-times/plates/${next.slug}`} style={navLinkStyle}>
+              Page {next.pageNo.toString().padStart(2, "0")} · {next.title} →
+            </a>
+          ) : <span />}
+        </nav>
+      )}
+    </main>
+  );
+}
+
+const crumbStyle: React.CSSProperties = {
+  fontFamily: MONO,
+  fontSize: "0.85rem",
+  textTransform: "uppercase",
+  letterSpacing: "0.2em",
+  color: INK_50,
+  textDecoration: "none",
+};
+
+const navLinkStyle: React.CSSProperties = {
+  fontFamily: MONO,
+  fontSize: "0.85rem",
+  textTransform: "uppercase",
+  letterSpacing: "0.15em",
+  color: INK_70,
+  textDecoration: "none",
+  fontWeight: 700,
+};

@@ -40,6 +40,10 @@ const CHAIR_ROUTES = [
 const PATRIOTIC_ROUTES = [
   "/patriotic-times",
   "/patriotic-times/colophon",
+  "/patriotic-times/plates",
+  "/patriotic-times/plates/alligator-alcatraz",
+  "/patriotic-times/plates/lafayette-square",
+  "/patriotic-times/plates/the-gallows",
 ];
 
 const CLOSED_LOOP_ROUTES = [
