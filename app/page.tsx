@@ -48,10 +48,10 @@ const WORKS: Work[] = [
   {
     no: "04",
     title: "Patriotic Times",
-    year: "2025",
-    register: "coloring book · state failure · line art",
+    year: "2025—2026",
+    register: "coloring book · state failure · interactive plates",
     href: "/patriotic-times",
-    status: "in production",
+    status: "live",
   },
 ];
 
