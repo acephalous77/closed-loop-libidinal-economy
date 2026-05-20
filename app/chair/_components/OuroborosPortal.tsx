@@ -12,6 +12,7 @@
  */
 
 import React, { useEffect, useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
 import {
   FootprintPlan,
   SedationCurve,
@@ -20,6 +21,14 @@ import {
   ReturnedUndeliverable,
   ReissueCountdown,
 } from "./PhaseDiagrams";
+import {
+  Scanlines,
+  Artifact,
+  HeartbeatPulse,
+  RGBShift,
+  TextScramble,
+  EvidenceCaption,
+} from "./Effects";
 
 // ─── Cinematic dark palette ───────────────────────────────────────────
 const BG = "#0a0908";
@@ -68,11 +77,19 @@ const GLITCH_WORDS: Record<string, string[]> = {
   Effortless: ["Inescapable", "Mandatory", "Total"],
   effortless: ["inescapable", "mandatory", "total"],
   life: ["surplus", "throughput", "yield"],
+  Life: ["Surplus", "Throughput", "Yield"],
   occupant: ["subject", "tenant", "substrate"],
   living: ["being-housed", "being-fed"],
   freedom: ["interpellation", "choice-set"],
   standing: ["exit", "withdrawal", "refusal"],
   system: ["regime", "apparatus", "mechanism"],
+  System: ["Regime", "Apparatus", "Mechanism"],
+  Ouroboros: ["Apparatus", "Ourob000s", "OUROBOROS"],
+  loop: ["noose", "harness", "feeder"],
+  closed: ["sealed", "welded", "irreversible"],
+  apparatus: ["mechanism", "regime", "harness"],
+  reading: ["yield", "extract", "harvest"],
+  seated: ["enclosed", "harnessed", "fitted"],
 };
 
 function GlitchText({
@@ -365,7 +382,20 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Zuboff, on the new economic unit",
-    diagram: () => <FootprintPlan />,
+    diagram: () => (
+      <>
+        <FootprintPlan />
+        <Artifact
+          src="/chair/artifacts/02-schematic-engraved.jpg"
+          alt="Technical schematic of the Ouroboros chair, side view, with annotated subsystems"
+          inv="INV. OILS-2026-Ω-α"
+          caption="Plate I — Apparatus, side elevation · sedation, chemical infusion, evacuation, energy converter, ouroboros loop"
+          width={1536}
+          height={1024}
+          treatment="found"
+        />
+      </>
+    ),
   },
   {
     id: "habitualization",
@@ -392,7 +422,20 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— after Stiegler",
-    diagram: () => <SedationCurve />,
+    diagram: () => (
+      <>
+        <SedationCurve />
+        <Artifact
+          src="/chair/artifacts/03-megasave-rollback.jpg"
+          alt="A retail flyer for the Integrated Life System X, MegaSave Superstore Rollback Special, $5,499.99"
+          inv="INV. RETAIL-2026-04"
+          caption="Plate II — Point-of-sale promotional, MegaSave Superstore, rollback special · ‟live, work & thrive without ever leaving your chair”"
+          width={1536}
+          height={1024}
+          treatment="flyer"
+        />
+      </>
+    ),
     extra: <TierTable />,
   },
   {
@@ -420,7 +463,20 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Marcuse · Preciado · Berardi",
-    diagram: () => <PortMap />,
+    diagram: () => (
+      <>
+        <PortMap />
+        <Artifact
+          src="/chair/artifacts/04-port-grid.jpg"
+          alt="A grid of clinical close-ups showing the seven integration ports — forearm, abdominal, pelvic, spinal, occipital, neural headgear interior, ouroboros ring routing channels"
+          inv="INV. CLINICAL-2026-07"
+          caption="Plate III — Cutaneous integration · forearm, abdominal, pelvic, spinal, occipital · neural headgear interior · ring routing channels"
+          width={1536}
+          height={1024}
+          treatment="showroom"
+        />
+      </>
+    ),
   },
   {
     id: "obsolescence",
@@ -448,7 +504,20 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Zuboff · Selimović",
-    diagram: (m) => <LiveTicker {...m} />,
+    diagram: (m) => (
+      <>
+        <Artifact
+          src="/chair/artifacts/05-vr-immersion.jpg"
+          alt="An occupant in the chair, smiling, VR visor over the eyes, tubes attached to arms and abdomen"
+          inv="INV. SUBJECT-2026-M.K."
+          caption="Plate IV — Subject M.K. · Pro tier · session in progress · the smile is verified"
+          width={1536}
+          height={1024}
+          treatment="found"
+        />
+        <LiveTicker {...m} />
+      </>
+    ),
     extra: <Reading />,
   },
   {
@@ -481,7 +550,20 @@ const PHASES: Phase[] = [
       </>
     ),
     leakCite: "— Terms of Occupancy, §3",
-    diagram: () => <ReturnedUndeliverable />,
+    diagram: () => (
+      <>
+        <Artifact
+          src="/chair/artifacts/02-sensor-systems.jpg"
+          alt="Engineering diagram of the chair's sensor systems and body-contact interfaces, with measurements"
+          inv="INV. ENG-2026-Ω-β"
+          caption="Plate V — Sensor systems and body-contact interfaces · biofeed · infusion · extraction · neurolink · feedback"
+          width={1536}
+          height={1024}
+          treatment="found"
+        />
+        <ReturnedUndeliverable />
+      </>
+    ),
   },
   {
     id: "exit",
@@ -501,7 +583,20 @@ const PHASES: Phase[] = [
     ),
     leak: <>The serpent does not bite its tail. It eats. Slowly. Forever.</>,
     leakCite: "— Selimović, on the form of the loop",
-    diagram: (m) => <ReissueCountdown dwellSec={m.dwellSec} />,
+    diagram: (m) => (
+      <>
+        <ReissueCountdown dwellSec={m.dwellSec} />
+        <Artifact
+          src="/chair/artifacts/06-life-cycle-flyer.jpg"
+          alt="A bright yellow retail brochure: THE OUROBOROS — YOUR COMPLETE LIFE-CYCLE POD, with icons for Eat, Drink, Work, Play, Excrete, Sleep"
+          inv="INV. RETAIL-2026-XL"
+          caption="Plate VI — Final consumer brochure · ‟your complete life-cycle pod” · the loop accepts the next occupant"
+          width={1536}
+          height={1024}
+          treatment="flyer"
+        />
+      </>
+    ),
     extra: <FittingInquiry />,
   },
 ];
@@ -776,18 +871,7 @@ function HarvestLine({
     >
       {/* Brand */}
       <div style={{ display: "flex", alignItems: "center", gap: 12, whiteSpace: "nowrap" }}>
-        <span
-          aria-hidden
-          style={{
-            display: "inline-block",
-            width: 6,
-            height: 6,
-            borderRadius: "50%",
-            background: ACCENT,
-            boxShadow: `0 0 12px ${ACCENT}`,
-            animation: "ols-pulse 2.4s ease-in-out infinite",
-          }}
-        />
+        <HeartbeatPulse size={7} />
         <span
           style={{
             fontFamily: MONO,
@@ -935,6 +1019,7 @@ function Scene({
             color: INK,
             textWrap: "balance" as const,
             maxWidth: "16ch",
+            animation: glitch > 0.6 ? `ols-rgb-jitter ${4 + glitch * 4}s ease-in-out infinite` : undefined,
           }}
         >
           <GlitchText intensity={glitch}>{phaseData.headline}</GlitchText>
@@ -1131,7 +1216,8 @@ export default function OuroborosPortal() {
     };
   }, []);
 
-  const effectiveGlitch = Math.min(1, 0.5 * (0.4 + phase * 0.18));
+  // Glitch escalates with phase — by Phase 06 the page is heavily disturbed.
+  const effectiveGlitch = Math.min(1, 0.4 + phase * 0.13);
 
   return (
     <div data-ols-root data-phase={phase}>
@@ -1139,6 +1225,31 @@ export default function OuroborosPortal() {
         @keyframes ols-pulse {
           0%, 100% { box-shadow: 0 0 12px ${ACCENT}; opacity: 1; }
           50%      { box-shadow: 0 0 20px ${ACCENT}; opacity: 0.7; }
+        }
+        @keyframes ols-heartbeat {
+          0%, 100%  { transform: scale(1);   opacity: 1; }
+          20%       { transform: scale(1.4); opacity: 1; }
+          35%       { transform: scale(1);   opacity: 0.6; }
+          50%       { transform: scale(1.2); opacity: 1; }
+          65%       { transform: scale(1);   opacity: 0.6; }
+        }
+        @keyframes ols-flicker {
+          0%, 100% { opacity: 1; }
+          92%      { opacity: 1; }
+          93%      { opacity: 0.4; }
+          94%      { opacity: 1; }
+          96%      { opacity: 0.6; }
+          97%      { opacity: 1; }
+        }
+        @keyframes ols-scan-roll {
+          0%   { transform: translateY(-2vh); }
+          100% { transform: translateY(102vh); }
+        }
+        @keyframes ols-rgb-jitter {
+          0%, 100% { text-shadow: 0 0 0 transparent; }
+          20%      { text-shadow: -1px 0 rgba(255,80,80,0.5), 1px 0 rgba(80,180,255,0.5); }
+          40%      { text-shadow: 1px 0 rgba(255,80,80,0.5), -1px 0 rgba(80,180,255,0.5); }
+          60%      { text-shadow: 0 0 0 transparent; }
         }
         @keyframes ols-marquee {
           from { transform: translateX(0); }
@@ -1281,6 +1392,24 @@ export default function OuroborosPortal() {
       `}</style>
 
       <HarvestLine m={m} psiRef={psiElRef} />
+      <Scanlines />
+
+      {/* Rolling scan beam — descends slowly across the viewport */}
+      <div
+        aria-hidden
+        style={{
+          position: "fixed",
+          left: 0,
+          right: 0,
+          height: 2,
+          background: `linear-gradient(180deg, transparent 0%, rgba(255,58,37,0.7) 50%, transparent 100%)`,
+          pointerEvents: "none",
+          zIndex: 97,
+          mixBlendMode: "screen",
+          opacity: 0.45,
+          animation: "ols-scan-roll 8s linear infinite",
+        }}
+      />
 
       {/* ─── OVERTURE — the slow open ─── */}
       <section
@@ -1292,9 +1421,43 @@ export default function OuroborosPortal() {
           padding: "120px 32px",
           position: "relative",
           background: `radial-gradient(ellipse at 50% 40%, rgba(255,58,37,0.04) 0%, transparent 60%)`,
+          overflow: "hidden",
         }}
       >
-        <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%" }}>
+        {/* Ghost photo of an occupant behind the overture text */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        >
+          <Image
+            src="/chair/artifacts/01-mechanized-isolation.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: "right center",
+              opacity: 0.22,
+              filter: "saturate(0.5) contrast(1.1)",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(90deg, rgba(10,9,8,0.95) 0%, rgba(10,9,8,0.7) 50%, rgba(10,9,8,0.4) 100%)",
+            }}
+          />
+        </div>
+
+        <div style={{ maxWidth: 1100, margin: "0 auto", width: "100%", position: "relative", zIndex: 1 }}>
           <div
             style={{
               fontFamily: MONO,
@@ -1324,7 +1487,9 @@ export default function OuroborosPortal() {
               color: INK,
             }}
           >
-            <span style={{ display: "block" }}>The Ouroboros</span>
+            <span style={{ display: "block" }}>
+              <GlitchText intensity={effectiveGlitch * 0.7}>The Ouroboros</GlitchText>
+            </span>
             <em
               style={{
                 display: "block",
@@ -1333,7 +1498,7 @@ export default function OuroborosPortal() {
                 color: INK_SOFT,
               }}
             >
-              Life System.
+              <GlitchText intensity={effectiveGlitch * 0.5}>Life System.</GlitchText>
             </em>
           </h1>
           <p
