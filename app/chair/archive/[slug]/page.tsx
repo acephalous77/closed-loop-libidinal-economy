@@ -116,6 +116,80 @@ const BODIES: Record<string, Body> = {
       { code: "2197.14", slug: "proto-apparatuses", note: "On the voice's commercial-class ancestry." },
     ],
   },
+
+  "fitting-ritual": {
+    paragraphs: [
+      `Distribution of the OLS was channeled through a domestic-visit calibration procedure the manufacturer named the &ldquo;fitting.&rdquo; A bonded consultant arrived at the prospective occupant's residence with a portable measurement kit, conducted four hours of biometric and postural calibration, and departed with the dimensional and physiological specifications required to manufacture a tier-appropriate unit. The fitting was the precondition of purchase; no chair was sold to an unfitted occupant.`,
+
+      `The ritual's surface logic was medical: the chair was to be tailored to the occupant's body in the same manner that a custom suit was tailored or, more precisely, that a prosthesis was. The period's marketing materials emphasized this register openly &mdash; the consultant wore a white coat, carried instruments, took notes.`,
+
+      `What the marketing materials elided is recoverable from the surviving consultant training documents (Office of Manufacturer Compliance, 2034). The fitting was also an occasion for the consultant to assess the residence: floor-load capacity for the apparatus's 380-kilogram operating weight, electrical service for the continuous power draw, drainage proximity for the waste-extraction tie-in, and &mdash; most significantly &mdash; the occupant's household compliance environment. A consultant who flagged the household as &ldquo;non-supportive&rdquo; could decline to certify the fitting. The occupant could not then proceed to purchase.`,
+
+      { quote: "The fitting was the apparatus's first instrument. It admitted the cooperative; it identified the resistant." },
+
+      `Period scholarship has read the fitting as a domesticated inversion of the medical intake: where the intake assessed the patient against the diagnosis, the fitting assessed the household against the prosthesis. The chair was not, on this reading, a product the occupant chose. The chair was an apparatus the household had been invited to host.`,
+    ],
+    crossRefs: [
+      { code: "2197.11", slug: "pro-tier-moratorium", note: "On the regulatory horizon of the apparatus's distribution." },
+      { code: "2197.22", slug: "eternal-tier", note: "On the contractual extension beyond the fitting." },
+    ],
+  },
+
+  "waste-subsystem": {
+    paragraphs: [
+      `Of the five Ouroboros Ring subsystems, the waste-extraction line is the one the period's marketing materials most carefully managed. The subsystem appears in the surviving copy under a small set of euphemistic designations: &ldquo;the chair's continuous-comfort line,&rdquo; &ldquo;the discreet sanitation interface,&rdquo; &ldquo;the cycle-closure subsystem,&rdquo; &ldquo;the eliminative routine.&rdquo; The literal function &mdash; catheterized urine collection and colostomy-port fecal extraction, both running continuously throughout the occupant's residence in the chair &mdash; was rarely named in marketing copy intended for the prospective occupant.`,
+
+      `The discrepancy is instructive. Period marketing for analogous medical devices (dialysis units, ostomy equipment, indwelling catheters) routinely named the function explicitly, because the addressee was either a patient or a caregiver who had already accepted that the function was inevitable. The OLS marketing's addressee had not. The prospective occupant was being sold the chair as an aspirational lifestyle device, and the lifestyle had to be reconcilable with the body that would inhabit it.`,
+
+      `The subsystem itself was, by all accounts, technically excellent. Surviving service records show extremely low rates of complication. The euphemism was not motivated by engineering shame. It was motivated by sales.`,
+
+      { quote: "The chair could process the waste. The marketing could not." },
+
+      `One scholar (Imai 2188) has noted that the OLS's waste-extraction copy provides the period's clearest documented case of the gap between what a consumer product was, in operation, and what the consumer was permitted to know about it before purchase. The apparatus that the occupant lived in for years was advertised with vocabulary the occupant would not, in any other domain, have accepted from a vendor.`,
+    ],
+    crossRefs: [
+      { code: "2197.04", slug: "ouroboros-ring", note: "On the loop the subsystem closed." },
+      { code: "2197.30", slug: "fitting-ritual", note: "On the consultant who carried the apparatus's full functional disclosure." },
+    ],
+  },
+
+  "refurbished-aftermarket": {
+    paragraphs: [
+      `Following the OLS's formal proscription in the Tier-2 jurisdictions (c. 2058&ndash;2061, varying by sovereign), an active aftermarket emerged in refurbished units. The trade persisted for approximately forty years before declining into negligible volume in the late 2090s.`,
+
+      `The aftermarket's commercial structure is recoverable from a small but consistent body of surviving court records. Units were generally sold by intermediaries who had acquired them from estates following the death of original occupants &mdash; estates which, under the Eternal-tier protocols, had been obligated to maintain the chair against reactivation but which had no further use for the apparatus once its original occupant ceased to function. Refurbishment consisted principally of replacement of consumable tubing assemblies and re-flashing of the productivity-feedback firmware to a version that would accept the new occupant's biometric registration.`,
+
+      `The aftermarket's customer base was, on the surviving evidence, distinct from the original OLS market. Where the original product had been sold to professional-class subjects integrating the chair into a productivity-extraction lifestyle, the aftermarket served principally subjects who had been excluded from licit work and who used the chair as a single-room habitation. The energy-extraction tie-in, designed in the original era to feed the occupant's productive output back to the grid, was in the aftermarket era often disconnected entirely. The chair became, in this period, a place to live rather than a place to work.`,
+
+      `This shift in use is one of the period's most-cited cases of how apparatus designed for one purpose acquires a second purpose its designers neither anticipated nor controlled. The OLS, designed as a productivity-extraction enclosure, ended its commercial life as cheap housing.`,
+    ],
+    crossRefs: [
+      { code: "2197.11", slug: "pro-tier-moratorium", note: "On the regulatory horizon that produced the aftermarket." },
+      { code: "2197.22", slug: "eternal-tier", note: "On the contractual mechanism that supplied it." },
+      { code: "2197.48", slug: "successor-systems", note: "On what eventually replaced both the apparatus and its aftermarket." },
+    ],
+  },
+
+  "successor-systems": {
+    paragraphs: [
+      `The Ouroboros Life System's commercial era ended in the 2050s, but the logic the apparatus had instantiated did not. The OLS's successor systems &mdash; what scholars have called the &ldquo;post-furniture&rdquo; generation of integrated apparatus &mdash; abandoned the chair's external enclosure form and migrated the same functions into the body itself.`,
+
+      `The progression is recoverable in stages. The first successor, the Continuous Care Wearable (c. 2052), externalized the chair's biometric-monitoring and nutrient-delivery functions into a forearm cuff and a chest-mounted feed interface. The second, the Embedded Service Suite (c. 2061), implanted the relevant interfaces subcutaneously, eliminating the need for an external apparatus altogether. The third, in market by 2074, integrated the productivity-feedback subsystem directly into the cortical substrate.`,
+
+      `The shift in commercial vocabulary is informative. The OLS had been sold as &ldquo;life support.&rdquo; The Continuous Care Wearable was sold as &ldquo;continuous care.&rdquo; The Embedded Service Suite was sold as &ldquo;wellness optimization.&rdquo; The cortical successor was sold as &ldquo;direct neural availability.&rdquo; At no point did the marketing copy describe the function the apparatus actually performed.`,
+
+      { quote: "The chair was visible; the successor was wearable; the successor's successor was indistinguishable from the body it inhabited." },
+
+      `The period's regulators consistently lagged the apparatus by approximately one product generation. Each successor reached commercial maturity in the interval between its predecessor's restriction and the regulatory framework's understanding that the new product was the previous product wearing different vocabulary.`,
+
+      `By the late 22nd century the productivity-feedback subsystem had become a constitutive feature of the human body's commercial valuation: the body that did not carry an installed feedback interface was the body that could not be employed. At this point the apparatus that began as a chair had completed its disappearance into its occupant.`,
+    ],
+    crossRefs: [
+      { code: "2197.04", slug: "ouroboros-ring", note: "On the form the apparatus eventually shed." },
+      { code: "2197.14", slug: "proto-apparatuses", note: "On the earlier systems the chair had consolidated and the successors disaggregated again." },
+      { code: "2197.41", slug: "refurbished-aftermarket", note: "On what happened to the chair itself once its functions migrated elsewhere." },
+    ],
+  },
 };
 
 export function generateStaticParams() {

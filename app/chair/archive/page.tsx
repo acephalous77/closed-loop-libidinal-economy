@@ -70,6 +70,34 @@ export const ENTRIES = [
     summary:
       'On the period\'s characteristic conflation of confinement and gratitude. With reference to the canonical "I haven\'t had to stand up in nine months" specimen.',
   },
+  {
+    slug: "fitting-ritual",
+    code: "2197.30",
+    title: "On the Fitting Ritual",
+    summary:
+      "The home-visit calibration procedure by which the apparatus was sized to the occupant. Read as a domesticated inversion of the medical intake.",
+  },
+  {
+    slug: "waste-subsystem",
+    code: "2197.34",
+    title: "The Waste-Extraction Subsystem",
+    summary:
+      "On the system whose disclosure the marketing apparatus most carefully managed. The euphemism trail traced through the surviving copy.",
+  },
+  {
+    slug: "refurbished-aftermarket",
+    code: "2197.41",
+    title: "The Refurbished Aftermarket",
+    summary:
+      "The black-market trade in proscribed units that persisted for forty years after the OLS's withdrawal from licit sale.",
+  },
+  {
+    slug: "successor-systems",
+    code: "2197.48",
+    title: "Successor Systems: From Furniture to Implant",
+    summary:
+      "What replaced the chair after the chair. The progression from external apparatus to embedded protocol, and the change in the period's commercial vocabulary that accompanied it.",
+  },
 ];
 
 export default function ImperialArchiveIndex() {

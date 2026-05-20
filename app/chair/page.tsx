@@ -26,6 +26,42 @@ const SUB = {
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `-apple-system, "Inter", "SF Pro Display", "Helvetica Neue", system-ui, sans-serif`;
 
+/**
+ * Archive marker — wraps a phrase with a barely-visible dotted underline
+ * that's nearly invisible in the page but darkens on hover and links to
+ * an archive entry. The convention is borrowed from scholarly footnote
+ * dotted-underline citations: the careful reader notices, the casual
+ * reader does not.
+ */
+function A({
+  to,
+  title,
+  children,
+}: {
+  to: string;
+  title: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={`/chair/archive/${to}`}
+      title={title}
+      className="archive-mark"
+      style={{
+        color: "inherit",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted",
+        textDecorationColor: "#cdc6bd",
+        textDecorationThickness: "1px",
+        textUnderlineOffset: "3px",
+        cursor: "help",
+      }}
+    >
+      {children}
+    </a>
+  );
+}
+
 export default function ChairLanding() {
   return (
     <>
@@ -87,7 +123,10 @@ export default function ChairLanding() {
             marginBottom: "1.5rem",
           }}
         >
-          Introducing the Ouroboros Life System
+          Introducing the{" "}
+          <A to="proto-apparatuses" title="Imperial Archive 2197.14 — Proto-Apparatuses: The Social-Media Ancestry">
+            Ouroboros Life System
+          </A>
         </p>
         <h1
           style={{
@@ -114,7 +153,7 @@ export default function ChairLanding() {
             fontWeight: 400,
           }}
         >
-          A fully-enclosed integrated life-support apparatus. Total
+          A <A to="ouroboros-ring" title="Imperial Archive 2197.04 — On the Ouroboros Ring">fully-enclosed</A> integrated life-support apparatus. Total
           automation for work, play, and survival — in a single
           ergonomic enclosure.
         </p>
@@ -195,19 +234,6 @@ export default function ChairLanding() {
             }}
           >
             Fig. 01 — Standard chair configuration, showroom view
-            {" "}
-            <a
-              href="/chair/archive/ouroboros-ring"
-              title="Imperial Archive Entry 2197.04 — On the Ouroboros Ring"
-              style={{
-                color: "#7a3a14",
-                textDecoration: "none",
-                marginLeft: "0.4rem",
-                fontWeight: 700,
-              }}
-            >
-              [2197.04]
-            </a>
           </p>
         </div>
       </section>
@@ -231,17 +257,43 @@ export default function ChairLanding() {
             {
               eyebrow: "01 — Sustenance",
               title: "Nutrient & hydration delivery, automatic.",
-              body: "Color-coded fluid lines maintain optimal caloric intake, hydration, and electrolyte balance — sustained indefinitely.",
+              body: (
+                <>
+                  Color-coded fluid lines maintain optimal caloric intake,
+                  hydration, and{" "}
+                  <A to="waste-subsystem" title="Imperial Archive 2197.34 — On the waste-extraction subsystem">
+                    electrolyte balance
+                  </A>{" "}
+                  — sustained indefinitely.
+                </>
+              ),
             },
             {
               eyebrow: "02 — Productivity",
               title: "Work, play, and survival in one enclosure.",
-              body: "Triple-screen interface with neural-feedback work terminal and entertainment console. The occupant's productivity feeds back into the grid.",
+              body: (
+                <>
+                  Triple-screen interface with{" "}
+                  <A to="pro-tier-moratorium" title="Imperial Archive 2197.11 — The Pro-tier Moratorium of 2049">
+                    neural-feedback work terminal
+                  </A>{" "}
+                  and entertainment console. The occupant&apos;s productivity
+                  feeds back into the grid.
+                </>
+              ),
             },
             {
               eyebrow: "03 — Comfort",
               title: "Engineered for indefinite occupancy.",
-              body: "Contoured medical-grade polymer, posture monitoring, and a sleep-induction subsystem that ensures circadian compliance.",
+              body: (
+                <>
+                  Contoured medical-grade polymer, posture monitoring,
+                  and a sleep-induction subsystem that ensures{" "}
+                  <A to="successor-systems" title="Imperial Archive 2197.48 — Successor Systems: From Furniture to Implant">
+                    circadian compliance
+                  </A>.
+                </>
+              ),
             },
           ].map((f) => (
             <div key={f.eyebrow}>
@@ -339,10 +391,13 @@ export default function ChairLanding() {
                 maxWidth: "30rem",
               }}
             >
-              The Ouroboros ring encircles the chair with five
-              continuously-active subsystems. Inputs and outputs
-              circulate within the apparatus. The occupant never needs
-              to leave.
+              The{" "}
+              <A to="ouroboros-ring" title="Imperial Archive 2197.04 — On the Ouroboros Ring">
+                Ouroboros ring
+              </A>{" "}
+              encircles the chair with five continuously-active
+              subsystems. Inputs and outputs circulate within the
+              apparatus. The occupant never needs to leave.
             </p>
 
             {/* Subsystem swatches */}
@@ -403,20 +458,10 @@ export default function ChairLanding() {
                 textAlign: "center",
               }}
             >
-              Fig. 02 — Integration diagram
-              {" "}
-              <a
-                href="/chair/archive/period-typography"
-                title="Imperial Archive Entry 2197.07 — On the period typographic errors visible in this and other marketing materials"
-                style={{
-                  color: "#7a3a14",
-                  textDecoration: "none",
-                  marginLeft: "0.4rem",
-                  fontWeight: 700,
-                }}
-              >
-                [2197.07]
-              </a>
+              Fig. 02 —{" "}
+              <A to="period-typography" title="Imperial Archive 2197.07 — The 'Goming Screen' & Other Period Typographic Errors">
+                Integration diagram
+              </A>
             </p>
           </div>
         </div>
@@ -462,12 +507,12 @@ export default function ChairLanding() {
           }}
         >
           {[
-            { value: "180kg", label: "Occupant capacity" },
-            { value: "98%", label: "Waste reclamation rate" },
-            { value: "24/7", label: "Continuous operation" },
-            { value: "≤ 0.4 W", label: "Standby power draw" },
-            { value: "12 yr", label: "Polymer service life" },
-            { value: "365 d", label: "Limited warranty" },
+            { value: "180kg", label: "Occupant capacity", archive: null },
+            { value: "98%", label: "Waste reclamation rate", archive: { slug: "waste-subsystem", code: "2197.34" } },
+            { value: "24/7", label: "Continuous operation", archive: null },
+            { value: "≤ 0.4 W", label: "Standby power draw", archive: null },
+            { value: "12 yr", label: "Polymer service life", archive: { slug: "refurbished-aftermarket", code: "2197.41" } },
+            { value: "365 d", label: "Limited warranty", archive: null },
           ].map((s) => (
             <div key={s.label}>
               <div
@@ -492,7 +537,13 @@ export default function ChairLanding() {
                   color: INK_70,
                 }}
               >
-                {s.label}
+                {s.archive ? (
+                  <A to={s.archive.slug} title={`Imperial Archive ${s.archive.code}`}>
+                    {s.label}
+                  </A>
+                ) : (
+                  s.label
+                )}
               </div>
             </div>
           ))}
@@ -565,7 +616,16 @@ export default function ChairLanding() {
               {
                 tier: "Eternal",
                 price: "On request",
-                desc: "Single occupant. Lifetime support contract. Estate-bound configuration. Post-mortem data continuity.",
+                desc: (
+                  <>
+                    Single occupant. Lifetime support contract. Estate-bound
+                    configuration.{" "}
+                    <A to="eternal-tier" title="Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity">
+                      Post-mortem data continuity
+                    </A>
+                    .
+                  </>
+                ),
                 features: ["All Pro features", "Lifetime polymer warranty", "Estate transfer protocols", "Phase VII–compatible exit"],
                 cta: "Inquire",
                 accent: false,
@@ -592,27 +652,9 @@ export default function ChairLanding() {
                     letterSpacing: "0.2em",
                     color: c.accent ? INK_70 : "#999",
                     marginBottom: "0.6rem",
-                    display: "flex",
-                    alignItems: "baseline",
-                    justifyContent: "space-between",
                   }}
                 >
-                  <span>{c.tier}</span>
-                  {c.archive && (
-                    <a
-                      href={`/chair/archive/${c.archive.slug}`}
-                      title={`Imperial Archive Entry ${c.archive.code}`}
-                      style={{
-                        color: c.accent ? "#7a3a14" : "#7a3a14",
-                        textDecoration: "none",
-                        fontSize: "0.65rem",
-                        fontWeight: 700,
-                        letterSpacing: "0.15em",
-                      }}
-                    >
-                      [{c.archive.code}]
-                    </a>
-                  )}
+                  {c.tier}
                 </div>
                 <div
                   style={{
@@ -689,9 +731,12 @@ export default function ChairLanding() {
             margin: 0,
           }}
         >
-          “I haven&apos;t had to stand up in nine months. The Pro tier has
-          changed everything. My productivity is at an all-time high and
-          I genuinely cannot imagine going back.”
+          “
+          <A to="testimonial-analysis" title="Imperial Archive 2197.26 — The Testimonial Voice">
+            I haven&apos;t had to stand up in nine months
+          </A>
+          . The Pro tier has changed everything. My productivity is at an
+          all-time high and I genuinely cannot imagine going back.”
         </p>
         <div
           style={{
@@ -704,19 +749,6 @@ export default function ChairLanding() {
           }}
         >
           — M.K., Pro tier · Cohort 2026.04
-          {" "}
-          <a
-            href="/chair/archive/testimonial-analysis"
-            title="Imperial Archive Entry 2197.26 — On the testimonial voice"
-            style={{
-              color: "#7a3a14",
-              textDecoration: "none",
-              marginLeft: "0.4rem",
-              fontWeight: 700,
-            }}
-          >
-            [2197.26]
-          </a>
         </div>
       </section>
 
@@ -744,9 +776,12 @@ export default function ChairLanding() {
             margin: "1.5rem auto 0",
           }}
         >
-          A certified Ouroboros Life System consultant will visit your
-          residence for biometric calibration and chair sizing. Fittings
-          are typically completed within four hours.
+          A certified Ouroboros Life System{" "}
+          <A to="fitting-ritual" title="Imperial Archive 2197.30 — On the Fitting Ritual">
+            consultant
+          </A>{" "}
+          will visit your residence for biometric calibration and chair
+          sizing. Fittings are typically completed within four hours.
         </p>
         <a
           href="#"
