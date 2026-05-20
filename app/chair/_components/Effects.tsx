@@ -182,22 +182,23 @@ export function Artifact({
           alt={alt}
           fill
           sizes="(max-width: 720px) 92vw, (max-width: 1024px) 80vw, 880px"
-          priority={priority}
+          priority
           style={{
             objectFit: "cover",
             filter: filterMap[treatment],
           }}
         />
-        {/* Paper texture overlay */}
+        {/* Paper texture overlay — subtle */}
         <div
           aria-hidden
           style={{
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.75  0 0 0 0 0.65  0 0 0 0.10 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>\")",
-            mixBlendMode: "multiply",
+              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.75  0 0 0 0 0.65  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>\")",
+            mixBlendMode: "overlay",
             pointerEvents: "none",
+            opacity: 0.6,
           }}
         />
         {/* Subtle vignette */}
