@@ -1061,10 +1061,10 @@ function PhaseSection({
           <h2
             style={{
               fontFamily: SANS,
-              fontWeight: 350,
-              fontSize: "clamp(40px, 4.6vw, 68px)",
+              fontWeight: 650,
+              fontSize: "clamp(42px, 4.8vw, 72px)",
               lineHeight: 1.0,
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.035em",
               margin: "0 0 14px",
               color: INK,
               textWrap: "balance" as const,
@@ -1096,6 +1096,7 @@ function PhaseSection({
               margin: 0,
               maxWidth: "58ch",
               textWrap: "pretty" as const,
+              fontWeight: 420,
             }}
           >
             {phaseData.body}
@@ -1382,16 +1383,16 @@ export default function OuroborosPortal() {
           </div>
           <div
             style={{
-              marginTop: 14,
+              marginTop: 18,
               textAlign: "center",
               color: MUTED,
               fontFamily: MONO,
-              fontSize: 11,
-              letterSpacing: "0.08em",
+              fontSize: 10.5,
+              letterSpacing: "0.16em",
               textTransform: "uppercase",
             }}
           >
-            Fig. 001 · ILS-Ω · Unit 001 · {PHASES[phase].name}
+            ILS-Ω · Unit 001
           </div>
         </div>
 
@@ -1433,10 +1434,10 @@ export default function OuroborosPortal() {
             <h1
               style={{
                 fontFamily: SANS,
-                fontWeight: 300,
-                fontSize: "clamp(56px, 6.4vw, 104px)",
+                fontWeight: 500,
+                fontSize: "clamp(60px, 6.8vw, 108px)",
                 lineHeight: 0.92,
-                letterSpacing: "-0.04em",
+                letterSpacing: "-0.045em",
                 margin: "24px 0 28px",
                 color: INK,
               }}
@@ -1446,8 +1447,8 @@ export default function OuroborosPortal() {
                 style={{
                   display: "block",
                   fontStyle: "normal",
-                  fontWeight: 200,
-                  color: MUTED,
+                  fontWeight: 400,
+                  color: INK_SOFT,
                 }}
               >
                 Life System.
