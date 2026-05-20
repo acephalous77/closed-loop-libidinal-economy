@@ -258,6 +258,7 @@ export function StencilNumeral({
 }
 
 // ─── Distressed rubber stamp ───────────────────────────────────────────
+// Sizes the viewBox to fit the text — no more clipping.
 export function RubberStamp({
   text,
   rotate = -8,
@@ -271,11 +272,17 @@ export function RubberStamp({
   size?: number;
   border?: boolean;
 }) {
-  const w = 240 * size;
+  // Estimate text width in viewBox units. Anton is condensed (~0.46em
+  // per char advance), plus letter-spacing 0.12em. Add 12% safety margin.
+  const fontSizeVB = 32; // viewBox-space font size
+  const charAdv = fontSizeVB * 0.46;
+  const letterSpace = fontSizeVB * 0.12;
+  const estTextW = text.length * (charAdv + letterSpace) * 1.12;
+  const w = Math.max(180, estTextW + 32) * size;
   const h = 60 * size;
   return (
     <svg
-      viewBox={`0 0 ${w} ${h}`}
+      viewBox={`0 0 ${w / size} ${h / size}`}
       width={w}
       height={h}
       xmlns="http://www.w3.org/2000/svg"
@@ -291,22 +298,22 @@ export function RubberStamp({
           <rect
             x={3}
             y={3}
-            width={w - 6}
-            height={h - 6}
+            width={w / size - 6}
+            height={h / size - 6}
             fill="none"
             stroke={color}
             strokeWidth="3"
           />
         )}
         <text
-          x={w / 2}
-          y={h / 2 + 8}
+          x={w / size / 2}
+          y={h / size / 2 + fontSizeVB * 0.32}
           textAnchor="middle"
           fontFamily="var(--font-anton), Impact, sans-serif"
-          fontSize={h * 0.55}
+          fontSize={fontSizeVB}
           fontWeight="900"
           fill={color}
-          letterSpacing="0.15em"
+          letterSpacing="0.12em"
         >
           {text}
         </text>
