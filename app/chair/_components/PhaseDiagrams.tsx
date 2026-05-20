@@ -306,72 +306,150 @@ export function SedationCurve() {
   );
 }
 
-// ─── Phase 03 — port map ──────────────────────────────────────────────
+// ─── Phase 03 — port map (pure schematic, no body) ────────────────────
 export function PortMap() {
   const W = 480;
-  const H = 320;
+  const H = 300;
 
-  const ports = [
-    { x: 120, y: 70, color: SAGE, label: "Cervical L", flow: "analgesic" },
-    { x: 360, y: 70, color: SAGE, label: "Cervical R", flow: "analgesic" },
-    { x: 80, y: 160, color: AMBER, label: "Brachial L", flow: "chemical" },
-    { x: 400, y: 160, color: AMBER, label: "Brachial R", flow: "chemical" },
-    { x: 180, y: 230, color: COBALT, label: "Abdominal L", flow: "nutrient" },
-    { x: 300, y: 230, color: COBALT, label: "Abdominal R", flow: "nutrient" },
-    { x: 200, y: 280, color: ACCENT, label: "Lumbar out L", flow: "energy → grid" },
-    { x: 280, y: 280, color: ACCENT, label: "Lumbar out R", flow: "energy → grid" },
+  // Layout: a connector-pinout style schematic.
+  // Ring (Ouroboros) on top, branches to 4 subsystem manifolds, each
+  // manifold splits to 2 ports. The body is NOT depicted; the chair
+  // receives the occupant, not vice versa.
+
+  const ringY = 38;
+  const manifoldY = 110;
+  const portY = 200;
+
+  const manifolds = [
+    { x: 60, color: SAGE, label: "Analgesic", ports: ["Cervical L", "Cervical R"], dir: "IN" },
+    { x: 200, color: COBALT, label: "Nutrient", ports: ["Abdominal L", "Abdominal R"], dir: "IN" },
+    { x: 340, color: AMBER, label: "Chemical", ports: ["Brachial L", "Brachial R"], dir: "IN" },
+    { x: 460, color: ACCENT, label: "Energy", ports: ["Lumbar out L", "Lumbar out R"], dir: "OUT" },
   ];
 
   return (
-    <DiagramFrame label="Fig. 03 — Cutaneous ports · 6 in · 2 out" height={320}>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="100%" style={{ display: "block" }}>
-        {/* Outline of an occupant's anterior aspect — abstract, no anatomical detail */}
-        <g stroke={HAIR} strokeWidth="0.8" fill={BG_SOFT}>
-          <ellipse cx={W / 2} cy="48" rx="32" ry="36" />
-          {/* shoulders */}
-          <path
-            d={`M ${W / 2 - 70} 100 Q ${W / 2 - 90} 110 ${W / 2 - 88} 130 L ${W / 2 - 72} 250 Q ${W / 2 - 70} 285 ${W / 2 - 40} 295 L ${W / 2 + 40} 295 Q ${W / 2 + 70} 285 ${W / 2 + 72} 250 L ${W / 2 + 88} 130 Q ${W / 2 + 90} 110 ${W / 2 + 70} 100 Q ${W / 2 + 32} 84 ${W / 2} 84 Q ${W / 2 - 32} 84 ${W / 2 - 70} 100 Z`}
-          />
+    <DiagramFrame label="Fig. 03 — Subsystem schematic · 6 in · 2 out" height={300}>
+      <svg viewBox={`0 0 ${W + 20} ${H}`} width="100%" height="100%" style={{ display: "block", margin: "0 auto" }}>
+        {/* Ring at top */}
+        <g>
+          <rect x="60" y={ringY - 12} width={W - 100} height="24" rx="12" fill={PAPER} stroke={INK} strokeWidth="1.4" />
+          <text
+            x={W / 2}
+            y={ringY + 4}
+            textAnchor="middle"
+            fontFamily={MONO}
+            fontSize="11"
+            fill={INK}
+            fontWeight={600}
+            letterSpacing="0.16em"
+          >
+            OUROBOROS · MANIFOLD
+          </text>
         </g>
 
-        {/* Ports */}
-        {ports.map((p) => (
-          <g key={p.label}>
-            <circle cx={p.x} cy={p.y} r="6" fill={PAPER} stroke={INK} strokeWidth="1" />
-            <circle cx={p.x} cy={p.y} r="2.4" fill={p.color} />
-            {/* Leader line to label outside */}
-            <line
-              x1={p.x}
-              y1={p.y}
-              x2={p.x < W / 2 ? 30 : W - 30}
-              y2={p.y}
-              stroke={HAIR}
-              strokeWidth="0.4"
-              strokeDasharray="2 2"
-            />
-            <text
-              x={p.x < W / 2 ? 26 : W - 26}
-              y={p.y - 4}
-              textAnchor={p.x < W / 2 ? "end" : "start"}
-              fontFamily={MONO}
-              fontSize="9"
-              fill={INK}
-              fontWeight={500}
-            >
-              {p.label}
-            </text>
-            <text
-              x={p.x < W / 2 ? 26 : W - 26}
-              y={p.y + 6}
-              textAnchor={p.x < W / 2 ? "end" : "start"}
-              fontFamily={MONO}
-              fontSize="8"
-              fill={MUTED}
-            >
-              {p.flow}
-            </text>
-          </g>
-        ))}
+        {/* Subsystem manifolds */}
+        {manifolds.map((m) => {
+          const isOut = m.dir === "OUT";
+          return (
+            <g key={m.label}>
+              {/* Trunk from ring down to manifold node */}
+              <line
+                x1={m.x}
+                y1={ringY + 12}
+                x2={m.x}
+                y2={manifoldY - 8}
+                stroke={m.color}
+                strokeWidth="2.5"
+              />
+              {/* Direction arrow */}
+              {!isOut ? (
+                <path
+                  d={`M ${m.x - 4} ${manifoldY - 14} L ${m.x} ${manifoldY - 6} L ${m.x + 4} ${manifoldY - 14} Z`}
+                  fill={m.color}
+                />
+              ) : (
+                <path
+                  d={`M ${m.x - 4} ${ringY + 20} L ${m.x} ${ringY + 12} L ${m.x + 4} ${ringY + 20} Z`}
+                  fill={m.color}
+                />
+              )}
+              {/* Manifold node */}
+              <circle cx={m.x} cy={manifoldY} r="8" fill={PAPER} stroke={m.color} strokeWidth="2" />
+              <circle cx={m.x} cy={manifoldY} r="3" fill={m.color} />
+              {/* Manifold label */}
+              <text
+                x={m.x}
+                y={manifoldY + 26}
+                textAnchor="middle"
+                fontFamily={MONO}
+                fontSize="10"
+                fill={INK}
+                fontWeight={600}
+                letterSpacing="0.08em"
+              >
+                {m.label.toUpperCase()}
+              </text>
+              <text
+                x={m.x}
+                y={manifoldY + 38}
+                textAnchor="middle"
+                fontFamily={MONO}
+                fontSize="8"
+                fill={MUTED}
+                letterSpacing="0.16em"
+              >
+                {m.dir}
+              </text>
+              {/* Branches to two ports */}
+              {m.ports.map((portLabel, j) => {
+                const px = m.x + (j === 0 ? -22 : 22);
+                return (
+                  <g key={portLabel}>
+                    <path
+                      d={`M ${m.x} ${manifoldY + 8} Q ${m.x} ${portY - 18} ${px} ${portY - 10}`}
+                      fill="none"
+                      stroke={m.color}
+                      strokeWidth="1.4"
+                      opacity="0.85"
+                    />
+                    <circle cx={px} cy={portY} r="6" fill={PAPER} stroke={INK} strokeWidth="1" />
+                    <circle cx={px} cy={portY} r="2.4" fill={m.color} />
+                    <text
+                      x={px}
+                      y={portY + 18}
+                      textAnchor="middle"
+                      fontFamily={MONO}
+                      fontSize="8.5"
+                      fill={INK}
+                      fontWeight={500}
+                    >
+                      {portLabel}
+                    </text>
+                  </g>
+                );
+              })}
+            </g>
+          );
+        })}
+
+        {/* Footer summary */}
+        <g>
+          <line x1="40" y1={H - 30} x2={W - 20} y2={H - 30} stroke={LINE} strokeWidth="0.6" />
+          <text x="40" y={H - 14} fontFamily={MONO} fontSize="9" fill={MUTED} letterSpacing="0.08em">
+            6 cutaneous ports · self-sealing · auto-analgesic
+          </text>
+          <text
+            x={W - 20}
+            y={H - 14}
+            textAnchor="end"
+            fontFamily={MONO}
+            fontSize="9"
+            fill={ACCENT}
+            letterSpacing="0.08em"
+          >
+            2 outlets · sold per kWh
+          </text>
+        </g>
       </svg>
     </DiagramFrame>
   );
