@@ -32,6 +32,11 @@ const OHCOSE_ROUTES = [
   "/ohcose/iii-adolescent-calibration/the-initiate",
 ];
 
+const CHAIR_ROUTES = [
+  "/chair",
+  "/chair/colophon",
+];
+
 const CLOSED_LOOP_ROUTES = [
   "/closed-loop",
   "/closed-loop/the-argument",
@@ -62,7 +67,7 @@ const CLOSED_LOOP_ROUTES = [
   "/closed-loop/colophon",
 ];
 
-const ROUTES = [...ATELIER_ROUTES, ...CLOSED_LOOP_ROUTES, ...OHCOSE_ROUTES];
+const ROUTES = [...ATELIER_ROUTES, ...CLOSED_LOOP_ROUTES, ...OHCOSE_ROUTES, ...CHAIR_ROUTES];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -74,6 +79,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
       path === "/"
         ? 1.0
         : path === "/closed-loop" || path === "/ohcose"
+        ? 0.9
+        : path === "/chair"
         ? 0.9
         : path.startsWith("/closed-loop/the-") || path.startsWith("/ohcose/i-") || path.startsWith("/ohcose/ii-") || path.startsWith("/ohcose/iii-")
         ? 0.8

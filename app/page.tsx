@@ -43,7 +43,7 @@ const WORKS: Work[] = [
     year: "2025",
     register: "fully-enclosed integrated life-support chair",
     href: "/chair",
-    status: "in production",
+    status: "live",
   },
   {
     no: "04",
