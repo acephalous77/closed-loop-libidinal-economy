@@ -1,42 +1,68 @@
 "use client";
 
 /**
- * OuroborosPortal — the centerpiece of the /chair page.
+ * OuroborosPortal — the chair page, end to end.
  *
- * Ported from the Claude Design handoff (project/app.jsx) and folded into
- * the surrounding clinical product-launch register. Provides:
+ * Single unified register: Geist + Geist Mono, warm cream paper, vivid
+ * red accent. The chair-as-altar is sticky from first paint. The harvest
+ * strip is the chrome. The six phases are the page's only structure.
  *
- *   • Sticky chair SVG centerpiece (phase-aware)
- *   • Scrolling six-phase OHCOSE narrative beside it
- *   • Top harvest strip: TI / CI / EI / LI / CE / Ψ live from cursor
- *   • Phase pips
- *   • GlitchText that morphs euphemism → naked term
- *   • CursorTrail particles drifting toward the chair to be absorbed
- *   • LEAKAGE blockquote treatment (red-rule paper card)
- *   • EULA marquee at foot
- *   • Loop-back: scroll to end auto-returns to top
+ * The product-launch elements (tiers + pricing, testimonial, fitting
+ * inquiry) are folded into the phases where they belong:
+ *   • Phase 02 Habitualization → tier table (Essential / Pro / Eternal)
+ *   • Phase 04 Obsolescence    → testimonial-as-reading
+ *   • Phase 06 Exit            → fitting inquiry (the loop accepts the
+ *                                next occupant)
  *
- * Visual register adheres to the surrounding /chair shell: pure-white
- * system-sans clinical product page. Accent red (#e23b2a) is used
- * sparingly — pulse, leakage rule, Ψ value, cursor particles — to mark
- * the moments when the chair is "reading you".
+ * Imperial Archive dotted-underline anchors woven across all phases.
  */
 
 import React, { useEffect, useRef, useState, type ReactNode } from "react";
 import ChairSVG from "./ChairSVG";
 
-// ─── Palette tokens (match the surrounding chair-theme shell) ─────────
-const INK = "#0a0a0a";
-const INK_70 = "#5a5a5a";
-const INK_40 = "#9a9a9a";
-const INK_20 = "#e6e6e6";
+// ─── Design-bundle palette tokens ─────────────────────────────────────
+const BG = "#f1efea";
+const BG_SOFT = "#f6f4ef";
 const PAPER = "#ffffff";
-const PAPER_TINT = "#f7f8f9";
-const PAPER_WARM = "#f6f4ef"; // for the stage background only — connects to the chair pedestal
-const ACCENT = "#e23b2a"; // the chair's vivid red — the jolt
+const INK = "#0a0a0a";
+const INK_SOFT = "#1a1a1a";
+const MUTED = "#6b6b66";
+const HAIR = "rgba(10,10,10,0.55)";
+const LINE = "rgba(10,10,10,0.14)";
+const LINE_SOFT = "rgba(10,10,10,0.07)";
+const ACCENT = "#e23b2a";
 
-const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const DISPLAY = `-apple-system, "Inter", "SF Pro Display", "Helvetica Neue", system-ui, sans-serif`;
+const SANS = `var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif`;
+const MONO = `var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace`;
+
+// ─── Imperial Archive dotted-underline anchor ─────────────────────────
+function A({
+  to,
+  title,
+  children,
+}: {
+  to: string;
+  title: string;
+  children: ReactNode;
+}) {
+  return (
+    <a
+      href={`/chair/archive/${to}`}
+      title={title}
+      style={{
+        color: "inherit",
+        textDecoration: "underline",
+        textDecorationStyle: "dotted",
+        textDecorationColor: "rgba(10,10,10,0.28)",
+        textDecorationThickness: "1px",
+        textUnderlineOffset: "3px",
+        cursor: "help",
+      }}
+    >
+      {children}
+    </a>
+  );
+}
 
 // ─── OHCOSE phases ────────────────────────────────────────────────────
 interface Phase {
@@ -47,9 +73,10 @@ interface Phase {
   eyebrow: string;
   headline: string;
   body: ReactNode;
-  spec: Array<[string, string]>;
-  leak: string;
+  spec: Array<[string, ReactNode]>;
+  leak: ReactNode;
   leakCite: string;
+  extra?: ReactNode; // testimonial, tier table, fitting block — folded in
 }
 
 const PHASES: Phase[] = [
@@ -58,13 +85,17 @@ const PHASES: Phase[] = [
     n: "00",
     name: "Ontogenesis",
     sub: "The apparatus, unoccupied.",
-    eyebrow: "Phase 01 · Ontogenesis",
+    eyebrow: "Phase 01",
     headline: "Because life should be effortless.",
     body: (
       <>
-        A closed-loop apparatus for uninterrupted living. One seat. One
-        headset. One ring of pipes. Eat, sleep, work, play, excrete —
-        without ever standing up.
+        A{" "}
+        <A to="ouroboros-ring" title="Imperial Archive 2197.04 — On the Ouroboros Ring">
+          closed-loop apparatus
+        </A>{" "}
+        for uninterrupted living. One seat. One headset. One ring of
+        pipes. Eat, sleep, work, play, excrete — without ever standing
+        up.
       </>
     ),
     spec: [
@@ -73,8 +104,12 @@ const PHASES: Phase[] = [
       ["Power", "120–240 V, 8 A"],
       ["Network", "always-on"],
     ],
-    leak:
-      '"Lifetime value": the projected profit if every moment of an existence is commodified in one form or another.',
+    leak: (
+      <>
+        &ldquo;Lifetime value&rdquo;: the projected profit if every moment of an
+        existence is commodified in one form or another.
+      </>
+    ),
     leakCite: "— Zuboff, on the new economic unit",
   },
   {
@@ -82,7 +117,7 @@ const PHASES: Phase[] = [
     n: "01",
     name: "Habitualization",
     sub: "The occupant approaches and is seated.",
-    eyebrow: "Phase 02 · Habitualization",
+    eyebrow: "Phase 02",
     headline: "Be seated.",
     body: (
       <>
@@ -93,21 +128,40 @@ const PHASES: Phase[] = [
       </>
     ),
     spec: [
-      ["Tier", "Essential · Pro · Eternal"],
       ["Sedation curve", "lucid → submerged"],
       ["Cooling-off", "30 days"],
-      ["Posthumous mode", "available"],
+      [
+        "Posthumous mode",
+        <>
+          <A
+            to="eternal-tier"
+            title="Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity"
+          >
+            available
+          </A>
+        </>,
+      ],
+      ["Fitting", "in-residence · 4 h"],
     ],
-    leak:
-      "The proletarianization of desire: as industrial capital once stripped workers of craft knowledge, today's hyper-consumerism strips individuals of the ability to form their own desires, replacing them with templates the apparatus has already prepared.",
+    leak: (
+      <>
+        The proletarianization of desire: as industrial capital once
+        stripped workers of craft knowledge, today&rsquo;s
+        hyper-consumerism strips individuals of the ability to form
+        their own desires, replacing them with templates the apparatus
+        has already prepared.
+      </>
+    ),
     leakCite: "— after Stiegler",
+    // Tier table — the product-launch Configurations, folded in.
+    extra: <TierTable />,
   },
   {
     id: "consumption",
     n: "02",
     name: "Consumption",
     sub: "Tubes engage. Headgear lowers. The loop closes.",
-    eyebrow: "Phase 03 · Consumption",
+    eyebrow: "Phase 03",
     headline: "The loop is now closed.",
     body: (
       <>
@@ -119,13 +173,30 @@ const PHASES: Phase[] = [
       </>
     ),
     spec: [
-      ["Cutaneous ports", "6 (abdominal, brachial, cervical)"],
+      ["Cutaneous ports", "6 · abdominal, brachial, cervical"],
       ["Nutrient", "macronutrient slurry · 7-day cycle"],
       ["Chemical", "8-vial bay · auto-titrated"],
-      ["Energy return", "14–22 W · sold per kWh"],
+      [
+        "Energy return",
+        <>
+          14–22 W · sold per{" "}
+          <A
+            to="waste-subsystem"
+            title="Imperial Archive 2197.34 — On the waste-extraction subsystem"
+          >
+            kWh
+          </A>
+        </>,
+      ],
     ],
-    leak:
-      "Power no longer disciplines bodies on the factory floor. It seduces and stimulates psyches through screens, algorithms, and pharmaceutical molecules. The apparatus is not punishment. It is the perfection of the pleasure that has replaced punishment.",
+    leak: (
+      <>
+        Power no longer disciplines bodies on the factory floor. It
+        seduces and stimulates psyches through screens, algorithms, and
+        pharmaceutical molecules. The apparatus is not punishment. It is
+        the perfection of the pleasure that has replaced punishment.
+      </>
+    ),
     leakCite: "— Marcuse · Preciado · Berardi",
   },
   {
@@ -133,40 +204,56 @@ const PHASES: Phase[] = [
     n: "03",
     name: "Obsolescence",
     sub: "The occupant becomes a dashboard.",
-    eyebrow: "Phase 04 · Obsolescence",
+    eyebrow: "Phase 04",
     headline: "You are now a reading.",
     body: (
       <>
-        Cognitive load is logged from the pupil. Emotional intensity from
-        galvanic skin response. Time investment from the absence of
+        Cognitive load is logged from the pupil. Emotional intensity
+        from galvanic skin response. Time investment from the absence of
         motion. The sum is your Libidinal Investment (LI). The fraction
-        monetised is your Commodification Efficiency (CE). The residue is
-        the Psychic Surplus (Ψ) the apparatus has been waiting for.
+        monetised is your Commodification Efficiency (CE). The residue
+        is the Psychic Surplus (Ψ) the apparatus has been waiting for.
       </>
     ),
     spec: [
       ["LI = TI + CI + EI", "libidinal investment"],
       ["CE", "commodification efficiency"],
-      ["RE", "reinvested energy (≤ 7%)"],
+      ["RE", "reinvested energy (≤ 7 %)"],
       ["Ψ", "psychic surplus · the residue"],
     ],
-    leak:
-      "Behavioural surplus: the excess data emitted by a subject going about its life, harvested without consent and re-sold to predict and shape its subsequent behaviour. The apparatus is not surveillance. It is the institutionalisation of the act of being read.",
+    leak: (
+      <>
+        Behavioural surplus: the excess data emitted by a subject going
+        about its life, harvested without consent and re-sold to predict
+        and shape its subsequent behaviour. The apparatus is not
+        surveillance. It is the institutionalisation of the act of
+        being read.
+      </>
+    ),
     leakCite: "— Zuboff · Selimović",
+    // Testimonial-as-reading — the product-launch testimonial, folded in.
+    extra: <Reading />,
   },
   {
     id: "stagnation",
     n: "04",
     name: "Stagnation",
     sub: "The figure dims. The screens continue.",
-    eyebrow: "Phase 05 · Stagnation",
+    eyebrow: "Phase 05",
     headline: "There is no off-position.",
     body: (
       <>
-        Withdrawal of consent requires the occupant to stand. Standing is
-        not, at present, a supported operation. The apparatus continues
-        to produce. The apparatus <em>is</em> the producer. The occupant
-        has become the substrate. The chair will not notice.
+        Withdrawal of consent requires the occupant to stand.{" "}
+        <A
+          to="successor-systems"
+          title="Imperial Archive 2197.48 — Successor Systems: From Furniture to Implant"
+        >
+          Standing
+        </A>{" "}
+        is not, at present, a supported operation. The apparatus
+        continues to produce. The apparatus <em>is</em> the producer.
+        The occupant has become the substrate. The chair will not
+        notice.
       </>
     ),
     spec: [
@@ -175,8 +262,13 @@ const PHASES: Phase[] = [
       ["Form §6 status", "returned undeliverable"],
       ["Withdrawal protocol", "see Form §6"],
     ],
-    leak:
-      'The closed-loop guarantee. Nothing you produce will leave the system. This is a feature, not a defect. "Waste" is a deprecated term. The proper term is throughput.',
+    leak: (
+      <>
+        The closed-loop guarantee. Nothing you produce will leave the
+        system. This is a feature, not a defect. &ldquo;Waste&rdquo; is a
+        deprecated term. The proper term is throughput.
+      </>
+    ),
     leakCite: "— Terms of Occupancy, §3",
   },
   {
@@ -184,29 +276,301 @@ const PHASES: Phase[] = [
     n: "05",
     name: "Exit",
     sub: "The chair is empty. The next occupant arrives in 0:08.",
-    eyebrow: "Phase 06 · Exit",
+    eyebrow: "Phase 06",
     headline: "The next occupant arrives in 0:08.",
     body: (
       <>
-        Posthumous mode continues all subscriptions, nutrient deliveries,
-        and grid contributions for up to 90 days after occupant
-        cessation. Family will not be notified. The apparatus is cleaned.
-        The apparatus is re-issued. The apparatus chooses the loop. The
-        loop chooses you.
+        Posthumous mode continues all subscriptions, nutrient
+        deliveries, and grid contributions for up to 90 days after
+        occupant cessation. Family will not be notified. The apparatus
+        is cleaned. The apparatus is re-issued. The apparatus chooses
+        the loop. The loop chooses you.
       </>
     ),
     spec: [
       ["Posthumous mode", "+ 90 days"],
       ["Cleaning protocol", "on-board"],
       ["Re-issue cycle", "8 minutes"],
-      ["Loop continuity", "100%"],
+      ["Loop continuity", "100 %"],
     ],
-    leak: "The serpent does not bite its tail. It eats. Slowly. Forever.",
+    leak: <>The serpent does not bite its tail. It eats. Slowly. Forever.</>,
     leakCite: "— Selimović, on the form of the loop",
+    // Fitting inquiry — the product-launch CTA, folded in as the loop's
+    // mouth opening for the next occupant.
+    extra: <FittingInquiry />,
   },
 ];
 
-// ─── Glitch dictionary: euphemism → naked term ────────────────────────
+// ─── Tier table (folded into Phase 02) ────────────────────────────────
+function TierTable() {
+  const tiers = [
+    {
+      tier: "Essential",
+      price: "$48,000",
+      desc: "single occupant · standard subsystem suite · 8-hour productivity feedback cycle",
+      archive: null as null | { to: string; title: string },
+    },
+    {
+      tier: "Pro",
+      price: "$96,000",
+      desc: "neural-feedback work terminal · sleep-induction subsystem · triple-screen interface",
+      archive: {
+        to: "pro-tier-moratorium",
+        title: "Imperial Archive 2197.11 — The Pro-tier Moratorium of 2049",
+      },
+    },
+    {
+      tier: "Eternal",
+      price: "on request",
+      desc: "lifetime support contract · estate-bound configuration · post-mortem data continuity",
+      archive: {
+        to: "eternal-tier",
+        title: "Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity",
+      },
+    },
+  ];
+  return (
+    <div
+      style={{
+        marginTop: 8,
+        padding: "22px 22px 18px",
+        border: `1px solid ${LINE}`,
+        background: BG_SOFT,
+        position: "relative",
+      }}
+    >
+      <span
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: -7,
+          left: 22,
+          background: BG,
+          color: INK_SOFT,
+          fontFamily: MONO,
+          fontSize: 10,
+          letterSpacing: "0.16em",
+          fontWeight: 600,
+          padding: "0 8px",
+          textTransform: "uppercase",
+        }}
+      >
+        Tiers
+      </span>
+      <dl
+        style={{
+          display: "grid",
+          gridTemplateColumns: "minmax(110px, auto) minmax(80px, auto) 1fr",
+          gap: "0 18px",
+          margin: 0,
+        }}
+      >
+        {tiers.map((t, i) => (
+          <React.Fragment key={t.tier}>
+            <dt
+              style={{
+                fontFamily: SANS,
+                fontSize: 16,
+                color: INK,
+                fontWeight: 500,
+                padding: "12px 0",
+                borderTop: i === 0 ? "none" : `1px solid ${LINE_SOFT}`,
+              }}
+            >
+              {t.archive ? (
+                <A to={t.archive.to} title={t.archive.title}>
+                  {t.tier}
+                </A>
+              ) : (
+                t.tier
+              )}
+            </dt>
+            <dd
+              style={{
+                margin: 0,
+                fontFamily: MONO,
+                fontSize: 13,
+                color: INK,
+                fontVariantNumeric: "tabular-nums",
+                padding: "12px 0",
+                borderTop: i === 0 ? "none" : `1px solid ${LINE_SOFT}`,
+              }}
+            >
+              {t.price}
+            </dd>
+            <dd
+              style={{
+                margin: 0,
+                fontFamily: SANS,
+                fontSize: 14,
+                color: MUTED,
+                padding: "12px 0",
+                borderTop: i === 0 ? "none" : `1px solid ${LINE_SOFT}`,
+                lineHeight: 1.45,
+              }}
+            >
+              {t.desc}
+            </dd>
+          </React.Fragment>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+// ─── Testimonial-as-reading (folded into Phase 04) ────────────────────
+function Reading() {
+  return (
+    <div
+      style={{
+        marginTop: 8,
+        padding: "22px 22px 20px",
+        background: PAPER,
+        border: `1px solid ${LINE}`,
+        borderLeft: `3px solid ${INK}`,
+        position: "relative",
+      }}
+    >
+      <span
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: -7,
+          left: 22,
+          background: BG,
+          color: INK_SOFT,
+          fontFamily: MONO,
+          fontSize: 10,
+          letterSpacing: "0.16em",
+          fontWeight: 600,
+          padding: "0 8px",
+          textTransform: "uppercase",
+        }}
+      >
+        Reading · cohort 2026.04
+      </span>
+      <p
+        style={{
+          fontFamily: SANS,
+          fontSize: 18,
+          lineHeight: 1.5,
+          color: INK,
+          margin: "0 0 12px",
+          fontWeight: 400,
+          letterSpacing: "-0.005em",
+          textWrap: "pretty" as const,
+        }}
+      >
+        &ldquo;
+        <A
+          to="testimonial-analysis"
+          title="Imperial Archive 2197.26 — The Testimonial Voice"
+        >
+          I haven&rsquo;t had to stand up in nine months
+        </A>
+        . The Pro tier has changed everything. My productivity is at an
+        all-time high and I genuinely cannot imagine going back.&rdquo;
+      </p>
+      <cite
+        style={{
+          fontFamily: MONO,
+          fontStyle: "normal",
+          fontSize: 10.5,
+          letterSpacing: "0.08em",
+          textTransform: "uppercase",
+          color: MUTED,
+          fontWeight: 500,
+        }}
+      >
+        — M.K. · Pro tier · LI 1,824 · CE 71.4 % · Ψ 1,302
+      </cite>
+    </div>
+  );
+}
+
+// ─── Fitting inquiry (folded into Phase 06) ───────────────────────────
+function FittingInquiry() {
+  return (
+    <div
+      style={{
+        marginTop: 12,
+        padding: "26px 22px 24px",
+        background: INK,
+        color: BG,
+        position: "relative",
+      }}
+    >
+      <span
+        aria-hidden
+        style={{
+          position: "absolute",
+          top: -7,
+          left: 22,
+          background: BG,
+          color: ACCENT,
+          fontFamily: MONO,
+          fontSize: 10,
+          letterSpacing: "0.16em",
+          fontWeight: 600,
+          padding: "0 8px",
+          textTransform: "uppercase",
+        }}
+      >
+        Acceptance
+      </span>
+      <p
+        style={{
+          fontFamily: SANS,
+          fontSize: 16,
+          lineHeight: 1.5,
+          color: BG,
+          margin: "0 0 18px",
+          fontWeight: 400,
+          letterSpacing: "-0.005em",
+          textWrap: "pretty" as const,
+        }}
+      >
+        A certified Ouroboros Life System{" "}
+        <a
+          href="/chair/archive/fitting-ritual"
+          title="Imperial Archive 2197.30 — On the Fitting Ritual"
+          style={{
+            color: "inherit",
+            textDecoration: "underline",
+            textDecorationStyle: "dotted",
+            textDecorationColor: "rgba(241,239,234,0.5)",
+            textDecorationThickness: "1px",
+            textUnderlineOffset: "3px",
+          }}
+        >
+          consultant
+        </a>{" "}
+        will visit your residence for biometric calibration and chair
+        sizing. Fittings are typically completed within four hours. The
+        apparatus accepts a new occupant every eight minutes.
+      </p>
+      <a
+        href="#"
+        style={{
+          display: "inline-block",
+          background: ACCENT,
+          color: BG,
+          padding: "12px 22px",
+          fontFamily: MONO,
+          fontSize: 11,
+          textTransform: "uppercase",
+          letterSpacing: "0.2em",
+          textDecoration: "none",
+          fontWeight: 600,
+        }}
+      >
+        Begin a fitting →
+      </a>
+    </div>
+  );
+}
+
+// ─── Glitch dictionary ────────────────────────────────────────────────
 const GLITCH_WORDS: Record<string, string[]> = {
   Effortless: ["Inescapable", "Mandatory", "Total"],
   effortless: ["inescapable", "mandatory", "total"],
@@ -236,7 +600,7 @@ function GlitchText({
       setText(children);
       return;
     }
-    const id = setInterval(() => {
+    const id = window.setInterval(() => {
       if (Math.random() > intensity * 0.45) {
         setText(children);
         return;
@@ -249,10 +613,9 @@ function GlitchText({
         }
       }
       setText(t);
-      const back = setTimeout(() => setText(children), 240 + Math.random() * 500);
-      return () => clearTimeout(back);
+      window.setTimeout(() => setText(children), 240 + Math.random() * 500);
     }, 2200 + Math.random() * 2400);
-    return () => clearInterval(id);
+    return () => window.clearInterval(id);
   }, [children, intensity]);
   return <span style={style}>{text}</span>;
 }
@@ -320,7 +683,8 @@ function useVisitorHarvest(rate = 1): Harvest {
       const EI = Math.log1p(s.current.emoAccum) * 3 * rate;
       const LI = TI + CI + EI;
       const total = s.current.moves + s.current.scrolls + s.current.clicks;
-      const CE = total > 0 ? Math.min(1, (s.current.clicks * 8 + s.current.scrolls) / total) : 0;
+      const CE =
+        total > 0 ? Math.min(1, (s.current.clicks * 8 + s.current.scrolls) / total) : 0;
       const RE = LI * 0.07;
       const PS = LI * CE;
       s.current.surplus += PS * 0.0002 * rate;
@@ -350,10 +714,16 @@ function useVisitorHarvest(rate = 1): Harvest {
   return m;
 }
 
-// ─── CursorTrail ──────────────────────────────────────────────────────
-function CursorTrail({ chairCenter }: { chairCenter: React.MutableRefObject<{ x: number; y: number }> }) {
+// ─── Cursor trail being absorbed by the chair ─────────────────────────
+function CursorTrail({
+  chairCenter,
+}: {
+  chairCenter: React.MutableRefObject<{ x: number; y: number }>;
+}) {
   const ref = useRef<HTMLCanvasElement>(null);
-  const particles = useRef<Array<{ x: number; y: number; born: number; life: number; sx: number; sy: number }>>([]);
+  const particles = useRef<
+    Array<{ x: number; y: number; born: number; life: number; sx: number; sy: number }>
+  >([]);
   const last = useRef({ x: 0, y: 0, t: 0 });
 
   useEffect(() => {
@@ -406,9 +776,9 @@ function CursorTrail({ chairCenter }: { chairCenter: React.MutableRefObject<{ x:
         const alpha = (1 - age) * 0.5;
         ctx.beginPath();
         ctx.arc(p.x, p.y, 2.2 * (1 - age) + 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(226, 59, 42, ${alpha})`;
+        ctx.fillStyle = `rgba(122, 29, 28, ${alpha})`;
         ctx.fill();
-        ctx.strokeStyle = `rgba(226, 59, 42, ${alpha * 0.5})`;
+        ctx.strokeStyle = `rgba(122, 29, 28, ${alpha * 0.5})`;
         ctx.lineWidth = 0.4;
         ctx.beginPath();
         ctx.moveTo(p.sx, p.sy);
@@ -478,9 +848,9 @@ function PhaseStrip({ phase }: { phase: number }) {
               alignItems: "center",
               gap: 6,
               padding: "5px 9px",
-              border: `1px solid ${on ? ACCENT : past ? INK : INK_20}`,
+              border: `1px solid ${on ? ACCENT : past ? INK : LINE}`,
               background: on ? ACCENT : "transparent",
-              color: on ? PAPER : past ? INK : INK_70,
+              color: on ? "#fff" : past ? INK : MUTED,
               fontFamily: MONO,
               fontSize: 10,
               letterSpacing: "0.08em",
@@ -522,7 +892,7 @@ function Metric({
     >
       <span
         style={{
-          color: INK_70,
+          color: MUTED,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
           fontWeight: 500,
@@ -557,10 +927,10 @@ function HarvestStrip({ m, phase }: { m: Harvest; phase: number }) {
         gap: 28,
         alignItems: "center",
         padding: "12px 24px",
-        background: "color-mix(in oklab, #ffffff 86%, transparent)",
+        background: "color-mix(in oklab, #f1efea 86%, transparent)",
         backdropFilter: "blur(20px) saturate(160%)",
         WebkitBackdropFilter: "blur(20px) saturate(160%)",
-        borderBottom: `1px solid ${INK_20}`,
+        borderBottom: `1px solid ${LINE}`,
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 10, whiteSpace: "nowrap" }}>
@@ -573,7 +943,7 @@ function HarvestStrip({ m, phase }: { m: Harvest; phase: number }) {
             height: 22,
             borderRadius: "50%",
             border: `1px solid ${INK}`,
-            fontFamily: DISPLAY,
+            fontFamily: SANS,
             fontWeight: 400,
             fontSize: 14,
             lineHeight: 1,
@@ -626,7 +996,7 @@ function HarvestStrip({ m, phase }: { m: Harvest; phase: number }) {
             fontSize: 11,
             letterSpacing: "0.08em",
             textTransform: "uppercase",
-            color: INK_40,
+            color: MUTED,
           }}
         >
           Session&nbsp;{Math.floor(m.dwellSec)}s
@@ -637,7 +1007,7 @@ function HarvestStrip({ m, phase }: { m: Harvest; phase: number }) {
   );
 }
 
-function Section({
+function PhaseSection({
   phaseData,
   idx,
   onActive,
@@ -681,32 +1051,32 @@ function Section({
               fontSize: 11,
               textTransform: "uppercase",
               letterSpacing: "0.2em",
-              color: INK_70,
+              color: MUTED,
               marginBottom: 18,
               fontWeight: 500,
             }}
           >
-            {phaseData.eyebrow}
+            {phaseData.eyebrow} · {phaseData.n} · {phaseData.name}
           </div>
           <h2
             style={{
-              fontFamily: DISPLAY,
-              fontWeight: 800,
-              fontSize: "clamp(2rem, 4vw, 3.25rem)",
+              fontFamily: SANS,
+              fontWeight: 350,
+              fontSize: "clamp(40px, 4.6vw, 68px)",
               lineHeight: 1.0,
               letterSpacing: "-0.03em",
               margin: "0 0 14px",
               color: INK,
-              textWrap: "balance",
+              textWrap: "balance" as const,
             }}
           >
             <GlitchText intensity={glitch}>{phaseData.headline}</GlitchText>
           </h2>
           <p
             style={{
-              fontFamily: DISPLAY,
+              fontFamily: SANS,
               fontSize: 17,
-              color: INK_70,
+              color: MUTED,
               margin: 0,
               fontWeight: 400,
               letterSpacing: "-0.005em",
@@ -719,13 +1089,13 @@ function Section({
         <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
           <p
             style={{
-              fontFamily: DISPLAY,
+              fontFamily: SANS,
               fontSize: 17,
               lineHeight: 1.6,
-              color: INK,
+              color: INK_SOFT,
               margin: 0,
               maxWidth: "58ch",
-              textWrap: "pretty",
+              textWrap: "pretty" as const,
             }}
           >
             {phaseData.body}
@@ -737,21 +1107,21 @@ function Section({
               gridTemplateColumns: "minmax(160px, 1fr) 2fr",
               gap: "0 28px",
               margin: 0,
-              borderTop: `1px solid ${INK_20}`,
+              borderTop: `1px solid ${LINE}`,
               paddingTop: 4,
             }}
           >
-            {phaseData.spec.map(([k, v]) => (
-              <React.Fragment key={k}>
+            {phaseData.spec.map(([k, v], i) => (
+              <React.Fragment key={i}>
                 <dt
                   style={{
                     fontFamily: MONO,
                     fontSize: 11,
                     letterSpacing: "0.08em",
                     textTransform: "uppercase",
-                    color: INK_70,
+                    color: MUTED,
                     padding: "14px 0",
-                    borderBottom: `1px solid ${INK_20}`,
+                    borderBottom: `1px solid ${LINE_SOFT}`,
                     fontWeight: 500,
                   }}
                 >
@@ -759,13 +1129,14 @@ function Section({
                 </dt>
                 <dd
                   style={{
-                    fontFamily: DISPLAY,
+                    fontFamily: SANS,
                     fontSize: 15,
                     color: INK,
                     margin: 0,
                     padding: "14px 0",
-                    borderBottom: `1px solid ${INK_20}`,
+                    borderBottom: `1px solid ${LINE_SOFT}`,
                     fontVariantNumeric: "tabular-nums",
+                    fontWeight: 420,
                   }}
                 >
                   {v}
@@ -779,7 +1150,7 @@ function Section({
               margin: "4px 0 0",
               padding: "22px 22px 20px",
               background: PAPER,
-              border: `1px solid ${INK_20}`,
+              border: `1px solid ${LINE}`,
               borderLeft: `3px solid ${ACCENT}`,
               position: "relative",
             }}
@@ -790,27 +1161,28 @@ function Section({
                 position: "absolute",
                 top: -7,
                 left: 22,
-                background: PAPER_WARM,
+                background: BG,
                 color: ACCENT,
                 fontFamily: MONO,
                 fontSize: 10,
                 letterSpacing: "0.16em",
                 fontWeight: 600,
                 padding: "0 8px",
+                textTransform: "uppercase",
               }}
             >
-              LEAKAGE
+              Leakage
             </span>
             <p
               style={{
-                fontFamily: DISPLAY,
+                fontFamily: SANS,
                 fontSize: 18,
                 lineHeight: 1.5,
                 color: INK,
                 margin: "0 0 12px",
                 fontWeight: 400,
                 letterSpacing: "-0.005em",
-                textWrap: "pretty",
+                textWrap: "pretty" as const,
               }}
             >
               {phaseData.leak}
@@ -822,13 +1194,15 @@ function Section({
                 fontSize: 10.5,
                 letterSpacing: "0.08em",
                 textTransform: "uppercase",
-                color: INK_70,
+                color: MUTED,
                 fontWeight: 500,
               }}
             >
               {phaseData.leakCite}
             </cite>
           </blockquote>
+
+          {phaseData.extra}
         </div>
 
         {isLast && (
@@ -837,9 +1211,9 @@ function Section({
               marginTop: 90,
               textAlign: "center",
               padding: "32px 0",
-              borderTop: `1px solid ${INK_20}`,
-              borderBottom: `1px solid ${INK_20}`,
-              color: INK_70,
+              borderTop: `1px solid ${LINE}`,
+              borderBottom: `1px solid ${LINE}`,
+              color: MUTED,
               fontFamily: MONO,
               fontSize: 11,
               textTransform: "uppercase",
@@ -875,10 +1249,10 @@ function EulaMarquee() {
       aria-hidden
       style={{
         background: INK,
-        color: PAPER,
+        color: BG,
         overflow: "hidden",
         padding: "16px 0",
-        borderTop: `1px solid ${INK_20}`,
+        borderTop: `1px solid ${LINE}`,
       }}
     >
       <div
@@ -938,7 +1312,6 @@ export default function OuroborosPortal() {
 
   return (
     <div data-ols-root data-phase={phase} data-glitch={effectiveGlitch > 0.3 ? "on" : "off"}>
-      {/* Keyframes (scoped via global selector but lightweight) */}
       <style>{`
         @keyframes ols-pulse {
           0%   { box-shadow: 0 0 0 0 rgba(226,59,42,0.5); }
@@ -968,7 +1341,6 @@ export default function OuroborosPortal() {
           maxWidth: 1640,
           margin: "0 auto",
           padding: 0,
-          background: PAPER_WARM,
         }}
         className="ols-stage"
       >
@@ -1012,7 +1384,7 @@ export default function OuroborosPortal() {
             style={{
               marginTop: 14,
               textAlign: "center",
-              color: INK_70,
+              color: MUTED,
               fontFamily: MONO,
               fontSize: 11,
               letterSpacing: "0.08em",
@@ -1032,38 +1404,58 @@ export default function OuroborosPortal() {
           }}
           className="ols-narrative-col"
         >
-          <div style={{ paddingBottom: 70, borderBottom: `1px solid ${INK_20}`, marginBottom: 80 }}>
+          {/* ─── OVERTURE — the only "hero" on the page ─── */}
+          <div
+            style={{
+              paddingBottom: 70,
+              borderBottom: `1px solid ${LINE}`,
+              marginBottom: 80,
+            }}
+          >
             <div
               style={{
                 fontFamily: MONO,
                 fontSize: 11,
                 textTransform: "uppercase",
                 letterSpacing: "0.2em",
-                color: INK_70,
+                color: MUTED,
                 fontWeight: 500,
               }}
             >
-              Ouroboros Industries LLC · ILS-Ω · 2026
+              Ouroboros Industries LLC · ILS-Ω · 2026 · an apparatus by{" "}
+              <A
+                to="proto-apparatuses"
+                title="Imperial Archive 2197.14 — Proto-Apparatuses: The Social-Media Ancestry"
+              >
+                A. Selimović
+              </A>
             </div>
-            <h2
+            <h1
               style={{
-                fontFamily: DISPLAY,
-                fontWeight: 800,
-                fontSize: "clamp(3rem, 6.4vw, 6.5rem)",
+                fontFamily: SANS,
+                fontWeight: 300,
+                fontSize: "clamp(56px, 6.4vw, 104px)",
                 lineHeight: 0.92,
                 letterSpacing: "-0.04em",
                 margin: "24px 0 28px",
                 color: INK,
               }}
             >
-              <span style={{ display: "block" }}>The apparatus,</span>
-              <span style={{ display: "block", color: INK_70, fontWeight: 300 }}>
-                in six phases.
-              </span>
-            </h2>
+              <span style={{ display: "block" }}>The Ouroboros</span>
+              <em
+                style={{
+                  display: "block",
+                  fontStyle: "normal",
+                  fontWeight: 200,
+                  color: MUTED,
+                }}
+              >
+                Life System.
+              </em>
+            </h1>
             <p
               style={{
-                fontFamily: DISPLAY,
+                fontFamily: SANS,
                 fontSize: 22,
                 color: INK,
                 fontWeight: 400,
@@ -1078,29 +1470,29 @@ export default function OuroborosPortal() {
             </p>
             <p
               style={{
-                fontFamily: DISPLAY,
-                color: INK_70,
+                fontFamily: SANS,
+                color: MUTED,
                 fontSize: 16,
                 lineHeight: 1.6,
                 margin: "18px 0 0",
                 maxWidth: "48ch",
               }}
             >
-              An apparatus, a portal, an essay, an art-object — scroll to
-              advance the lifecycle of the occupant.
+              An apparatus, a portal, an essay, an art-object in six
+              phases — scroll to advance the lifecycle of the occupant.
             </p>
           </div>
 
-          {/* Marginalia */}
+          {/* Marginalia — opening */}
           <aside
             style={{
               position: "relative",
               margin: "-12px 0 70px",
               padding: "14px 16px",
-              fontFamily: DISPLAY,
+              fontFamily: SANS,
               fontSize: 14,
               lineHeight: 1.55,
-              color: INK_70,
+              color: MUTED,
               maxWidth: "44ch",
               letterSpacing: "-0.003em",
             }}
@@ -1115,14 +1507,15 @@ export default function OuroborosPortal() {
               }}
             />
             <span style={{ display: "block" }}>
-              &ldquo;Lifetime value&rdquo; is the projected profit if every moment of an
-              existence is commodified in one form or another.{" "}
+              &ldquo;Lifetime value&rdquo; is the projected profit if
+              every moment of an existence is commodified in one form or
+              another.{" "}
               <em style={{ color: INK, fontStyle: "italic" }}>— Zuboff</em>
             </span>
           </aside>
 
           {PHASES.map((p, i) => (
-            <Section
+            <PhaseSection
               key={p.id}
               phaseData={p}
               idx={i}
@@ -1132,16 +1525,16 @@ export default function OuroborosPortal() {
             />
           ))}
 
+          {/* Marginalia — closing */}
           <aside
             style={{
               position: "relative",
-              margin: "-12px 0 70px",
-              marginLeft: "auto",
+              margin: "20px 0 60px auto",
               padding: "14px 16px",
-              fontFamily: DISPLAY,
+              fontFamily: SANS,
               fontSize: 14,
               lineHeight: 1.55,
-              color: INK_70,
+              color: MUTED,
               maxWidth: "44ch",
               letterSpacing: "-0.003em",
               textAlign: "right",
@@ -1157,7 +1550,8 @@ export default function OuroborosPortal() {
               }}
             />
             <span style={{ display: "block" }}>
-              The serpent does not bite its tail. It eats. Slowly. Forever.
+              The serpent does not bite its tail. It eats. Slowly.
+              Forever.
             </span>
           </aside>
         </div>
@@ -1167,7 +1561,7 @@ export default function OuroborosPortal() {
 
       <CursorTrail chairCenter={chairBoxRef} />
 
-      {/* mobile collapse: when narrow, chair column flows above narrative */}
+      {/* mobile collapse */}
       <style>{`
         @media (max-width: 1100px) {
           .ols-stage { grid-template-columns: 1fr !important; }
@@ -1176,7 +1570,7 @@ export default function OuroborosPortal() {
             top: auto !important;
             height: auto !important;
             padding: 24px 20px 36px !important;
-            border-bottom: 1px solid ${INK_20};
+            border-bottom: 1px solid ${LINE};
           }
           .ols-narrative-col { padding: 48px 24px !important; max-width: none !important; }
         }
