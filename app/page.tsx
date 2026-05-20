@@ -51,7 +51,7 @@ const WORKS: Work[] = [
     year: "2025",
     register: "coloring book · state failure · line art",
     href: "/patriotic-times",
-    status: "live",
+    status: "in production",
   },
 ];
 

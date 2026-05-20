@@ -1,37 +1,27 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import OuroborosPortal from "./_components/OuroborosPortal";
 
 export const metadata: Metadata = {
   title: { absolute: "Ouroboros Life System — Because Life Should Be Effortless" },
   alternates: { canonical: "/chair" },
 };
 
-// Palette
+// Palette — clinical product page wrap
 const INK = "#0a0a0a";
 const INK_70 = "#5a5a5a";
 const INK_40 = "#9a9a9a";
 const INK_20 = "#e6e6e6";
 const PAPER = "#ffffff";
 const PAPER_TINT = "#f7f8f9";
-
-// Subsystem colors — matches the concept document
-const SUB = {
-  nutrient: "#1e6cff",   // blue — nutrient delivery
-  hydration: "#7ed4e6",  // clear — hydration
-  sleep: "#f5a623",      // amber — sleep induction
-  waste: "#d62828",      // red — waste extraction
-  power: "#0a0a0a",      // black — productivity feedback / energy
-};
+const ACCENT = "#e23b2a";
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `-apple-system, "Inter", "SF Pro Display", "Helvetica Neue", system-ui, sans-serif`;
 
 /**
- * Archive marker — wraps a phrase with a barely-visible dotted underline
- * that's nearly invisible in the page but darkens on hover and links to
- * an archive entry. The convention is borrowed from scholarly footnote
- * dotted-underline citations: the careful reader notices, the casual
- * reader does not.
+ * Archive marker — barely-visible dotted-underline anchor linking to an
+ * Imperial Archive entry. The careful reader notices, the casual reader
+ * does not.
  */
 function A({
   to,
@@ -46,7 +36,6 @@ function A({
     <a
       href={`/chair/archive/${to}`}
       title={title}
-      className="archive-mark"
       style={{
         color: "inherit",
         textDecoration: "underline",
@@ -87,6 +76,7 @@ export default function ChairLanding() {
           <sup style={{ fontSize: "0.55em", marginLeft: "0.15em", color: INK_70 }}>™</sup>
         </div>
         <nav
+          aria-label="Section navigation"
           style={{
             display: "flex",
             gap: "2rem",
@@ -97,10 +87,15 @@ export default function ChairLanding() {
             color: INK_70,
           }}
         >
-          <span>Overview</span>
-          <span>Specifications</span>
-          <span>Configurations</span>
-          <span>Order</span>
+          <a href="#apparatus" style={{ color: "inherit", textDecoration: "none" }}>
+            Apparatus
+          </a>
+          <a href="#configurations" style={{ color: "inherit", textDecoration: "none" }}>
+            Configurations
+          </a>
+          <a href="#fitting" style={{ color: "inherit", textDecoration: "none" }}>
+            Order
+          </a>
         </nav>
       </header>
 
@@ -153,9 +148,12 @@ export default function ChairLanding() {
             fontWeight: 400,
           }}
         >
-          A <A to="ouroboros-ring" title="Imperial Archive 2197.04 — On the Ouroboros Ring">fully-enclosed</A> integrated life-support apparatus. Total
-          automation for work, play, and survival — in a single
-          ergonomic enclosure.
+          A{" "}
+          <A to="ouroboros-ring" title="Imperial Archive 2197.04 — On the Ouroboros Ring">
+            fully-enclosed
+          </A>{" "}
+          integrated life-support apparatus. Total automation for work,
+          play, and survival — in a single ergonomic enclosure.
         </p>
 
         {/* CTA buttons */}
@@ -186,7 +184,7 @@ export default function ChairLanding() {
             Configure yours
           </a>
           <a
-            href="#specifications"
+            href="#apparatus"
             style={{
               border: `1.5px solid ${INK}`,
               color: INK,
@@ -201,353 +199,18 @@ export default function ChairLanding() {
               fontWeight: 700,
             }}
           >
-            View specifications
+            View the apparatus
           </a>
         </div>
       </section>
 
-      {/* ============ HERO IMAGE ============ */}
-      <section
-        style={{
-          background: PAPER_TINT,
-          padding: "4rem 5vw",
-          textAlign: "center",
-        }}
-      >
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <Image
-            src="/chair/hero.png"
-            alt="The Ouroboros Life System chair in a clinical showroom"
-            width={1100}
-            height={733}
-            priority
-            style={{ width: "100%", height: "auto", display: "block" }}
-          />
-          <p
-            style={{
-              marginTop: "1.5rem",
-              fontFamily: MONO,
-              fontSize: "0.7rem",
-              textTransform: "uppercase",
-              letterSpacing: "0.2em",
-              color: INK_40,
-            }}
-          >
-            Fig. 01 — Standard chair configuration, showroom view
-          </p>
-        </div>
-      </section>
-
-      {/* ============ KEY FEATURES (3-column strip) ============ */}
-      <section
-        style={{
-          padding: "6rem 5vw",
-          maxWidth: "1400px",
-          margin: "0 auto",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: "3rem",
-          }}
-        >
-          {[
-            {
-              eyebrow: "01 — Sustenance",
-              title: "Nutrient & hydration delivery, automatic.",
-              body: (
-                <>
-                  Color-coded fluid lines maintain optimal caloric intake,
-                  hydration, and{" "}
-                  <A to="waste-subsystem" title="Imperial Archive 2197.34 — On the waste-extraction subsystem">
-                    electrolyte balance
-                  </A>{" "}
-                  — sustained indefinitely.
-                </>
-              ),
-            },
-            {
-              eyebrow: "02 — Productivity",
-              title: "Work, play, and survival in one enclosure.",
-              body: (
-                <>
-                  Triple-screen interface with{" "}
-                  <A to="pro-tier-moratorium" title="Imperial Archive 2197.11 — The Pro-tier Moratorium of 2049">
-                    neural-feedback work terminal
-                  </A>{" "}
-                  and entertainment console. The occupant&apos;s productivity
-                  feeds back into the grid.
-                </>
-              ),
-            },
-            {
-              eyebrow: "03 — Comfort",
-              title: "Engineered for indefinite occupancy.",
-              body: (
-                <>
-                  Contoured medical-grade polymer, posture monitoring,
-                  and a sleep-induction subsystem that ensures{" "}
-                  <A to="successor-systems" title="Imperial Archive 2197.48 — Successor Systems: From Furniture to Implant">
-                    circadian compliance
-                  </A>.
-                </>
-              ),
-            },
-          ].map((f) => (
-            <div key={f.eyebrow}>
-              <div
-                style={{
-                  fontFamily: MONO,
-                  fontSize: "0.7rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.2em",
-                  color: INK_70,
-                  marginBottom: "1rem",
-                }}
-              >
-                {f.eyebrow}
-              </div>
-              <h2
-                style={{
-                  fontFamily: DISPLAY,
-                  fontSize: "1.5rem",
-                  fontWeight: 700,
-                  letterSpacing: "-0.02em",
-                  lineHeight: 1.15,
-                  margin: 0,
-                  color: INK,
-                }}
-              >
-                {f.title}
-              </h2>
-              <p
-                style={{
-                  marginTop: "1rem",
-                  fontSize: "1rem",
-                  lineHeight: 1.55,
-                  color: INK_70,
-                }}
-              >
-                {f.body}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ INTEGRATION DIAGRAM ============ */}
-      <section
-        id="specifications"
-        style={{
-          background: PAPER_TINT,
-          padding: "6rem 5vw",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "4rem",
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                fontFamily: MONO,
-                fontSize: "0.7rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.2em",
-                color: INK_70,
-                marginBottom: "1rem",
-              }}
-            >
-              The Closed Loop
-            </div>
-            <h2
-              style={{
-                fontFamily: DISPLAY,
-                fontSize: "clamp(2rem, 4vw, 3.25rem)",
-                fontWeight: 800,
-                letterSpacing: "-0.03em",
-                lineHeight: 1.0,
-                margin: 0,
-                color: INK,
-              }}
-            >
-              Everything in.<br />
-              Everything out.
-            </h2>
-            <p
-              style={{
-                marginTop: "1.5rem",
-                fontSize: "1.1rem",
-                lineHeight: 1.55,
-                color: INK_70,
-                maxWidth: "30rem",
-              }}
-            >
-              The{" "}
-              <A to="ouroboros-ring" title="Imperial Archive 2197.04 — On the Ouroboros Ring">
-                Ouroboros ring
-              </A>{" "}
-              encircles the chair with five continuously-active
-              subsystems. Inputs and outputs circulate within the
-              apparatus. The occupant never needs to leave.
-            </p>
-
-            {/* Subsystem swatches */}
-            <ul style={{ listStyle: "none", padding: 0, margin: "2.5rem 0 0" }}>
-              {[
-                { color: SUB.nutrient, label: "Nutrient delivery", note: "intravenous + abdominal feed port" },
-                { color: SUB.hydration, label: "Hydration line", note: "chest-mounted inlet" },
-                { color: SUB.sleep, label: "Sleep induction", note: "headrest-routed; circadian-compliant" },
-                { color: SUB.waste, label: "Waste extraction", note: "concealed outlets, automatic cycle" },
-                { color: SUB.power, label: "Productivity feedback", note: "energy extraction to grid" },
-              ].map((s) => (
-                <li
-                  key={s.label}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1.25rem 12rem 1fr",
-                    alignItems: "center",
-                    columnGap: "1rem",
-                    padding: "0.85rem 0",
-                    borderBottom: `1px solid ${INK_20}`,
-                    fontFamily: MONO,
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  <span
-                    style={{
-                      display: "inline-block",
-                      width: "1rem",
-                      height: "1rem",
-                      borderRadius: "50%",
-                      background: s.color,
-                      boxShadow: `0 0 0 3px ${s.color}20`,
-                    }}
-                  />
-                  <span style={{ color: INK, fontWeight: 600 }}>{s.label}</span>
-                  <span style={{ color: INK_70, fontSize: "0.75rem" }}>{s.note}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <Image
-              src="/chair/diagram.png"
-              alt="Annotated integration diagram of the Ouroboros Life System chair"
-              width={900}
-              height={600}
-              style={{ width: "100%", height: "auto", display: "block" }}
-            />
-            <p
-              style={{
-                marginTop: "1rem",
-                fontFamily: MONO,
-                fontSize: "0.7rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.2em",
-                color: INK_40,
-                textAlign: "center",
-              }}
-            >
-              Fig. 02 —{" "}
-              <A to="period-typography" title="Imperial Archive 2197.07 — The 'Goming Screen' & Other Period Typographic Errors">
-                Integration diagram
-              </A>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ TECHNICAL SPECS BAND ============ */}
-      <section style={{ padding: "6rem 5vw", maxWidth: "1200px", margin: "0 auto" }}>
-        <div
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.7rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-            color: INK_70,
-            marginBottom: "1.5rem",
-          }}
-        >
-          Technical Specifications
-        </div>
-        <h2
-          style={{
-            fontFamily: DISPLAY,
-            fontSize: "clamp(2rem, 4vw, 3.25rem)",
-            fontWeight: 800,
-            letterSpacing: "-0.03em",
-            lineHeight: 1.0,
-            margin: 0,
-            color: INK,
-          }}
-        >
-          Built for indefinite occupancy.
-        </h2>
-
-        <div
-          style={{
-            marginTop: "3rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-            gap: "2rem",
-            borderTop: `1px solid ${INK}`,
-            borderBottom: `1px solid ${INK}`,
-            padding: "2rem 0",
-          }}
-        >
-          {[
-            { value: "180kg", label: "Occupant capacity", archive: null },
-            { value: "98%", label: "Waste reclamation rate", archive: { slug: "waste-subsystem", code: "2197.34" } },
-            { value: "24/7", label: "Continuous operation", archive: null },
-            { value: "≤ 0.4 W", label: "Standby power draw", archive: null },
-            { value: "12 yr", label: "Polymer service life", archive: { slug: "refurbished-aftermarket", code: "2197.41" } },
-            { value: "365 d", label: "Limited warranty", archive: null },
-          ].map((s) => (
-            <div key={s.label}>
-              <div
-                style={{
-                  fontFamily: DISPLAY,
-                  fontSize: "2.25rem",
-                  fontWeight: 800,
-                  letterSpacing: "-0.03em",
-                  lineHeight: 1.0,
-                  color: INK,
-                }}
-              >
-                {s.value}
-              </div>
-              <div
-                style={{
-                  marginTop: "0.5rem",
-                  fontFamily: MONO,
-                  fontSize: "0.7rem",
-                  textTransform: "uppercase",
-                  letterSpacing: "0.15em",
-                  color: INK_70,
-                }}
-              >
-                {s.archive ? (
-                  <A to={s.archive.slug} title={`Imperial Archive ${s.archive.code}`}>
-                    {s.label}
-                  </A>
-                ) : (
-                  s.label
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+      {/* ============ THE APPARATUS — sticky chair + six-phase narrative ============
+          This is the qualitative-depth centerpiece: a sticky SVG chair-as-altar
+          beside a scrolling OHCOSE lifecycle narrative, with live harvest
+          metrics, cursor-trail absorption, and a glitching marketing voice.
+          The visitor's own activity feeds the apparatus. */}
+      <section id="apparatus" aria-label="The apparatus">
+        <OuroborosPortal />
       </section>
 
       {/* ============ CONFIGURATIONS ============ */}
@@ -599,7 +262,12 @@ export default function ChairLanding() {
                 tier: "Essential",
                 price: "$48,000",
                 desc: "Single occupant. Standard subsystem suite. Eight-hour productivity feedback cycle.",
-                features: ["Nutrient + hydration", "Standard work terminal", "Single-screen interface", "12 yr polymer"],
+                features: [
+                  "Nutrient + hydration",
+                  "Standard work terminal",
+                  "Single-screen interface",
+                  "12 yr polymer",
+                ],
                 cta: "Configure",
                 accent: false,
                 archive: null,
@@ -608,7 +276,13 @@ export default function ChairLanding() {
                 tier: "Pro",
                 price: "$96,000",
                 desc: "Single occupant. Enhanced subsystem array. Continuous productivity feedback. Sleep optimization.",
-                features: ["All Essential features", "Sleep induction subsystem", "Triple-screen interface", "Neural-feedback work terminal", "Priority service"],
+                features: [
+                  "All Essential features",
+                  "Sleep induction subsystem",
+                  "Triple-screen interface",
+                  "Neural-feedback work terminal",
+                  "Priority service",
+                ],
                 cta: "Configure",
                 accent: true,
                 archive: { code: "2197.11", slug: "pro-tier-moratorium" },
@@ -620,13 +294,21 @@ export default function ChairLanding() {
                   <>
                     Single occupant. Lifetime support contract. Estate-bound
                     configuration.{" "}
-                    <A to="eternal-tier" title="Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity">
+                    <A
+                      to="eternal-tier"
+                      title="Imperial Archive 2197.22 — On the Eternal Tier: Post-mortem Continuity"
+                    >
                       Post-mortem data continuity
                     </A>
                     .
                   </>
                 ),
-                features: ["All Pro features", "Lifetime polymer warranty", "Estate transfer protocols", "Phase VII–compatible exit"],
+                features: [
+                  "All Pro features",
+                  "Lifetime polymer warranty",
+                  "Estate transfer protocols",
+                  "Phase VII–compatible exit",
+                ],
                 cta: "Inquire",
                 accent: false,
                 archive: { code: "2197.22", slug: "eternal-tier" },
@@ -695,7 +377,7 @@ export default function ChairLanding() {
                   ))}
                 </ul>
                 <a
-                  href="#"
+                  href="#fitting"
                   style={{
                     background: c.accent ? INK : PAPER,
                     color: c.accent ? PAPER : INK,
@@ -719,7 +401,14 @@ export default function ChairLanding() {
       </section>
 
       {/* ============ TESTIMONIAL ============ */}
-      <section style={{ padding: "6rem 5vw", maxWidth: "880px", margin: "0 auto", textAlign: "center" }}>
+      <section
+        style={{
+          padding: "6rem 5vw",
+          maxWidth: "880px",
+          margin: "0 auto",
+          textAlign: "center",
+        }}
+      >
         <p
           style={{
             fontFamily: DISPLAY,
@@ -731,12 +420,12 @@ export default function ChairLanding() {
             margin: 0,
           }}
         >
-          “
+          &ldquo;
           <A to="testimonial-analysis" title="Imperial Archive 2197.26 — The Testimonial Voice">
             I haven&apos;t had to stand up in nine months
           </A>
           . The Pro tier has changed everything. My productivity is at an
-          all-time high and I genuinely cannot imagine going back.”
+          all-time high and I genuinely cannot imagine going back.&rdquo;
         </p>
         <div
           style={{
@@ -753,7 +442,14 @@ export default function ChairLanding() {
       </section>
 
       {/* ============ FINAL CTA ============ */}
-      <section style={{ background: PAPER_TINT, padding: "6rem 5vw", textAlign: "center" }}>
+      <section
+        id="fitting"
+        style={{
+          background: PAPER_TINT,
+          padding: "6rem 5vw",
+          textAlign: "center",
+        }}
+      >
         <h2
           style={{
             fontFamily: DISPLAY,
@@ -802,6 +498,23 @@ export default function ChairLanding() {
         >
           Book a consultation
         </a>
+        <p
+          style={{
+            marginTop: "3rem",
+            fontFamily: MONO,
+            fontSize: "0.65rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+            color: INK_40,
+            maxWidth: "44rem",
+            margin: "3rem auto 0",
+            lineHeight: 1.6,
+          }}
+        >
+          By being seated, the occupant consents to indefinite occupancy.{" "}
+          <span style={{ color: ACCENT }}>◇</span> Standing is not, at
+          present, a supported operation.
+        </p>
       </section>
     </>
   );
