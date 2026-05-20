@@ -399,6 +399,92 @@ export function MarkerCircle({
   );
 }
 
+// ─── Red defacement X mark ────────────────────────────────────────────
+export function DefacementX({
+  size = 80,
+  color = STAMP_RED,
+  thickness = 10,
+  rotate = 0,
+}: {
+  size?: number;
+  color?: string;
+  thickness?: number;
+  rotate?: number;
+}) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      width={size}
+      height={size}
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", transform: `rotate(${rotate}deg)`, overflow: "visible" }}
+      aria-hidden
+    >
+      <g filter="url(#zine-distress)">
+        <line x1="10" y1="10" x2="90" y2="90" stroke={color} strokeWidth={thickness} strokeLinecap="round" />
+        <line x1="90" y1="10" x2="10" y2="90" stroke={color} strokeWidth={thickness} strokeLinecap="round" />
+      </g>
+    </svg>
+  );
+}
+
+// ─── Redaction bar (hand-cut black strip) ─────────────────────────────
+export function RedactionBar({
+  width = 200,
+  height = 22,
+  rotate = 0,
+}: {
+  width?: number;
+  height?: number;
+  rotate?: number;
+}) {
+  return (
+    <svg
+      viewBox={`0 0 ${width} ${height}`}
+      width={width}
+      height={height}
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", transform: `rotate(${rotate}deg)` }}
+      aria-hidden
+    >
+      <rect x="0" y="0" width={width} height={height} fill="#0a0908" filter="url(#zine-distress)" />
+    </svg>
+  );
+}
+
+// ─── Strike-through (single diagonal slash) for cancelling text ──────
+export function StrikeSlash({
+  width = 120,
+  thickness = 6,
+  color = STAMP_RED,
+  rotate = -3,
+}: {
+  width?: number;
+  thickness?: number;
+  color?: string;
+  rotate?: number;
+}) {
+  return (
+    <svg
+      viewBox={`0 0 ${width} 30`}
+      width={width}
+      height={30}
+      xmlns="http://www.w3.org/2000/svg"
+      style={{ display: "block", transform: `rotate(${rotate}deg)`, overflow: "visible" }}
+      aria-hidden
+    >
+      <path
+        d={`M 4 22 Q ${width / 3} 8, ${(width * 2) / 3} 20 T ${width - 4} 12`}
+        stroke={color}
+        strokeWidth={thickness}
+        strokeLinecap="round"
+        fill="none"
+        filter="url(#zine-distress)"
+      />
+    </svg>
+  );
+}
+
 // ─── Halftone overlay (full-bleed) ────────────────────────────────────
 export function HalftoneOverlay({
   density = "medium",
