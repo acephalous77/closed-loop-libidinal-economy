@@ -186,35 +186,12 @@ export function Artifact({
           style={{
             objectFit: "cover",
             filter: filterMap[treatment],
-            zIndex: 1,
           }}
         />
-        {/* Paper texture overlay — subtle, ABOVE image */}
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.8  0 0 0 0 0.75  0 0 0 0 0.65  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>\")",
-            mixBlendMode: "overlay",
-            pointerEvents: "none",
-            opacity: 0.35,
-            zIndex: 2,
-          }}
-        />
-        {/* Subtle vignette */}
-        <div
-          aria-hidden
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(ellipse at center, transparent 65%, rgba(0,0,0,0.35) 100%)",
-            pointerEvents: "none",
-            zIndex: 3,
-          }}
-        />
+        {/* No paper-texture or vignette overlays — Chrome's blend-mode rendering
+           on next/image was making bright images render as solid black on some
+           hardware. The archival framing (INV stamp + caption + RECOVERED 2197
+           strip) is doing the found-document work without needing the texture. */}
         {/* Inventory stamp (top-left corner) */}
         {inv && (
           <div
