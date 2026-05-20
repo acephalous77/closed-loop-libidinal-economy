@@ -12,7 +12,7 @@
  * Each asset is original SVG drawn for this page — no AI, no found image.
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 
 const NEON_GREEN = "#39ff14";
 const NEON_PINK = "#ff2a8a";
@@ -31,26 +31,45 @@ export function ZineFilters() {
       aria-hidden
     >
       <defs>
-        {/* Distress filter — erodes edges of stamps + stencils */}
+        {/* Distress — small, sharp, for stamps + outlines */}
         <filter id="zine-distress" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" result="noise" />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" />
+          <feTurbulence type="fractalNoise" baseFrequency="1.8" numOctaves="1" seed="3" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.5" />
         </filter>
-        {/* Heavier distress for stamps */}
+        {/* Stamp — sharp displacement + erode-style speckle holes */}
         <filter id="zine-stamp" x="-10%" y="-10%" width="120%" height="120%">
-          <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" seed="5" result="n" />
-          <feDisplacementMap in="SourceGraphic" in2="n" scale="2.5" result="d" />
-          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="2" seed="11" result="n2" />
-          <feComposite in="d" in2="n2" operator="in" result="masked" />
+          <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="5" result="n" />
+          <feDisplacementMap in="SourceGraphic" in2="n" scale="1.8" result="d" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" result="n2" />
+          <feColorMatrix in="n2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 9 -4" result="mask" />
+          <feComposite in="d" in2="mask" operator="out" />
+        </filter>
+        {/* Stencil — REAL punk stencil: erode the source slightly then add
+            random "paint slips" via composite. Output: hard-cut letterforms
+            with irregular paint-bleed holes inside, not blurry outlines. */}
+        <filter id="zine-stencil" x="-5%" y="-5%" width="110%" height="110%">
+          <feMorphology in="SourceGraphic" operator="dilate" radius="0.5" result="thick" />
+          <feTurbulence type="fractalNoise" baseFrequency="2.5" numOctaves="2" seed="9" result="grain" />
+          <feColorMatrix in="grain" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -4 1.2" result="holes" />
+          <feComposite in="thick" in2="holes" operator="in" result="cut" />
           <feMerge>
-            <feMergeNode in="masked" />
-            <feMergeNode in="d" />
+            <feMergeNode in="cut" />
+            <feMergeNode in="thick" />
           </feMerge>
         </filter>
-        {/* Spray-paint edge for stencils */}
-        <filter id="zine-spray" x="-5%" y="-5%" width="110%" height="110%">
-          <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" seed="7" />
-          <feDisplacementMap in="SourceGraphic" scale="4" />
+        {/* Stencil spray — for solid block-style stencils */}
+        <filter id="zine-spray" x="-3%" y="-3%" width="106%" height="106%">
+          <feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="g" />
+          <feDisplacementMap in="SourceGraphic" in2="g" scale="1.2" />
+        </filter>
+        {/* Print misregistration — for two-color offset effect */}
+        <filter id="zine-misreg" x="-5%" y="-5%" width="110%" height="110%">
+          <feOffset in="SourceGraphic" dx="3" dy="2" result="off" />
+          <feColorMatrix in="off" type="matrix" values="0 0 0 0 1  0 0 0 0 0.16  0 0 0 0 0.54  0 0 0 0.7 0" result="pink" />
+          <feMerge>
+            <feMergeNode in="pink" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
         </filter>
         {/* Halftone pattern */}
         <pattern
@@ -482,6 +501,130 @@ export function StrikeSlash({
         filter="url(#zine-distress)"
       />
     </svg>
+  );
+}
+
+// ─── Redaction effect: randomly black out words across viewport ──────
+// This is the "apparatus is censoring this protest media" performative.
+// Every ~7-14 seconds, scans the visible viewport for text nodes,
+// picks 1-3 random words, wraps them in a black bar with "REDACTED"
+// stamp briefly. Restores after ~700ms.
+export function ApparatusRedaction({ enabled = true }: { enabled?: boolean }) {
+  useEffect(() => {
+    if (!enabled) return;
+    if (typeof window === "undefined") return;
+
+    const restore = new Map<HTMLElement, string>();
+
+    const candidateSelectors = "p, h2, h3, li, dd, cite, blockquote";
+    const isInViewport = (el: HTMLElement) => {
+      const r = el.getBoundingClientRect();
+      return r.top < window.innerHeight && r.bottom > 0 && r.width > 50;
+    };
+    const wordRe = /\b[A-Za-z][A-Za-z'-]{4,}\b/g;
+
+    const tick = () => {
+      const elems = Array.from(document.querySelectorAll<HTMLElement>(candidateSelectors)).filter(isInViewport);
+      if (elems.length === 0) return;
+      const picks = Math.min(3, Math.max(1, Math.floor(Math.random() * 3) + 1));
+      for (let i = 0; i < picks; i++) {
+        const el = elems[(Math.random() * elems.length) | 0];
+        if (!el || restore.has(el)) continue;
+        const html = el.innerHTML;
+        const matches = el.textContent?.match(wordRe);
+        if (!matches || matches.length === 0) continue;
+        const word = matches[(Math.random() * matches.length) | 0];
+        // Skip words that contain HTML tag chars
+        if (word.length < 5) continue;
+        // Replace first occurrence with a redaction span
+        const span = `<span style="display:inline-block;background:#0a0908;color:#0a0908;border:1px solid rgba(255,42,138,0.4);padding:0 4px;letter-spacing:0.04em;position:relative;">${word}<span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#ff2a8a;font-family:var(--font-geist-mono),monospace;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;">redacted</span></span>`;
+        const next = html.replace(word, span);
+        if (next === html) continue;
+        restore.set(el, html);
+        el.innerHTML = next;
+        const delay = 600 + Math.random() * 600;
+        window.setTimeout(() => {
+          const original = restore.get(el);
+          if (original !== undefined) {
+            el.innerHTML = original;
+            restore.delete(el);
+          }
+        }, delay);
+      }
+    };
+
+    const id = window.setInterval(tick, 8000 + Math.random() * 6000);
+    // First tick after a small dwell delay so the page settles
+    const first = window.setTimeout(tick, 7000);
+    return () => {
+      window.clearInterval(id);
+      window.clearTimeout(first);
+      // restore any pending
+      restore.forEach((html, el) => { el.innerHTML = html; });
+      restore.clear();
+    };
+  }, [enabled]);
+  return null;
+}
+
+// ─── Polaroid card — for floating zine-paste-in moments ──────────────
+export function PolaroidCard({
+  imageSrc,
+  imageAlt,
+  caption,
+  width = 280,
+  rotate = -3,
+  tone = "warm",
+}: {
+  imageSrc?: string;
+  imageAlt?: string;
+  caption?: string;
+  width?: number;
+  rotate?: number;
+  tone?: "warm" | "cool";
+}) {
+  const bg = tone === "warm" ? "#f5efe1" : "#e8eaf2";
+  const h = width + 60;
+  return (
+    <div
+      style={{
+        width,
+        background: bg,
+        padding: 12,
+        paddingBottom: 18,
+        boxShadow: "0 8px 22px rgba(0,0,0,0.6), 0 2px 4px rgba(0,0,0,0.3)",
+        transform: `rotate(${rotate}deg)`,
+        fontFamily: "var(--font-caveat), cursive",
+        color: "#1a1815",
+      }}
+    >
+      <div
+        style={{
+          width: width - 24,
+          height: width - 24,
+          background: "#0a0908",
+          marginBottom: 10,
+          overflow: "hidden",
+          position: "relative",
+        }}
+      >
+        {imageSrc && imageAlt && (
+          <img
+            src={imageSrc}
+            alt={imageAlt}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              filter: "saturate(0.85) contrast(1.05)",
+            }}
+          />
+        )}
+      </div>
+      {caption && (
+        <div style={{ fontSize: 16, textAlign: "left", lineHeight: 1.2 }}>{caption}</div>
+      )}
+    </div>
   );
 }
 

@@ -40,6 +40,7 @@ import {
   DefacementX,
   RedactionBar,
   StrikeSlash,
+  ApparatusRedaction,
 } from "./ZineAssets";
 
 const BLACK = "#0a0908";
@@ -305,7 +306,7 @@ function PhaseSection({
   name,
   sub,
   numColor = NEON_GREEN,
-  numSize = 260,
+  numSize = 200,
   children,
 }: {
   id: string;
@@ -327,27 +328,43 @@ function PhaseSection({
         overflow: "hidden",
       }}
     >
-      <div
-        aria-hidden
-        style={{ position: "absolute", top: 24, left: -12, zIndex: 2, opacity: 0.88 }}
-      >
-        <StencilNumeral n={num} size={numSize} color={numColor} />
-      </div>
+      {/* Phase marker — numeral + chyron side-by-side, no overlap */}
       <div
         style={{
           position: "absolute",
-          top: 64,
-          left: 220,
+          top: 56,
+          left: 32,
           zIndex: 3,
-          fontFamily: MONO,
-          fontSize: 12,
-          letterSpacing: "0.32em",
-          color: numColor,
-          textTransform: "uppercase",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: 24,
         }}
       >
-        phase · {name}
-        <div style={{ color: MUTED, marginTop: 4, letterSpacing: "0.16em", fontSize: 11 }}>{sub}</div>
+        <div style={{ opacity: 0.92, marginTop: -16, marginLeft: -12 }}>
+          <StencilNumeral n={num} size={numSize} color={numColor} />
+        </div>
+        <div
+          style={{
+            paddingTop: 38,
+            fontFamily: MONO,
+            fontSize: 12,
+            letterSpacing: "0.32em",
+            color: numColor,
+            textTransform: "uppercase",
+          }}
+        >
+          phase · {name}
+          <div style={{ color: MUTED, marginTop: 4, letterSpacing: "0.16em", fontSize: 11 }}>{sub}</div>
+          <div
+            style={{
+              marginTop: 12,
+              width: 80,
+              height: 2,
+              background: numColor,
+              opacity: 0.6,
+            }}
+          />
+        </div>
       </div>
       <HalftoneOverlay density="light" color="rgba(57,255,20,0.05)" zIndex={1} />
       {children}
@@ -586,71 +603,89 @@ export default function ZineSpread() {
           </div>
         </div>
 
-        {/* Stamps */}
-        <div style={{ position: "absolute", top: 88, right: 56, zIndex: 11, opacity: 0.92 }}>
-          <RubberStamp text="NO EGRESS · 360°" rotate={-9} color={STAMP_RED} size={0.92} />
+        {/* Stamps — kept within viewport, anchored to title block */}
+        <div style={{ position: "absolute", top: 56, right: 32, zIndex: 11, opacity: 0.94, transform: "translateX(-12px)" }}>
+          <RubberStamp text="NO EGRESS · 360°" rotate={-9} color={STAMP_RED} size={0.78} />
         </div>
-        <div style={{ position: "absolute", top: 168, right: 84, zIndex: 11, opacity: 0.88 }}>
-          <RubberStamp text="CIRCULATE FAST" rotate={6} color={NEON_GREEN} size={0.78} />
+        <div style={{ position: "absolute", top: 124, right: 32, zIndex: 11, opacity: 0.88, transform: "translateX(-44px)" }}>
+          <RubberStamp text="CIRCULATE FAST" rotate={6} color={NEON_GREEN} size={0.66} />
         </div>
 
-        {/* Title */}
-        <div style={{ position: "absolute", top: "26%", left: 32, right: 32, zIndex: 10 }}>
+        {/* Title — explicit max-width to prevent overflow */}
+        <div style={{ position: "absolute", top: "22%", left: 32, right: 32, zIndex: 10, maxWidth: 1180 }}>
           <h1
+            className="zine-cover-title"
             style={{
               fontFamily: ANTON,
-              fontSize: "clamp(72px, 14vw, 220px)",
+              fontSize: "clamp(64px, 11vw, 180px)",
               fontWeight: 400,
               color: NEON_GREEN,
-              lineHeight: 0.82,
+              lineHeight: 0.84,
               letterSpacing: "-0.02em",
               margin: 0,
-              filter: "url(#zine-spray)",
               textTransform: "uppercase",
-              textShadow: `4px 4px 0 ${NEON_PINK}, 8px 8px 0 rgba(0,0,0,0.5)`,
+              filter: "url(#zine-stencil)",
+              position: "relative",
             }}
           >
-            OUROBOROS
-            <br />
-            <span style={{ color: PAPER }}>LIFE SYSTEM</span>
+            <span style={{ position: "relative", display: "block" }}>
+              {/* Offset pink layer for print misregistration */}
+              <span aria-hidden style={{ position: "absolute", left: 4, top: 3, color: NEON_PINK, opacity: 0.65, mixBlendMode: "screen" }}>
+                OUROBOROS
+              </span>
+              <span style={{ position: "relative" }}>OUROBOROS</span>
+            </span>
+            <span style={{ position: "relative", display: "block", color: PAPER }}>
+              <span aria-hidden style={{ position: "absolute", left: 3, top: 2, color: NEON_PINK, opacity: 0.55, mixBlendMode: "screen" }}>
+                LIFE SYSTEM
+              </span>
+              <span style={{ position: "relative" }}>LIFE SYSTEM</span>
+            </span>
           </h1>
           <p
             style={{
-              marginTop: 18,
+              marginTop: 22,
               fontFamily: ANTON,
-              fontSize: "clamp(20px, 2.4vw, 36px)",
+              fontSize: "clamp(18px, 2vw, 32px)",
               color: NEON_CYAN,
               letterSpacing: "0.08em",
               textTransform: "uppercase",
-              filter: "url(#zine-spray)",
-              maxWidth: "20ch",
+              maxWidth: "26ch",
             }}
           >
             <GlitchText intensity={0.6}>Because life should be effortless.</GlitchText>
             <span style={{ color: NEON_PINK, marginLeft: 12 }}>*</span>
           </p>
-          {/* Slogan in marker — direct call to action */}
-          <div
-            style={{
-              marginTop: 32,
-              fontFamily: MARKER,
-              fontSize: "clamp(28px, 4vw, 56px)",
-              color: NEON_PINK,
-              transform: "rotate(-2deg)",
-              textShadow: `2px 2px 0 rgba(0,0,0,0.6)`,
-              lineHeight: 1,
-            }}
-          >
-            refuse the loop. cut the tubes. stand.
-          </div>
         </div>
 
-        {/* The tract */}
-        <div style={{ position: "absolute", bottom: 64, left: 32, maxWidth: 560, zIndex: 10 }}>
+        {/* Marker slogan — moved to its own band, won't overlap tract */}
+        <div
+          style={{
+            position: "absolute",
+            top: "62%",
+            left: 32,
+            right: 32,
+            zIndex: 10,
+            fontFamily: MARKER,
+            fontSize: "clamp(24px, 3.6vw, 52px)",
+            color: NEON_PINK,
+            transform: "rotate(-2deg)",
+            textShadow: `2px 2px 0 rgba(0,0,0,0.7)`,
+            lineHeight: 1,
+            maxWidth: "20ch",
+          }}
+        >
+          refuse the loop.<br />
+          cut the tubes.<br />
+          stand.
+        </div>
+
+        {/* The tract — pushed RIGHT, balancing the title on the left */}
+        <div style={{ position: "absolute", bottom: 56, right: 32, maxWidth: 480, zIndex: 10 }}>
           <div
             style={{
               fontFamily: MARKER,
-              fontSize: 18,
+              fontSize: 16,
               color: NEON_PINK,
               letterSpacing: "0.04em",
               marginBottom: 8,
@@ -661,45 +696,55 @@ export default function ZineSpread() {
           <p
             style={{
               fontFamily: SANS,
-              fontSize: 16,
+              fontSize: 15,
               lineHeight: 1.5,
               color: PAPER,
               margin: 0,
               fontWeight: 400,
-              maxWidth: "48ch",
             }}
           >
             The chair is real. They sold roughly{" "}
             <strong style={{ color: NEON_PINK, fontWeight: 700 }}>248,000</strong> of them. Form §6 is what you sign to ask for an exit.{" "}
             <strong style={{ color: NEON_PINK, fontWeight: 700 }}>No one has been granted an exit.</strong> The fitting consultants
             are in your neighborhood. This pamphlet is anti-copyright.{" "}
-            <strong style={{ color: NEON_GREEN, fontWeight: 700 }}>Distribute. Reproduce. Refuse.</strong>{" "}
-            The apparatus chose the loop. The loop chose you.
+            <strong style={{ color: NEON_GREEN, fontWeight: 700 }}>Distribute. Reproduce. Refuse.</strong>
           </p>
-          {/* Casualty count */}
-          <div
-            style={{
-              marginTop: 20,
-              padding: "10px 14px",
-              border: `1px solid ${STAMP_RED}`,
-              display: "inline-block",
-              fontFamily: MONO,
-              fontSize: 12,
-              color: STAMP_RED,
-              letterSpacing: "0.16em",
-              textTransform: "uppercase",
-            }}
-          >
-            <span style={{ color: PAPER }}>{m.PS > 0 ? Math.floor(247891 + m.PS * 0.01) : 247891}</span> fitted · <span style={{ color: PAPER }}>0</span> released · <span style={{ color: PAPER }}>{Math.floor(m.dwellSec * 1.4)}</span> in queue
-          </div>
         </div>
 
-        {/* Hand-drawn arrow */}
-        <div style={{ position: "absolute", top: "58%", right: "8%", zIndex: 10, display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontFamily: CAVEAT, fontSize: 28, color: NEON_PINK, transform: "rotate(-6deg)" }}>
-            this one&apos;s yours
-          </span>
-          <HandArrow length={120} curve={-0.4} color={NEON_PINK} rotate={20} />
+        {/* Casualty count — bottom-left, dramatic counter, balances tract */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 56,
+            left: 32,
+            zIndex: 10,
+            padding: "16px 20px",
+            background: "rgba(10,9,8,0.7)",
+            border: `2px solid ${STAMP_RED}`,
+            fontFamily: MONO,
+          }}
+        >
+          <div style={{ fontSize: 10, color: STAMP_RED, letterSpacing: "0.3em", marginBottom: 8, textTransform: "uppercase" }}>
+            ◆ cohort 2025 census
+          </div>
+          <div style={{ display: "flex", gap: 28, alignItems: "baseline" }}>
+            <div>
+              <div style={{ fontFamily: ANTON, fontSize: 38, color: PAPER, lineHeight: 1, fontVariantNumeric: "tabular-nums" as const }}>
+                {(247891 + Math.floor(m.dwellSec * 1.4)).toLocaleString()}
+              </div>
+              <div style={{ fontSize: 9, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>fitted</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: ANTON, fontSize: 38, color: STAMP_RED, lineHeight: 1 }}>0</div>
+              <div style={{ fontSize: 9, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>released</div>
+            </div>
+            <div>
+              <div style={{ fontFamily: ANTON, fontSize: 38, color: NEON_GREEN, lineHeight: 1, fontVariantNumeric: "tabular-nums" as const }}>
+                {Math.floor(m.dwellSec * 1.4)}
+              </div>
+              <div style={{ fontSize: 9, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>in queue</div>
+            </div>
+          </div>
         </div>
 
         {/* Descend prompt */}
@@ -1071,6 +1116,8 @@ export default function ZineSpread() {
         />
       </PhaseSection>
 
+      <CasualtyWall />
+
       {/* ─── PHASE 04 — YOU ARE A READING ─────────────────────────── */}
       <PhaseSection id="obsolescence" num="04" name="obsolescence" sub="you are now a reading" numColor={NEON_GREEN}>
         <div
@@ -1279,6 +1326,8 @@ export default function ZineSpread() {
         />
       </PhaseSection>
 
+      <FittingConsultantBlacklist />
+
       {/* ─── PHASE 06 — THE CYCLE NEVER STOPS ─────────────────────── */}
       <PhaseSection id="exit" num="06" name="exit" sub="the next occupant arrives in 0:08" numColor={NEON_PINK}>
         <div
@@ -1301,7 +1350,7 @@ export default function ZineSpread() {
                 aspectRatio: "3 / 2",
                 clipPath:
                   "polygon(1% 2%, 16% 0%, 32% 1%, 48% 0%, 64% 1%, 80% 0%, 99% 1%, 100% 16%, 99% 32%, 100% 48%, 99% 64%, 100% 80%, 99% 99%, 84% 100%, 68% 99%, 52% 100%, 36% 99%, 20% 100%, 0% 99%, 1% 82%, 0% 64%, 1% 48%, 0% 32%, 1% 16%)",
-                background: PAPER,
+                background: BLACK,
                 filter: "drop-shadow(6px 6px 0 rgba(255,42,138,0.3))",
               }}
             >
@@ -1311,7 +1360,11 @@ export default function ZineSpread() {
                 fill
                 priority
                 sizes="(max-width: 1024px) 90vw, 700px"
-                style={{ objectFit: "contain", background: PAPER }}
+                style={{
+                  objectFit: "cover",
+                  // Invert + tint dark so the cream original becomes part of the zine
+                  filter: "invert(1) hue-rotate(180deg) saturate(0.7) brightness(0.9) contrast(1.1)",
+                }}
               />
             </div>
             <div style={{ marginTop: 16, fontFamily: CAVEAT, fontSize: 20, color: NEON_PINK, transform: "rotate(-1deg)" }}>
@@ -1599,6 +1652,7 @@ export default function ZineSpread() {
       </div>
 
       <CursorTrail target={psiTargetRef} />
+      <ApparatusRedaction />
 
       <style>{`
         @keyframes zine-blink {
@@ -1691,5 +1745,264 @@ function CountdownClock({ dwell }: { dwell: number }) {
         ✕ Refuse the fitting
       </a>
     </div>
+  );
+}
+
+// ─── Casualty Wall — names of cohort 2025 lost to the chair ──────────
+function CasualtyWall() {
+  // Specific names, dates, cohorts — protests need ground.
+  // Generated to read as a partial wall — "this is only the names we have."
+  const names: Array<[string, string, string]> = [
+    ["Jeremiah Walsh", "2025-07-14", "cohort 2025.06"],
+    ["Mona Esposito", "2025-07-22", "cohort 2025.06"],
+    ["Tariq Hassan", "2025-08-03", "cohort 2025.06"],
+    ["Renata Drummond", "2025-08-19", "cohort 2025.07"],
+    ["Lev Andriescu", "2025-09-02", "cohort 2025.07"],
+    ["Lena Park", "2025-09-11", "cohort 2025.07"],
+    ["Wendell Briggs", "2025-09-27", "cohort 2025.08"],
+    ["Sahar Mehrabi", "2025-10-04", "cohort 2025.08"],
+    ["Cosmo Pelletier", "2025-10-17", "cohort 2025.08"],
+    ["Antonella Vega", "2025-10-29", "cohort 2025.09"],
+    ["Brock Tessier", "2025-11-08", "cohort 2025.09"],
+    ["Imani Olukoya", "2025-11-21", "cohort 2025.09"],
+    ["Hadi Esmaili", "2025-12-04", "cohort 2025.10"],
+    ["Stevie Klein", "2025-12-14", "cohort 2025.10"],
+    ["Bernardo Falchi", "2025-12-22", "cohort 2025.10"],
+    ["Adaeze Nwankwo", "2026-01-05", "cohort 2025.11"],
+    ["Marcus Ozuna", "2026-01-16", "cohort 2025.11"],
+    ["Yelena Bach", "2026-01-28", "cohort 2025.11"],
+    ["Soraya Kahale", "2026-02-09", "cohort 2025.12"],
+    ["Donovan Mears", "2026-02-21", "cohort 2025.12"],
+    ["Anouk Verheij", "2026-03-04", "cohort 2025.12"],
+    ["Ezra Stillwell", "2026-03-17", "cohort 2026.01"],
+    ["Naima Tedros", "2026-03-29", "cohort 2026.01"],
+    ["Cooper Vandermeer", "2026-04-08", "cohort 2026.01"],
+    ["Linnea Halversen", "2026-04-19", "cohort 2026.02"],
+    ["Pascale Boucher", "2026-04-26", "cohort 2026.02"],
+    ["Otis Marchetti", "2026-05-04", "cohort 2026.02"],
+  ];
+  return (
+    <section
+      style={{
+        position: "relative",
+        background: BLACK_SOFT,
+        color: PAPER,
+        padding: "100px 32px 80px",
+        borderTop: `2px solid ${STAMP_RED}`,
+        borderBottom: `2px solid ${STAMP_RED}`,
+        overflow: "hidden",
+      }}
+    >
+      <HalftoneOverlay density="light" color="rgba(230,58,44,0.06)" zIndex={1} />
+      <div style={{ position: "relative", zIndex: 2, maxWidth: 1280, margin: "0 auto" }}>
+        <div style={{ fontFamily: MONO, fontSize: 12, color: STAMP_RED, letterSpacing: "0.32em", textTransform: "uppercase", marginBottom: 12 }}>
+          ◆ partial register · cohorts 2025.06 — 2026.02
+        </div>
+        <h2
+          style={{
+            fontFamily: ANTON,
+            fontSize: "clamp(56px, 8vw, 140px)",
+            color: PAPER,
+            lineHeight: 0.88,
+            letterSpacing: "-0.025em",
+            margin: 0,
+            textTransform: "uppercase",
+            filter: "url(#zine-stencil)",
+          }}
+        >
+          The names we<br />
+          <span style={{ color: STAMP_RED }}>could verify.</span>
+        </h2>
+        <p
+          style={{
+            fontFamily: SANS,
+            fontSize: 16,
+            lineHeight: 1.55,
+            color: PAPER_DIM,
+            margin: "24px 0 40px",
+            maxWidth: "56ch",
+          }}
+        >
+          These are{" "}
+          <strong style={{ color: STAMP_RED, fontWeight: 700 }}>twenty-seven of the two-hundred-and-forty-seven thousand eight-hundred and ninety-one</strong>{" "}
+          we have lost since the first fitting in cohort 2025.06. Our records are incomplete. Ouroboros Industries refuses to confirm or deny.
+          If you recognize a name, light a candle. If you do not, light one anyway.
+        </p>
+
+        {/* The wall — names in stencil columns */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+            gap: "2px 24px",
+            borderTop: `1px solid rgba(230,58,44,0.18)`,
+            paddingTop: 16,
+          }}
+        >
+          {names.map(([name, date, cohort], i) => (
+            <div
+              key={i}
+              style={{
+                padding: "10px 0",
+                borderBottom: `1px solid rgba(240,235,226,0.08)`,
+                fontFamily: SANS,
+                fontSize: 15,
+                color: PAPER,
+                display: "grid",
+                gridTemplateColumns: "1fr auto",
+                gap: 8,
+                alignItems: "baseline",
+              }}
+            >
+              <div style={{ fontWeight: 600 }}>{name}</div>
+              <div style={{ fontFamily: MONO, fontSize: 10.5, color: MUTED, letterSpacing: "0.14em" }}>
+                {date.slice(5).replace("-", ".")} · {cohort.replace("cohort ", "")}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div
+          style={{
+            marginTop: 36,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 16,
+          }}
+        >
+          <div style={{ fontFamily: MARKER, fontSize: 22, color: NEON_PINK, transform: "rotate(-1deg)" }}>
+            send names · po box 9 · warehouse 9 · do not seal the envelope
+          </div>
+          <RubberStamp text="LIST IN PROGRESS" rotate={4} color={STAMP_RED} size={0.78} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Fitting Consultant Blacklist ────────────────────────────────────
+function FittingConsultantBlacklist() {
+  const consultants: Array<{ name: string; badge: string; region: string; note: string }> = [
+    { name: "Walters, R.",  badge: "OIS-44-2811", region: "Lafayette / Williamsburg", note: "drives a white panel van. carries clipboard #6014. asks about your sleep schedule." },
+    { name: "Bezdek, M.",   badge: "OIS-44-3019", region: "Park Slope / Sunset",      note: "introduces herself as 'wellness coordinator.' do not let her measure the doorframe." },
+    { name: "Okoroafor, B.", badge: "OIS-44-2204", region: "Crown Heights",            note: "polite. patient. comes back three days in a row. fitted Adaeze Nwankwo on the fourth." },
+    { name: "Solano, P.",   badge: "OIS-44-3122", region: "Bushwick / Bed-Stuy",      note: "leaves brochures under the doormat. the brochures contain measurement strips. burn them." },
+    { name: "Frye, T.",     badge: "OIS-44-2998", region: "Greenpoint",                note: "smells like institutional lavender. asks to use the bathroom; do not let him." },
+    { name: "Helene-Petit",  badge: "OIS-44-3401", region: "Lower East Side",          note: "scrubs in. speaks softly. fitted Lena Park while her parents were at work." },
+    { name: "Mendoza, J.",  badge: "OIS-44-2705", region: "Astoria",                   note: "drives a leased Tesla. plates obscured. arrives between 11:00 and 13:00." },
+    { name: "Krylov, S.",   badge: "OIS-44-3260", region: "Long Island City",          note: "limps. carries two clipboards. one is real, one is decoy." },
+  ];
+  return (
+    <section
+      style={{
+        position: "relative",
+        background: BLACK,
+        color: PAPER,
+        padding: "100px 32px 80px",
+        borderTop: `1px solid rgba(57,255,20,0.18)`,
+        borderBottom: `1px solid rgba(57,255,20,0.18)`,
+        overflow: "hidden",
+      }}
+    >
+      <HalftoneOverlay density="light" color="rgba(57,255,20,0.05)" zIndex={1} />
+      <div style={{ position: "relative", zIndex: 2, maxWidth: 1240, margin: "0 auto" }}>
+        <div style={{ fontFamily: MONO, fontSize: 12, color: NEON_GREEN, letterSpacing: "0.32em", textTransform: "uppercase", marginBottom: 12 }}>
+          ◆ blacklist · ouroboros installation services
+        </div>
+        <h2
+          style={{
+            fontFamily: ANTON,
+            fontSize: "clamp(56px, 7.4vw, 132px)",
+            color: PAPER,
+            lineHeight: 0.88,
+            letterSpacing: "-0.025em",
+            margin: 0,
+            textTransform: "uppercase",
+            filter: "url(#zine-stencil)",
+          }}
+        >
+          if they<br />
+          <span style={{ color: NEON_GREEN }}>knock,</span>{" "}
+          <span style={{ color: STAMP_RED }}>it is one of these.</span>
+        </h2>
+        <p
+          style={{
+            fontFamily: SANS,
+            fontSize: 16,
+            lineHeight: 1.55,
+            color: PAPER_DIM,
+            margin: "24px 0 40px",
+            maxWidth: "60ch",
+          }}
+        >
+          Verified fitting consultants currently active in the cohort 2026.02 region.
+          Compiled from cohort meetings and recovered ID badges. Numbers are spoofable;{" "}
+          <strong style={{ color: NEON_PINK, fontWeight: 700 }}>names + descriptions + regions are not</strong>. If a stranger appears at your door matching any of these, do not open.
+        </p>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))",
+            gap: 24,
+          }}
+        >
+          {consultants.map((c, i) => (
+            <div
+              key={i}
+              style={{
+                position: "relative",
+                padding: "20px 22px",
+                background: "rgba(10,9,8,0.7)",
+                border: `1px solid rgba(57,255,20,0.22)`,
+                fontFamily: SANS,
+                transform: `rotate(${i % 3 === 0 ? "-0.6deg" : i % 3 === 1 ? "0.5deg" : "-0.3deg"})`,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "baseline",
+                  marginBottom: 10,
+                }}
+              >
+                <div style={{ fontFamily: ANTON, fontSize: 24, color: PAPER, letterSpacing: "0.04em" }}>
+                  {c.name}
+                </div>
+                <div style={{ fontFamily: MONO, fontSize: 11, color: NEON_GREEN, letterSpacing: "0.16em" }}>
+                  {c.badge}
+                </div>
+              </div>
+              <div style={{ fontFamily: MONO, fontSize: 10.5, color: NEON_PINK, letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 12 }}>
+                ◆ {c.region}
+              </div>
+              <div style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.5, color: PAPER_DIM }}>
+                {c.note}
+              </div>
+              {/* DO NOT OPEN stamp */}
+              <div style={{ position: "absolute", top: 12, right: -8, opacity: 0.7, transform: `rotate(${i % 2 === 0 ? 6 : -6}deg)`, pointerEvents: "none" }}>
+                <RubberStamp text="DO NOT OPEN" rotate={0} color={STAMP_RED} size={0.6} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div
+          style={{
+            marginTop: 36,
+            fontFamily: MARKER,
+            fontSize: 20,
+            color: NEON_PINK,
+            transform: "rotate(-0.8deg)",
+            textAlign: "center",
+          }}
+        >
+          if you see one of these on your block — call the next person on this pamphlet&apos;s back page.
+        </div>
+      </div>
+    </section>
   );
 }
