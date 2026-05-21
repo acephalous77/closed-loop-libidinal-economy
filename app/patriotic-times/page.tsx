@@ -23,6 +23,11 @@ interface Event {
   year: string;
   title: string;
   note?: string;
+  /** Slug of the corresponding plate under /patriotic-times/plates/.
+   *  When set, the event title links to the interactive coloring page.
+   *  Omit for events whose plate is not in the canonical 63 (e.g.
+   *  legal decisions like Trump v. United States that aren't depicted). */
+  plateSlug?: string;
 }
 
 interface Chapter {
@@ -42,15 +47,15 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "The rapid, post-9/11 expansion of the security state; the loss of civil liberties; the early privatization of force.",
     events: [
-      { year: "2000", title: "The Brooks Brothers Riot", note: "Corporate intimidation disrupts the vote." },
-      { year: "2001", title: "The USA PATRIOT Act", note: "The death of privacy." },
-      { year: "2002", title: "Creation of DHS & ICE", note: "The domestic security apparatus is born." },
-      { year: "2004", title: "Guantanamo on the Hudson", note: "Preemptive mass arrests at the RNC." },
-      { year: "2004", title: "The Abu Ghraib Photographs", note: "Unchecked executive cruelty." },
-      { year: "2005", title: "Blackwater in New Orleans", note: "Private mercenaries patrol American streets." },
-      { year: "2006", title: "The Military Commissions Act", note: "The stripping of habeas corpus." },
+      { year: "2000", title: "The Brooks Brothers Riot", note: "Corporate intimidation disrupts the vote.", plateSlug: "the-brooks-brothers-riot" },
+      { year: "2001", title: "The USA PATRIOT Act", note: "The death of privacy.", plateSlug: "the-usa-patriot-act" },
+      { year: "2002", title: "Creation of DHS & ICE", note: "The domestic security apparatus is born.", plateSlug: "the-creation-of-dhs-and-ice" },
+      { year: "2004", title: "Guantanamo on the Hudson", note: "Preemptive mass arrests at the RNC.", plateSlug: "guantanamo-on-the-hudson" },
+      { year: "2004", title: "The Abu Ghraib Photographs", note: "Unchecked executive cruelty.", plateSlug: "the-abu-ghraib-photographs" },
+      { year: "2005", title: "Blackwater in New Orleans", note: "Private mercenaries patrol American streets.", plateSlug: "blackwater-in-new-orleans" },
+      { year: "2006", title: "The Military Commissions Act", note: "The stripping of habeas corpus.", plateSlug: "the-military-commissions-act" },
       { year: "2008", title: "St. Paul RNC Preemptive Raids", note: "Domestic activists as terror threats." },
-      { year: "2009", title: "Portsmouth Town Hall", note: "Armed intimidation enters mainstream politics." },
+      { year: "2009", title: "Portsmouth Town Hall", note: "Armed intimidation enters mainstream politics.", plateSlug: "the-portsmouth-town-hall" },
     ],
     plate: {
       src: "/patriotic-times/plate-01-the-brooks-brothers-riot.png",
@@ -65,18 +70,18 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "The state protecting corporate power, the militarization of local police, the asymmetric response to grassroots protests versus right-wing militias.",
     events: [
-      { year: "2010", title: "Citizens United v. FEC", note: "Dark money floods the system." },
-      { year: "2011", title: "Eviction of Zuccotti Park / UC Davis Pepper Spray", note: "Crushing Occupy Wall Street." },
-      { year: "2011", title: "NDAA Indefinite Detention Clause", note: "Military jurisdiction expands." },
-      { year: "2012", title: "H.R. 347", note: "Criminalization of protest near political figures." },
-      { year: "2013", title: "The Snowden Revelations", note: "The physical footprint of the Panopticon." },
-      { year: "2013", title: "Shelby County v. Holder", note: "Gutting the Voting Rights Act." },
-      { year: "2013", title: "The Watertown Siege", note: "A suburb under military lockdown." },
-      { year: "2014", title: "The Bundy Ranch Standoff", note: "Paramilitaries face down the feds." },
-      { year: "2014", title: "Ferguson, Missouri", note: "Main Street becomes a war zone." },
-      { year: "2015", title: "Baltimore, Maryland", note: "The National Guard locks down a city." },
-      { year: "2016", title: "Malheur Wildlife Refuge", note: "An armed right-wing occupation goes unchecked." },
-      { year: "2016", title: "Standing Rock", note: "Water cannons in the freezing cold for corporate oil." },
+      { year: "2010", title: "Citizens United v. FEC", note: "Dark money floods the system.", plateSlug: "citizens-united-v-fec" },
+      { year: "2011", title: "Eviction of Zuccotti Park / UC Davis Pepper Spray", note: "Crushing Occupy Wall Street.", plateSlug: "midnight-eviction-of-zuccotti" },
+      { year: "2011", title: "NDAA Indefinite Detention Clause", note: "Military jurisdiction expands.", plateSlug: "ndaa-indefinite-detention" },
+      { year: "2012", title: "H.R. 347", note: "Criminalization of protest near political figures.", plateSlug: "hr-347" },
+      { year: "2013", title: "The Snowden Revelations", note: "The physical footprint of the Panopticon.", plateSlug: "the-snowden-revelations" },
+      { year: "2013", title: "Shelby County v. Holder", note: "Gutting the Voting Rights Act.", plateSlug: "shelby-county-v-holder" },
+      { year: "2013", title: "The Watertown Siege", note: "A suburb under military lockdown.", plateSlug: "the-watertown-siege" },
+      { year: "2014", title: "The Bundy Ranch Standoff", note: "Paramilitaries face down the feds.", plateSlug: "the-bundy-ranch-standoff" },
+      { year: "2014", title: "Ferguson, Missouri", note: "Main Street becomes a war zone.", plateSlug: "ferguson-missouri" },
+      { year: "2015", title: "Baltimore, Maryland", note: "The National Guard locks down a city.", plateSlug: "baltimore-maryland" },
+      { year: "2016", title: "Malheur Wildlife Refuge", note: "An armed right-wing occupation goes unchecked.", plateSlug: "the-malheur-wildlife-refuge" },
+      { year: "2016", title: "Standing Rock", note: "Water cannons in the freezing cold for corporate oil.", plateSlug: "standing-rock" },
     ],
     plate: {
       src: "/patriotic-times/plate-18-ferguson-missouri.png",
@@ -91,13 +96,13 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "Federal forces deployed against citizens; state-sponsored cruelty as policy; right-wing mobilization into the streets.",
     events: [
-      { year: "2017", title: "J20 Mass Arrests", note: "Felony riot charges to chill public dissent." },
-      { year: "2017", title: "Charlottesville Unite the Right", note: "The torchlit march of ethno-nationalism." },
-      { year: "2018", title: "Zero Tolerance at the Border", note: "Family separation as a weapon." },
-      { year: "2020", title: "Michigan State Capitol", note: "Armed militias scream at state police." },
-      { year: "2020", title: "Lafayette Square", note: "Violently clearing a park for a Bible photo-op." },
-      { year: "2020", title: "Operation Diligent Valor in Portland", note: "Unidentified federal agents in unmarked vans." },
-      { year: "2020", title: "The Plot to Kidnap Governor Whitmer", note: "Escalation to domestic terror plots." },
+      { year: "2017", title: "J20 Mass Arrests", note: "Felony riot charges to chill public dissent.", plateSlug: "the-j20-mass-arrests" },
+      { year: "2017", title: "Charlottesville Unite the Right", note: "The torchlit march of ethno-nationalism.", plateSlug: "the-tiki-torch-march" },
+      { year: "2018", title: "Zero Tolerance at the Border", note: "Family separation as a weapon.", plateSlug: "zero-tolerance-border-policy" },
+      { year: "2020", title: "Michigan State Capitol", note: "Armed militias scream at state police.", plateSlug: "the-michigan-state-capitol" },
+      { year: "2020", title: "Lafayette Square", note: "Violently clearing a park for a Bible photo-op.", plateSlug: "the-lafayette-square-photo-op" },
+      { year: "2020", title: "Operation Diligent Valor in Portland", note: "Unidentified federal agents in unmarked vans.", plateSlug: "operation-diligent-valor" },
+      { year: "2020", title: "The Plot to Kidnap Governor Whitmer", note: "Escalation to domestic terror plots.", plateSlug: "plot-to-kidnap-whitmer" },
     ],
     plate: {
       src: "/patriotic-times/plate-28-the-lafayette-square-photo-op.png",
@@ -112,18 +117,18 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "The breaking of democratic institutions; the consolidation of absolute executive power; the dawn of mass domestic enforcement.",
     events: [
-      { year: "2021", title: "The January 6th Insurrection", note: "The violent breach of the transfer of power." },
-      { year: "2023", title: "Expulsion of the Tennessee Three", note: "Partisan purges of elected officials." },
-      { year: "2024", title: "Columbia University Hamilton Hall Raid", note: "Militarized crackdowns on student speech." },
+      { year: "2021", title: "The January 6th Insurrection", note: "The violent breach of the transfer of power.", plateSlug: "the-january-6th-insurrection" },
+      { year: "2023", title: "Expulsion of the Tennessee Three", note: "Partisan purges of elected officials.", plateSlug: "the-expulsion" },
+      { year: "2024", title: "Columbia University Hamilton Hall Raid", note: "Militarized crackdowns on student speech.", plateSlug: "the-columbia-university-raid" },
       { year: "2024", title: "Trump v. United States", note: "The Supreme Court grants presidential immunity." },
-      { year: "2025", title: "Blanket Clemency for January 6th", note: "Pardoning political violence." },
-      { year: "2025", title: "Mass Deportation Apparatus", note: "The explosion of ICE detention camps." },
-      { year: "2025", title: "Army Parade & 'No Kings' Protests", note: "Dictatorial aesthetics met with millions in the streets." },
+      { year: "2025", title: "Blanket Clemency for January 6th", note: "Pardoning political violence.", plateSlug: "the-blanket-clemency" },
+      { year: "2025", title: "Mass Deportation Apparatus", note: "The explosion of ICE detention camps.", plateSlug: "mass-deportation-apparatus" },
+      { year: "2025", title: "Army Parade & 'No Kings' Protests", note: "Dictatorial aesthetics met with millions in the streets.", plateSlug: "dc-army-parade" },
     ],
     plate: {
-      src: "/patriotic-times/plate-34-the-gallows.png",
-      caption: "January 6, 2021 — the gallows on the National Mall",
-      sub: "Fig. IV.i — Patriot iconography in service of the breach. The Capitol behind. (Plate 34: The Gallows)",
+      src: "/patriotic-times/plate-33-the-january-6th-insurrection.png",
+      caption: "January 6, 2021 — the breach of the Capitol",
+      sub: "Fig. IV.i — Plate 33: The Insurrection. Rioters meet riot police at the arched entrance.",
     },
   },
 ];
@@ -145,19 +150,36 @@ export default function PatrioticTimesLanding() {
             justifyContent: "space-between",
             alignItems: "baseline",
             marginBottom: "3rem",
+            gap: "2rem",
+            flexWrap: "wrap",
           }}
         >
-          <span
-            style={{
-              fontFamily: MONO,
-              fontSize: "0.78rem",
-              textTransform: "uppercase",
-              letterSpacing: "0.25em",
-              color: INK_50,
-            }}
-          >
-            A Coloring Book
-          </span>
+          <div style={{ display: "flex", alignItems: "baseline", gap: "1.25rem", flexWrap: "wrap" }}>
+            <a
+              href="/"
+              style={{
+                fontFamily: MONO,
+                fontSize: "0.78rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.25em",
+                color: INK_50,
+                textDecoration: "none",
+              }}
+            >
+              ← autostimulus
+            </a>
+            <span
+              style={{
+                fontFamily: MONO,
+                fontSize: "0.78rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.25em",
+                color: INK_50,
+              }}
+            >
+              · A Coloring Book
+            </span>
+          </div>
           <span
             style={{
               fontFamily: MONO,
@@ -207,7 +229,7 @@ export default function PatrioticTimesLanding() {
         </p>
       </header>
 
-      {/* ============ HERO PLATE ============ */}
+      {/* ============ HERO PLATE (opening epigraph) ============ */}
       <section
         style={{
           padding: "4rem 0 4rem",
@@ -218,14 +240,20 @@ export default function PatrioticTimesLanding() {
         }}
       >
         <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 5vw" }}>
-          <Image
-            src="/patriotic-times/plate-34-the-gallows.png"
-            alt="A line-art plate depicting the gallows erected on the National Mall on January 6, 2021"
-            width={1100}
-            height={733}
-            priority
-            style={{ width: "100%", height: "auto", display: "block", background: "white" }}
-          />
+          <a
+            href="/patriotic-times/plates/the-gallows"
+            aria-label="Open the gallows plate to color"
+            style={{ display: "block" }}
+          >
+            <Image
+              src="/patriotic-times/plate-34-the-gallows.png"
+              alt="A line-art plate depicting the gallows erected on the National Mall on January 6, 2021"
+              width={1100}
+              height={733}
+              priority
+              style={{ width: "100%", height: "auto", display: "block", background: "white" }}
+            />
+          </a>
           <p
             style={{
               marginTop: "1.5rem",
@@ -237,8 +265,27 @@ export default function PatrioticTimesLanding() {
               textAlign: "center",
             }}
           >
-            <span style={{ color: RED, fontWeight: 700 }}>Plate IV.i</span>{" "}
-            — January 6, 2021. The gallows on the National Mall.
+            <span style={{ color: RED, fontWeight: 700 }}>Opening Epigraph</span>{" "}
+            — Plate 34: The Gallows. Washington, D.C., 2021. The image the book ends at.
+          </p>
+          <p
+            style={{
+              marginTop: "0.5rem",
+              fontFamily: MONO,
+              fontSize: "0.72rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.2em",
+              color: RED,
+              textAlign: "center",
+              fontWeight: 700,
+            }}
+          >
+            <a
+              href="/patriotic-times/plates/the-gallows"
+              style={{ color: RED, textDecoration: "none" }}
+            >
+              → Color this plate
+            </a>
           </p>
         </div>
       </section>
@@ -403,7 +450,7 @@ export default function PatrioticTimesLanding() {
                   key={i}
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "5rem 1fr",
+                    gridTemplateColumns: "5rem 1fr auto",
                     columnGap: "1.5rem",
                     padding: "1.1rem 0",
                     borderBottom: `1px solid ${PAPER_DEEP}`,
@@ -422,18 +469,40 @@ export default function PatrioticTimesLanding() {
                     {ev.year}
                   </span>
                   <div>
-                    <div
-                      style={{
-                        fontFamily: DISPLAY,
-                        fontSize: "1.1rem",
-                        fontWeight: 700,
-                        letterSpacing: "-0.01em",
-                        color: INK,
-                        lineHeight: 1.25,
-                      }}
-                    >
-                      {ev.title}
-                    </div>
+                    {ev.plateSlug ? (
+                      <a
+                        href={`/patriotic-times/plates/${ev.plateSlug}`}
+                        style={{
+                          fontFamily: DISPLAY,
+                          fontSize: "1.1rem",
+                          fontWeight: 700,
+                          letterSpacing: "-0.01em",
+                          color: INK,
+                          lineHeight: 1.25,
+                          textDecoration: "none",
+                          backgroundImage: `linear-gradient(${INK}, ${INK})`,
+                          backgroundSize: "100% 1px",
+                          backgroundRepeat: "no-repeat",
+                          backgroundPosition: "0 100%",
+                          paddingBottom: "0.1rem",
+                        }}
+                      >
+                        {ev.title}
+                      </a>
+                    ) : (
+                      <div
+                        style={{
+                          fontFamily: DISPLAY,
+                          fontSize: "1.1rem",
+                          fontWeight: 700,
+                          letterSpacing: "-0.01em",
+                          color: INK,
+                          lineHeight: 1.25,
+                        }}
+                      >
+                        {ev.title}
+                      </div>
+                    )}
                     {ev.note && (
                       <div
                         style={{
@@ -449,6 +518,26 @@ export default function PatrioticTimesLanding() {
                       </div>
                     )}
                   </div>
+                  {ev.plateSlug && (
+                    <a
+                      href={`/patriotic-times/plates/${ev.plateSlug}`}
+                      aria-label={`Color the ${ev.title} plate`}
+                      style={{
+                        fontFamily: MONO,
+                        fontSize: "0.65rem",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.2em",
+                        color: RED,
+                        textDecoration: "none",
+                        fontWeight: 700,
+                        whiteSpace: "nowrap",
+                        border: `1px solid ${RED}`,
+                        padding: "0.3rem 0.6rem",
+                      }}
+                    >
+                      color →
+                    </a>
+                  )}
                 </li>
               ))}
             </ol>

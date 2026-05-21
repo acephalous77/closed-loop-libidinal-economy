@@ -25,7 +25,20 @@ export default function PlatesIndex() {
   return (
     <main style={{ padding: "3.5rem 5vw 5rem", maxWidth: "1400px", margin: "0 auto" }}>
       {/* Breadcrumb */}
-      <nav style={{ marginBottom: "2.5rem" }}>
+      <nav style={{ marginBottom: "2.5rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
+        <a
+          href="/"
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.85rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+            color: INK_50,
+            textDecoration: "none",
+          }}
+        >
+          ← autostimulus
+        </a>
         <a
           href="/patriotic-times"
           style={{
@@ -101,11 +114,58 @@ export default function PlatesIndex() {
         </p>
       </header>
 
+      {/* Decade jump-nav */}
+      <nav
+        aria-label="Jump to decade"
+        style={{
+          marginBottom: "3rem",
+          paddingBottom: "1.5rem",
+          borderBottom: `1px solid ${INK}`,
+          display: "flex",
+          alignItems: "baseline",
+          gap: "1.5rem",
+          flexWrap: "wrap",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.72rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+            color: INK_50,
+          }}
+        >
+          Jump to:
+        </span>
+        {DECADES.map((dec) => (
+          <a
+            key={dec.label}
+            href={`#decade-${dec.label}`}
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.85rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.18em",
+              color: RED,
+              textDecoration: "none",
+              fontWeight: 700,
+            }}
+          >
+            {dec.label}
+          </a>
+        ))}
+      </nav>
+
       {/* Sections by decade */}
       {DECADES.map((dec) => {
         const decPlates = getPlatesByDecade(dec.label);
         return (
-          <section key={dec.label} style={{ marginBottom: "5rem" }}>
+          <section
+            key={dec.label}
+            id={`decade-${dec.label}`}
+            style={{ marginBottom: "5rem", scrollMarginTop: "1.5rem" }}
+          >
             <div
               style={{
                 borderTop: `2px solid ${INK}`,
