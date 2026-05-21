@@ -64,34 +64,60 @@ export default function OnTheChair() {
       {/* MASTHEAD */}
       <header
         style={{
-          borderBottom: `1px solid ${RULE}`,
+          marginBottom: "3.5rem",
           paddingBottom: "2.5rem",
-          marginBottom: "3rem",
+          borderBottom: `1px solid ${RULE}`,
         }}
       >
-        <p
+        <div
           style={{
-            fontFamily: MONO,
-            fontSize: "0.7rem",
-            letterSpacing: "0.28em",
-            color: ACCENT,
-            textTransform: "uppercase",
-            margin: 0,
-            fontWeight: 600,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: "3rem",
           }}
         >
-          Closed-Loop Libidinal Economy · Essay
-        </p>
+          <p
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.66rem",
+              letterSpacing: "0.28em",
+              color: ACCENT,
+              textTransform: "uppercase",
+              margin: 0,
+              fontWeight: 600,
+            }}
+          >
+            ◆ Volume Ω.026
+          </p>
+          <p
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.66rem",
+              letterSpacing: "0.22em",
+              color: MUTED,
+              textTransform: "uppercase",
+              margin: 0,
+            }}
+          >
+            Closed-Loop Libidinal Economy
+          </p>
+        </div>
+
+        {/* HERO FIGURE — the chair, seen before it is described */}
+        <HeroChair />
+
         <h1
           style={{
             fontFamily: SERIF,
             fontStyle: "italic",
             fontWeight: 400,
-            fontSize: "clamp(2.4rem, 5.4vw, 3.6rem)",
-            lineHeight: 1.08,
-            letterSpacing: "-0.012em",
+            fontSize: "clamp(3rem, 7vw, 5rem)",
+            lineHeight: 1.02,
+            letterSpacing: "-0.018em",
             color: PAPER,
-            margin: "1rem 0 0.8rem",
+            margin: "3rem 0 1rem",
+            textAlign: "center",
           }}
         >
           On the Chair
@@ -99,33 +125,72 @@ export default function OnTheChair() {
         <p
           style={{
             fontFamily: SERIF,
-            fontSize: "1.15rem",
-            lineHeight: 1.5,
+            fontSize: "1.18rem",
+            lineHeight: 1.45,
             color: PAPER_DIM,
             margin: 0,
             fontStyle: "italic",
+            textAlign: "center",
+            maxWidth: "32rem",
+            marginInline: "auto",
           }}
         >
           Notes toward a theory of the closed-loop libidinal economy.
         </p>
         <div
           style={{
-            marginTop: "1.6rem",
+            marginTop: "2rem",
             display: "flex",
+            justifyContent: "center",
             gap: "1.6rem",
             flexWrap: "wrap",
             fontFamily: MONO,
-            fontSize: "0.72rem",
-            letterSpacing: "0.18em",
+            fontSize: "0.7rem",
+            letterSpacing: "0.22em",
             color: MUTED,
             textTransform: "uppercase",
           }}
         >
           <span>Adnan Selimović</span>
+          <span aria-hidden style={{ opacity: 0.4 }}>·</span>
           <span>May 2026</span>
+          <span aria-hidden style={{ opacity: 0.4 }}>·</span>
           <span>≈ 3,000 words</span>
         </div>
       </header>
+
+      {/* EPIGRAPH — an occupant testimonial, taken from the brochure */}
+      <blockquote
+        style={{
+          margin: "0 0 3.5rem",
+          padding: "0 1.5rem",
+          maxWidth: "38rem",
+          marginInline: "auto",
+          textAlign: "center",
+          fontFamily: SERIF,
+          fontStyle: "italic",
+          fontSize: "1.2rem",
+          lineHeight: 1.5,
+          color: PAPER,
+        }}
+      >
+        &ldquo;I am not, on the whole, less happy. I am less sure what
+        I would do with the chair turned off.&rdquo;
+        <footer
+          style={{
+            marginTop: "1rem",
+            fontFamily: MONO,
+            fontSize: "0.66rem",
+            letterSpacing: "0.22em",
+            color: MUTED,
+            textTransform: "uppercase",
+            fontStyle: "normal",
+          }}
+        >
+          — M.K., Pro · Cohort 2026.04, in the manufacturer&apos;s
+          marketing materials
+        </footer>
+      </blockquote>
 
       {/* PREFATORY NOTE — frames the three artifacts */}
       <aside
@@ -133,7 +198,7 @@ export default function OnTheChair() {
           padding: "1rem 1.2rem",
           background: "rgba(154,51,34,0.06)",
           borderLeft: `2px solid ${ACCENT}`,
-          marginBottom: "3.2rem",
+          marginBottom: "2.4rem",
           fontFamily: SERIF,
           fontStyle: "italic",
           fontSize: "0.95rem",
@@ -152,6 +217,10 @@ export default function OnTheChair() {
         apparatus&apos;s commercial period. Each artifact is partial. The
         essay is the analytical apparatus that holds them together.
       </aside>
+
+      {/* TABLE OF CONTENTS */}
+      <TOC />
+
 
       {/* §I — A FIGURE */}
       <Section n="I" title="A Figure">
@@ -620,20 +689,102 @@ export default function OnTheChair() {
         </Pull>
       </Section>
 
+      {/* CODA */}
+      <section
+        style={{
+          margin: "4rem 0 0",
+          paddingTop: "3rem",
+          borderTop: `1px solid ${RULE}`,
+        }}
+        aria-label="Coda"
+      >
+        <p
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.7rem",
+            letterSpacing: "0.28em",
+            color: ACCENT,
+            textTransform: "uppercase",
+            margin: "0 0 1.6rem",
+            fontWeight: 600,
+            textAlign: "center",
+          }}
+        >
+          ◆ Coda
+        </p>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontStyle: "italic",
+            fontSize: "1.15rem",
+            lineHeight: 1.6,
+            color: PAPER,
+            margin: "0 auto 1.4rem",
+            maxWidth: "36rem",
+            textAlign: "center",
+          }}
+        >
+          I have stopped trying to write this essay from outside the
+          apparatus. The position does not exist. What I have been able
+          to do is describe the apparatus from a position inside it
+          that has not yet been completely calibrated, and that retains
+          the capacity to recognise the calibration in progress.
+        </p>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontStyle: "italic",
+            fontSize: "1.15rem",
+            lineHeight: 1.6,
+            color: PAPER,
+            margin: "0 auto 1.4rem",
+            maxWidth: "36rem",
+            textAlign: "center",
+          }}
+        >
+          That capacity is what this project has been trying to defend.
+          It is the condition of a politics, not the politics itself.
+          The politics, as I am closing this draft, has not yet been
+          written.
+        </p>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontStyle: "italic",
+            fontSize: "1.15rem",
+            lineHeight: 1.6,
+            color: PAPER,
+            margin: "0 auto",
+            maxWidth: "36rem",
+            textAlign: "center",
+          }}
+        >
+          It is, in any case, late. Cohort 2026.05 opens next month.
+        </p>
+      </section>
+
       {/* SIGNATURE */}
       <div
         style={{
-          marginTop: "3rem",
-          paddingTop: "1.6rem",
-          borderTop: `1px solid ${RULE}`,
-          fontFamily: SERIF,
-          fontStyle: "italic",
-          fontSize: "0.95rem",
-          color: PAPER_DIM,
-          textAlign: "right",
+          marginTop: "3.5rem",
+          paddingTop: "2rem",
+          fontFamily: MONO,
+          fontSize: "0.7rem",
+          letterSpacing: "0.22em",
+          color: MUTED,
+          textTransform: "uppercase",
+          textAlign: "center",
+          display: "flex",
+          justifyContent: "center",
+          gap: "1.6rem",
+          flexWrap: "wrap",
         }}
       >
-        &mdash; Selimović, May 2026
+        <span style={{ color: PAPER }}>Adnan Selimović</span>
+        <span aria-hidden style={{ opacity: 0.4 }}>·</span>
+        <span>Brooklyn, May 2026</span>
+        <span aria-hidden style={{ opacity: 0.4 }}>·</span>
+        <span>Volume Ω.026</span>
       </div>
 
       {/* NOTES */}
@@ -788,17 +939,18 @@ function Companions() {
 // ─────────────────────────────────────────────────────────────────────
 
 function Section({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
+  const id = `section-${n.toLowerCase()}`;
   return (
-    <section style={{ marginBottom: "3rem" }}>
+    <section id={id} style={{ marginBottom: "3rem", scrollMarginTop: "2rem" }}>
       <h2
         style={{
           fontFamily: SERIF,
           fontWeight: 600,
-          fontSize: "1.35rem",
+          fontSize: "1.4rem",
           letterSpacing: "-0.005em",
           color: PAPER,
-          margin: "2.6rem 0 1.4rem",
-          paddingTop: "1rem",
+          margin: "3.2rem 0 1.4rem",
+          paddingTop: "1.4rem",
           borderTop: `1px solid ${RULE}`,
           display: "grid",
           gridTemplateColumns: "3.5rem 1fr",
@@ -822,6 +974,172 @@ function Section({ n, title, children }: { n: string; title: string; children: R
       </h2>
       {children}
     </section>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// HERO CHAIR — opening visual figure
+// A side-elevation schematic, restrained, set above the masthead so
+// the reader encounters the chair before they read about it.
+// ─────────────────────────────────────────────────────────────────────
+function HeroChair() {
+  return (
+    <figure
+      style={{
+        margin: "0 auto",
+        maxWidth: "min(38rem, calc(100vw - 3rem))",
+      }}
+    >
+      <svg
+        viewBox="0 0 520 360"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "100%", height: "auto", display: "block" }}
+        role="img"
+        aria-label="Side-elevation schematic of the chair"
+      >
+        {/* Floor */}
+        <line x1="40" y1="330" x2="490" y2="330" stroke={PAPER} strokeWidth="0.8" opacity="0.55" />
+        {/* Seat — reclined silhouette */}
+        <path
+          d="M 80 300 L 80 230 Q 80 210 100 206 L 230 192 L 380 156 Q 410 148 420 174 L 438 230 Q 438 240 428 246 L 130 318 Q 102 326 90 312 Z"
+          fill="none"
+          stroke={PAPER}
+          strokeWidth="1.2"
+        />
+        {/* Headrest */}
+        <ellipse cx="395" cy="156" rx="32" ry="16" fill="none" stroke={PAPER} strokeWidth="1" />
+        {/* Ring (chest height) */}
+        <ellipse cx="295" cy="190" rx="80" ry="20" fill="none" stroke={ACCENT} strokeWidth="1.4" />
+        <ellipse
+          cx="295"
+          cy="190"
+          rx="80"
+          ry="20"
+          fill="none"
+          stroke={ACCENT}
+          strokeWidth="0.7"
+          strokeDasharray="2 4"
+          opacity="0.5"
+          transform="rotate(6 295 190)"
+        />
+        {/* Work terminal */}
+        <rect x="328" y="100" width="108" height="68" fill="none" stroke={PAPER} strokeWidth="1" />
+        <line x1="328" y1="168" x2="372" y2="186" stroke={PAPER} strokeWidth="0.7" />
+        {/* Feed tubing */}
+        <path d="M 50 160 Q 100 180 215 190" fill="none" stroke={ACCENT} strokeWidth="1" opacity="0.75" />
+        <path d="M 50 188 Q 100 208 215 200" fill="none" stroke={ACCENT} strokeWidth="1" opacity="0.75" />
+        {/* Drainage */}
+        <path d="M 240 318 Q 260 326 296 326 L 470 326" fill="none" stroke={ACCENT} strokeWidth="1" opacity="0.5" />
+        {/* Base */}
+        <rect x="135" y="318" width="190" height="12" fill={PAPER} opacity="0.7" />
+      </svg>
+      <figcaption
+        style={{
+          marginTop: "1rem",
+          fontFamily: MONO,
+          fontSize: "0.66rem",
+          letterSpacing: "0.22em",
+          color: MUTED,
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}
+      >
+        Fig. 0 · The apparatus · side elevation
+      </figcaption>
+    </figure>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// TOC — table of contents for the nine sections
+// ─────────────────────────────────────────────────────────────────────
+function TOC() {
+  const entries: [string, string][] = [
+    ["I", "A Figure"],
+    ["II", "The Loop"],
+    ["III", "Psychic Surplus"],
+    ["IV", "OHCOSE"],
+    ["V", "The Seven Subsystems"],
+    ["VI", "The Apparatus Already Exists"],
+    ["VII", "The 160-Year Lineage"],
+    ["VIII", "Tri-Axial Ouroboric Governance"],
+    ["IX", "Refusal"],
+  ];
+  return (
+    <nav
+      aria-label="Contents"
+      style={{
+        margin: "0 0 3.5rem",
+        padding: "1.4rem 0",
+        borderTop: `1px solid ${RULE}`,
+        borderBottom: `1px solid ${RULE}`,
+      }}
+    >
+      <p
+        style={{
+          fontFamily: MONO,
+          fontSize: "0.66rem",
+          letterSpacing: "0.28em",
+          color: ACCENT,
+          textTransform: "uppercase",
+          margin: "0 0 1rem",
+          fontWeight: 600,
+        }}
+      >
+        ◆ Contents
+      </p>
+      <ol
+        style={{
+          listStyle: "none",
+          padding: 0,
+          margin: 0,
+          columnCount: 2,
+          columnGap: "2rem",
+        }}
+        className="ote-toc"
+      >
+        {entries.map(([n, title]) => (
+          <li
+            key={n}
+            style={{
+              padding: "0.25rem 0",
+              breakInside: "avoid",
+            }}
+          >
+            <a
+              href={`#section-${n.toLowerCase()}`}
+              style={{
+                fontFamily: SERIF,
+                fontSize: "0.98rem",
+                color: PAPER,
+                textDecoration: "none",
+                display: "grid",
+                gridTemplateColumns: "2.4rem 1fr",
+                gap: "0.4rem",
+                alignItems: "baseline",
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: MONO,
+                  fontSize: "0.7rem",
+                  color: MUTED,
+                  letterSpacing: "0.18em",
+                }}
+              >
+                § {n}
+              </span>
+              <span style={{ fontStyle: "italic" }}>{title}</span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <style>{`
+        @media (max-width: 600px) {
+          .ote-toc { column-count: 1 !important; }
+        }
+      `}</style>
+    </nav>
   );
 }
 

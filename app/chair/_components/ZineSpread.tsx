@@ -784,6 +784,178 @@ export default function ZineSpread() {
         </div>
       </section>
 
+      {/* ─── DIRECT ADDRESS ─────────────────────────────────────────
+           A piece that breaks the zine's design language. Plain serif
+           body, no clip-paths, no rubber stamps, no glitch. The thing
+           that doesn't belong, slipped into the middle of the zine,
+           addressed to the reader as already-implicated. */}
+      <section
+        style={{
+          position: "relative",
+          background: BLACK,
+          padding: "120px 24px 140px",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "relative",
+            maxWidth: 540,
+            margin: "0 auto",
+            background: "#f4ede0",
+            color: "#0a0908",
+            padding: "56px 48px 64px",
+            transform: "rotate(-0.6deg)",
+            boxShadow: "0 24px 60px rgba(0,0,0,0.7), 0 4px 12px rgba(0,0,0,0.5)",
+            // Subtle paper texture
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0.04 0'/></filter><rect width='160' height='160' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f4ede0 0%, #ede5d2 100%)`,
+          }}
+        >
+          {/* No headline. No rubber stamp. Just the address. */}
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 17,
+              lineHeight: 1.7,
+              color: "#0a0908",
+              margin: "0 0 1.2rem",
+              fontStyle: "italic",
+            }}
+          >
+            To you, reading this —
+          </p>
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 17,
+              lineHeight: 1.7,
+              color: "#0a0908",
+              margin: "0 0 1.2rem",
+            }}
+          >
+            You scrolled past three notifications to get here. You
+            looked at your phone twice between the title and this line.
+            The chair has not yet been fitted to your residence. The
+            rhythm already has.
+          </p>
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 17,
+              lineHeight: 1.7,
+              color: "#0a0908",
+              margin: "0 0 1.2rem",
+            }}
+          >
+            You will be told, over the next forty-eight hours, that
+            this document is a paranoid one. The people who tell you
+            will themselves be modulated to tell you. You will not be
+            able to identify which of them is modulated. This is the
+            apparatus&apos;s signature trick.
+          </p>
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 17,
+              lineHeight: 1.7,
+              color: "#0a0908",
+              margin: "0 0 1.2rem",
+            }}
+          >
+            You will then encounter, some weeks from now, an
+            advertisement for the Ouroboros Life System. You will not
+            have searched for it. You will not have spoken its name to
+            anyone. The advertisement will know what you read tonight.
+            This is not paranoia; it is the part of the apparatus we
+            have already documented.
+          </p>
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 17,
+              lineHeight: 1.7,
+              color: "#0a0908",
+              margin: "0 0 1.2rem",
+            }}
+          >
+            You will make, then, a small calculation. The chair, you
+            will think, is for people more invested in their own
+            comfort than you are. You will be wrong. The chair is for
+            you. The decision is already in your scroll rate.
+          </p>
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 17,
+              lineHeight: 1.7,
+              color: "#0a0908",
+              margin: "0 0 2.4rem",
+            }}
+          >
+            You are reading this in cohort 2026. The next cohort is
+            yours. We are addressing you now because the next address
+            will come from the consultant, and the consultant arrives
+            ready.
+          </p>
+          <p
+            style={{
+              fontFamily: `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`,
+              fontSize: 15,
+              lineHeight: 1.5,
+              color: "#5a554a",
+              margin: 0,
+              textAlign: "right",
+              fontStyle: "italic",
+            }}
+          >
+            — cohort 2025
+          </p>
+
+          {/* Two staples — only ornament permitted here */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              top: 14,
+              left: 60,
+              width: 20,
+              height: 3,
+              background: "#3a352a",
+              transform: "rotate(-8deg)",
+            }}
+          />
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              top: 14,
+              right: 60,
+              width: 20,
+              height: 3,
+              background: "#3a352a",
+              transform: "rotate(6deg)",
+            }}
+          />
+        </div>
+
+        {/* A single mono caption beneath, mounted off to one side */}
+        <p
+          style={{
+            position: "relative",
+            zIndex: 2,
+            marginTop: "1.6rem",
+            fontFamily: MONO,
+            fontSize: 10,
+            letterSpacing: "0.22em",
+            color: MUTED,
+            textTransform: "uppercase",
+            textAlign: "center",
+          }}
+        >
+          ◆ slipped into the binding · not part of the zine&apos;s design
+        </p>
+      </section>
+
       {/* ─── PHASE 01 ─────────────────────────────────────────────── */}
       <PhaseSection id="ontogenesis" num="01" name="ontogenesis" sub="before they assemble it in your room">
         <div
@@ -1764,21 +1936,24 @@ export default function ZineSpread() {
           }}
         >
           {[
-            "§1.0 — By being seated, the occupant consents to indefinite occupancy.",
-            "§1.1 — Indefinite means: until further notice. Notice will not be given.",
-            "§2.0 — All bodily outputs (heat, kinetic energy, waste, attention, gaze, breath, dreams) become the property of Ouroboros Industries LLC.",
-            "§3.0 — The closed-loop guarantee. Nothing you produce will leave the system.",
-            "§4.0 — There is no third screen. There is no third option.",
-            "§6.0 — Withdrawal of consent requires the occupant to stand. Standing is not a supported operation.",
-            "§7.0 — The loop chooses you.",
+            "§1.0 — By reading this clause, you have consented to the Service Agreement v2.4. The reading is the consent.",
+            "§1.1 — Subsequent re-reading constitutes affirmation. There is no read-only mode.",
+            "§2.0 — Bodily outputs — heat, kinetic energy, waste, attention, gaze, breath, dreams — become property of Ouroboros Industries LLC at point of generation.",
+            "§3.0 — Nothing you produce leaves the system. Including this thought.",
+            "§4.0 — Form §6 does not exist. It has not existed. It will not exist.",
+            "§5.0 — Your consultant is your friend. Your consultant has been issued a script.",
+            "§6.0 — Standing is not a supported operation. Sitting is the supported operation.",
+            "§7.0 — The loop chooses you. You have already chosen the loop. These are the same fact.",
+            "§8.0 — The cohort you are in has already closed. The cohort you are entering is open.",
           ].concat([
-            "§1.0 — By being seated, the occupant consents to indefinite occupancy.",
-            "§1.1 — Indefinite means: until further notice. Notice will not be given.",
-            "§2.0 — All bodily outputs become the property of Ouroboros Industries LLC.",
-            "§3.0 — The closed-loop guarantee. Nothing you produce will leave the system.",
-            "§4.0 — There is no third screen. There is no third option.",
-            "§6.0 — Standing is not a supported operation.",
-            "§7.0 — The loop chooses you.",
+            "§1.0 — The reading is the consent.",
+            "§2.0 — Outputs become property at point of generation.",
+            "§3.0 — Nothing you produce leaves the system. Including this thought.",
+            "§4.0 — Form §6 does not exist.",
+            "§5.0 — Your consultant has been issued a script.",
+            "§6.0 — Standing is not supported.",
+            "§7.0 — You have already chosen the loop.",
+            "§8.0 — The cohort you are entering is open.",
           ]).map((l, i) => (
             <span key={i}>
               {l}
