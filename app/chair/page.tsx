@@ -597,6 +597,7 @@ export default function OnTheChair() {
           affect), and <em>affective</em> (the modulation of which
           emotions the subject is permitted, or invited, to feel).
         </P>
+        <TAOGDiagram />
         <P>
           Each axis is, individually, well-charted. The temporal axis
           is Stiegler&apos;s territory; the economic, Berardi&apos;s;
@@ -1520,6 +1521,130 @@ function PhaseDiagram() {
         }}
       >
         Fig. 2 · OHCOSE · six phases of the occupant&apos;s lifecycle
+      </figcaption>
+    </figure>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// TAOG DIAGRAM — three axes radiating from the subject
+// Each axis labeled with the capture it administers.
+// ─────────────────────────────────────────────────────────────────────
+function TAOGDiagram() {
+  // Equilateral triangle with subject at centroid.
+  const cx = 300;
+  const cy = 170;
+  const r = 110;
+  // Axis endpoints at 90°, 210°, 330° (top, bottom-left, bottom-right)
+  const axes = [
+    { name: "Temporal", capture: "cadence", angle: -90, color: ACCENT },
+    { name: "Economic", capture: "metering · price", angle: 150, color: ACCENT },
+    { name: "Affective", capture: "modulation", angle: 30, color: ACCENT },
+  ];
+  return (
+    <figure style={{ margin: "2.4rem 0 2.8rem" }}>
+      <svg
+        viewBox="0 0 600 360"
+        xmlns="http://www.w3.org/2000/svg"
+        style={{ width: "100%", height: "auto", display: "block" }}
+        role="img"
+        aria-label="Diagram of Tri-Axial Ouroboric Governance — three axes (temporal, economic, affective) radiating from the subject."
+      >
+        {/* Connecting triangle behind the axes */}
+        <polygon
+          points={axes
+            .map((a) => {
+              const rad = (a.angle * Math.PI) / 180;
+              const x = cx + Math.cos(rad) * r;
+              const y = cy + Math.sin(rad) * r;
+              return `${x},${y}`;
+            })
+            .join(" ")}
+          fill="none"
+          stroke={PAPER}
+          strokeWidth="0.6"
+          opacity="0.3"
+          strokeDasharray="3 5"
+        />
+
+        {/* Axes */}
+        {axes.map((a, i) => {
+          const rad = (a.angle * Math.PI) / 180;
+          const x = cx + Math.cos(rad) * r;
+          const y = cy + Math.sin(rad) * r;
+          // Arrow heads
+          const ah1 = `${x - Math.cos(rad) * 10 - Math.sin(rad) * 5},${y - Math.sin(rad) * 10 + Math.cos(rad) * 5}`;
+          const ah2 = `${x - Math.cos(rad) * 10 + Math.sin(rad) * 5},${y - Math.sin(rad) * 10 - Math.cos(rad) * 5}`;
+          // Label offset further out
+          const lx = cx + Math.cos(rad) * (r + 38);
+          const ly = cy + Math.sin(rad) * (r + 38);
+          // Sub-label
+          const slx = cx + Math.cos(rad) * (r + 38);
+          const sly = cy + Math.sin(rad) * (r + 38) + 14;
+          return (
+            <g key={i}>
+              <line
+                x1={cx + Math.cos(rad) * 20}
+                y1={cy + Math.sin(rad) * 20}
+                x2={x}
+                y2={y}
+                stroke={a.color}
+                strokeWidth="1.2"
+              />
+              <polygon points={`${x},${y} ${ah1} ${ah2}`} fill={a.color} />
+              <text
+                x={lx}
+                y={ly}
+                textAnchor="middle"
+                fontFamily={SERIF}
+                fontStyle="italic"
+                fontSize="15"
+                fill={PAPER}
+              >
+                {a.name}
+              </text>
+              <text
+                x={slx}
+                y={sly}
+                textAnchor="middle"
+                fontFamily={MONO}
+                fontSize="9"
+                fill={MUTED}
+                letterSpacing="0.2em"
+                style={{ textTransform: "uppercase" } as React.CSSProperties}
+              >
+                {a.capture}
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Subject node at centroid */}
+        <circle cx={cx} cy={cy} r="18" fill={BG} stroke={PAPER} strokeWidth="1" />
+        <text
+          x={cx}
+          y={cy + 5}
+          textAnchor="middle"
+          fontFamily={SERIF}
+          fontStyle="italic"
+          fontSize="12"
+          fill={PAPER}
+        >
+          subject
+        </text>
+      </svg>
+      <figcaption
+        style={{
+          marginTop: "0.8rem",
+          fontFamily: MONO,
+          fontSize: "0.7rem",
+          color: MUTED,
+          letterSpacing: "0.16em",
+          textTransform: "uppercase",
+          textAlign: "center",
+        }}
+      >
+        Fig. 4 · TAOG · three simultaneous axes of capture
       </figcaption>
     </figure>
   );
