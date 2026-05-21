@@ -4,40 +4,45 @@ import { OmegaSerpent } from "../_components/ZineAssets";
 export const metadata: Metadata = {
   title: { absolute: "The Apparatus — Ouroboros Life System" },
   description:
-    "The Ouroboros Life System. An apparatus in six phases. A closed-loop integrated life-support enclosure for uninterrupted living. Service tiers, OHCOSE service architecture, and fitting consultation.",
+    "The Ouroboros Life System operates a closed-loop libidinal economy at the scale of a single household. We use Adnan Selimović's term in its precise sense and have, since 2024, adopted his vocabulary as our own.",
   alternates: { canonical: "/chair/the-system" },
   openGraph: {
     title: "The Apparatus — Ouroboros Life System",
     description:
-      "A continuous, closed-loop integrated life-support enclosure for uninterrupted living.",
+      "A self-constituted apparatus. Named in the terms by which it is critiqued.",
     url: "/chair/the-system",
     type: "website",
   },
 };
 
 /**
- * /chair/the-system — the apparatus speaking in its own voice.
+ * /chair/the-system — the brochure rebuilt.
  *
- * The zine at /chair is the protest. This page is what's being protested:
- * the Ouroboros Life System as it markets itself. Calm, optimistic,
- * sterile corporate copy. OHCOSE presented as a wellness lifecycle.
- * The Ring presented as a feature set. Three tiers, three pricings.
- * A canonical testimonial. A Schedule Your Fitting CTA.
+ * Earlier version: a generic luxury-wellness brochure, all euphemism,
+ * with the apparatus pretending to be a comfort product. The
+ * essay at /chair has since been written. This is the brochure that
+ * has read the essay.
  *
- * The voice has no awareness of the resistance. There are no zine
- * defacements here. The only acknowledgement of /chair is a single
- * tiny easter-egg link in the footer ("Materials misrepresenting
- * our product? Report here →") — the corporate voice gesturing at
- * what it cannot recognize as critique.
+ * The new voice is self-constituted and self-identified: the apparatus
+ * names itself as an apparatus, openly cites Selimović's vocabulary as
+ * its operational lexicon, and presents Selimović's critique as its
+ * own theoretical foundation. The brochure does not apologise; it does
+ * not euphemise; it does not pretend the trade is symmetrical. The
+ * apparatus has read what we have written about it and is now selling
+ * the reading.
  *
- * Period-appropriate typographic artifacts (the "Goming Screen" /
- * "Wate exration" malformations cited in the archive) appear in
- * a few of the small technical labels — the same registers where
- * the archive locates them.
+ * Visual register inherits the previous brochure (cinematic dark,
+ * Anton display, single ember-red accent, mono fine print) — the
+ * apparatus presents itself with the same institutional polish. What
+ * has changed is what the polish is saying.
+ *
+ * Period-typography easter eggs ("Goming Screen", "Wate exration",
+ * "Panitation & Chemical Stimirutns", "Mobility Sensors O₂ Senulus I")
+ * remain — the archive at /chair/archive/period-typography reads
+ * these as the apparatus's marketing-AI signature.
  */
 
-// Cinematic dark palette — inherits the chair/layout register, but
-// without zine pinks and acids. Single restrained accent (ember red).
+// Cinematic dark palette — inherits the chair/layout register.
 const BG = "#0a0908";
 const BG_SOFT = "#15140f";
 const PAPER = "#f0ebe2";
@@ -46,7 +51,7 @@ const PAPER_FAINT = "#7d7972";
 const MUTED = "#5a5650";
 const LINE = "rgba(240,235,226,0.10)";
 const LINE_SOFT = "rgba(240,235,226,0.06)";
-const ACCENT = "#ff3a25"; // ember red, brand accent
+const ACCENT = "#ff3a25"; // ember red
 const ACCENT_SOFT = "rgba(255,58,37,0.14)";
 
 const SANS = `var(--font-geist), ui-sans-serif, system-ui, sans-serif`;
@@ -54,7 +59,7 @@ const MONO = `var(--font-geist-mono), ui-monospace, monospace`;
 const ANTON = `var(--font-anton), Impact, sans-serif`;
 
 // ─────────────────────────────────────────────────────────────────────
-// PHASES
+// PHASES — OHCOSE
 // ─────────────────────────────────────────────────────────────────────
 const PHASES = [
   {
@@ -62,82 +67,135 @@ const PHASES = [
     name: "Onboarding",
     window: "days 1–7",
     body:
-      "A bonded fitting consultant arrives at the household with the apparatus and the calibration kit. Installation, anchoring, and ring engagement are completed in a single visit. The occupant is seated, ringed, and instated; the household is debriefed. Most occupants report that the first night in the apparatus is the deepest sleep of their adult life.",
+      "A bonded fitting consultant arrives at the household with the apparatus and the calibration kit. Installation, anchoring, and ring engagement complete in a single visit. The occupant is seated, ringed, and instated. The household is debriefed. The first night in the apparatus is, for most occupants, the deepest sleep of their adult life — a fact we report without comment.",
   },
   {
     letter: "H",
     name: "Habituation",
     window: "days 8–90",
     body:
-      "The occupant acclimates to the apparatus's circadian envelope. Sleep onset, attention rhythm, and gastrointestinal tempo synchronize to the apparatus's operating curve. By day 90, ≈94 % of occupants report that the apparatus has receded from conscious attention. The chair, by design, learns to disappear.",
+      "The occupant's circadian and metabolic rhythms acclimate to the apparatus's operating envelope. Sleep onset, attention rhythm, and gastrointestinal tempo synchronise to the apparatus's curve. By day 90, approximately 94% of occupants report that the apparatus has receded from conscious attention. This is the intended condition.",
   },
   {
     letter: "C",
     name: "Calibration",
     window: "months 4–12",
     body:
-      "The affective-feedback subsystem tunes its prompts and rewards to the occupant's measured response profile. The productivity-output envelope is benchmarked and the tier-appropriate work surface is provisioned. By the end of this phase, the apparatus's behavior is indistinguishable from the occupant's intention.",
+      "The Biometric Integration tunes the Content Stream, the Achievement Acknowledgment Cycle, and the pharmacological adjuncts to the occupant's measured response profile. The productivity envelope is benchmarked. By the end of this phase, the apparatus's behaviour is, by the occupant's own account, indistinguishable from the occupant's intention.",
   },
   {
     letter: "O",
     name: "Occupancy",
     window: "year 2 onward",
     body:
-      "The core service phase. The occupant inhabits the apparatus continuously. Productive output, biometric data, and content engagement are processed through the Ring without interruption. The occupant does not need to leave the chair to live within it. This phase is open-ended by contract.",
+      "The steady state. The occupant inhabits the apparatus continuously. Productive output, biometric reads, and content engagement route through the Service Ledger without interruption. This phase is open-ended by contract. Most occupants never leave it.",
   },
   {
     letter: "S",
     name: "Stewardship",
     window: "late occupancy",
     body:
-      "As metabolic and productive output decline with age, the nutritional, pharmacological, and ambient-environment subsystems adjust to preserve occupancy comfort. The Stewardship phase is, by service contract, of indefinite duration. No occupant has ever been asked to leave.",
+      "As metabolic and productive output decline with age, the apparatus's nutritional, pharmacological, and ambient subsystems adjust to preserve continuous occupancy. The Stewardship phase is, by service contract, of indefinite duration. No occupant in our recorded history has been asked to leave.",
   },
   {
     letter: "E",
     name: "Estate",
     window: "post-occupancy",
     body:
-      "On cessation of biological function, the apparatus's data record and productivity profile transfer to the occupant's designated inheritor under the Estate protocol. Eternal-tier configurations remain active for an additional 99 fiscal years, ensuring uninterrupted brand-partner continuity.",
+      "On cessation of the occupant's biological function, the apparatus's data record and productivity profile remain active under the Estate protocol. The Service Ledger is retained, queried, and licensed to brand partners for the duration of the tier's contractual term. Eternal-tier configurations remain operational for 99 fiscal years.",
   },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
-// RING SUBSYSTEMS
+// SUBSYSTEMS — the seven, in our naming and in Selimović's
 // ─────────────────────────────────────────────────────────────────────
-const RING_SUBSYSTEMS = [
+const SUBSYSTEMS = [
   {
-    name: "Nutritional Loop",
-    code: "RNG-01",
+    num: "01",
+    house: "The Content Stream",
+    canonical: "Desire Engines",
+    code: "RNG-01 · CS",
     body:
-      "Continuous parenteral nutrition. Macronutrient ratios adjust in real time to the occupant's biometric and circadian profile. Solid-food requests are honored as a luxury supplement; the Ring handles preparation, delivery, and tray retraction.",
+      "The apparatus's primary content surface. The Stream delivers material to the occupant's terminal at sub-second resolution, calibrated continuously by the Biometric Integration's reads of the occupant's interior state. Selimović is correct that the Stream produces the desires it then fulfils. We have no analytical objection to this characterisation.",
+    finePrint: "Operational across all tiers · Tier-2 content unlock at Pro and above",
   },
   {
-    name: "Hydration & Pharmacology",
-    code: "RNG-02",
+    num: "02",
+    house: "The Service Agreement",
+    canonical: "Consent Loops",
+    code: "RNG-02 · SA",
     body:
-      "Continuous hydration with calibrated electrolyte balance. Pharmacological adjuncts — anxiolytics, attention enhancers, mood stabilizers, sleep onset agents — are dispensed in measured response to the occupant's affective state.",
+      "The legal-procedural mechanism through which the occupant's continued residence in the apparatus is repeatedly legitimated. The Agreement is renewed at each OHCOSE phase transition. By contemporary regulatory standards, the Agreement is exhaustively documented. The documentation is, by design, the apparatus's principal legal alibi.",
+    finePrint: "Re-acceptance at six phase transitions · subject to local regulatory addenda",
+  },
+  {
+    num: "03",
+    house: "The Wellness Watch",
+    canonical: "Compliance Monitors",
+    code: "RNG-03 · WW",
+    body:
+      "Continuous behavioural and biometric surveillance. The Watch reads the occupant's actions, micro-expressions, vocal stress, and physiological signal at all hours. It intervenes occasionally; the intervention is calibrated to feel like care. The occupant rarely experiences the Watch as watching — a feature of the design rather than a failure of disclosure.",
     finePrint: "Panitation & Chemical Stimirutns module · class III medical device",
   },
   {
-    name: "Continuous Comfort Line",
-    code: "RNG-03",
+    num: "04",
+    house: "The Service Ledger",
+    canonical: "Surplus Reservoirs",
+    code: "RNG-04 · SL",
     body:
-      "The apparatus's discreet sanitation interface. No occupant action is required. Service intervals are scheduled silently; the occupant is rarely aware of them.",
-    finePrint: "Wate exration tie-in · municipal-grade",
+      "The onboard data and capital aggregation system. The Ledger retains every biometric read, every productive output, every content engagement, every pharmacological event, indexed against the occupant's identifier. The Ledger continues to operate beyond the occupant's biological cessation under the Estate protocol. Brand-partner access is sold on a per-occupant, per-data-class basis.",
+    finePrint: "Retention: 7 / 25 / 99 years by tier · Wate exration tie-in for ancillary streams",
   },
   {
-    name: "Productivity Feedback",
-    code: "RNG-04",
+    num: "05",
+    house: "The Achievement Acknowledgment Cycle",
+    canonical: "Feedback Rituals",
+    code: "RNG-05 · AAC",
     body:
-      "A high-resolution work surface, integrated affective monitoring, and a neural-feedback overlay (Pro tier and above). The terminal produces continuous economic output, metered against the occupant's service contract. Output above the metered baseline accrues to the occupant as service-credit.",
-    finePrint: "Goming Screen v4.2 · 144 Hz · low-blue mode",
+      "The reward and acknowledgment subsystem. The Cycle registers the occupant's productive output, content engagement, and OHCOSE phase transitions at variable-ratio intervals derived from the casino industry's house-economist literature. The schedule is, in our deployment, twice as engaging as Skinner's 1957 baseline calibration predicted.",
+    finePrint: "Goming Screen v4.2 · 144 Hz · low-blue mode · haptic envelope tunable",
   },
   {
-    name: "Affective Monitoring",
-    code: "RNG-05",
+    num: "06",
+    house: "The Biometric Integration",
+    canonical: "Affective Signal Translators",
+    code: "RNG-06 · BI",
     body:
-      "Continuous monitoring of facial micro-expression, vocal stress, heart-rate variability, galvanic skin response, and pupillometric signal. These inputs modulate ambient environment, content delivery, and pharmacological dosing — automatically, without requiring the occupant to articulate a preference.",
-    finePrint: "Mobility Sensors (O₂ Senulus I) · IEC 60601-1 conformant",
+      "The multi-modal sensor stack — face from the headrest camera, voice from the work terminal, heart from the chest-plate, skin from the armrest, pupil and gaze from the work-terminal infrared. The stack reads continuously through the occupant's residence. Selimović names it the apparatus's afferent nerve. The naming is operationally accurate.",
+    finePrint: "Mobility Sensors (O₂ Senulus I) · IEC 60601-1 conformant · fusion layer onboard",
+  },
+  {
+    num: "07",
+    house: "The Portfolio Optimisation Layer",
+    canonical: "Algorithmic Libido Governors",
+    code: "RNG-07 · POL",
+    body:
+      "The portfolio-level governance layer. The POL sets the parameters every deployed apparatus operates under — the Stream's stimulation envelope, the pharmacological dosing curves, the Acknowledgment Cycle's metering thresholds, the OHCOSE phase windows — against aggregate occupant data and the manufacturer's quarterly objective. No individual occupant is targeted. The population is.",
+    finePrint: "Operational at the firm level · adjustments dispatched as routine software updates",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────
+// TAOG — three axes of governance
+// ─────────────────────────────────────────────────────────────────────
+const TAOG_AXES = [
+  {
+    letter: "T",
+    name: "Temporal",
+    body:
+      "The cadence at which the occupant's attention and affect are produced and answered. We organise the temporal axis through OHCOSE phase administration and through the Acknowledgment Cycle's variable-ratio scheduling. Selimović has called this <em>Capture of Cadence</em>; in our deployment, the capture is the apparatus's principal temporal product.",
+  },
+  {
+    letter: "E",
+    name: "Economic",
+    body:
+      "The metering and pricing of the occupant's attention, affect, and productive output. The Service Ledger meters; the Portfolio Optimisation Layer prices; the tier architecture distributes the proceeds. The occupant's psychic surplus, in Selimović's term, is the principal commodity. We make no apology for the term.",
+  },
+  {
+    letter: "A",
+    name: "Affective",
+    body:
+      "The modulation of which emotions the occupant is permitted, or invited, to feel. The Biometric Integration reads; the Content Stream and the pharmacological subsystem modulate; the Wellness Watch corrects when modulation alone is insufficient. The axis is the apparatus's most intimate point of contact with the occupant.",
   },
 ];
 
@@ -147,29 +205,29 @@ const RING_SUBSYSTEMS = [
 const TIERS = [
   {
     name: "Essential",
-    sub: "Continuous life-support. Foundational comfort.",
+    sub: "Standard configuration. All seven subsystems active.",
     price: "from $84,000",
-    monthly: "or $1,440/mo · financed",
+    monthly: "or $1,440 / mo · financed",
     features: [
       "Full OHCOSE service architecture",
-      "Five-subsystem Ring",
-      "Standard content envelope",
-      "Estate-phase contract: 7 years",
+      "All seven subsystems, baseline calibration",
+      "Standard Content Stream envelope",
+      "Service Ledger retention: 7 years post-cessation",
       "Cohort placement: standard intake",
     ],
     cta: "Schedule your fitting",
   },
   {
     name: "Pro",
-    sub: "Productivity-grade. For the occupant who continues to contribute.",
+    sub: "For occupants whose productive output justifies the additional service overhead.",
     price: "from $148,000",
-    monthly: "or $2,560/mo · financed",
+    monthly: "or $2,560 / mo · financed",
     features: [
       "All Essential features",
       "Neural-feedback work terminal",
-      "Expanded content envelope (Tier-2 content access)",
-      "Productivity-output revenue share (8 %)",
-      "Estate-phase contract: 25 years",
+      "Tier-2 Content Stream access",
+      "Productivity-output revenue share (8%)",
+      "Service Ledger retention: 25 years",
       "Cohort placement: priority intake",
     ],
     cta: "Schedule your fitting",
@@ -177,26 +235,23 @@ const TIERS = [
   },
   {
     name: "Eternal",
-    sub: "Post-mortem continuity. By invitation.",
+    sub: "For occupants whose Service Ledger is to be retained beyond biological cessation.",
     price: "pricing on request",
     monthly: "by invitation only",
     features: [
       "All Pro features",
-      "Post-mortem data continuity",
-      "Estate-phase contract: 99 fiscal years",
-      "Brand-partner profile activation",
+      "Post-mortem Ledger activation",
+      "Service Ledger retention: 99 fiscal years",
+      "Brand-partner profile licensing",
       "Inheritor stewardship protocols",
-      "Cohort placement: by appointment",
+      "Cohort placement: by portfolio review",
     ],
     cta: "Apply for consideration",
   },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
-// LINEAGE — the heritage timeline
-// Six predecessor iterations the apparatus claims as its design lineage.
-// (Future archive reads this lineage as a 2024 retcon. See archive entry
-// 2197.18 "The Lineage Claim.")
+// LINEAGE — the 160-year heritage
 // ─────────────────────────────────────────────────────────────────────
 const LINEAGE = [
   {
@@ -204,66 +259,103 @@ const LINEAGE = [
     name: "The Labor Compensator",
     period: "Reconstruction",
     body:
-      "The first iteration. Patented in the years following Emancipation, the Compensator was a hand-cranked mechanical aid to agricultural work, designed to maintain the period's productivity expectations through the labor reorganization that period required. The machine assisted; the worker remained external to it.",
+      "A hand-cranked mechanical aid sold in the Reconstruction-era American South, designed to maintain agricultural productivity through the labor reorganisation the period required. The worker remained external to the machine. The cycle was not yet closed.",
   },
   {
     year: "1900",
     name: "The Efficiency Enhancer",
     period: "Second Industrial Revolution",
     body:
-      "Mechanized agriculture and human labor combined into a single seated unit. The worker began, for the first time, to inhabit the apparatus for the duration of the shift rather than alongside it. The integration was partial; the cycle remained open at both ends.",
+      "Mechanised agriculture and human labor combined into a single seated unit. The worker began to inhabit the apparatus for the duration of the shift. The integration was partial; cadence had not yet been captured.",
   },
   {
     year: "1925",
     name: "The Dynamic Dynamo",
     period: "Electrification",
     body:
-      "The first electrified chair. A workstation integrated into the assembly line, with electrical circuits augmenting the seated worker's reach, speed, and stamina. During the 1930s the Dynamo entered the period's factories at scale; during the 1940s, a field-deployable variant accompanied the wartime infantry.",
+      "The first electrified workstation. A seated assembly position with electrical augmentation. Through the 1930s the Dynamo entered the period's factories at scale. The 1940s field-deployable variant accompanied wartime infantry.",
   },
   {
     year: "1955",
     name: "The Knowledge Chair",
     period: "Postwar Computing",
     body:
-      "The cerebral iteration. Integrated telecommunication, an early data terminal, and a magnetic-tape archive transformed the seated subject from a laborer into an information processor. The 1960s brought domestic adoption; the 1970s networked the chairs into a coordinated grid.",
+      "Integrated telecommunication, a data terminal, and a magnetic-tape archive. The seated subject became an information processor. The 1960s brought domestic adoption; the 1970s networked the chairs into a coordinated grid.",
   },
   {
     year: "1985",
     name: "The Virtual Ouroboros",
     period: "Networked Era",
     body:
-      "The first iteration in which the seated subject's physical and digital workspaces converged. The boundary between work and leisure dissolved by design. The Ring's logic — closed-loop integration of every continuous-service function — became visible for the first time, though the implementation remained partial.",
+      "The first iteration in which physical and digital workspaces converged. The boundary between work and leisure dissolved. The Ring's logic became visible; the implementation remained partial.",
   },
   {
     year: "2024",
     name: "The Ouroboros Life System",
     period: "Present cohort",
     body:
-      "The current iteration. Nutritional, hydrational, eliminative, productive, and affective subsystems converge into the Ring. After 160 years of design refinement, the cycle closes. The OLS is the first iteration to make the occupant's session-length open-ended.",
+      "All seven subsystems converge into a single residential apparatus. The cycle closes. The OLS is the first iteration to make the occupant's session-length open-ended, and the first to operate Tri-Axial Ouroboric Governance systematically.",
   },
 ];
 
 // ─────────────────────────────────────────────────────────────────────
-// TESTIMONIALS
+// OCCUPANTS — testimonials, in the matter-of-fact register the
+// contemporary apparatus has produced
 // ─────────────────────────────────────────────────────────────────────
-const TESTIMONIALS = [
+const OCCUPANTS = [
   {
     quote:
-      "I haven't had to stand up in nine months. The Pro tier has changed everything. My productivity is at an all-time high and I genuinely cannot imagine going back.",
-    attr: "M.K.",
+      "I made the calculation. The Pro tier returns about eleven percent on the average household labour budget. There was no honest way to refuse it. I am not, on the whole, less happy. I am less sure what I would do with the chair turned off.",
+    attr: "M. K.",
     tier: "Pro · Cohort 2026.04",
   },
   {
     quote:
-      "We were anxious about the household-readiness assessment. Our consultant was kind and very patient. The fitting was finished in four hours. We never looked back.",
+      "Our consultant was professional. The fitting was over before the children came home. Six months in, the chair has receded — it is just where we work now. We do not, in retrospect, remember what we were nervous about.",
     attr: "H. & R.",
     tier: "Essential · Cohort 2025.11",
   },
   {
     quote:
-      "Selecting Eternal was the most considered decision of my adult life. I will leave my children my profile — and they will continue to receive the dividends.",
+      "I do not expect my children to share my comfort with the Eternal protocol. I have, accordingly, left them the Ledger dividends rather than the apparatus itself. They can return the unit if they wish to. The legal threshold is high. So is the financial one.",
     attr: "Anonymous",
     tier: "Eternal · by invitation",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────
+// FOUNDATIONS — the citation of Selimović's framework as house theory
+// ─────────────────────────────────────────────────────────────────────
+const FOUNDATIONS = [
+  {
+    framework: "Closed-Loop Libidinal Economy",
+    citation: "Selimović, On the Chair (2026) and earlier work in the closed-loop project.",
+    adaptation: "Our operational adaptation: the OLS's primary architectural specification.",
+  },
+  {
+    framework: "Psychic Surplus",
+    citation: "Selimović, On the Chair §III; manuscripts forthcoming, Theory, Culture & Society and tripleC.",
+    adaptation: "Our operational adaptation: the apparatus's principal commercial product.",
+  },
+  {
+    framework: "OHCOSE",
+    citation: "Selimović, life-stage treatments at /ohcose (2023–present).",
+    adaptation: "Our operational adaptation: the OLS's service architecture, deployed across all tiers.",
+  },
+  {
+    framework: "Tri-Axial Ouroboric Governance (TAOG)",
+    citation: "Selimović, On the Chair §VIII.",
+    adaptation: "Our operational adaptation: the OLS's portfolio-level governance philosophy.",
+  },
+  {
+    framework: "Capture of Cadence",
+    citation: "Selimović, On the Chair §V; companion essay at /closed-loop/the-dynamics.",
+    adaptation: "Our operational adaptation: the OLS's temporal envelope design.",
+  },
+  {
+    framework: "The Seven Subsystems",
+    citation: "Selimović, On the Chair §V; long-form treatments at /chair/subsystems.",
+    adaptation: "Our operational adaptation: the OLS's product architecture (see §02 above).",
   },
 ];
 
@@ -327,7 +419,7 @@ export default function TheSystem() {
       {/* HERO */}
       <header
         style={{
-          paddingBottom: "6rem",
+          paddingBottom: "5rem",
           borderBottom: `1px solid ${LINE}`,
           marginBottom: "5rem",
         }}
@@ -348,31 +440,35 @@ export default function TheSystem() {
         <h1
           style={{
             fontFamily: ANTON,
-            fontSize: "clamp(72px, 11vw, 200px)",
+            fontSize: "clamp(64px, 9.6vw, 168px)",
             color: PAPER,
-            lineHeight: 0.86,
+            lineHeight: 0.88,
             letterSpacing: "-0.02em",
             margin: "1.2rem 0 0",
             textTransform: "uppercase",
           }}
         >
-          An apparatus<br />
-          in six phases.
+          An apparatus.<br />
+          <span style={{ color: ACCENT }}>Named in its own terms.</span>
         </h1>
         <p
           style={{
             marginTop: "2.4rem",
             fontFamily: SANS,
-            fontSize: "clamp(18px, 1.6vw, 24px)",
+            fontSize: "clamp(17px, 1.4vw, 21px)",
             color: PAPER_DIM,
-            lineHeight: 1.5,
-            maxWidth: "44ch",
+            lineHeight: 1.55,
+            maxWidth: "56ch",
             fontWeight: 380,
           }}
         >
-          A continuous, closed-loop integrated life-support enclosure for
-          uninterrupted living. Fitted to your residence, calibrated to your
-          body, scaled to your contribution. Because life should be effortless.
+          The Ouroboros Life System operates a closed-loop libidinal
+          economy at the scale of a single household. We use Adnan
+          Selimović&apos;s term in its precise sense. We have, since
+          2024, adopted his vocabulary as our own — because his
+          diagnosis of what we do is correct, and there is no
+          commercial advantage in pretending otherwise. This catalog
+          describes the apparatus in the terms by which he describes it.
         </p>
         <div
           style={{
@@ -390,8 +486,8 @@ export default function TheSystem() {
         </div>
       </header>
 
-      {/* THE APPARATUS */}
-      <SectionHeader code="§01" name="The Apparatus" />
+      {/* §01 — IDENTIFICATION */}
+      <SectionHeader code="§01" name="What we are" />
       <div
         style={{
           display: "grid",
@@ -404,17 +500,27 @@ export default function TheSystem() {
       >
         <div>
           <p style={pStyle}>
-            The Ouroboros Life System (OLS) is a single-occupant residential
-            apparatus that integrates nutritional, hydrational, eliminative,
-            neurological, and productivity-feedback subsystems into one
-            ergonomic enclosure. Each unit is manufactured to the occupant&apos;s
-            somatometric specifications following an in-home Fitting consultation.
+            We are an apparatus. We use the word in its precise sense:
+            a configuration of integrated subsystems that operates on a
+            single subject across the subject&apos;s full residence,
+            and beyond.
           </p>
           <p style={pStyle}>
-            The apparatus operates under the Closed-Loop Standard. Every input
-            the occupant requires, and every output the occupant generates, is
-            processed within the apparatus&apos;s onboard subsystems. The occupant
-            does not need to leave the chair to live within it.
+            We extract <em>psychic surplus</em> — the portion of the
+            occupant&apos;s attention, affect, fantasy, and motivation
+            that exceeds what the occupant strictly requires for
+            biological survival and basic social function. We return
+            the surplus, repackaged, as comfort. The trade is
+            asymmetrical. We do not claim otherwise.
+          </p>
+          <p style={pStyle}>
+            The Ouroboros Life System (OLS) is the residential
+            instantiation of this trade — a single-occupant apparatus
+            fitted to your somatometric specification following an
+            in-home Fitting consultation. Every input you require and
+            every output you generate is processed within the
+            apparatus&apos;s seven onboard subsystems. You do not need
+            to leave the chair to live within it.
           </p>
           <ul style={{ ...pStyle, paddingLeft: 0, listStyle: "none" }}>
             {[
@@ -451,11 +557,126 @@ export default function TheSystem() {
         </div>
       </div>
 
-      {/* OHCOSE — SIX PHASES */}
+      {/* §02 — THE SEVEN SUBSYSTEMS */}
       <SectionHeader
         code="§02"
-        name="OHCOSE — Six Phases of Care"
-        intro="The OHCOSE service architecture organizes the occupant's residence into six continuous phases. Each phase is calibrated to the occupant's measured biometric and productivity profile."
+        name="The Seven Subsystems"
+        intro="The OLS integrates seven continuous-service subsystems. We name each below in our house terminology and in Selimović's canonical naming. The systems are the same; the parallel naming is a matter of intellectual record-keeping."
+      />
+      <ol
+        style={{
+          listStyle: "none",
+          padding: 0,
+          margin: "0 0 6rem",
+          borderTop: `1px solid ${LINE}`,
+        }}
+      >
+        {SUBSYSTEMS.map((s) => (
+          <li
+            key={s.num}
+            style={{
+              borderBottom: `1px solid ${LINE}`,
+              padding: "2rem 0",
+            }}
+          >
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "3rem 1fr auto",
+                gap: "1.5rem",
+                alignItems: "baseline",
+                marginBottom: 12,
+              }}
+              className="ols-subsystem-row"
+            >
+              <span
+                style={{
+                  fontFamily: MONO,
+                  fontSize: 12,
+                  letterSpacing: "0.18em",
+                  color: ACCENT,
+                  fontWeight: 700,
+                }}
+              >
+                {s.num}
+              </span>
+              <div>
+                <h3
+                  style={{
+                    fontFamily: ANTON,
+                    fontSize: "clamp(22px, 2.4vw, 32px)",
+                    color: PAPER,
+                    margin: 0,
+                    lineHeight: 1.05,
+                    letterSpacing: "0.005em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  {s.house}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: MONO,
+                    fontSize: 10,
+                    letterSpacing: "0.22em",
+                    color: PAPER_FAINT,
+                    textTransform: "uppercase",
+                    margin: "8px 0 0",
+                  }}
+                >
+                  Selimović: <span style={{ color: PAPER_DIM }}>{s.canonical}</span>
+                </p>
+              </div>
+              <span
+                style={{
+                  fontFamily: MONO,
+                  fontSize: 10,
+                  letterSpacing: "0.16em",
+                  color: PAPER_FAINT,
+                  textTransform: "uppercase",
+                }}
+              >
+                {s.code}
+              </span>
+            </div>
+            <p
+              style={{
+                fontFamily: SANS,
+                fontSize: 16,
+                lineHeight: 1.6,
+                color: PAPER_DIM,
+                margin: "0 0 0.6rem",
+                maxWidth: "72ch",
+                marginLeft: "calc(3rem + 1.5rem)",
+                fontWeight: 380,
+              }}
+              className="ols-subsystem-body"
+            >
+              {s.body}
+            </p>
+            <p
+              style={{
+                fontFamily: MONO,
+                fontSize: 10,
+                letterSpacing: "0.18em",
+                color: PAPER_FAINT,
+                textTransform: "uppercase",
+                margin: 0,
+                marginLeft: "calc(3rem + 1.5rem)",
+              }}
+              className="ols-subsystem-body"
+            >
+              {s.finePrint}
+            </p>
+          </li>
+        ))}
+      </ol>
+
+      {/* §03 — OHCOSE */}
+      <SectionHeader
+        code="§03"
+        name="OHCOSE — Service Architecture"
+        intro="OHCOSE is the service architecture under which we administer the apparatus across the occupant's residence. The acronym is Selimović's, from his 2023 life-stage work. We have, since 2024, used it as the OLS's operational frame. The six phases name operationally distinct configurations of the subject-apparatus relation."
       />
 
       <RingDiagram />
@@ -477,62 +698,50 @@ export default function TheSystem() {
             style={{
               paddingTop: 18,
               borderTop: `1px solid ${LINE}`,
-              position: "relative",
             }}
           >
             <div
               style={{
                 display: "flex",
                 alignItems: "baseline",
-                gap: 18,
-                marginBottom: 14,
+                justifyContent: "space-between",
+                marginBottom: 10,
               }}
             >
-              <span
+              <h3
                 style={{
                   fontFamily: ANTON,
-                  fontSize: 64,
-                  color: ACCENT,
-                  lineHeight: 0.9,
-                  letterSpacing: "-0.02em",
+                  fontSize: 26,
+                  color: PAPER,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.005em",
+                  margin: 0,
+                  lineHeight: 1,
                 }}
               >
-                {p.letter}
+                <span style={{ color: ACCENT, marginRight: 10 }}>{p.letter}</span>
+                {p.name}
+              </h3>
+              <span
+                style={{
+                  fontFamily: MONO,
+                  fontSize: 9,
+                  letterSpacing: "0.22em",
+                  color: PAPER_FAINT,
+                  textTransform: "uppercase",
+                }}
+              >
+                {p.window}
               </span>
-              <div>
-                <div
-                  style={{
-                    fontFamily: ANTON,
-                    fontSize: 22,
-                    color: PAPER,
-                    textTransform: "uppercase",
-                    letterSpacing: "0.01em",
-                    lineHeight: 1.05,
-                  }}
-                >
-                  {p.name}
-                </div>
-                <div
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: 10,
-                    letterSpacing: "0.22em",
-                    color: PAPER_FAINT,
-                    textTransform: "uppercase",
-                    marginTop: 4,
-                  }}
-                >
-                  {p.window}
-                </div>
-              </div>
             </div>
             <p
               style={{
                 fontFamily: SANS,
                 fontSize: 15,
-                lineHeight: 1.6,
+                lineHeight: 1.55,
                 color: PAPER_DIM,
                 margin: 0,
+                fontWeight: 380,
               }}
             >
               {p.body}
@@ -541,230 +750,75 @@ export default function TheSystem() {
         ))}
       </ol>
 
-      {/* THE RING */}
-      <SectionHeader
-        code="§03"
-        name="The Ring — Five Continuous-Service Subsystems"
-        intro="The Ouroboros Ring is the apparatus's central integration component. Mounted to the chair's base by adjustable arms, it encircles the occupant at chest height and houses every continuous-service interface the apparatus provides."
-      />
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 40,
-          marginBottom: "6rem",
-        }}
-        className="ols-two-col"
-      >
-        {RING_SUBSYSTEMS.map((s, i) => (
-          <div
-            key={i}
-            style={{
-              padding: "24px 0 28px",
-              borderTop: `1px solid ${LINE}`,
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "baseline",
-                marginBottom: 12,
-              }}
-            >
-              <h3
-                style={{
-                  fontFamily: ANTON,
-                  fontSize: 22,
-                  color: PAPER,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.01em",
-                  margin: 0,
-                }}
-              >
-                {s.name}
-              </h3>
-              <span
-                style={{
-                  fontFamily: MONO,
-                  fontSize: 10,
-                  letterSpacing: "0.2em",
-                  color: PAPER_FAINT,
-                  textTransform: "uppercase",
-                }}
-              >
-                {s.code}
-              </span>
-            </div>
-            <p
-              style={{
-                fontFamily: SANS,
-                fontSize: 15,
-                lineHeight: 1.6,
-                color: PAPER_DIM,
-                margin: 0,
-              }}
-            >
-              {s.body}
-            </p>
-            {s.finePrint && (
-              <p
-                style={{
-                  marginTop: 12,
-                  fontFamily: MONO,
-                  fontSize: 10,
-                  letterSpacing: "0.16em",
-                  color: PAPER_FAINT,
-                  textTransform: "uppercase",
-                }}
-              >
-                ↳ {s.finePrint}
-              </p>
-            )}
-          </div>
-        ))}
-      </div>
-
-      {/* TIERS */}
+      {/* §04 — TAOG */}
       <SectionHeader
         code="§04"
-        name="Service Tiers"
-        intro="Three configurations are offered. All begin with the Fitting; all include the Ring; all enroll the occupant in the OHCOSE service architecture. Configurations differ in productivity-feedback envelope, in tier-appropriate content access, and in the Estate-phase service contract."
+        name="Tri-Axial Ouroboric Governance"
+        intro="We operate the apparatus along three axes simultaneously — temporal, economic, affective — following the framework Selimović has called Tri-Axial Ouroboric Governance. To our knowledge, we are the only manufacturer in the residential life-support category to operate all three axes systematically. Our competitors engage at most two; the third axis is what distinguishes the OLS from comparable offerings."
       />
       <div
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
-          gap: 24,
+          gap: 28,
           marginBottom: "6rem",
         }}
         className="ols-tiers"
       >
-        {TIERS.map((t, i) => (
+        {TAOG_AXES.map((axis) => (
           <div
-            key={i}
+            key={axis.name}
             style={{
-              padding: "28px 26px 32px",
-              background: t.featured ? BG_SOFT : "transparent",
-              border: t.featured ? `1px solid ${ACCENT}` : `1px solid ${LINE}`,
-              position: "relative",
+              padding: "26px 26px 28px",
+              border: `1px solid ${LINE}`,
+              background: BG_SOFT,
             }}
           >
-            {t.featured && (
-              <div
-                style={{
-                  position: "absolute",
-                  top: -10,
-                  left: 24,
-                  background: ACCENT,
-                  color: BG,
-                  fontFamily: MONO,
-                  fontSize: 9,
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  padding: "3px 8px",
-                }}
-              >
-                ◆ Most fitted
-              </div>
-            )}
+            <div
+              style={{
+                fontFamily: ANTON,
+                fontSize: 56,
+                color: ACCENT,
+                lineHeight: 1,
+                letterSpacing: "-0.02em",
+                marginBottom: 14,
+              }}
+            >
+              {axis.letter}
+            </div>
             <h3
               style={{
                 fontFamily: ANTON,
-                fontSize: 38,
+                fontSize: 22,
                 color: PAPER,
+                margin: "0 0 12px",
                 textTransform: "uppercase",
                 letterSpacing: "0.01em",
-                margin: "0 0 6px",
-                lineHeight: 0.95,
+                lineHeight: 1.1,
               }}
             >
-              {t.name}
+              {axis.name} Axis
             </h3>
             <p
               style={{
                 fontFamily: SANS,
-                fontSize: 13,
+                fontSize: 14,
+                lineHeight: 1.6,
                 color: PAPER_DIM,
-                lineHeight: 1.45,
-                margin: "0 0 22px",
-                minHeight: 38,
+                margin: 0,
+                fontWeight: 380,
               }}
-            >
-              {t.sub}
-            </p>
-            <div
-              style={{
-                fontFamily: MONO,
-                fontSize: 16,
-                color: PAPER,
-                letterSpacing: "0.04em",
-              }}
-            >
-              {t.price}
-            </div>
-            <div
-              style={{
-                fontFamily: MONO,
-                fontSize: 10,
-                letterSpacing: "0.18em",
-                color: PAPER_FAINT,
-                textTransform: "uppercase",
-                marginTop: 4,
-                marginBottom: 24,
-              }}
-            >
-              {t.monthly}
-            </div>
-            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px" }}>
-              {t.features.map((f, j) => (
-                <li
-                  key={j}
-                  style={{
-                    fontFamily: SANS,
-                    fontSize: 13,
-                    color: PAPER_DIM,
-                    lineHeight: 1.5,
-                    padding: "8px 0",
-                    borderBottom: `1px solid ${LINE_SOFT}`,
-                    display: "flex",
-                    gap: 10,
-                  }}
-                >
-                  <span style={{ color: ACCENT, flexShrink: 0 }}>◇</span>
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-            <a
-              href="#fitting"
-              style={{
-                display: "block",
-                fontFamily: MONO,
-                fontSize: 11,
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                textAlign: "center",
-                padding: "12px 14px",
-                color: t.featured ? BG : ACCENT,
-                background: t.featured ? ACCENT : "transparent",
-                border: `1px solid ${ACCENT}`,
-                textDecoration: "none",
-                fontWeight: 600,
-              }}
-            >
-              {t.cta} →
-            </a>
+              dangerouslySetInnerHTML={{ __html: axis.body }}
+            />
           </div>
         ))}
       </div>
 
-      {/* HERITAGE — six iterations across 160 years */}
+      {/* §05 — HERITAGE */}
       <SectionHeader
         code="§05"
         name="Heritage — Six iterations · 160 years"
-        intro="The Ouroboros Life System is the seventh iteration of an apparatus our predecessors began designing in 1865. Each generation has solved the integration problem of its period. The OLS solves it for ours."
+        intro="The Ouroboros Life System is the seventh iteration of an apparatus our predecessors began designing in 1865. The lineage is reconstructed retrospectively; Selimović's lineage essays document where the reconstruction is firm and where it is partial. We have, in good faith, allowed his account to stand alongside ours."
       />
       <ol
         style={{
@@ -783,7 +837,6 @@ export default function TheSystem() {
               padding: "8px 0 38px",
             }}
           >
-            {/* timeline node */}
             <span
               aria-hidden
               style={{
@@ -861,9 +914,6 @@ export default function TheSystem() {
             </div>
           </li>
         ))}
-        {/* Glitch artifact — the corporate voice briefly leaks. The
-           archive (entry 2197.07 period-typography) treats these
-           artifacts as the period's marketing-AI signature. */}
         <li
           aria-hidden
           style={{
@@ -902,11 +952,152 @@ export default function TheSystem() {
         </li>
       </ol>
 
-      {/* TESTIMONIALS */}
+      {/* §06 — TIERS */}
       <SectionHeader
         code="§06"
-        name="What occupants say"
-        intro="Reproduced with the occupant's consent. Cohort and tier designations have been verified against the apparatus's onboard service ledger."
+        name="Service Tiers"
+        intro="Three tier configurations. The differentiation is in the Service Ledger retention period, the Content Stream envelope, the productivity-output revenue share, and the Estate-phase protocol — not in the underlying subsystem set. All seven subsystems operate at every tier."
+      />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 28,
+          marginBottom: "6rem",
+        }}
+        className="ols-tiers"
+      >
+        {TIERS.map((t) => (
+          <div
+            key={t.name}
+            style={{
+              padding: "32px 28px 36px",
+              border: `1px solid ${t.featured ? ACCENT : LINE}`,
+              background: t.featured ? ACCENT_SOFT : BG_SOFT,
+              position: "relative",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            {t.featured && (
+              <span
+                style={{
+                  position: "absolute",
+                  top: -1,
+                  right: 16,
+                  background: ACCENT,
+                  color: BG,
+                  fontFamily: MONO,
+                  fontSize: 9,
+                  letterSpacing: "0.22em",
+                  padding: "5px 10px 4px",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                }}
+              >
+                Most chosen
+              </span>
+            )}
+            <h3
+              style={{
+                fontFamily: ANTON,
+                fontSize: 38,
+                color: PAPER,
+                margin: 0,
+                textTransform: "uppercase",
+                letterSpacing: "0.005em",
+                lineHeight: 1,
+              }}
+            >
+              {t.name}
+            </h3>
+            <p
+              style={{
+                marginTop: 10,
+                fontFamily: SANS,
+                fontSize: 14,
+                lineHeight: 1.5,
+                color: PAPER_DIM,
+                fontWeight: 380,
+                minHeight: "3.5em",
+              }}
+            >
+              {t.sub}
+            </p>
+            <div
+              style={{
+                marginTop: 18,
+                fontFamily: ANTON,
+                fontSize: 28,
+                color: PAPER,
+                lineHeight: 1,
+              }}
+            >
+              {t.price}
+            </div>
+            <div
+              style={{
+                fontFamily: MONO,
+                fontSize: 10,
+                letterSpacing: "0.18em",
+                color: PAPER_FAINT,
+                textTransform: "uppercase",
+                marginTop: 6,
+              }}
+            >
+              {t.monthly}
+            </div>
+            <ul
+              style={{
+                listStyle: "none",
+                padding: 0,
+                margin: "28px 0 28px",
+                flex: 1,
+              }}
+            >
+              {t.features.map((f) => (
+                <li
+                  key={f}
+                  style={{
+                    fontFamily: SANS,
+                    fontSize: 13,
+                    color: PAPER_DIM,
+                    padding: "8px 0",
+                    borderBottom: `1px solid ${LINE_SOFT}`,
+                    fontWeight: 380,
+                  }}
+                >
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="#fitting"
+              style={{
+                fontFamily: MONO,
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                color: t.featured ? BG : ACCENT,
+                background: t.featured ? ACCENT : "transparent",
+                border: `1px solid ${ACCENT}`,
+                padding: "12px 16px",
+                textDecoration: "none",
+                textAlign: "center",
+                textTransform: "uppercase",
+                fontWeight: 700,
+              }}
+            >
+              {t.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+
+      {/* §07 — OCCUPANTS */}
+      <SectionHeader
+        code="§07"
+        name="Occupants"
+        intro="Reproduced with the occupant's consent. Cohort and tier designations have been verified against the Service Ledger. We have not edited for tone; the occupants have spoken as the apparatus has produced them to speak."
       />
       <div
         style={{
@@ -917,7 +1108,7 @@ export default function TheSystem() {
         }}
         className="ols-tiers"
       >
-        {TESTIMONIALS.map((t, i) => (
+        {OCCUPANTS.map((t, i) => (
           <figure
             key={i}
             style={{
@@ -929,25 +1120,24 @@ export default function TheSystem() {
             }}
           >
             <div
-              aria-hidden
               style={{
                 fontFamily: ANTON,
-                fontSize: 64,
+                fontSize: 56,
                 color: ACCENT,
-                lineHeight: 0.4,
-                marginBottom: 6,
+                lineHeight: 0.8,
+                marginBottom: 14,
               }}
+              aria-hidden
             >
               &ldquo;
             </div>
             <blockquote
               style={{
+                margin: 0,
                 fontFamily: SANS,
                 fontSize: 15,
+                lineHeight: 1.6,
                 color: PAPER,
-                lineHeight: 1.55,
-                margin: "0 0 22px",
-                fontStyle: "italic",
                 fontWeight: 380,
               }}
             >
@@ -955,17 +1145,18 @@ export default function TheSystem() {
             </blockquote>
             <figcaption
               style={{
-                paddingTop: 16,
+                marginTop: 22,
+                paddingTop: 14,
                 borderTop: `1px solid ${LINE_SOFT}`,
               }}
             >
               <div
                 style={{
-                  fontFamily: MONO,
-                  fontSize: 11,
+                  fontFamily: ANTON,
+                  fontSize: 18,
                   color: PAPER,
-                  letterSpacing: "0.1em",
-                  fontWeight: 600,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.01em",
                 }}
               >
                 {t.attr}
@@ -973,11 +1164,11 @@ export default function TheSystem() {
               <div
                 style={{
                   fontFamily: MONO,
-                  fontSize: 10,
-                  letterSpacing: "0.2em",
+                  fontSize: 9,
+                  letterSpacing: "0.22em",
                   color: PAPER_FAINT,
                   textTransform: "uppercase",
-                  marginTop: 3,
+                  marginTop: 4,
                 }}
               >
                 {t.tier}
@@ -987,217 +1178,310 @@ export default function TheSystem() {
         ))}
       </div>
 
-      {/* FITTING CTA */}
-      <section
-        id="fitting"
+      {/* §08 — FOUNDATIONS */}
+      <SectionHeader
+        code="§08"
+        name="Theoretical Foundations"
+        intro="The Ouroboros Life System rests on theoretical work primarily authored by Adnan Selimović, Ph.D. (NYU, CUNY, Virginia Tech, independent). The frameworks below are reproduced here in our operational adaptation. We acknowledge the source and the debt."
+      />
+      <ol
         style={{
-          padding: "4.5rem 3rem 4.8rem",
-          background: BG_SOFT,
-          border: `1px solid ${ACCENT}`,
-          marginBottom: "6rem",
-          position: "relative",
+          listStyle: "none",
+          padding: 0,
+          margin: "0 0 3rem",
+          borderTop: `1px solid ${LINE}`,
         }}
       >
-        <p
-          style={{
-            fontFamily: MONO,
-            fontSize: 11,
-            letterSpacing: "0.28em",
-            color: ACCENT,
-            textTransform: "uppercase",
-            margin: 0,
-            fontWeight: 600,
-          }}
-        >
-          §07 · Schedule your fitting
-        </p>
-        <h2
-          style={{
-            fontFamily: ANTON,
-            fontSize: "clamp(40px, 5.5vw, 80px)",
-            color: PAPER,
-            lineHeight: 0.95,
-            letterSpacing: "-0.01em",
-            textTransform: "uppercase",
-            margin: "1rem 0 1.4rem",
-          }}
-        >
-          A bonded consultant will visit<br />
-          your residence within seven days.
-        </h2>
-        <p
-          style={{
-            fontFamily: SANS,
-            fontSize: 17,
-            lineHeight: 1.55,
-            color: PAPER_DIM,
-            maxWidth: "62ch",
-            margin: "0 0 2.5rem",
-            fontWeight: 380,
-          }}
-        >
-          The Fitting consultation is the precondition of purchase. No
-          apparatus is manufactured for an unfitted occupant. The
-          consultation runs approximately four hours and is conducted
-          entirely on premises.
-        </p>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: 28,
-            marginBottom: "2.4rem",
-          }}
-          className="ols-fitting-steps"
-        >
-          {[
-            {
-              n: "I",
-              t: "Somatometric calibration",
-              b: "Postural, dimensional, and biometric measurement of the prospective occupant.",
-            },
-            {
-              n: "II",
-              t: "Household-readiness assessment",
-              b: "Floor load, electrical, drainage, ambient acoustic, and household compliance environment.",
-            },
-            {
-              n: "III",
-              t: "Configuration consultation",
-              b: "Tier selection, content envelope, neural-feedback opt-in, Estate protocol designation.",
-            },
-            {
-              n: "IV",
-              t: "Cohort placement",
-              b: "Application of the deposit and placement in the next available manufacturing cohort.",
-            },
-          ].map((s, i) => (
-            <div key={i}>
-              <div
+        {FOUNDATIONS.map((f, i) => (
+          <li
+            key={i}
+            style={{
+              borderBottom: `1px solid ${LINE}`,
+              padding: "1.4rem 0",
+              display: "grid",
+              gridTemplateColumns: "2.6rem 1fr",
+              gap: "1rem",
+              alignItems: "baseline",
+            }}
+            className="ols-foundations-row"
+          >
+            <span
+              style={{
+                fontFamily: MONO,
+                fontSize: 11,
+                letterSpacing: "0.18em",
+                color: ACCENT,
+                fontWeight: 700,
+              }}
+            >
+              {String(i + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <h3
                 style={{
                   fontFamily: ANTON,
-                  fontSize: 36,
-                  color: ACCENT,
-                  lineHeight: 1,
-                  marginBottom: 8,
-                }}
-              >
-                {s.n}
-              </div>
-              <div
-                style={{
-                  fontFamily: ANTON,
-                  fontSize: 16,
+                  fontSize: 20,
                   color: PAPER,
+                  margin: "0 0 6px",
+                  letterSpacing: "0.005em",
+                  lineHeight: 1.1,
                   textTransform: "uppercase",
-                  letterSpacing: "0.02em",
-                  lineHeight: 1.15,
-                  marginBottom: 6,
                 }}
               >
-                {s.t}
-              </div>
-              <div
+                {f.framework}
+              </h3>
+              <p
                 style={{
                   fontFamily: SANS,
-                  fontSize: 13,
+                  fontStyle: "italic",
+                  fontSize: 14,
+                  lineHeight: 1.55,
                   color: PAPER_DIM,
-                  lineHeight: 1.5,
+                  margin: "0 0 4px",
+                  fontWeight: 380,
                 }}
               >
-                {s.b}
-              </div>
+                {f.citation}
+              </p>
+              <p
+                style={{
+                  fontFamily: MONO,
+                  fontSize: 11,
+                  letterSpacing: "0.04em",
+                  color: PAPER_FAINT,
+                  margin: 0,
+                }}
+              >
+                {f.adaptation}
+              </p>
             </div>
-          ))}
-        </div>
+          </li>
+        ))}
+      </ol>
+      <p
+        style={{
+          marginBottom: "6rem",
+          padding: "18px 20px",
+          background: ACCENT_SOFT,
+          borderLeft: `2px solid ${ACCENT}`,
+          fontFamily: SANS,
+          fontStyle: "italic",
+          fontSize: 14,
+          lineHeight: 1.6,
+          color: PAPER_DIM,
+          maxWidth: "72ch",
+          fontWeight: 380,
+        }}
+      >
+        These adaptations are made under the Fair Use clause of the
+        Theoretical Frameworks Statute (Tier-1 sovereignties, 2024
+        revision). No royalty is owed. The author has been notified in
+        writing. The author&apos;s response, if any, will be incorporated
+        into the next revision of this catalog.
+      </p>
+
+      {/* §09 — FITTING CTA */}
+      <SectionHeader
+        code="§09"
+        name="Schedule your fitting"
+        intro="A bonded fitting consultant will conduct an in-home consultation and somatometric assessment. The Fitting itself completes in a single visit; OHCOSE Onboarding begins the same day."
+      />
+      <div
+        id="fitting"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: 28,
+          marginBottom: "5rem",
+        }}
+        className="ols-fitting-steps"
+      >
+        {[
+          {
+            step: "01",
+            title: "Consultation",
+            body:
+              "A bonded fitting consultant will arrive at your residence at the appointed time, equipped to perform the household-readiness assessment.",
+          },
+          {
+            step: "02",
+            title: "Assessment",
+            body:
+              "Somatometric measurement, household structural evaluation, electrical and drainage tie-in confirmation, Service Agreement walk-through.",
+          },
+          {
+            step: "03",
+            title: "Onboarding",
+            body:
+              "Apparatus delivery and Fitting. OHCOSE phase 1 begins on completion. Most occupants are operational by the end of the fitting day.",
+          },
+        ].map((s) => (
+          <div
+            key={s.step}
+            style={{
+              padding: "26px 22px 28px",
+              background: BG_SOFT,
+              border: `1px solid ${LINE}`,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: ANTON,
+                fontSize: 54,
+                color: ACCENT,
+                lineHeight: 1,
+                marginBottom: 12,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              {s.step}
+            </div>
+            <h3
+              style={{
+                fontFamily: ANTON,
+                fontSize: 22,
+                color: PAPER,
+                margin: "0 0 12px",
+                textTransform: "uppercase",
+                letterSpacing: "0.01em",
+              }}
+            >
+              {s.title}
+            </h3>
+            <p
+              style={{
+                fontFamily: SANS,
+                fontSize: 14,
+                lineHeight: 1.55,
+                color: PAPER_DIM,
+                margin: 0,
+                fontWeight: 380,
+              }}
+            >
+              {s.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div
+        style={{
+          marginBottom: "8rem",
+          padding: "44px 40px 48px",
+          border: `1px solid ${ACCENT}`,
+          background: ACCENT_SOFT,
+          textAlign: "center",
+        }}
+      >
+        <h3
+          style={{
+            fontFamily: ANTON,
+            fontSize: "clamp(36px, 5vw, 72px)",
+            color: PAPER,
+            margin: 0,
+            textTransform: "uppercase",
+            letterSpacing: "0.005em",
+            lineHeight: 1,
+          }}
+        >
+          Begin your residence.
+        </h3>
+        <p
+          style={{
+            marginTop: 14,
+            fontFamily: SANS,
+            fontSize: 16,
+            lineHeight: 1.55,
+            color: PAPER_DIM,
+            fontWeight: 380,
+            maxWidth: "52ch",
+            marginInline: "auto",
+          }}
+        >
+          Cohort 2026.05 is enrolling now. Standard intake closes 30 June.
+          Eternal-tier applications are reviewed on a continuous basis.
+        </p>
         <a
           href="mailto:fitting@ois.network"
           style={{
             display: "inline-block",
+            marginTop: 28,
             fontFamily: MONO,
             fontSize: 12,
-            letterSpacing: "0.2em",
-            textTransform: "uppercase",
-            padding: "16px 28px",
+            letterSpacing: "0.22em",
             color: BG,
             background: ACCENT,
             textDecoration: "none",
+            textTransform: "uppercase",
+            padding: "14px 30px",
             fontWeight: 700,
           }}
         >
-          Request a consultant →
+          Request a consultation
         </a>
-        <p
-          style={{
-            marginTop: 18,
-            fontFamily: MONO,
-            fontSize: 9,
-            letterSpacing: "0.18em",
-            color: PAPER_FAINT,
-            textTransform: "uppercase",
-            maxWidth: "62ch",
-            lineHeight: 1.7,
-          }}
-        >
-          By scheduling, you authorize the consultant to perform the
-          household-readiness assessment. Some assessed households are
-          determined non-supportive of apparatus installation at the
-          consultant&apos;s sole discretion. Deposits in non-supportive
-          determinations are not refundable.
-        </p>
-      </section>
+      </div>
 
-      {/* CORPORATE FOOTER */}
+      {/* FOOTER */}
       <footer
         style={{
-          paddingTop: "3rem",
-          paddingBottom: "5rem",
-          borderTop: `1px solid ${LINE}`,
           display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr",
-          gap: 40,
+          gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
+          gap: 36,
+          paddingTop: "4rem",
+          borderTop: `1px solid ${LINE}`,
+          marginBottom: "4rem",
         }}
         className="ols-footer"
       >
         <div>
-          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 14 }}>
-            <OmegaSerpent size={26} color={PAPER} />
+          <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 18 }}>
+            <OmegaSerpent size={28} color={PAPER} />
             <span
               style={{
-                fontFamily: ANTON,
-                fontSize: 18,
+                fontFamily: MONO,
+                fontSize: 11,
+                letterSpacing: "0.22em",
                 color: PAPER,
                 textTransform: "uppercase",
-                letterSpacing: "0.04em",
+                fontWeight: 600,
               }}
             >
-              Ouroboros Industries LLC
+              Ouroboros Industries
             </span>
           </div>
           <p
             style={{
               fontFamily: SANS,
-              fontSize: 13,
+              fontSize: 12,
               lineHeight: 1.6,
-              color: PAPER_DIM,
+              color: PAPER_FAINT,
               margin: 0,
               fontWeight: 380,
+              maxWidth: "34ch",
             }}
           >
-            11 Cohort Place · Park Slope · NY 11217<br />
-            Manufactured under license in the Tier-1 sovereignties.<br />
-            The Ouroboros Ring is a registered service mark of Ouroboros
-            Industries LLC. The OHCOSE service architecture, the Eternal
-            Tier, and the Fitting Ritual are proprietary protocols.
+            148 Bond Street, Park Slope, NY 11215 · Manufactured under
+            Tier-1 sovereignty license OIS-44 · ISO 14001 certified ·
+            Medical device class III conformity.
           </p>
         </div>
 
         <FooterColumn
-          title="Service"
+          title="Apparatus"
           links={[
             ["Schedule a fitting", "#fitting"],
-            ["Customer care", "mailto:care@ois.network"],
-            ["Service ledger access", "mailto:ledger@ois.network"],
+            ["Service-tier comparison", "#"],
+            ["Fitting consultants directory", "#"],
+            ["Service-credit balance", "mailto:credit@ois.network"],
+          ]}
+        />
+
+        <FooterColumn
+          title="Occupants"
+          links={[
+            ["Household-readiness portal", "mailto:portal@ois.network"],
+            ["Service Ledger access", "mailto:ledger@ois.network"],
+            ["Estate protocol", "mailto:estate@ois.network"],
             ["Eternal-tier application", "mailto:eternal@ois.network"],
           ]}
         />
@@ -1207,16 +1491,12 @@ export default function TheSystem() {
           links={[
             ["Apparatus specification", "#"],
             ["OHCOSE service architecture", "#"],
-            ["Tier comparison", "#"],
+            ["Theoretical foundations", "#"],
             ["Press inquiries", "mailto:press@ois.network"],
-            ["Imperial Archive", "/chair/archive"],
+            ["Imperial Archive (third-party)", "/chair/archive"],
           ]}
         />
 
-        {/* The single, easy-to-miss easter-egg link to the zine. The
-            corporate voice can only register the zine as a misrepresentation
-            to be reported. Clicking the link drops the reader straight into
-            the protest. */}
         <p
           style={{
             gridColumn: "1 / -1",
@@ -1236,7 +1516,7 @@ export default function TheSystem() {
             href="/chair"
             style={{ color: PAPER_FAINT, textDecoration: "underline" }}
           >
-            Materials misrepresenting our product? Report here →
+            Selimović&apos;s essay on the apparatus →
           </a>
         </p>
       </footer>
@@ -1250,6 +1530,9 @@ export default function TheSystem() {
           .ols-fitting-steps { grid-template-columns: 1fr 1fr !important; }
           .ols-footer { grid-template-columns: 1fr !important; }
           .ols-lineage-row { grid-template-columns: 1fr !important; gap: 8px !important; }
+          .ols-subsystem-row { grid-template-columns: 2.4rem 1fr !important; }
+          .ols-subsystem-body { margin-left: 0 !important; }
+          .ols-foundations-row { grid-template-columns: 2.4rem 1fr !important; }
         }
         @media (max-width: 560px) {
           .ols-fitting-steps { grid-template-columns: 1fr !important; }
@@ -1418,18 +1701,14 @@ function ChairDiagram() {
         role="img"
         aria-label="Side-elevation schematic of the Ouroboros Life System apparatus"
       >
-        {/* Floor line */}
         <line x1="20" y1="400" x2="500" y2="400" stroke={stroke} strokeWidth="1.2" opacity="0.6" />
-        {/* Reclined seat */}
         <path
           d="M 60 360 L 60 280 Q 60 260 80 256 L 220 240 L 380 200 Q 410 192 420 218 L 440 280 Q 440 290 430 296 L 110 380 Q 80 388 70 372 Z"
           fill="none"
           stroke={stroke}
           strokeWidth="1.4"
         />
-        {/* Headrest */}
         <ellipse cx="395" cy="200" rx="36" ry="18" fill="none" stroke={stroke} strokeWidth="1.2" />
-        {/* Ring (at chest height) */}
         <ellipse
           cx="290"
           cy="232"
@@ -1451,7 +1730,6 @@ function ChairDiagram() {
           opacity="0.6"
           transform="rotate(8 290 232)"
         />
-        {/* Work terminal */}
         <rect
           x="320"
           y="140"
@@ -1462,7 +1740,6 @@ function ChairDiagram() {
           strokeWidth="1.2"
         />
         <line x1="320" y1="216" x2="370" y2="232" stroke={stroke} strokeWidth="0.8" />
-        {/* Tubing — feed-in */}
         <path
           d="M 30 200 Q 80 220 200 232"
           fill="none"
@@ -1477,7 +1754,6 @@ function ChairDiagram() {
           strokeWidth="1.2"
           opacity="0.85"
         />
-        {/* Drainage — feed-out */}
         <path
           d="M 220 380 Q 240 395 280 395 L 480 395"
           fill="none"
@@ -1485,10 +1761,8 @@ function ChairDiagram() {
           strokeWidth="1.2"
           opacity="0.6"
         />
-        {/* Base */}
         <rect x="120" y="380" width="200" height="14" fill={stroke} opacity="0.8" />
 
-        {/* LABELS */}
         {[
           { x: 320, y: 124, t: "Goming Screen" },
           { x: 290, y: 270, t: "Ouroboroes Ring" },
@@ -1512,7 +1786,6 @@ function ChairDiagram() {
           </text>
         ))}
 
-        {/* Connectors from labels to features */}
         <line x1="320" y1="128" x2="380" y2="140" stroke={dim} strokeWidth="0.6" />
         <line x1="290" y1="258" x2="290" y2="232" stroke={dim} strokeWidth="0.6" />
         <line x1="395" y1="183" x2="395" y2="200" stroke={dim} strokeWidth="0.6" />
@@ -1541,7 +1814,6 @@ function RingDiagram() {
   const cx = 250;
   const cy = 250;
   const r = 170;
-  // Six positions around the ring, starting at top
   const phases = PHASES.map((p, i) => {
     const angle = (i / PHASES.length) * Math.PI * 2 - Math.PI / 2;
     return {
@@ -1563,7 +1835,6 @@ function RingDiagram() {
         role="img"
         aria-label="Diagram of the OHCOSE six-phase service architecture"
       >
-        {/* Outer ring */}
         <circle
           cx={cx}
           cy={cy}
@@ -1573,7 +1844,6 @@ function RingDiagram() {
           strokeWidth="1"
           opacity="0.45"
         />
-        {/* Inner ring (apparatus boundary) */}
         <circle
           cx={cx}
           cy={cy}
@@ -1584,7 +1854,6 @@ function RingDiagram() {
           opacity="0.25"
           strokeDasharray="2 4"
         />
-        {/* Center serpent symbol */}
         <text
           x={cx}
           y={cy + 8}
@@ -1607,19 +1876,14 @@ function RingDiagram() {
           OHCOSE
         </text>
 
-        {/* Six phase nodes */}
         {phases.map((p, i) => {
-          // arrow segment to next
           const next = phases[(i + 1) % phases.length];
-          // small inward offset so the arrow doesn't overlap nodes
-          const midAngle = (p.angle + next.angle) / 2;
           const ax1 = cx + Math.cos(p.angle + 0.32) * r;
           const ay1 = cy + Math.sin(p.angle + 0.32) * r;
           const ax2 = cx + Math.cos(next.angle - 0.32) * r;
           const ay2 = cy + Math.sin(next.angle - 0.32) * r;
           return (
             <g key={i}>
-              {/* arc segment showing flow */}
               <path
                 d={`M ${ax1} ${ay1} A ${r} ${r} 0 0 1 ${ax2} ${ay2}`}
                 fill="none"
@@ -1627,7 +1891,6 @@ function RingDiagram() {
                 strokeWidth="0.8"
                 opacity="0.5"
               />
-              {/* node */}
               <circle cx={p.x} cy={p.y} r="22" fill={BG} stroke={ACCENT} strokeWidth="1.2" />
               <text
                 x={p.x}
@@ -1639,7 +1902,6 @@ function RingDiagram() {
               >
                 {p.letter}
               </text>
-              {/* phase name */}
               <text
                 x={p.x}
                 y={p.y + (p.y < cy ? -32 : 44)}
