@@ -40,14 +40,14 @@ const BODIES: Record<string, Body> = {
         n: "I",
         title: "A Figure",
         body: [
-          "The first feature of a Desire Engine is that its outputs are tuned to the individual viewer. The second feature is that the viewer is not, in the operational sense, asking for the outputs they receive. The viewer is being read, modeled, anticipated; the outputs that arrive on the viewer's screen are the product of that modeling. The viewer's experience of choice is the apparatus's deepest illusion.",
+          "Two things, taken together, are what make a Desire Engine what it is. One is that its outputs are tuned to the individual viewer. The other is that the viewer, in any operational sense, isn't asking for the outputs they get — they are being read, modelled, anticipated, and the items arriving on their screen are the product of that modelling rather than of any explicit request they made. The viewer's sense that they are choosing what to look at is, by some distance, the apparatus's deepest illusion.",
         ],
       },
       {
         n: "II",
         title: "Definition",
         body: [
-          "A Desire Engine is a content surface that continuously generates desire-objects calibrated to the occupant's measured response profile. The desire-objects are not, primarily, the objects of pre-existing desire; they are objects the engine projects the occupant is likely to come to desire, and that projection is the apparatus's primary product. The Desire Engine is therefore not a service that fulfills latent need; it is a service that produces the need it then fulfills.",
+          "A Desire Engine is a content surface that continuously generates desire-objects calibrated to the occupant's measured response profile. The objects are not, primarily, objects of pre-existing desire. They are objects the engine's model predicts the occupant is likely to come to desire — and that prediction, sold back to the occupant as content, is the engine's actual product. Calling it a service that fulfils latent need misreads it. The Engine produces the need it then fulfils, and the production is the point.",
         ],
       },
       {
@@ -141,7 +141,7 @@ const BODIES: Record<string, Body> = {
         n: "I",
         title: "A Figure",
         body: [
-          "A driver in a smart car experiences the brakes engaging without warning. The car's automated drowsiness-detection has registered prolonged eyelid closure and intervened. The driver is annoyed, then grateful, then disoriented. Who decided? The vendor. The vendor decided once, in code, several years ago; the decision was distributed across millions of vehicles, including this one. The vendor is not present; the vendor's decision is.",
+          "A driver in a recent-model car feels the brakes engage without warning. The car's drowsiness-detection has registered prolonged eyelid closure and intervened on the driver's behalf. The driver runs through annoyance, then gratitude, then a kind of low-grade disorientation that doesn't have a name in the consumer's vocabulary yet. The decision the car just executed was not the car's, and it was not the driver's. It was made, some years earlier, in a meeting at the manufacturer's headquarters, by a small group of people who never met this particular driver and never will. The decision was committed to firmware and shipped across a vehicle fleet of several million. The Monitor is, structurally, that meeting, still operating.",
         ],
       },
       {
@@ -341,7 +341,7 @@ const BODIES: Record<string, Body> = {
         n: "I",
         title: "A Figure",
         body: [
-          "A platform's content-moderation team consists of seventeen full-time employees and one machine-learning model. The model makes the operational decisions; the team adjudicates the model's edge cases; the platform's two billion users are governed by the model. The model's parameters are set by the team, in dialogue with the engineering organization, in dialogue with the legal organization, in dialogue with the platform's commercial priorities. The users do not, by any operational measure, participate in the governance.",
+          "A large platform's content-moderation operation: a small team of full-time staff, an integration with three contracted vendors who keep their own staff in cheaper labour markets, and a machine-learning model. The model is, in practice, the moderator — it makes the operational decisions, ninety-some percent of them, at a volume no human team could plausibly handle. The staff adjudicate edge cases; the contracted labour handles the appeals queue; the platform's two-or-three billion users are governed by the model. The model's parameters are set inside the platform, in a slow negotiation among the engineering organisation, the legal organisation, and whichever commercial priorities are dominant in any given quarter. The users participate in none of that negotiation. They appear in it only as the population the parameters are being set for.",
         ],
       },
       {
@@ -363,8 +363,8 @@ const BODIES: Record<string, Body> = {
         n: "IV",
         title: "Theoretical Inheritance",
         body: [
-          "Lyotard's libidinal-economic frame, again: the Governor is what it looks like when a system is engineered to manage desire at population scale. The Governor's distinguishing feature, relative to Lyotard's account, is that the management is no longer performed by a human reading the system. The management is performed by the system, on itself, in continuous real time. The human-readable artifact of the management (the engagement metrics) is the residue.",
-          "Franco Berardi's account of &ldquo;peak libido&rdquo; — the proposition that libidinal energy is a limited resource that can be exhausted, and that the contemporary apparatus is engineered to extract at the edge of the limit — names the Governor's principal failure mode. The Governor that succeeds at maximizing extraction in the short term collapses the population's libidinal capacity in the medium term. The collapse appears, in the aggregate data, as the rise of depression and attention disorders that the apparatus has, in the same period, pathologized as individual conditions.",
+          "The Governor is what Lyotard described in <em>Libidinal Economy</em> made operational. What is different from Lyotard is that the management is no longer performed by a human reading the system — the system manages itself, on itself, in continuous real time, and the engagement metrics a human can read are the residue rather than the operation. Lyotard wrote in 1974, before any of this was possible. The framework he proposed has aged better than most contemporary theory because the apparatus he was anticipating has, in the half-century since, been built.",
+          "Franco Berardi's <em>peak libido</em> names the Governor's principal failure mode. Berardi's claim is that libidinal energy is a limited resource that can be exhausted, and that the apparatus is engineered to extract at the edge of the limit. The Governor that succeeds at maximising extraction in the short term tends to collapse the population's libidinal capacity in the medium term. The collapse shows up, in the aggregate data, as the rise of depression and attention disorders the apparatus has spent the same period pathologising as individual conditions. The double move (cause it; name it as the sufferer's fault; sell the sufferer the remedy) is one of the apparatus's signature manoeuvres.",
         ],
       },
       {

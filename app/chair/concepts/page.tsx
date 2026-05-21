@@ -44,11 +44,11 @@ const CONCEPTS: Concept[] = [
     name: "Closed-Loop Libidinal Economy",
     abbreviation: "CLLE",
     definition: [
-      "The economic and psychic system in which desire is captured and re-circulated by the same apparatus that produces it. The qualifier <em>closed-loop</em> is operational: every output the subject generates is fed back as input to the apparatus, which uses it to refine the next desire-object it presents.",
-      "The construction extends Lyotard's libidinal-economic framing into the platform era, in which the capture and re-circulation of desire is no longer a metaphor for political economy but its principal technical mechanism. The closed-loop libidinal economy is what political economy has become when its principal extractive instrument is the recommendation algorithm.",
+      "An economy in which desire and its satisfaction are produced by the same apparatus, and in which every output the subject generates becomes input the apparatus uses to refine what it offers next. <em>Closed-loop</em> is meant operationally, not metaphorically: there is no point in the cycle where the subject's response leaves the system.",
+      "The framing extends Lyotard's libidinal economy into the platform era. Lyotard was writing about a tendency. The contemporary apparatus has made the tendency into infrastructure. Recommendation algorithms, biometric surveillance stacks, behavioural-pricing engines — these are the technical means by which what was once a way of describing capitalism became a way of running it.",
     ],
     move:
-      "The frame allows the analyst to treat platform behavior, consumer behavior, and labor behavior as a single phenomenon under different headings. The platform is not, in this frame, a service the subject uses; it is the technical medium within which the subject's desire forms. The shift from <em>uses</em> to <em>within which</em> is the analytical move the concept enables.",
+      "The frame is what I reach for when I want to talk about platform behaviour, consumer behaviour, and labour behaviour as one thing. They are not, in practice, three different things. They are three vocabularies for the same loop, and using all three vocabularies at once is usually the only way to see the loop clearly. The platform is not a service the subject uses. It is the medium the subject's desire is being formed within. Everything that follows from this shift is what the project has been trying to work out.",
     located: [
       { href: "/chair", label: "On the Chair (the essay)" },
       { href: "/closed-loop/the-argument/the-loop", label: "The Loop (the broader argument)" },
@@ -58,11 +58,11 @@ const CONCEPTS: Concept[] = [
     slug: "psychic-surplus",
     name: "Psychic Surplus",
     definition: [
-      "The portion of a subject's attention, affect, fantasy, and motivation that exceeds what is strictly required for biological survival and basic social function, and that can be captured and re-routed by the apparatus without (in the short term) compromising the subject's continued functioning.",
-      "The construct is parallel to the Marxian <em>surplus labor</em> &mdash; the work performed beyond the worker's own reproductive needs, appropriated as profit &mdash; but transposed to the libidinal register. Where surplus labor was extracted by the wage relation, psychic surplus is extracted by the platform relation: continuous engagement with apparatus-mediated content surfaces that convert affective response into commercial input.",
+      "What the apparatus takes. Specifically: the attention, affect, fantasy, and motivation a subject produces in excess of what they strictly need to keep functioning, and which the apparatus can divert without — at least in the short run — costing the subject anything they would notice.",
+      "I built the construct as a parallel to Marx's <em>surplus labour</em>: the work performed beyond what the worker needs for their own reproduction, appropriated as profit. Surplus labour was extracted by the wage relation. Psychic surplus is extracted by the platform relation. The mechanism has changed; the basic transaction (something the subject produces becomes something the apparatus owns) has not.",
     ],
     move:
-      "Naming the surplus permits the question that platform-economic apologetics is structured to forestall: <em>what, precisely, is being extracted, and at what rate?</em> The Marxian-transposition framing also clarifies that the contemporary apparatus is not a neutral provider; it is an extractive instrument whose business model fails the moment the surplus stops flowing.",
+      "I find the construct most useful as a question. Platform-economic apologetics treats the apparatus as a service exchange — the user gets convenience, the platform gets data, a fair trade. Naming the surplus is what lets you ask the question the trade frame is structured to avoid: what is being extracted, and at what rate? The Marx parallel is also helpful because it makes the apparatus's commercial vulnerability legible. The platforms, like the factories they descend from, fail the moment the surplus stops flowing. This is not a small detail.",
     located: [
       { href: "/chair", label: "On the Chair, § III" },
       { href: "/chair/subsystems/surplus-reservoirs", label: "Surplus Reservoirs (the storage subsystem)" },
@@ -73,11 +73,11 @@ const CONCEPTS: Concept[] = [
     name: "OHCOSE",
     abbreviation: "Onboarding · Habituation · Calibration · Occupancy · Stewardship · Estate",
     definition: [
-      "The six-phase developmental lifecycle through which the apparatus relates to a given subject over the course of that subject's residence. Each phase corresponds to a different configuration of psychic-surplus extraction and a different mode of subject-apparatus integration.",
-      "The phases are <em>Onboarding</em> (ceremony of integration), <em>Habituation</em> (acclimation to the apparatus's circadian envelope), <em>Calibration</em> (parameter-tuning to the subject's response profile), <em>Occupancy</em> (sustained productive residence), <em>Stewardship</em> (maintenance at the threshold of viability as productive output declines), and <em>Estate</em> (post-mortem persistence of the subject's productivity profile and preference record).",
+      "A six-phase model of how the apparatus relates to a subject over the subject's full residence with it — not a life-stage typology of the subject themselves but a lifecycle of the subject-apparatus relation. Each phase has its own extraction profile.",
+      "The phases: <em>Onboarding</em> (ceremony of integration); <em>Habituation</em> (the subject's body and rhythms acclimating to the apparatus's envelope); <em>Calibration</em> (the apparatus tuning itself to the subject's measured response); <em>Occupancy</em> (sustained productive residence, the steady state); <em>Stewardship</em> (maintenance at the threshold of viability as the subject's output declines); <em>Estate</em> (the configuration after biological cessation, in which the subject's data and preference record continue to operate on behalf of brand partners under the Eternal-tier protocols).",
     ],
     move:
-      "OHCOSE permits the analyst to ask which phase a given subject is currently in, rather than treating apparatus-subject interaction as a single static condition. The phase frame also clarifies that the apparatus's value extraction continues beyond the subject's biological cessation &mdash; a feature easily missed when the subject is treated as a discrete event.",
+      "The model exists because I kept noticing that platform-economic analyses tend to treat apparatus-subject interaction as a single static condition. It isn't. The same person interacting with the same platform in week one and week three hundred is in two operationally different relationships, and the platform knows this even when the analysis doesn't. The phase frame is a way of forcing the question — which phase, which extraction profile, which integration mode — back into the analytical foreground. It is also the only frame I have found that makes the post-mortem extraction the apparatus performs (the Estate phase) easy to name without sounding hyperbolic. The Estate phase is hyperbolic. It is also operational.",
     located: [
       { href: "/chair", label: "On the Chair, § IV" },
       { href: "/ohcose", label: "OHCOSE (the broader life-stage treatment)" },
@@ -88,11 +88,11 @@ const CONCEPTS: Concept[] = [
     name: "Tri-Axial Ouroboric Governance",
     abbreviation: "TAOG",
     definition: [
-      "The proposition that the contemporary libidinal-economic apparatus operates by simultaneously capturing the subject along three axes &mdash; <em>temporal</em>, <em>economic</em>, and <em>affective</em> &mdash; and that any analysis engaging only one will miss the apparatus by exactly the margin of the other two.",
-      "The temporal axis is the cadence at which desire is produced and answered (developed under <em>Capture of Cadence</em>). The economic axis is the metering and pricing of attention and affect (developed under <em>Psychic Surplus</em>). The affective axis is the modulation of which emotions the subject is permitted, or invited, to feel (developed in dialogue with Preciado and Marcuse).",
+      "The claim that the contemporary libidinal-economic apparatus captures the subject along three axes at once — <em>temporal</em>, <em>economic</em>, and <em>affective</em> — and that any analysis that engages only one of the three will miss the apparatus by exactly the margin of the other two.",
+      "The temporal axis is the cadence at which desire is produced and answered. I treat it under <em>Capture of Cadence</em>. The economic axis is the metering and pricing of attention and affect. I treat it under <em>Psychic Surplus</em>. The affective axis is the modulation of which emotions the subject is permitted, or invited, to feel. I treat it in dialogue with Preciado and Marcuse, mostly.",
     ],
     move:
-      "TAOG is the project's most synthetic framework. It is intended to discipline analyses of the platform economy that engage one axis at a time and consequently miss the operational integration. The contemporary apparatus does all three at once; an adequate analysis must follow.",
+      "TAOG is the framework I reach for when I find myself getting an argument wrong. The wrongness is usually that I am leaning on one of the three axes and ignoring the other two. Most existing analyses of the platform economy have this problem — economists engage the economic axis, affect theorists engage the affective axis, philosophers of time engage the temporal axis, and the apparatus they each describe is, accordingly, one-third of an apparatus. The contemporary one does all three simultaneously. I have made this mistake more than once myself, and the framework is partly a way of catching myself doing it.",
     located: [
       { href: "/chair", label: "On the Chair, § VIII" },
       { href: "/closed-loop/the-mathematics", label: "The Mathematics (the formalization)" },
@@ -103,10 +103,10 @@ const CONCEPTS: Concept[] = [
     name: "Integrated Gamer Loops Framework",
     abbreviation: "IGLF",
     definition: [
-      "An applied translation of the closed-loop libidinal-economic framework into the analytical and design vocabulary of the gaming industry. IGLF maps the apparatus's seven subsystems onto observable design choices in contemporary game systems &mdash; progression curves, reward schedules, social-pressure mechanics, monetization funnels &mdash; and provides a vocabulary for evaluating which design choices intensify libidinal capture and which permit relief.",
+      "An applied translation of the closed-loop libidinal-economic framework into the analytical and design vocabulary of the gaming industry. IGLF maps the seven subsystems onto observable design choices — progression curves, reward schedules, social-pressure mechanics, monetisation funnels — and gives designers a vocabulary for distinguishing the mechanisms they intend to deploy from the mechanisms that have accreted into the field by industry convention.",
     ],
     move:
-      "IGLF was developed as part of the project's industry-facing work (Netflix, Ubisoft, Activision R&amp;I engagements). The framework permits a designer or analyst to identify the libidinal-economic mechanism a given game system is implementing and to ask whether that mechanism is one the studio intends to deploy or one that has accreted by industry convention. Many of the most extractive game systems were not, in the original design intent, extractive; they have become so through unreflective convergence.",
+      "IGLF came out of the industry-facing work — the Netflix, Ubisoft, and Activision R&amp;I engagements I have done over the past few years. The thing I kept running into in those rooms was that designers do not, on the whole, want to be extractive. They want to make games people enjoy. The mechanisms that have made contemporary games extractive — the slot-machine reward schedule, the loot-box pull, the engagement-maximising daily-challenge structure — were, in many cases, not chosen by the designers sitting in front of me. They were inherited. They came with the engine. The framework is, in practice, a way of helping designers see which choices are choices and which have stopped feeling like choices. Sometimes that's enough.",
     located: [
       { href: "/closed-loop/instrumentation", label: "Instrumentation (the operational adaptation)" },
     ],
@@ -115,11 +115,11 @@ const CONCEPTS: Concept[] = [
     slug: "capture-of-cadence",
     name: "Capture of Cadence",
     definition: [
-      "The proposition that the contemporary apparatus's most consequential capture is not of <em>content</em> (what the subject does) but of <em>cadence</em> (the rhythm at which the subject does it). The notification schedule, the autoplay envelope, the algorithmically-paced reveal &mdash; these are not content; they are tempo. The temporal axis is what the subject loses first and notices last.",
-      "Earlier forms of labor and consumer extraction worked on quanta: hours worked, units produced, transactions completed. The contemporary form works on cadence: the underlying rhythm at which the subject's life proceeds. The shift is consequential because cadence is not legible to the subject in the way quanta are. The subject can audit their hours; they cannot, generally, audit the rhythm at which their dopamine peaks have been entrained.",
+      "The claim that the apparatus's most consequential capture is not of <em>content</em> (what the subject does) but of <em>cadence</em> (the rhythm at which the subject does it). The notification schedule, the autoplay envelope, the algorithmically-paced reveal — not content, tempo. The temporal axis is what the subject loses first and notices last.",
+      "Earlier forms of extraction worked on quanta — hours worked, units produced, transactions completed — and quanta are auditable. You can know how many hours you worked last week. Cadence is not auditable in the same way. You cannot, in the routine course of using the apparatus, tell me the rhythm at which your dopamine peaks have been entrained, or at what interval your attention has been trained to expect its next prompt. The capture happens at a temporal resolution your conscious experience has no instruments to register.",
     ],
     move:
-      "The frame moves the analytical question from <em>what is the subject doing?</em> to <em>at what rhythm?</em>. It also reframes the politics: the most effective form of refusal, in the contemporary apparatus, is not refusal of content but refusal of cadence &mdash; to be slow when speed is demanded, silent when noise is rewarded, inattentive when engagement is metered. The apparatus has a long history of pathologizing the practice. The rebranding is the apparatus's tribute to the practice's effectiveness.",
+      "Capture of Cadence is the construct that changed the most about how I think about refusal. Before I had the construct, my own anti-extractive practices were content-focused — pick what to read, pick what not to scroll. Content-focused refusal turns out to be approximately worthless, because the apparatus does not care, much, what you are reading. It cares at what cadence you are reading. Once the construct was in place, the question shifted: what rhythm am I letting the apparatus set, and what would it cost me to set a different one? Most of <em>On the Chair</em> § IX is downstream of this question.",
     located: [
       { href: "/chair", label: "On the Chair, § V (introduced) and § IX (politicized)" },
       { href: "/closed-loop/the-dynamics", label: "The Dynamics (the broader treatment)" },
@@ -129,11 +129,11 @@ const CONCEPTS: Concept[] = [
     slug: "libidinal-ouroboros",
     name: "Libidinal Ouroboros",
     definition: [
-      "The figure of the self-consuming desire loop: the apparatus that produces the desire it then fulfills, then uses the fulfillment to produce the next desire. The image is the snake that devours its own tail, with the qualification that the snake is also being fed.",
-      "The figure organizes the project's central image (the Ouroboros Life System, the chair) and the project's central operational claim (that contemporary platform capitalism functions as a recursive satisfaction engine in which extraction and reproduction are the same operation). The figure is, importantly, not a metaphor &mdash; or rather, it is a metaphor that has become an architectural specification.",
+      "The figure of the self-consuming desire loop — the apparatus that produces the desire it then fulfills, and uses the fulfillment to produce the next desire. The image is the snake eating its own tail, with the addendum that the snake is also being fed.",
+      "The figure does two jobs in the project. It anchors the central image (the Ouroboros Life System; the chair). It also names the operational claim: that contemporary platform capitalism functions as a recursive satisfaction engine in which extraction and reproduction are not separable operations. Calling it a metaphor undersells what has happened. The metaphor has become an architectural specification — the apparatus is now physically constructed around the figure the figure used to describe.",
     ],
     move:
-      "The Libidinal Ouroboros is the project's most concentrated single image. It is intended to do, for the closed-loop libidinal economy, what the panopticon did for Foucault's disciplinary society: render a complex operational logic visible in a single picture. The figure is, by design, easier to remember than the theory it summarizes &mdash; which is itself the analytical move.",
+      "The Libidinal Ouroboros is what I use when I need to hand someone the whole project in one image. It does for the closed-loop libidinal economy what the panopticon did for Foucault — gives the reader something they can keep in their head after the argument has faded. I have, over the years, tried other images (the centrifuge; the still; the heart-lung machine). The ouroboros has worked best, partly because the apparatus itself uses it. The chair's brochure is built around the figure. That the brochure and this essay are using the same picture for opposite ends is, on my view, the most honest piece of evidence we have about what the apparatus is.",
     located: [
       { href: "/chair", label: "On the Chair, § II" },
       { href: "/chair/the-system", label: "The brochure (the apparatus's own use of the figure)" },
@@ -143,11 +143,11 @@ const CONCEPTS: Concept[] = [
     slug: "satisfaction-loops",
     name: "Satisfaction Loops",
     definition: [
-      "The micro-cycles of desire &rarr; gratification &rarr; renewed desire that the contemporary apparatus engineers into its user-experience designs. Each cycle is brief (seconds to minutes); the cycles are stacked at high frequency; the subject's attention and affective state are organized around the cycle's return.",
-      "Satisfaction Loops are the operational unit at which the Capture of Cadence is implemented. The cycle's variable-ratio reinforcement schedule (Skinner's pigeon work, adapted by the casino industry, then by the platform industry) is the principal technical instrument. The subject experiences each cycle as a small win or a near-miss; the apparatus experiences each cycle as a unit of engagement.",
+      "The micro-cycles of desire &rarr; gratification &rarr; renewed desire that the apparatus engineers into its interfaces. Each cycle is short (seconds to minutes); the cycles stack at high frequency; the subject's attention and affective state come to be organised around the cycle's return.",
+      "Satisfaction Loops are the operational unit at which Capture of Cadence is implemented. The cycle's variable-ratio reinforcement schedule — Skinner's pigeons, then the casino industry's house economists, then the platform industry — is the technical instrument. The subject experiences each cycle as a small win or a near-miss. The apparatus experiences each cycle as a unit of engagement, scored and stored.",
     ],
     move:
-      "Naming the Loop permits the analyst to ask, of a given UX, how many Loops it contains per minute and what each Loop's expected affective yield is. The analytical move converts what is usually described in vague terms (&ldquo;engagement,&rdquo; &ldquo;stickiness,&rdquo; &ldquo;flow&rdquo;) into a counted, structured thing.",
+      "I started using the Loop construct because the existing vocabulary — engagement, stickiness, flow — was not telling me anything. Engagement was a marketing word. Stickiness was an industry word. Flow had been a useful psychological construct before it was conscripted into UX presentations. None of them was countable. The Loop is countable: you can ask, of a given interface, how many of them it fires per minute and what each Loop's expected affective yield is. Once you have those two numbers, you can start to compare designs in a way that is not a question of taste. Most of the most extractive contemporary interfaces fire more Loops per minute than I would have expected before I started counting.",
     located: [
       { href: "/chair/subsystems/feedback-rituals", label: "Feedback Rituals (the subsystem)" },
     ],
