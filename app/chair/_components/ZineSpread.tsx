@@ -892,77 +892,124 @@ export default function ZineSpread() {
         />
       </PhaseSection>
 
-      {/* ─── PHASE 02 — SALES PITCH / DEFACED ─────────────────────── */}
+      {/* ─── PHASE 02 — FULL-BLEED DEFACED FLYER ──────────────────── */}
       <PhaseSection id="habitualization" num="02" name="habitualization" sub="the sales pitch · defaced" numColor={NEON_PINK}>
+        {/* Full-bleed flyer as the BACKGROUND of the spread, scuffed
+           with defacement and tape. Text reads over a translucent black
+           panel anchored bottom-right. */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 1,
+            pointerEvents: "none",
+            overflow: "hidden",
+          }}
+        >
+          {/* Flyer scaled up, off-center, slight rotation */}
+          <div
+            style={{
+              position: "absolute",
+              top: "5%",
+              left: "-4%",
+              width: "72%",
+              aspectRatio: "1 / 1",
+              transform: "rotate(-3deg)",
+              filter: "drop-shadow(8px 8px 0 rgba(57,255,20,0.18))",
+            }}
+          >
+            <Image
+              src="/chair/artifacts/03-megasave-rollback.jpg"
+              alt="Found marketing flyer — defaced"
+              fill
+              priority
+              sizes="72vw"
+              style={{ objectFit: "cover", filter: "contrast(1.05) saturate(1.05)" }}
+            />
+            {/* Defacement layer — Xs, LIES, stamp */}
+            <div style={{ position: "absolute", top: "12%", left: "18%" }}>
+              <DefacementX size={180} color={STAMP_RED} thickness={18} rotate={-6} />
+            </div>
+            <div style={{ position: "absolute", top: "56%", right: "10%" }}>
+              <DefacementX size={150} color={STAMP_RED} thickness={16} rotate={14} />
+            </div>
+            <div style={{ position: "absolute", bottom: "8%", left: "16%" }}>
+              <DefacementX size={120} color={STAMP_RED} thickness={14} rotate={-22} />
+            </div>
+            <div
+              style={{
+                position: "absolute",
+                bottom: "26%",
+                left: "6%",
+                fontFamily: MARKER,
+                fontSize: 90,
+                color: STAMP_RED,
+                transform: "rotate(-8deg)",
+                textShadow: `3px 3px 0 rgba(0,0,0,0.5)`,
+                letterSpacing: "0.04em",
+                lineHeight: 1,
+              }}
+            >
+              LIES
+            </div>
+            <div style={{ position: "absolute", top: "6%", right: "4%" }}>
+              <RubberStamp text="DO NOT BUY" rotate={-14} color={STAMP_RED} size={1.0} />
+            </div>
+            <div style={{ position: "absolute", bottom: "12%", right: "8%" }}>
+              <RubberStamp text="FRAUD" rotate={8} color={STAMP_RED} size={0.9} />
+            </div>
+            {/* Tape strips */}
+            <div aria-hidden style={{ position: "absolute", top: -16, left: "20%", width: 110, height: 24, background: "rgba(255,255,200,0.5)", transform: "rotate(-9deg)", boxShadow: "0 2px 8px rgba(0,0,0,0.5)" }} />
+            <div aria-hidden style={{ position: "absolute", top: -10, right: "12%", width: 120, height: 22, background: "rgba(255,255,200,0.42)", transform: "rotate(6deg)", boxShadow: "0 2px 8px rgba(0,0,0,0.5)" }} />
+          </div>
+          {/* Heavy black gradient on right side so type reads */}
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(90deg, rgba(10,9,8,0.2) 0%, rgba(10,9,8,0.45) 38%, rgba(10,9,8,0.92) 72%, rgba(10,9,8,0.96) 100%)",
+            }}
+          />
+        </div>
+
+        {/* Text panel — anchored right, overlays the dark gradient */}
         <div
           style={{
             position: "relative",
-            zIndex: 2,
-            padding: "200px 48px 80px",
+            zIndex: 3,
+            padding: "240px 48px 80px",
             maxWidth: 1600,
-            margin: "0 auto",
+            margin: "0 0 0 auto",
             display: "grid",
-            gridTemplateColumns: "1.1fr 1fr",
-            gap: 56,
+            gridTemplateColumns: "1fr 540px",
+            gap: 48,
           }}
           className="zine-phase02-grid"
         >
-          {/* LEFT — defaced MegaSave flyer */}
-          <div style={{ position: "relative", transform: "rotate(-2deg)" }}>
+          {/* LEFT — empty (the flyer shows through) plus caveat */}
+          <div style={{ position: "relative" }}>
             <div
               style={{
-                position: "relative",
-                aspectRatio: "1 / 1",
-                clipPath:
-                  "polygon(1% 0%, 18% 1%, 32% 0%, 49% 1%, 64% 0%, 80% 1%, 99% 0%, 100% 18%, 99% 33%, 100% 50%, 99% 67%, 100% 82%, 99% 99%, 82% 100%, 67% 99%, 50% 100%, 33% 99%, 16% 100%, 0% 99%, 1% 82%, 0% 67%, 1% 50%, 0% 33%, 1% 17%)",
-                background: BLACK,
-                filter: "drop-shadow(6px 6px 0 rgba(57,255,20,0.25))",
+                position: "absolute",
+                bottom: 32,
+                left: 0,
+                maxWidth: 360,
+                fontFamily: CAVEAT,
+                fontSize: 22,
+                color: NEON_PINK,
+                transform: "rotate(-1.5deg)",
+                lineHeight: 1.2,
+                background: "rgba(10,9,8,0.6)",
+                padding: "12px 16px",
+                border: `1px dashed ${NEON_PINK}`,
               }}
             >
-              <Image
-                src="/chair/artifacts/03-megasave-rollback.jpg"
-                alt="Found marketing flyer for the chair, defaced"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 700px"
-                style={{ objectFit: "cover" }}
-              />
-              {/* Defacement overlays */}
-              <div aria-hidden style={{ position: "absolute", top: "14%", left: "20%", zIndex: 5 }}>
-                <DefacementX size={140} color={STAMP_RED} thickness={14} rotate={-6} />
-              </div>
-              <div aria-hidden style={{ position: "absolute", top: "55%", right: "8%", zIndex: 5 }}>
-                <DefacementX size={120} color={STAMP_RED} thickness={12} rotate={12} />
-              </div>
-              {/* Marker scribble — "LIES" */}
-              <div
-                aria-hidden
-                style={{
-                  position: "absolute",
-                  bottom: "32%",
-                  left: "8%",
-                  zIndex: 6,
-                  fontFamily: MARKER,
-                  fontSize: 56,
-                  color: STAMP_RED,
-                  transform: "rotate(-8deg)",
-                  textShadow: `2px 2px 0 rgba(0,0,0,0.4)`,
-                  letterSpacing: "0.04em",
-                  fontWeight: 400,
-                }}
-              >
-                LIES
-              </div>
-              {/* RubberStamp */}
-              <div aria-hidden style={{ position: "absolute", top: "8%", right: "6%", zIndex: 6 }}>
-                <RubberStamp text="DO NOT BUY" rotate={-14} color={STAMP_RED} size={0.8} />
-              </div>
-            </div>
-            {/* tape */}
-            <div aria-hidden style={{ position: "absolute", top: -14, left: 64, width: 96, height: 22, background: "rgba(255,255,200,0.45)", transform: "rotate(-10deg)", boxShadow: "0 2px 8px rgba(0,0,0,0.5)" }} />
-            <div aria-hidden style={{ position: "absolute", bottom: -14, right: 48, width: 110, height: 22, background: "rgba(255,255,200,0.4)", transform: "rotate(4deg)", boxShadow: "0 2px 8px rgba(0,0,0,0.5)" }} />
-            <div style={{ marginTop: 18, fontFamily: CAVEAT, fontSize: 20, color: NEON_PINK, transform: "rotate(-1deg)" }}>
-              picked this up at megasave on lafayette. the chair is the price.
+              picked this up at megasave on lafayette.<br />
+              <span style={{ color: NEON_GREEN }}>the chair</span>{" "}
+              <span style={{ color: PAPER }}>IS</span>{" "}
+              <span style={{ color: NEON_GREEN }}>the price.</span>
             </div>
           </div>
 
@@ -971,37 +1018,38 @@ export default function ZineSpread() {
             <h2
               style={{
                 fontFamily: ANTON,
-                fontSize: "clamp(48px, 5.6vw, 84px)",
+                fontSize: "clamp(44px, 5.2vw, 80px)",
                 color: PAPER,
                 lineHeight: 0.92,
                 letterSpacing: "-0.02em",
                 margin: "0 0 20px",
                 textTransform: "uppercase",
-                filter: "url(#zine-spray)",
+                filter: "url(#zine-stencil)",
               }}
             >
               You think you are<br />
               <span style={{ color: NEON_PINK }}>buying a chair.</span><br />
-              <span style={{ color: NEON_GREEN }}>The chair</span><br />
-              <span style={{ color: NEON_GREEN }}>is buying you.</span>
+              <span style={{ color: NEON_GREEN }}>The chair is</span><br />
+              <span style={{ color: NEON_GREEN }}>buying you.</span>
             </h2>
             <div style={{ fontFamily: SANS, fontSize: 17, lineHeight: 1.55, color: PAPER, maxWidth: "46ch", fontWeight: 420 }}>
               <p style={{ margin: "0 0 14px" }}>
                 <strong style={{ color: NEON_PINK }}>$5,499.99</strong> is the down-payment. The lifetime cost is your life. The MegaSave flyer says &ldquo;Save $800!&rdquo; — they mean the eight hundred days they take off your stand position before the polymer fuses.
               </p>
               <p style={{ margin: "0 0 14px" }}>
-                The Pro tier promises &ldquo;sleep induction&rdquo;. They mean: it puts you under and does not bring you back. The Eternal tier promises{" "}
+                The Pro tier promises &ldquo;sleep induction.&rdquo; They mean: it puts you under and does not bring you back. The Eternal tier promises{" "}
                 <A to="eternal-tier" title="Imperial Archive 2197.22">post-mortem data continuity</A>. They mean they keep selling your readings after.
               </p>
             </div>
 
-            {/* Tier list — defaced */}
+            {/* Tier list */}
             <div
               style={{
                 marginTop: 28,
                 padding: "20px 22px",
                 border: `1px solid ${PAPER_DIM}`,
-                background: "rgba(10,9,8,0.6)",
+                background: "rgba(10,9,8,0.85)",
+                backdropFilter: "blur(2px)",
               }}
             >
               <div style={{ fontFamily: MONO, fontSize: 10, color: MUTED, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 14 }}>
@@ -1039,7 +1087,7 @@ export default function ZineSpread() {
             </div>
 
             <Callout label="◆ What you sign away" color={STAMP_RED}>
-              By signing the purchase order you waive: the right to stand. The right to refuse infusion. The right to disconnect. The right to data. The right to death certificate.
+              By signing the purchase order you waive: the right to stand. The right to refuse infusion. The right to disconnect. The right to data. The right to a death certificate.
             </Callout>
           </div>
         </div>
@@ -1145,94 +1193,164 @@ export default function ZineSpread() {
 
       <CasualtyWall />
 
-      {/* ─── PHASE 04 — YOU ARE A READING ─────────────────────────── */}
+      {/* ─── PHASE 04 — LIVE READING AS THE SCENE ────────────────── */}
       <PhaseSection id="obsolescence" num="04" name="obsolescence" sub="you are now a reading" numColor={NEON_GREEN}>
         <div
           style={{
             position: "relative",
             zIndex: 2,
-            padding: "200px 48px 80px",
+            padding: "200px 32px 80px",
             maxWidth: 1600,
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1.2fr",
-            gap: 56,
-            alignItems: "start",
           }}
-          className="zine-phase04-grid"
         >
-          <div style={{ position: "relative", transform: "rotate(-1deg)" }}>
-            <div
-              style={{
-                position: "relative",
-                aspectRatio: "3 / 2",
-                clipPath:
-                  "polygon(3% 0%, 18% 1%, 32% 0%, 49% 1%, 64% 0%, 82% 1%, 100% 0%, 99% 18%, 100% 33%, 99% 50%, 100% 67%, 99% 82%, 98% 100%, 82% 99%, 64% 100%, 48% 99%, 32% 100%, 16% 99%, 0% 100%, 1% 82%, 0% 67%, 1% 50%, 0% 33%, 1% 16%)",
-                filter: "drop-shadow(6px 6px 0 rgba(57,255,20,0.3))",
-              }}
-            >
-              <Image
-                src="/chair/zine/04-mask.jpg"
-                alt="Punk-zine illustration: green aztec mask 'steps' watching a phone-locked figure"
-                fill
-                priority
-                sizes="(max-width: 1024px) 90vw, 700px"
-                style={{ objectFit: "cover" }}
-              />
-            </div>
-            <div aria-hidden style={{ position: "absolute", top: -12, right: 64, width: 100, height: 22, background: "rgba(255,255,200,0.4)", transform: "rotate(5deg)", boxShadow: "0 2px 8px rgba(0,0,0,0.5)" }} />
-            <div style={{ marginTop: 16, fontFamily: CAVEAT, fontSize: 20, color: NEON_GREEN, transform: "rotate(-1deg)" }}>
-              they call this number <span style={{ color: NEON_PINK }}>&ldquo;you&rdquo;</span>. it is sold.
-            </div>
-          </div>
-
-          <div style={{ position: "relative", paddingLeft: 16 }}>
+          {/* Headline + caveat span the top, full width */}
+          <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 48, alignItems: "end" }} className="zine-phase04-head">
             <h2
               style={{
                 fontFamily: ANTON,
-                fontSize: "clamp(48px, 5.6vw, 84px)",
+                fontSize: "clamp(56px, 7.2vw, 124px)",
                 color: PAPER,
-                lineHeight: 0.92,
-                letterSpacing: "-0.02em",
-                margin: "0 0 18px",
+                lineHeight: 0.86,
+                letterSpacing: "-0.025em",
+                margin: 0,
                 textTransform: "uppercase",
-                filter: "url(#zine-spray)",
+                filter: "url(#zine-stencil)",
               }}
             >
               You are now<br />
               <span style={{ color: NEON_GREEN }}>a reading.</span>
             </h2>
-            <p style={{ fontFamily: SANS, fontSize: 17, lineHeight: 1.55, color: PAPER, maxWidth: "44ch", fontWeight: 420, margin: "0 0 26px" }}>
-              Your pupil. Your skin. Your dwell. The interval between scrolls. They measure what you cannot stop doing. The number they extract is the number they sell. <strong style={{ color: NEON_GREEN }}>The number is yours.</strong> The sale is theirs.
-            </p>
-
-            {/* Live ticker */}
-            <div
+            <p
               style={{
-                background: "rgba(10,9,8,0.7)",
-                border: `2px solid ${NEON_PINK}`,
-                padding: "20px 24px",
-                maxWidth: 540,
+                fontFamily: SANS,
+                fontSize: 17,
+                lineHeight: 1.55,
+                color: PAPER_DIM,
+                margin: "0 0 16px",
+                fontWeight: 420,
               }}
             >
-              <div style={{ fontFamily: MONO, fontSize: 10, color: NEON_PINK, letterSpacing: "0.3em", marginBottom: 16, textTransform: "uppercase" }}>
-                ◆ your reading · this session · right now
-              </div>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 12, alignItems: "baseline" }}>
-                {[
-                  { l: "LI", v: m.LI.toFixed(2), c: PAPER, sub: "libidinal" },
-                  { l: "CE", v: (m.CE * 100).toFixed(0) + "%", c: NEON_CYAN, sub: "monetised" },
-                  { l: "Ψ", v: m.PS.toFixed(2), c: NEON_PINK, sub: "yours/theirs" },
-                ].map((x) => (
-                  <div key={x.l}>
-                    <div style={{ fontFamily: MONO, fontSize: 10, color: MUTED, letterSpacing: "0.2em", marginBottom: 6 }}>{x.l}</div>
-                    <div style={{ fontFamily: ANTON, fontSize: "clamp(36px, 4vw, 56px)", color: x.c, lineHeight: 1, fontVariantNumeric: "tabular-nums" as const, letterSpacing: "-0.02em" }}>{x.v}</div>
-                    <div style={{ fontFamily: MONO, fontSize: 9, color: MUTED, letterSpacing: "0.16em", marginTop: 6, textTransform: "uppercase" }}>{x.sub}</div>
+              Your pupil. Your skin. Your dwell. The interval between scrolls. They measure what you cannot stop doing.{" "}
+              <strong style={{ color: NEON_GREEN }}>The number is yours.</strong> The sale is theirs. Above, your reading. Below, you.
+            </p>
+          </div>
+
+          {/* GIANT LIVE TICKER — the centerpiece, spans full width */}
+          <div
+            style={{
+              marginTop: 56,
+              padding: "44px 40px",
+              background: "rgba(10,9,8,0.6)",
+              border: `3px solid ${NEON_PINK}`,
+              position: "relative",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: -16,
+                left: 32,
+                background: BLACK,
+                padding: "0 14px",
+                fontFamily: MONO,
+                fontSize: 11,
+                color: NEON_PINK,
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                fontWeight: 700,
+              }}
+            >
+              ◆ your reading · this session · right now
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr 1fr 1fr",
+                gap: 24,
+                alignItems: "baseline",
+              }}
+              className="zine-ticker-grid"
+            >
+              {[
+                { l: "TI", v: m.TI.toFixed(2), c: PAPER, sub: "time invested" },
+                { l: "LI", v: m.LI.toFixed(2), c: PAPER, sub: "libidinal" },
+                { l: "CE", v: (m.CE * 100).toFixed(0) + "%", c: NEON_CYAN, sub: "monetised" },
+                { l: "Ψ", v: m.PS.toFixed(2), c: NEON_PINK, sub: "yours / theirs" },
+              ].map((x) => (
+                <div key={x.l}>
+                  <div style={{ fontFamily: MONO, fontSize: 11, color: MUTED, letterSpacing: "0.24em", marginBottom: 8 }}>{x.l}</div>
+                  <div
+                    style={{
+                      fontFamily: ANTON,
+                      fontSize: "clamp(64px, 9vw, 156px)",
+                      color: x.c,
+                      lineHeight: 0.92,
+                      fontVariantNumeric: "tabular-nums" as const,
+                      letterSpacing: "-0.04em",
+                    }}
+                  >
+                    {x.v}
                   </div>
-                ))}
+                  <div style={{ fontFamily: MONO, fontSize: 10, color: MUTED, letterSpacing: "0.18em", marginTop: 10, textTransform: "uppercase" }}>{x.sub}</div>
+                </div>
+              ))}
+            </div>
+            <div
+              style={{
+                marginTop: 28,
+                paddingTop: 18,
+                borderTop: `1px solid rgba(240,235,226,0.12)`,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                flexWrap: "wrap",
+                gap: 16,
+                fontFamily: MONO,
+                fontSize: 11,
+                color: PAPER_DIM,
+                letterSpacing: "0.16em",
+                textTransform: "uppercase",
+              }}
+            >
+              <span>247,891 readings logged in cohort 2025 · 0 recovered</span>
+              <span style={{ color: NEON_PINK }}>◆ harvested with no warrant · sold by ouroboros industries</span>
+            </div>
+          </div>
+
+          {/* Below ticker: small inset image + survivor + caveat as a 3-col band */}
+          <div
+            style={{
+              marginTop: 56,
+              display: "grid",
+              gridTemplateColumns: "280px 1fr 1fr",
+              gap: 40,
+              alignItems: "start",
+            }}
+            className="zine-phase04-foot"
+          >
+            <div style={{ position: "relative", transform: "rotate(-2deg)" }}>
+              <div
+                style={{
+                  position: "relative",
+                  aspectRatio: "3 / 4",
+                  clipPath:
+                    "polygon(2% 1%, 18% 0%, 34% 1%, 52% 0%, 68% 1%, 84% 0%, 100% 1%, 99% 16%, 100% 32%, 99% 48%, 100% 64%, 99% 80%, 100% 99%, 84% 100%, 68% 99%, 52% 100%, 34% 99%, 18% 100%, 0% 99%, 1% 82%, 0% 66%, 1% 50%, 0% 34%, 1% 18%)",
+                  filter: "drop-shadow(6px 6px 0 rgba(57,255,20,0.3))",
+                }}
+              >
+                <Image
+                  src="/chair/zine/04-mask.jpg"
+                  alt="Punk-zine illustration: green aztec mask 'steps' watching a phone-locked figure"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 90vw, 280px"
+                  style={{ objectFit: "cover" }}
+                />
               </div>
-              <div style={{ marginTop: 18, fontFamily: MONO, fontSize: 11, color: PAPER_DIM, letterSpacing: "0.16em", textTransform: "uppercase", borderTop: `1px solid rgba(240,235,226,0.1)`, paddingTop: 12 }}>
-                247,891 readings logged in cohort 2025 · 0 recovered
+              <div aria-hidden style={{ position: "absolute", top: -10, left: 24, width: 80, height: 20, background: "rgba(255,255,200,0.45)", transform: "rotate(-8deg)", boxShadow: "0 2px 8px rgba(0,0,0,0.5)" }} />
+              <div style={{ marginTop: 14, fontFamily: CAVEAT, fontSize: 18, color: NEON_GREEN, transform: "rotate(-1deg)", lineHeight: 1.2 }}>
+                they call this number <span style={{ color: NEON_PINK }}>&ldquo;you&rdquo;</span>.<br />it is sold by the kilowatt-hour.
               </div>
             </div>
 
@@ -1240,6 +1358,26 @@ export default function ZineSpread() {
               quote={<>I read my own reading at the cohort meeting. I did not recognize the number. The number was higher than me.</>}
               attrib="N.O., Cohort 2025.07 · withdrawn"
             />
+
+            <div
+              style={{
+                padding: "20px 22px",
+                border: `1px dashed ${NEON_CYAN}`,
+                background: "rgba(10,9,8,0.6)",
+              }}
+            >
+              <div style={{ fontFamily: MONO, fontSize: 10, color: NEON_CYAN, letterSpacing: "0.28em", textTransform: "uppercase", marginBottom: 12, fontWeight: 700 }}>
+                ◆ what your reading buys them
+              </div>
+              <div style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.5, color: PAPER }}>
+                Last quarter, the average occupant Ψ sold for{" "}
+                <strong style={{ color: NEON_PINK }}>$0.27 / day</strong> to advertisers,
+                $0.14 to insurance algorithms, and $0.08 to the grid. Annualized:{" "}
+                <strong style={{ color: NEON_PINK }}>~$179.</strong> Annualized lifetime cost of polymer + chemical infusions:{" "}
+                <strong style={{ color: STAMP_RED }}>$48,000 - $96,000.</strong>{" "}
+                You are operating at a 99.6% loss.
+              </div>
+            </div>
           </div>
         </div>
         <Leakage
