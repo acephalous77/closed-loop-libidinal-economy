@@ -41,9 +41,11 @@ const PATRIOTIC_ROUTES = [
   "/patriotic-times",
   "/patriotic-times/colophon",
   "/patriotic-times/plates",
-  "/patriotic-times/plates/alligator-alcatraz",
-  "/patriotic-times/plates/lafayette-square",
+  "/patriotic-times/plates/the-brooks-brothers-riot",
+  "/patriotic-times/plates/ferguson-missouri",
+  "/patriotic-times/plates/the-lafayette-square-photo-op",
   "/patriotic-times/plates/the-gallows",
+  "/patriotic-times/plates/the-alligator-alcatraz",
 ];
 
 const CLOSED_LOOP_ROUTES = [

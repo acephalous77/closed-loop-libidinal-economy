@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { PLATES, SECTIONS } from "./_data";
+import { PLATES, DECADES, getPlatesByDecade } from "./_data";
 
 export const metadata: Metadata = {
   title: "Plates",
   description:
-    "All 25 plates of Patriotic Times, organized by section. Each plate opens to an interactive coloring canvas — color it on screen, then print your version.",
+    "All 63 plates of Patriotic Times, in chronological order from 2000 to 2026. Each plate opens to an interactive coloring canvas — color it on screen, then print your version.",
   alternates: { canonical: "/patriotic-times/plates" },
 };
 
@@ -18,6 +18,8 @@ const RED = "#b8222a";
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
+
+const livePlateCount = PLATES.filter((p) => p.src !== null).length;
 
 export default function PlatesIndex() {
   return (
@@ -40,7 +42,7 @@ export default function PlatesIndex() {
       </nav>
 
       {/* Masthead */}
-      <header style={{ marginBottom: "4rem", maxWidth: "44rem" }}>
+      <header style={{ marginBottom: "4rem", maxWidth: "48rem" }}>
         <div
           style={{
             fontFamily: MONO,
@@ -52,7 +54,7 @@ export default function PlatesIndex() {
             marginBottom: "0.8rem",
           }}
         >
-          The Plates · 25 in Four Sections
+          The Plates · 63 Postcards · 2000–2026
         </div>
         <h1
           style={{
@@ -76,20 +78,34 @@ export default function PlatesIndex() {
             lineHeight: 1.45,
             color: INK_70,
             marginTop: "1.5rem",
-            maxWidth: "38rem",
+            maxWidth: "40rem",
           }}
         >
-          Each plate is line art. Click in to color it in your browser.
-          Print your version when you are done — or print it blank
-          and color it by hand. The act is the project.
+          Each plate is a postcard: line art on the front, a stamp template
+          on the reverse. Open one to color it in your browser, then print
+          your version — or print the blank line art and color it by hand.
+          The act is the project.
+        </p>
+        <p
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.78rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.18em",
+            color: INK_50,
+            marginTop: "1.25rem",
+          }}
+        >
+          {livePlateCount} of 63 plates currently published. The rest are
+          forthcoming.
         </p>
       </header>
 
-      {/* Sections */}
-      {([1, 2, 3, 4] as const).map((sectionNo) => {
-        const sectionPlates = PLATES.filter((p) => p.section === sectionNo);
+      {/* Sections by decade */}
+      {DECADES.map((dec) => {
+        const decPlates = getPlatesByDecade(dec.label);
         return (
-          <section key={sectionNo} style={{ marginBottom: "4rem" }}>
+          <section key={dec.label} style={{ marginBottom: "5rem" }}>
             <div
               style={{
                 borderTop: `2px solid ${INK}`,
@@ -113,12 +129,12 @@ export default function PlatesIndex() {
                     fontWeight: 700,
                   }}
                 >
-                  Section {sectionNo}
+                  Plates {decPlates[0]?.no.toString().padStart(2, "0")}–{decPlates[decPlates.length - 1]?.no.toString().padStart(2, "0")}
                 </div>
                 <h2
                   style={{
                     fontFamily: DISPLAY,
-                    fontSize: "clamp(1.6rem, 3vw, 2.4rem)",
+                    fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
                     fontWeight: 900,
                     letterSpacing: "-0.025em",
                     textTransform: "uppercase",
@@ -126,7 +142,7 @@ export default function PlatesIndex() {
                     color: INK,
                   }}
                 >
-                  {SECTIONS[sectionNo]}
+                  {dec.label}
                 </h2>
               </div>
               <div
@@ -138,29 +154,28 @@ export default function PlatesIndex() {
                   color: INK_50,
                 }}
               >
-                Pages {sectionPlates[0]?.pageNo}–{sectionPlates[sectionPlates.length - 1]?.pageNo}
+                {decPlates.length} plates
               </div>
             </div>
 
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-                gap: "2rem",
+                gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
+                gap: "1.5rem",
               }}
             >
-              {sectionPlates.map((p) => {
+              {decPlates.map((p) => {
                 const isReady = p.src !== null;
                 const card = (
                   <div
                     style={{
                       background: "#fff",
                       border: `1px solid ${INK}`,
-                      overflow: "hidden",
                       display: "flex",
                       flexDirection: "column",
                       height: "100%",
-                      opacity: isReady ? 1 : 0.7,
+                      opacity: isReady ? 1 : 0.75,
                     }}
                   >
                     {/* Image area */}
@@ -197,7 +212,7 @@ export default function PlatesIndex() {
                             alignItems: "center",
                             color: INK_50,
                             fontFamily: MONO,
-                            fontSize: "0.75rem",
+                            fontSize: "0.7rem",
                             textTransform: "uppercase",
                             letterSpacing: "0.2em",
                             textAlign: "center",
@@ -212,29 +227,29 @@ export default function PlatesIndex() {
                       )}
                     </div>
                     {/* Caption */}
-                    <div style={{ padding: "1.25rem 1.25rem 1.5rem", flex: 1 }}>
+                    <div style={{ padding: "1rem 1.1rem 1.2rem", flex: 1, display: "flex", flexDirection: "column" }}>
                       <div
                         style={{
                           fontFamily: MONO,
-                          fontSize: "0.7rem",
+                          fontSize: "0.68rem",
                           textTransform: "uppercase",
-                          letterSpacing: "0.2em",
+                          letterSpacing: "0.18em",
                           color: RED,
                           fontWeight: 700,
-                          marginBottom: "0.35rem",
+                          marginBottom: "0.4rem",
                         }}
                       >
-                        Page {p.pageNo.toString().padStart(2, "0")} · {p.caption}
+                        № {p.no.toString().padStart(2, "0")} · {p.year}
                       </div>
                       <div
                         style={{
                           fontFamily: DISPLAY,
-                          fontSize: "1.3rem",
+                          fontSize: "1.15rem",
                           fontWeight: 800,
                           letterSpacing: "-0.015em",
-                          lineHeight: 1.1,
+                          lineHeight: 1.15,
                           color: INK,
-                          marginBottom: "0.6rem",
+                          marginBottom: "0.4rem",
                         }}
                       >
                         {p.title}
@@ -242,20 +257,21 @@ export default function PlatesIndex() {
                       <div
                         style={{
                           fontFamily: SERIF,
-                          fontSize: "0.92rem",
+                          fontSize: "0.85rem",
                           fontStyle: "italic",
-                          lineHeight: 1.45,
+                          lineHeight: 1.4,
                           color: INK_70,
+                          flex: 1,
                         }}
                       >
-                        {p.scene}
+                        {p.location}
                       </div>
                       {isReady && (
                         <div
                           style={{
-                            marginTop: "1rem",
+                            marginTop: "0.8rem",
                             fontFamily: MONO,
-                            fontSize: "0.72rem",
+                            fontSize: "0.65rem",
                             textTransform: "uppercase",
                             letterSpacing: "0.2em",
                             color: RED,
@@ -294,7 +310,7 @@ export default function PlatesIndex() {
       {/* Footer */}
       <section
         style={{
-          marginTop: "5rem",
+          marginTop: "4rem",
           paddingTop: "2rem",
           borderTop: `2px solid ${INK}`,
           textAlign: "center",
@@ -309,7 +325,10 @@ export default function PlatesIndex() {
             margin: 0,
           }}
         >
-          Plates with placeholder cards are pending publication.
+          Source: <em>Patriotic Times — Coloring Book of US Democratic State
+          Failures &amp; the Emergence of Fascism</em> (2026).
+          Plates with placeholder cards are pending publication on the live
+          site; the canonical sequence is preserved.
         </p>
       </section>
     </main>

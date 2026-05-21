@@ -53,7 +53,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2009", title: "Portsmouth Town Hall", note: "Armed intimidation enters mainstream politics." },
     ],
     plate: {
-      src: "/patriotic-times/plate-i-brooks-brothers.png",
+      src: "/patriotic-times/plate-01-the-brooks-brothers-riot.png",
       caption: "The Brooks Brothers Riot",
       sub: "Fig. I.i — Miami-Dade canvassing board, November 2000. Corporate intimidation halts the count.",
     },
@@ -79,7 +79,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2016", title: "Standing Rock", note: "Water cannons in the freezing cold for corporate oil." },
     ],
     plate: {
-      src: "/patriotic-times/plate-02-mrap.png",
+      src: "/patriotic-times/plate-18-ferguson-missouri.png",
       caption: "MRAP on a residential street",
       sub: "Fig. II.iv — A military vehicle deploys against the citizens it was sold to as protection.",
     },
@@ -100,7 +100,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2020", title: "The Plot to Kidnap Governor Whitmer", note: "Escalation to domestic terror plots." },
     ],
     plate: {
-      src: "/patriotic-times/plate-iii-lafayette-square.png",
+      src: "/patriotic-times/plate-28-the-lafayette-square-photo-op.png",
       caption: "Lafayette Square, June 1, 2020",
       sub: "Fig. III.v — Tear-gassed protesters cleared from a park for the Bible photo-op at St. John's.",
     },
@@ -121,9 +121,9 @@ const CHAPTERS: Chapter[] = [
       { year: "2025", title: "Army Parade & 'No Kings' Protests", note: "Dictatorial aesthetics met with millions in the streets." },
     ],
     plate: {
-      src: "/patriotic-times/plate-01-january-6.png",
+      src: "/patriotic-times/plate-34-the-gallows.png",
       caption: "January 6, 2021 — the gallows on the National Mall",
-      sub: "Fig. IV.i — Patriot iconography in service of the breach. The Capitol behind. (Plate 25: The Gallows)",
+      sub: "Fig. IV.i — Patriot iconography in service of the breach. The Capitol behind. (Plate 34: The Gallows)",
     },
   },
 ];
@@ -202,7 +202,7 @@ export default function PatrioticTimesLanding() {
           }}
         >
           A coloring book of US democratic state failures and the
-          emergence of fascism. Four chapters. Twenty-five plates.
+          emergence of fascism. Four chapters. Sixty-three plates.
           Twenty-six years.
         </p>
       </header>
@@ -219,7 +219,7 @@ export default function PatrioticTimesLanding() {
       >
         <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 5vw" }}>
           <Image
-            src="/patriotic-times/plate-01-january-6.png"
+            src="/patriotic-times/plate-34-the-gallows.png"
             alt="A line-art plate depicting the gallows erected on the National Mall on January 6, 2021"
             width={1100}
             height={733}
@@ -503,7 +503,7 @@ export default function PatrioticTimesLanding() {
               fontWeight: 700,
             }}
           >
-            → The plates (25)
+            → The plates (63)
           </a>
           <a
             href="/patriotic-times/colophon"

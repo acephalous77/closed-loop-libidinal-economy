@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const plate = getPlateBySlug(slug);
   if (!plate) return { title: "Plate not found" };
   return {
-    title: `Plate ${plate.pageNo} — ${plate.title}`,
-    description: `Patriotic Times, Plate ${plate.pageNo}: ${plate.title} (${plate.caption}). ${plate.scene}`,
+    title: `№ ${plate.no.toString().padStart(2, "0")} — ${plate.title}`,
+    description: `Patriotic Times, plate ${plate.no}: ${plate.title}. ${plate.location}, ${plate.year}.`,
     alternates: { canonical: `/patriotic-times/plates/${plate.slug}` },
   };
 }
@@ -43,8 +43,7 @@ export default async function PlateColorPage({ params }: PageProps) {
   const plate = getPlateBySlug(slug);
   if (!plate || !plate.src) notFound();
 
-  // Determine prev/next within the same section first, then across
-  // all plates with src
+  // Prev/next across live plates (those with src)
   const livePlates = PLATES.filter((p) => p.src !== null);
   const idx = livePlates.findIndex((p) => p.slug === plate.slug);
   const prev = idx > 0 ? livePlates[idx - 1] : null;
@@ -52,7 +51,6 @@ export default async function PlateColorPage({ params }: PageProps) {
 
   return (
     <main style={{ padding: "3rem 5vw 4rem", maxWidth: "1400px", margin: "0 auto" }}>
-      {/* Breadcrumb + nav */}
       <nav
         className="print-hide"
         style={{
@@ -62,18 +60,8 @@ export default async function PlateColorPage({ params }: PageProps) {
           flexWrap: "wrap",
         }}
       >
-        <a
-          href="/patriotic-times"
-          style={{ ...crumbStyle }}
-        >
-          ← Patriotic Times
-        </a>
-        <a
-          href="/patriotic-times/plates"
-          style={{ ...crumbStyle }}
-        >
-          ← All plates
-        </a>
+        <a href="/patriotic-times" style={crumbStyle}>← Patriotic Times</a>
+        <a href="/patriotic-times/plates" style={crumbStyle}>← All plates</a>
       </nav>
 
       {/* Header */}
@@ -92,7 +80,7 @@ export default async function PlateColorPage({ params }: PageProps) {
             marginBottom: "0.5rem",
           }}
         >
-          Section {plate.section} · {plate.sectionTitle} · Page {plate.pageNo.toString().padStart(2, "0")}
+          № {plate.no.toString().padStart(2, "0")} of 63 · {plate.year}
         </div>
         <h1
           style={{
@@ -119,26 +107,13 @@ export default async function PlateColorPage({ params }: PageProps) {
             marginBottom: 0,
           }}
         >
-          {plate.caption}
-        </p>
-        <p
-          style={{
-            fontFamily: SERIF,
-            fontSize: "1rem",
-            lineHeight: 1.55,
-            color: INK_50,
-            marginTop: "1rem",
-            maxWidth: "38rem",
-          }}
-        >
-          {plate.scene}
+          {plate.location}, {plate.year}.
         </p>
       </header>
 
       {/* Canvas */}
       <ColoringCanvas src={plate.src!} alt={`${plate.title} — line art for coloring`} />
 
-      {/* Prev / next nav (skipped if neither) */}
       {(prev || next) && (
         <nav
           className="print-hide"
@@ -154,12 +129,12 @@ export default async function PlateColorPage({ params }: PageProps) {
         >
           {prev ? (
             <a href={`/patriotic-times/plates/${prev.slug}`} style={navLinkStyle}>
-              ← Page {prev.pageNo.toString().padStart(2, "0")} · {prev.title}
+              ← № {prev.no.toString().padStart(2, "0")} · {prev.title}
             </a>
           ) : <span />}
           {next ? (
             <a href={`/patriotic-times/plates/${next.slug}`} style={navLinkStyle}>
-              Page {next.pageNo.toString().padStart(2, "0")} · {next.title} →
+              № {next.no.toString().padStart(2, "0")} · {next.title} →
             </a>
           ) : <span />}
         </nav>
