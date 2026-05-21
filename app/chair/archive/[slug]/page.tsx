@@ -86,6 +86,33 @@ const BODIES: Record<string, Body> = {
     ],
   },
 
+  "lineage-claim": {
+    paragraphs: [
+      `The Ouroboros Life System's commercial materials presented the apparatus as the seventh iteration of a developmental sequence beginning with an 1865 device the marketers named "The Labor Compensator." The brochure's heritage section traced the sequence forward through five further iterations &mdash; the Efficiency Enhancer (1900), the Dynamic Dynamo (1925), the Knowledge Chair (1955), the Virtual Ouroboros (1985), and the OLS itself (2024) &mdash; framing the apparatus as the cumulative product of 160 years of design refinement.`,
+
+      `The lineage was a 2024 retcon. The six claimed predecessors existed; the lineage between them did not.`,
+
+      `The Labor Compensator was an actual 1860s patent (U.S. 67,341, filed by one P. R. Halloran of Charleston, S.C., 1867): a hand-cranked agricultural aid sold to Reconstruction-era plantations as a bionic assist for the recently emancipated workforce. The device shipped in measurable quantities for approximately eight years; the patent lapsed before 1880. There is no documentary connection between Halloran's device and any successor named in the OLS lineage.`,
+
+      `The Efficiency Enhancer (1900) was an actual but unrelated mechanized-agriculture rig manufactured by the Cleveland Implement Works for a single growing season. The Dynamic Dynamo (1925) was an electric loom patent, not a seated workstation. The Knowledge Chair (1955) was an obscure desk-integrated typewriter and party-line telephone combination, sold in fewer than ninety units. The Virtual Ouroboros (1985) was a patent application that never issued; the inventor of record had no further documented connection to the technology.`,
+
+      `The OLS marketing department compiled the lineage from the period's openly accessible patent records between February and June of 2024 and presented it to the consumer as a continuous design tradition. None of the named predecessors had any developmental, corporate, or personnel connection to the OLS, to its manufacturer, or to one another.`,
+
+      { quote: "The chair was a 21st-century apparatus. The history was a 21st-century apparatus too." },
+
+      `The retcon was an effective rhetorical maneuver. By presenting the OLS as the seventh iteration of a 160-year tradition, the manufacturer made the apparatus feel inevitable &mdash; the culmination of forces the consumer was not invited to evaluate. The reader of the heritage section encountered the chair already inside its own history. Aspiration to that history substituted for evaluation of the product.`,
+
+      `The retcon's success also illuminates something about the period's relationship to historical narrative. The same period that proscribed retconned product claims in food, pharmaceutical, and financial advertising had no analogous mechanism for assessing whether a brand's claimed design lineage was historically accurate. The OLS lineage was, in this regard, simply legally available marketing. The period's regulators treated history as decorative.`,
+
+      `One scholar (Devereux 2183) has noted that the heritage section's terminal artifact &mdash; the line "[error. system malfunction. reboot required.]" appearing at the bottom of the timeline in the original brochure &mdash; should be read alongside the other period-typography artifacts (see entry 2197.07). It is the same signature: a generative system used in production briefly emitted output not intended for the customer. The marketers preserved the artifact, in subsequent printings, as if it were intentional.`,
+    ],
+    crossRefs: [
+      { code: "2197.07", slug: "period-typography", note: "On the marketing-AI signature in the heritage section's terminal glitch." },
+      { code: "2197.14", slug: "proto-apparatuses", note: "On the apparatus's actual ancestry &mdash; the platform-era systems the heritage section did not name." },
+      { code: "2197.26", slug: "testimonial-analysis", note: "On the related rhetorical maneuver in the testimonial register." },
+    ],
+  },
+
   "eternal-tier": {
     paragraphs: [
       `The Eternal configuration, priced "on request" and only available through direct manufacturer-issued invitation, extended the apparatus's service contract beyond the biological cessation of the occupant. The manufacturer's published guidance was that the Eternal contract included "estate transfer protocols" and "post-mortem data continuity" &mdash; phrases which, in the period's commercial vernacular, signaled the persistence of the occupant's productivity-feedback record and their consumer-preference profile beyond the occupant's death.`,

@@ -57,6 +57,13 @@ export const ENTRIES = [
       "On the platform-era systems that prefigured the apparatus and made its conception inevitable.",
   },
   {
+    slug: "lineage-claim",
+    code: "2197.18",
+    title: "The Lineage Claim",
+    summary:
+      "On the manufacturer's heritage narrative — six predecessor devices the apparatus claimed as its 160-year design tradition. The retcon and its rhetorical work.",
+  },
+  {
     slug: "eternal-tier",
     code: "2197.22",
     title: "On the Eternal Tier: Post-mortem Continuity",

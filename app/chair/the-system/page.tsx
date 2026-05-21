@@ -193,6 +193,57 @@ const TIERS = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────
+// LINEAGE — the heritage timeline
+// Six predecessor iterations the apparatus claims as its design lineage.
+// (Future archive reads this lineage as a 2024 retcon. See archive entry
+// 2197.18 "The Lineage Claim.")
+// ─────────────────────────────────────────────────────────────────────
+const LINEAGE = [
+  {
+    year: "1865",
+    name: "The Labor Compensator",
+    period: "Reconstruction",
+    body:
+      "The first iteration. Patented in the years following Emancipation, the Compensator was a hand-cranked mechanical aid to agricultural work, designed to maintain the period's productivity expectations through the labor reorganization that period required. The machine assisted; the worker remained external to it.",
+  },
+  {
+    year: "1900",
+    name: "The Efficiency Enhancer",
+    period: "Second Industrial Revolution",
+    body:
+      "Mechanized agriculture and human labor combined into a single seated unit. The worker began, for the first time, to inhabit the apparatus for the duration of the shift rather than alongside it. The integration was partial; the cycle remained open at both ends.",
+  },
+  {
+    year: "1925",
+    name: "The Dynamic Dynamo",
+    period: "Electrification",
+    body:
+      "The first electrified chair. A workstation integrated into the assembly line, with electrical circuits augmenting the seated worker's reach, speed, and stamina. During the 1930s the Dynamo entered the period's factories at scale; during the 1940s, a field-deployable variant accompanied the wartime infantry.",
+  },
+  {
+    year: "1955",
+    name: "The Knowledge Chair",
+    period: "Postwar Computing",
+    body:
+      "The cerebral iteration. Integrated telecommunication, an early data terminal, and a magnetic-tape archive transformed the seated subject from a laborer into an information processor. The 1960s brought domestic adoption; the 1970s networked the chairs into a coordinated grid.",
+  },
+  {
+    year: "1985",
+    name: "The Virtual Ouroboros",
+    period: "Networked Era",
+    body:
+      "The first iteration in which the seated subject's physical and digital workspaces converged. The boundary between work and leisure dissolved by design. The Ring's logic — closed-loop integration of every continuous-service function — became visible for the first time, though the implementation remained partial.",
+  },
+  {
+    year: "2024",
+    name: "The Ouroboros Life System",
+    period: "Present cohort",
+    body:
+      "The current iteration. Nutritional, hydrational, eliminative, productive, and affective subsystems converge into the Ring. After 160 years of design refinement, the cycle closes. The OLS is the first iteration to make the occupant's session-length open-ended.",
+  },
+];
+
+// ─────────────────────────────────────────────────────────────────────
 // TESTIMONIALS
 // ─────────────────────────────────────────────────────────────────────
 const TESTIMONIALS = [
@@ -709,9 +760,151 @@ export default function TheSystem() {
         ))}
       </div>
 
-      {/* TESTIMONIALS */}
+      {/* HERITAGE — six iterations across 160 years */}
       <SectionHeader
         code="§05"
+        name="Heritage — Six iterations · 160 years"
+        intro="The Ouroboros Life System is the seventh iteration of an apparatus our predecessors began designing in 1865. Each generation has solved the integration problem of its period. The OLS solves it for ours."
+      />
+      <ol
+        style={{
+          listStyle: "none",
+          padding: "0 0 0 28px",
+          margin: "0 0 6rem",
+          position: "relative",
+          borderLeft: `1px solid ${ACCENT_SOFT}`,
+        }}
+      >
+        {LINEAGE.map((l, i) => (
+          <li
+            key={i}
+            style={{
+              position: "relative",
+              padding: "8px 0 38px",
+            }}
+          >
+            {/* timeline node */}
+            <span
+              aria-hidden
+              style={{
+                position: "absolute",
+                left: -33,
+                top: 16,
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: ACCENT,
+                boxShadow: `0 0 0 4px ${BG}`,
+              }}
+            />
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "120px 1fr",
+                gap: 28,
+                alignItems: "baseline",
+              }}
+              className="ols-lineage-row"
+            >
+              <div>
+                <div
+                  style={{
+                    fontFamily: ANTON,
+                    fontSize: 40,
+                    color: ACCENT,
+                    lineHeight: 0.9,
+                    letterSpacing: "-0.01em",
+                  }}
+                >
+                  {l.year}
+                </div>
+                <div
+                  style={{
+                    fontFamily: MONO,
+                    fontSize: 9,
+                    letterSpacing: "0.22em",
+                    color: PAPER_FAINT,
+                    textTransform: "uppercase",
+                    marginTop: 6,
+                  }}
+                >
+                  {l.period}
+                </div>
+              </div>
+              <div>
+                <h3
+                  style={{
+                    fontFamily: ANTON,
+                    fontSize: 24,
+                    color: PAPER,
+                    textTransform: "uppercase",
+                    letterSpacing: "0.01em",
+                    margin: "0 0 8px",
+                    lineHeight: 1.05,
+                  }}
+                >
+                  {l.name}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: SANS,
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: PAPER_DIM,
+                    margin: 0,
+                    fontWeight: 380,
+                  }}
+                >
+                  {l.body}
+                </p>
+              </div>
+            </div>
+          </li>
+        ))}
+        {/* Glitch artifact — the corporate voice briefly leaks. The
+           archive (entry 2197.07 period-typography) treats these
+           artifacts as the period's marketing-AI signature. */}
+        <li
+          aria-hidden
+          style={{
+            position: "relative",
+            padding: "8px 0 0",
+          }}
+        >
+          <span
+            style={{
+              position: "absolute",
+              left: -33,
+              top: 16,
+              width: 10,
+              height: 10,
+              borderRadius: "50%",
+              background: PAPER_FAINT,
+              boxShadow: `0 0 0 4px ${BG}`,
+            }}
+          />
+          <div
+            style={{
+              fontFamily: MONO,
+              fontSize: 11,
+              letterSpacing: "0.18em",
+              color: PAPER_FAINT,
+              textTransform: "uppercase",
+              lineHeight: 1.7,
+            }}
+          >
+            [error. system malfunction. reboot required.]
+            <br />
+            <span style={{ color: PAPER_DIM }}>
+              ▸ telemetry restored · continuing
+            </span>
+          </div>
+        </li>
+      </ol>
+
+      {/* TESTIMONIALS */}
+      <SectionHeader
+        code="§06"
         name="What occupants say"
         intro="Reproduced with the occupant's consent. Cohort and tier designations have been verified against the apparatus's onboard service ledger."
       />
@@ -816,7 +1009,7 @@ export default function TheSystem() {
             fontWeight: 600,
           }}
         >
-          §06 · Schedule your fitting
+          §07 · Schedule your fitting
         </p>
         <h2
           style={{
@@ -1056,6 +1249,7 @@ export default function TheSystem() {
           .ols-tiers { grid-template-columns: 1fr !important; }
           .ols-fitting-steps { grid-template-columns: 1fr 1fr !important; }
           .ols-footer { grid-template-columns: 1fr !important; }
+          .ols-lineage-row { grid-template-columns: 1fr !important; gap: 8px !important; }
         }
         @media (max-width: 560px) {
           .ols-fitting-steps { grid-template-columns: 1fr !important; }

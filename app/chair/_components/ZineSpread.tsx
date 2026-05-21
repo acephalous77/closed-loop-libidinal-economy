@@ -2240,6 +2240,45 @@ function ManifestoPoster() {
           </span>
         </h2>
 
+        {/* Heritage refusal — names the retcon predecessors and dismisses the lineage */}
+        <div
+          style={{
+            marginTop: 36,
+            padding: "18px 22px",
+            background: "rgba(230,58,44,0.08)",
+            borderLeft: `4px solid ${STAMP_RED}`,
+            fontFamily: SANS,
+            fontSize: 16,
+            lineHeight: 1.55,
+            color: BLACK,
+            fontWeight: 500,
+          }}
+        >
+          They have called it:{" "}
+          <s style={{ textDecorationColor: STAMP_RED, textDecorationThickness: 2 }}>
+            the Labor Compensator
+          </s>{" · "}
+          <s style={{ textDecorationColor: STAMP_RED, textDecorationThickness: 2 }}>
+            the Efficiency Enhancer
+          </s>{" · "}
+          <s style={{ textDecorationColor: STAMP_RED, textDecorationThickness: 2 }}>
+            the Dynamic Dynamo
+          </s>{" · "}
+          <s style={{ textDecorationColor: STAMP_RED, textDecorationThickness: 2 }}>
+            the Knowledge Chair
+          </s>{" · "}
+          <s style={{ textDecorationColor: STAMP_RED, textDecorationThickness: 2 }}>
+            the Virtual Ouroboros
+          </s>{" · "}
+          <s style={{ textDecorationColor: STAMP_RED, textDecorationThickness: 2 }}>
+            the Ouroboros Life System
+          </s>
+          .{" "}
+          <strong style={{ color: STAMP_RED, fontWeight: 700 }}>
+            They have always called it something noble. It has always been the same chair.
+          </strong>
+        </div>
+
         <div
           style={{
             display: "grid",
