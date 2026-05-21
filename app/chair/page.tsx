@@ -102,8 +102,14 @@ function Nav() {
       <nav className="brochure-nav-links" style={{
         display: "flex", gap: 28, fontSize: 13, color: B.inkDim,
       }}>
-        {["The Ring", "OHCOSE", "Subsystems", "Schematic", "Tiers"].map((s) => (
-          <a key={s} href="#" style={{ color: "inherit", textDecoration: "none" }}>{s}</a>
+        {([
+          ["The Ring",   "#ring"],
+          ["OHCOSE",     "#ohcose"],
+          ["Subsystems", "/chair/subsystems"],
+          ["Schematic",  "#schematic"],
+          ["Tiers",      "#tiers"],
+        ] as [string, string][]).map(([label, href]) => (
+          <a key={label} href={href} style={{ color: "inherit", textDecoration: "none" }}>{label}</a>
         ))}
       </nav>
       <div style={{ display: "flex", justifyContent: "flex-end", gap: 14, alignItems: "center" }}>
@@ -312,9 +318,10 @@ function RingDetail() {
     ["d", "Drainage",                 "Sealed sub-floor return · scheduled service window"],
   ];
   return (
-    <section style={{
+    <section id="ring" style={{
       padding: "80px 32px", background: B.panelSoft,
       borderTop: `0.5px solid ${B.rule}`, borderBottom: `0.5px solid ${B.rule}`,
+      scrollMarginTop: 84,
     }}>
       <div style={{
         display: "grid", gridTemplateColumns: "160px 1fr", gap: 40,
@@ -410,7 +417,7 @@ function OHCOSE() {
     ["E", "Estate",      "post-mortem",    "Data record and productivity profile remain active. Eternal-tier configurations operate for 99 fiscal years."],
   ];
   return (
-    <section style={{ padding: "120px 32px 80px" }}>
+    <section id="ohcose" style={{ padding: "120px 32px 80px", scrollMarginTop: 84 }}>
       <div style={{
         display: "grid", gridTemplateColumns: "160px 1fr", gap: 40,
       }} className="brochure-ohcose-head">
@@ -482,8 +489,9 @@ function OHCOSE() {
 // ──────────────────────────────────────────────────────────────────
 function Schematic() {
   return (
-    <section style={{
+    <section id="schematic" style={{
       background: "#0a1d3a",
+      scrollMarginTop: 84,
     }} className="brochure-schematic">
       {/* Heading block above the drawing — never overlay the blueprint
           itself, which the brochure wants the reader to study. */}
@@ -572,9 +580,10 @@ const TIERS: Tier[] = [
 
 function Tiers() {
   return (
-    <section style={{
+    <section id="tiers" style={{
       padding: "80px 32px 100px", background: B.panelSoft,
       borderTop: `0.5px solid ${B.rule}`, borderBottom: `0.5px solid ${B.rule}`,
+      scrollMarginTop: 84,
     }}>
       <div style={{
         display: "grid", gridTemplateColumns: "160px 1fr", gap: 40,
@@ -754,17 +763,40 @@ function Footer() {
           at autostimulus.org/chair under CC&nbsp;BY-SA&nbsp;4.0.
         </p>
       </div>
-      {[
-        ["The apparatus", ["The Ring", "OHCOSE", "Subsystems", "Schematic", "Tiers"]],
-        ["Compliance", ["Service Agreement", "Eternal protocol", "Estate licensure", "Regulatory addenda"]],
-        ["Companion documents", ["Essay · /chair", "Zine · /chair/zine", "Archive · /chair/archive", "Citation · BibTeX"]],
-      ].map(([h, items]) => (
-        <div key={h as string}>
+      {([
+        ["The apparatus", [
+          ["The Ring",     "#ring"],
+          ["OHCOSE",       "#ohcose"],
+          ["Subsystems",   "/chair/subsystems"],
+          ["Schematic",    "#schematic"],
+          ["Tiers",        "#tiers"],
+        ]],
+        ["Compliance", [
+          ["Service Agreement",   "/chair/subsystems/consent-loops"],
+          ["Eternal protocol",    "/chair/archive/eternal-tier"],
+          ["Estate licensure",    "/chair/archive/eternal-tier"],
+          ["Regulatory addenda",  "/chair/archive/pro-tier-moratorium"],
+        ]],
+        ["Companion documents", [
+          ["Essay",       "/chair/essay"],
+          ["Zine",        "/chair/zine"],
+          ["Archive",     "/chair/archive"],
+          ["Colophon",    "/chair/colophon"],
+        ]],
+      ] as [string, [string, string][]][]).map(([h, items]) => (
+        <div key={h}>
           <div style={{ color: "#ecead8", fontWeight: 600, marginBottom: 10 }}>
-            {h as string}
+            {h}
           </div>
-          {(items as string[]).map((s) => (
-            <div key={s} style={{ padding: "4px 0" }}>{s}</div>
+          {items.map(([label, href]) => (
+            <div key={label} style={{ padding: "4px 0" }}>
+              <a
+                href={href}
+                style={{ color: "inherit", textDecoration: "none" }}
+              >
+                {label}
+              </a>
+            </div>
           ))}
         </div>
       ))}

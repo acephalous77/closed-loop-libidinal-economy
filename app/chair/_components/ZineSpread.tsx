@@ -2045,7 +2045,7 @@ function CountdownClock({ dwell }: { dwell: number }) {
         the apparatus accepts new occupants every eight minutes
       </div>
       <a
-        href="#"
+        href="/chair/refusal"
         style={{
           display: "inline-block",
           marginTop: 20,

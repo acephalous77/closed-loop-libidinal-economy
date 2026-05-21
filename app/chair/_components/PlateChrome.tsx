@@ -194,13 +194,18 @@ interface SectionMarkProps {
 }
 
 export function SectionMark({ n, title, tokens = MASTER }: SectionMarkProps) {
+  const id = `section-${n.toLowerCase()}`;
   return (
-    <div style={{
-      display: "grid", gridTemplateColumns: "74px 1fr",
-      gap: 16, alignItems: "baseline",
-      paddingTop: 18, marginBottom: 18,
-      borderTop: `1px solid ${tokens.rule}`,
-    }}>
+    <div
+      id={id}
+      style={{
+        display: "grid", gridTemplateColumns: "74px 1fr",
+        gap: 16, alignItems: "baseline",
+        paddingTop: 18, marginBottom: 18,
+        borderTop: `1px solid ${tokens.rule}`,
+        scrollMarginTop: "5rem",
+      }}
+    >
       <span style={{
         fontFamily: FONT.mono, fontSize: 11, color: tokens.accent,
         fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase",
