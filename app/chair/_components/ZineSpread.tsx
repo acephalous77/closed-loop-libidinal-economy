@@ -700,7 +700,7 @@ export default function ZineSpread() {
           >
             * this is not a brochure.{" "}
             <a
-              href="/chair/the-system"
+              href="/chair"
               style={{
                 color: NEON_GREEN,
                 textDecoration: "underline",

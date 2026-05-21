@@ -1,812 +1,799 @@
 import type { Metadata } from "next";
-import { MASTER, FONT } from "./_components/tokens";
-import { PlateHeader, PlateFooter, SectionMark, ChairGlyph } from "./_components/PlateChrome";
-import { HeroChair } from "./_components/HeroChair";
-import { OHCOSEWheel } from "./_components/OHCOSEWheel";
-import { LineageScrubber } from "./_components/LineageScrubber";
-import { TAOGTriangle } from "./_components/TAOGTriangle";
+import { FONT } from "./_components/tokens";
+import { PlateHeader, PlateFooter } from "./_components/PlateChrome";
+import { OccupantGallery } from "./_components/OccupantGallery";
 
 export const metadata: Metadata = {
-  title: { absolute: "On the Chair — Notes Toward a Theory of the Closed-Loop Libidinal Economy" },
-  description: "An essay on the chair as the most lucid figure for what the contemporary apparatus of consumer libidinal-economic governance has been becoming. By Adnan Selimović.",
+  title: { absolute: "The Apparatus — Ouroboros Life System" },
+  description:
+    "The Ouroboros Life System operates a closed-loop libidinal economy at the scale of a single household.",
   alternates: { canonical: "/chair" },
 };
 
-const T = MASTER;
-
 // ──────────────────────────────────────────────────────────────────
-// /chair — the essay, in the forensic-atlas register.
-// Three-column layout: left gutter for running header + marginalia,
-// main column for prose, right gutter for figure plates and
-// cross-references. The chair appears (as the side-elevation figure)
-// on the masthead and recurs as a glyph in every section.
-// ──────────────────────────────────────────────────────────────────
-
-export default function OnTheChair() {
-  return (
-    <article>
-      <PlateHeader plate="I" route="/chair · § I — IX" code="DOSS · OLS · ESSAY" />
-
-      <div style={{
-        maxWidth: 1200, margin: "0 auto", padding: "60px 60px 80px",
-        position: "relative", zIndex: 1,
-      }}>
-        <Masthead />
-        <Epigraph />
-        <TOC />
-
-        <Body>
-          <SectionMark n="I" title="A Figure" />
-          <DropCapP>
-            The chair we are concerned with does not yet exist. This is its
-            first feature. The Ouroboros Life System, in the form I will
-            describe it, is a single-occupant residential apparatus that
-            integrates nutritional, hydrational, eliminative, neurological,
-            and productivity-feedback subsystems into a continuous closed
-            loop. It is sold to its occupant as the elimination of the
-            friction between living, working, and consuming. The occupant
-            is seated, ringed, and integrated.
-          </DropCapP>
-          <P>
-            The chair is a figure. It does not exist as such. The apparatus
-            it diagrams is everywhere. The premise of this essay is that
-            the chair is the most lucid figure we have for what the
-            contemporary libidinal economy has been becoming, and that
-            looking at the chair is easier than looking at the apparatus
-            directly.
-          </P>
-          <P>
-            A few things follow. The closed-loop libidinal economy is not
-            coming; it is here already, distributed across the platforms,
-            devices, and consent rituals we inhabit. Its concentration
-            into a single piece of furniture is useful as a thought
-            experiment because the apparatus&apos;s distribution is what
-            makes it hard to see. It has a developmental morphology —
-            what I have elsewhere called <em>OHCOSE</em>, a six-phase
-            lifecycle that organises the occupant&apos;s relation to it
-            from onboarding to estate.<Fn n="1" />
-          </P>
-          <P>
-            So: half fiction, half aggregation. The fiction is the chair
-            itself, which you can imagine sitting in. The aggregation is
-            the apparatus, which every subsystem the chair contains
-            actually instances, somewhere, today.
-          </P>
-
-          <SectionMark n="II" title="The Loop" />
-          <P>
-            The ouroboros — the snake that devours its own tail — is the
-            apparatus&apos;s structural confession. The Ring, the
-            chair&apos;s central integration component, encircles the
-            occupant at chest height; every input the occupant requires
-            and every output the occupant generates routes through the
-            Ring&apos;s tubing or its embedded cable assemblies.
-          </P>
-          <LoopDiagram />
-          <P>
-            The vocabulary already exists. The <em>closed-loop libidinal
-            economy</em> is the economic-and-psychic system in which
-            desire is captured and re-circulated by the same apparatus
-            that produces it. Lyotard proposed in 1974 that capitalism is
-            most fruitfully approached &ldquo;through the lens of desire
-            or libido&rdquo; rather than as a system of material
-            production alone.<Fn n="3" />
-          </P>
-          <P>
-            The loop has two features that distinguish it from earlier
-            forms of capture. It has no outside: every output the subject
-            generates is fed back as input. And it is satisfaction-seeking
-            but never satiating — Baudrillard&apos;s &ldquo;perpetual
-            cycle of mild satisfaction and renewed longing&rdquo; made
-            into architecture.<Fn n="4" />
-          </P>
-          <Pull>The chair is the platform with the furniture put back.</Pull>
-
-          <SectionMark n="III" title="Psychic Surplus" />
-          <P>
-            What is the apparatus extracting? Not labor, exactly. The
-            Marxian construct of <em>surplus labor</em> does not quite
-            reach what the contemporary apparatus takes. We need a
-            parallel construct. I have called it <em>psychic surplus</em>:
-            the portion of our attention, affect, fantasy, and motivation
-            that exceeds what is strictly required for biological survival
-            and that can be captured and re-routed by the apparatus
-            without compromising the subject&apos;s continued
-            functioning.<Fn n="5" />
-          </P>
-          <P>
-            Psychic surplus is what the chair runs on. So do Meta&apos;s
-            advertising network, TikTok&apos;s For-You feed,
-            Pornhub&apos;s preference-assignment engine. The chair is the
-            same extraction concentrated into a piece of furniture, where
-            what was diffuse becomes visible.
-          </P>
-
-          <SectionMark n="IV" title="OHCOSE" />
-          <P>
-            The apparatus is not a single event but a developmental
-            sequence. I name its six phases OHCOSE: <em>Onboarding</em>,{" "}
-            <em>Habituation</em>, <em>Calibration</em>, <em>Occupancy</em>,{" "}
-            <em>Stewardship</em>, <em>Estate</em>. The apparatus relates
-            to its occupant differently in each. The figure below makes
-            the relation interactive — click a phase, drag the journey
-            scrubber.
-          </P>
-        </Body>
-
-        {/* Interactive plate sits outside the centered prose column */}
-        <OHCOSEWheel />
-
-        <Body>
-          <P>
-            A note on object relations. Klein&apos;s account of the
-            paranoid-schizoid and depressive positions, and
-            Winnicott&apos;s account of the transitional object, are still
-            the best psychoanalytic descriptions of how a subject comes
-            to treat a non-self object as constitutive of self.<Fn n="11" />{" "}
-            Somewhere between Onboarding and Calibration the apparatus
-            becomes, for the occupant, a transitional object in
-            Winnicott&apos;s sense. By Occupancy the transition is
-            complete. The occupant cannot distinguish their preferences
-            from the apparatus&apos;s modeling of their preferences.
-          </P>
-
-          <SectionMark n="V" title="The Seven Subsystems" />
-          <P>
-            The apparatus is, technically, an integration of seven
-            subsystems. The naming is mine. The functions are real.
-            The longer treatments are at <Link href="/chair/subsystems">
-            subsystems</Link>; here I will just name them.
-          </P>
-          <SubsystemsList />
-          <P>
-            The list of seven is misleading if read as a list of seven
-            separate things. The subsystems are facets of one operation
-            — the closed loop running — and the analytic question is
-            rarely <em>which subsystem</em> but <em>which moment of the
-            loop the occupant is currently inside</em>. I call the
-            loop&apos;s temporal organisation <em>Capture of Cadence</em>.
-            <Fn n="13" />
-          </P>
-
-          <SectionMark n="VI" title="The Apparatus Already Exists" />
-          <P>
-            The chair is a figure; the apparatus is not. Four
-            well-documented cases.
-          </P>
-          <P>
-            <Link href="/chair/precedents/meta-emotional-contagion">
-            Meta&apos;s 2014 emotional-contagion experiment</Link> demonstrated
-            that algorithmic adjustment of users&apos; news feeds could
-            induce specified emotional states in roughly one in fifty
-            users.<Fn n="14" /> This is the apparatus&apos;s Desire Engine.
-          </P>
-          <P>
-            <Link href="/chair/precedents/tiktok-cadence">TikTok&apos;s
-            recommendation engine</Link> infers preferences from
-            micro-gestural responses. The technical stack is identical to
-            that of an affective-computing medical device; the regulatory
-            framing is identical to that of an entertainment service.
-          </P>
-          <P>
-            <Link href="/chair/precedents/pornhub-preference-assignment">
-            Pornhub&apos;s recommendation engine</Link> has been documented
-            to assign sexual preferences to users without explicit consent
-            after fewer than a hundred video views.<Fn n="15" />
-          </P>
-          <P>
-            <Link href="/chair/precedents/social-credit-system">China&apos;s
-            Social Credit System</Link> scores citizens against a behavioral
-            compliance metric and routes the score into access to flights,
-            housing, and credit.<Fn n="16" /> The Compliance Monitor, in
-            state form.
-          </P>
-
-          <SectionMark n="VII" title="The 160-Year Lineage" />
-          <P>
-            The apparatus has historical depth. Six iterations across 160
-            years. Below: click any iteration tick to see the
-            brochure&apos;s claim against the historical record.
-          </P>
-        </Body>
-
-        <LineageScrubber />
-
-        <Body>
-          <P>
-            The lineage is partial. Two of the named devices shipped only
-            in tiny quantities; the connections between iterations are
-            reconstructed retrospectively rather than documented
-            contemporaneously. The morphological argument is independent
-            of the contemporaneous-development one.<Fn n="18" />
-          </P>
-
-          <SectionMark n="VIII" title="Tri-Axial Ouroboric Governance" />
-          <P>
-            The apparatus loops desire along three axes simultaneously,
-            and a great deal of the existing literature, in my reading,
-            misses the apparatus by engaging only one of them. The
-            framework I have developed to keep all three in view is{" "}
-            <em>Tri-Axial Ouroboric Governance</em> — TAOG.<Fn n="19" />
-          </P>
-        </Body>
-
-        <TAOGTriangle />
-
-        <Body>
-          <P>
-            TAOG&apos;s claim is that the contemporary apparatus runs all
-            three axes at once, at the same scale, and that any analysis
-            engaging only one will miss the apparatus by exactly the
-            margin of the other two.
-          </P>
-
-          <SectionMark n="IX" title="Refusal" />
-          <P>
-            A politics is owed. The longer treatment is at{" "}
-            <Link href="/chair/refusal">/chair/refusal</Link>, where I add
-            a fourth move. Here I sketch the first three.
-          </P>
-          <P>
-            <strong>One.</strong> Withhold the consent. The apparatus&apos;s
-            grip is secured by the cumulative effect of small consents.
-            Refusing them does not destroy the apparatus; it forecloses
-            its legal alibis.
-          </P>
-          <P>
-            <strong>Two.</strong> Interrupt the cadence. To withhold
-            attention at the moment the apparatus has scheduled it to
-            fire — to be slow when speed is demanded, silent when noise
-            is rewarded, inattentive when engagement is metered.
-          </P>
-          <P>
-            <strong>Three.</strong> Accept the friction. The friction the
-            apparatus eliminates is frequently the very friction in which
-            non-apparatus-mediated life consists.
-          </P>
-          <Pull>The smallness is the point.</Pull>
-          <P>
-            What the moves preserve is the capacity to recognise the
-            apparatus as an apparatus, and to act on the recognition. That
-            recognition is what the rest of this project has been trying
-            to make available.
-          </P>
-        </Body>
-
-        <Coda />
-        <Signature />
-        <Notes />
-        <Companions />
-        <Artifacts />
-      </div>
-
-      <PlateFooter folio="I" total="42" section="Essay · On the Chair" />
-    </article>
-  );
-}
-
-// ──────────────────────────────────────────────────────────────────
-// MASTHEAD / EPIGRAPH / TOC
+// /chair — the brochure as landing.
+//
+// The volume's landing page. The reader meets the apparatus in the
+// apparatus's own voice first; the essay and companions are reached
+// from here via the top nav or the route map at /chair/essay#routes.
+//
+// Register INVERSION from the essay's master cream/sepia. Clinical
+// showroom white + blueprint navy accent. Manrope dominates the
+// chrome; Source Serif italic carries only the apparatus's voice
+// moments. The register-shift from the essay (serif-dominant) is
+// felt typographically as well as in palette.
 // ──────────────────────────────────────────────────────────────────
 
-function Masthead() {
-  return (
-    <header style={{ marginBottom: "3rem", paddingBottom: "2.5rem",
-                       borderBottom: `0.5px solid ${T.rule}` }}>
-      <div style={{
-        display: "flex", justifyContent: "space-between",
-        fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.22em",
-        textTransform: "uppercase", color: T.inkMute, marginBottom: "2rem",
-      }}>
-        <span style={{ color: T.accent, fontWeight: 600 }}>● Specimen 06 of the lineage</span>
-        <span style={{ color: T.accent }}>● live · cohort 2026</span>
-      </div>
+const B = {
+  paper:    "#fafaf7",
+  panel:    "#ffffff",
+  panelSoft:"#f1f1ee",
+  ink:      "#0d0d10",
+  inkDim:   "#3a3a3e",
+  inkMute:  "#6e6e74",
+  inkFaint: "#a8a8ae",
+  rule:     "rgba(13,13,16,0.10)",
+  ruleSoft: "rgba(13,13,16,0.05)",
+  accent:   "#15356c",
+  accentBg: "#f0f3f9",
+};
 
-      <HeroChair withCallouts={true} />
+const BROCHURE_TOKENS = {
+  paper: B.paper, paper2: B.panel, ink: B.ink, inkDim: B.inkDim,
+  inkMute: B.inkMute, inkFaint: B.inkFaint, rule: B.rule, ruleSoft: B.ruleSoft,
+  accent: B.accent, accentDim: B.accent, accentBg: B.accentBg,
+};
 
-      <h1 style={{
-        fontFamily: FONT.serif, fontStyle: "italic", fontWeight: 400,
-        fontSize: "clamp(3.5rem, 9vw, 7rem)", lineHeight: 0.92,
-        letterSpacing: "-0.025em", color: T.ink, margin: "3rem 0 1rem",
-        textAlign: "center",
-      }}>On the Chair.</h1>
-      <p style={{
-        fontFamily: FONT.serif, fontSize: "1.3rem", lineHeight: 1.45,
-        color: T.inkDim, margin: 0, fontStyle: "italic", textAlign: "center",
-        maxWidth: "36rem", marginInline: "auto",
-      }}>
-        Notes toward a theory of the closed-loop libidinal economy.
-      </p>
-      <div style={{
-        marginTop: "2.4rem", paddingTop: "1.2rem", paddingBottom: "0.4rem",
-        borderTop: `0.5px solid ${T.rule}`,
-        display: "flex", justifyContent: "center", gap: "1.6rem",
-        flexWrap: "wrap", fontFamily: FONT.mono, fontSize: "0.7rem",
-        letterSpacing: "0.22em", color: T.inkMute, textTransform: "uppercase",
-      }}>
-        <span style={{ color: T.ink }}>Adnan Selimović</span>
-        <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-        <span>May 2026</span>
-        <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-        <span>≈ 3 000 words</span>
-        <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-        <span>9 §§ · 19 notes</span>
-      </div>
-    </header>
-  );
-}
-
-function Epigraph() {
-  return (
-    <blockquote style={{
-      margin: "0 auto 3.5rem", maxWidth: "38rem", textAlign: "center",
-      fontFamily: FONT.serif, fontStyle: "italic", fontSize: "1.3rem",
-      lineHeight: 1.5, color: T.ink,
-    }}>
-      &ldquo;I am not, on the whole, less happy. I am less sure what I
-      would do with the chair turned off.&rdquo;
-      <footer style={{
-        marginTop: "1rem", fontFamily: FONT.mono, fontSize: "0.66rem",
-        letterSpacing: "0.22em", color: T.inkMute, textTransform: "uppercase",
-        fontStyle: "normal",
-      }}>— M.K., Pro · Cohort 2026.04</footer>
-    </blockquote>
-  );
-}
-
-function TOC() {
-  const entries: [string, string][] = [
-    ["I", "A Figure"], ["II", "The Loop"], ["III", "Psychic Surplus"],
-    ["IV", "OHCOSE"], ["V", "The Seven Subsystems"], ["VI", "The Apparatus Already Exists"],
-    ["VII", "The 160-Year Lineage"], ["VIII", "Tri-Axial Ouroboric Governance"], ["IX", "Refusal"],
-  ];
-  return (
-    <nav aria-label="Contents" style={{
-      margin: "0 0 3.5rem", padding: "1.4rem 0",
-      borderTop: `1px solid ${T.rule}`, borderBottom: `1px solid ${T.rule}`,
-    }}>
-      <p style={{
-        fontFamily: FONT.mono, fontSize: "0.66rem", letterSpacing: "0.28em",
-        color: T.accent, textTransform: "uppercase",
-        margin: "0 0 1rem", fontWeight: 600,
-      }}>◆ Contents</p>
-      <ol style={{
-        listStyle: "none", padding: 0, margin: 0,
-        columnCount: 3, columnGap: "2rem",
-      }}>
-        {entries.map(([n, title]) => (
-          <li key={n} style={{ padding: "0.25rem 0", breakInside: "avoid" }}>
-            <a href={`#section-${n.toLowerCase()}`} style={{
-              fontFamily: FONT.serif, fontSize: "1rem", color: T.ink,
-              textDecoration: "none", display: "grid",
-              gridTemplateColumns: "2.4rem 1fr", gap: "0.4rem",
-              alignItems: "baseline",
-            }}>
-              <span style={{
-                fontFamily: FONT.mono, fontSize: "0.7rem", color: T.inkMute,
-                letterSpacing: "0.18em",
-              }}>§ {n}</span>
-              <span style={{ fontStyle: "italic" }}>{title}</span>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </nav>
-  );
-}
-
-// ──────────────────────────────────────────────────────────────────
-// PROSE PRIMITIVES — center column, ≈ 44rem.
-// ──────────────────────────────────────────────────────────────────
-
-function Body({ children }: { children: React.ReactNode }) {
+export default function BrochurePage() {
   return (
     <div style={{
-      maxWidth: "44rem", marginInline: "auto", marginBlock: "2rem",
-    }}>{children}</div>
-  );
-}
-
-function P({ children }: { children: React.ReactNode }) {
-  return (
-    <p style={{
-      fontFamily: FONT.serif, fontSize: "1.075rem", lineHeight: 1.72,
-      color: T.ink, margin: "0 0 1.2rem", textWrap: "pretty",
-    }}>{children}</p>
-  );
-}
-
-function DropCapP({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="chair-dropcap" style={{
-      fontFamily: FONT.serif, fontSize: "1.075rem", lineHeight: 1.72,
-      color: T.ink, margin: "0 0 1.4rem",
-    }}>{children}</p>
-  );
-}
-
-function Pull({ children }: { children: React.ReactNode }) {
-  return (
-    <blockquote style={{
-      margin: "2.4rem 0", padding: "0 0 0 1.4rem",
-      borderLeft: `2px solid ${T.accent}`,
-      fontFamily: FONT.serif, fontStyle: "italic", fontWeight: 400,
-      fontSize: "1.5rem", lineHeight: 1.4, color: T.ink,
-      letterSpacing: "-0.008em",
-    }}>{children}</blockquote>
-  );
-}
-
-function Link({ href, children }: { href: string; children: React.ReactNode }) {
-  return (
-    <a href={href} style={{
-      color: T.ink, textDecoration: "underline",
-      textDecorationColor: T.accent, textDecorationThickness: 1.5,
-      textUnderlineOffset: 3,
-    }}>{children}</a>
-  );
-}
-
-function Fn({ n }: { n: string }) {
-  return (
-    <sup>
-      <a href={`#note-${n}`} id={`ref-${n}`} style={{
-        fontFamily: FONT.mono, color: T.accent, textDecoration: "none",
-        fontSize: "0.7em", padding: "0 0.15em", fontWeight: 600,
-      }}>[{n}]</a>
-    </sup>
-  );
-}
-
-// ──────────────────────────────────────────────────────────────────
-// FIGURES + END MATTER
-// ──────────────────────────────────────────────────────────────────
-
-function LoopDiagram() {
-  return (
-    <figure style={{ margin: "2rem 0 2.4rem" }}>
-      <svg viewBox="0 0 600 300" style={{ width: "100%", height: "auto", display: "block" }}>
-        <ellipse cx="300" cy="150" rx="220" ry="100" fill="none"
-                 stroke={T.ink} strokeWidth="0.8" opacity="0.7" />
-        <polygon points="520,150 510,144 510,156" fill={T.accent} />
-        <polygon points="80,150 90,144 90,156" fill={T.accent} />
-        <circle cx="80" cy="150" r="36" fill={T.paper} stroke={T.ink} strokeWidth="1" />
-        <text x="80" y="155" textAnchor="middle" fontFamily={FONT.serif}
-              fontStyle="italic" fontSize="14" fill={T.ink}>subject</text>
-        <circle cx="520" cy="150" r="36" fill={T.paper} stroke={T.ink} strokeWidth="1" />
-        <text x="520" y="155" textAnchor="middle" fontFamily={FONT.serif}
-              fontStyle="italic" fontSize="14" fill={T.ink}>apparatus</text>
-        <text x="300" y="38" textAnchor="middle" fontFamily={FONT.mono}
-              fontSize="10" fill={T.accent} letterSpacing="0.22em">
-          PSYCHIC SURPLUS  ·  OUTPUT
-        </text>
-        <text x="300" y="272" textAnchor="middle" fontFamily={FONT.mono}
-              fontSize="10" fill={T.accent} letterSpacing="0.22em">
-          MODULATED DESIRE  ·  RETURN
-        </text>
-      </svg>
-      <figcaption style={{
-        marginTop: "0.6rem", fontFamily: FONT.mono, fontSize: "0.7rem",
-        color: T.inkMute, letterSpacing: "0.16em",
-        textTransform: "uppercase", textAlign: "center",
-      }}>Fig. 1 · The closed loop · subject and apparatus</figcaption>
-    </figure>
-  );
-}
-
-function SubsystemsList() {
-  const rows: [string, string, string, string][] = [
-    ["desire-engines", "Desire Engines", "Content surfaces that generate desire-objects calibrated to the occupant's response profile.", "Deleuze & Guattari · Baudrillard · McLuhan"],
-    ["consent-loops", "Consent Loops", "Ritualised agreement architecture through which the occupant's participation is repeatedly legitimised.", "Foucault · legal-positivist tradition"],
-    ["compliance-monitors", "Compliance Monitors", "Continuous behavioural surveillance and correction systems.", "Foucault · Bentham · Zuboff"],
-    ["surplus-reservoirs", "Surplus Reservoirs", "Data and capital aggregation systems where the apparatus stores what it has extracted.", "Marx, transposed · Zuboff"],
-    ["feedback-rituals", "Feedback Rituals", "Micro-rewards and acknowledgments that reinforce continued participation.", "Klein · Winnicott · Skinner · casino industry"],
-    ["affective-signal-translators", "Affective Signal Translators", "Biometric and neuro-monitoring systems that read the occupant's interior states.", "Preciado · Damasio · affective computing"],
-    ["algorithmic-libido-governors", "Algorithmic Libido Governors", "Macro-level systems that modulate desire's intensity across the population.", "Lyotard · Berardi · cybernetics tradition"],
-  ];
-  return (
-    <ol style={{
-      listStyle: "none", padding: 0, margin: "1.4rem 0 1.4rem",
-      borderTop: `1px solid ${T.rule}`,
+      background: B.paper, color: B.ink,
+      fontFamily: FONT.manrope, fontWeight: 400,
+      letterSpacing: "-0.005em", position: "relative",
     }}>
-      {rows.map(([slug, name, body, lineage], i) => (
-        <li key={i} style={{ borderBottom: `1px solid ${T.rule}` }}>
-          <a href={`/chair/subsystems/${slug}`} style={{
-            display: "grid", gridTemplateColumns: "2rem 1fr auto",
-            gap: "1rem", padding: "0.9rem 0",
-            textDecoration: "none", color: "inherit", alignItems: "baseline",
-          }}>
-            <span style={{
-              fontFamily: FONT.mono, fontSize: "0.7rem", color: T.accent,
-              letterSpacing: "0.18em", fontWeight: 700,
-            }}>{String(i + 1).padStart(2, "0")}</span>
-            <div>
-              <div style={{
-                fontFamily: FONT.serif, fontSize: "1.08rem",
-                fontStyle: "italic", color: T.ink, fontWeight: 600,
-                marginBottom: 4, letterSpacing: "-0.005em",
-              }}>{name}</div>
-              <div style={{
-                fontFamily: FONT.serif, fontSize: "0.95rem",
-                color: T.inkDim, lineHeight: 1.55, marginBottom: 6,
-              }}>{body}</div>
-              <div style={{
-                fontFamily: FONT.mono, fontSize: "0.66rem",
-                color: T.inkMute, letterSpacing: "0.16em",
-                textTransform: "uppercase",
-              }}>Inheritance: {lineage}</div>
-            </div>
-            <span aria-hidden style={{
-              fontFamily: FONT.mono, fontSize: "0.78rem",
-              color: T.accent, letterSpacing: "0.06em",
-            }}>→</span>
-          </a>
-        </li>
-      ))}
-    </ol>
-  );
-}
+      <PlateHeader plate="II" route="/chair" code="OLS · ARTIFACT · BROCHURE"
+                   tokens={BROCHURE_TOKENS} />
 
-function Coda() {
-  return (
-    <section aria-label="Coda" style={{
-      margin: "4rem auto 0", maxWidth: "36rem", textAlign: "center",
-      paddingTop: "3rem", borderTop: `1px solid ${T.rule}`,
-    }}>
-      <p style={{
-        fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
-        color: T.accent, textTransform: "uppercase",
-        margin: "0 0 1.6rem", fontWeight: 600,
-      }}>◆ Coda</p>
-      <p style={{
-        fontFamily: FONT.serif, fontStyle: "italic", fontSize: "1.15rem",
-        lineHeight: 1.6, color: T.ink, margin: "0 0 1.4rem",
-      }}>
-        I have stopped trying to write this essay from outside the
-        apparatus. The position does not exist. What I have been able to
-        do is describe the apparatus from a position inside it that has
-        not yet been completely calibrated, and that retains the capacity
-        to recognise the calibration in progress.
-      </p>
-      <p style={{
-        fontFamily: FONT.serif, fontStyle: "italic", fontSize: "1.15rem",
-        lineHeight: 1.6, color: T.ink, margin: 0,
-      }}>
-        It is, in any case, late. Cohort 2026.05 opens next month.
-      </p>
-    </section>
-  );
-}
+      <Nav />
+      <Hero />
+      <Specs />
+      <Foreword />
+      <RingDetail />
+      <OHCOSE />
+      <Schematic />
+      <OccupantGallery tokens={B} />
+      <Tiers />
+      <CTAandCostco />
+      <Footer />
 
-function Signature() {
-  return (
-    <div style={{
-      marginTop: "3.5rem", paddingTop: "2rem",
-      fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.22em",
-      color: T.inkMute, textTransform: "uppercase", textAlign: "center",
-      display: "flex", justifyContent: "center", gap: "1.6rem", flexWrap: "wrap",
-    }}>
-      <span style={{ color: T.ink }}>Adnan Selimović</span>
-      <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-      <span>Brooklyn, May 2026</span>
-      <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-      <span>Volume Ω.026</span>
+      <PlateFooter folio="II" total="XLII" section="Brochure · the apparatus"
+                   tokens={BROCHURE_TOKENS} />
     </div>
   );
 }
 
-const NOTES: { n: string; body: React.ReactNode }[] = [
-  { n: "1", body: <>OHCOSE is the working name for the six-phase lifecycle model. The phases are a research apparatus, not a literal timeline.</> },
-  { n: "3", body: <>Jean-François Lyotard, <em>Libidinal Economy</em> (1974); Grant&apos;s translation introduces the &ldquo;libido as method&rdquo; framing.</> },
-  { n: "4", body: <>Jean Baudrillard, <em>La société de consommation</em> (1970); the phrase is paraphrase, not citation.</> },
-  { n: "5", body: <>The term is mine but not original to me; see Selimović 2024 and the manuscripts for <em>Theory, Culture &amp; Society</em>.</> },
-  { n: "11", body: <>Melanie Klein, &ldquo;Notes on Some Schizoid Mechanisms&rdquo; (1946); D. W. Winnicott, <em>Playing and Reality</em> (1971).</> },
-  { n: "13", body: <>Capture of Cadence is one of the project&apos;s named frameworks; see <Link href="/closed-loop/the-dynamics">the dynamics</Link>.</> },
-  { n: "14", body: <>Kramer, Guillory, Hancock, &ldquo;Experimental evidence of massive-scale emotional contagion through social networks,&rdquo; <em>PNAS</em> 111 (2014): 8788–8790.</> },
-  { n: "15", body: <>The 2020 reporting on Pornhub&apos;s recommendation engine is the most accessible documentation.</> },
-  { n: "16", body: <>The literature on the Chinese Social Credit System is uneven; I recommend the dispassionate operational accounts.</> },
-  { n: "18", body: <>The archive treats the lineage as a 21st-century marketing retcon. The morphological argument is independent of the contemporaneous-development claim.</> },
-  { n: "19", body: <>TAOG is one of the project&apos;s named frameworks. See the formalisation at <Link href="/closed-loop/the-mathematics">the mathematics</Link>.</> },
-];
-
-function Notes() {
+// ──────────────────────────────────────────────────────────────────
+// NAV — sticky bar, hamburger on mobile.
+// ──────────────────────────────────────────────────────────────────
+function Nav() {
   return (
-    <section aria-label="Notes" style={{
-      marginTop: "4rem", paddingTop: "2rem",
-      borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
-    }}>
-      <h3 style={{
-        fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
-        color: T.accent, textTransform: "uppercase",
-        fontWeight: 600, margin: "0 0 1.4rem",
-      }}>Notes</h3>
-      <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {NOTES.map((note) => (
-          <li key={note.n} id={`note-${note.n}`} style={{
-            padding: "0.5rem 0", borderBottom: `1px solid ${T.rule}`,
-            display: "grid", gridTemplateColumns: "2.4rem 1fr",
-            gap: "0.5rem", alignItems: "baseline",
-          }}>
-            <a href={`#ref-${note.n}`} style={{
-              fontFamily: FONT.mono, fontSize: "0.78rem",
-              color: T.accent, fontWeight: 700, textDecoration: "none",
-              letterSpacing: "0.04em",
-            }}>[{note.n}]</a>
-            <div style={{
-              fontFamily: FONT.serif, fontSize: "0.94rem",
-              lineHeight: 1.55, color: T.inkDim,
-            }}>{note.body}</div>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
-}
-
-function Companions() {
-  const items = [
-    { href: "/chair/subsystems", label: "Seven Subsystems",
-      sub: "Long-form treatment of each subsystem in §V.", section: "§ V Extended" },
-    { href: "/chair/precedents", label: "Precedents",
-      sub: "The four documented cases §VI names.", section: "§ VI Extended" },
-    { href: "/chair/lineage", label: "Lineage",
-      sub: "Six iterations across 160 years, verified.", section: "§ VII Extended" },
-    { href: "/chair/refusal", label: "On Refusal",
-      sub: "Longer treatment of §IX. Four moves.", section: "§ IX Extended" },
-    { href: "/chair/concepts", label: "Concepts",
-      sub: "Working definitions of the project's named frameworks.", section: "Reference" },
-  ];
-  return (
-    <section aria-label="Companion essays" style={{
-      marginTop: "4rem", paddingTop: "2rem",
-      borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
-    }}>
-      <h3 style={{
-        fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
-        color: T.accent, textTransform: "uppercase",
-        fontWeight: 600, margin: "0 0 1.4rem",
-      }}>Companion Essays</h3>
-      <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {items.map((it) => (
-          <li key={it.href} style={{ padding: "1rem 0", borderTop: `1px solid ${T.rule}` }}>
-            <a href={it.href} style={{
-              display: "grid", gridTemplateColumns: "5.5rem 1fr",
-              gap: "0.6rem", textDecoration: "none", color: T.ink,
-            }}>
-              <span style={{
-                fontFamily: FONT.mono, fontSize: "0.66rem",
-                color: T.accent, letterSpacing: "0.18em",
-                textTransform: "uppercase", fontWeight: 700,
-              }}>{it.section}</span>
-              <div>
-                <div style={{
-                  fontFamily: FONT.serif, fontStyle: "italic",
-                  fontSize: "1.2rem", color: T.ink, marginBottom: 4,
-                }}>{it.label}</div>
-                <div style={{
-                  fontFamily: FONT.serif, fontSize: "0.95rem",
-                  lineHeight: 1.55, color: T.inkDim,
-                }}>{it.sub}</div>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
-}
-
-function Artifacts() {
-  // The full route map. Grouped by document type so the reader can
-  // see the project's shape at a glance and navigate to any surface.
-  // This is the section the layout footer's "route map" link points at.
-  const groups: { heading: string; items: { href: string; label: string; sub: string; plate?: string }[] }[] = [
-    {
-      heading: "Essay & companions",
-      items: [
-        { href: "/chair", plate: "I",   label: "On the Chair",   sub: "The essay — nine sections — the project's spine." },
-        { href: "/chair/subsystems", plate: "V",    label: "The Seven Subsystems",  sub: "§ V Extended — long-form treatments of each apparatus subsystem." },
-        { href: "/chair/precedents", plate: "VI",   label: "Precedents",            sub: "§ VI Extended — four documented cases: Meta, TikTok, Pornhub, PRC social credit." },
-        { href: "/chair/lineage",    plate: "VII",  label: "Lineage",               sub: "§ VII Extended — six iterations across 160 years, brochure-claim vs. record." },
-        { href: "/chair/refusal",    plate: "IX",   label: "On Refusal",            sub: "§ IX Extended — four moves toward a politics of refusal." },
-        { href: "/chair/concepts",   plate: "RF",   label: "Concepts",              sub: "Reference — working definitions of the project's named frameworks." },
-      ],
-    },
-    {
-      heading: "Three artifacts",
-      items: [
-        { href: "/chair/the-system", plate: "II",   label: "The Brochure",          sub: "The apparatus speaking in its own voice — clinical showroom register." },
-        { href: "/chair/zine",       plate: "III",  label: "The Resistance Pamphlet",sub: "Anti-copyright protest media. The voice of the occupants who refused." },
-        { href: "/chair/archive",    plate: "VIII", label: "The Imperial Archive",  sub: "Future-historian retrospective, c. 2197. Slate inversion." },
-      ],
-    },
-    {
-      heading: "End matter",
-      items: [
-        { href: "/chair/colophon",   plate: "XLII", label: "Colophon",              sub: "Production credits, typography, citation, version log, license." },
-      ],
-    },
-  ];
-  return (
-    <section
-      id="routes"
-      aria-label="Route map"
-      style={{
-        marginTop: "4rem", paddingTop: "2rem",
-        borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
-      }}
-    >
-      <h3 style={{
-        fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
-        color: T.accent, textTransform: "uppercase",
-        fontWeight: 600, margin: "0 0 0.4rem",
-      }}>● Route map</h3>
-      <p style={{
-        fontFamily: FONT.serif, fontStyle: "italic",
-        fontSize: "0.98rem", lineHeight: 1.55, color: T.inkDim,
-        margin: "0 0 2rem",
+    <div style={{
+      position: "sticky", top: 0, zIndex: 10,
+      height: 64, background: "rgba(250,250,247,0.92)",
+      backdropFilter: "blur(12px)",
+      borderBottom: `0.5px solid ${B.rule}`,
+      display: "grid", gridTemplateColumns: "1fr auto 1fr",
+      alignItems: "center", padding: "0 32px",
+    }} className="brochure-nav">
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+          <circle cx="16" cy="16" r="13" stroke={B.ink} strokeWidth="1.2" />
+          <path d="M 7 19 L 7 15 Q 7 13.6 8.4 13.4 L 14 12.5 L 21 10.5 Q 22.4 10.1 22.8 11.6 L 23.6 14.4 Q 23.6 15.2 23 15.4 L 9.2 21 Q 8 21.4 7.4 20.6 Z"
+                stroke={B.ink} strokeWidth="0.9" fill="none" />
+        </svg>
+        <div style={{ fontWeight: 600, fontSize: 14, letterSpacing: "-0.01em" }}>
+          Ouroboros Life System
+        </div>
+        <span style={{
+          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+          color: B.inkMute, marginLeft: 8, textTransform: "uppercase",
+        }}>v 4.2</span>
+      </div>
+      <nav className="brochure-nav-links" style={{
+        display: "flex", gap: 28, fontSize: 13, color: B.inkDim,
       }}>
-        Every surface in the volume. The essay is the spine. The
-        companions extend its sections. The three artifacts are
-        appended primary documents — mutually contradictory in voice,
-        each one partial. The colophon breaks character.
-      </p>
-      {groups.map((g) => (
-        <div key={g.heading} style={{ marginBottom: "2.2rem" }}>
+        {["The Ring", "OHCOSE", "Subsystems", "Schematic", "Tiers"].map((s) => (
+          <a key={s} href="#" style={{ color: "inherit", textDecoration: "none" }}>{s}</a>
+        ))}
+      </nav>
+      <div style={{ display: "flex", justifyContent: "flex-end", gap: 14, alignItems: "center" }}>
+        <span style={{
+          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.18em",
+          color: B.inkMute, textTransform: "uppercase",
+        }} className="brochure-cohort">Cohort · 2026.05</span>
+        <button style={{
+          background: B.ink, color: B.paper, border: 0,
+          padding: "10px 18px", borderRadius: 999, fontSize: 13,
+          fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
+        }}>Fit me →</button>
+      </div>
+      <style>{`
+        @media (max-width: 800px) {
+          .brochure-nav { grid-template-columns: 1fr auto !important; }
+          .brochure-nav-links { display: none !important; }
+          .brochure-cohort { display: none !important; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// HERO
+// ──────────────────────────────────────────────────────────────────
+function Hero() {
+  return (
+    <div style={{ background: B.panel }} className="brochure-hero">
+      {/* Top fig. label as a strip above the image — no overlay
+          cropping needed. */}
+      <div style={{
+        padding: "20px 32px 8px",
+        fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+        textTransform: "uppercase", color: B.inkDim,
+        display: "flex", justifyContent: "space-between",
+        alignItems: "baseline", flexWrap: "wrap", gap: 12,
+      }}>
+        <span style={{ color: B.accent, fontWeight: 600 }}>● OLS · v 4.2 · fig. 1</span>
+        <span style={{ color: B.inkMute }}>Standard configuration, ringed</span>
+      </div>
+
+      {/* The render at full natural aspect. Container is letterboxed
+          horizontally on wide viewports to keep the image readable. */}
+      <div style={{
+        padding: "12px 32px 28px",
+        display: "flex", justifyContent: "center",
+      }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/chair/ils/render-ring.jpg"
+          alt="The Ring · OLS v 4.2 · standard configuration, ringed"
+          style={{
+            width: "100%", maxWidth: 1280, height: "auto",
+            display: "block",
+          }}
+        />
+      </div>
+
+      {/* Title block below the image, full-bleed against B.panel. */}
+      <div style={{
+        padding: "0 32px 80px",
+        display: "grid", gridTemplateColumns: "1fr 280px",
+        alignItems: "end", gap: 40,
+        maxWidth: 1280, margin: "0 auto",
+      }} className="brochure-hero-foot">
+        <div>
           <div style={{
-            fontFamily: FONT.mono, fontSize: "0.66rem", letterSpacing: "0.24em",
-            color: T.inkMute, textTransform: "uppercase",
-            fontWeight: 600, margin: "0 0 0.8rem",
-            paddingBottom: "0.4rem",
-            borderBottom: `0.5px solid ${T.rule}`,
+            fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+            textTransform: "uppercase", color: B.inkMute, marginBottom: 16,
+          }}>The apparatus, configured for residence</div>
+          <h1 style={{
+            fontFamily: FONT.manrope, fontSize: "clamp(64px, 13vw, 144px)",
+            lineHeight: 0.9, letterSpacing: "-0.04em", fontWeight: 300,
+            margin: 0, color: B.ink,
           }}>
-            {g.heading}
+            The<br />apparatus.
+          </h1>
+        </div>
+        <div style={{
+          paddingLeft: 24, borderLeft: `0.5px solid ${B.rule}`,
+          fontSize: 14, lineHeight: 1.5, color: B.inkDim,
+        }}>
+          <p style={{
+            margin: 0, fontFamily: FONT.italic, fontStyle: "italic",
+            fontSize: 16, lineHeight: 1.5, color: B.ink,
+          }}>
+            &ldquo;We have read what you have written about us. We have
+            adopted your vocabulary as our own.&rdquo;
+          </p>
+          <div style={{
+            marginTop: 14, fontFamily: FONT.mono, fontSize: 9.5,
+            letterSpacing: "0.22em", textTransform: "uppercase", color: B.inkMute,
+          }}>
+            — Aeternum Biometrics<br />foreword to the 2026 brochure
           </div>
-          <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-            {g.items.map((it) => (
-              <li key={it.href} style={{ borderBottom: `0.5px solid ${T.rule}` }}>
-                <a
-                  href={it.href}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "auto 3rem 1fr auto",
-                    gap: "0.9rem",
-                    padding: "0.95rem 0",
-                    textDecoration: "none",
-                    color: T.ink,
-                    alignItems: "center",
-                  }}
-                >
-                  <ChairGlyph size={22} stroke={T.accent} />
-                  {it.plate ? (
-                    <span style={{
-                      fontFamily: FONT.mono, fontSize: "0.7rem",
-                      letterSpacing: "0.16em", color: T.accent,
-                      fontWeight: 700,
-                    }}>
-                      {it.plate}
-                    </span>
-                  ) : <span />}
-                  <div>
-                    <div style={{
-                      fontFamily: FONT.serif, fontStyle: "italic",
-                      fontSize: "1.12rem", color: T.ink, marginBottom: 2,
-                      letterSpacing: "-0.005em",
-                    }}>{it.label}</div>
-                    <div style={{
-                      fontFamily: FONT.serif, fontSize: "0.92rem",
-                      lineHeight: 1.5, color: T.inkDim,
-                    }}>{it.sub}</div>
-                  </div>
-                  <span style={{
-                    fontFamily: FONT.mono, color: T.accent, fontSize: "0.95rem",
-                  }}>→</span>
-                </a>
-              </li>
-            ))}
-          </ol>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 700px) {
+          .brochure-hero-foot { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// SPECS strip — 5 col → 2 col on mobile.
+// ──────────────────────────────────────────────────────────────────
+function Specs() {
+  return (
+    <div style={{
+      padding: "24px 32px", background: B.ink, color: B.paper,
+      display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 36,
+    }} className="brochure-specs">
+      {[
+        ["Phase architecture", "OHCOSE · six phases"],
+        ["Integration", "Seven subsystems"],
+        ["Governance", "TAOG · three axes"],
+        ["Retention", "7 / 25 / 99 fiscal yrs"],
+        ["Standard fitting", "47 minutes · in-home"],
+      ].map(([k, v]) => (
+        <div key={k}>
+          <div style={{
+            fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+            textTransform: "uppercase", color: "#a0a0a4", marginBottom: 8,
+            fontWeight: 600,
+          }}>{k}</div>
+          <div style={{ fontSize: 14, letterSpacing: "-0.005em" }}>{v}</div>
         </div>
       ))}
+      <style>{`
+        @media (max-width: 800px) {
+          .brochure-specs { grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+        }
+      `}</style>
+    </div>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// FOREWORD
+// ──────────────────────────────────────────────────────────────────
+function Foreword() {
+  return (
+    <section style={{
+      padding: "120px 32px 80px",
+      display: "grid", gridTemplateColumns: "160px 1fr 280px",
+      gap: 40, alignItems: "start",
+    }} className="brochure-foreword">
+      <SectionLabel n="00" k="Foreword" />
+      <div style={{ gridColumn: "2 / 4" }}>
+        <p style={{
+          fontFamily: FONT.italic, fontStyle: "italic",
+          fontSize: 38, lineHeight: 1.22, letterSpacing: "-0.012em",
+          color: B.ink, margin: "0 0 32px", maxWidth: 920,
+        }}>
+          The Ouroboros Life System operates a closed-loop libidinal
+          economy at the scale of a single household. We use
+          Selimović&apos;s term in its precise sense. We do not
+          apologise; we do not euphemise; we do not pretend the
+          trade is symmetrical.
+        </p>
+        <div style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr", gap: 36,
+          maxWidth: 920, fontSize: 15, lineHeight: 1.6, color: B.inkDim,
+        }} className="brochure-foreword-cols">
+          <p style={{ margin: 0 }}>
+            What follows is the apparatus describing itself in the
+            terms by which it is critiqued. The vocabulary —
+            <em> psychic surplus, OHCOSE, Capture of Cadence,
+            Tri-Axial Ouroboric Governance</em> — has, since 2024,
+            been adopted as our operational lexicon.
+          </p>
+          <p style={{ margin: 0 }}>
+            Selimović is the apparatus&apos;s theorist; this document
+            is the apparatus&apos;s reply. We have read the essay at
+            <span style={{ color: B.accent }}> /chair</span> and built
+            the configuration it describes. The configuration is sold
+            here, at the prices listed, with the disclosures the
+            regulatory regime requires.
+          </p>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 800px) {
+          .brochure-foreword { grid-template-columns: 1fr !important; padding: 60px 20px !important; }
+          .brochure-foreword > div { grid-column: auto !important; }
+          .brochure-foreword-cols { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// RING DETAIL
+// ──────────────────────────────────────────────────────────────────
+function RingDetail() {
+  const callouts: [string, string, string][] = [
+    ["a", "Central integration ring", "108 mm OD silicone-jacketed tubing assembly · chest-height anchor"],
+    ["b", "Work terminal",            "14″ matte LCD · low-blue · 144 Hz haptic envelope tunable"],
+    ["c", "Feed input",               "Sterile two-line port · nutrient + hydration · 0.4 L/h"],
+    ["d", "Drainage",                 "Sealed sub-floor return · scheduled service window"],
+  ];
+  return (
+    <section style={{
+      padding: "80px 32px", background: B.panelSoft,
+      borderTop: `0.5px solid ${B.rule}`, borderBottom: `0.5px solid ${B.rule}`,
+    }}>
+      <div style={{
+        display: "grid", gridTemplateColumns: "160px 1fr", gap: 40,
+      }} className="brochure-ring-head">
+        <SectionLabel n="01" k="The Ring" />
+        <div>
+          <h2 style={{
+            fontFamily: FONT.manrope, fontSize: "clamp(40px, 5vw, 72px)",
+            lineHeight: 0.96, letterSpacing: "-0.028em", fontWeight: 300,
+            margin: "0 0 18px", color: B.ink, maxWidth: 720,
+          }}>
+            The central <em style={{
+              fontFamily: FONT.italic, fontStyle: "italic", fontWeight: 400,
+              color: B.accent,
+            }}>integration</em> component.
+          </h2>
+          <p style={{
+            fontSize: 16, lineHeight: 1.55, color: B.inkDim,
+            maxWidth: 720, margin: "0 0 56px",
+          }}>
+            A single circumferential structure at chest height. Every
+            input the occupant requires and every output the occupant
+            generates routes through the Ring&apos;s tubing or its
+            embedded cable assemblies. The ouroboros — the snake that
+            devours its own tail — is the apparatus&apos;s structural
+            confession.
+          </p>
+          <div style={{
+            display: "grid", gridTemplateColumns: "1fr 320px",
+            gap: 56, alignItems: "start",
+          }} className="brochure-ring-grid">
+            <div style={{
+              background: B.panel, border: `0.5px solid ${B.rule}`,
+              position: "relative", aspectRatio: "4 / 3", overflow: "hidden",
+            }}>
+              <img src="/chair/ils/render-side.jpg" alt="The Ring, side view"
+                   style={{ width: "100%", height: "100%", objectFit: "contain",
+                            display: "block", background: B.panel }} />
+              <div style={{
+                position: "absolute", top: 14, left: 14,
+                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                color: B.paper, background: "rgba(13,13,16,0.78)",
+                padding: "5px 9px", textTransform: "uppercase",
+              }}>● Fig. 2 · side · ringed</div>
+            </div>
+            <div>
+              {callouts.map(([k, label, body]) => (
+                <div key={k} style={{
+                  padding: "14px 0", borderBottom: `0.5px solid ${B.rule}`,
+                  display: "grid", gridTemplateColumns: "28px 1fr",
+                  gap: 12, alignItems: "baseline",
+                }}>
+                  <span style={{
+                    fontFamily: FONT.mono, fontSize: 11, color: B.accent,
+                    fontWeight: 700,
+                  }}>{k}</span>
+                  <div>
+                    <div style={{
+                      fontSize: 14, fontWeight: 600,
+                      letterSpacing: "-0.005em", marginBottom: 4,
+                    }}>{label}</div>
+                    <div style={{
+                      fontFamily: FONT.mono, fontSize: 10.5,
+                      letterSpacing: "0.04em", color: B.inkMute, lineHeight: 1.55,
+                    }}>{body}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 800px) {
+          .brochure-ring-head { grid-template-columns: 1fr !important; }
+          .brochure-ring-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// OHCOSE 6 cards
+// ──────────────────────────────────────────────────────────────────
+function OHCOSE() {
+  const phases: [string, string, string, string][] = [
+    ["O", "Onboarding",  "days 1 – 7",     "Bonded fitting consultant. Ring engagement in a single visit. First night is, for most occupants, the deepest sleep of their adult life."],
+    ["H", "Habituation", "days 8 – 90",    "Circadian and metabolic rhythms acclimate. By day 90, ≈ 94 % of occupants report the apparatus has receded from conscious attention."],
+    ["C", "Calibration", "months 4 – 12",  "The apparatus tunes feedback to the occupant's measured response profile. By month 12, behaviour is indistinguishable from intention."],
+    ["O", "Occupancy",   "year 2 →",       "Steady state. Productive output, biometric reads, content engagement route through the Service Ledger uninterrupted."],
+    ["S", "Stewardship", "late life",      "Nutritional, pharmacological and ambient subsystems adjust to preserve continuous occupancy as output declines."],
+    ["E", "Estate",      "post-mortem",    "Data record and productivity profile remain active. Eternal-tier configurations operate for 99 fiscal years."],
+  ];
+  return (
+    <section style={{ padding: "120px 32px 80px" }}>
+      <div style={{
+        display: "grid", gridTemplateColumns: "160px 1fr", gap: 40,
+      }} className="brochure-ohcose-head">
+        <SectionLabel n="02" k="OHCOSE" />
+        <div>
+          <h2 style={{
+            fontFamily: FONT.manrope, fontSize: "clamp(40px, 5vw, 72px)",
+            lineHeight: 0.96, letterSpacing: "-0.028em", fontWeight: 300,
+            margin: "0 0 18px", color: B.ink, maxWidth: 820,
+          }}>
+            Six phases. <em style={{
+              fontFamily: FONT.italic, fontStyle: "italic", fontWeight: 400,
+              color: B.inkDim,
+            }}>From the first night to the post-mortem ledger.</em>
+          </h2>
+          <p style={{
+            fontSize: 16, lineHeight: 1.55, color: B.inkDim,
+            maxWidth: 720, margin: "0 0 48px",
+          }}>
+            The apparatus relates to its occupant differently across the
+            six phases. The first three are calibration-heavy; Occupancy
+            is the long steady state; Stewardship and Estate preserve
+            the configuration beyond the occupant.
+          </p>
+        </div>
+      </div>
+      <div style={{
+        marginTop: 12, display: "grid",
+        gridTemplateColumns: "repeat(6, 1fr)", gap: 12,
+      }} className="brochure-ohcose-grid">
+        {phases.map(([letter, name, win, body], i) => (
+          <div key={i} style={{
+            padding: "20px 18px 22px", background: B.panel,
+            border: `0.5px solid ${B.rule}`,
+            display: "flex", flexDirection: "column", minHeight: 360,
+          }}>
+            <div style={{
+              fontFamily: FONT.italic, fontStyle: "italic",
+              fontSize: 56, fontWeight: 400, lineHeight: 1,
+              color: B.accent, marginBottom: 12, letterSpacing: "-0.02em",
+            }}>{letter}</div>
+            <div style={{
+              fontSize: 16, fontWeight: 600, letterSpacing: "-0.005em",
+              marginBottom: 4,
+            }}>{name}</div>
+            <div style={{
+              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+              textTransform: "uppercase", color: B.inkMute, marginBottom: 18,
+            }}>{win}</div>
+            <p style={{
+              margin: 0, fontSize: 12.5, lineHeight: 1.55, color: B.inkDim,
+            }}>{body}</p>
+          </div>
+        ))}
+      </div>
+      <style>{`
+        @media (max-width: 1100px) { .brochure-ohcose-grid { grid-template-columns: repeat(3, 1fr) !important; } }
+        @media (max-width: 700px)  {
+          .brochure-ohcose-head { grid-template-columns: 1fr !important; }
+          .brochure-ohcose-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// SCHEMATIC full-bleed
+// ──────────────────────────────────────────────────────────────────
+function Schematic() {
+  return (
+    <section style={{
+      background: "#0a1d3a",
+    }} className="brochure-schematic">
+      {/* Heading block above the drawing — never overlay the blueprint
+          itself, which the brochure wants the reader to study. */}
+      <div style={{
+        padding: "56px 32px 24px",
+        display: "grid", gridTemplateColumns: "1fr auto",
+        gap: 36, alignItems: "end",
+        maxWidth: 1400, margin: "0 auto",
+      }} className="brochure-schematic-head">
+        <div style={{ color: "#ecead8", maxWidth: 620 }}>
+          <div style={{
+            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            color: "#e9b94a", marginBottom: 14, textTransform: "uppercase",
+            fontWeight: 600,
+          }}>● 03 · Technical schematic</div>
+          <h2 style={{
+            fontFamily: FONT.manrope, fontSize: "clamp(36px, 4vw, 60px)",
+            lineHeight: 0.96, letterSpacing: "-0.028em", fontWeight: 300,
+            margin: "0 0 16px", color: "#ecead8",
+          }}>What you are buying, drawn.</h2>
+          <p style={{
+            fontSize: 14, lineHeight: 1.6, color: "rgba(236,234,216,0.78)", margin: 0,
+            maxWidth: 560,
+          }}>
+            ILS Closed-Loop Resource Cycle, cross-section and side
+            perspective. Issued with each Pro-tier and Eternal-tier
+            installation; standard installations receive an abridged
+            specification booklet.
+          </p>
+        </div>
+        <div style={{
+          padding: "10px 16px", background: "rgba(13,13,16,0.55)",
+          border: "0.5px solid rgba(236,234,216,0.18)",
+          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+          color: "#ecead8", textTransform: "uppercase", whiteSpace: "nowrap",
+        }}>
+          Drawing 04 · v 4.1 · Aeternum Biometrics
+        </div>
+      </div>
+
+      {/* The blueprint at full natural aspect, full width, no crop.
+          The pair (front + side) is wide-format and reads as drawn. */}
+      <div style={{ padding: "0 0 56px" }}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/chair/ils/blueprint.jpg"
+          alt="ILS Closed-Loop Resource Cycle · cross-section + side perspective · Aeternum Biometrics technical schematic v 4.1"
+          style={{
+            width: "100%", height: "auto", display: "block",
+          }}
+        />
+      </div>
+      <style>{`
+        @media (max-width: 700px) {
+          .brochure-schematic-head { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// TIERS
+// ──────────────────────────────────────────────────────────────────
+interface Tier {
+  name: string; code: string; price: string; tag: string;
+  feats: string[]; highlight?: boolean;
+}
+
+const TIERS: Tier[] = [
+  { name: "Standard", code: "STD · 7 yr", price: "$18 / day",
+    tag: "Onboarding · Habituation · Occupancy",
+    feats: ["Five subsystems, abridged", "OHCOSE phases 1 – 4",
+            "Ledger retention 7 yr", "Service Agreement renewable"] },
+  { name: "Pro", code: "PRO · 25 yr · most adopted", price: "$44 / day",
+    tag: "Full OHCOSE  ·  Stewardship engaged",
+    feats: ["All seven subsystems", "OHCOSE phases 1 – 5",
+            "Ledger retention 25 yr", "Pharmacological adjuncts",
+            "TAOG portfolio enrolment"], highlight: true },
+  { name: "Eternal", code: "ETN · 99 yr", price: "$84 / day",
+    tag: "Estate protocol  ·  post-occupancy",
+    feats: ["All seven subsystems", "OHCOSE phases 1 – 6",
+            "Ledger retention 99 yr", "Estate protocol included",
+            "Brand-partner licensure participation"] },
+];
+
+function Tiers() {
+  return (
+    <section style={{
+      padding: "80px 32px 100px", background: B.panelSoft,
+      borderTop: `0.5px solid ${B.rule}`, borderBottom: `0.5px solid ${B.rule}`,
+    }}>
+      <div style={{
+        display: "grid", gridTemplateColumns: "160px 1fr", gap: 40,
+        marginBottom: 36,
+      }} className="brochure-tiers-head">
+        <SectionLabel n="05" k="Tier architecture" />
+        <h2 style={{
+          fontFamily: FONT.manrope, fontSize: "clamp(36px, 4vw, 60px)",
+          lineHeight: 0.96, letterSpacing: "-0.028em", fontWeight: 300,
+          margin: 0, color: B.ink, maxWidth: 820,
+        }}>
+          Three configurations.
+          <em style={{
+            fontFamily: FONT.italic, fontStyle: "italic", fontWeight: 400,
+            color: B.inkDim,
+          }}> Two end with you. One does not.</em>
+        </h2>
+      </div>
+      <div style={{
+        display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16,
+      }} className="brochure-tiers-grid">
+        {TIERS.map((t, i) => (
+          <div key={i} style={{
+            padding: "28px 26px", background: t.highlight ? B.ink : B.panel,
+            color: t.highlight ? B.paper : B.ink,
+            border: t.highlight ? "none" : `0.5px solid ${B.rule}`,
+          }}>
+            <div style={{
+              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+              textTransform: "uppercase",
+              color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 12,
+            }}>● {t.code}</div>
+            <div style={{
+              fontFamily: FONT.manrope, fontSize: 42, fontWeight: 300,
+              letterSpacing: "-0.022em", lineHeight: 1, marginBottom: 14,
+            }}>{t.name}</div>
+            <div style={{
+              fontFamily: FONT.italic, fontStyle: "italic",
+              fontSize: 14, color: t.highlight ? "#cfcfd6" : B.inkDim,
+              marginBottom: 26, maxWidth: 280,
+            }}>{t.tag}</div>
+            <div style={{
+              fontFamily: FONT.manrope, fontSize: 28, fontWeight: 500,
+              letterSpacing: "-0.018em", marginBottom: 8,
+            }}>{t.price}</div>
+            <div style={{
+              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+              textTransform: "uppercase",
+              color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 24,
+            }}>per occupant · billed monthly</div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {t.feats.map((f, j) => (
+                <li key={j} style={{
+                  padding: "9px 0",
+                  borderTop: `0.5px solid ${t.highlight ? "rgba(255,255,255,0.15)" : B.rule}`,
+                  display: "grid", gridTemplateColumns: "18px 1fr",
+                  gap: 8, fontSize: 12.5, alignItems: "center",
+                }}>
+                  <span style={{
+                    color: t.highlight ? "#e9b94a" : B.accent,
+                    fontFamily: FONT.mono, fontSize: 10,
+                  }}>+</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <button style={{
+              marginTop: 22, width: "100%",
+              background: t.highlight ? B.paper : B.ink,
+              color: t.highlight ? B.ink : B.paper,
+              border: 0, padding: "13px 18px", borderRadius: 999,
+              fontSize: 13, fontWeight: 600,
+              letterSpacing: "-0.005em", cursor: "pointer",
+            }}>Schedule a fitting</button>
+          </div>
+        ))}
+      </div>
+      <style>{`
+        @media (max-width: 1000px) { .brochure-tiers-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 700px)  { .brochure-tiers-head { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// CTA + COSTCO
+// ──────────────────────────────────────────────────────────────────
+function CTAandCostco() {
+  return (
+    <section style={{
+      display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: 480,
+    }} className="brochure-cta-grid">
+      <div style={{
+        background: B.ink, color: B.paper,
+        padding: "60px 40px", position: "relative",
+      }}>
+        <SectionLabel n="06" k="Schedule a fitting" color="#e9b94a" />
+        <h2 style={{
+          fontFamily: FONT.manrope, fontSize: "clamp(36px, 4vw, 64px)",
+          lineHeight: 0.96, letterSpacing: "-0.028em", fontWeight: 300,
+          margin: "0 0 24px", maxWidth: 460,
+        }}>
+          Our consultant arrives within 14 days.
+        </h2>
+        <p style={{
+          fontFamily: FONT.italic, fontStyle: "italic",
+          fontSize: 16, lineHeight: 1.55, color: "#cfcfd6",
+          margin: "0 0 36px", maxWidth: 420,
+        }}>
+          The fitting takes 47 minutes. The first night is, for most
+          occupants, the deepest sleep of their adult life.
+        </p>
+        <button style={{
+          background: "#e9b94a", color: B.ink, border: 0,
+          padding: "16px 26px", borderRadius: 999, fontSize: 15,
+          fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
+        }}>Begin onboarding →</button>
+        <div style={{
+          marginTop: 32,
+          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+          color: "rgba(236,234,216,0.5)", textTransform: "uppercase",
+        }}>● Cohort 2026.05 opens next month</div>
+      </div>
+      <div style={{ position: "relative", overflow: "hidden", background: "#0a0a0a" }}>
+        <img src="/chair/ils/costco.jpg" alt="Available at Costco"
+             style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+        <div style={{
+          position: "absolute", bottom: 0, left: 0, right: 0,
+          padding: "32px 40px",
+          background: "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%)",
+          color: B.paper,
+        }}>
+          <div style={{
+            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            textTransform: "uppercase", marginBottom: 12, color: "#e9b94a",
+          }}>● Or, on the way home</div>
+          <div style={{
+            fontFamily: FONT.manrope, fontSize: 32, fontWeight: 400,
+            letterSpacing: "-0.018em", lineHeight: 1.1,
+          }}>
+            Available in Kirkland Signature at participating
+            Costco warehouses.
+          </div>
+        </div>
+      </div>
+      <style>{`
+        @media (max-width: 800px) { .brochure-cta-grid { grid-template-columns: 1fr !important; } }
+      `}</style>
+    </section>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// FOOTER
+// ──────────────────────────────────────────────────────────────────
+function Footer() {
+  return (
+    <footer style={{
+      padding: "48px 32px 36px", background: "#0a0a0c", color: "#a8a8ae",
+      display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 36,
+      fontFamily: FONT.manrope, fontSize: 13,
+    }} className="brochure-footer">
+      <div>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
+          <svg width="22" height="22" viewBox="0 0 32 32" fill="none">
+            <circle cx="16" cy="16" r="13" stroke="#ecead8" strokeWidth="1.2" />
+          </svg>
+          <span style={{ color: "#ecead8", fontWeight: 600 }}>Ouroboros Life System</span>
+        </div>
+        <p style={{
+          fontFamily: FONT.italic, fontStyle: "italic", fontSize: 13.5,
+          lineHeight: 1.55, margin: 0, color: "#a8a8ae", maxWidth: 360,
+        }}>
+          Manufactured under license by Aeternum Biometrics. The
+          theoretical basis cited throughout this document is published
+          at autostimulus.org/chair under CC&nbsp;BY-SA&nbsp;4.0.
+        </p>
+      </div>
+      {[
+        ["The apparatus", ["The Ring", "OHCOSE", "Subsystems", "Schematic", "Tiers"]],
+        ["Compliance", ["Service Agreement", "Eternal protocol", "Estate licensure", "Regulatory addenda"]],
+        ["Companion documents", ["Essay · /chair", "Zine · /chair/zine", "Archive · /chair/archive", "Citation · BibTeX"]],
+      ].map(([h, items]) => (
+        <div key={h as string}>
+          <div style={{ color: "#ecead8", fontWeight: 600, marginBottom: 10 }}>
+            {h as string}
+          </div>
+          {(items as string[]).map((s) => (
+            <div key={s} style={{ padding: "4px 0" }}>{s}</div>
+          ))}
+        </div>
+      ))}
+      <style>{`
+        @media (max-width: 800px) {
+          .brochure-footer { grid-template-columns: 1fr 1fr !important; gap: 28px !important; }
+        }
+        @media (max-width: 500px) {
+          .brochure-footer { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
+    </footer>
+  );
+}
+
+// ──────────────────────────────────────────────────────────────────
+// shared section label
+// ──────────────────────────────────────────────────────────────────
+function SectionLabel({ n, k, color }: { n: string; k: string; color?: string }) {
+  const c = color || B.accent;
+  return (
+    <div style={{
+      display: "flex", alignItems: "center", gap: 12, marginBottom: 28,
+    }}>
+      <span style={{ width: 24, height: 1, background: c, display: "inline-block" }} />
+      <span style={{
+        fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+        textTransform: "uppercase", color: c, fontWeight: 600,
+      }}>{n} · {k}</span>
+    </div>
   );
 }

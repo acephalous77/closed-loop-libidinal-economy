@@ -12,7 +12,7 @@ export const metadata: Metadata = {
  * /chair/zine — the resistance pamphlet, preserved as an artifact.
  *
  * The essay at /chair treats this document as one of three appended
- * artifacts (along with /chair/the-system and /chair/archive).
+ * artifacts (along with /chair the brochure landing and /chair/archive).
  */
 export default function ZinePage() {
   return <ZineSpread />;

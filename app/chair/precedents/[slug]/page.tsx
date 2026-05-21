@@ -144,7 +144,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 30,
         }}>
-          <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
+          <a href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
           <a href="/chair/precedents" style={{ color: "inherit", textDecoration: "none" }}>Precedents</a>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>

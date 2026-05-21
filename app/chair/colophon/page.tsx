@@ -132,7 +132,7 @@ export default function ColophonPage() {
               {[
                 ["0.1",   "2024 · 03", "First draft of the essay (3 sections, 1 800 w)."],
                 ["0.3",   "2024 · 11", "Added subsystem 04 (Surplus Reservoirs); restructured § V."],
-                ["0.5",   "2025 · 06", "Brochure artifact added at /chair/the-system."],
+                ["0.5",   "2025 · 06", "Brochure artifact added at /chair (later promoted to landing)."],
                 ["0.6",   "2025 · 11", "Lineage essays drafted; verification against historical record."],
                 ["0.7",   "2026 · 02", "Zine and archive artifacts added."],
                 ["0.7.2", "2026 · 05", "Brochure rebuilt in the apparatus's self-constituted voice."],

@@ -140,7 +140,7 @@ function ChairFoot() {
     {
       heading: "Essay & companions",
       items: [
-        ["/chair", "On the Chair"],
+        ["/chair/essay", "On the Chair"],
         ["/chair/subsystems", "Subsystems"],
         ["/chair/precedents", "Precedents"],
         ["/chair/lineage", "Lineage"],
@@ -151,7 +151,7 @@ function ChairFoot() {
     {
       heading: "Artifacts",
       items: [
-        ["/chair/the-system", "Brochure"],
+        ["/chair", "Brochure"],
         ["/chair/zine", "Zine"],
         ["/chair/archive", "Archive"],
       ],
@@ -159,7 +159,7 @@ function ChairFoot() {
     {
       heading: "End matter",
       items: [
-        ["/chair#routes", "Route map"],
+        ["/chair/essay#routes", "Route map"],
         ["/chair/colophon", "Colophon"],
       ],
     },
@@ -175,26 +175,29 @@ function ChairFoot() {
         zIndex: 1,
       }}
     >
-      {/* Identity row */}
-      <div
+      {/* Identity row — chair brand. The autostimulus parent link is
+          held back to the lower foot text below so the chair project
+          presents itself as a single coherent volume in the footer. */}
+      <a
+        href="/chair"
         style={{
-          display: "flex",
-          justifyContent: "center",
+          display: "inline-flex",
           alignItems: "center",
-          gap: "1.4rem",
-          marginBottom: "2.6rem",
+          gap: "0.9rem",
+          margin: "0 auto 2.6rem",
+          width: "fit-content",
+          textAlign: "center",
           fontFamily: mono,
           fontSize: "0.7rem",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
-          color: T.inkMute,
-          flexWrap: "wrap",
+          color: T.ink,
+          textDecoration: "none",
         }}
       >
-        <a href="/" style={{ color: "inherit", textDecoration: "none" }}>↑ autostimulus</a>
         <ChairGlyph size={18} stroke={T.accent} />
-        <span style={{ color: T.ink }}>On the Chair</span>
-      </div>
+        <span>On the Chair</span>
+      </a>
 
       {/* Route grid */}
       <div
@@ -247,7 +250,7 @@ function ChairFoot() {
         ))}
       </div>
 
-      {/* Signature */}
+      {/* Signature + parent-site link */}
       <div
         style={{
           fontFamily: serif,
@@ -258,6 +261,21 @@ function ChairFoot() {
         }}
       >
         Adnan Selimović · Brooklyn · MMXXVI
+      </div>
+      <div
+        style={{
+          marginTop: "0.6rem",
+          fontFamily: mono,
+          fontSize: "0.62rem",
+          letterSpacing: "0.24em",
+          color: T.inkFaint,
+          textAlign: "center",
+          textTransform: "uppercase",
+        }}
+      >
+        <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
+          ↑ part of autostimulus.org
+        </a>
       </div>
 
       <style>{`

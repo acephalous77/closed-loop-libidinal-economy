@@ -117,7 +117,7 @@ const BODIES: Record<string, Body> = {
     verdict: "Real and present. The brochure is the manufacturer's own document. I have not edited it.",
     blocks: [
       { title: "The only iteration I have not had to verify",
-        body: "The OLS is the lineage's only iteration I have not had to verify against historical records. As of May 2026 the apparatus is an actually-existing commercial product, manufactured by Ouroboros Industries LLC of Park Slope, Brooklyn, fitted in 248 401 households across the Tier-1 and Tier-2 sovereignties. The brochure at /chair/the-system is the manufacturer's own document. I have not edited it. I have spent much of this lineage essay arguing that earlier iterations are, in various ways, fictional or backdated. The 2024 iteration is real and present. The question is whether it is novel." },
+        body: "The OLS is the lineage's only iteration I have not had to verify against historical records. As of May 2026 the apparatus is an actually-existing commercial product, manufactured by Ouroboros Industries LLC of Park Slope, Brooklyn, fitted in 248 401 households across the Tier-1 and Tier-2 sovereignties. The brochure at /chair is the manufacturer's own document. I have not edited it. I have spent much of this lineage essay arguing that earlier iterations are, in various ways, fictional or backdated. The 2024 iteration is real and present. The question is whether it is novel." },
       { title: "Whether the chair is novel",
         body: "The honest answer is: not very. The OLS integrates seven subsystems, each of which existed, in deployed form, in the platform economy by approximately 2015. The OLS's specific innovation is to integrate them into a single piece of residential furniture and to sell that furniture as a product. The integration is a packaging innovation, not a technical one. The packaging matters, however. The platforms operate by being everywhere and nowhere. The OLS operates by being a chair. A chair is unambiguous. The chair is in your living room or it is not. The chair is fitted to your body or it is not. The chair has tubes or it does not. The platforms permit a great deal of ambiguity about what they are doing; the chair, by being a chair, forecloses the ambiguity. This is, I think, the OLS's contribution." },
       { title: "The proscription question",
@@ -165,7 +165,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 36,
         }}>
-          <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
+          <a href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
           <a href="/chair/lineage" style={{ color: "inherit", textDecoration: "none" }}>Lineage</a>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>

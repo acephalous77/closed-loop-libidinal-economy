@@ -14,25 +14,106 @@ interface PlateHeaderProps {
   tokens?: Tokens;
 }
 
+// Inline top nav — same three groups as the footer route grid.
+// Compact mono strip; wraps on narrow viewports. Inverts colors
+// when the page passes its own tokens (archive, brochure).
+const NAV_GROUPS: { label: string; items: [string, string][] }[] = [
+  {
+    label: "Essay",
+    items: [
+      ["/chair/essay", "Essay"],
+      ["/chair/subsystems", "Subsystems"],
+      ["/chair/precedents", "Precedents"],
+      ["/chair/lineage", "Lineage"],
+      ["/chair/refusal", "Refusal"],
+      ["/chair/concepts", "Concepts"],
+    ],
+  },
+  {
+    label: "Artifacts",
+    items: [
+      ["/chair", "Brochure"],
+      ["/chair/zine", "Zine"],
+      ["/chair/archive", "Archive"],
+    ],
+  },
+  {
+    label: "End",
+    items: [
+      ["/chair/colophon", "Colophon"],
+    ],
+  },
+];
+
 export function PlateHeader({
   plate, route, code, year = "MMXXVI", tokens = MASTER,
 }: PlateHeaderProps) {
   return (
-    <div style={{
-      display: "flex", justifyContent: "space-between", alignItems: "center",
-      padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
-      fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
-      textTransform: "uppercase", color: tokens.inkMute,
-    }}>
-      <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
-        <span style={{ color: tokens.accent, fontWeight: 600 }}>plate {plate}</span>
-        <span style={{ color: tokens.inkDim }}>{route}</span>
+    <div>
+      {/* Plate identification strip — original */}
+      <div style={{
+        display: "flex", justifyContent: "space-between", alignItems: "center",
+        padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
+        fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+        textTransform: "uppercase", color: tokens.inkMute,
+      }}>
+        <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+          <a href="/chair/essay" style={{
+            color: tokens.accent, fontWeight: 600, textDecoration: "none",
+            display: "flex", alignItems: "center", gap: 8,
+          }}>
+            <ChairGlyph size={14} stroke={tokens.accent} />
+            <span>On the Chair</span>
+          </a>
+          <span style={{ color: tokens.inkFaint }}>·</span>
+          <span style={{ color: tokens.accent, fontWeight: 600 }}>plate {plate}</span>
+          <span style={{ color: tokens.inkDim }}>{route}</span>
+        </div>
+        <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+          <span>{code}</span>
+          <span style={{ color: tokens.inkFaint }}>— — —</span>
+          <span>{year}</span>
+        </div>
       </div>
-      <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
-        <span>{code}</span>
-        <span style={{ color: tokens.inkFaint }}>— — —</span>
-        <span>{year}</span>
-      </div>
+
+      {/* Route nav strip — same set as the footer route grid so a
+          reader on any page is one click from any other. */}
+      <nav
+        aria-label="Routes"
+        style={{
+          display: "flex", justifyContent: "center", alignItems: "center",
+          gap: "0.9rem", flexWrap: "wrap",
+          padding: "10px 24px",
+          borderBottom: `0.75px solid ${tokens.rule}`,
+          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+          textTransform: "uppercase", color: tokens.inkMute,
+        }}
+        className="plate-nav"
+      >
+        {NAV_GROUPS.map((group, gi) => (
+          <span key={group.label} style={{
+            display: "inline-flex", alignItems: "center",
+            gap: "0.9rem", flexWrap: "wrap",
+          }}>
+            {gi > 0 && <span style={{ color: tokens.inkFaint, opacity: 0.6 }}>‖</span>}
+            {group.items.map((item, ii) => (
+              <span key={item[0]} style={{
+                display: "inline-flex", alignItems: "center", gap: "0.9rem",
+              }}>
+                {ii > 0 && <span style={{ color: tokens.inkFaint }}>·</span>}
+                <a href={item[0]} style={{
+                  color: "inherit", textDecoration: "none",
+                }}>{item[1]}</a>
+              </span>
+            ))}
+          </span>
+        ))}
+      </nav>
+      <style>{`
+        @media (max-width: 700px) {
+          .plate-nav { font-size: 8.5px !important; gap: 0.6rem !important; padding: 8px 12px !important; }
+        }
+      `}</style>
     </div>
   );
 }

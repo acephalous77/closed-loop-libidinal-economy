@@ -35,7 +35,7 @@ export default function PrecedentsIndex() {
       <PlateHeader plate="VI.0" route="/chair/precedents" code="DOSS · OLS · INDEX" />
 
       <div style={{ padding: "60px 80px 80px", maxWidth: 1200, margin: "0 auto" }}>
-        <a href="/chair" style={{
+        <a href="/chair/essay" style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 36,
