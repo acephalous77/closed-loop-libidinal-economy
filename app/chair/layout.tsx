@@ -50,24 +50,25 @@ const SITE_URL =
 
 export const metadata: Metadata = {
   title: {
-    default: "Ouroboros Life System — Because Life Should Be Effortless",
-    template: "%s — Ouroboros Life System",
+    default:
+      "On the Chair — Notes Toward a Theory of the Closed-Loop Libidinal Economy",
+    template: "%s — On the Chair",
   },
   description:
-    "The Ouroboros Life System. An apparatus in six phases. A closed-loop integrated life-support enclosure for uninterrupted living.",
+    "An essay and three appended artifacts on the chair as a figure for what the contemporary closed-loop libidinal economy has been becoming. By Adnan Selimović.",
   openGraph: {
-    type: "website",
-    siteName: "Ouroboros Life System",
-    title: "Ouroboros Life System — Because Life Should Be Effortless",
+    type: "article",
+    siteName: "Closed-Loop Libidinal Economy",
+    title: "On the Chair",
     description:
-      "An apparatus in six phases. A closed-loop integrated life-support enclosure.",
+      "Notes toward a theory of the closed-loop libidinal economy.",
     url: `${SITE_URL}/chair`,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ouroboros Life System",
-    description: "An apparatus in six phases.",
+    title: "On the Chair",
+    description: "Notes toward a theory of the closed-loop libidinal economy.",
   },
 };
 
@@ -144,11 +145,15 @@ export default function ChairLayout({
         </a>
         <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>
-          zine
+          essay
         </a>
         <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair/the-system" style={{ color: "inherit", textDecoration: "none" }}>
-          the apparatus
+          brochure
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/zine" style={{ color: "inherit", textDecoration: "none" }}>
+          zine
         </a>
         <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair/archive" style={{ color: "inherit", textDecoration: "none" }}>
