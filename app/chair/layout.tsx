@@ -143,6 +143,18 @@ export default function ChairLayout({
           ↑ autostimulus
         </a>
         <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>
+          zine
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/the-system" style={{ color: "inherit", textDecoration: "none" }}>
+          the apparatus
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/archive" style={{ color: "inherit", textDecoration: "none" }}>
+          archive
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair/colophon" style={{ color: "inherit", textDecoration: "none" }}>
           colophon
         </a>

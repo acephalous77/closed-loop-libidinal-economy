@@ -244,25 +244,6 @@ function CursorTrail({ target }: { target: React.MutableRefObject<{ x: number; y
   );
 }
 
-// ─── Loop-back ────────────────────────────────────────────────────────
-function useLoopBack() {
-  useEffect(() => {
-    let triggered = false;
-    const onScroll = () => {
-      const max = document.documentElement.scrollHeight - window.innerHeight;
-      if (window.scrollY >= max - 4 && !triggered) {
-        triggered = true;
-        window.setTimeout(() => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-          window.setTimeout(() => { triggered = false; }, 1500);
-        }, 600);
-      }
-    };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-}
-
 // ─── Telex strip (top sticky chrome) ─────────────────────────────────
 function TelexStrip({ m, psiRef }: { m: Harvest; psiRef: React.Ref<HTMLSpanElement> }) {
   return (
@@ -529,7 +510,6 @@ export default function ZineSpread() {
   const m = useHarvest();
   const psiTargetRef = useRef({ x: 0, y: 0 });
   const psiElRef = useRef<HTMLSpanElement>(null);
-  useLoopBack();
   useEffect(() => {
     const update = () => {
       const el = psiElRef.current;
@@ -704,7 +684,7 @@ export default function ZineSpread() {
         >
           refuse the loop.<br />
           cut the tubes.<br />
-          stand.
+          starve the serpent.
         </div>
 
         {/* The tract — pushed RIGHT, balancing the title on the left */}
@@ -718,7 +698,18 @@ export default function ZineSpread() {
               marginBottom: 8,
             }}
           >
-            * this is not a brochure.
+            * this is not a brochure.{" "}
+            <a
+              href="/chair/the-system"
+              style={{
+                color: NEON_GREEN,
+                textDecoration: "underline",
+                textDecorationThickness: 2,
+                textUnderlineOffset: 3,
+              }}
+            >
+              theirs is here →
+            </a>
           </div>
           <p
             style={{
@@ -1563,20 +1554,60 @@ export default function ZineSpread() {
               }}
             >
               <Image
-                src="/chair/zine/06-outrage-cadence.jpg"
-                alt="Diagram of the Ouroboros outrage cadence cycle — content, grievance, mobilization, capture"
+                src="/chair/zine/06-waiting-room.jpg"
+                alt="Cohort waiting room. Rows of seated youths phones-down under surveillance, numbered B-17, C-20, D-20. One occupant outside the rows holds a sign reading BORED. Ceiling rig of cameras and intake monitors."
                 fill
                 priority
                 sizes="(max-width: 1024px) 90vw, 700px"
                 style={{
                   objectFit: "cover",
-                  // Invert + tint dark so the cream original becomes part of the zine
-                  filter: "invert(1) hue-rotate(180deg) saturate(0.7) brightness(0.9) contrast(1.1)",
+                  // Image is already in the zine's neon-green / cream / black palette.
+                  // A faint zine-distress overlay integrates it without recolouring.
+                  filter: "contrast(1.06) saturate(1.05)",
                 }}
               />
+              {/* Stencilled cohort overlay — anchors the image to the badge logic */}
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  top: 18,
+                  left: 18,
+                  fontFamily: MONO,
+                  fontSize: 9,
+                  letterSpacing: "0.22em",
+                  color: NEON_PINK,
+                  textTransform: "uppercase",
+                  background: "rgba(10,9,8,0.88)",
+                  padding: "4px 8px",
+                  border: `1px solid ${NEON_PINK}`,
+                  pointerEvents: "none",
+                }}
+              >
+                ◆ cohort intake · row B · seats 11–24
+              </div>
+              {/* Bottom-right timestamp — fake surveillance overlay */}
+              <div
+                aria-hidden
+                style={{
+                  position: "absolute",
+                  bottom: 18,
+                  right: 18,
+                  fontFamily: MONO,
+                  fontSize: 9,
+                  letterSpacing: "0.18em",
+                  color: NEON_GREEN,
+                  textTransform: "uppercase",
+                  background: "rgba(10,9,8,0.88)",
+                  padding: "4px 8px",
+                  pointerEvents: "none",
+                }}
+              >
+                cam-04 · 14:22 · ois-44
+              </div>
             </div>
             <div style={{ marginTop: 16, fontFamily: CAVEAT, fontSize: 20, color: NEON_PINK, transform: "rotate(-1deg)" }}>
-              the cycle does not care who is in the chair.
+              you are in row B. they will call your seat.
             </div>
           </div>
 
@@ -1597,8 +1628,8 @@ export default function ZineSpread() {
               <span style={{ color: NEON_PINK }}>arrives in 0:08.</span>
             </h2>
             <p style={{ fontFamily: SANS, fontSize: 17, lineHeight: 1.55, color: PAPER, maxWidth: "46ch", fontWeight: 420, margin: "0 0 24px" }}>
-              The chair empties. The chair fills. The cycle is the product. The cycle does not stop when the occupant stops. Family is not notified. The chair is cleaned. The chair is re-issued.{" "}
-              <strong style={{ color: NEON_PINK }}>We have buried our friends. We continue.</strong>
+              The Youth Program seats four hundred per cohort. They are told it is a screening. They are seated by row. They are issued a seat number. They wait. None of them refuse. The chair empties; the chair is cleaned; the chair is re-issued.{" "}
+              <strong style={{ color: NEON_PINK }}>We have buried our friends. The room is still full.</strong>
             </p>
 
             {/* Countdown */}
