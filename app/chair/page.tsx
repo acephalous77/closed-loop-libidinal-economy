@@ -167,35 +167,33 @@ export default function OnTheChair() {
           to leave the chair to live within it.
         </DropCapP>
         <P>
-          The chair is a figure. It does not exist as such; the apparatus
-          it diagrams is everywhere. This essay&apos;s premise is that
+          The chair is a figure. It does not exist as such. The apparatus
+          it diagrams is everywhere. The premise of this essay is that
           the chair is the most lucid figure we have for what the
-          contemporary libidinal economy has been becoming.
+          contemporary libidinal economy has been becoming, and that
+          looking at the chair is easier than looking at the apparatus
+          directly.
         </P>
         <P>
-          I will argue four things in what follows. First, that the
-          closed-loop libidinal economy is not coming; it is already
-          here, distributed across the platforms, devices, and consent
-          rituals we already inhabit. Second, that its concentration into
-          a single piece of furniture is a useful thought experiment
-          because the apparatus&apos;s distribution is, precisely, what
-          makes it difficult to see. Third, that the apparatus has a
-          developmental morphology &mdash; what I have elsewhere called{" "}
-          <Link href="/chair/concepts#ohcose"><em>OHCOSE</em></Link>: a
-          six-phase lifecycle that organizes the occupant&apos;s relation
-          to the apparatus from onboarding to estate.<Fn n="1" /> And
-          fourth, that the apparatus is not new;
-          it is the seventh in a 160-year lineage of devices that have
-          iteratively concretized the integration problem of their
-          period.
+          A few things follow. The closed-loop libidinal economy is not
+          coming; it is here already, distributed across the platforms,
+          devices, and consent rituals we inhabit. Its concentration
+          into a single piece of furniture is useful as a thought
+          experiment because the apparatus&apos;s distribution is what
+          makes it hard to see. It has a developmental morphology &mdash;
+          what I have elsewhere called{" "}
+          <Link href="/chair/concepts#ohcose"><em>OHCOSE</em></Link>, a
+          six-phase lifecycle that organizes the occupant&apos;s
+          relation to it from onboarding to estate.<Fn n="1" /> And it
+          is not new. The chair is the seventh seat in a 160-year
+          lineage of devices that have iteratively worked the same
+          design problem.
         </P>
         <P>
-          The chair is, then, both a fiction and an aggregation. As a
-          fiction, it can be inhabited speculatively: I will ask you to
-          imagine sitting in it, agreeing to it, growing old in it. As
-          an aggregation, it is documentary: every subsystem it contains
-          exists, distributed, in the actually-existing proto-apparatuses
-          I will describe.
+          So: half fiction, half aggregation. The fiction is the chair
+          itself, which you can imagine sitting in. The aggregation is
+          the apparatus, which every subsystem the chair contains
+          actually instances, somewhere, today.
         </P>
       </Section>
 
@@ -213,138 +211,136 @@ export default function OnTheChair() {
         </P>
         <LoopDiagram />
         <P>
-          We have a vocabulary for this. The{" "}
+          The vocabulary already exists. The{" "}
           <em>closed-loop libidinal economy</em>, as I have argued
-          elsewhere,<Fn n="2" /> describes the economic-and-psychic
-          system in which desire is captured and re-circulated by the
-          same apparatus that produces it. The reader will recognize the
-          structure from Lyotard, who proposed that capitalism is most
-          fruitfully approached &ldquo;through the lens of desire or
-          libido&rdquo; rather than as a system of material production
-          alone.<Fn n="3" /> What Lyotard did not yet have was the
-          platform: the technical means by which desire&apos;s
-          circulation can be measured, modeled, and modulated in real
-          time. The chair has that. The contemporary platform has that.
-          The chair is the platform concentrated to a piece of
-          furniture.
+          elsewhere,<Fn n="2" /> is the economic-and-psychic system in
+          which desire is captured and re-circulated by the same
+          apparatus that produces it. The reader will recognize the
+          structure from Lyotard, who proposed in 1974 that capitalism
+          is most fruitfully approached &ldquo;through the lens of
+          desire or libido&rdquo; rather than as a system of material
+          production alone.<Fn n="3" /> What Lyotard did not yet have
+          was the platform — the technical means by which desire&apos;s
+          circulation could be measured, modeled, and modulated in real
+          time. The chair has that. The contemporary platform is, in
+          this sense, the chair with the furniture removed.
         </P>
         <P>
-          The loop, in this formulation, has two features that
-          distinguish it from earlier forms of capture. The first is
-          that it has no outside &mdash; every output is fed back as
-          input. The second is that it is, by design, satisfaction-seeking
-          but never satiating. Baudrillard described this as the
-          &ldquo;perpetual cycle of mild satisfaction and renewed
-          longing&rdquo; that organizes consumer subjectivity;<Fn n="4" />{" "}
-          the chair is the same cycle made architectural.
+          The loop has two features that distinguish it from earlier
+          forms of capture. It has no outside: every output the subject
+          generates is fed back as input. And it is satisfaction-seeking
+          but never satiating — Baudrillard&apos;s &ldquo;perpetual
+          cycle of mild satisfaction and renewed longing&rdquo; made
+          into architecture.<Fn n="4" />
         </P>
         <Pull>
-          The apparatus does not yet exist. It is everywhere.
+          The chair is the platform with the furniture put back.
         </Pull>
       </Section>
 
       {/* §III — PSYCHIC SURPLUS */}
       <Section n="III" title="Psychic Surplus">
         <P>
-          The apparatus extracts something. The question is what.
+          What is the apparatus extracting? Not labor, exactly. The
+          Marxian construct of <em>surplus labor</em> — the work
+          performed beyond the worker&apos;s reproductive needs,
+          appropriated as profit — does not quite reach what the
+          contemporary apparatus takes. We need a parallel construct.
+          I have called it <em>psychic surplus</em>:<Fn n="5" /> the
+          portion of our attention, affect, fantasy, and motivation
+          that exceeds what is strictly required for biological survival
+          and basic social function, and that can be captured and
+          re-routed by the apparatus without (in the short term)
+          compromising the subject&apos;s continued functioning.
         </P>
         <P>
-          The Marxian formulation is <em>surplus labor</em>: the work
-          performed beyond the worker&apos;s own reproductive needs,
-          appropriated as profit. The libidinal-economic formulation
-          requires a parallel construct. I have called it{" "}
-          <em>psychic surplus</em>:<Fn n="5" /> the portion of our
-          attention, affect, fantasy, and motivation that exceeds what
-          is strictly required for biological survival and basic social
-          function, and that can be captured and re-routed by the
-          apparatus without (in the short term) compromising the
-          subject&apos;s continued functioning.
-        </P>
-        <P>
-          Psychic surplus is the apparatus&apos;s fuel. The chair runs
-          on it. So do, today, Meta&apos;s advertising network,
-          TikTok&apos;s For-You feed, Pornhub&apos;s preference-assignment
-          engine, and the dozen other platforms whose business models do
-          not survive a closer reading. The chair concentrates and makes
-          visible what these distributed apparatuses extract diffusely.
+          Psychic surplus is what the chair runs on. So do Meta&apos;s
+          advertising network, TikTok&apos;s For-You feed, Pornhub&apos;s
+          preference-assignment engine, and the dozen other platforms
+          whose business models do not survive a closer reading. The
+          chair is the same extraction concentrated into a piece of
+          furniture, where what was diffuse becomes visible.
         </P>
         <P>
           The concept has antecedents. Marcuse&apos;s{" "}
-          <em>repressive desublimation</em> &mdash; controlled indulgence
-          as a technique of pacification<Fn n="6" /> &mdash; describes
-          the mechanism by which the apparatus permits the very desires
-          it intends to manage. Berardi has more recently argued that
+          <em>repressive desublimation</em><Fn n="6" /> — controlled
+          indulgence as a technique of pacification — describes the
+          mechanism by which the apparatus permits the very desires it
+          intends to manage. Berardi argues, more recently, that
           semiocapitalism &ldquo;puts the soul to work&rdquo; by
           converting interior life into productive raw material.
-          <Fn n="7" /> Preciado has named the{" "}
-          <em>pharmacopornographic regime</em>, in which sexual desire
-          and biochemical modulation become direct inputs to capital
-          accumulation.<Fn n="8" /> Stiegler&apos;s pharmacology adds
-          the necessary asymmetry: the same technical apparatus that
-          extracts surplus is also the apparatus through which any
-          counter-formation must be assembled. There is no neutral
-          ground; only better and worse pharmaka.<Fn n="9" />
+          <Fn n="7" /> Preciado&apos;s <em>pharmacopornographic
+          regime</em> names the configuration in which sexual desire
+          and biochemical modulation are direct inputs to capital
+          accumulation.<Fn n="8" /> And Stiegler&apos;s pharmacology
+          insists on the awkward asymmetry the project keeps tripping
+          over: the same technical apparatus that extracts surplus is
+          also the apparatus through which any counter-formation must
+          be assembled. There is no neutral ground. Only better and
+          worse pharmaka.<Fn n="9" />
         </P>
         <P>
-          The chair operates at the convergence of all four. It permits.
-          It captures. It modulates. And there is no neutral chair.
-          Surplus is its product. The product is sold back to the
-          occupant as comfort.
+          The chair sits at the convergence of all four. It permits,
+          captures, and modulates simultaneously, and there is no
+          neutral chair — the only thing it sells back to the occupant
+          is the surplus the occupant produced, repackaged as comfort.
         </P>
       </Section>
 
       {/* §IV — OHCOSE */}
       <Section n="IV" title="OHCOSE">
         <P>
-          The apparatus is not a single event. It is a developmental
-          sequence. Following my earlier work,<Fn n="10" /> I name the
-          six phases of the occupant&apos;s relation to the apparatus
-          OHCOSE: <em>Onboarding</em>, <em>Habituation</em>,{" "}
+          The apparatus is not a single event but a developmental
+          sequence. Following my earlier work,<Fn n="10" /> I name its
+          six phases OHCOSE: <em>Onboarding</em>, <em>Habituation</em>,{" "}
           <em>Calibration</em>, <em>Occupancy</em>, <em>Stewardship</em>
           , <em>Estate</em>.
         </P>
         <PhaseDiagram />
         <P>
-          The pedagogical claim of OHCOSE is that the apparatus relates
-          to its occupant differently across the lifespan. The occupant
-          who is being <em>onboarded</em> &mdash; fitted with the
-          apparatus, ringed, instated &mdash; encounters the apparatus
-          as ceremony. The occupant in <em>habituation</em>, who has
-          begun to adapt to the apparatus&apos;s circadian and metabolic
-          envelope, encounters it as background. The occupant in{" "}
-          <em>calibration</em> is being tuned: the apparatus&apos;s
-          feedback rituals are adjusting their parameters to the
-          occupant&apos;s response profile. The occupant in{" "}
-          <em>occupancy</em>, the longest phase, has effectively
-          disappeared into the apparatus&apos;s operation. The occupant
-          in <em>stewardship</em> is being maintained at the threshold
-          of viability. The occupant in <em>estate</em> has died, but
-          the apparatus has retained the productivity profile and the
-          consumer-preference record, and continues to operate on behalf
-          of brand partners under the Eternal-tier protocols.
+          The apparatus relates to its occupant differently in each
+          phase. The occupant being <em>onboarded</em> — fitted with
+          the apparatus, ringed, instated — encounters it as ceremony.
+          In <em>habituation</em>, having begun to adapt to the
+          apparatus&apos;s circadian and metabolic envelope, the
+          occupant encounters it as background. <em>Calibration</em> is
+          the phase in which the apparatus tunes its feedback to the
+          occupant&apos;s measured response profile.{" "}
+          <em>Occupancy</em>, the longest phase, is the one in which
+          the occupant has effectively disappeared into the
+          apparatus&apos;s operation. <em>Stewardship</em> is the
+          maintenance of the occupant at the threshold of viability as
+          productive output declines. <em>Estate</em> is the
+          configuration that obtains after the occupant&apos;s biological
+          cessation, in which the apparatus retains the productivity
+          profile and consumer-preference record and continues to
+          operate on behalf of brand partners under the Eternal-tier
+          protocols.
         </P>
         <P>
-          Each phase corresponds to a different configuration of psychic
-          surplus extraction. The first three phases are characterized
-          by high extraction relative to engagement (the apparatus learns
-          the occupant by what the occupant gives it); the middle phase
-          by sustained, steady extraction; the last two by diminishing
-          real-time yield offset by extended residue (the data and
-          preference profile outlive the occupant).
+          Each phase has its own extraction profile. The first three
+          are high-yield relative to engagement (the apparatus is
+          learning the occupant from what the occupant gives it). The
+          middle is the steady-state. The last two yield less in real
+          time but produce a residue — the occupant&apos;s data and
+          preference profile — that outlives the occupant by decades.
         </P>
         <P>
-          A note on object relations. Klein&apos;s account of the
-          paranoid-schizoid and depressive positions, and Winnicott&apos;s
-          account of the transitional object,<Fn n="11" /> remain the
-          best psychoanalytic accounts I know of how a subject comes to
-          treat a non-self object as constitutive of self. The apparatus
-          becomes &mdash; somewhere between Onboarding and Calibration
-          &mdash; a transitional object in Winnicott&apos;s sense: not
-          quite the occupant, not quite the world, and yet the medium
-          through which the occupant comes to encounter both. By
-          Occupancy, the transition is complete. The occupant cannot
+          A note on object relations, because the apparatus depends on
+          one. Klein&apos;s account of the paranoid-schizoid and
+          depressive positions, and Winnicott&apos;s account of the
+          transitional object,<Fn n="11" /> are still the best
+          psychoanalytic descriptions I know of how a subject comes to
+          treat a non-self object as constitutive of self. Somewhere
+          between Onboarding and Calibration the apparatus becomes,
+          for the occupant, a transitional object in Winnicott&apos;s
+          sense: not quite the occupant, not quite the world, the
+          medium through which the occupant encounters both. By
+          Occupancy the transition is complete. The occupant cannot
           distinguish their preferences from the apparatus&apos;s
-          modeling of their preferences.
+          modeling of their preferences. This is the configuration
+          Winnicott most feared and the configuration the apparatus
+          most depends on.
         </P>
       </Section>
 
@@ -352,37 +348,35 @@ export default function OnTheChair() {
       <Section n="V" title="The Seven Subsystems">
         <P>
           The apparatus is, technically, an integration of seven
-          subsystems. The naming is mine; the functions are real.
-          <Fn n="12" /> I will not detail them here at length &mdash;
-          they are the catalogued under <em>subsystems</em> in the
-          related work &mdash; but I will name them, and indicate which
-          theoretical inheritance each draws on.
+          subsystems. The naming is mine. The functions are real.
+          <Fn n="12" /> The longer treatments are at{" "}
+          <Link href="/chair/subsystems">subsystems</Link>; here I will
+          just name them and indicate the theoretical inheritance each
+          draws on.
         </P>
         <Subsystems />
         <P>
-          These are not seven different things. They are seven moments
-          of one thing: the closed loop, in operation. The apparatus
-          becomes intelligible when one stops asking which subsystem
-          one is dealing with at a given moment and begins asking which
-          phase of the loop is, at that moment, in front of one.
+          The list of seven is misleading if read as a list of seven
+          separate things. The subsystems are facets of one operation
+          — the closed loop running — and the analytic question is
+          rarely <em>which subsystem</em> but <em>which moment of the
+          loop the occupant is currently inside</em>.
         </P>
         <P>
-          I have called the loop&apos;s temporal organization{" "}
+          The loop&apos;s temporal organization is the part I have
+          spent the most time on. I call it{" "}
           <Link href="/chair/concepts#capture-of-cadence">
             <em>Capture of Cadence</em>
           </Link>
-          <Fn n="13" /> &mdash; the
-          apparatus&apos;s most consequential capacity. Earlier forms
-          of labor extraction worked on quanta: hours worked, units
-          produced. The contemporary apparatus works on{" "}
-          <em>cadence</em>: the underlying rhythm at which the
-          occupant&apos;s life proceeds. The notification schedule, the
-          autoplay envelope, the algorithmically-paced reveal &mdash;
-          these are not content; they are tempo. The shift is
-          significant because cadence is not legible to the occupant
-          the way labor-hours are. You can know how many hours you
-          worked yesterday. You cannot, generally, audit the rhythm at
-          which your dopamine peaks have been entrained.
+          .<Fn n="13" /> Earlier forms of labor extraction worked on
+          quanta (hours worked, units produced); the contemporary
+          apparatus works on cadence (the rhythm at which the
+          occupant&apos;s life proceeds). The notification schedule,
+          the autoplay envelope, the algorithmically-paced reveal — not
+          content but tempo. The reason the shift matters is that
+          cadence is not legible to the occupant the way labor-hours
+          are. You can audit your hours. You cannot, generally, audit
+          the rhythm at which your dopamine peaks have been entrained.
         </P>
       </Section>
 
@@ -445,159 +439,184 @@ export default function OnTheChair() {
           platform-mediated compliance the reader is, today, in.
         </P>
         <P>
-          The chair is therefore not predicted by this essay. The
-          apparatus is described.
+          The point of listing the four is that the apparatus this
+          essay describes is not, in any meaningful sense, my
+          projection. It is the apparatus the four cases catalog,
+          assembled into one piece of furniture so that what is
+          ordinarily distributed becomes a thing the reader can point
+          at. The chair is the cataloging, not the prediction.
         </P>
       </Section>
 
       {/* §VII — THE 160-YEAR LINEAGE */}
       <Section n="VII" title="The 160-Year Lineage">
         <P>
-          The apparatus has historical depth. Successive iterations
-          have, over 160 years, refined the integration problem of their
-          period. I will sketch the lineage; the longer treatments are
-          elsewhere on the site.<Fn n="17" />
+          The apparatus has historical depth. Successive iterations,
+          across 160 years, have worked the same integration problem
+          for the period each was operating in. Here I will sketch
+          them; each gets a longer treatment at{" "}
+          <Link href="/chair/lineage">lineage</Link>.<Fn n="17" />
         </P>
         <LineageDiagram />
         <P>
-          The <em>Labor Compensator</em> (1865) was the first iteration:
-          a hand-cranked mechanical aid to agricultural work, designed
-          to maintain productivity through the labor reorganization the
-          post-Civil War South required. The <em>Efficiency Enhancer</em>{" "}
-          (1900) combined mechanized agriculture and human labor into a
-          single seated unit, integrating the worker into the machine
-          for the duration of the shift. The <em>Dynamic Dynamo</em>{" "}
+          The <Link href="/chair/lineage/labor-compensator">
+            <em>Labor Compensator</em>
+          </Link>{" "}
+          (1865) was the first: a hand-cranked mechanical aid sold to
+          Reconstruction-era plantations to maintain productivity
+          through the labor reorganization the period required. The{" "}
+          <Link href="/chair/lineage/efficiency-enhancer">
+            <em>Efficiency Enhancer</em>
+          </Link>{" "}
+          (1900) combined mechanized agriculture and human labor into
+          a single seated unit, integrating the worker into the machine
+          for the duration of the shift. The{" "}
+          <Link href="/chair/lineage/dynamic-dynamo">
+            <em>Dynamic Dynamo</em>
+          </Link>{" "}
           (1925), the first electrified workstation, made the seated
           body a permanent locus of factory work. The{" "}
-          <em>Knowledge Chair</em> (1955), the first iteration to
-          integrate telecommunications and an early data terminal,
-          converted the seated worker into an information processor.
-          The <em>Virtual Ouroboros</em> (1985), the first networked
-          iteration, fused physical and digital workspaces into a single
-          interface in which work and leisure became indistinguishable.
-          The <em>Ouroboros Life System</em> (2024&ndash;present) is the
-          integration&apos;s currently-deployed form.
+          <Link href="/chair/lineage/knowledge-chair">
+            <em>Knowledge Chair</em>
+          </Link>{" "}
+          (1955) added telecommunications and an early data terminal,
+          turning the seated worker into an information processor. The{" "}
+          <Link href="/chair/lineage/virtual-ouroboros">
+            <em>Virtual Ouroboros</em>
+          </Link>{" "}
+          (1985) fused physical and digital workspaces; work and
+          leisure became indistinguishable. The{" "}
+          <Link href="/chair/lineage/ouroboros-life-system">
+            <em>Ouroboros Life System</em>
+          </Link>{" "}
+          (2024&ndash;present) is the integration in its
+          currently-deployed form.
         </P>
         <P>
-          I will mark the speculation. The lineage is partial. Two of
-          the named devices (the Knowledge Chair, the Virtual Ouroboros)
-          shipped only in negligible quantities; the developmental
-          connections between iterations are reconstructed
-          retrospectively rather than documented contemporaneously. The
-          22nd-century archive, in particular, treats the lineage as a
-          21st-century marketing retcon &mdash; and there is something
-          to that reading.<Fn n="18" /> But the morphological argument
-          holds. The integration problem &mdash; how to seat the
-          laboring subject within the apparatus that extracts from them
-          &mdash; has been the apparatus&apos;s design problem across
-          all six iterations, whether or not the iterations were
-          historically aware of one another.
+          The lineage is, I should say, partial. Two of the named
+          devices (the Knowledge Chair, the Virtual Ouroboros) shipped
+          only in tiny quantities. The developmental connections
+          between iterations are reconstructed retrospectively rather
+          than documented contemporaneously. The 22nd-century archive
+          treats the lineage as a 21st-century marketing retcon, and
+          there is something to that reading.<Fn n="18" /> But the
+          morphological argument is independent of the
+          contemporaneous-development one. The integration problem —
+          how to seat the laboring subject inside the apparatus that
+          extracts from them — has been the design problem across all
+          six iterations, whether or not the iterations were
+          historically aware of one another. The lineage essays go into
+          the verification in detail; I have allowed the brochure to
+          be wrong where it is wrong and to be more right than I
+          expected where it is.
         </P>
       </Section>
 
       {/* §VIII — TRI-AXIAL OUROBORIC GOVERNANCE */}
       <Section n="VIII" title="Tri-Axial Ouroboric Governance">
         <P>
-          The apparatus loops desire along three axes. I have called
-          this configuration{" "}
+          The apparatus loops desire along three axes simultaneously,
+          and a great deal of the existing literature, in my reading,
+          misses the apparatus by engaging only one of them. The
+          framework I have developed to keep all three in view is{" "}
           <Link href="/chair/concepts#tri-axial-ouroboric-governance">
-            <em>Tri-Axial Ouroboric Governance</em> (TAOG)
+            <em>Tri-Axial Ouroboric Governance</em>, TAOG for short
           </Link>
-          :<Fn n="19" /> the proposition that the contemporary
-          libidinal-economic apparatus operates by simultaneously
-          capturing the subject along (a) a <em>temporal</em> axis
-          &mdash; the cadence at which desire is produced and answered;
-          (b) an <em>economic</em> axis &mdash; the metering and pricing
-          of attention and affect; and (c) an <em>affective</em> axis
-          &mdash; the modulation of which emotions the subject is
-          permitted, or invited, to feel.
+          .<Fn n="19" /> Its three axes are <em>temporal</em> (the
+          cadence at which desire is produced and answered),{" "}
+          <em>economic</em> (the metering and pricing of attention and
+          affect), and <em>affective</em> (the modulation of which
+          emotions the subject is permitted, or invited, to feel).
         </P>
         <P>
-          Each axis is, individually, legible from the existing
-          literature. The temporal axis is Stiegler&apos;s territory;
-          the economic axis, Berardi&apos;s; the affective axis,
-          Preciado&apos;s and Marcuse&apos;s. TAOG&apos;s claim is that
-          the contemporary apparatus operates the three axes
-          simultaneously and at the same scale, and that any analysis
-          that engages only one will miss the apparatus by exactly the
-          margin of the other two.
+          Each axis is, individually, well-charted. The temporal axis
+          is Stiegler&apos;s territory; the economic, Berardi&apos;s;
+          the affective, Preciado&apos;s and Marcuse&apos;s. TAOG&apos;s
+          claim is that the contemporary apparatus runs all three at
+          once, at the same scale, and that any analysis engaging only
+          one will miss the apparatus by exactly the margin of the
+          other two. (I have, in the past, made this mistake more than
+          once myself. Most of what I have written before 2022 engaged
+          the affective axis and the economic axis and was confused
+          about the temporal one.)
         </P>
         <P>
-          The chair, again, is the diagram. Its Affective Monitoring
-          subsystem reads the occupant&apos;s emotion in real time
-          (axis c); its Productivity Feedback subsystem meters the
-          occupant&apos;s output and is calibrated against the
-          occupant&apos;s service-credit balance (axis b); its overall
-          OHCOSE service architecture organizes the occupant&apos;s
-          life-stage cadence (axis a). One cannot disentangle the
-          subsystems and still have the apparatus. The chair is the
-          apparatus made architectural in part because architecture
-          makes the integration visible.
+          The chair is the diagram. Its Affective Monitoring subsystem
+          reads the occupant&apos;s emotion in real time (axis c). Its
+          Productivity Feedback subsystem meters the occupant&apos;s
+          output and is calibrated against the occupant&apos;s
+          service-credit balance (axis b). The OHCOSE service
+          architecture organizes the occupant&apos;s life-stage cadence
+          (axis a). You cannot disentangle the subsystems and still
+          have the apparatus. The chair is the apparatus made
+          architectural, in part, because architecture makes the
+          integration visible.
         </P>
       </Section>
 
       {/* §IX — REFUSAL */}
       <Section n="IX" title="Refusal">
         <P>
-          I owe the reader a politics. The essay&apos;s argument is,
-          ultimately, that the chair is a useful figure because it
-          makes the apparatus visible; but visibility is not refusal.
-          What does refusal look like?
+          A politics is owed. The argument so far has been that the
+          chair is useful as a figure because it makes the apparatus
+          visible — but visibility is not refusal, and the rest of
+          this essay is about what to do once you have it. The longer
+          treatment of what follows is at{" "}
+          <Link href="/chair/refusal">/chair/refusal</Link>, where I
+          add a fourth move and am more direct about what I have and
+          have not managed to do myself. Here I will sketch the first
+          three.
         </P>
         <P>
-          I will not pretend to have a complete answer. I will offer
-          three preliminary moves, in ascending order of difficulty.
+          The first is the easiest. The apparatus&apos;s grip on us is
+          secured by the cumulative effect of small consents — the
+          cookie banner, the terms-of-service update, the permission
+          prompt. These are not innocuous. They are the
+          apparatus&apos;s primary legitimation mechanism. Refusing
+          them does not destroy the apparatus; it does forecloses its
+          legal alibis. The political horizon is modest. The practice
+          is, even so, rarely undertaken, which is informative on its
+          own.
         </P>
         <P>
-          <strong style={{ color: PAPER }}>First, refuse the consent ritual.</strong>{" "}
-          The apparatus&apos;s grip is secured by the cumulative effect
-          of small consents &mdash; the cookie banner, the
-          terms-of-service update, the permission prompt. These are not
-          innocuous; they are the apparatus&apos;s primary legitimation
-          mechanism. Refusing them does not destroy the apparatus, but
-          it forecloses its legal alibis. This is the easiest move and
-          the one with the most modest political horizon. Even so, it
-          is rarely undertaken.
+          The second is harder, and the one I think matters most. The
+          apparatus&apos;s deepest grip is temporal. To withhold
+          attention at the moment the apparatus has scheduled it to
+          fire — to be slow when speed is demanded, silent when noise
+          is rewarded, inattentive when engagement is metered — is to
+          interrupt the cadence by which the apparatus operates. The
+          apparatus has a long history of pathologizing this kind of
+          practice (sloth, ennui, depression, disengagement); the
+          rebranding is the apparatus&apos;s tribute to the
+          practice&apos;s effectiveness. It does not feel like
+          resistance. It feels like inefficiency. Both readings are
+          accurate.
         </P>
         <P>
-          <strong style={{ color: PAPER }}>Second, refuse the cadence.</strong>{" "}
-          The apparatus&apos;s deepest grip is temporal. To withhold
-          one&apos;s attention at the moment the apparatus has
-          scheduled it to fire &mdash; to be slow when speed is
-          demanded, silent when noise is rewarded, inattentive when
-          engagement is metered &mdash; is to interrupt the cadence by
-          which the apparatus operates. This is, in a serious sense, a
-          practice. It does not feel like resistance; it feels like
-          inefficiency. Both are true. The apparatus has a long history
-          of pathologizing the practice (sloth, ennui, depression,
-          disengagement); the rebranding is the apparatus&apos;s
-          tribute to the practice&apos;s effectiveness.
+          The third is the costliest. The apparatus&apos;s promise —
+          closed-loop comfort, friction eliminated — is its deepest
+          seduction, because friction is unpleasant. The friction the
+          apparatus eliminates is frequently the very friction in
+          which non-apparatus-mediated life consists: the encounter
+          with the unfamiliar, the labor of coordinating with other
+          people whose desires have not yet been algorithmically
+          modeled, the obligation to be inefficient for someone
+          else&apos;s sake. Accepting friction is, in this sense, the
+          most thorough refusal. It is also the one I have struggled
+          with most in my own practice, and I would rather not lecture
+          on it from a position I have not earned.
         </P>
         <P>
-          <strong style={{ color: PAPER }}>Third, refuse the integration.</strong>{" "}
-          The apparatus&apos;s promise &mdash; closed-loop comfort, the
-          elimination of friction &mdash; is the apparatus&apos;s
-          deepest seduction. The friction it eliminates is, frequently,
-          the very friction in which non-apparatus-mediated life
-          consists: the encounter with the unfamiliar; the labor of
-          coordination with other persons whose desires have not yet
-          been algorithmically modeled; the obligation to be inefficient
-          for the sake of someone else. To accept friction is to
-          refuse the integration. This is, again, not destruction. The
-          apparatus continues. But the occupant who accepts friction
-          retains a margin within which non-apparatus-mediated
-          experience remains possible.
-        </P>
-        <P>
-          These three moves are not adequate responses. They are first
-          moves. The chair, as a figure, is most useful at this point:
-          it makes the apparatus difficult to ignore. The next argument
-          &mdash; the one I have not yet made &mdash; is what to do
-          when one has acknowledged it.
+          None of the three is adequate on its own. The interior they
+          collectively defend is small. But the smallness is the point.
+          What the moves preserve is the capacity to recognize the
+          apparatus as an apparatus, and to act on the recognition. That
+          recognition is what the rest of this project — the
+          subsystems, the precedents, the lineage, the artifacts — has
+          been trying to make available.
         </P>
         <Pull>
-          The friction the apparatus eliminates is, frequently, the
-          very friction in which non-apparatus-mediated life consists.
+          The smallness is the point.
         </Pull>
       </Section>
 
@@ -637,19 +656,31 @@ function Companions() {
     {
       href: "/chair/subsystems",
       label: "Seven Subsystems",
-      sub: "Long-form treatment of each subsystem named in §V. Each follows a six-section skeleton (Figure / Definition / Mechanism / Inheritance / In the Chair / A Note). ≈ 5,000 words across seven essays.",
+      sub: "Long-form treatment of each subsystem named in §V. Seven essays, around five thousand words.",
       section: "§ V Extended",
     },
     {
       href: "/chair/precedents",
       label: "Precedents",
-      sub: "Long-form treatment of the four actually-existing proto-apparatuses named in §VI: Meta's 2014 emotional-contagion experiment, TikTok's cadence engine, Pornhub's preference-assignment engine, the Chinese Social Credit System. ≈ 3,000 words across four cases.",
+      sub: "The four actually-existing proto-apparatuses §VI names — Meta's 2014 experiment, TikTok's cadence engine, Pornhub's preference-assignment engine, the Chinese Social Credit System. Three thousand words across four cases.",
       section: "§ VI Extended",
+    },
+    {
+      href: "/chair/lineage",
+      label: "Lineage",
+      sub: "Six iterations across 160 years, with the brochure's claims checked against the historical record. About forty-five hundred words.",
+      section: "§ VII Extended",
+    },
+    {
+      href: "/chair/refusal",
+      label: "On Refusal",
+      sub: "Longer treatment of §IX. Four moves rather than three, and a more honest accounting of what each can and cannot do.",
+      section: "§ IX Extended",
     },
     {
       href: "/chair/concepts",
       label: "Concepts",
-      sub: "Working definitions of the project's named frameworks (Closed-Loop Libidinal Economy, Psychic Surplus, OHCOSE, TAOG, IGLF, Capture of Cadence, Libidinal Ouroboros, Satisfaction Loops). Each entry states the construct, the analytical move it enables, and where it appears.",
+      sub: "Working definitions of the project's named frameworks: Closed-Loop Libidinal Economy, Psychic Surplus, OHCOSE, TAOG, IGLF, Capture of Cadence, Libidinal Ouroboros, Satisfaction Loops.",
       section: "Reference",
     },
   ];

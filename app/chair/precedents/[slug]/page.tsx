@@ -170,7 +170,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "The investigation's most under-cited finding was that users in the platform's testing reported satisfaction with the recommendations. The engine works. That is what it means for the engine to work.",
+          "The least-cited finding from the investigation was probably the most damning one: users in the platform's own testing said they were satisfied with the recommendations the engine assigned them. The engine works, in the sense its operators meant it to work, and the satisfaction the engine produces is part of how we know it does. This is, on my reading, the harder thing to sit with. It is not that the apparatus is overriding the occupant's desires against the occupant's will. It is that the apparatus is producing the desires the occupant subsequently experiences as theirs, and the experience is good.",
         ],
       },
     ],
@@ -221,7 +221,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "The two systems differ in which Compliance Monitor mechanisms are visible and which are concealed. They do not differ in whether the Monitor is operating.",
+          "The Chinese and Western versions of the Monitor differ in which pieces are visible to the citizen and which are not. They do not, on inspection, differ much in the pieces themselves, or in what those pieces do. The visibility difference is consequential — the Chinese system is, to its citizens, addressable in a way the Western one is not — but to mistake the visibility difference for an existence difference is to mistake what one of these systems is, and which one of them one is in.",
         ],
       },
     ],

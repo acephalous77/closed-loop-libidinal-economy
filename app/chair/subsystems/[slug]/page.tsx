@@ -129,7 +129,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "There is a tempting move to argue that Consent Loops are bad because the consent is not real. The argument is wrong in an important way. The consent is real: the click happens, the box is checked, the box's checked state is recorded. What is not real is the contractual fiction that the consent represents meaningful agreement. The Consent Loop's function is to produce real consent that signifies nothing about agreement, and to deploy that consent in the legal-regulatory frame where signification was never the point.",
+          "It is tempting to argue that Consent Loops are bad because the consent isn't real. I don't think this is the right argument. The consent is real enough — the click happens, the box gets checked, the platform's ledger records the checked state, and a regulator who later asks whether the user agreed can be shown the record. What isn't real is the assumption built into contemporary contract doctrine that meaningful agreement is what such a record represents. The Loop's actual function is to produce a record of agreement that signifies nothing about agreement, and then to use the record where signification was never what the regulators were going to check anyway. The fault is not in the consent. The fault is in the legal frame that accepts the consent as standing in for something it has stopped being able to stand in for.",
         ],
       },
     ],
@@ -178,7 +178,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "A useful diagnostic: identify the most recent moment a piece of technology you use predicted what you wanted before you articulated it. The prediction was the Compliance Monitor reading you. You experienced the reading as service.",
+          "Try this. Think about the most recent moment a piece of technology in your life knew what you wanted before you'd worked out what you wanted. The maps app rerouting you before traffic appeared. The calendar suggesting the meeting room. The streaming service queuing the next episode. None of these felt invasive at the time; most felt like the apparatus being thoughtful. What was thoughtful in each case was the Monitor reading you and quietly preempting the action you were about to take. The service you experienced was the surveillance you didn't.",
         ],
       },
     ],
@@ -228,7 +228,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "The Reservoir is the apparatus's most patient subsystem. Its yield is, on the timescale of a single occupant's interaction, modest. Its yield is, on the timescale of the occupant's lifetime, large. Its yield, on the timescale of the apparatus's institutional existence, is the largest source of capital aggregation the apparatus operates. The chair, like the platform, is a Reservoir-first apparatus. Everything else is interface to the Reservoir.",
+          "The Reservoir is the most patient subsystem in the apparatus. Looked at on the timescale of a single interaction, what it captures is modest. Looked at on the timescale of an occupant's lifetime, it accumulates. Looked at on the timescale of the apparatus as an institution — the timescale on which decisions about which platforms to acquire and which models to train get made — the Reservoir is where the apparatus's actual capital sits. Everything the occupant experiences as the apparatus is, in this longer view, the surface through which the Reservoir gets fed.",
         ],
       },
     ],
@@ -278,7 +278,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "The Feedback Ritual is the apparatus's most-loved subsystem. The occupant does not, generally, want it to stop. The occupant has come to depend on it for the small affective regulation it provides. This is the apparatus's design victory and the occupant's design loss. The apparatus has captured something the occupant once had to find elsewhere.",
+          "Of all the subsystems, the Feedback Ritual is the one occupants most rarely want stopped. The buzz of the notification, the warmth of the like, the satisfaction of the streak — these are not things people experience as the apparatus's grip on them; they are things people experience as small kindnesses the day affords. The Ritual has, over the past fifteen years or so, taken over a function — the daily provision of low-stakes affective regulation — that used to live in a much wider set of relationships and practices. I am not nostalgic for the older arrangement, which had its own pathologies, but the substitution is worth naming. We did not used to need the apparatus for this.",
         ],
       },
     ],
@@ -329,7 +329,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "The Translator is the apparatus's most invasive subsystem. The Translator is also the apparatus's most thoroughly normalized. The same generation that would refuse, on principle, to have their employer read their personal email has accepted, without notable objection, that the camera on their phone reads their face. The discrepancy is informative.",
+          "By any reasonable measure of invasiveness — what is being read, at what resolution, by whom, against what consent — the Translator is the most invasive piece of the apparatus we have. It is also, by some distance, the piece that has provoked the least public objection. The same people who would not, on principle, let their employer open their personal email have, without protest worth mentioning, allowed the camera in their pocket to read their face every time they unlock the screen. I do not have a clean explanation for the asymmetry. The face has, somewhere in the last decade, ceased to be treated as private the way correspondence is treated as private. I would like to know when that happened, and what it cost.",
         ],
       },
     ],
@@ -379,7 +379,7 @@ const BODIES: Record<string, Body> = {
         n: "VI",
         title: "A Note",
         body: [
-          "The Governor is the apparatus's least-discussed subsystem. There are two reasons. The first is that the Governor's operation is, by design, distant from the individual occupant; it does not appear in the occupant's experience as an intervention. The second is that the Governor's existence implies the apparatus is, in the political-philosophical sense, governing. The polite consensus that the platform economy is a market, and that markets are not governments, is upheld in part by not noticing the Governor.",
+          "The Governor is the least-discussed piece of the apparatus, and the reason is partly practical and partly ideological. Practically: the Governor operates above the level of the individual occupant, so nothing it does shows up in the occupant's experience as a discrete intervention. Ideologically: to notice the Governor at all is to concede that the platform economy is doing something the contemporary political-philosophical vocabulary calls governing. The polite frame within which the platforms are treated as markets — and within which markets are treated as the opposite of governments — depends on the Governor remaining unnoticed. I take it as a working assumption that this will, eventually, stop holding. I am not sure what stops it.",
         ],
       },
     ],

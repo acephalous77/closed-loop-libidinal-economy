@@ -160,6 +160,14 @@ export default function ChairLayout({
           precedents
         </a>
         <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/lineage" style={{ color: "inherit", textDecoration: "none" }}>
+          lineage
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/refusal" style={{ color: "inherit", textDecoration: "none" }}>
+          refusal
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair/the-system" style={{ color: "inherit", textDecoration: "none" }}>
           brochure
         </a>
