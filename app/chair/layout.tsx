@@ -128,61 +128,143 @@ export default function ChairLayout({
 }
 
 /**
- * Replaces the previous 11-link strip-of-middots footer. Just the
- * essential anchor + the project's mark + a single link to the route
- * map (which lives at /chair#routes or its own page in batch 2).
+ * Three-row global footer: identity row, then the route grid grouped
+ * by document type, then the signature. Reachable from every page so
+ * the companions (subsystems, precedents, lineage, refusal, concepts)
+ * and the artifacts (brochure, zine, archive) are never more than one
+ * click away.
  */
 function ChairFoot() {
   const T = MASTER;
+  const groups: { heading: string; items: [string, string][] }[] = [
+    {
+      heading: "Essay & companions",
+      items: [
+        ["/chair", "On the Chair"],
+        ["/chair/subsystems", "Subsystems"],
+        ["/chair/precedents", "Precedents"],
+        ["/chair/lineage", "Lineage"],
+        ["/chair/refusal", "Refusal"],
+        ["/chair/concepts", "Concepts"],
+      ],
+    },
+    {
+      heading: "Artifacts",
+      items: [
+        ["/chair/the-system", "Brochure"],
+        ["/chair/zine", "Zine"],
+        ["/chair/archive", "Archive"],
+      ],
+    },
+    {
+      heading: "End matter",
+      items: [
+        ["/chair#routes", "Route map"],
+        ["/chair/colophon", "Colophon"],
+      ],
+    },
+  ];
+  const mono = "var(--font-plex-mono), monospace";
+  const serif = "var(--font-spectral), serif";
   return (
     <footer
       style={{
-        padding: "6rem 5vw 4rem",
-        textAlign: "center",
+        padding: "5rem 5vw 3rem",
         borderTop: `0.75px solid ${T.rule}`,
         position: "relative",
         zIndex: 1,
       }}
     >
+      {/* Identity row */}
       <div
         style={{
-          display: "inline-flex",
+          display: "flex",
+          justifyContent: "center",
           alignItems: "center",
           gap: "1.4rem",
-          fontFamily: "var(--font-plex-mono), monospace",
+          marginBottom: "2.6rem",
+          fontFamily: mono,
           fontSize: "0.7rem",
           letterSpacing: "0.28em",
           textTransform: "uppercase",
           color: T.inkMute,
+          flexWrap: "wrap",
         }}
       >
-        <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
-          ↑ autostimulus
-        </a>
+        <a href="/" style={{ color: "inherit", textDecoration: "none" }}>↑ autostimulus</a>
         <ChairGlyph size={18} stroke={T.accent} />
-        <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>
-          /chair
-        </a>
-        <span style={{ color: T.inkFaint }}>·</span>
-        <a href="/chair#routes" style={{ color: "inherit", textDecoration: "none" }}>
-          route map
-        </a>
-        <span style={{ color: T.inkFaint }}>·</span>
-        <a href="/chair/colophon" style={{ color: "inherit", textDecoration: "none" }}>
-          colophon
-        </a>
+        <span style={{ color: T.ink }}>On the Chair</span>
       </div>
+
+      {/* Route grid */}
       <div
         style={{
-          marginTop: "1.6rem",
-          fontFamily: "var(--font-spectral), serif",
+          display: "grid",
+          gridTemplateColumns: "repeat(3, minmax(160px, 1fr))",
+          gap: "2rem",
+          maxWidth: 880,
+          margin: "0 auto 2.4rem",
+        }}
+        className="chair-foot-grid"
+      >
+        {groups.map((g) => (
+          <div key={g.heading}>
+            <div
+              style={{
+                fontFamily: mono,
+                fontSize: "0.62rem",
+                letterSpacing: "0.26em",
+                color: T.accent,
+                textTransform: "uppercase",
+                fontWeight: 700,
+                marginBottom: "0.7rem",
+                paddingBottom: "0.4rem",
+                borderBottom: `0.5px solid ${T.rule}`,
+              }}
+            >
+              {g.heading}
+            </div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {g.items.map(([href, label]) => (
+                <li key={href} style={{ padding: "0.3rem 0" }}>
+                  <a
+                    href={href}
+                    style={{
+                      fontFamily: serif,
+                      fontStyle: "italic",
+                      fontSize: "0.96rem",
+                      color: T.ink,
+                      textDecoration: "none",
+                      letterSpacing: "-0.005em",
+                    }}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Signature */}
+      <div
+        style={{
+          fontFamily: serif,
           fontStyle: "italic",
           fontSize: "0.85rem",
           color: T.inkFaint,
+          textAlign: "center",
         }}
       >
         Adnan Selimović · Brooklyn · MMXXVI
       </div>
+
+      <style>{`
+        @media (max-width: 700px) {
+          .chair-foot-grid { grid-template-columns: 1fr !important; gap: 1.6rem !important; }
+        }
+      `}</style>
     </footer>
   );
 }

@@ -697,50 +697,116 @@ function Companions() {
 }
 
 function Artifacts() {
-  const items = [
-    { href: "/chair/the-system", label: "The Marketing Brochure",
-      sub: "The apparatus speaking in its own voice — present-tense corporate copy." },
-    { href: "/chair/zine", label: "The Resistance Pamphlet",
-      sub: "Anti-copyright protest media. The voice of the occupants who refused." },
-    { href: "/chair/archive", label: "The Imperial Archive",
-      sub: "Future-historian retrospective, c. 2197. Scholarly entries on the period." },
+  // The full route map. Grouped by document type so the reader can
+  // see the project's shape at a glance and navigate to any surface.
+  // This is the section the layout footer's "route map" link points at.
+  const groups: { heading: string; items: { href: string; label: string; sub: string; plate?: string }[] }[] = [
+    {
+      heading: "Essay & companions",
+      items: [
+        { href: "/chair", plate: "I",   label: "On the Chair",   sub: "The essay — nine sections — the project's spine." },
+        { href: "/chair/subsystems", plate: "V",    label: "The Seven Subsystems",  sub: "§ V Extended — long-form treatments of each apparatus subsystem." },
+        { href: "/chair/precedents", plate: "VI",   label: "Precedents",            sub: "§ VI Extended — four documented cases: Meta, TikTok, Pornhub, PRC social credit." },
+        { href: "/chair/lineage",    plate: "VII",  label: "Lineage",               sub: "§ VII Extended — six iterations across 160 years, brochure-claim vs. record." },
+        { href: "/chair/refusal",    plate: "IX",   label: "On Refusal",            sub: "§ IX Extended — four moves toward a politics of refusal." },
+        { href: "/chair/concepts",   plate: "RF",   label: "Concepts",              sub: "Reference — working definitions of the project's named frameworks." },
+      ],
+    },
+    {
+      heading: "Three artifacts",
+      items: [
+        { href: "/chair/the-system", plate: "II",   label: "The Brochure",          sub: "The apparatus speaking in its own voice — clinical showroom register." },
+        { href: "/chair/zine",       plate: "III",  label: "The Resistance Pamphlet",sub: "Anti-copyright protest media. The voice of the occupants who refused." },
+        { href: "/chair/archive",    plate: "VIII", label: "The Imperial Archive",  sub: "Future-historian retrospective, c. 2197. Slate inversion." },
+      ],
+    },
+    {
+      heading: "End matter",
+      items: [
+        { href: "/chair/colophon",   plate: "XLII", label: "Colophon",              sub: "Production credits, typography, citation, version log, license." },
+      ],
+    },
   ];
   return (
-    <section id="routes" aria-label="Appended artifacts" style={{
-      marginTop: "4rem", paddingTop: "2rem",
-      borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
-    }}>
+    <section
+      id="routes"
+      aria-label="Route map"
+      style={{
+        marginTop: "4rem", paddingTop: "2rem",
+        borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
+      }}
+    >
       <h3 style={{
         fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
         color: T.accent, textTransform: "uppercase",
-        fontWeight: 600, margin: "0 0 1.4rem",
-      }}>Three Artifacts</h3>
-      <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {items.map((it) => (
-          <li key={it.href} style={{ padding: "1rem 0", borderTop: `1px solid ${T.rule}` }}>
-            <a href={it.href} style={{
-              display: "grid", gridTemplateColumns: "auto 1fr auto",
-              gap: "1rem", textDecoration: "none", color: T.ink,
-              alignItems: "center",
-            }}>
-              <ChairGlyph size={28} stroke={T.accent} />
-              <div>
-                <div style={{
-                  fontFamily: FONT.serif, fontStyle: "italic",
-                  fontSize: "1.2rem", color: T.ink, marginBottom: 4,
-                }}>{it.label}</div>
-                <div style={{
-                  fontFamily: FONT.serif, fontSize: "0.95rem",
-                  lineHeight: 1.55, color: T.inkDim,
-                }}>{it.sub}</div>
-              </div>
-              <span style={{
-                fontFamily: FONT.mono, color: T.accent, fontSize: "1rem",
-              }}>→</span>
-            </a>
-          </li>
-        ))}
-      </ol>
+        fontWeight: 600, margin: "0 0 0.4rem",
+      }}>● Route map</h3>
+      <p style={{
+        fontFamily: FONT.serif, fontStyle: "italic",
+        fontSize: "0.98rem", lineHeight: 1.55, color: T.inkDim,
+        margin: "0 0 2rem",
+      }}>
+        Every surface in the volume. The essay is the spine. The
+        companions extend its sections. The three artifacts are
+        appended primary documents — mutually contradictory in voice,
+        each one partial. The colophon breaks character.
+      </p>
+      {groups.map((g) => (
+        <div key={g.heading} style={{ marginBottom: "2.2rem" }}>
+          <div style={{
+            fontFamily: FONT.mono, fontSize: "0.66rem", letterSpacing: "0.24em",
+            color: T.inkMute, textTransform: "uppercase",
+            fontWeight: 600, margin: "0 0 0.8rem",
+            paddingBottom: "0.4rem",
+            borderBottom: `0.5px solid ${T.rule}`,
+          }}>
+            {g.heading}
+          </div>
+          <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {g.items.map((it) => (
+              <li key={it.href} style={{ borderBottom: `0.5px solid ${T.rule}` }}>
+                <a
+                  href={it.href}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "auto 3rem 1fr auto",
+                    gap: "0.9rem",
+                    padding: "0.95rem 0",
+                    textDecoration: "none",
+                    color: T.ink,
+                    alignItems: "center",
+                  }}
+                >
+                  <ChairGlyph size={22} stroke={T.accent} />
+                  {it.plate ? (
+                    <span style={{
+                      fontFamily: FONT.mono, fontSize: "0.7rem",
+                      letterSpacing: "0.16em", color: T.accent,
+                      fontWeight: 700,
+                    }}>
+                      {it.plate}
+                    </span>
+                  ) : <span />}
+                  <div>
+                    <div style={{
+                      fontFamily: FONT.serif, fontStyle: "italic",
+                      fontSize: "1.12rem", color: T.ink, marginBottom: 2,
+                      letterSpacing: "-0.005em",
+                    }}>{it.label}</div>
+                    <div style={{
+                      fontFamily: FONT.serif, fontSize: "0.92rem",
+                      lineHeight: 1.5, color: T.inkDim,
+                    }}>{it.sub}</div>
+                  </div>
+                  <span style={{
+                    fontFamily: FONT.mono, color: T.accent, fontSize: "0.95rem",
+                  }}>→</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      ))}
     </section>
   );
 }
