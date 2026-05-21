@@ -220,8 +220,8 @@ const BODIES: Record<string, Body> = {
         n: "V",
         title: "In the Chair",
         body: [
-          "The Ouroboros Life System's Surplus Reservoir is the apparatus's onboard service ledger, which records every biometric reading, every productivity output, every content engagement, every pharmacological dosing event, and every affective-state classification, indexed against the occupant's identifier and retained for the duration of the Estate-phase service contract. Essential-tier occupants' records are retained for 7 years post-cessation; Pro-tier occupants' for 25 years; Eternal-tier occupants' for 99 fiscal years.",
-          "The Reservoir's downstream consumers are the manufacturer's brand partners. The partners purchase access to occupant-profile data on a per-occupant, per-data-class basis. The occupant is not informed of which partners have purchased their record. The occupant is not informed that the record continues to be sold after their death.",
+          "Inside the OLS, the Reservoir takes the form of an onboard service ledger that records, against the occupant's identifier, every biometric reading the Translator captures, every productivity output the Feedback subsystem registers, every content engagement, every pharmacological dosing event, and every affective-state classification. The retention period is tier-graded — seven years post-cessation for Essential occupants, twenty-five for Pro, ninety-nine fiscal years for Eternal — and the ledger continues to be queried, by the manufacturer's brand partners, for the duration of that period.",
+          "Those brand partners purchase access on a per-occupant, per-data-class basis. The occupant is not told which partners are buying their record. The occupant is not told that the record continues to be sold after their death. The brochure's silence on both points is one of the few places the brochure's evasion is operationally legible to a reader paying attention.",
         ],
       },
       {
@@ -321,8 +321,8 @@ const BODIES: Record<string, Body> = {
         n: "V",
         title: "In the Chair",
         body: [
-          "The Ouroboros Life System's Translator is the Ring-integrated sensor stack: facial monitoring from the headrest camera; vocal monitoring from the work-terminal microphone; cardiac monitoring from the chest-plate contact electrodes; electrodermal monitoring from the armrest contacts; pupillometric monitoring from the work-terminal infrared array; gaze monitoring from the work-terminal eye-tracker. The stack reads continuously throughout the occupant's residence.",
-          "The Translator's downstream consumers are the Desire Engine (which uses the read to tune content), the Pharmacological subsystem (which uses the read to adjust dosing), the Compliance Monitor (which uses the read to anticipate non-conforming behavior), and the Productivity Feedback (which uses the read to throttle or accelerate the occupant's work envelope). The Translator is, in effect, every other subsystem's afferent nerve.",
+          "Inside the OLS, the Translator is distributed across the Ring's sensor stack. A camera in the headrest reads the occupant's face. A microphone in the work-terminal reads voice. Contact electrodes in the chest-plate read cardiac signal. The armrest contacts read electrodermal response. An infrared array and an eye-tracker, both at the work-terminal, read pupil and gaze. The stack reads continuously, throughout the occupant's residence, and the readings are routed by an onboard fusion layer to whichever subsystem currently needs them.",
+          "Most of the Translator's output is going to the other subsystems — the Desire Engine, which uses it to tune the content stream; the pharmacological subsystem, which uses it to adjust dosing; the Compliance Monitor, which uses it to anticipate non-conforming behaviour; the Productivity Feedback, which uses it to set the work envelope. None of these subsystems would operate, in any meaningful sense, without the Translator's reads. The chair, considered as a single object, is most accurately described as a Translator with several actuators bolted on.",
         ],
       },
       {
@@ -371,8 +371,8 @@ const BODIES: Record<string, Body> = {
         n: "V",
         title: "In the Chair",
         body: [
-          "The Ouroboros Life System's Governor is the manufacturer's portfolio-level optimization layer, which sets the parameters for all subsystem behavior across the deployed apparatus base. The Governor adjusts the Desire Engine's stimulation envelope, the Pharmacological subsystem's dosing curves, the Productivity Feedback's metering thresholds, and the OHCOSE phase-transition windows in response to aggregate occupant data.",
-          "The Governor's optimization objective is the manufacturer's quarterly revenue, weighted against the apparatus's projected service-life and the occupant's projected productivity output. The optimization is performed continuously. No individual occupant is targeted by the Governor; the entire occupant population is.",
+          "Inside the OLS, the Governor is the manufacturer's portfolio-level optimisation layer, which sits above the deployed apparatus base and tunes the parameters every chair operates under. The Desire Engine's stimulation envelope, the pharmacological dosing curves, the Productivity Feedback's metering thresholds, the OHCOSE phase-transition windows — all of these are set, in continuous real time, against aggregate data the Governor is watching across the whole installed base.",
+          "What the Governor optimises for is the manufacturer's quarterly revenue, weighted against the apparatus's projected service-life and the occupant's projected productivity output. No individual occupant is targeted; the population is. The interesting question is what the optimisation looks like at the boundary — what the Governor does when the population's affective state, aggregated, starts to threaten extraction. The brochure does not document this. I have been told, by industry sources I will not name here, that the answer involves intentionally damping the Desire Engine's intensity for several months at a time. The damping is presented to occupants as a software update.",
         ],
       },
       {

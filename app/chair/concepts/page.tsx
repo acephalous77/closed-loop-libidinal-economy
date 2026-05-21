@@ -225,11 +225,15 @@ export default function ConceptsPage() {
             fontStyle: "italic",
           }}
         >
-          Working definitions of the project&apos;s named frameworks. The
-          essay at <a href="/chair" style={{ color: PAPER, textDecorationColor: ACCENT }}>On the Chair</a>{" "}
-          uses these terms throughout; this page makes them precise.
-          Each entry states the construct, the analytical move it enables,
-          and where it appears in the broader project.
+          Eight constructs I keep using across the project, set out at
+          the length someone running into one of them for the first
+          time would need. Each entry gives the working definition,
+          says something about how I came to it and what I do with it,
+          and points back to where it appears in the rest of the work.
+          The page is meant to be skimmable: it is not the place to
+          read the project from. The essay at{" "}
+          <a href="/chair" style={{ color: PAPER, textDecorationColor: ACCENT }}>On the Chair</a>{" "}
+          is.
         </p>
       </header>
 
