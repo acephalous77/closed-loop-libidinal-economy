@@ -1697,6 +1697,9 @@ export default function ZineSpread() {
         />
       </PhaseSection>
 
+      {/* ─── LEAKED CONSULTANT TRANSCRIPT ───────────────────────────── */}
+      <ConsultantTranscript />
+
       <FittingConsultantBlacklist />
 
       {/* ─── PHASE 06 — THE CYCLE NEVER STOPS ─────────────────────── */}
@@ -2195,6 +2198,199 @@ function CasualtyWall() {
   );
 }
 
+// ─── Consultant Transcript ──────────────────────────────────────────
+// A verbatim phone-call transcript between a fitting consultant
+// (Bezdek, M., named in the FittingConsultantBlacklist below) and a
+// prospect ("Sarah") in cohort 2026.05. Recorded without the
+// company's consent. Edited only for length.
+//
+// Visual register: mono terminal printout on black, with a few
+// strategic redactions. The thing in the zine that does not feel
+// designed — feels leaked.
+function ConsultantTranscript() {
+  // Each line: speaker | indent? | text. Redactions use ▮ chars.
+  const lines: Array<{ who?: "C" | "P" | "M"; text: string; pause?: boolean }> = [
+    { who: "M", text: "RECORDING 0044-2811 · 12:42 · received via Signal · edited for length" },
+    { who: "M", text: "consultant: BEZDEK, M. · prospect: ▮▮▮▮▮ (cohort 2026.05)" },
+    { who: "M", text: "─────────────────────────────────────────────" },
+    { who: "C", text: "Hi, is this ▮▮▮▮▮? Hi ▮▮▮▮▮, this is Bezdek, M., from Ouroboros Industries. We have your name from the household-readiness portal. Is this still a good time?" },
+    { who: "P", text: "Um. Yeah, sure. I have like fifteen minutes." },
+    { who: "C", text: "Perfect, fifteen is plenty. So I just wanted to check in — you completed the assessment about three weeks ago, you're in cohort 2026.05, and I see you flagged the financing question. Are you free to talk about that?" },
+    { who: "P", text: "Yeah. So my concern is — I read the contract, and the seven-year retention on the Service Ledger, after — after cessation, that's a long time. And I wasn't sure if that's negotiable." },
+    { who: "C", text: "Mm. That's a great question, ▮▮▮▮▮. So the seven years is the Essential floor, that's regulatory. But what most people in your position actually do — and I want to be honest with you here — they upgrade to Pro, which extends to twenty-five years but also gives you the eight-percent revenue share on productivity output. So in practice you actually come out ahead, financially, on Pro versus Essential, if you're working at all during occupancy. Which you would be." },
+    { who: "P", text: "...okay. But the retention period is still locked in?" },
+    { who: "C", text: "The retention is locked, yes. That's regulatory across all tiers. What's not locked is what brand partners can do with the data during the retention window, and at Pro you do get notification of any new partner licensing. Which Essential occupants don't get. So you have visibility you wouldn't otherwise have." },
+    { who: "P", text: "Hm. Okay." },
+    { who: "C", text: "▮▮▮▮▮, can I ask — what's making you hesitate? Because I don't want you to feel pressured. We have time. The cohort doesn't close till June 30." },
+    { who: "P", text: "I think it's just... my mom is asking why I don't just rent. Like a normal — you know." },
+    { who: "C", text: "That's a totally normal question. So can I just give you the math? I want you to make this decision with the numbers in front of you." },
+    { who: "P", text: "Sure." },
+    { who: "C", text: "At your income bracket, renting in ▮▮▮▮▮ is about $3,800 a month, you're paying that for the rest of your life, no equity, no productivity share, no Service Ledger, your data is being extracted anyway because you're on platforms. Right? You're already in the apparatus. You're just not getting paid for it. That's the situation we're trying to correct." },
+    { who: "P", text: "...yeah." },
+    { who: "C", text: "At Pro, you're financing $2,560 a month for sixty months. After year five, you own the unit. The eight-percent revenue share starts at month one. The average Pro occupant in your cohort is net-positive on the chair by month thirty-seven. Most occupants are positive by year three. You'll be one of them." },
+    { who: "P", text: "...okay." },
+    { who: "C", text: "I want to send you the upgrade paperwork. You'll have seventy-two hours to look at it. No pressure. If you decide Pro is right, you sign and we schedule the fitting. If you decide Essential is right, you stay on the Essential paperwork you already signed. Either way, you're in cohort 2026.05. Is that okay?" },
+    { who: "P", text: "Yeah. Okay. Send it." },
+    { who: "C", text: "Beautiful. You'll have it in twenty minutes. ▮▮▮▮▮, I'm really glad we talked. You're going to be so well taken care of in cohort 2026.05." },
+    { who: "M", text: "─────────────────────────────────────────────" },
+    { who: "M", text: "[END OF EDITED TRANSCRIPT · ▮▮▮▮▮ signed Pro paperwork 71 minutes later]" },
+  ];
+
+  return (
+    <section
+      style={{
+        position: "relative",
+        background: BLACK,
+        padding: "100px 24px 120px",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          maxWidth: 760,
+          margin: "0 auto",
+          background: "#0e0d0a",
+          border: `1px solid rgba(57,255,20,0.35)`,
+          padding: "32px 28px 36px",
+          boxShadow: "0 0 0 1px rgba(57,255,20,0.08) inset",
+        }}
+      >
+        {/* Header bar — fake terminal chrome */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginBottom: 18,
+            paddingBottom: 12,
+            borderBottom: `1px solid rgba(57,255,20,0.2)`,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: MONO,
+              fontSize: 10,
+              letterSpacing: "0.24em",
+              color: NEON_GREEN,
+              textTransform: "uppercase",
+              fontWeight: 600,
+            }}
+          >
+            ◆ transcript · received via Signal · 2026.05.12
+          </div>
+          <div
+            style={{
+              fontFamily: MONO,
+              fontSize: 10,
+              letterSpacing: "0.18em",
+              color: MUTED,
+              textTransform: "uppercase",
+            }}
+          >
+            redacted by source
+          </div>
+        </div>
+
+        {/* Intro framing */}
+        <p
+          style={{
+            fontFamily: MONO,
+            fontSize: 12,
+            lineHeight: 1.6,
+            color: PAPER_DIM,
+            margin: "0 0 1.6rem",
+          }}
+        >
+          Below: a phone call between a bonded fitting consultant
+          (Bezdek, M., OIS-44-3019 — see the blacklist below) and a
+          prospect we will not name, in early May 2026. Recorded by
+          the prospect on her phone, without the consultant&apos;s or
+          the company&apos;s knowledge, and forwarded to us with her
+          permission. Names and addresses redacted by the source.
+          Edited for length, not for tone.
+        </p>
+
+        {/* The transcript itself */}
+        <div style={{ fontFamily: MONO, fontSize: 13, lineHeight: 1.65 }}>
+          {lines.map((l, i) => {
+            if (l.who === "M") {
+              return (
+                <div
+                  key={i}
+                  style={{
+                    color: NEON_GREEN,
+                    margin: "0 0 0.5rem",
+                    opacity: 0.7,
+                    letterSpacing: "0.02em",
+                  }}
+                >
+                  {l.text}
+                </div>
+              );
+            }
+            return (
+              <div
+                key={i}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "2.2rem 1fr",
+                  gap: "0.6rem",
+                  margin: "0 0 0.9rem",
+                  color: l.who === "C" ? PAPER : "#a8e3b8",
+                }}
+              >
+                <span
+                  style={{
+                    fontWeight: 700,
+                    color: l.who === "C" ? NEON_PINK : NEON_GREEN,
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  {l.who === "C" ? "BEZDEK" : "PROSPECT"}
+                </span>
+                <span>{l.text}</span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Footer note */}
+        <div
+          style={{
+            marginTop: "2rem",
+            paddingTop: "1rem",
+            borderTop: `1px solid rgba(57,255,20,0.2)`,
+            fontFamily: MONO,
+            fontSize: 10,
+            letterSpacing: "0.18em",
+            color: MUTED,
+            textTransform: "uppercase",
+            lineHeight: 1.7,
+          }}
+        >
+          source has asked us to add: she does not regret the recording.
+          she regrets the seventy-one minutes.
+        </div>
+      </div>
+
+      {/* Caption beneath */}
+      <p
+        style={{
+          marginTop: "1.6rem",
+          fontFamily: MARKER,
+          fontSize: 22,
+          color: NEON_PINK,
+          textAlign: "center",
+          transform: "rotate(-1deg)",
+        }}
+      >
+        this is what the consultant sounds like.
+      </p>
+    </section>
+  );
+}
+
 // ─── Fitting Consultant Blacklist ────────────────────────────────────
 function FittingConsultantBlacklist() {
   const consultants: Array<{ name: string; badge: string; region: string; note: string }> = [
@@ -2481,17 +2677,17 @@ function ManifestoPoster() {
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: SANS, fontSize: 18, lineHeight: 1.5, color: BLACK, fontWeight: 500 }}>
               {[
-                "the fitting.",
-                "the form.",
-                "the price.",
-                "the rollback.",
-                "the manifold.",
-                "the kilowatt-hour return.",
+                "the consultant's name in your inbox.",
+                "the financing math you cannot answer.",
+                "the household-readiness assessment.",
+                "the cohort that closes next month.",
+                "the chair already in your sister's living room.",
+                "the ad that found you first.",
+                "the polymer between your teeth.",
+                "the cousin who got fitted.",
+                "the eight-percent revenue share.",
                 "the loop.",
-                "the so-called consent.",
-                "the polymer.",
-                "the cohort assignment.",
-                "the apparatus.",
+                "the apparatus, even at this price.",
               ].map((s, i) => (
                 <li key={i} style={{ display: "flex", gap: 12, paddingBottom: 10, alignItems: "baseline" }}>
                   <span
@@ -2529,13 +2725,15 @@ function ManifestoPoster() {
             </div>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: SANS, fontSize: 18, lineHeight: 1.5, color: BLACK, fontWeight: 500 }}>
               {[
-                "The fitting consultants surrender names.",
+                "The Park Slope warehouse is opened to the press.",
+                "The full Service Ledger is published, occupant by occupant.",
+                "The 99-year retention clause is voided in court.",
+                "The fitting consultants surrender names and routes.",
+                "Form §6 is honored, or it is burned, but it is no longer pending.",
                 "The chairs are dismantled by the company that sold them.",
                 "The ports are removed by medical staff at company expense.",
-                "Form §6 is honored or burned.",
-                "The 247,891 are released or memorialized.",
-                "Ouroboros Industries directors are arraigned.",
-                "Cohort assignments are made public.",
+                "Ouroboros Industries directors are arraigned by name.",
+                "The brand-partner licensing schedule is made public.",
               ].map((s, i) => (
                 <li key={i} style={{ display: "flex", gap: 12, paddingBottom: 10, alignItems: "baseline" }}>
                   <span
