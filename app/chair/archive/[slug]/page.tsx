@@ -249,6 +249,17 @@ export default async function ArchiveEntryPage({
   if (!entry || !body) notFound();
 
   return (
+    <div
+      style={{
+        // Sepia paper background — matching the archive index.
+        background: "#f1ead8",
+        color: INK,
+        minHeight: "100vh",
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='13'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.46  0 0 0 0 0.38  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f1ead8 0%, #ebe2cc 100%)`,
+        position: "relative",
+        zIndex: 2,
+      }}
+    >
     <main
       style={{
         maxWidth: "42rem",
@@ -431,5 +442,6 @@ export default async function ArchiveEntryPage({
         — Imperial Archive · accession 2197 · entry {entry.code}
       </p>
     </main>
+    </div>
   );
 }

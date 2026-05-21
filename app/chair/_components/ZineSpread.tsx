@@ -1375,6 +1375,9 @@ export default function ZineSpread() {
         />
       </PhaseSection>
 
+      {/* ─── LETTER FROM OCCUPANCY ─────────────────────────────────── */}
+      <LetterFromOccupancy />
+
       <CasualtyWall />
 
       {/* ─── PHASE 04 — LIVE READING AS THE SCENE ────────────────── */}
@@ -2194,6 +2197,233 @@ function CasualtyWall() {
           <RubberStamp text="LIST IN PROGRESS" rotate={4} color={STAMP_RED} size={0.78} />
         </div>
       </div>
+    </section>
+  );
+}
+
+// ─── Letter From Occupancy ──────────────────────────────────────────
+// A first-person letter from an occupant in Pro-tier Occupancy phase,
+// forwarded to the zine by the occupant's sister with her permission.
+// Written in the OHCOSE-calibrated voice — matter-of-fact, mildly
+// disoriented, can't quite locate what is wrong. The third leaked
+// piece in the zine (after the cream-paper direct-address letter and
+// the terminal-printout consultant transcript). Different visual
+// register from both: typewriter on institutional letterhead, with a
+// PHOTOCOPIED watermark and the letter cutting off mid-sentence.
+function LetterFromOccupancy() {
+  return (
+    <section
+      style={{
+        position: "relative",
+        background: BLACK,
+        padding: "120px 24px 140px",
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          maxWidth: 580,
+          margin: "0 auto",
+          background: "#e8e0d0",
+          color: "#1a1814",
+          padding: "44px 56px 64px",
+          transform: "rotate(0.4deg)",
+          boxShadow: "0 24px 60px rgba(0,0,0,0.75), 0 4px 10px rgba(0,0,0,0.5)",
+          // Photocopy texture
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.4  0 0 0 0 0.38  0 0 0 0 0.32  0 0 0 0.06 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #e8e0d0 0%, #ddd4c0 100%)`,
+        }}
+      >
+        {/* Header — letterhead */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "flex-start",
+            marginBottom: 22,
+            paddingBottom: 14,
+            borderBottom: "1px solid rgba(26,24,20,0.25)",
+          }}
+        >
+          <div>
+            <div
+              style={{
+                fontFamily: MONO,
+                fontSize: 9,
+                letterSpacing: "0.26em",
+                color: "#5a554a",
+                textTransform: "uppercase",
+                fontWeight: 700,
+                marginBottom: 4,
+              }}
+            >
+              From Occupancy
+            </div>
+            <div
+              style={{
+                fontFamily: MONO,
+                fontSize: 9,
+                letterSpacing: "0.18em",
+                color: "#5a554a",
+                textTransform: "uppercase",
+              }}
+            >
+              Cohort 2024.07 · Pro tier
+            </div>
+          </div>
+          <div
+            style={{
+              fontFamily: MONO,
+              fontSize: 9,
+              letterSpacing: "0.18em",
+              color: "#5a554a",
+              textTransform: "uppercase",
+              textAlign: "right",
+            }}
+          >
+            forwarded by sender&apos;s sister<br />
+            unedited
+          </div>
+        </div>
+
+        {/* Letter body — typewriter feel */}
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: 14,
+            lineHeight: 1.85,
+            color: "#1a1814",
+          }}
+        >
+          <p style={{ margin: "0 0 1.2rem" }}>
+            It is morning, I think. The Stream has switched to the
+            warmer palette they use for waking, so it must be morning. I
+            have been trying to remember what I did yesterday and the
+            calendar function is helpfully reminding me &mdash; there
+            was a presentation, a lunch break (ninety minutes), a
+            check-in with the Wellness Watch, an afternoon session of
+            focused work that produced about thirty deliverables. The
+            deliverables were good. The Acknowledgment Cycle sent me a
+            small chime to say I was in the top eight percent of my
+            cohort that day.
+          </p>
+          <p style={{ margin: "0 0 1.2rem" }}>
+            I don&apos;t really know what to write. My sister asked for
+            a letter about what it&apos;s like in here and I keep
+            starting and stopping. The problem is that nothing is wrong.
+            I am comfortable. I am productive. My productivity output is
+            exceeding the financing schedule by about eleven percent. I
+            have not had to make any decisions in seventeen weeks that I
+            had to write down to remember.
+          </p>
+          <p style={{ margin: "0 0 1.2rem" }}>
+            This is the part I would have called a problem before. I am
+            not sure I would call it that now.
+          </p>
+          <p style={{ margin: "0 0 1.2rem" }}>
+            Last week the Stream surfaced a memory of mine &mdash; I
+            had written about a trip my husband and I took to Maine in
+            2021, and the Stream connected it to a clip from someone
+            else&apos;s vacation, and when the chime sounded I had the
+            feeling that I have learned to recognise as nostalgia. I
+            asked the Wellness Watch what was happening and it told me
+            the memory had been preserved in the Service Ledger and
+            would be retained for the duration of the contract. I asked
+            if my husband was in the Ledger too. The Watch told me that
+            he was, separately, on his own Service Ledger, and that we
+            could request a Ledger-merger at the next anniversary if we
+            wished.
+          </p>
+          <p style={{ margin: "0 0 1.2rem" }}>
+            We had not, I realised, spoken in some time. He is in the
+            Park Slope cohort. I am in the Crown Heights cohort. He is
+            on Pro and I am on Essential. I did not know how to ask the
+            Watch why our cohorts were different. The Watch did not
+            volunteer the information.
+          </p>
+          <p style={{ margin: "0 0 1.2rem" }}>
+            I am supposed to be writing about what it is like in here.
+            I do not have a way to talk about it that does not sound
+            like the Stream is talking. When I try to write something,
+            the writing sounds like the Stream. When I try to say
+            something out loud, the something I say sounds like the
+            Stream. The Stream is not the problem. The Stream is
+          </p>
+          <p
+            style={{
+              margin: "1.4rem 0 0",
+              fontStyle: "italic",
+              color: "#5a554a",
+              fontSize: 11,
+              letterSpacing: "0.04em",
+            }}
+          >
+            [cut off &middot; sender confirmed delivery interrupted at
+            this point]
+          </p>
+        </div>
+
+        {/* PHOTOCOPIED watermark */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: "42%",
+            left: "50%",
+            transform: "translate(-50%, -50%) rotate(-14deg)",
+            fontFamily: MONO,
+            fontSize: 56,
+            letterSpacing: "0.22em",
+            color: "rgba(26,24,20,0.05)",
+            textTransform: "uppercase",
+            fontWeight: 700,
+            pointerEvents: "none",
+            whiteSpace: "nowrap",
+          }}
+        >
+          Photocopied
+        </div>
+
+        {/* Three-hole punch */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 14,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-evenly",
+          }}
+        >
+          {[0, 1, 2].map((i) => (
+            <span
+              key={i}
+              style={{
+                width: 10,
+                height: 10,
+                borderRadius: "50%",
+                background: BLACK,
+                opacity: 0.6,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <p
+        style={{
+          marginTop: "1.6rem",
+          fontFamily: MARKER,
+          fontSize: 20,
+          color: NEON_PINK,
+          textAlign: "center",
+          transform: "rotate(0.6deg)",
+        }}
+      >
+        her sister could not reach her by phone after this.
+      </p>
     </section>
   );
 }

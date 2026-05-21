@@ -109,6 +109,22 @@ export const ENTRIES = [
 
 export default function ImperialArchiveIndex() {
   return (
+    <div
+      style={{
+        // Sepia paper background — the archive's distinct visual
+        // register against the surrounding dark chair-layout. The
+        // archive is meant to feel like a different document genre
+        // (scholarly journal, future-historical) from the rest of
+        // the chair project.
+        background: "#f1ead8",
+        color: INK,
+        minHeight: "100vh",
+        // Subtle paper grain
+        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='13'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.46  0 0 0 0 0.38  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f1ead8 0%, #ebe2cc 100%)`,
+        position: "relative",
+        zIndex: 2,
+      }}
+    >
     <main
       style={{
         maxWidth: "44rem",
@@ -283,5 +299,6 @@ export default function ImperialArchiveIndex() {
         .archive-entry:hover h2 { color: ${ACCENT}; }
       `}</style>
     </main>
+    </div>
   );
 }
