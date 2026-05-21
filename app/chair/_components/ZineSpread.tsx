@@ -1183,6 +1183,27 @@ export default function ZineSpread() {
             <Callout label="◆ Warning · 2026.03" color={STAMP_RED}>
               Once the ports seal — typically within 72 hours of the fitting — they cannot be removed without compromising the dermis. <strong style={{ color: STAMP_RED }}>Eleven attempted self-extractions resulted in fatal hemorrhage in 2025 alone.</strong> Do not let it close on your skin.
             </Callout>
+
+            {/* Marginalia — marker note pointing at the port grid */}
+            <div
+              style={{
+                position: "absolute",
+                top: 320,
+                left: -110,
+                transform: "rotate(-6deg)",
+                fontFamily: MARKER,
+                fontSize: 16,
+                color: NEON_PINK,
+                lineHeight: 1.15,
+                maxWidth: 130,
+                pointerEvents: "none",
+              }}
+            >
+              they did mine<br />while i slept.
+              <div style={{ marginTop: 4 }}>
+                <HandArrow length={70} curve={0.4} color={NEON_PINK} rotate={-15} thickness={2.5} />
+              </div>
+            </div>
           </div>
         </div>
         <Leakage
@@ -1483,6 +1504,28 @@ export default function ZineSpread() {
                 <RubberStamp text="REJECTED" rotate={-9} color={STAMP_RED} size={0.7} />
               </div>
             </div>
+
+            {/* Marginalia — scrawl pointing at the stamps */}
+            <div
+              style={{
+                position: "absolute",
+                top: -22,
+                right: -32,
+                transform: "rotate(8deg)",
+                fontFamily: MARKER,
+                fontSize: 17,
+                color: STAMP_RED,
+                lineHeight: 1.15,
+                maxWidth: 160,
+                pointerEvents: "none",
+              }}
+            >
+              ezra had <span style={{ color: NEON_PINK }}>12.</span><br />
+              then she stopped.
+              <div style={{ marginTop: 4, opacity: 0.8 }}>
+                <HandArrow length={60} curve={-0.4} color={STAMP_RED} rotate={45} thickness={2.5} />
+              </div>
+            </div>
           </div>
         </div>
         <Leakage
@@ -1560,6 +1603,28 @@ export default function ZineSpread() {
 
             {/* Countdown */}
             <CountdownClock dwell={m.dwellSec} />
+
+            {/* Marginalia — scrawl over the countdown corner */}
+            <div
+              style={{
+                position: "absolute",
+                top: -34,
+                right: -8,
+                transform: "rotate(-4deg)",
+                fontFamily: MARKER,
+                fontSize: 17,
+                color: NEON_PINK,
+                lineHeight: 1.2,
+                maxWidth: 180,
+                pointerEvents: "none",
+              }}
+            >
+              {Math.floor(m.dwellSec * 1.4) || 0} new occupants<br />
+              fitted since you opened<br />this page.
+              <div style={{ marginTop: 4, opacity: 0.85 }}>
+                <HandArrow length={48} curve={-0.5} color={NEON_PINK} rotate={195} thickness={2.5} />
+              </div>
+            </div>
           </div>
         </div>
         <Leakage
