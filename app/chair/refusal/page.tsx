@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   alternates: { canonical: "/chair/refusal" },
 };
 
-const PAPER = "#f0ebe2";
-const PAPER_DIM = "#bdb8ae";
-const MUTED = "#6b6760";
-const RULE = "rgba(240,235,226,0.14)";
-const ACCENT = "#9a3322";
+const PAPER = "#1a1814";
+const PAPER_DIM = "#4a443a";
+const MUTED = "#8a8478";
+const RULE = "rgba(26,24,20,0.14)";
+const ACCENT = "#7a2818";
 
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 const MONO = `var(--font-geist-mono), ui-monospace, monospace`;

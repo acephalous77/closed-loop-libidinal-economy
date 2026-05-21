@@ -42,17 +42,21 @@ export const metadata: Metadata = {
  * these as the apparatus's marketing-AI signature.
  */
 
-// Cinematic dark palette — inherits the chair/layout register.
-const BG = "#0a0908";
-const BG_SOFT = "#15140f";
-const PAPER = "#f0ebe2";
-const PAPER_DIM = "#bdb8ae";
-const PAPER_FAINT = "#7d7972";
-const MUTED = "#5a5650";
-const LINE = "rgba(240,235,226,0.10)";
-const LINE_SOFT = "rgba(240,235,226,0.06)";
-const ACCENT = "#ff3a25"; // ember red
-const ACCENT_SOFT = "rgba(255,58,37,0.14)";
+// Clinical white showroom palette. The brochure opts up from the
+// layout's cream into pure white — the apparatus presenting itself
+// in luxury-product-catalog register. Deep blueprint navy is the
+// brand accent, used for the omega serpent, the section codes, the
+// CTA, and the technical schematics.
+const BG = "#ffffff";              // showroom white
+const BG_SOFT = "#f4f4f6";         // panel / card slight gray
+const PAPER = "#0a0a0a";           // near-black foreground
+const PAPER_DIM = "#3a3a3a";       // dim foreground
+const PAPER_FAINT = "#7a7a7a";     // faint foreground
+const MUTED = "#a8a8a8";           // muted
+const LINE = "rgba(10,10,10,0.10)";
+const LINE_SOFT = "rgba(10,10,10,0.04)";
+const ACCENT = "#0a1d3a";          // blueprint navy
+const ACCENT_SOFT = "rgba(10,29,58,0.06)";
 
 const SANS = `var(--font-geist), ui-sans-serif, system-ui, sans-serif`;
 const MONO = `var(--font-geist-mono), ui-monospace, monospace`;
@@ -364,6 +368,17 @@ const FOUNDATIONS = [
 // ─────────────────────────────────────────────────────────────────────
 export default function TheSystem() {
   return (
+    <div
+      style={{
+        // White showroom wrapper — overrides the layout cream so the
+        // brochure presents itself in clinical-product-catalog register.
+        background: BG,
+        color: PAPER,
+        minHeight: "100vh",
+        position: "relative",
+        zIndex: 2,
+      }}
+    >
     <main
       style={{
         position: "relative",
@@ -486,6 +501,41 @@ export default function TheSystem() {
         </div>
       </header>
 
+      {/* HERO PRODUCT IMAGE */}
+      <figure
+        style={{
+          margin: "0 0 6rem",
+          textAlign: "center",
+        }}
+      >
+        {/* Plain <img> — degrades gracefully if the asset hasn't been
+            placed yet. Drop the file at the path below. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/chair/ils/render-ring.jpg"
+          alt="The Ouroboros Life System — the Integrated Life System ring, photographed in showroom condition."
+          style={{
+            width: "100%",
+            maxWidth: 1100,
+            height: "auto",
+            display: "block",
+            margin: "0 auto",
+          }}
+        />
+        <figcaption
+          style={{
+            marginTop: "1rem",
+            fontFamily: MONO,
+            fontSize: 11,
+            letterSpacing: "0.22em",
+            color: PAPER_FAINT,
+            textTransform: "uppercase",
+          }}
+        >
+          Fig. 1 · ILS v4.1 · the Ring, in showroom condition · waiting for operator
+        </figcaption>
+      </figure>
+
       {/* §01 — IDENTIFICATION */}
       <SectionHeader code="§01" name="What we are" />
       <div
@@ -556,6 +606,40 @@ export default function TheSystem() {
           <ChairDiagram />
         </div>
       </div>
+
+      {/* TECHNICAL BLUEPRINT — full-bleed engineering reference */}
+      <figure
+        style={{
+          margin: "0 0 6rem",
+          background: ACCENT,
+          padding: "0",
+          overflow: "hidden",
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/chair/ils/blueprint.jpg"
+          alt="ILS v4.1 technical schematic — cross-section and side perspective, with subsystem callouts."
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+          }}
+        />
+        <figcaption
+          style={{
+            padding: "12px 18px 14px",
+            fontFamily: MONO,
+            fontSize: 10,
+            letterSpacing: "0.22em",
+            color: "rgba(255,255,255,0.85)",
+            textTransform: "uppercase",
+            background: ACCENT,
+          }}
+        >
+          Fig. 2 · ILS v4.1 · technical schematic · Aeternum Biometrics
+        </figcaption>
+      </figure>
 
       {/* §02 — THE SEVEN SUBSYSTEMS */}
       <SectionHeader
@@ -1421,6 +1505,79 @@ export default function TheSystem() {
         </a>
       </div>
 
+      {/* COSTCO — distribution channel made literal */}
+      <section
+        style={{
+          margin: "0 0 6rem",
+          padding: "0",
+          border: `1px solid ${LINE}`,
+          background: BG_SOFT,
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            padding: "26px 28px 24px",
+            borderBottom: `1px solid ${LINE}`,
+          }}
+        >
+          <p
+            style={{
+              fontFamily: MONO,
+              fontSize: 11,
+              letterSpacing: "0.28em",
+              color: ACCENT,
+              textTransform: "uppercase",
+              margin: 0,
+              fontWeight: 600,
+            }}
+          >
+            ◆ Now available · Costco Wholesale
+          </p>
+          <h3
+            style={{
+              fontFamily: ANTON,
+              fontSize: "clamp(28px, 3.6vw, 48px)",
+              color: PAPER,
+              margin: "0.5rem 0 0.4rem",
+              lineHeight: 1.05,
+              letterSpacing: "0.005em",
+              textTransform: "uppercase",
+            }}
+          >
+            Or pick one up on the way home.
+          </h3>
+          <p
+            style={{
+              fontFamily: SANS,
+              fontSize: 14,
+              lineHeight: 1.55,
+              color: PAPER_DIM,
+              margin: 0,
+              maxWidth: "60ch",
+              fontWeight: 380,
+            }}
+          >
+            The ILS v4.1 Exclusive Warehouse Edition is now in stock at
+            participating Costco Wholesale locations. Kirkland Signature
+            financing available at point of sale. Pro-tier upgrade
+            paperwork is processed in-store. No fitting appointment is
+            required for the Warehouse Edition; consultation is
+            recommended but not mandatory.
+          </p>
+        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/chair/ils/costco.jpg"
+          alt="The ILS v4.1 Exclusive Warehouse Edition on display at a Costco Wholesale store, with Kirkland Signature pricing card."
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+          }}
+        />
+      </section>
+
       {/* FOOTER */}
       <footer
         style={{
@@ -1539,6 +1696,7 @@ export default function TheSystem() {
         }
       `}</style>
     </main>
+    </div>
   );
 }
 

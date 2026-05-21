@@ -32,17 +32,17 @@ export const metadata: Metadata = {
  */
 
 // ─────────────────────────────────────────────────────────────────────
-// PALETTE — black & warm off-white. One muted accent (brick red) used
-// sparingly: footnote markers, section number rules. Refuses
-// attention-economy UX.
+// PALETTE — warm cream paper, dark warm ink. The sepia-brick accent
+// is used sparingly: footnote markers, section number rules, axis
+// indicators. Refuses attention-economy UX.
 // ─────────────────────────────────────────────────────────────────────
-const BG = "#0a0908";
-const PAPER = "#f0ebe2";
-const PAPER_DIM = "#bdb8ae";
-const MUTED = "#6b6760";
-const FAINT = "#403c36";
-const RULE = "rgba(240,235,226,0.14)";
-const ACCENT = "#9a3322"; // muted brick — for footnote markers, section rules
+const BG = "#f3ecd9";              // warm cream paper (matches layout)
+const PAPER = "#1a1814";           // warm dark ink — body text
+const PAPER_DIM = "#4a443a";       // dimmer ink — secondary
+const MUTED = "#8a8478";           // tertiary / labels
+const FAINT = "#b8b09e";           // faint hairlines
+const RULE = "rgba(26,24,20,0.14)";
+const ACCENT = "#7a2818";          // deeper sepia-brick — visible on cream
 
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 const MONO = `var(--font-geist-mono), ui-monospace, monospace`;

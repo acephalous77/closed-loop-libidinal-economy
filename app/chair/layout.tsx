@@ -2,12 +2,18 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Permanent_Marker, Caveat } from "next/font/google";
 
 /**
- * Chair project layout — cinematic dark, slow horror register.
+ * Chair project layout.
  *
- * Deep black ground, warm off-white type, blood-red accent. The chair
- * page lives in this register end-to-end: there's no marketing wrapper
- * and no design-bundle cream-paper interlude. The page is one slow
- * descent through six scenes, an art-object posing as a product page.
+ * The master register is light — warm cream paper, dark warm ink,
+ * a deep blueprint navy as the brand accent. The essay, the
+ * subsystems, the precedents, the lineage, the refusal essay, the
+ * concepts, and the colophon all live in this register. The
+ * brochure (/chair/the-system) opts up to clinical white — the
+ * apparatus's showroom aesthetic — using its own per-page wrapper.
+ * The archive (/chair/archive) keeps its scholarly sepia. The zine
+ * (/chair/zine) is the only place that overrides the master to
+ * cinematic dark, because protest media is the one register where
+ * dark is right.
  */
 
 const geistSans = Geist({
@@ -72,12 +78,14 @@ export const metadata: Metadata = {
   },
 };
 
-// Cinematic dark palette
-const BG = "#0a0908";
-const INK = "#f0ebe2";
-const MUTED = "#6b6760";
-const LINE = "rgba(240,235,226,0.10)";
-const ACCENT = "#ff3a25";
+// Light, warm-cream master palette.
+const BG = "#f3ecd9";           // warm cream paper
+const BG_DEEP = "#ebe1c8";      // gradient deepening
+const INK = "#1a1814";          // warm dark — body ink
+const INK_DIM = "#5a544a";      // secondary text
+const MUTED = "#8a8478";        // tertiary text / labels
+const LINE = "rgba(26,24,20,0.12)";
+const ACCENT = "#7a2818";       // sepia-brick — the project's distinguishing colour
 
 export default function ChairLayout({
   children,
@@ -92,34 +100,25 @@ export default function ChairLayout({
         fontFamily: `var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif`,
         fontWeight: 380,
         letterSpacing: "-0.005em",
-        colorScheme: "dark",
+        colorScheme: "light",
         position: "relative",
+        backgroundImage: `linear-gradient(180deg, ${BG} 0%, ${BG_DEEP} 100%)`,
       }}
     >
       <style>{`
         .chair-theme ::selection { background: ${ACCENT}; color: ${BG}; }
         .chair-theme a:focus-visible { outline: 2px solid ${ACCENT}; outline-offset: 2px; }
 
-        /* Film-grain overlay — subtle, ever-present */
+        /* Subtle paper-grain texture, ever-present */
         .chair-theme::before {
           content: "";
           position: fixed;
           inset: 0;
           pointer-events: none;
           z-index: 100;
-          opacity: 0.06;
-          mix-blend-mode: overlay;
-          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='3'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
-        }
-
-        /* Subtle vignette to deepen the edges of the viewport */
-        .chair-theme::after {
-          content: "";
-          position: fixed;
-          inset: 0;
-          pointer-events: none;
-          z-index: 99;
-          background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+          opacity: 0.08;
+          mix-blend-mode: multiply;
+          background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.46  0 0 0 0 0.38  0 0 0 0.4 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
         }
       `}</style>
 
@@ -143,43 +142,43 @@ export default function ChairLayout({
         <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
           ↑ autostimulus
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>
           essay
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/subsystems" style={{ color: "inherit", textDecoration: "none" }}>
           subsystems
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/concepts" style={{ color: "inherit", textDecoration: "none" }}>
           concepts
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/precedents" style={{ color: "inherit", textDecoration: "none" }}>
           precedents
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/lineage" style={{ color: "inherit", textDecoration: "none" }}>
           lineage
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/refusal" style={{ color: "inherit", textDecoration: "none" }}>
           refusal
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/the-system" style={{ color: "inherit", textDecoration: "none" }}>
           brochure
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/zine" style={{ color: "inherit", textDecoration: "none" }}>
           zine
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/archive" style={{ color: "inherit", textDecoration: "none" }}>
           archive
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
         <a href="/chair/colophon" style={{ color: "inherit", textDecoration: "none" }}>
           colophon
         </a>
