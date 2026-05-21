@@ -42,6 +42,7 @@ import {
   StrikeSlash,
   ApparatusRedaction,
 } from "./ZineAssets";
+import { FittingNotification } from "./FittingNotification";
 
 const BLACK = "#0a0908";
 const BLACK_SOFT = "#15140f";
@@ -1429,132 +1430,8 @@ export default function ZineSpread() {
         />
       </PhaseSection>
 
-      {/* ─── MANIFESTO ────────────────────────────────────────────── */}
-      <section
-        style={{
-          position: "relative",
-          background: BLACK_SOFT,
-          color: PAPER,
-          padding: "100px 48px",
-          borderTop: `2px solid ${NEON_GREEN}`,
-          borderBottom: `2px solid ${NEON_GREEN}`,
-          overflow: "hidden",
-        }}
-      >
-        <HalftoneOverlay density="light" color="rgba(57,255,20,0.06)" zIndex={1} />
-        <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ fontFamily: MONO, fontSize: 12, color: NEON_GREEN, letterSpacing: "0.32em", textTransform: "uppercase", marginBottom: 16 }}>
-            ◆ manifesto · cohort 2026
-          </div>
-          <h2
-            style={{
-              fontFamily: ANTON,
-              fontSize: "clamp(72px, 9vw, 160px)",
-              color: PAPER,
-              lineHeight: 0.88,
-              letterSpacing: "-0.025em",
-              margin: 0,
-              textTransform: "uppercase",
-              filter: "url(#zine-spray)",
-            }}
-          >
-            We <span style={{ color: STAMP_RED }}>refuse.</span><br />
-            We <span style={{ color: NEON_GREEN }}>demand.</span>
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 56, marginTop: 56 }} className="zine-manifesto-grid">
-            <div>
-              <div style={{ fontFamily: ANTON, fontSize: 36, color: STAMP_RED, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 18 }}>
-                We refuse
-              </div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: SANS, fontSize: 18, lineHeight: 1.6, color: PAPER, fontWeight: 420 }}>
-                {[
-                  "the fitting.",
-                  "the form.",
-                  "the price.",
-                  "the rollback.",
-                  "the manifold.",
-                  "the kilowatt-hour return.",
-                  "the loop.",
-                ].map((s, i) => (
-                  <li key={i} style={{ display: "flex", gap: 14, paddingBottom: 8 }}>
-                    <span style={{ color: STAMP_RED, fontFamily: MARKER, fontSize: 22, minWidth: 26 }}>✕</span>
-                    <span>{s}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <div style={{ fontFamily: ANTON, fontSize: 36, color: NEON_GREEN, letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: 18 }}>
-                We demand
-              </div>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: SANS, fontSize: 18, lineHeight: 1.6, color: PAPER, fontWeight: 420 }}>
-                {[
-                  "The fitting consultants surrender names.",
-                  "The chairs are dismantled by the company that sold them.",
-                  "The ports are removed by medical staff at company expense.",
-                  "Form §6 is honored or burned.",
-                  "The 247,891 are released or memorialized.",
-                ].map((s, i) => (
-                  <li key={i} style={{ display: "flex", gap: 14, paddingBottom: 8 }}>
-                    <span style={{ color: NEON_GREEN, fontFamily: MARKER, fontSize: 22, minWidth: 26 }}>✓</span>
-                    <span>{s}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── FIELD GUIDE TO REFUSAL ───────────────────────────────── */}
-      <section
-        style={{
-          background: BLACK,
-          color: PAPER,
-          padding: "100px 48px",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <HalftoneOverlay density="light" color="rgba(63,191,214,0.06)" zIndex={1} />
-        <div style={{ position: "relative", zIndex: 2, maxWidth: 980, margin: "0 auto" }}>
-          <div style={{ fontFamily: MONO, fontSize: 12, color: NEON_CYAN, letterSpacing: "0.32em", textTransform: "uppercase", marginBottom: 16 }}>
-            ◆ field guide to refusal
-          </div>
-          <h2
-            style={{
-              fontFamily: ANTON,
-              fontSize: "clamp(56px, 7vw, 120px)",
-              color: PAPER,
-              lineHeight: 0.92,
-              letterSpacing: "-0.02em",
-              margin: "0 0 36px",
-              textTransform: "uppercase",
-              filter: "url(#zine-spray)",
-            }}
-          >
-            If they come<br />
-            <span style={{ color: NEON_CYAN }}>for you.</span>
-          </h2>
-          <ol style={{ listStyle: "none", padding: 0, margin: 0, counterReset: "step", fontFamily: SANS, fontSize: 18, lineHeight: 1.55, color: PAPER, fontWeight: 420 }}>
-            {[
-              "Do not sign. The fitting clipboard is the contract.",
-              "Do not let them measure. They will return; they cannot install without dimensions.",
-              "Document everything. Photo every clipboard, every badge, every truck.",
-              "Find others. They are looking for you too. Cohort meetings are weekly.",
-              "If they install — cut the tubes at the wall before the port closes. You have 72 hours.",
-              "After the port closes — there is still time. Skin can be sacrificed. So can the chair.",
-              "Form §6 is a stalling device. File it. Then organize.",
-              "Pass this pamphlet on. Photocopy. Reproduce. Walk it into the next house.",
-            ].map((s, i) => (
-              <li key={i} style={{ display: "grid", gridTemplateColumns: "64px 1fr", gap: 16, padding: "14px 0", borderTop: i === 0 ? "none" : `1px solid rgba(63,191,214,0.14)` }}>
-                <span style={{ fontFamily: ANTON, fontSize: 36, color: NEON_CYAN, lineHeight: 1, letterSpacing: "-0.02em" }}>{String(i + 1).padStart(2, "0")}</span>
-                <span>{s}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      <ManifestoPoster />
+      <FieldGuideCard />
 
       {/* ─── COLOPHON / END ───────────────────────────────────────── */}
       <section
@@ -1679,6 +1556,7 @@ export default function ZineSpread() {
 
       <CursorTrail target={psiTargetRef} />
       <ApparatusRedaction />
+      <FittingNotification delayMs={45000} />
 
       <style>{`
         @keyframes zine-blink {
@@ -2027,6 +1905,442 @@ function FittingConsultantBlacklist() {
           }}
         >
           if you see one of these on your block — call the next person on this pamphlet&apos;s back page.
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── Manifesto — torn wheat-paste poster nailed up at angle ──────────
+function ManifestoPoster() {
+  return (
+    <section
+      style={{
+        position: "relative",
+        background: BLACK,
+        color: PAPER,
+        padding: "120px 48px",
+        overflow: "hidden",
+        // diagonal brick-wall hatch behind the poster
+        backgroundImage: `repeating-linear-gradient(35deg, transparent 0, transparent 40px, rgba(57,255,20,0.025) 40px, rgba(57,255,20,0.025) 41px)`,
+      }}
+    >
+      <HalftoneOverlay density="light" color="rgba(255,255,255,0.05)" zIndex={1} />
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          maxWidth: 1100,
+          margin: "0 auto",
+          // Torn paper edges via clip-path
+          background: PAPER,
+          color: BLACK,
+          transform: "rotate(-1.6deg)",
+          padding: "56px 56px 68px",
+          boxShadow: `0 12px 48px rgba(0,0,0,0.7), 0 4px 8px rgba(0,0,0,0.4)`,
+          clipPath:
+            "polygon(0.5% 1%, 11% 0%, 24% 1.2%, 38% 0%, 52% 1%, 66% 0%, 81% 1%, 94% 0%, 100% 1.4%, 99% 14%, 100% 28%, 99% 42%, 100% 58%, 99% 72%, 100% 88%, 99% 99%, 86% 100%, 72% 99%, 58% 100%, 42% 99%, 28% 100%, 14% 99%, 2% 100%, 0% 86%, 1% 72%, 0% 58%, 1% 42%, 0% 28%, 1% 14%)",
+          backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' seed='17'/><feColorMatrix values='0 0 0 0 0.7  0 0 0 0 0.65  0 0 0 0 0.55  0 0 0 0.06 0'/></filter><rect width='160' height='160' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f0ebe2 0%, #ece5d4 100%)`,
+        }}
+      >
+        {/* Staple top-left + top-right */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: 18,
+            left: 22,
+            width: 24,
+            height: 4,
+            background: "#5a554a",
+            boxShadow: "0 1px 2px rgba(0,0,0,0.5)",
+            transform: "rotate(-12deg)",
+          }}
+        />
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            top: 26,
+            right: 32,
+            width: 24,
+            height: 4,
+            background: "#5a554a",
+            boxShadow: "0 1px 2px rgba(0,0,0,0.5)",
+            transform: "rotate(8deg)",
+          }}
+        />
+
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: 11,
+            color: STAMP_RED,
+            letterSpacing: "0.32em",
+            textTransform: "uppercase",
+            marginBottom: 12,
+            fontWeight: 700,
+          }}
+        >
+          ◆ manifesto · pinned to lafayette &amp; 4th · cohort 2026
+        </div>
+        <h2
+          style={{
+            fontFamily: ANTON,
+            fontSize: "clamp(72px, 11vw, 200px)",
+            color: BLACK,
+            lineHeight: 0.84,
+            letterSpacing: "-0.025em",
+            margin: 0,
+            textTransform: "uppercase",
+          }}
+        >
+          We{" "}
+          <span style={{ color: STAMP_RED, position: "relative", display: "inline-block" }}>
+            refuse.
+          </span>
+          <br />
+          We{" "}
+          <span style={{ color: BLACK, position: "relative", display: "inline-block" }}>
+            demand.
+          </span>
+        </h2>
+
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 56,
+            marginTop: 48,
+          }}
+          className="zine-manifesto-grid"
+        >
+          {/* REFUSE column */}
+          <div>
+            <div
+              style={{
+                fontFamily: ANTON,
+                fontSize: 40,
+                color: STAMP_RED,
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                marginBottom: 22,
+                borderBottom: `3px solid ${STAMP_RED}`,
+                paddingBottom: 6,
+              }}
+            >
+              We refuse
+            </div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: SANS, fontSize: 18, lineHeight: 1.5, color: BLACK, fontWeight: 500 }}>
+              {[
+                "the fitting.",
+                "the form.",
+                "the price.",
+                "the rollback.",
+                "the manifold.",
+                "the kilowatt-hour return.",
+                "the loop.",
+                "the so-called consent.",
+                "the polymer.",
+                "the cohort assignment.",
+                "the apparatus.",
+              ].map((s, i) => (
+                <li key={i} style={{ display: "flex", gap: 12, paddingBottom: 10, alignItems: "baseline" }}>
+                  <span
+                    style={{
+                      color: STAMP_RED,
+                      fontFamily: MARKER,
+                      fontSize: 24,
+                      minWidth: 22,
+                      lineHeight: 1,
+                      transform: `rotate(${(i % 3 - 1) * 4}deg)`,
+                    }}
+                  >
+                    ✕
+                  </span>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* DEMAND column */}
+          <div>
+            <div
+              style={{
+                fontFamily: ANTON,
+                fontSize: 40,
+                color: BLACK,
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                marginBottom: 22,
+                borderBottom: `3px solid ${BLACK}`,
+                paddingBottom: 6,
+              }}
+            >
+              We demand
+            </div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: SANS, fontSize: 18, lineHeight: 1.5, color: BLACK, fontWeight: 500 }}>
+              {[
+                "The fitting consultants surrender names.",
+                "The chairs are dismantled by the company that sold them.",
+                "The ports are removed by medical staff at company expense.",
+                "Form §6 is honored or burned.",
+                "The 247,891 are released or memorialized.",
+                "Ouroboros Industries directors are arraigned.",
+                "Cohort assignments are made public.",
+              ].map((s, i) => (
+                <li key={i} style={{ display: "flex", gap: 12, paddingBottom: 10, alignItems: "baseline" }}>
+                  <span
+                    style={{
+                      color: BLACK,
+                      fontFamily: MARKER,
+                      fontSize: 22,
+                      minWidth: 22,
+                      lineHeight: 1,
+                      transform: `rotate(${(i % 2 ? -3 : 3)}deg)`,
+                    }}
+                  >
+                    ☐
+                  </span>
+                  <span>{s}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Signed line */}
+        <div
+          style={{
+            marginTop: 40,
+            paddingTop: 22,
+            borderTop: `1px dashed rgba(10,9,8,0.35)`,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: 16,
+          }}
+        >
+          <div style={{ fontFamily: MARKER, fontSize: 22, color: BLACK, transform: "rotate(-0.6deg)" }}>
+            signed: cohort 2026 · pin this to your fridge ·{" "}
+            <span style={{ color: STAMP_RED }}>burn after reading</span>
+          </div>
+          <RubberStamp text="PHOTOCOPY · TAPE · REPEAT" rotate={4} color={STAMP_RED} size={0.7} />
+        </div>
+
+        {/* tape strip lower-right */}
+        <div
+          aria-hidden
+          style={{
+            position: "absolute",
+            bottom: -10,
+            right: 70,
+            width: 80,
+            height: 22,
+            background: "rgba(60,55,40,0.45)",
+            transform: "rotate(-6deg)",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.4)",
+          }}
+        />
+      </div>
+
+      {/* Second torn poster fragment behind the first — for layered feel */}
+      <div
+        aria-hidden
+        style={{
+          position: "absolute",
+          right: -40,
+          top: 64,
+          width: 220,
+          height: 280,
+          background: "#d8d0bd",
+          transform: "rotate(8deg)",
+          zIndex: 1,
+          opacity: 0.45,
+          clipPath:
+            "polygon(2% 4%, 32% 0%, 64% 2%, 99% 0%, 100% 18%, 99% 38%, 100% 58%, 99% 80%, 100% 98%, 72% 100%, 38% 99%, 6% 100%, 0% 84%, 1% 64%, 0% 44%, 1% 22%)",
+        }}
+      />
+    </section>
+  );
+}
+
+// ─── Field Guide — folded pocket survival card ───────────────────────
+function FieldGuideCard() {
+  const steps: Array<{ glyph: string; head: string; body: string }> = [
+    { glyph: "✋", head: "Do not sign.", body: "The fitting clipboard IS the contract. Initials count. So do prints. So do photos." },
+    { glyph: "📏", head: "Do not let them measure.", body: "They cannot install without your door frame, hip width, and ceiling height. Refuse the tape." },
+    { glyph: "📷", head: "Document everything.", body: "Photo every clipboard. Every badge. Every truck plate. Upload to two devices, mail one drive." },
+    { glyph: "👥", head: "Find others.", body: "They are looking for you too. Cohort meetings are weekly. Ask at any laundromat with the green omega taped backwards in the window." },
+    { glyph: "🔪", head: "Cut the tubes at the wall.", body: "If they install: the tubes run through the wall before they reach the seat. You have 72 hours before the ports seal on skin." },
+    { glyph: "🩸", head: "After the port closes.", body: "There is still time. Skin can be sacrificed. So can the chair. Find a cohort medic — do not go alone." },
+    { glyph: "📄", head: "Form §6 is a stalling device.", body: "File it. Then organize. The form is the loop. Use the time the form buys you to find your cohort." },
+    { glyph: "📬", head: "Pass this pamphlet on.", body: "Photocopy. Tape it to a pole. Slide it under a door. Walk it into the next house. The chain is the only thing they cannot install." },
+  ];
+  return (
+    <section
+      style={{
+        background: BLACK,
+        color: PAPER,
+        padding: "120px 32px",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
+      <HalftoneOverlay density="light" color="rgba(63,191,214,0.06)" zIndex={1} />
+      <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto" }}>
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: 12,
+            color: NEON_CYAN,
+            letterSpacing: "0.32em",
+            textTransform: "uppercase",
+            marginBottom: 12,
+          }}
+        >
+          ◆ field guide · pocket card · fold along dashed line
+        </div>
+        <h2
+          style={{
+            fontFamily: ANTON,
+            fontSize: "clamp(56px, 7.4vw, 132px)",
+            color: PAPER,
+            lineHeight: 0.88,
+            letterSpacing: "-0.02em",
+            margin: "0 0 48px",
+            textTransform: "uppercase",
+            filter: "url(#zine-stencil)",
+          }}
+        >
+          If they come<br />
+          <span style={{ color: NEON_CYAN }}>for you.</span>
+        </h2>
+
+        {/* The card itself — paper, fold line, dashed perimeter */}
+        <div
+          style={{
+            position: "relative",
+            background: `linear-gradient(180deg, #f0ebe2 0%, #e8e2d4 100%)`,
+            color: BLACK,
+            padding: "36px 40px",
+            border: `2px dashed ${BLACK}`,
+            boxShadow: `0 16px 36px rgba(0,0,0,0.6)`,
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='2' seed='9'/><feColorMatrix values='0 0 0 0 0.7  0 0 0 0 0.65  0 0 0 0 0.55  0 0 0 0.05 0'/></filter><rect width='140' height='140' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f0ebe2 0%, #e8e2d4 100%)`,
+          }}
+        >
+          {/* Fold-here line */}
+          <div
+            aria-hidden
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: 12,
+              right: 12,
+              height: 0,
+              borderTop: `1px dashed rgba(10,9,8,0.3)`,
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: 50,
+              transform: "translateY(-50%)",
+              background: "#f0ebe2",
+              padding: "2px 10px",
+              fontFamily: MONO,
+              fontSize: 9.5,
+              color: BLACK,
+              letterSpacing: "0.24em",
+              textTransform: "uppercase",
+            }}
+          >
+            ← fold here · pocket-side ↓
+          </div>
+
+          {/* 8 steps in a 4×2 grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+              gap: "28px 32px",
+            }}
+          >
+            {steps.map((s, i) => (
+              <div key={i} style={{ display: "grid", gridTemplateColumns: "44px 1fr", gap: 12, alignItems: "start" }}>
+                <div
+                  style={{
+                    fontFamily: ANTON,
+                    fontSize: 32,
+                    color: STAMP_RED,
+                    lineHeight: 1,
+                    paddingTop: 2,
+                    letterSpacing: "-0.02em",
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <div>
+                  <div
+                    style={{
+                      fontFamily: ANTON,
+                      fontSize: 18,
+                      color: BLACK,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.01em",
+                      lineHeight: 1.05,
+                      marginBottom: 6,
+                    }}
+                  >
+                    {s.head}
+                  </div>
+                  <div style={{ fontFamily: SANS, fontSize: 13.5, lineHeight: 1.5, color: "#2c2620" }}>
+                    {s.body}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Card chrome */}
+          <div
+            style={{
+              marginTop: 32,
+              paddingTop: 16,
+              borderTop: `1px solid rgba(10,9,8,0.25)`,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              flexWrap: "wrap",
+              gap: 16,
+              fontFamily: MONO,
+              fontSize: 10,
+              color: "#5a5346",
+              letterSpacing: "0.18em",
+              textTransform: "uppercase",
+            }}
+          >
+            <span>◆ ouroboros pamphlet Ω.026 · pocket guide</span>
+            <span style={{ color: STAMP_RED }}>cut along outer dashes</span>
+            <span>cohort 2026 · resistance media</span>
+          </div>
+        </div>
+
+        {/* Marker note below card */}
+        <div
+          style={{
+            marginTop: 28,
+            fontFamily: MARKER,
+            fontSize: 22,
+            color: NEON_PINK,
+            transform: "rotate(-0.6deg)",
+            textAlign: "center",
+          }}
+        >
+          cut. fold. pocket. when they ring — read it back to them out loud.
         </div>
       </div>
     </section>
