@@ -1,239 +1,186 @@
 import type { Metadata } from "next";
+import { MASTER, FONT } from "../_components/tokens";
+import { PlateHeader, PlateFooter, ChairGlyph } from "../_components/PlateChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Lineage — On the Chair" },
   description:
-    "Six companion essays to On the Chair §VII, taking the brochure's claimed 160-year design lineage seriously enough to verify it. What was real, what wasn't, and what survives the verification.",
+    "Six companion essays to On the Chair § VII, taking the brochure's claimed 160-year design lineage seriously enough to verify it.",
   alternates: { canonical: "/chair/lineage" },
 };
 
-const PAPER = "#1a1814";
-const PAPER_DIM = "#4a443a";
-const MUTED = "#8a8478";
-const RULE = "rgba(26,24,20,0.14)";
-const ACCENT = "#7a2818";
-
-const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
-const MONO = `var(--font-geist-mono), ui-monospace, monospace`;
+const T = MASTER;
 
 export const LINEAGE = [
-  {
-    slug: "labor-compensator",
-    number: "01",
-    year: "1865",
-    title: "The Labor Compensator",
-    subtitle:
-      "Half real and half marketing. The half that is real is real enough.",
-  },
-  {
-    slug: "efficiency-enhancer",
-    number: "02",
-    year: "1900",
-    title: "The Efficiency Enhancer",
-    subtitle:
-      "The seat as productive locus, the operator as bottleneck, the apparatus as the thing that maintains the configuration.",
-  },
-  {
-    slug: "dynamic-dynamo",
-    number: "03",
-    year: "1925",
-    title: "The Dynamic Dynamo",
-    subtitle:
-      "Western Electric's Hawthorne stations and the Ford River Rouge floor. A configuration that captured the whole operator at once.",
-  },
-  {
-    slug: "knowledge-chair",
-    number: "04",
-    year: "1955",
-    title: "The Knowledge Chair",
-    subtitle:
-      "Hartman's Integrated Office Workstation. Eighty-three units shipped. The chair's mid-century cognitive turn.",
-  },
-  {
-    slug: "virtual-ouroboros",
-    number: "05",
-    year: "1985",
-    title: "The Virtual Ouroboros",
-    subtitle:
-      "The brochure backdates by twenty years. The phenomenon the brochure is reaching for is real; the date isn't.",
-  },
-  {
-    slug: "ouroboros-life-system",
-    number: "06",
-    year: "2024",
-    title: "The Ouroboros Life System",
-    subtitle:
-      "The seventh seat. The only iteration I have not had to verify against historical records.",
-  },
+  { slug: "labor-compensator",     num: "01", year: 1865, title: "The Labor Compensator",
+    subtitle: "Half real and half marketing. The half that is real is real enough.",
+    tag: "real" },
+  { slug: "efficiency-enhancer",   num: "02", year: 1900, title: "The Efficiency Enhancer",
+    subtitle: "The seat as productive locus, the operator as bottleneck.",
+    tag: "real" },
+  { slug: "dynamic-dynamo",        num: "03", year: 1925, title: "The Dynamic Dynamo",
+    subtitle: "Western Electric's Hawthorne stations and the Ford River Rouge floor.",
+    tag: "real" },
+  { slug: "knowledge-chair",       num: "04", year: 1955, title: "The Knowledge Chair",
+    subtitle: "Hartman's Integrated Office Workstation. Eighty-three units shipped.",
+    tag: "thin" },
+  { slug: "virtual-ouroboros",     num: "05", year: 1985, title: "The Virtual Ouroboros",
+    subtitle: "The brochure backdates by twenty years. The phenomenon is real; the date isn't.",
+    tag: "fabricated" },
+  { slug: "ouroboros-life-system", num: "06", year: 2024, title: "The Ouroboros Life System",
+    subtitle: "The seventh seat. The only iteration I have not had to verify against historical records.",
+    tag: "real" },
 ] as const;
 
-export type LineageEntry = (typeof LINEAGE)[number];
+const TAG_COLOR: Record<string, string> = {
+  real: T.accent, thin: "#a06820", fabricated: "#7a3a55",
+};
 
 export default function LineageIndex() {
+  const minY = 1865;
+  const maxY = 2025;
+
   return (
-    <main
-      style={{
-        maxWidth: "44rem",
-        margin: "0 auto",
-        padding: "5rem 1.5rem 6rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
-      <nav style={{ marginBottom: "2.5rem" }}>
-        <a
-          href="/chair"
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.72rem",
-            letterSpacing: "0.22em",
-            color: MUTED,
-            textTransform: "uppercase",
-            textDecoration: "none",
-          }}
-        >
-          ← On the Chair
-        </a>
-      </nav>
+    <article>
+      <PlateHeader plate="VII.0" route="/chair/lineage" code="DOSS · OLS · LINEAGE" />
 
-      <header
-        style={{
-          borderBottom: `1px solid ${RULE}`,
-          paddingBottom: "2.5rem",
-          marginBottom: "3rem",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.7rem",
-            letterSpacing: "0.28em",
-            color: ACCENT,
-            textTransform: "uppercase",
-            margin: 0,
-            fontWeight: 600,
-          }}
-        >
-          Companion Essays · § VII Extended
-        </p>
-        <h1
-          style={{
-            fontFamily: SERIF,
-            fontStyle: "italic",
-            fontWeight: 400,
-            fontSize: "clamp(2.2rem, 5vw, 3.2rem)",
-            lineHeight: 1.08,
-            color: PAPER,
-            margin: "1rem 0 0.8rem",
-            letterSpacing: "-0.01em",
-          }}
-        >
-          Lineage
-        </h1>
-        <p
-          style={{
-            fontFamily: SERIF,
-            fontSize: "1.1rem",
-            lineHeight: 1.6,
-            color: PAPER_DIM,
-            margin: 0,
-            fontStyle: "italic",
-          }}
-        >
-          The brochure at <a href="/chair/the-system" style={{ color: PAPER, textDecorationColor: ACCENT }}>/chair/the-system</a>{" "}
-          claims six predecessor devices going back to 1865. I have
-          checked each. The verification is what these essays are. I
-          have allowed the brochure to be wrong where it is wrong and
-          to be more right than I expected where it is.
-        </p>
-      </header>
+      <div style={{ padding: "60px 80px 0", maxWidth: 1200, margin: "0 auto" }}>
+        <a href="/chair" style={{
+          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          color: T.inkMute, textTransform: "uppercase",
+          textDecoration: "none", display: "inline-block", marginBottom: 36,
+        }}>← On the Chair · § VII</a>
 
-      <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {LINEAGE.map((l) => (
-          <li
-            key={l.slug}
-            style={{
-              padding: "1.4rem 0",
-              borderBottom: `1px solid ${RULE}`,
-            }}
-          >
-            <a
-              href={`/chair/lineage/${l.slug}`}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "2.6rem 1fr",
-                gap: "1rem",
-                textDecoration: "none",
-                color: "inherit",
-              }}
-            >
-              <span
-                style={{
-                  fontFamily: MONO,
-                  fontSize: "0.78rem",
-                  letterSpacing: "0.16em",
-                  color: ACCENT,
-                  fontWeight: 700,
-                }}
-              >
-                {l.number}
-              </span>
-              <div>
-                <div
-                  style={{
-                    fontFamily: MONO,
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.18em",
-                    color: MUTED,
-                    textTransform: "uppercase",
-                    marginBottom: 4,
-                  }}
-                >
-                  {l.year}
-                </div>
-                <h2
-                  style={{
-                    fontFamily: SERIF,
-                    fontStyle: "italic",
-                    fontWeight: 600,
-                    fontSize: "1.35rem",
-                    color: PAPER,
-                    margin: "0 0 0.3rem",
-                    letterSpacing: "-0.005em",
-                  }}
-                >
-                  {l.title}
-                </h2>
-                <p
-                  style={{
-                    fontFamily: SERIF,
-                    fontSize: "1rem",
-                    lineHeight: 1.5,
-                    color: PAPER_DIM,
-                    margin: 0,
-                  }}
-                >
-                  {l.subtitle}
-                </p>
+        <div style={{
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
+          color: T.accent, textTransform: "uppercase", fontWeight: 600,
+          marginBottom: 12,
+        }}>Companion · § VII Extended</div>
+
+        <h1 style={{
+          fontFamily: FONT.serif, fontSize: "clamp(48px, 7vw, 64px)",
+          lineHeight: 0.96, letterSpacing: "-0.022em",
+          fontStyle: "italic", fontWeight: 400, margin: "0 0 16px", color: T.ink,
+        }}>The 160-Year Lineage</h1>
+
+        <p style={{
+          maxWidth: 760, marginBottom: 50,
+          fontFamily: FONT.serif, fontSize: 17, lineHeight: 1.55,
+          fontStyle: "italic", color: T.inkDim,
+        }}>
+          Six iterations, with the brochure&apos;s claims checked
+          against the historical record. What was real, what
+          wasn&apos;t, and what survives the verification. The
+          interactive scrubber lives on the essay page; this is the
+          full catalogue.
+        </p>
+
+        {/* horizontal timeline */}
+        <div style={{
+          position: "relative", height: 80, marginBottom: 24,
+        }} className="lin-timeline">
+          <div style={{
+            position: "absolute", left: 0, right: 0, top: 40,
+            height: 1, background: T.ink, opacity: 0.55,
+          }} />
+          {LINEAGE.map((d) => {
+            const pct = ((d.year - minY) / (maxY - minY)) * 100;
+            const c = TAG_COLOR[d.tag];
+            return (
+              <div key={d.slug} style={{
+                position: "absolute", top: 0, left: `${pct}%`,
+                transform: "translateX(-50%)", textAlign: "center", width: 100,
+              }}>
+                <div style={{
+                  fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.06em",
+                  color: T.inkDim, marginBottom: 4,
+                }}>{d.year}</div>
+                <div style={{
+                  width: 10, height: 10, borderRadius: "50%", margin: "26px auto 0",
+                  background: T.paper, border: `1.5px solid ${c}`,
+                }} />
               </div>
-            </a>
-          </li>
-        ))}
-      </ol>
+            );
+          })}
+        </div>
 
-      <p
-        style={{
-          marginTop: "3rem",
-          fontFamily: MONO,
-          fontSize: "0.7rem",
-          letterSpacing: "0.18em",
-          color: MUTED,
-          textTransform: "uppercase",
-          textAlign: "center",
-        }}
-      >
-        Six iterations · ≈ 4,500 words total
-      </p>
-    </main>
+        <ol style={{
+          listStyle: "none", padding: 0, margin: 0,
+          borderTop: `0.75px solid ${T.rule}`,
+        }}>
+          {LINEAGE.map((row) => {
+            const c = TAG_COLOR[row.tag];
+            return (
+              <li key={row.slug} style={{
+                borderBottom: `0.75px solid ${T.rule}`,
+              }}>
+                <a href={`/chair/lineage/${row.slug}`} style={{
+                  display: "grid",
+                  gridTemplateColumns: "60px 70px 110px 1fr 180px 60px",
+                  gap: 20, alignItems: "center",
+                  padding: "22px 0", textDecoration: "none", color: "inherit",
+                }} className="lin-row">
+                  <span style={{
+                    fontFamily: FONT.mono, fontSize: 12, color: T.accent,
+                    fontWeight: 700, letterSpacing: "0.1em",
+                  }}>{row.num}</span>
+                  <ChairGlyph size={42} stroke={T.inkDim} />
+                  <span style={{
+                    fontFamily: FONT.mono, fontSize: 12, color: T.ink,
+                    fontWeight: 600, letterSpacing: "0.06em",
+                  }}>{row.year}</span>
+                  <div>
+                    <div style={{
+                      fontFamily: FONT.serif, fontSize: 22, fontStyle: "italic",
+                      fontWeight: 500, letterSpacing: "-0.005em",
+                      color: T.ink, marginBottom: 5,
+                    }}>{row.title}</div>
+                    <div style={{
+                      fontFamily: FONT.serif, fontSize: 13, lineHeight: 1.5,
+                      color: T.inkDim,
+                    }}>{row.subtitle}</div>
+                  </div>
+                  <span style={{
+                    padding: "2px 9px", background: c, color: T.paper,
+                    fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+                    textTransform: "uppercase", fontWeight: 600, borderRadius: 2,
+                    width: "fit-content",
+                  }}>
+                    {row.tag === "real" ? "● verified" :
+                     row.tag === "thin" ? "◐ thinly documented" :
+                                          "○ partly fabricated"}
+                  </span>
+                  <span style={{
+                    fontFamily: FONT.mono, fontSize: 14, color: T.accent,
+                    textAlign: "right",
+                  }}>→</span>
+                </a>
+              </li>
+            );
+          })}
+        </ol>
+
+        <p style={{
+          margin: "40px 0 80px", maxWidth: 760,
+          fontFamily: FONT.serif, fontSize: 13.5, lineHeight: 1.6,
+          color: T.inkDim, fontStyle: "italic",
+        }}>
+          The lineage is partial. Two of the named devices shipped only
+          in tiny quantities; the connections between iterations are
+          reconstructed retrospectively. The morphological argument is
+          independent of the contemporaneous-development one.
+        </p>
+      </div>
+
+      <PlateFooter folio="33" total="42" section="Lineage · index" />
+
+      <style>{`
+        @media (max-width: 900px) {
+          .lin-row { grid-template-columns: 40px 80px 1fr !important; row-gap: 8px; }
+          .lin-row > :nth-child(2), .lin-row > :nth-child(5), .lin-row > :nth-child(6) { display: none; }
+          .lin-timeline { display: none; }
+        }
+      `}</style>
+    </article>
   );
 }

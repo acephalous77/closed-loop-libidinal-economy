@@ -1,385 +1,236 @@
 import type { Metadata } from "next";
+import { MASTER, FONT } from "../_components/tokens";
+import { PlateHeader, PlateFooter } from "../_components/PlateChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Colophon — On the Chair" },
-  description:
-    "The page that breaks character. What the project is, what it is not, where it sits, and who built it.",
+  description: "Acknowledgments, typography, citation, version log and license for the chair project.",
   alternates: { canonical: "/chair/colophon" },
 };
 
-const PAPER = "#1a1814";
-const PAPER_DIM = "#4a443a";
-const MUTED = "#8a8478";
-const RULE = "rgba(26,24,20,0.14)";
-const ACCENT = "#7a2818";
+const T = MASTER;
 
-const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
-const MONO = `var(--font-geist-mono), ui-monospace, monospace`;
+// ──────────────────────────────────────────────────────────────────
+// /chair/colophon — back cover of the volume.
+// Production credits, typography, citation block, version log, license.
+// ──────────────────────────────────────────────────────────────────
 
-/**
- * /chair/colophon — the out-of-character meta document.
- *
- * Rebuilt in the dark register to match the rest of the chair routes.
- * The previous version was light-mode on a dark layout (effectively
- * invisible) and dated 2025; both fixed.
- *
- * Voice: the author's own, not the apparatus or its critic. Plain
- * statement of what the project is, the routes it comprises, the
- * sources it draws on, and where it sits relative to the broader
- * closed-loop project.
- */
-
-export default function ChairColophon() {
+export default function ColophonPage() {
   return (
-    <main
-      style={{
-        maxWidth: "44rem",
-        margin: "0 auto",
-        padding: "5rem 1.5rem 6rem",
-        position: "relative",
-        zIndex: 1,
-      }}
-    >
-      <nav style={{ marginBottom: "2.5rem" }}>
-        <a
-          href="/chair"
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.72rem",
-            letterSpacing: "0.22em",
-            color: MUTED,
-            textTransform: "uppercase",
-            textDecoration: "none",
-          }}
-        >
-          ← On the Chair
-        </a>
-      </nav>
+    <article>
+      <PlateHeader plate="XLII" route="/chair/colophon" code="DOSS · OLS · COLOPHON" />
 
-      <header
-        style={{
-          borderBottom: `1px solid ${RULE}`,
-          paddingBottom: "2.5rem",
-          marginBottom: "3rem",
-        }}
-      >
-        <p
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.7rem",
-            letterSpacing: "0.28em",
-            color: ACCENT,
-            textTransform: "uppercase",
-            margin: 0,
-            fontWeight: 600,
-          }}
-        >
-          ◆ Out of Character
-        </p>
-        <h1
-          style={{
-            fontFamily: SERIF,
-            fontStyle: "italic",
-            fontWeight: 400,
-            fontSize: "clamp(2.4rem, 5.4vw, 3.6rem)",
-            lineHeight: 1.08,
-            color: PAPER,
-            margin: "1rem 0 0.8rem",
-            letterSpacing: "-0.012em",
-          }}
-        >
-          Colophon
-        </h1>
-        <p
-          style={{
-            fontFamily: SERIF,
-            fontSize: "1.15rem",
-            lineHeight: 1.5,
-            color: PAPER_DIM,
-            margin: 0,
-            fontStyle: "italic",
-          }}
-        >
-          The page that breaks character. What the project is, what it
-          is not, where it sits, who built it.
-        </p>
-      </header>
+      <div style={{ padding: "70px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
+          color: T.accent, textTransform: "uppercase", fontWeight: 600,
+          marginBottom: 14,
+        }}>● End matter</div>
 
-      <Section n="I" title="What this is">
-        <P>
-          The <strong style={{ color: PAPER }}>Ouroboros Life System</strong>{" "}
-          is a speculative apparatus authored by Adnan Selimović as part
-          of an ongoing research and writing project on what I have
-          elsewhere called the <em>closed-loop libidinal economy</em>.
-        </P>
-        <P>
-          There is no chair to buy. There is no Ouroboros Industries
-          LLC. The pricing tiers, the fitting consultants, the
-          testimonials, the Service Ledger, the 248,401 fitted
-          households &mdash; all invented. The project is a literary
-          object cast as a product, presented in the register of the
-          institution it is trying to make legible.
-        </P>
-        <P>
-          The chair is a fiction. The apparatus the chair diagrams is
-          not.
-        </P>
-      </Section>
+        <div style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr",
+          gap: 64, alignItems: "end", marginBottom: 56,
+        }} className="col-head">
+          <h1 style={{
+            fontFamily: FONT.serif, fontSize: "clamp(56px, 9vw, 96px)",
+            lineHeight: 0.94, letterSpacing: "-0.024em",
+            fontStyle: "italic", fontWeight: 400, margin: 0, color: T.ink,
+          }}>Colophon.</h1>
+          <p style={{
+            margin: 0, fontFamily: FONT.serif, fontSize: 16, lineHeight: 1.55,
+            color: T.inkDim, fontStyle: "italic",
+          }}>
+            The book the apparatus would not let me write, written
+            instead about the apparatus that would not let me write
+            the book.
+          </p>
+        </div>
 
-      <Section n="II" title="Architecture">
-        <P>
-          The project sits at <code style={codeStyle}>/chair</code> across
-          nine routes:
-        </P>
-        <ul style={listStyle}>
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 48,
+        }} className="col-grid">
+          <div>
+            <ColHead>Production</ColHead>
+            <ColLine k="Author">Adnan Selimović</ColLine>
+            <ColLine k="Place">Brooklyn, NY</ColLine>
+            <ColLine k="Period">2024 — 2026</ColLine>
+            <ColLine k="Words">≈ 14 200 across 11 surfaces</ColLine>
+            <ColLine k="Plates">42, this volume</ColLine>
+            <ColLine k="Software">Next.js · React · MDX<br />KaTeX · remark-math</ColLine>
+          </div>
+
+          <div>
+            <ColHead>Typography</ColHead>
+            <ColLine k="Display + body">
+              <span style={{ fontStyle: "italic" }}>Spectral</span>
+              <br /><span style={{
+                fontFamily: FONT.mono, fontSize: 9.5,
+                color: T.inkMute, letterSpacing: "0.1em",
+              }}>Production Type · OFL</span>
+            </ColLine>
+            <ColLine k="Codes + labels">
+              IBM Plex Mono
+              <br /><span style={{
+                fontFamily: FONT.mono, fontSize: 9.5,
+                color: T.inkMute, letterSpacing: "0.1em",
+              }}>IBM · OFL</span>
+            </ColLine>
+            <ColLine k="Brochure">
+              Manrope · grotesk
+              <br /><span style={{
+                fontFamily: FONT.mono, fontSize: 9.5,
+                color: T.inkMute, letterSpacing: "0.1em",
+              }}>Mikhail Sharanda · OFL</span>
+            </ColLine>
+            <ColLine k="Mathematics">Garamond Math · KaTeX default</ColLine>
+          </div>
+
+          <div>
+            <ColHead>Citation</ColHead>
+            <div style={{
+              padding: 16, background: "rgba(255,253,245,0.5)",
+              border: `0.5px solid ${T.rule}`,
+              fontFamily: FONT.mono, fontSize: 11, lineHeight: 1.55,
+              color: T.ink, letterSpacing: "0.02em",
+            }}>
+              <div style={{ color: T.accent, marginBottom: 8 }}>
+                {"@article{selimovic2026chair,"}
+              </div>
+              <div style={{ paddingLeft: 12, color: T.inkDim }}>
+                title = {"{On the Chair}"},<br />
+                author = {"{Selimović, Adnan}"},<br />
+                journal = {"{autostimulus}"},<br />
+                year = {"{2026}"},<br />
+                url = {"{autostimulus.org/chair}"},<br />
+              </div>
+              <div style={{ color: T.accent, marginTop: 8 }}>{"}"}</div>
+            </div>
+            <button style={{
+              marginTop: 14, padding: "9px 14px",
+              border: `0.5px solid ${T.ink}`, background: "transparent",
+              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+              textTransform: "uppercase", color: T.ink, cursor: "pointer",
+              fontWeight: 600, width: "100%",
+            }}>Copy BibTeX →</button>
+          </div>
+        </div>
+
+        <div style={{ marginTop: 50 }}>
+          <ColHead>Version log</ColHead>
+          <table style={{
+            width: "100%", borderCollapse: "collapse",
+            fontFamily: FONT.serif, fontSize: 13,
+          }}>
+            <thead>
+              <tr style={{ borderBottom: `0.75px solid ${T.rule}` }}>
+                <th style={th}>v</th>
+                <th style={th}>date</th>
+                <th style={{ ...th, textAlign: "left" }}>what changed</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["0.1",   "2024 · 03", "First draft of the essay (3 sections, 1 800 w)."],
+                ["0.3",   "2024 · 11", "Added subsystem 04 (Surplus Reservoirs); restructured § V."],
+                ["0.5",   "2025 · 06", "Brochure artifact added at /chair/the-system."],
+                ["0.6",   "2025 · 11", "Lineage essays drafted; verification against historical record."],
+                ["0.7",   "2026 · 02", "Zine and archive artifacts added."],
+                ["0.7.2", "2026 · 05", "Brochure rebuilt in the apparatus's self-constituted voice."],
+                ["1.0",   "—",         "Pending refusal essay (working title: § IX extended)."],
+              ].map(([v, d, w]) => (
+                <tr key={v} style={{ borderBottom: `0.5px solid ${T.ruleSoft}` }}>
+                  <td style={{
+                    ...td, color: T.accent, fontWeight: 600,
+                    fontFamily: FONT.mono, letterSpacing: "0.04em",
+                  }}>{v}</td>
+                  <td style={{
+                    ...td, color: T.inkMute,
+                    fontFamily: FONT.mono, letterSpacing: "0.04em",
+                  }}>{d}</td>
+                  <td style={{ ...td, fontStyle: "italic" }}>{w}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div style={{
+          marginTop: 40, display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)", gap: 36,
+        }} className="col-licenses">
           {[
-            ["/chair", "the main essay, On the Chair, in nine sections — the project's spine."],
-            ["/chair/subsystems", "long-form treatments of the apparatus's seven subsystems."],
-            ["/chair/precedents", "companion essays on four actually-existing proto-apparatuses (Meta, TikTok, Pornhub, Chinese Social Credit)."],
-            ["/chair/lineage", "six companion essays on the apparatus's claimed 160-year lineage, with the brochure's claims checked against the historical record."],
-            ["/chair/refusal", "longer treatment of §IX. Four moves toward refusal."],
-            ["/chair/concepts", "working definitions of the project's named frameworks (TAOG, IGLF, Capture of Cadence, Libidinal Ouroboros, Psychic Surplus, OHCOSE, Closed-Loop Libidinal Economy, Satisfaction Loops)."],
-            ["/chair/the-system", "the apparatus speaking in its own voice. The brochure has read the essay and adopted its vocabulary as house terminology."],
-            ["/chair/zine", "anti-copyright resistance pamphlet, with two pieces that break its own design language."],
-            ["/chair/archive", "future-historian retrospective, dated c. 2197."],
-          ].map(([href, body]) => (
-            <li key={href} style={liStyle}>
-              <a href={href} style={routeLink}>
-                {href}
-              </a>
-              <span style={{ color: PAPER_DIM }}> &nbsp;—&nbsp; {body}</span>
-            </li>
+            ["License · text", "CC BY-SA 4.0",
+             "All textual content here may be reproduced, adapted, and re-circulated under the share-alike provisions of the license."],
+            ["License · code", "MIT",
+             "The site code is under MIT. The fonts are under their respective Open Font Licenses."],
+            ["Disclosure", "Instrumentation",
+             "This site logs nothing beyond seven-day HTTP server logs. The full disclosure is at /closed-loop/instrumentation."],
+          ].map(([k, v, body]) => (
+            <div key={k}>
+              <div style={{
+                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                color: T.accent, fontWeight: 600,
+                textTransform: "uppercase", marginBottom: 8,
+              }}>{k}</div>
+              <div style={{
+                fontFamily: FONT.serif, fontStyle: "italic", fontSize: 18,
+                color: T.ink, marginBottom: 8, letterSpacing: "-0.005em",
+              }}>{v}</div>
+              <div style={{
+                fontFamily: FONT.serif, fontSize: 13, lineHeight: 1.55,
+                color: T.inkDim,
+              }}>{body}</div>
+            </div>
           ))}
-        </ul>
-        <P>
-          The essay is the analytical spine. The brochure, the zine, and
-          the archive are three mutually contradictory voices the essay
-          holds together. The subsystem, precedent, lineage, and refusal
-          companions extend the essay's individual sections at greater
-          depth.
-        </P>
-      </Section>
-
-      <Section n="III" title="Theoretical sources">
-        <P>
-          <strong style={{ color: PAPER }}>The libidinal-economic
-          lineage:</strong> Jean-François Lyotard, <em>Libidinal
-          Economy</em> (1974); Jean Baudrillard, <em>La société de
-          consommation</em> (1970); Herbert Marcuse, <em>One-Dimensional
-          Man</em> (1964); Franco Berardi, <em>The Soul at Work</em>{" "}
-          (2009); Paul B. Preciado, <em>Testo Junkie</em> (2008);
-          Bernard Stiegler&apos;s pharmacology.
-        </P>
-        <P>
-          <strong style={{ color: PAPER }}>The object-relations
-          axis:</strong> Melanie Klein on the paranoid-schizoid and
-          depressive positions; D. W. Winnicott on the transitional
-          object.
-        </P>
-        <P>
-          <strong style={{ color: PAPER }}>The political-philosophical
-          frame:</strong> Michel Foucault on biopower and
-          governmentality; Gilles Deleuze and Félix Guattari on
-          desiring-machines; Marshall McLuhan on medium as message.
-        </P>
-        <P>
-          <strong style={{ color: PAPER }}>The contemporary empirical
-          base:</strong> Kramer, Guillory &amp; Hancock, &ldquo;Experimental
-          evidence of massive-scale emotional contagion through social
-          networks&rdquo; (PNAS, 2014); the 2020 Pornhub recommendation-
-          engine investigations; the operational documentation of the
-          Chinese Social Credit System (2014–present); Shoshana
-          Zuboff&apos;s <em>The Age of Surveillance Capitalism</em>{" "}
-          (2019); Nick Srnicek&apos;s <em>Platform Capitalism</em>{" "}
-          (2016).
-        </P>
-      </Section>
-
-      <Section n="IV" title="Earlier work by the author">
-        <P>
-          The chair extends and concretizes work I have been developing
-          elsewhere on the site:
-        </P>
-        <ul style={listStyle}>
-          <li style={liStyle}>
-            <a href="/closed-loop" style={routeLink}>/closed-loop</a>
-            <span style={{ color: PAPER_DIM }}> &nbsp;—&nbsp; the formal
-              project on the closed-loop libidinal economy, including the
-              foreclosure lemma and the reclamation theorem the chair
-              dramatises.</span>
-          </li>
-          <li style={liStyle}>
-            <a href="/ohcose" style={routeLink}>/ohcose</a>
-            <span style={{ color: PAPER_DIM }}> &nbsp;—&nbsp; the
-              life-stage treatments (Ontogenesis, Inscriptive
-              Normalisation, Adolescent Calibration) the chair condenses
-              into a single product lifecycle.</span>
-          </li>
-        </ul>
-        <P>
-          Industry-facing work informing the project: applied
-          libidinal-economic frameworks developed in R&amp;I
-          engagements with Netflix, Ubisoft, and Activision; the
-          Integrated Gamer Loops Framework (IGLF) developed in that
-          work and catalogued at <a href="/chair/concepts#integrated-gamer-loops-framework" style={inlineLink}>concepts</a>.
-        </P>
-        <P>
-          Manuscripts in progress: <em>Theory, Culture &amp; Society</em>
-          {" "}(libidinal ouroboros / platform governance); <em>tripleC:
-          Communication, Capitalism &amp; Critique</em> (psychic
-          surplus extraction).
-        </P>
-      </Section>
-
-      <Section n="V" title="A note on the apparatus's status">
-        <P>
-          The chair is a thought experiment. The apparatus is not. The
-          chair I have described in the brochure is a fiction; the
-          apparatus the chair diagrams is, on my reading, the
-          configuration the contemporary platform economy has been
-          settling into over the past fifteen years, and which I expect
-          to settle further in the years immediately ahead.
-        </P>
-        <P>
-          The chair&apos;s commercial pretence is a rhetorical device
-          — the same device the apparatus uses on itself, deployed at
-          the scale of a piece of furniture so the reader can see it. I
-          have, throughout the project, tried to keep the device
-          legible as a device. The brochure&apos;s candour about its own
-          mechanics is part of how I have tried to do that.
-        </P>
-      </Section>
-
-      <Section n="VI" title="License & citation">
-        <P>
-          Textual content: <strong style={{ color: PAPER }}>CC BY-SA
-          4.0</strong>. Code: <strong style={{ color: PAPER }}>MIT</strong>.
-          Visual identity (Ouroboros logotype, brochure typesetting,
-          diagrams) is the author&apos;s original work.
-        </P>
-        <P style={{ fontSize: "0.94rem", color: PAPER_DIM }}>
-          Selimović, A. (2026). <em>On the Chair: Notes Toward a Theory
-          of the Closed-Loop Libidinal Economy</em>. Brooklyn.{" "}
-          <span style={{ fontFamily: MONO, fontSize: "0.86rem" }}>
-            autostimulus.org/chair
-          </span>
-        </P>
-      </Section>
-
-      <div
-        style={{
-          marginTop: "3rem",
-          paddingTop: "2rem",
-          borderTop: `1px solid ${RULE}`,
-          fontFamily: MONO,
-          fontSize: "0.7rem",
-          letterSpacing: "0.22em",
-          color: MUTED,
-          textTransform: "uppercase",
-          textAlign: "center",
-        }}
-      >
-        Brooklyn · May 2026 · Volume Ω.026
+        </div>
       </div>
-    </main>
+
+      <PlateFooter folio="XLII" total="XLII" section="Colophon · end matter" />
+
+      <style>{`
+        @media (max-width: 800px) {
+          .col-head { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .col-grid, .col-licenses { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+      `}</style>
+    </article>
   );
 }
 
-// ─────────────────────────────────────────────────────────────────────
-const codeStyle: React.CSSProperties = {
-  fontFamily: MONO,
-  fontSize: "0.92em",
-  background: "rgba(154,51,34,0.10)",
-  padding: "1px 6px",
-  color: PAPER,
-  borderRadius: 2,
-};
-
-const listStyle: React.CSSProperties = {
-  listStyle: "none",
-  padding: 0,
-  margin: "0 0 1.6rem",
-  borderTop: `1px solid ${RULE}`,
-};
-
-const liStyle: React.CSSProperties = {
-  padding: "0.7rem 0",
-  borderBottom: `1px solid ${RULE}`,
-  fontFamily: SERIF,
-  fontSize: "0.98rem",
-  lineHeight: 1.55,
-};
-
-const routeLink: React.CSSProperties = {
-  fontFamily: MONO,
-  fontSize: "0.86rem",
-  color: PAPER,
-  textDecoration: "underline",
-  textDecorationColor: ACCENT,
-  textDecorationThickness: 1,
-  textUnderlineOffset: 3,
-};
-
-const inlineLink: React.CSSProperties = {
-  color: PAPER,
-  textDecoration: "underline",
-  textDecorationColor: ACCENT,
-  textDecorationThickness: 1,
-  textUnderlineOffset: 3,
-};
-
-function Section({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
+function ColHead({ children }: { children: React.ReactNode }) {
   return (
-    <section style={{ marginBottom: "2.4rem" }}>
-      <h2
-        style={{
-          fontFamily: SERIF,
-          fontWeight: 600,
-          fontSize: "1.3rem",
-          letterSpacing: "-0.005em",
-          color: PAPER,
-          margin: "2.4rem 0 1.2rem",
-          paddingTop: "1rem",
-          borderTop: `1px solid ${RULE}`,
-          display: "grid",
-          gridTemplateColumns: "3.5rem 1fr",
-          gap: "1rem",
-          alignItems: "baseline",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.72rem",
-            color: ACCENT,
-            letterSpacing: "0.22em",
-            textTransform: "uppercase",
-            fontWeight: 600,
-          }}
-        >
-          § {n}
-        </span>
-        <span style={{ fontStyle: "italic" }}>{title}</span>
-      </h2>
-      {children}
-    </section>
+    <div style={{
+      fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+      color: T.accent, textTransform: "uppercase", fontWeight: 600,
+      marginBottom: 16, paddingBottom: 10,
+      borderBottom: `0.5px solid ${T.rule}`,
+    }}>{children}</div>
   );
 }
 
-function P({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+function ColLine({ k, children }: { k: string; children: React.ReactNode }) {
   return (
-    <p
-      style={{
-        fontFamily: SERIF,
-        fontSize: "1.05rem",
-        lineHeight: 1.7,
-        color: PAPER,
-        margin: "0 0 1.1rem",
-        textWrap: "pretty" as const,
-        ...style,
-      }}
-    >
-      {children}
-    </p>
+    <div style={{
+      padding: "10px 0", borderBottom: `0.5px solid ${T.ruleSoft}`,
+      display: "grid", gridTemplateColumns: "118px 1fr", gap: 14,
+      alignItems: "baseline",
+    }}>
+      <span style={{
+        fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.16em",
+        textTransform: "uppercase", color: T.inkMute,
+      }}>{k}</span>
+      <span style={{
+        fontFamily: FONT.serif, fontSize: 13.5, color: T.ink, lineHeight: 1.5,
+      }}>{children}</span>
+    </div>
   );
 }
+
+const th: React.CSSProperties = {
+  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+  color: T.inkMute, textTransform: "uppercase", textAlign: "left",
+  fontWeight: 600, padding: "8px 14px 10px 0",
+};
+const td: React.CSSProperties = {
+  padding: "10px 14px 10px 0", verticalAlign: "top",
+};

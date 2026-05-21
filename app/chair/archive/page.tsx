@@ -1,304 +1,198 @@
 import type { Metadata } from "next";
+import { ARCHIVE, FONT } from "../_components/tokens";
+import { PlateHeader, PlateFooter } from "../_components/PlateChrome";
 
 export const metadata: Metadata = {
   title: { absolute: "Imperial Archive — Ouroboros Life System" },
   alternates: { canonical: "/chair/archive" },
-  robots: { index: false }, // Hidden from search; discoverable only by clicking through
+  robots: { index: false }, // hidden from search — discoverable only by clicking through
 };
 
-const INK = "#0a0a0a";
-const INK_70 = "#5a5a5a";
-const INK_40 = "#9a9a9a";
-const INK_20 = "#e6e6e6";
-const ACCENT = "#7a3a14"; // archive-period sepia, distinct from product-page palette
+const A = ARCHIVE;
 
-const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const DISPLAY = `-apple-system, "Inter", "SF Pro Display", "Helvetica Neue", system-ui, sans-serif`;
-const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
-
-/**
- * Encyclopedia entries written from a future-historical vantage (the
- * "Imperial Archive"), looking back at the Ouroboros Life System as
- * a 21st-century artifact. The frame is Dune-like — encyclopedia
- * entries that ground the world in time while staying dispassionate.
- *
- * The archive is hidden from search (robots: noindex) and the only
- * surface paths to it are discreet markers scattered across the
- * product page itself.
- */
+// ──────────────────────────────────────────────────────────────────
+// /chair/archive — catalogue of 2197 entries.
+// REGISTER INVERSION: scholarly slate-blue cream.
+// ──────────────────────────────────────────────────────────────────
 
 export const ENTRIES = [
-  {
-    slug: "ouroboros-ring",
-    code: "2197.04",
+  { num: "04", slug: "ouroboros-ring",       code: "2197.04",
     title: "On the Ouroboros Ring",
-    summary:
-      "The apparatus's central design conceit, retrospectively considered.",
-  },
-  {
-    slug: "period-typography",
-    code: "2197.07",
-    title: "The 'Goming Screen' & Other Period Typographic Errors",
-    summary:
-      "On the irregular type in the marketing materials, framed as evidence of late-period machine production.",
-  },
-  {
-    slug: "pro-tier-moratorium",
-    code: "2197.11",
-    title: "The Pro-tier Moratorium of 2049",
-    summary:
-      "A regulatory event that briefly suspended the apparatus's most successful configuration.",
-  },
-  {
-    slug: "proto-apparatuses",
-    code: "2197.14",
-    title: "Proto-Apparatuses: The Social-Media Ancestry",
-    summary:
-      "On the platform-era systems that prefigured the apparatus and made its conception inevitable.",
-  },
-  {
-    slug: "lineage-claim",
-    code: "2197.18",
+    summary: "The apparatus's central design conceit, retrospectively considered.",
+    topic: "Design" },
+  { num: "07", slug: "period-typography",    code: "2197.07",
+    title: "The 'Goming Screen' & Period Typography",
+    summary: "On the irregular type in the marketing materials, framed as evidence of machine production.",
+    topic: "Material" },
+  { num: "11", slug: "pro-tier-moratorium",  code: "2197.11",
+    title: "The Pro-Tier Moratorium of 2049",
+    summary: "A regulatory event that briefly suspended the apparatus's most successful configuration.",
+    topic: "Regulation" },
+  { num: "14", slug: "proto-apparatuses",    code: "2197.14",
+    title: "Proto-Apparatuses · Social Media Ancestry",
+    summary: "On platform-era systems that prefigured the apparatus.",
+    topic: "Lineage" },
+  { num: "18", slug: "lineage-claim",        code: "2197.18",
     title: "The Lineage Claim",
-    summary:
-      "On the manufacturer's heritage narrative — six predecessor devices the apparatus claimed as its 160-year design tradition. The retcon and its rhetorical work.",
-  },
-  {
-    slug: "eternal-tier",
-    code: "2197.22",
-    title: "On the Eternal Tier: Post-mortem Continuity",
-    summary:
-      "The configuration that promised inheritance of the occupant's data and obligations beyond biological cessation.",
-  },
-  {
-    slug: "testimonial-analysis",
-    code: "2197.26",
+    summary: "Six predecessor devices the apparatus claimed as its tradition. The retcon and its work.",
+    topic: "Lineage" },
+  { num: "22", slug: "eternal-tier",         code: "2197.22",
+    title: "On the Eternal Tier · Post-mortem",
+    summary: "The configuration that promised inheritance beyond cessation.",
+    topic: "Configuration" },
+  { num: "26", slug: "testimonial-analysis", code: "2197.26",
     title: "The Testimonial Voice",
-    summary:
-      'On the period\'s characteristic conflation of confinement and gratitude. With reference to the canonical "I haven\'t had to stand up in nine months" specimen.',
-  },
-  {
-    slug: "fitting-ritual",
-    code: "2197.30",
-    title: "On the Fitting Ritual",
-    summary:
-      "The home-visit calibration procedure by which the apparatus was sized to the occupant. Read as a domesticated inversion of the medical intake.",
-  },
-  {
-    slug: "waste-subsystem",
-    code: "2197.34",
-    title: "The Waste-Extraction Subsystem",
-    summary:
-      "On the system whose disclosure the marketing apparatus most carefully managed. The euphemism trail traced through the surviving copy.",
-  },
-  {
-    slug: "refurbished-aftermarket",
-    code: "2197.41",
-    title: "The Refurbished Aftermarket",
-    summary:
-      "The black-market trade in proscribed units that persisted for forty years after the OLS's withdrawal from licit sale.",
-  },
-  {
-    slug: "successor-systems",
-    code: "2197.48",
-    title: "Successor Systems: From Furniture to Implant",
-    summary:
-      "What replaced the chair after the chair. The progression from external apparatus to embedded protocol, and the change in the period's commercial vocabulary that accompanied it.",
-  },
-];
+    summary: "On the period's conflation of confinement and gratitude.",
+    topic: "Material" },
+  { num: "29", slug: "sensor-stack",         code: "2197.29",
+    title: "Sensor Stack · Class III Reading",
+    summary: "The multi-modal sensor array catalogued against contemporary medical-device taxonomy.",
+    topic: "Design" },
+  { num: "33", slug: "cohort-2049-cataloguing", code: "2197.33",
+    title: "Cohort 2049 Cataloguing Operation",
+    summary: "The state action by which the surviving devices were defaced and sealed.",
+    topic: "Regulation" },
+] as const;
 
-export default function ImperialArchiveIndex() {
+export default function ArchiveIndex() {
   return (
-    <div
-      style={{
-        // Sepia paper background — the archive's distinct visual
-        // register against the surrounding dark chair-layout. The
-        // archive is meant to feel like a different document genre
-        // (scholarly journal, future-historical) from the rest of
-        // the chair project.
-        background: "#f1ead8",
-        color: INK,
-        minHeight: "100vh",
-        // Subtle paper grain
-        backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='13'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.46  0 0 0 0 0.38  0 0 0 0.04 0'/></filter><rect width='200' height='200' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f1ead8 0%, #ebe2cc 100%)`,
-        position: "relative",
-        zIndex: 2,
-      }}
-    >
-    <main
-      style={{
-        maxWidth: "44rem",
-        margin: "0 auto",
-        padding: "5rem 5vw 6rem",
-      }}
-    >
-      {/* Top nav */}
-      <nav style={{ marginBottom: "3rem" }}>
-        <a
-          href="/chair"
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.75rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.2em",
-            color: INK_70,
-            textDecoration: "none",
-          }}
-        >
-          ← Ouroboros Life System
-        </a>
-      </nav>
+    <article style={{
+      background: A.paper, color: A.ink,
+      fontFamily: "var(--font-spectral), Georgia, serif",
+      minHeight: "100vh",
+    }}>
+      <PlateHeader plate="VIII.0" route="/chair/archive"
+                   code="ARCHIVE · INDEX · 2197" tokens={A} />
 
-      {/* Masthead */}
-      <header style={{ borderBottom: `2px solid ${INK}`, paddingBottom: "1.5rem", marginBottom: "3rem" }}>
-        <p
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.72rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.28em",
-            color: ACCENT,
-            margin: 0,
-          }}
-        >
-          Imperial Archive · accession 2197
+      <div style={{ padding: "60px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
+        <div style={{
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
+          color: A.accent, textTransform: "uppercase", fontWeight: 600,
+          marginBottom: 14,
+        }}>● Imperial Archive · Dossier 2197</div>
+
+        <div style={{
+          display: "grid", gridTemplateColumns: "1fr 360px",
+          gap: 64, alignItems: "end", marginBottom: 36,
+        }} className="arc-head">
+          <h1 style={{
+            fontFamily: FONT.serif, fontSize: "clamp(56px, 9vw, 80px)",
+            lineHeight: 0.94, letterSpacing: "-0.022em",
+            fontStyle: "italic", fontWeight: 400, margin: 0, color: A.ink,
+          }}>Catalogue.</h1>
+          <p style={{
+            margin: 0, fontFamily: FONT.serif, fontSize: 15, lineHeight: 1.55,
+            color: A.inkDim, fontStyle: "italic",
+          }}>
+            Encyclopedia entries written c. 2197, looking back at the
+            Ouroboros Life System as a 21st-century artifact. The
+            archive is hidden from search; the only surface paths in
+            are discreet markers scattered through the brochure.
+          </p>
+        </div>
+
+        <div style={{
+          display: "flex", gap: 24, padding: "12px 0",
+          borderTop: `0.5px solid ${A.rule}`,
+          borderBottom: `0.5px solid ${A.rule}`,
+          marginBottom: 12, alignItems: "baseline",
+        }}>
+          <div style={{
+            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            color: A.inkMute, textTransform: "uppercase",
+          }}>Sort</div>
+          <span style={{
+            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            textTransform: "uppercase", color: A.accent, fontWeight: 700,
+            borderBottom: `1px solid ${A.accent}`, paddingBottom: 2,
+          }}>By code</span>
+          <div style={{
+            marginLeft: "auto",
+            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            color: A.inkMute, textTransform: "uppercase",
+          }}>{ENTRIES.length} entries · further filings in compilation</div>
+        </div>
+
+        <table style={{
+          width: "100%", borderCollapse: "collapse", tableLayout: "fixed",
+        }} className="arc-table">
+          <thead>
+            <tr style={{ borderBottom: `0.75px solid ${A.rule}` }}>
+              <th style={{ ...th, width: 50 }}>#</th>
+              <th style={{ ...th, width: 110 }}>Code</th>
+              <th style={th}>Title</th>
+              <th style={{ ...th, width: 150 }}>Topic</th>
+              <th style={{ ...th, width: 60, textAlign: "right" }}>&nbsp;</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ENTRIES.map((e) => (
+              <tr key={e.code} style={{ borderBottom: `0.5px solid ${A.ruleSoft}` }}>
+                <td style={{
+                  ...td,
+                  fontFamily: FONT.mono, fontSize: 11, color: A.inkMute,
+                  letterSpacing: "0.06em",
+                }}>{e.num}</td>
+                <td style={{
+                  ...td,
+                  fontFamily: FONT.mono, fontSize: 11.5, color: A.accent,
+                  fontWeight: 600, letterSpacing: "0.06em",
+                }}>{e.code}</td>
+                <td style={td}>
+                  <a href={`/chair/archive/${e.slug}`} style={{
+                    color: "inherit", textDecoration: "none", display: "block",
+                  }}>
+                    <div style={{
+                      fontFamily: FONT.serif, fontSize: 17, fontStyle: "italic",
+                      fontWeight: 500, color: A.ink, marginBottom: 4,
+                      lineHeight: 1.2,
+                    }}>{e.title}</div>
+                    <div style={{
+                      fontFamily: FONT.serif, fontSize: 13, color: A.inkDim,
+                      lineHeight: 1.55,
+                    }}>{e.summary}</div>
+                  </a>
+                </td>
+                <td style={{
+                  ...td,
+                  fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+                  textTransform: "uppercase", color: A.inkMute,
+                }}>{e.topic}</td>
+                <td style={{ ...td, textAlign: "right",
+                              fontFamily: FONT.mono, fontSize: 12, color: A.accent }}>→</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <p style={{
+          marginTop: 32, maxWidth: 760,
+          fontFamily: FONT.serif, fontSize: 13, lineHeight: 1.6,
+          color: A.inkDim, fontStyle: "italic",
+        }}>
+          Compiled under the standing brief of Dossier 2197. Entries
+          are catalogued by the Office of Apparatus Studies, Imperial
+          Archive.
         </p>
-        <h1
-          style={{
-            fontFamily: SERIF,
-            fontStyle: "italic",
-            fontSize: "clamp(2.5rem, 5vw, 3.75rem)",
-            fontWeight: 400,
-            letterSpacing: "-0.01em",
-            lineHeight: 1.05,
-            margin: "0.6rem 0 0",
-            color: INK,
-          }}
-        >
-          On the Ouroboros Life System
-        </h1>
-        <p
-          style={{
-            marginTop: "0.8rem",
-            fontFamily: SERIF,
-            fontSize: "1.05rem",
-            color: INK_70,
-            lineHeight: 1.55,
-          }}
-        >
-          A retrospective on a 21st-century consumer apparatus, compiled
-          from the period&apos;s preserved marketing materials, regulatory
-          filings, and the small surviving body of occupant correspondence.
-        </p>
-      </header>
+      </div>
 
-      {/* Editor's preface */}
-      <section
-        style={{
-          fontFamily: SERIF,
-          fontSize: "1rem",
-          lineHeight: 1.65,
-          color: "#1a1a1a",
-          marginBottom: "3rem",
-          fontStyle: "italic",
-        }}
-      >
-        <p>
-          The Ouroboros Life System (OLS), introduced into the consumer
-          market of the late North-Atlantic capitalist period, was sold
-          to its occupants as a luxury life-support apparatus &mdash;
-          a chair-form enclosure that promised the elimination of the
-          friction between living, working, and consuming. By the
-          mid-22nd century the OLS had been formally proscribed in most
-          Tier-2 sovereignties, though refurbished units continued to
-          circulate on the black market into the late period. The
-          present archive collects the surviving record.
-        </p>
-      </section>
-
-      {/* Entries list */}
-      <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
-        {ENTRIES.map((e) => (
-          <li
-            key={e.slug}
-            style={{
-              padding: "1.5rem 0",
-              borderBottom: `1px solid ${INK_20}`,
-            }}
-          >
-            <a
-              href={`/chair/archive/${e.slug}`}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "5rem 1fr",
-                columnGap: "1.5rem",
-                textDecoration: "none",
-                color: "inherit",
-              }}
-              className="archive-entry"
-            >
-              <span
-                style={{
-                  fontFamily: MONO,
-                  fontSize: "0.8rem",
-                  color: ACCENT,
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                }}
-              >
-                {e.code}
-              </span>
-              <div>
-                <h2
-                  style={{
-                    fontFamily: SERIF,
-                    fontSize: "1.35rem",
-                    fontWeight: 600,
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1.2,
-                    margin: 0,
-                    color: INK,
-                  }}
-                >
-                  {e.title}
-                </h2>
-                <p
-                  style={{
-                    marginTop: "0.4rem",
-                    fontFamily: SERIF,
-                    fontSize: "0.95rem",
-                    color: INK_70,
-                    lineHeight: 1.5,
-                    fontStyle: "italic",
-                  }}
-                >
-                  {e.summary}
-                </p>
-              </div>
-            </a>
-          </li>
-        ))}
-      </ol>
-
-      <p
-        style={{
-          marginTop: "3rem",
-          fontFamily: MONO,
-          fontSize: "0.7rem",
-          textTransform: "uppercase",
-          letterSpacing: "0.2em",
-          color: INK_40,
-          textAlign: "center",
-        }}
-      >
-        end of accession · 2197.26
-      </p>
+      <PlateFooter folio="VIII" total="XLII" section="Archive · catalogue" tokens={A} />
 
       <style>{`
-        .archive-entry h2 { transition: color 80ms; }
-        .archive-entry:hover h2 { color: ${ACCENT}; }
+        @media (max-width: 800px) {
+          .arc-head { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .arc-table th:nth-child(4), .arc-table td:nth-child(4) { display: none; }
+        }
       `}</style>
-    </main>
-    </div>
+    </article>
   );
 }
+
+const th: React.CSSProperties = {
+  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+  textTransform: "uppercase", color: A.inkMute, textAlign: "left",
+  padding: "12px 16px 14px 0", fontWeight: 600,
+};
+const td: React.CSSProperties = {
+  padding: "18px 16px 18px 0", verticalAlign: "top",
+};

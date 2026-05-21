@@ -1,53 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Anton, Permanent_Marker, Caveat } from "next/font/google";
+import { Spectral, IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
+import { MASTER } from "./_components/tokens";
+import { ChairGlyph } from "./_components/PlateChrome";
 
 /**
- * Chair project layout.
+ * /chair project layout.
  *
- * The master register is light — warm cream paper, dark warm ink,
- * a deep blueprint navy as the brand accent. The essay, the
- * subsystems, the precedents, the lineage, the refusal essay, the
- * concepts, and the colophon all live in this register. The
- * brochure (/chair/the-system) opts up to clinical white — the
- * apparatus's showroom aesthetic — using its own per-page wrapper.
- * The archive (/chair/archive) keeps its scholarly sepia. The zine
- * (/chair/zine) is the only place that overrides the master to
- * cinematic dark, because protest media is the one register where
- * dark is right.
+ * Register: forensic atlas. Warm cream paper, dark warm ink, sepia-brick
+ * accent used aggressively (plate rules, marginal codes, page numbers).
+ * The chair-as-glyph recurs on every page; the strip-of-middots footer
+ * of the previous version is replaced by a single foot-text + route
+ * map link.
+ *
+ * Register inversions (brochure, zine, archive) override the master
+ * paper-and-ink relationship inside their own subroutes by importing
+ * the BROCHURE / ZINE / ARCHIVE token records from _components/tokens.ts.
  */
 
-const geistSans = Geist({
+const spectral = Spectral({
   subsets: ["latin"],
-  variable: "--font-geist",
+  variable: "--font-spectral",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
+const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
-  variable: "--font-geist-mono",
+  variable: "--font-plex-mono",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const anton = Anton({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-manrope",
   display: "swap",
-  weight: "400",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
-const permanentMarker = Permanent_Marker({
+const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
-  variable: "--font-permanent-marker",
+  variable: "--font-source-serif",
   display: "swap",
-  weight: "400",
-});
-
-const caveat = Caveat({
-  subsets: ["latin"],
-  variable: "--font-caveat",
-  display: "swap",
-  weight: ["400", "500", "700"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
 });
 
 const SITE_URL =
@@ -56,8 +53,7 @@ const SITE_URL =
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "On the Chair — Notes Toward a Theory of the Closed-Loop Libidinal Economy",
+    default: "On the Chair — Notes Toward a Theory of the Closed-Loop Libidinal Economy",
     template: "%s — On the Chair",
   },
   description:
@@ -66,8 +62,7 @@ export const metadata: Metadata = {
     type: "article",
     siteName: "Closed-Loop Libidinal Economy",
     title: "On the Chair",
-    description:
-      "Notes toward a theory of the closed-loop libidinal economy.",
+    description: "Notes toward a theory of the closed-loop libidinal economy.",
     url: `${SITE_URL}/chair`,
     locale: "en_US",
   },
@@ -78,36 +73,28 @@ export const metadata: Metadata = {
   },
 };
 
-// Light, warm-cream master palette.
-const BG = "#f3ecd9";           // warm cream paper
-const BG_DEEP = "#ebe1c8";      // gradient deepening
-const INK = "#1a1814";          // warm dark — body ink
-const INK_DIM = "#5a544a";      // secondary text
-const MUTED = "#8a8478";        // tertiary text / labels
-const LINE = "rgba(26,24,20,0.12)";
-const ACCENT = "#7a2818";       // sepia-brick — the project's distinguishing colour
-
 export default function ChairLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const T = MASTER;
   return (
     <div
-      className={`chair-theme ${geistSans.variable} ${geistMono.variable} ${anton.variable} ${permanentMarker.variable} ${caveat.variable}`}
+      className={`chair-theme ${spectral.variable} ${plexMono.variable} ${manrope.variable} ${sourceSerif.variable}`}
       style={{
         minHeight: "100vh",
-        background: BG,
-        color: INK,
-        fontFamily: `var(--font-geist), ui-sans-serif, system-ui, -apple-system, sans-serif`,
-        fontWeight: 380,
+        background: T.paper,
+        color: T.ink,
+        fontFamily: "var(--font-spectral), Iowan Old Style, Charter, Georgia, serif",
+        fontWeight: 400,
         letterSpacing: "-0.005em",
         colorScheme: "light",
         position: "relative",
-        backgroundImage: `linear-gradient(180deg, ${BG} 0%, ${BG_DEEP} 100%)`,
+        backgroundImage: `linear-gradient(180deg, ${T.paper} 0%, ${T.paper2} 100%)`,
       }}
     >
       <style>{`
-        .chair-theme ::selection { background: ${ACCENT}; color: ${BG}; }
-        .chair-theme a:focus-visible { outline: 2px solid ${ACCENT}; outline-offset: 2px; }
+        .chair-theme ::selection { background: ${T.accent}; color: ${T.paper}; }
+        .chair-theme a:focus-visible { outline: 2px solid ${T.accent}; outline-offset: 2px; }
 
         /* Subtle paper-grain texture, ever-present */
         .chair-theme::before {
@@ -120,69 +107,82 @@ export default function ChairLayout({
           mix-blend-mode: multiply;
           background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='5'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.46  0 0 0 0 0.38  0 0 0 0.4 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
         }
+
+        /* Drop cap utility — applied via className="chair-dropcap" */
+        .chair-dropcap::first-letter {
+          font-family: var(--font-spectral), Georgia, serif;
+          font-weight: 600;
+          font-size: 4.6em;
+          line-height: 0.86;
+          float: left;
+          padding: 0.06em 0.14em 0 0;
+          color: ${T.ink};
+        }
       `}</style>
 
       {children}
 
-      {/* Foot — faint, ceremonial */}
+      <ChairFoot />
+    </div>
+  );
+}
+
+/**
+ * Replaces the previous 11-link strip-of-middots footer. Just the
+ * essential anchor + the project's mark + a single link to the route
+ * map (which lives at /chair#routes or its own page in batch 2).
+ */
+function ChairFoot() {
+  const T = MASTER;
+  return (
+    <footer
+      style={{
+        padding: "6rem 5vw 4rem",
+        textAlign: "center",
+        borderTop: `0.75px solid ${T.rule}`,
+        position: "relative",
+        zIndex: 1,
+      }}
+    >
       <div
         style={{
-          padding: "5rem 5vw 4rem",
-          textAlign: "center",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "1.4rem",
+          fontFamily: "var(--font-plex-mono), monospace",
           fontSize: "0.7rem",
-          fontFamily: `var(--font-geist-mono), ui-monospace, monospace`,
+          letterSpacing: "0.28em",
           textTransform: "uppercase",
-          letterSpacing: "0.3em",
-          color: MUTED,
-          borderTop: `1px solid ${LINE}`,
-          position: "relative",
-          zIndex: 1,
+          color: T.inkMute,
         }}
       >
         <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
           ↑ autostimulus
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
+        <ChairGlyph size={18} stroke={T.accent} />
         <a href="/chair" style={{ color: "inherit", textDecoration: "none" }}>
-          essay
+          /chair
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/subsystems" style={{ color: "inherit", textDecoration: "none" }}>
-          subsystems
+        <span style={{ color: T.inkFaint }}>·</span>
+        <a href="/chair#routes" style={{ color: "inherit", textDecoration: "none" }}>
+          route map
         </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/concepts" style={{ color: "inherit", textDecoration: "none" }}>
-          concepts
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/precedents" style={{ color: "inherit", textDecoration: "none" }}>
-          precedents
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/lineage" style={{ color: "inherit", textDecoration: "none" }}>
-          lineage
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/refusal" style={{ color: "inherit", textDecoration: "none" }}>
-          refusal
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/the-system" style={{ color: "inherit", textDecoration: "none" }}>
-          brochure
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/zine" style={{ color: "inherit", textDecoration: "none" }}>
-          zine
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
-        <a href="/chair/archive" style={{ color: "inherit", textDecoration: "none" }}>
-          archive
-        </a>
-        <span style={{ margin: "0 1.5rem", opacity: 0.4 }}>·</span>
+        <span style={{ color: T.inkFaint }}>·</span>
         <a href="/chair/colophon" style={{ color: "inherit", textDecoration: "none" }}>
           colophon
         </a>
       </div>
-    </div>
+      <div
+        style={{
+          marginTop: "1.6rem",
+          fontFamily: "var(--font-spectral), serif",
+          fontStyle: "italic",
+          fontSize: "0.85rem",
+          color: T.inkFaint,
+        }}
+      >
+        Adnan Selimović · Brooklyn · MMXXVI
+      </div>
+    </footer>
   );
 }
