@@ -2071,34 +2071,46 @@ function CountdownClock({ dwell }: { dwell: number }) {
 function CasualtyWall() {
   // Specific names, dates, cohorts — protests need ground.
   // Generated to read as a partial wall — "this is only the names we have."
-  const names: Array<[string, string, string]> = [
-    ["Jeremiah Walsh", "2025-07-14", "cohort 2025.06"],
-    ["Mona Esposito", "2025-07-22", "cohort 2025.06"],
-    ["Tariq Hassan", "2025-08-03", "cohort 2025.06"],
-    ["Renata Drummond", "2025-08-19", "cohort 2025.07"],
-    ["Lev Andriescu", "2025-09-02", "cohort 2025.07"],
-    ["Lena Park", "2025-09-11", "cohort 2025.07"],
-    ["Wendell Briggs", "2025-09-27", "cohort 2025.08"],
-    ["Sahar Mehrabi", "2025-10-04", "cohort 2025.08"],
-    ["Cosmo Pelletier", "2025-10-17", "cohort 2025.08"],
-    ["Antonella Vega", "2025-10-29", "cohort 2025.09"],
-    ["Brock Tessier", "2025-11-08", "cohort 2025.09"],
-    ["Imani Olukoya", "2025-11-21", "cohort 2025.09"],
-    ["Hadi Esmaili", "2025-12-04", "cohort 2025.10"],
-    ["Stevie Klein", "2025-12-14", "cohort 2025.10"],
-    ["Bernardo Falchi", "2025-12-22", "cohort 2025.10"],
-    ["Adaeze Nwankwo", "2026-01-05", "cohort 2025.11"],
-    ["Marcus Ozuna", "2026-01-16", "cohort 2025.11"],
-    ["Yelena Bach", "2026-01-28", "cohort 2025.11"],
-    ["Soraya Kahale", "2026-02-09", "cohort 2025.12"],
-    ["Donovan Mears", "2026-02-21", "cohort 2025.12"],
-    ["Anouk Verheij", "2026-03-04", "cohort 2025.12"],
-    ["Ezra Stillwell", "2026-03-17", "cohort 2026.01"],
-    ["Naima Tedros", "2026-03-29", "cohort 2026.01"],
-    ["Cooper Vandermeer", "2026-04-08", "cohort 2026.01"],
-    ["Linnea Halversen", "2026-04-19", "cohort 2026.02"],
-    ["Pascale Boucher", "2026-04-26", "cohort 2026.02"],
-    ["Otis Marchetti", "2026-05-04", "cohort 2026.02"],
+  // Some entries have a note from someone who knew them; most do not,
+  // because the people who knew them did not survive to leave notes.
+  const names: Array<{ name: string; date: string; cohort: string; note?: string }> = [
+    { name: "Jeremiah Walsh", date: "2025-07-14", cohort: "cohort 2025.06",
+      note: "school librarian, Bushwick. fifty-one. left two cats." },
+    { name: "Mona Esposito", date: "2025-07-22", cohort: "cohort 2025.06" },
+    { name: "Tariq Hassan", date: "2025-08-03", cohort: "cohort 2025.06",
+      note: "his partner Aamna signed Form §6 on his behalf. the form came back undeliverable." },
+    { name: "Renata Drummond", date: "2025-08-19", cohort: "cohort 2025.07" },
+    { name: "Lev Andriescu", date: "2025-09-02", cohort: "cohort 2025.07",
+      note: "three weeks from retirement. the consultant arrived during his retirement party." },
+    { name: "Lena Park", date: "2025-09-11", cohort: "cohort 2025.07" },
+    { name: "Wendell Briggs", date: "2025-09-27", cohort: "cohort 2025.08" },
+    { name: "Sahar Mehrabi", date: "2025-10-04", cohort: "cohort 2025.08" },
+    { name: "Cosmo Pelletier", date: "2025-10-17", cohort: "cohort 2025.08" },
+    { name: "Antonella Vega", date: "2025-10-29", cohort: "cohort 2025.09",
+      note: "pro tier. her sister is still being billed for the financing." },
+    { name: "Brock Tessier", date: "2025-11-08", cohort: "cohort 2025.09" },
+    { name: "Imani Olukoya", date: "2025-11-21", cohort: "cohort 2025.09" },
+    { name: "Hadi Esmaili", date: "2025-12-04", cohort: "cohort 2025.10" },
+    { name: "Stevie Klein", date: "2025-12-14", cohort: "cohort 2025.10",
+      note: "eighteen. pro financing approved on a \"projected lifetime productivity output\" of $14.2M." },
+    { name: "Bernardo Falchi", date: "2025-12-22", cohort: "cohort 2025.10" },
+    { name: "Adaeze Nwankwo", date: "2026-01-05", cohort: "cohort 2025.11",
+      note: "consented at the Confirm stage in week three. her family is still trying to find her." },
+    { name: "Marcus Ozuna", date: "2026-01-16", cohort: "cohort 2025.11",
+      note: "was a fitting consultant until 2025. defected. was re-onboarded." },
+    { name: "Yelena Bach", date: "2026-01-28", cohort: "cohort 2025.11" },
+    { name: "Soraya Kahale", date: "2026-02-09", cohort: "cohort 2025.12",
+      note: "left a note. the note was confiscated as Service Ledger property at fitting." },
+    { name: "Donovan Mears", date: "2026-02-21", cohort: "cohort 2025.12" },
+    { name: "Anouk Verheij", date: "2026-03-04", cohort: "cohort 2025.12" },
+    { name: "Ezra Stillwell", date: "2026-03-17", cohort: "cohort 2026.01" },
+    { name: "Naima Tedros", date: "2026-03-29", cohort: "cohort 2026.01" },
+    { name: "Cooper Vandermeer", date: "2026-04-08", cohort: "cohort 2026.01" },
+    { name: "Linnea Halversen", date: "2026-04-19", cohort: "cohort 2026.02",
+      note: "twenty-three. her mother had been fitted in cohort 2025.06. she did not know the cohort numbers were the same family." },
+    { name: "Pascale Boucher", date: "2026-04-26", cohort: "cohort 2026.02" },
+    { name: "Otis Marchetti", date: "2026-05-04", cohort: "cohort 2026.02",
+      note: "sixty-eight. refused four times. the fifth consultant arrived with his daughter." },
   ];
   return (
     <section
@@ -2144,39 +2156,61 @@ function CasualtyWall() {
         >
           These are{" "}
           <strong style={{ color: STAMP_RED, fontWeight: 700 }}>twenty-seven of the two-hundred-and-forty-seven thousand eight-hundred and ninety-one</strong>{" "}
-          we have lost since the first fitting in cohort 2025.06. Our records are incomplete. Ouroboros Industries refuses to confirm or deny.
-          If you recognize a name, light a candle. If you do not, light one anyway.
+          we have lost since the first fitting in cohort 2025.06.
+          Some of the names below carry a note from someone who knew
+          them. Most do not. Most do not because the people who knew
+          them did not survive to leave one.
         </p>
 
-        {/* The wall — names in stencil columns */}
+        {/* The wall — names in stencil columns, with annotations
+            where a survivor left one */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-            gap: "2px 24px",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: "2px 28px",
             borderTop: `1px solid rgba(230,58,44,0.18)`,
             paddingTop: 16,
           }}
         >
-          {names.map(([name, date, cohort], i) => (
+          {names.map((entry, i) => (
             <div
               key={i}
               style={{
-                padding: "10px 0",
+                padding: "12px 0",
                 borderBottom: `1px solid rgba(240,235,226,0.08)`,
                 fontFamily: SANS,
                 fontSize: 15,
                 color: PAPER,
-                display: "grid",
-                gridTemplateColumns: "1fr auto",
-                gap: 8,
-                alignItems: "baseline",
               }}
             >
-              <div style={{ fontWeight: 600 }}>{name}</div>
-              <div style={{ fontFamily: MONO, fontSize: 10.5, color: MUTED, letterSpacing: "0.14em" }}>
-                {date.slice(5).replace("-", ".")} · {cohort.replace("cohort ", "")}
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "1fr auto",
+                  gap: 8,
+                  alignItems: "baseline",
+                }}
+              >
+                <div style={{ fontWeight: 600 }}>{entry.name}</div>
+                <div style={{ fontFamily: MONO, fontSize: 10.5, color: MUTED, letterSpacing: "0.14em" }}>
+                  {entry.date.slice(5).replace("-", ".")} · {entry.cohort.replace("cohort ", "")}
+                </div>
               </div>
+              {entry.note && (
+                <div
+                  style={{
+                    marginTop: 6,
+                    fontFamily: CAVEAT,
+                    fontSize: 15,
+                    lineHeight: 1.35,
+                    color: NEON_PINK,
+                    fontStyle: "normal",
+                  }}
+                >
+                  {entry.note}
+                </div>
+              )}
             </div>
           ))}
         </div>

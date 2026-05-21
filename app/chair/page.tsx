@@ -1444,74 +1444,215 @@ function LoopDiagram() {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// PHASE DIAGRAM — OHCOSE as a horizontal life-stage bar
+// PHASE DIAGRAM — OHCOSE as a cartographic wheel
+// Six segments around a central serpent. Each segment carries the
+// phase letter, the phase name, the temporal window, and a small
+// extraction-profile bar showing how the apparatus's yield rises
+// across the first three phases, plateaus through Occupancy, and
+// drops through Stewardship and Estate (the post-mortem ledger
+// residue keeps the Estate bar non-zero).
 // ─────────────────────────────────────────────────────────────────────
 function PhaseDiagram() {
-  const phases: [string, string][] = [
-    ["O", "Onboarding"],
-    ["H", "Habituation"],
-    ["C", "Calibration"],
-    ["O", "Occupancy"],
-    ["S", "Stewardship"],
-    ["E", "Estate"],
+  const phases: { letter: string; name: string; window: string; yield: number }[] = [
+    { letter: "O", name: "Onboarding",  window: "days 1–7",      yield: 0.55 },
+    { letter: "H", name: "Habituation", window: "days 8–90",     yield: 0.75 },
+    { letter: "C", name: "Calibration", window: "months 4–12",   yield: 0.9  },
+    { letter: "O", name: "Occupancy",   window: "year 2 →",      yield: 1.0  },
+    { letter: "S", name: "Stewardship", window: "late life",     yield: 0.55 },
+    { letter: "E", name: "Estate",      window: "post-mortem",   yield: 0.3  },
   ];
+  const cx = 250;
+  const cy = 250;
+  const rOuter = 200;
+  const rInner = 110;
+  const rNode = 22;
+  // Segments evenly distributed. Start at top, go clockwise.
+  const segStart = -Math.PI / 2 - Math.PI / phases.length; // back off by half a segment
+  const segAngle = (Math.PI * 2) / phases.length;
+
+  // Helper: polar to cartesian
+  const pt = (r: number, a: number) => [cx + Math.cos(a) * r, cy + Math.sin(a) * r];
+
   return (
-    <figure style={{ margin: "2rem 0 2.4rem" }}>
+    <figure
+      style={{
+        margin: "2.4rem auto 2.6rem",
+        maxWidth: "min(28rem, calc(100vw - 3rem))",
+      }}
+    >
       <svg
-        viewBox="0 0 600 140"
+        viewBox="0 0 500 500"
         xmlns="http://www.w3.org/2000/svg"
         style={{ width: "100%", height: "auto", display: "block" }}
         role="img"
-        aria-label="Diagram of the OHCOSE six-phase service architecture, rendered as a horizontal life-stage bar from Onboarding to Estate."
+        aria-label="Diagram of the OHCOSE six-phase service architecture, rendered as a wheel with a central serpent and an extraction-profile bar in each segment."
       >
-        {/* Horizontal baseline */}
-        <line x1="40" y1="80" x2="560" y2="80" stroke={PAPER} strokeWidth="0.8" opacity="0.7" />
-        {/* Direction arrow */}
-        <polygon points="568,80 558,74 558,86" fill={ACCENT} />
+        {/* Outer ring */}
+        <circle cx={cx} cy={cy} r={rOuter} fill="none" stroke={PAPER} strokeWidth="1" opacity="0.65" />
+        {/* Inner ring (extraction-profile baseline) */}
+        <circle cx={cx} cy={cy} r={rInner + 24} fill="none" stroke={PAPER} strokeWidth="0.5" opacity="0.3" strokeDasharray="2 4" />
+        {/* Innermost ring (apparatus boundary) */}
+        <circle cx={cx} cy={cy} r={rInner} fill="none" stroke={PAPER} strokeWidth="0.6" opacity="0.4" />
 
-        {phases.map(([letter, name], i) => {
-          const x = 60 + (i * 500) / 5;
+        {/* Segment dividers (radial lines between phases) */}
+        {phases.map((_, i) => {
+          const a = segStart + i * segAngle;
+          const [x1, y1] = pt(rInner, a);
+          const [x2, y2] = pt(rOuter, a);
+          return (
+            <line
+              key={`div-${i}`}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke={PAPER}
+              strokeWidth="0.5"
+              opacity="0.3"
+            />
+          );
+        })}
+
+        {/* Each phase: extraction bar (radial), node at outer ring, label outside */}
+        {phases.map((p, i) => {
+          const aMid = segStart + (i + 0.5) * segAngle;
+          // Extraction bar — radial line from inner to a yield-scaled radius
+          const rBar = rInner + 6;
+          const rBarEnd = rInner + 6 + (rOuter - rInner - 32) * p.yield;
+          const [bx1, by1] = pt(rBar, aMid);
+          const [bx2, by2] = pt(rBarEnd, aMid);
+          // Node at outer ring
+          const [nx, ny] = pt(rOuter, aMid);
+          // Outer label
+          const [lx, ly] = pt(rOuter + 38, aMid);
+          // Window sub-label
+          const [wx, wy] = pt(rOuter + 38, aMid);
+          // Text anchor decision based on angle
+          const anchor: "start" | "middle" | "end" =
+            Math.cos(aMid) > 0.4 ? "start" : Math.cos(aMid) < -0.4 ? "end" : "middle";
+
           return (
             <g key={i}>
-              <circle cx={x} cy="80" r="18" fill={BG} stroke={PAPER} strokeWidth="1" />
+              {/* Extraction bar */}
+              <line
+                x1={bx1}
+                y1={by1}
+                x2={bx2}
+                y2={by2}
+                stroke={ACCENT}
+                strokeWidth="6"
+                opacity="0.85"
+                strokeLinecap="round"
+              />
+              {/* Node circle */}
+              <circle cx={nx} cy={ny} r={rNode} fill={BG} stroke={PAPER} strokeWidth="1.2" />
+              {/* Phase letter */}
               <text
-                x={x}
-                y="86"
+                x={nx}
+                y={ny + 6}
                 textAnchor="middle"
                 fontFamily={SERIF}
+                fontStyle="italic"
                 fontWeight="600"
-                fontSize="16"
+                fontSize="20"
                 fill={PAPER}
               >
-                {letter}
+                {p.letter}
               </text>
+              {/* Phase name */}
               <text
-                x={x}
-                y="120"
-                textAnchor="middle"
+                x={lx}
+                y={ly}
+                textAnchor={anchor}
+                fontFamily={SERIF}
+                fontStyle="italic"
+                fontSize="13"
+                fill={PAPER}
+              >
+                {p.name}
+              </text>
+              {/* Window */}
+              <text
+                x={wx}
+                y={wy + 14}
+                textAnchor={anchor}
                 fontFamily={MONO}
                 fontSize="9"
                 fill={MUTED}
                 letterSpacing="0.18em"
-                style={{ textTransform: "uppercase" } as React.CSSProperties}
               >
-                {name.toUpperCase()}
+                {p.window}
               </text>
             </g>
           );
         })}
 
-        {/* Begin / end labels */}
-        <text x="40" y="48" fontFamily={MONO} fontSize="9" fill={ACCENT} letterSpacing="0.22em">
-          FITTING
+        {/* Flow arrows — small triangles on the outer ring between segments */}
+        {phases.map((_, i) => {
+          const aMid = segStart + (i + 1) * segAngle;
+          const [tx, ty] = pt(rOuter - 6, aMid);
+          // Tangent direction for arrow
+          const tanA = aMid + Math.PI / 2;
+          const tip = [tx + Math.cos(tanA) * 5, ty + Math.sin(tanA) * 5];
+          const back1 = [tx - Math.cos(tanA) * 3 - Math.cos(aMid) * 3, ty - Math.sin(tanA) * 3 - Math.sin(aMid) * 3];
+          const back2 = [tx - Math.cos(tanA) * 3 + Math.cos(aMid) * 3, ty - Math.sin(tanA) * 3 + Math.sin(aMid) * 3];
+          return (
+            <polygon
+              key={`a-${i}`}
+              points={`${tip[0]},${tip[1]} ${back1[0]},${back1[1]} ${back2[0]},${back2[1]}`}
+              fill={ACCENT}
+              opacity="0.7"
+            />
+          );
+        })}
+
+        {/* Central serpent */}
+        <text
+          x={cx}
+          y={cy + 14}
+          textAnchor="middle"
+          fontFamily={SERIF}
+          fontWeight="600"
+          fontSize="52"
+          fill={ACCENT}
+          fontStyle="italic"
+        >
+          Ω
         </text>
-        <text x="560" y="48" textAnchor="end" fontFamily={MONO} fontSize="9" fill={ACCENT} letterSpacing="0.22em">
-          POST-MORTEM CONTINUITY
+        <text
+          x={cx}
+          y={cy + 42}
+          textAnchor="middle"
+          fontFamily={MONO}
+          fontSize="9"
+          fill={MUTED}
+          letterSpacing="0.28em"
+        >
+          OHCOSE
         </text>
+        <text
+          x={cx}
+          y={cy + 60}
+          textAnchor="middle"
+          fontFamily={SERIF}
+          fontStyle="italic"
+          fontSize="11"
+          fill={PAPER_DIM}
+        >
+          service architecture
+        </text>
+
+        {/* Legend for the extraction bar */}
+        <g transform={`translate(${cx - 110}, ${cy - 224})`}>
+          <line x1="0" y1="0" x2="22" y2="0" stroke={ACCENT} strokeWidth="6" opacity="0.85" strokeLinecap="round" />
+          <text x="30" y="4" fontFamily={MONO} fontSize="9" fill={MUTED} letterSpacing="0.16em">
+            EXTRACTION YIELD
+          </text>
+        </g>
       </svg>
       <figcaption
         style={{
-          marginTop: "0.6rem",
+          marginTop: "0.8rem",
           fontFamily: MONO,
           fontSize: "0.7rem",
           color: MUTED,
@@ -1520,7 +1661,7 @@ function PhaseDiagram() {
           textAlign: "center",
         }}
       >
-        Fig. 2 · OHCOSE · six phases of the occupant&apos;s lifecycle
+        Fig. 2 · OHCOSE · six phases · with extraction-yield profile
       </figcaption>
     </figure>
   );
