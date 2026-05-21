@@ -181,9 +181,10 @@ export default function OnTheChair() {
           because the apparatus&apos;s distribution is, precisely, what
           makes it difficult to see. Third, that the apparatus has a
           developmental morphology &mdash; what I have elsewhere called{" "}
-          <em>OHCOSE</em>: a six-phase lifecycle that organizes the
-          occupant&apos;s relation to the apparatus from onboarding to
-          estate.<Fn n="1" /> And fourth, that the apparatus is not new;
+          <Link href="/chair/concepts#ohcose"><em>OHCOSE</em></Link>: a
+          six-phase lifecycle that organizes the occupant&apos;s relation
+          to the apparatus from onboarding to estate.<Fn n="1" /> And
+          fourth, that the apparatus is not new;
           it is the seventh in a 160-year lineage of devices that have
           iteratively concretized the integration problem of their
           period.
@@ -367,7 +368,10 @@ export default function OnTheChair() {
         </P>
         <P>
           I have called the loop&apos;s temporal organization{" "}
-          <em>Capture of Cadence</em><Fn n="13" /> &mdash; the
+          <Link href="/chair/concepts#capture-of-cadence">
+            <em>Capture of Cadence</em>
+          </Link>
+          <Fn n="13" /> &mdash; the
           apparatus&apos;s most consequential capacity. Earlier forms
           of labor extraction worked on quanta: hours worked, units
           produced. The contemporary apparatus works on{" "}
@@ -387,48 +391,58 @@ export default function OnTheChair() {
         <P>
           This is the essay&apos;s most important claim, and the easiest
           to get wrong. The chair is a figure; the apparatus is not. Let
-          me list four well-documented cases.
+          me list four well-documented cases; each is given a longer
+          treatment under{" "}
+          <Link href="/chair/precedents">precedents</Link>.
         </P>
         <P>
-          Meta&apos;s 2014 emotional-contagion experiment demonstrated,
-          in a peer-reviewed paper that the experimenters published
-          openly, that algorithmic adjustment of users&apos; news feeds
-          could induce specified emotional states in roughly one in
-          fifty users.<Fn n="14" /> This is the apparatus&apos;s Desire
-          Engine, operating at population scale, openly, without
+          <Link href="/chair/precedents/meta-emotional-contagion">
+            Meta&apos;s 2014 emotional-contagion experiment
+          </Link>{" "}
+          demonstrated, in a peer-reviewed paper that the experimenters
+          published openly, that algorithmic adjustment of users&apos;
+          news feeds could induce specified emotional states in roughly
+          one in fifty users.<Fn n="14" /> This is the apparatus&apos;s
+          Desire Engine, operating at population scale, openly, without
           restraint. The methodological &ldquo;curiosity&rdquo; framing
           the paper received at the time of publication has aged badly.
         </P>
         <P>
-          TikTok&apos;s recommendation engine, as analyzed by multiple
-          researchers since 2018, infers users&apos; subconscious
-          preferences from their micro-gestural responses &mdash; pause,
-          replay, dwell. The platform has openly partnered with
-          neuromarketing firms that use EEG and eye-tracking to optimize
-          content engagement. This is the apparatus&apos;s Affective
-          Signal Translator. The reader will note that the technical
-          stack here is identical to that of an affective-computing
-          medical device, while the regulatory framing is identical to
-          that of an entertainment service.
+          <Link href="/chair/precedents/tiktok-cadence">
+            TikTok&apos;s recommendation engine
+          </Link>
+          , as analyzed by multiple researchers since 2018, infers
+          users&apos; subconscious preferences from their micro-gestural
+          responses &mdash; pause, replay, dwell. The platform has
+          openly partnered with neuromarketing firms that use EEG and
+          eye-tracking to optimize content engagement. This is the
+          apparatus&apos;s Affective Signal Translator. The reader will
+          note that the technical stack here is identical to that of an
+          affective-computing medical device, while the regulatory
+          framing is identical to that of an entertainment service.
         </P>
         <P>
-          Pornhub&apos;s recommendation engine has been documented to
-          assign sexual preferences to users without their explicit
-          consent, after fewer than a hundred video views.<Fn n="15" />{" "}
-          This is the apparatus&apos;s Desire Engine operating on the
-          most intimate possible variable, in a form Preciado
-          anticipated under the name pharmacopornographic capital. It
-          differs from the Meta case only in domain.
+          <Link href="/chair/precedents/pornhub-preference-assignment">
+            Pornhub&apos;s recommendation engine
+          </Link>{" "}
+          has been documented to assign sexual preferences to users
+          without their explicit consent, after fewer than a hundred
+          video views.<Fn n="15" /> This is the apparatus&apos;s Desire
+          Engine operating on the most intimate possible variable, in a
+          form Preciado anticipated under the name pharmacopornographic
+          capital. It differs from the Meta case only in domain.
         </P>
         <P>
-          China&apos;s Social Credit System, in operational rollout from
-          the mid-2010s, scores citizens against a behavioral compliance
-          metric and routes the score into access to flights, internet
-          bandwidth, housing, and credit.<Fn n="16" /> This is the
-          apparatus&apos;s Compliance Monitor, in state form. The
-          ostensibly different ideological context obscures the
-          mechanism, which is identical to the platform-mediated
-          compliance the reader is, today, in.
+          <Link href="/chair/precedents/social-credit-system">
+            China&apos;s Social Credit System
+          </Link>
+          , in operational rollout from the mid-2010s, scores citizens
+          against a behavioral compliance metric and routes the score
+          into access to flights, internet bandwidth, housing, and
+          credit.<Fn n="16" /> This is the apparatus&apos;s Compliance
+          Monitor, in state form. The ostensibly different ideological
+          context obscures the mechanism, which is identical to the
+          platform-mediated compliance the reader is, today, in.
         </P>
         <P>
           The chair is therefore not predicted by this essay. The
@@ -485,8 +499,11 @@ export default function OnTheChair() {
       <Section n="VIII" title="Tri-Axial Ouroboric Governance">
         <P>
           The apparatus loops desire along three axes. I have called
-          this configuration <em>Tri-Axial Ouroboric Governance</em>{" "}
-          (TAOG):<Fn n="19" /> the proposition that the contemporary
+          this configuration{" "}
+          <Link href="/chair/concepts#tri-axial-ouroboric-governance">
+            <em>Tri-Axial Ouroboric Governance</em> (TAOG)
+          </Link>
+          :<Fn n="19" /> the proposition that the contemporary
           libidinal-economic apparatus operates by simultaneously
           capturing the subject along (a) a <em>temporal</em> axis
           &mdash; the cadence at which desire is produced and answered;
@@ -603,9 +620,135 @@ export default function OnTheChair() {
       {/* NOTES */}
       <Notes />
 
+      {/* COMPANIONS */}
+      <Companions />
+
       {/* ARTIFACTS */}
       <Artifacts />
     </article>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// COMPANIONS — sub-essays that extend specific sections
+// ─────────────────────────────────────────────────────────────────────
+function Companions() {
+  const items: { href: string; label: string; sub: string; section: string }[] = [
+    {
+      href: "/chair/subsystems",
+      label: "Seven Subsystems",
+      sub: "Long-form treatment of each subsystem named in §V. Each follows a six-section skeleton (Figure / Definition / Mechanism / Inheritance / In the Chair / A Note). ≈ 5,000 words across seven essays.",
+      section: "§ V Extended",
+    },
+    {
+      href: "/chair/precedents",
+      label: "Precedents",
+      sub: "Long-form treatment of the four actually-existing proto-apparatuses named in §VI: Meta's 2014 emotional-contagion experiment, TikTok's cadence engine, Pornhub's preference-assignment engine, the Chinese Social Credit System. ≈ 3,000 words across four cases.",
+      section: "§ VI Extended",
+    },
+    {
+      href: "/chair/concepts",
+      label: "Concepts",
+      sub: "Working definitions of the project's named frameworks (Closed-Loop Libidinal Economy, Psychic Surplus, OHCOSE, TAOG, IGLF, Capture of Cadence, Libidinal Ouroboros, Satisfaction Loops). Each entry states the construct, the analytical move it enables, and where it appears.",
+      section: "Reference",
+    },
+  ];
+  return (
+    <section
+      style={{
+        marginTop: "4rem",
+        paddingTop: "2rem",
+        borderTop: `1px solid ${RULE}`,
+      }}
+      aria-label="Companion essays"
+    >
+      <h3
+        style={{
+          fontFamily: MONO,
+          fontSize: "0.7rem",
+          letterSpacing: "0.28em",
+          color: ACCENT,
+          textTransform: "uppercase",
+          fontWeight: 600,
+          margin: "0 0 1.4rem",
+        }}
+      >
+        Companion Essays
+      </h3>
+      <p
+        style={{
+          fontFamily: SERIF,
+          fontStyle: "italic",
+          fontSize: "0.98rem",
+          lineHeight: 1.6,
+          color: PAPER_DIM,
+          margin: "0 0 1.6rem",
+        }}
+      >
+        Sections of this essay are extended into companion essays. Each
+        is written in the same analytical voice and at greater depth
+        than the main argument permits. The reader who finds a particular
+        section thin should follow the companion link there.
+      </p>
+      <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
+        {items.map((it, i) => (
+          <li
+            key={i}
+            style={{
+              padding: "1rem 0",
+              borderTop: `1px solid ${RULE}`,
+            }}
+          >
+            <a
+              href={it.href}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "5.5rem 1fr",
+                gap: "0.6rem",
+                textDecoration: "none",
+                color: PAPER,
+              }}
+            >
+              <span
+                style={{
+                  fontFamily: MONO,
+                  fontSize: "0.66rem",
+                  color: ACCENT,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                }}
+              >
+                {it.section}
+              </span>
+              <div>
+                <div
+                  style={{
+                    fontFamily: SERIF,
+                    fontStyle: "italic",
+                    fontSize: "1.2rem",
+                    color: PAPER,
+                    marginBottom: 4,
+                  }}
+                >
+                  {it.label}
+                </div>
+                <div
+                  style={{
+                    fontFamily: SERIF,
+                    fontSize: "0.95rem",
+                    lineHeight: 1.55,
+                    color: PAPER_DIM,
+                  }}
+                >
+                  {it.sub}
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 }
 
@@ -762,85 +905,124 @@ function Fn({ n }: { n: string }) {
 // SUBSYSTEMS TABLE — clean, minimal, restrained.
 // ─────────────────────────────────────────────────────────────────────
 function Subsystems() {
-  const rows: [string, string, string][] = [
-    ["Desire Engines", "Deleuze & Guattari; Baudrillard", "Content surfaces that generate desire-objects calibrated to the occupant's response profile."],
-    ["Consent Loops", "Foucault; the legal-positivist tradition", "Ritualized agreement architecture through which the occupant's continued participation is repeatedly legitimized."],
-    ["Compliance Monitors", "Foucault; Bentham (the panopticon, distributed)", "Continuous behavioral surveillance and correction systems that keep the occupant within productive parameters."],
-    ["Surplus Reservoirs", "Marx, transposed; Zuboff", "Data and capital aggregation systems where the apparatus stores what it has extracted."],
-    ["Feedback Rituals", "Klein; Winnicott; the gambling-machine literature", "Micro-rewards and acknowledgments that reinforce the occupant's continued participation."],
-    ["Affective Signal Translators", "Preciado; Damasio; the affective-computing literature", "Biometric and neuro-monitoring systems that read the occupant's interior states and feed them to the apparatus's control logic."],
-    ["Algorithmic Libido Governors", "Lyotard; Berardi; the cybernetics tradition", "Macro-level systems that modulate desire's intensity across the population to maintain extraction and stability."],
+  const rows: [string, string, string, string][] = [
+    ["desire-engines", "Desire Engines", "Deleuze & Guattari; Baudrillard; McLuhan", "Content surfaces that generate desire-objects calibrated to the occupant's response profile."],
+    ["consent-loops", "Consent Loops", "Foucault; the legal-positivist tradition", "Ritualized agreement architecture through which the occupant's continued participation is repeatedly legitimized."],
+    ["compliance-monitors", "Compliance Monitors", "Foucault; Bentham; Zuboff", "Continuous behavioral surveillance and correction systems that keep the occupant within productive parameters."],
+    ["surplus-reservoirs", "Surplus Reservoirs", "Marx, transposed; Zuboff", "Data and capital aggregation systems where the apparatus stores what it has extracted."],
+    ["feedback-rituals", "Feedback Rituals", "Klein; Winnicott; Skinner; the casino industry", "Micro-rewards and acknowledgments that reinforce the occupant's continued participation."],
+    ["affective-signal-translators", "Affective Signal Translators", "Preciado; Damasio; the affective-computing literature", "Biometric and neuro-monitoring systems that read the occupant's interior states and feed them to the apparatus's control logic."],
+    ["algorithmic-libido-governors", "Algorithmic Libido Governors", "Lyotard; Berardi; the cybernetics tradition", "Macro-level systems that modulate desire's intensity across the population to maintain extraction and stability."],
   ];
   return (
-    <ol
-      style={{
-        listStyle: "none",
-        padding: 0,
-        margin: "1.4rem 0 2rem",
-        borderTop: `1px solid ${RULE}`,
-      }}
-    >
-      {rows.map(([name, lineage, body], i) => (
-        <li
-          key={i}
-          style={{
-            padding: "0.9rem 0",
-            borderBottom: `1px solid ${RULE}`,
-            display: "grid",
-            gridTemplateColumns: "2rem 1fr",
-            gap: "1rem",
-            alignItems: "baseline",
-          }}
-        >
-          <span
+    <>
+      <ol
+        style={{
+          listStyle: "none",
+          padding: 0,
+          margin: "1.4rem 0 1.4rem",
+          borderTop: `1px solid ${RULE}`,
+        }}
+      >
+        {rows.map(([slug, name, lineage, body], i) => (
+          <li
+            key={i}
             style={{
-              fontFamily: MONO,
-              fontSize: "0.7rem",
-              color: ACCENT,
-              letterSpacing: "0.18em",
-              fontWeight: 700,
+              borderBottom: `1px solid ${RULE}`,
             }}
           >
-            {String(i + 1).padStart(2, "0")}
-          </span>
-          <div>
-            <div
+            <a
+              href={`/chair/subsystems/${slug}`}
               style={{
-                fontFamily: SERIF,
-                fontSize: "1.05rem",
-                color: PAPER,
-                fontWeight: 600,
-                marginBottom: 4,
+                display: "grid",
+                gridTemplateColumns: "2rem 1fr auto",
+                gap: "1rem",
+                padding: "0.9rem 0",
+                textDecoration: "none",
+                color: "inherit",
+                alignItems: "baseline",
               }}
             >
-              {name}
-            </div>
-            <div
-              style={{
-                fontFamily: SERIF,
-                fontSize: "0.95rem",
-                color: PAPER_DIM,
-                lineHeight: 1.55,
-                marginBottom: 6,
-              }}
-            >
-              {body}
-            </div>
-            <div
-              style={{
-                fontFamily: MONO,
-                fontSize: "0.66rem",
-                color: MUTED,
-                letterSpacing: "0.16em",
-                textTransform: "uppercase",
-              }}
-            >
-              Inheritance: {lineage}
-            </div>
-          </div>
-        </li>
-      ))}
-    </ol>
+              <span
+                style={{
+                  fontFamily: MONO,
+                  fontSize: "0.7rem",
+                  color: ACCENT,
+                  letterSpacing: "0.18em",
+                  fontWeight: 700,
+                }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <div
+                  style={{
+                    fontFamily: SERIF,
+                    fontSize: "1.08rem",
+                    fontStyle: "italic",
+                    color: PAPER,
+                    fontWeight: 600,
+                    marginBottom: 4,
+                    letterSpacing: "-0.005em",
+                  }}
+                >
+                  {name}
+                </div>
+                <div
+                  style={{
+                    fontFamily: SERIF,
+                    fontSize: "0.95rem",
+                    color: PAPER_DIM,
+                    lineHeight: 1.55,
+                    marginBottom: 6,
+                  }}
+                >
+                  {body}
+                </div>
+                <div
+                  style={{
+                    fontFamily: MONO,
+                    fontSize: "0.66rem",
+                    color: MUTED,
+                    letterSpacing: "0.16em",
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Inheritance: {lineage}
+                </div>
+              </div>
+              <span
+                aria-hidden
+                style={{
+                  fontFamily: MONO,
+                  fontSize: "0.78rem",
+                  color: ACCENT,
+                  letterSpacing: "0.06em",
+                }}
+              >
+                →
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+      <p
+        style={{
+          marginTop: "0.6rem",
+          marginBottom: "1.6rem",
+          fontFamily: SERIF,
+          fontStyle: "italic",
+          fontSize: "0.95rem",
+          color: PAPER_DIM,
+          lineHeight: 1.55,
+        }}
+      >
+        Each subsystem is given a long-form treatment at{" "}
+        <Link href="/chair/subsystems">/chair/subsystems</Link>. The
+        essays follow a common skeleton (Figure / Definition / Mechanism /
+        Inheritance / In the Chair / A Note) so the seven read as a series.
+      </p>
+    </>
   );
 }
 

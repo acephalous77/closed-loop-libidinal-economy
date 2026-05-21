@@ -148,6 +148,18 @@ export default function ChairLayout({
           essay
         </a>
         <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/subsystems" style={{ color: "inherit", textDecoration: "none" }}>
+          subsystems
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/concepts" style={{ color: "inherit", textDecoration: "none" }}>
+          concepts
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
+        <a href="/chair/precedents" style={{ color: "inherit", textDecoration: "none" }}>
+          precedents
+        </a>
+        <span style={{ margin: "0 1.5rem", opacity: 0.35 }}>·</span>
         <a href="/chair/the-system" style={{ color: "inherit", textDecoration: "none" }}>
           brochure
         </a>
