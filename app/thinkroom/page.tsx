@@ -6,11 +6,24 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-// The thinkroom server runs on its own subdomain (a long-running Node /
-// WebSocket process — Vercel can't host that). Set this env var to the
-// public URL of that deploy.
-const THINKROOM_URL =
-  process.env.NEXT_PUBLIC_THINKROOM_URL || "https://thinkroom.autostimulus.org";
+// The thinkroom server runs on its own subdomain or a tunnel (a long-
+// running Node / WebSocket process — Vercel can't host that). Set
+// NEXT_PUBLIC_THINKROOM_URL to the public URL of that deploy.
+//
+// Defensive: if the env var is malformed (e.g. someone pasted the entire
+// instruction block as the value), fall back to the placeholder so the
+// build still succeeds.
+const DEFAULT_THINKROOM_URL = "https://thinkroom.autostimulus.org";
+function resolveThinkroomUrl(): string {
+  const candidate = (process.env.NEXT_PUBLIC_THINKROOM_URL ?? "").trim();
+  if (!candidate) return DEFAULT_THINKROOM_URL;
+  try {
+    return new URL(candidate).toString().replace(/\/$/, "");
+  } catch {
+    return DEFAULT_THINKROOM_URL;
+  }
+}
+const THINKROOM_URL = resolveThinkroomUrl();
 
 export default function ThinkroomPortal() {
   return (

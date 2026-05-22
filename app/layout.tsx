@@ -30,9 +30,22 @@ const garamondMath = localFont({
   display: "swap",
 });
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.autostimulus.org";
+const DEFAULT_SITE_URL = "https://www.autostimulus.org";
+
+// Defensive URL parsing — if NEXT_PUBLIC_SITE_URL is unset or contains
+// malformed input (e.g. an entire instruction block pasted into Vercel),
+// fall back to the default so the build doesn't crash.
+function resolveSiteUrl(): string {
+  const candidate = (process.env.NEXT_PUBLIC_SITE_URL ?? "").trim();
+  if (!candidate) return DEFAULT_SITE_URL;
+  try {
+    return new URL(candidate).toString().replace(/\/$/, "");
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
+const SITE_URL = resolveSiteUrl();
 
 /**
  * Atelier-level metadata. Applies to the root index and is overridden
