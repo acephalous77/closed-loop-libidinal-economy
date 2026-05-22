@@ -370,7 +370,7 @@ function TOC() {
         color: T.accent, textTransform: "uppercase",
         margin: "0 0 1rem", fontWeight: 600,
       }}>◆ Contents</p>
-      <ol style={{
+      <ol className="essay-toc-cols" style={{
         listStyle: "none", padding: 0, margin: 0,
         columnCount: 3, columnGap: "2rem",
       }}>
@@ -391,6 +391,14 @@ function TOC() {
           </li>
         ))}
       </ol>
+      <style>{`
+        @media (max-width: 900px) {
+          .essay-toc-cols { column-count: 2 !important; }
+        }
+        @media (max-width: 600px) {
+          .essay-toc-cols { column-count: 1 !important; }
+        }
+      `}</style>
     </nav>
   );
 }

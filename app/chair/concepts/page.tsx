@@ -146,8 +146,9 @@ export default function ConceptsPage() {
       <style>{`
         @media (max-width: 1100px) { .concepts-grid { grid-template-columns: repeat(2, 1fr) !important; } }
         @media (max-width: 700px)  {
-          .concepts-head { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .concepts-head { grid-template-columns: 1fr !important; gap: 18px !important; }
           .concepts-grid { grid-template-columns: 1fr !important; }
+          .concepts-grid > div { min-height: 0 !important; padding: 18px 18px 20px !important; }
         }
       `}</style>
     </article>

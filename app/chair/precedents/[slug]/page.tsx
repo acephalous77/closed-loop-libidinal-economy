@@ -277,8 +277,11 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
 
       <style>{`
         @media (max-width: 800px) {
-          .prec-evid { grid-template-columns: 1fr 1fr !important; }
-          .prec-body { grid-template-columns: 1fr !important; }
+          .prec-evid { grid-template-columns: 1fr 1fr !important; gap: 20px !important; padding: 16px 18px !important; }
+          .prec-body { grid-template-columns: 1fr !important; gap: 32px !important; }
+        }
+        @media (max-width: 500px) {
+          .prec-evid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </article>

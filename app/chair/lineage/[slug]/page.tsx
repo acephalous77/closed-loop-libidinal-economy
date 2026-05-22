@@ -300,7 +300,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
 
       <style>{`
         @media (max-width: 800px) {
-          .lin-detail, .lin-nav { grid-template-columns: 1fr !important; }
+          .lin-detail, .lin-nav { grid-template-columns: 1fr !important; gap: 28px !important; }
         }
       `}</style>
     </article>

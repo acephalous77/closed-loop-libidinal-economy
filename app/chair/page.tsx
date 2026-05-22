@@ -183,7 +183,7 @@ function Hero() {
             textTransform: "uppercase", color: B.inkMute, marginBottom: 16,
           }}>The apparatus, configured for residence</div>
           <h1 style={{
-            fontFamily: FONT.manrope, fontSize: "clamp(64px, 13vw, 144px)",
+            fontFamily: FONT.manrope, fontSize: "clamp(44px, 13vw, 144px)",
             lineHeight: 0.9, letterSpacing: "-0.04em", fontWeight: 300,
             margin: 0, color: B.ink,
           }}>
@@ -211,7 +211,13 @@ function Hero() {
       </div>
       <style>{`
         @media (max-width: 700px) {
-          .brochure-hero-foot { grid-template-columns: 1fr !important; }
+          .brochure-hero-foot { grid-template-columns: 1fr !important; gap: 28px !important; padding: 0 16px 56px !important; }
+          .brochure-hero-foot > div:nth-child(2) {
+            padding-left: 0 !important;
+            padding-top: 22px !important;
+            border-left: 0 !important;
+            border-top: 0.5px solid ${B.rule} !important;
+          }
         }
       `}</style>
     </div>
@@ -264,9 +270,10 @@ function Foreword() {
     }} className="brochure-foreword">
       <SectionLabel n="00" k="Foreword" />
       <div style={{ gridColumn: "2 / 4" }}>
-        <p style={{
+        <p className="brochure-foreword-lede" style={{
           fontFamily: FONT.italic, fontStyle: "italic",
-          fontSize: 38, lineHeight: 1.22, letterSpacing: "-0.012em",
+          fontSize: "clamp(22px, 4.4vw, 38px)", lineHeight: 1.22,
+          letterSpacing: "-0.012em",
           color: B.ink, margin: "0 0 32px", maxWidth: 920,
         }}>
           The Ouroboros Life System operates a closed-loop libidinal
@@ -298,9 +305,9 @@ function Foreword() {
       </div>
       <style>{`
         @media (max-width: 800px) {
-          .brochure-foreword { grid-template-columns: 1fr !important; padding: 60px 20px !important; }
+          .brochure-foreword { grid-template-columns: 1fr !important; padding: 56px 16px 48px !important; gap: 20px !important; }
           .brochure-foreword > div { grid-column: auto !important; }
-          .brochure-foreword-cols { grid-template-columns: 1fr !important; }
+          .brochure-foreword-cols { grid-template-columns: 1fr !important; gap: 20px !important; }
         }
       `}</style>
     </section>
@@ -396,8 +403,11 @@ function RingDetail() {
       </div>
       <style>{`
         @media (max-width: 800px) {
-          .brochure-ring-head { grid-template-columns: 1fr !important; }
-          .brochure-ring-grid { grid-template-columns: 1fr !important; }
+          .brochure-ring-head { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .brochure-ring-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+        }
+        @media (max-width: 700px) {
+          #ring { padding: 48px 16px !important; }
         }
       `}</style>
     </section>
@@ -476,8 +486,10 @@ function OHCOSE() {
       <style>{`
         @media (max-width: 1100px) { .brochure-ohcose-grid { grid-template-columns: repeat(3, 1fr) !important; } }
         @media (max-width: 700px)  {
-          .brochure-ohcose-head { grid-template-columns: 1fr !important; }
-          .brochure-ohcose-grid { grid-template-columns: 1fr !important; }
+          #ohcose { padding: 56px 16px 48px !important; }
+          .brochure-ohcose-head { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .brochure-ohcose-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
+          .brochure-ohcose-grid > div { min-height: 0 !important; padding: 18px 16px 20px !important; }
         }
       `}</style>
     </section>
@@ -546,7 +558,7 @@ function Schematic() {
       </div>
       <style>{`
         @media (max-width: 700px) {
-          .brochure-schematic-head { grid-template-columns: 1fr !important; }
+          .brochure-schematic-head { grid-template-columns: 1fr !important; padding: 40px 16px 18px !important; gap: 18px !important; }
         }
       `}</style>
     </section>
@@ -663,7 +675,11 @@ function Tiers() {
       </div>
       <style>{`
         @media (max-width: 1000px) { .brochure-tiers-grid { grid-template-columns: 1fr !important; } }
-        @media (max-width: 700px)  { .brochure-tiers-head { grid-template-columns: 1fr !important; } }
+        @media (max-width: 700px)  {
+          #tiers { padding: 48px 16px 56px !important; }
+          .brochure-tiers-head { grid-template-columns: 1fr !important; gap: 16px !important; margin-bottom: 24px !important; }
+          .brochure-tiers-grid > div { padding: 22px 18px !important; }
+        }
       `}</style>
     </section>
   );
@@ -731,7 +747,10 @@ function CTAandCostco() {
         </div>
       </div>
       <style>{`
-        @media (max-width: 800px) { .brochure-cta-grid { grid-template-columns: 1fr !important; } }
+        @media (max-width: 800px) { .brochure-cta-grid { grid-template-columns: 1fr !important; min-height: 0 !important; } }
+        @media (max-width: 700px) {
+          .brochure-cta-grid > div:first-child { padding: 44px 18px !important; }
+        }
       `}</style>
     </section>
   );

@@ -233,7 +233,8 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
 
       <style>{`
         @media (max-width: 800px) {
-          .sub-head, .sub-blocks, .sub-nav { grid-template-columns: 1fr !important; }
+          .sub-head, .sub-blocks, .sub-nav { grid-template-columns: 1fr !important; gap: 22px !important; }
+          .sub-head svg { width: 64px !important; height: 64px !important; }
         }
       `}</style>
     </article>
