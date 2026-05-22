@@ -81,21 +81,48 @@ export default function AtelierIndex() {
   return (
     <>
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "WebSite",
-          name: "autostimulus",
-          url: SITE_URL,
-          description:
-            "Works by Adnan Selimović. Critical theory, media psychology, political economy.",
-          inLanguage: "en",
-          author: {
-            "@type": "Person",
-            name: "Adnan Selimović",
-            alternateName: "A. Selimović",
-            url: `${SITE_URL}/closed-loop/colophon`,
+        data={[
+          // Site identity
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "autostimulus",
+            url: SITE_URL,
+            description:
+              "Works by Adnan Selimović. Critical theory, media psychology, political economy.",
+            inLanguage: "en",
+            author: {
+              "@type": "Person",
+              name: "Adnan Selimović",
+              alternateName: "A. Selimović",
+              url: `${SITE_URL}/closed-loop/colophon`,
+              sameAs: [],
+            },
           },
-        }}
+          // Catalog of works — improves how search / LLM agents
+          // understand the homepage's structure and what it indexes.
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            name: "autostimulus — works",
+            url: SITE_URL,
+            description:
+              "Catalog of works by A. Selimović. Four live projects spanning critical-theory framework, performance-fiction manual, speculative-design artifact, and interactive coloring book.",
+            inLanguage: "en",
+            hasPart: WORKS.map((w, idx) => ({
+              "@type": "CreativeWork",
+              position: idx + 1,
+              name: w.title,
+              url: `${SITE_URL}${w.href}`,
+              dateCreated: w.year,
+              creativeWorkStatus: w.status === "live" ? "Published" : "InProduction",
+              creator: {
+                "@type": "Person",
+                name: "Adnan Selimović",
+              },
+            })),
+          },
+        ]}
       />
       <main
         style={{

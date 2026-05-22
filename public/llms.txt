@@ -1,15 +1,13 @@
 # autostimulus
 
-> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute.
+> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute. All four current works are live.
 
 ## Works
 
 - **The Closed-Loop Libidinal Economy** (2026, live) — A formal framework for the dynamics of attention under platform capture. Mathematics, prose, and operable instruments. Project root: https://www.autostimulus.org/closed-loop
-- **OHCOSE Manual** (2025, in production) — bureaucratic-dystopian protocol manual. Project root: https://www.autostimulus.org/ohcose
-- **The Ouroboros Chair** (2025, in production) — dystopian art project; full-spectrum live-work-feed-sleep installation. Project root: https://www.autostimulus.org/chair
-- **Patriotic Times — A Coloring Book** (2025, in production) — scenes of US democratic state failings and the emergence of fascism, rendered as line art. Project root: https://www.autostimulus.org/patriotic-times
-
-What follows below treats the one live work in detail. Other works will populate their subroutes as they ship.
+- **OHCOSE — Office of Human Continuity and Social Equilibrium** (2026, live) — Performance-piece manual of a fictional federal agency administering the human lifecycle in seven phases. Three phases (Ontogenesis, Inscriptive Normalization, Adolescent Calibration) fully published with twenty-one sub-protocols, original visualizations, in-character voice throughout. Project root: https://www.autostimulus.org/ohcose
+- **The Ouroboros Life System** (2025, live) — Dystopian art project: a fully-enclosed integrated life-support chair. Essay, subsystems index, lineage, precedents, archive, refusal, and zine. Project root: https://www.autostimulus.org/chair
+- **Patriotic Times — A Coloring Book** (2025–2026, live) — Sixty-three plates of US democratic state failures and the emergence of fascism, 2000–2026. Each plate is interactive: color it in the browser with a paint-bucket flood-fill, print your colored version. Project root: https://www.autostimulus.org/patriotic-times
 
 ---
 
@@ -41,20 +39,80 @@ The framework reads through and against Adorno, Marcuse, Stiegler, Han, Crary, L
 ## Canonical reading order
 
 1. [The Mathematics](https://www.autostimulus.org/closed-loop/the-mathematics) — the formal apparatus, lemmas, theorems, propositions, and the eight open questions of §8. ~11,000 words, 55 min.
-2. [The Argument](https://www.autostimulus.org/closed-loop/the-argument) — four prose pieces and a coda, traversing cohort time:
-   - [The Loop](https://www.autostimulus.org/closed-loop/the-argument/the-loop) — the architecture laid out in prose
-   - [The Citizen After the Pause](https://www.autostimulus.org/closed-loop/the-argument/citizen-after-the-pause) — democratic substrate
-   - [Adolescence Without Outside](https://www.autostimulus.org/closed-loop/the-argument/adolescence-without-outside) — formation
-   - [Sincere Captives](https://www.autostimulus.org/closed-loop/the-argument/sincere-captives) — adult end-state
-   - [Note on the Document](https://www.autostimulus.org/closed-loop/the-argument/note) — the closing coda
+2. [The Argument](https://www.autostimulus.org/closed-loop/the-argument) — four prose pieces and a coda, traversing cohort time
 3. [The Dynamics](https://www.autostimulus.org/closed-loop/the-dynamics) — fourteen interactive plates that visualize the formal claims
-4. [Open Questions](https://www.autostimulus.org/closed-loop/open-questions) — ten named research targets: three formal-mathematical, two structural-empirical, five where the empirical record is thin
-5. [Reading List](https://www.autostimulus.org/closed-loop/reading-list) — works the framework draws on, argues against, and the formal references
+4. [Open Questions](https://www.autostimulus.org/closed-loop/open-questions) — ten named research targets
+5. [Reading List](https://www.autostimulus.org/closed-loop/reading-list)
+6. [Colophon](https://www.autostimulus.org/closed-loop/colophon)
+
+---
+
+# OHCOSE — Office of Human Continuity and Social Equilibrium
+
+> A performance-piece manual of a fictional federal agency administering the human lifecycle. Published 2026 at https://www.autostimulus.org/ohcose. Out-of-character disclosure: https://www.autostimulus.org/ohcose/colophon.
+
+OHCOSE is a critical-fiction work that takes the form of a real federal-style agency's public-intake portal. It describes a seven-phase Standard Consumer-Citizen Lifecycle covering 0–65+ years of age, with each phase broken into six sub-protocols. The voice is warm-deadpan-bureaucratic throughout — the Office speaks; the author does not surface inside the work itself.
+
+## Phases published
+
+- **Phase I — Ontogenesis** (0–3 yrs) — six sub-protocols: Biometric Registration & Cradle Anchoring; Algorithmic Nurseries & Early Brand Entrainment; Caregiver Behavior as Outsourced Affective Infrastructure; Infant Desire, Distress & the Extraction of Psychic Surplus; Metrics of Normative Development; Trust-Attachment Optimization
+- **Phase II — Inscriptive Normalization** (4–12 yrs) — six sub-protocols: The Desk as Altar; Algorithmic Calibration; Emotional Hygiene & the Care of Deviance; Recess as Libidinal Release Valve; Playing at Consumption; The Temporal Corridor
+- **Phase III — Adolescent Calibration** (13–18 yrs) — six sub-protocols: Calibrating Desire for the Market; Rebellion Packaged & Sold; Digital Architectures of Adolescent Life; The Pharmacopornographic Order; Quantified Selfhood & Neurochemical Authority; The Initiate — Debt & Hustle
+
+## Phases forthcoming
+
+- Phase IV — Economic Subjectification (19–30 yrs)
+- Phase V — Peak Productivity & Reproductive Transfer (31–45 yrs)
+- Phase VI — Consolidation & Role Reversal (46–65 yrs)
+- Phase VII — Exit (65+ yrs)
+
+Each sub-protocol page includes a fresh visualization built in SVG: schematics, data-capture tables, mock compliance reports, transfer certificates, dashboards, subjectivity catalogues. The work is the contrast between bureaucratic deadpan delivery and what the deadpan describes.
+
+---
+
+# Patriotic Times — A Coloring Book
+
+> Sixty-three plates of US democratic state failures 2000–2026, presented as an interactive coloring book. By Adnan Selimović. Published 2025–2026 at https://www.autostimulus.org/patriotic-times.
+
+The book sequences sixty-three line-art plates chronologically from the Brooks Brothers Riot (Miami, 2000) to the War Declaration (Washington D.C., 2026). Each plate depicts a specific event in the public record. The work's premise: a coloring book is a children's object; the events depicted are not for children; the friction between those facts is the project.
+
+## Interaction
+
+Every plate is interactive on the site. The reader opens a plate, colors regions of the line art with a paint-bucket flood-fill in their chosen color, then prints their colored version (or prints the blank line art and colors it by hand). The reader is also invited to refuse the act — either response is a position on the material.
+
+## Structural surfaces
+
+- [The plates index](https://www.autostimulus.org/patriotic-times/plates) — all sixty-three plates organized by decade (2000s, 2010s, 2020s)
+- [The landing](https://www.autostimulus.org/patriotic-times) — four-chapter narrative arc grouping the plates thematically: The Architecture of Fear (2000–2009), Corporate Camouflage (2010–2016), The Theatre of Force (2017–2020), Shattered Glass & Blank Checks (2021–2026)
+- [Colophon](https://www.autostimulus.org/patriotic-times/colophon) — project attribution and distribution notes
+
+---
+
+# The Ouroboros Life System
+
+> Dystopian art project: a fully-enclosed integrated life-support chair. By Adnan Selimović. Published 2025 at https://www.autostimulus.org/chair.
+
+The Ouroboros Life System is a speculative-design artifact in essay, schematic, and gallery form. The chair is a fully-enclosed life-support apparatus that integrates work, feeding, entertainment, and biological maintenance into one continuous form-factor. The project descends from the broader libidinal-ouroboros body of work and shares its lineage with The Closed-Loop Libidinal Economy (which provides the theoretical infrastructure that the chair literalizes).
+
+## Structural surfaces
+
+- [The Apparatus](https://www.autostimulus.org/chair) — landing with the chair as primary visual
+- [Essay](https://www.autostimulus.org/chair/essay) — long-form prose
+- [Subsystems](https://www.autostimulus.org/chair/subsystems) — index of the apparatus's component systems, each with its own page
+- [Lineage](https://www.autostimulus.org/chair/lineage) — theoretical antecedents
+- [Precedents](https://www.autostimulus.org/chair/precedents) — historical and contemporary kin
+- [Archive](https://www.autostimulus.org/chair/archive) — design artifacts and notes
+- [Concepts](https://www.autostimulus.org/chair/concepts) — conceptual foundations
+- [Refusal](https://www.autostimulus.org/chair/refusal) — what the work refuses
+- [Zine](https://www.autostimulus.org/chair/zine) — a multi-page zine spread of the project
+- [Colophon](https://www.autostimulus.org/chair/colophon)
+
+---
 
 ## Author
 
-Adnan Selimović. See the [colophon](https://www.autostimulus.org/closed-loop/colophon) for full attribution.
+Adnan Selimović. Critical theory, media psychology, political economy. See each project's colophon for project-specific attribution and citation.
 
 ## License
 
-Textual content under CC BY-SA 4.0. Code under MIT. Citation welcome.
+Textual content under CC BY-SA 4.0 (Closed-Loop), CC BY-SA 4.0 (OHCOSE), CC BY-NC-SA 4.0 (Patriotic Times — non-commercial). Code under MIT. Citation welcome.

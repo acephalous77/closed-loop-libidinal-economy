@@ -147,12 +147,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === "/"
         ? 1.0
-        : path === "/closed-loop" || path === "/ohcose"
+        : path === "/closed-loop" ||
+          path === "/ohcose" ||
+          path === "/chair" ||
+          path === "/patriotic-times"
         ? 0.9
-        : path === "/chair" || path === "/patriotic-times"
-        ? 0.9
-        : path.startsWith("/closed-loop/the-") || path.startsWith("/ohcose/i-") || path.startsWith("/ohcose/ii-") || path.startsWith("/ohcose/iii-")
+        : // Project-section landings + per-section pages — high
+        path.startsWith("/closed-loop/the-") ||
+          path.startsWith("/ohcose/i-") ||
+          path.startsWith("/ohcose/ii-") ||
+          path.startsWith("/ohcose/iii-") ||
+          path === "/chair/essay" ||
+          path === "/chair/zine" ||
+          path === "/chair/lineage" ||
+          path === "/chair/precedents" ||
+          path === "/chair/subsystems" ||
+          path === "/chair/archive" ||
+          path === "/chair/concepts" ||
+          path === "/chair/refusal" ||
+          path === "/patriotic-times/plates"
         ? 0.8
+        : // Per-plate / per-subsystem / per-lineage / etc. — lower
+        path.startsWith("/patriotic-times/plates/") ||
+          path.startsWith("/chair/")
+        ? 0.7
         : 0.5,
   }));
 }
