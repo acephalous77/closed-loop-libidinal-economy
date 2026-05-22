@@ -20,7 +20,7 @@ export default function ColophonPage() {
     <article>
       <PlateHeader plate="XLII" route="/chair/colophon" code="DOSS · OLS · COLOPHON" />
 
-      <div style={{ padding: "70px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
+      <div className="chair-pad" style={{ padding: "70px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
           color: T.accent, textTransform: "uppercase", fontWeight: 600,

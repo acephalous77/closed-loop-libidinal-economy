@@ -44,7 +44,7 @@ export default function LineageIndex() {
     <article>
       <PlateHeader plate="VII.0" route="/chair/lineage" code="DOSS · OLS · LINEAGE" />
 
-      <div style={{ padding: "60px 80px 0", maxWidth: 1200, margin: "0 auto" }}>
+      <div className="chair-pad" style={{ padding: "60px 80px 0", maxWidth: 1200, margin: "0 auto" }}>
         <a href="/chair/essay" style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",

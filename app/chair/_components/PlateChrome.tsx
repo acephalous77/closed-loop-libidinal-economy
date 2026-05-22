@@ -51,13 +51,14 @@ export function PlateHeader({
   return (
     <div>
       {/* Plate identification strip — original */}
-      <div style={{
+      <div className="plate-id" style={{
         display: "flex", justifyContent: "space-between", alignItems: "center",
         padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
         fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
         textTransform: "uppercase", color: tokens.inkMute,
+        gap: 14, flexWrap: "wrap",
       }}>
-        <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: 22, alignItems: "center", flexWrap: "wrap" }} className="plate-id-left">
           <a href="/chair/essay" style={{
             color: tokens.accent, fontWeight: 600, textDecoration: "none",
             display: "flex", alignItems: "center", gap: 8,
@@ -65,11 +66,11 @@ export function PlateHeader({
             <ChairGlyph size={14} stroke={tokens.accent} />
             <span>On the Chair</span>
           </a>
-          <span style={{ color: tokens.inkFaint }}>·</span>
+          <span style={{ color: tokens.inkFaint }} className="plate-id-sep">·</span>
           <span style={{ color: tokens.accent, fontWeight: 600 }}>plate {plate}</span>
-          <span style={{ color: tokens.inkDim }}>{route}</span>
+          <span style={{ color: tokens.inkDim }} className="plate-id-route">{route}</span>
         </div>
-        <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: 22, alignItems: "center" }} className="plate-id-right">
           <span>{code}</span>
           <span style={{ color: tokens.inkFaint }}>— — —</span>
           <span>{year}</span>
@@ -112,6 +113,11 @@ export function PlateHeader({
       <style>{`
         @media (max-width: 700px) {
           .plate-nav { font-size: 8.5px !important; gap: 0.6rem !important; padding: 8px 12px !important; }
+          .plate-id { font-size: 9px !important; padding: 10px 14px !important; gap: 8px !important; }
+          .plate-id-left { gap: 10px !important; }
+          .plate-id-right { gap: 10px !important; font-size: 9px !important; }
+          .plate-id-sep { display: none !important; }
+          .plate-id-route { display: none !important; }
         }
       `}</style>
     </div>
@@ -134,18 +140,25 @@ export function PlateFooter({
   folio, total = "XLII", section, tokens = MASTER,
 }: PlateFooterProps) {
   return (
-    <div style={{
+    <div className="plate-foot" style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
       padding: "14px 24px", borderTop: `0.75px solid ${tokens.rule}`,
       fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
       textTransform: "uppercase", color: tokens.inkMute,
+      gap: 12, flexWrap: "wrap",
     }}>
       <span>{folio} / {total}</span>
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 8, alignItems: "center" }} className="plate-foot-mid">
         <ChairGlyph size={16} stroke={tokens.accent} />
         <span style={{ color: tokens.inkDim }}>{section}</span>
       </div>
-      <span style={{ color: tokens.inkFaint }}>autostimulus · /chair</span>
+      <span style={{ color: tokens.inkFaint }} className="plate-foot-right">autostimulus · /chair</span>
+      <style>{`
+        @media (max-width: 700px) {
+          .plate-foot { font-size: 9px !important; padding: 10px 14px !important; gap: 8px !important; }
+          .plate-foot-right { display: none !important; }
+        }
+      `}</style>
     </div>
   );
 }

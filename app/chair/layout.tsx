@@ -118,6 +118,30 @@ export default function ChairLayout({
           padding: 0.06em 0.14em 0 0;
           color: ${T.ink};
         }
+
+        /* Mobile-pad utility — applied via className="chair-pad" to
+           every chair page's outer padding container. The companion
+           pages were all using 60px 80px or 60px 100px inline, which
+           left almost no content width on a phone. */
+        @media (max-width: 700px) {
+          .chair-pad {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            padding-top: 32px !important;
+          }
+          .chair-pad-sm {
+            padding: 24px 16px !important;
+          }
+          .chair-grid-2 { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .chair-grid-3 { grid-template-columns: 1fr !important; gap: 20px !important; }
+          .chair-grid-4 { grid-template-columns: 1fr !important; gap: 16px !important; }
+          .chair-row-collapse {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+          .chair-h1 { font-size: clamp(36px, 9vw, 52px) !important; }
+          .chair-h2 { font-size: clamp(28px, 7vw, 40px) !important; }
+        }
       `}</style>
 
       {children}

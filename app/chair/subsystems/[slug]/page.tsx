@@ -113,7 +113,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
       <PlateHeader plate={`V.${s.num}`} route={`/chair/subsystems/${slug}`}
                    code={`DOSS · OLS · SUBSYSTEM · ${s.num}`} />
 
-      <div style={{ padding: "50px 100px 0", maxWidth: 1200, margin: "0 auto" }}>
+      <div className="chair-pad" style={{ padding: "50px 100px 0", maxWidth: 1200, margin: "0 auto" }}>
         {/* breadcrumb */}
         <div style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",

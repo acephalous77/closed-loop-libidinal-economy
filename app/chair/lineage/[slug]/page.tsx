@@ -160,7 +160,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
       <PlateHeader plate={`VII.${l.num}`} route={`/chair/lineage/${slug}`}
                    code={`DOSS · OLS · LINEAGE · ${l.num}`} />
 
-      <div style={{ padding: "60px 100px 0", maxWidth: 1200, margin: "0 auto" }}>
+      <div className="chair-pad" style={{ padding: "60px 100px 0", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 36,

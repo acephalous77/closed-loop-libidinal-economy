@@ -27,7 +27,7 @@ export default function OnTheChair() {
     <article>
       <PlateHeader plate="I" route="/chair/essay · § I — IX" code="DOSS · OLS · ESSAY" />
 
-      <div style={{
+      <div className="chair-pad" style={{
         maxWidth: 1200, margin: "0 auto", padding: "60px 60px 80px",
         position: "relative", zIndex: 1,
       }}>

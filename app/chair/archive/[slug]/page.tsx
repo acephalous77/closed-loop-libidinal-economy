@@ -221,7 +221,7 @@ export default async function ArchiveEntryPage({ params }: PageProps) {
         padding: "60px 100px", display: "grid",
         gridTemplateColumns: "180px 1fr", gap: 50,
         maxWidth: 1200, margin: "0 auto",
-      }} className="arc-entry">
+      }} className="arc-entry chair-pad">
         {/* left rail */}
         <div style={{ borderRight: `0.5px solid ${A.rule}`, paddingRight: 36 }}>
           <div style={{

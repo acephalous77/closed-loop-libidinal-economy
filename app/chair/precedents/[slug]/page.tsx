@@ -139,7 +139,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
       <PlateHeader plate={`VI.${p.num}`} route={`/chair/precedents/${slug}`}
                    code={`DOSS · OLS · PRECEDENT · ${p.num}`} />
 
-      <div style={{ padding: "52px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
+      <div className="chair-pad" style={{ padding: "52px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 30,

@@ -64,7 +64,7 @@ export default function ArchiveIndex() {
       <PlateHeader plate="VIII.0" route="/chair/archive"
                    code="ARCHIVE · INDEX · 2197" tokens={A} />
 
-      <div style={{ padding: "60px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
+      <div className="chair-pad" style={{ padding: "60px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
           color: A.accent, textTransform: "uppercase", fontWeight: 600,

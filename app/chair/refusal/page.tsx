@@ -22,7 +22,7 @@ export default function RefusalPage() {
     <article>
       <PlateHeader plate="IX.0" route="/chair/refusal" code="DOSS · OLS · REFUSAL" />
 
-      <div style={{
+      <div className="chair-pad" style={{
         maxWidth: 760, margin: "0 auto",
         padding: "70px 32px 80px",
       }}>
