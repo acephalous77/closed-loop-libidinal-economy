@@ -180,8 +180,13 @@ export default function ArchiveIndex() {
 
       <style>{`
         @media (max-width: 800px) {
-          .arc-head { grid-template-columns: 1fr !important; gap: 24px !important; }
+          .arc-head { grid-template-columns: 1fr !important; gap: 18px !important; margin-bottom: 24px !important; }
           .arc-table th:nth-child(4), .arc-table td:nth-child(4) { display: none; }
+        }
+        @media (max-width: 560px) {
+          .arc-table th:nth-child(1), .arc-table td:nth-child(1) { display: none; }
+          .arc-table th:nth-child(5), .arc-table td:nth-child(5) { display: none; }
+          .arc-table th:nth-child(2), .arc-table td:nth-child(2) { width: 78px !important; }
         }
       `}</style>
     </article>

@@ -42,7 +42,7 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
   ];
 
   return (
-    <section style={{
+    <section className="brochure-occupants-section" style={{
       padding: "120px 32px 110px", background: B.paper,
     }}>
       <div style={{
@@ -52,7 +52,7 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
         <SectionLabel n="04" k="Occupants in residence" tokens={B} />
         <div>
           <h2 style={{
-            fontFamily: FONT.manrope, fontSize: 64, lineHeight: 0.96,
+            fontFamily: FONT.manrope, fontSize: "clamp(34px, 6vw, 64px)", lineHeight: 0.96,
             letterSpacing: "-0.028em", fontWeight: 300, margin: "0 0 18px",
             color: B.ink, maxWidth: 880,
           }}>
@@ -139,7 +139,7 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
         <p style={{
           margin: "0 auto", maxWidth: 900,
           fontFamily: FONT.italic, fontStyle: "italic", fontWeight: 400,
-          fontSize: 28, lineHeight: 1.32, letterSpacing: "-0.012em",
+          fontSize: "clamp(20px, 3.4vw, 28px)", lineHeight: 1.32, letterSpacing: "-0.012em",
           color: B.inkDim,
         }}>
           &ldquo;I am not, on the whole, less happy. I am less sure what I
@@ -157,8 +157,12 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
 
       <style>{`
         @media (max-width: 800px) {
-          .brochure-section-head { grid-template-columns: 1fr !important; }
+          .brochure-section-head { grid-template-columns: 1fr !important; gap: 18px !important; margin-bottom: 28px !important; }
           .brochure-occupants { grid-template-columns: 1fr !important; }
+          .brochure-occupants > div > div:last-child { padding: 20px 18px !important; }
+        }
+        @media (max-width: 700px) {
+          .brochure-occupants-section { padding: 56px 16px 56px !important; }
         }
       `}</style>
     </section>

@@ -75,9 +75,9 @@ export function LineageScrubber() {
       <PlateHeader plate="VII.i" route="/chair · § VII · Lineage · interactive"
                    code="PLATE · INTERACTIVE · 02" />
 
-      <div style={{ padding: "36px 60px 36px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between",
-                       alignItems: "baseline", marginBottom: 28 }}>
+      <div className="lin-pad" style={{ padding: "36px 60px 36px" }}>
+        <div className="lin-head" style={{ display: "flex", justifyContent: "space-between",
+                       alignItems: "baseline", gap: 16, flexWrap: "wrap", marginBottom: 28 }}>
           <div>
             <div style={{
               fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
@@ -105,7 +105,38 @@ export function LineageScrubber() {
           </div>
         </div>
 
-        <div style={{ position: "relative", height: 160, marginBottom: 8 }}>
+        {/* MOBILE iter selector — replaces the cramped visual timeline */}
+        <div className="lin-mobile-picker" style={{ display: "none", marginBottom: 24 }}>
+          <div style={{
+            display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 4,
+          }}>
+            {LINEAGE.map((d, i) => (
+              <button
+                key={d.num}
+                onClick={() => setSel(i)}
+                style={{
+                  background: sel === i ? T.accent : "transparent",
+                  color: sel === i ? T.paper : T.ink,
+                  border: `1px solid ${sel === i ? T.accent : T.rule}`,
+                  padding: "10px 4px",
+                  fontFamily: FONT.mono, fontSize: 9.5,
+                  letterSpacing: "0.06em", cursor: "pointer",
+                  display: "flex", flexDirection: "column", gap: 3,
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ fontWeight: 700 }}>{d.year}</span>
+                <span style={{
+                  fontFamily: FONT.serif, fontStyle: "italic",
+                  fontSize: 11, textTransform: "none", letterSpacing: 0,
+                  fontWeight: sel === i ? 600 : 400, opacity: 0.9,
+                }}>{d.name.split(" ").slice(-1)[0]}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="lin-timeline" style={{ position: "relative", height: 160, marginBottom: 8 }}>
           <div style={{
             position: "absolute", left: 0, right: 0, top: 80,
             height: 1, background: T.ink, opacity: 0.7,
@@ -233,7 +264,16 @@ export function LineageScrubber() {
       </div>
 
       <PlateFooter folio="ii" total="iii" section="Interactive · Lineage scrubber" />
-      <style>{`@media (max-width: 700px) { .lineage-detail { grid-template-columns: 1fr !important; } }`}</style>
+      <style>{`
+        @media (max-width: 800px) {
+          .lin-pad { padding: 24px 18px !important; }
+          .lin-head { flex-direction: column !important; align-items: stretch !important; gap: 14px !important; }
+          .lin-head > div:last-child { text-align: left !important; }
+          .lin-timeline { display: none !important; }
+          .lin-mobile-picker { display: block !important; }
+          .lineage-detail { grid-template-columns: 1fr !important; padding: 20px 18px !important; gap: 22px !important; }
+        }
+      `}</style>
     </div>
   );
 }

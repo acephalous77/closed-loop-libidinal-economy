@@ -52,7 +52,7 @@ export function TAOGTriangle() {
 
       <div className="taog-grid" style={{
         display: "grid", gridTemplateColumns: "minmax(0, 560px) 1fr",
-        gap: 40, padding: "36px 60px",
+        gap: 40, padding: "32px 40px",
       }}>
         <svg viewBox="0 0 560 600" style={{ width: "100%", height: "auto" }}>
           <polygon points={AXES.map((a) => pt(a.angle, baseR).join(",")).join(" ")}
@@ -182,7 +182,11 @@ export function TAOGTriangle() {
       </div>
 
       <PlateFooter folio="iii" total="iii" section="Interactive · TAOG triangle" />
-      <style>{`@media (max-width: 800px) { .taog-grid { grid-template-columns: 1fr !important; padding: 20px !important; } }`}</style>
+      <style>{`
+        @media (max-width: 800px) {
+          .taog-grid { grid-template-columns: 1fr !important; padding: 22px 18px !important; gap: 28px !important; }
+        }
+      `}</style>
     </div>
   );
 }

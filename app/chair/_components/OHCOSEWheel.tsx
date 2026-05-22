@@ -60,7 +60,7 @@ export function OHCOSEWheel() {
                    code="PLATE · INTERACTIVE · 01" />
       <div className="ohcose-grid" style={{
         display: "grid", gridTemplateColumns: "minmax(0, 600px) 1fr",
-        gap: 40, padding: "36px 60px",
+        gap: 40, padding: "32px 40px",
       }}>
         <svg viewBox="0 0 560 640" style={{ width: "100%", height: "auto" }}>
           <circle cx={cx} cy={cy} r={rOuter} fill="none" stroke={T.ink} strokeWidth="0.8" opacity="0.55" />
@@ -127,7 +127,7 @@ export function OHCOSEWheel() {
             color: T.accent, textTransform: "uppercase", fontWeight: 600, marginBottom: 12,
           }}>● Fig. 2.i · OHCOSE · interactive</div>
           <h2 style={{
-            fontFamily: FONT.serif, fontSize: 44, lineHeight: 0.98,
+            fontFamily: FONT.serif, fontSize: "clamp(28px, 5vw, 44px)", lineHeight: 0.98,
             letterSpacing: "-0.02em", fontStyle: "italic", fontWeight: 400,
             margin: "0 0 6px", color: T.ink,
           }}>Phase {sel + 1} · <em>{phase.name}</em></h2>
@@ -192,7 +192,11 @@ export function OHCOSEWheel() {
         </div>
       </div>
       <PlateFooter folio="i" total="iii" section="Interactive · OHCOSE wheel" />
-      <style>{`@media (max-width: 800px) { .ohcose-grid { grid-template-columns: 1fr !important; padding: 20px !important; } }`}</style>
+      <style>{`
+        @media (max-width: 800px) {
+          .ohcose-grid { grid-template-columns: 1fr !important; padding: 22px 18px !important; gap: 28px !important; }
+        }
+      `}</style>
     </div>
   );
 }
