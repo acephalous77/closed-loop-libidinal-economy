@@ -50,74 +50,173 @@ export function PlateHeader({
 }: PlateHeaderProps) {
   return (
     <div>
-      {/* Plate identification strip — original */}
-      <div className="plate-id" style={{
-        display: "flex", justifyContent: "space-between", alignItems: "center",
-        padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
-        fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
-        textTransform: "uppercase", color: tokens.inkMute,
-        gap: 14, flexWrap: "wrap",
-      }}>
-        <div style={{ display: "flex", gap: 22, alignItems: "center", flexWrap: "wrap" }} className="plate-id-left">
-          <a href="/chair/essay" style={{
-            color: tokens.accent, fontWeight: 600, textDecoration: "none",
-            display: "flex", alignItems: "center", gap: 8,
-          }}>
-            <ChairGlyph size={14} stroke={tokens.accent} />
+      {/* ─── MOBILE BANNER ─── single sticky row with brand mark + a
+          native <details> disclosure that expands the route menu. No
+          JS needed; the disclosure widget is keyboard-accessible. */}
+      <details className="plate-mobile" style={{ display: "none" }}>
+        <summary
+          aria-label="Open menu"
+          style={{
+            listStyle: "none", cursor: "pointer",
+            display: "flex", justifyContent: "space-between", alignItems: "center",
+            padding: "12px 16px",
+            background: tokens.paper,
+            borderBottom: `0.75px solid ${tokens.rule}`,
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: tokens.ink,
+          }}
+        >
+          {/* Brand mark */}
+          <a
+            href="/chair"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 8,
+              color: tokens.accent, fontWeight: 600, textDecoration: "none",
+            }}
+          >
+            <ChairGlyph size={16} stroke={tokens.accent} />
             <span>On the Chair</span>
           </a>
-          <span style={{ color: tokens.inkFaint }} className="plate-id-sep">·</span>
-          <span style={{ color: tokens.accent, fontWeight: 600 }}>plate {plate}</span>
-          <span style={{ color: tokens.inkDim }} className="plate-id-route">{route}</span>
+          {/* Plate marker + menu indicator */}
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 14 }}>
+            <span style={{ color: tokens.inkMute }}>{plate}</span>
+            <span aria-hidden className="plate-mobile-bars" style={{
+              display: "inline-flex", flexDirection: "column", gap: 4,
+            }}>
+              <span style={{ width: 18, height: 1.5, background: tokens.ink }} />
+              <span style={{ width: 18, height: 1.5, background: tokens.ink }} />
+              <span style={{ width: 18, height: 1.5, background: tokens.ink }} />
+            </span>
+          </span>
+        </summary>
+        {/* Mobile menu panel */}
+        <nav
+          aria-label="Routes"
+          style={{
+            background: tokens.paper,
+            borderBottom: `0.75px solid ${tokens.rule}`,
+            padding: "12px 16px 20px",
+            fontFamily: FONT.serif,
+            fontSize: 16, lineHeight: 1.55,
+          }}
+        >
+          {NAV_GROUPS.map((group) => (
+            <div key={group.label} style={{ marginBottom: 18 }}>
+              <div style={{
+                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.24em",
+                color: tokens.accent, textTransform: "uppercase",
+                fontWeight: 700, marginBottom: 8,
+                paddingBottom: 6, borderBottom: `0.5px solid ${tokens.rule}`,
+              }}>
+                {group.label}
+              </div>
+              <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
+                {group.items.map(([href, label]) => (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      style={{
+                        display: "block",
+                        padding: "10px 0",
+                        color: tokens.ink, textDecoration: "none",
+                        fontFamily: FONT.serif, fontStyle: "italic",
+                        fontSize: 18, letterSpacing: "-0.005em",
+                      }}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+      </details>
+
+      {/* ─── DESKTOP BANNER ─── plate-identification strip + route nav. */}
+      <div className="plate-desktop">
+        {/* Plate identification strip */}
+        <div style={{
+          display: "flex", justifyContent: "space-between", alignItems: "center",
+          padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
+          fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+          textTransform: "uppercase", color: tokens.inkMute,
+          gap: 14, flexWrap: "wrap",
+        }}>
+          <div style={{ display: "flex", gap: 22, alignItems: "center", flexWrap: "wrap" }}>
+            <a href="/chair/essay" style={{
+              color: tokens.accent, fontWeight: 600, textDecoration: "none",
+              display: "flex", alignItems: "center", gap: 8,
+            }}>
+              <ChairGlyph size={14} stroke={tokens.accent} />
+              <span>On the Chair</span>
+            </a>
+            <span style={{ color: tokens.inkFaint }}>·</span>
+            <span style={{ color: tokens.accent, fontWeight: 600 }}>plate {plate}</span>
+            <span style={{ color: tokens.inkDim }}>{route}</span>
+          </div>
+          <div style={{ display: "flex", gap: 22, alignItems: "center" }}>
+            <span>{code}</span>
+            <span style={{ color: tokens.inkFaint }}>— — —</span>
+            <span>{year}</span>
+          </div>
         </div>
-        <div style={{ display: "flex", gap: 22, alignItems: "center" }} className="plate-id-right">
-          <span>{code}</span>
-          <span style={{ color: tokens.inkFaint }}>— — —</span>
-          <span>{year}</span>
-        </div>
+
+        {/* Route nav strip — same set as the footer route grid. */}
+        <nav
+          aria-label="Routes"
+          style={{
+            display: "flex", justifyContent: "center", alignItems: "center",
+            gap: "0.9rem", flexWrap: "wrap",
+            padding: "10px 24px",
+            borderBottom: `0.75px solid ${tokens.rule}`,
+            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+            textTransform: "uppercase", color: tokens.inkMute,
+          }}
+        >
+          {NAV_GROUPS.map((group, gi) => (
+            <span key={group.label} style={{
+              display: "inline-flex", alignItems: "center",
+              gap: "0.9rem", flexWrap: "wrap",
+            }}>
+              {gi > 0 && <span style={{ color: tokens.inkFaint, opacity: 0.6 }}>‖</span>}
+              {group.items.map((item, ii) => (
+                <span key={item[0]} style={{
+                  display: "inline-flex", alignItems: "center", gap: "0.9rem",
+                }}>
+                  {ii > 0 && <span style={{ color: tokens.inkFaint }}>·</span>}
+                  <a href={item[0]} style={{
+                    color: "inherit", textDecoration: "none",
+                  }}>{item[1]}</a>
+                </span>
+              ))}
+            </span>
+          ))}
+        </nav>
       </div>
 
-      {/* Route nav strip — same set as the footer route grid so a
-          reader on any page is one click from any other. */}
-      <nav
-        aria-label="Routes"
-        style={{
-          display: "flex", justifyContent: "center", alignItems: "center",
-          gap: "0.9rem", flexWrap: "wrap",
-          padding: "10px 24px",
-          borderBottom: `0.75px solid ${tokens.rule}`,
-          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
-          textTransform: "uppercase", color: tokens.inkMute,
-        }}
-        className="plate-nav"
-      >
-        {NAV_GROUPS.map((group, gi) => (
-          <span key={group.label} style={{
-            display: "inline-flex", alignItems: "center",
-            gap: "0.9rem", flexWrap: "wrap",
-          }}>
-            {gi > 0 && <span style={{ color: tokens.inkFaint, opacity: 0.6 }}>‖</span>}
-            {group.items.map((item, ii) => (
-              <span key={item[0]} style={{
-                display: "inline-flex", alignItems: "center", gap: "0.9rem",
-              }}>
-                {ii > 0 && <span style={{ color: tokens.inkFaint }}>·</span>}
-                <a href={item[0]} style={{
-                  color: "inherit", textDecoration: "none",
-                }}>{item[1]}</a>
-              </span>
-            ))}
-          </span>
-        ))}
-      </nav>
       <style>{`
+        /* Hide marker triangle on the disclosure */
+        .plate-mobile > summary::-webkit-details-marker { display: none; }
+        .plate-mobile > summary::marker { content: ""; }
+        /* Animate the hamburger when open */
+        .plate-mobile[open] .plate-mobile-bars > span:nth-child(1) {
+          transform: translateY(5.5px) rotate(45deg);
+        }
+        .plate-mobile[open] .plate-mobile-bars > span:nth-child(2) {
+          opacity: 0;
+        }
+        .plate-mobile[open] .plate-mobile-bars > span:nth-child(3) {
+          transform: translateY(-5.5px) rotate(-45deg);
+        }
+        .plate-mobile-bars > span {
+          transition: transform 0.18s ease, opacity 0.18s ease;
+          transform-origin: center;
+        }
+
         @media (max-width: 700px) {
-          .plate-nav { font-size: 8.5px !important; gap: 0.6rem !important; padding: 8px 12px !important; }
-          .plate-id { font-size: 9px !important; padding: 10px 14px !important; gap: 8px !important; }
-          .plate-id-left { gap: 10px !important; }
-          .plate-id-right { gap: 10px !important; font-size: 9px !important; }
-          .plate-id-sep { display: none !important; }
-          .plate-id-route { display: none !important; }
+          .plate-mobile { display: block !important; }
+          .plate-desktop { display: none !important; }
         }
       `}</style>
     </div>
