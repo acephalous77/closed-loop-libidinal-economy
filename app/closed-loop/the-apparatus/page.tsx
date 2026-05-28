@@ -77,7 +77,29 @@ const SECTIONS: Section[] = [
     title: "Auxiliary structural results",
     subtitle:
       "Propositions 4'–7': dividual condition, metric superego, captured resonance, libidinal routing",
-    status: "not-started",
+    status: "in-progress",
+    results: [
+      {
+        name: "Proposition 4' (dividual via posterior contraction)",
+        href: "/closed-loop/the-apparatus/section-3/prop-4-prime",
+        status: "live",
+      },
+      {
+        name: "Proposition 5' (metric superego)",
+        href: "/closed-loop/the-apparatus/section-3/prop-5-prime",
+        status: "live",
+      },
+      {
+        name: "Proposition 6 (somatic phase-locking, Kuramoto)",
+        href: "/closed-loop/the-apparatus/section-3/prop-6",
+        status: "not-started",
+      },
+      {
+        name: "Proposition 7' (libidinal routing)",
+        href: "/closed-loop/the-apparatus/section-3/prop-7-prime",
+        status: "not-started",
+      },
+    ],
   },
   {
     no: "4",
