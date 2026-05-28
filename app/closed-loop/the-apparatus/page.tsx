@@ -103,9 +103,16 @@ const SECTIONS: Section[] = [
   },
   {
     no: "4",
-    title: "Supporting lemma",
-    subtitle: "Lemma 2 — the technical scaffold for §5 and §6",
-    status: "not-started",
+    title: "Parametric continuity",
+    subtitle: "Lemma 2 — the technical scaffold for Mode A's parametric continuity argument",
+    status: "in-progress",
+    results: [
+      {
+        name: "Lemma 2 (parametric continuity of regularized stable points)",
+        href: "/closed-loop/the-apparatus/section-4/lemma-2",
+        status: "live",
+      },
+    ],
   },
   {
     no: "5",
