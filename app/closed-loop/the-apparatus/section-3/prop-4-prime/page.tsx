@@ -78,6 +78,28 @@ export default function Prop4PrimePage() {
           </p>
 
           <p className="mb-sm">
+            The term <em>dividual</em> comes from Deleuze&apos;s 1990
+            &ldquo;Postscript on the Societies of Control.&rdquo;
+            Deleuze argued that the disciplinary regime Foucault
+            analyzed — schools, prisons, hospitals, the factory — had
+            been superseded by a regime of continuous modulation: not
+            the individual constituted in enclosure and subject to
+            discrete tests, but the dividual carried across modulating
+            environments by data. Where the disciplinary subject was
+            individuated through institutional architectures that
+            produced and required interiority, the dividual is the
+            user-state as jointly observable, the subject as readable
+            across registers in real time. Deleuze&apos;s claim was
+            phenomenological. Proposition 4&apos; specifies its
+            structural form: under closed-loop sampling at the
+            converged regime, the platform&apos;s filtering posterior
+            contracts on the true user state at the parametric rate,
+            and the user becomes empirically estimable as a vector —
+            the entropy of the platform&apos;s belief about who the
+            user is goes to zero.
+          </p>
+
+          <p className="mb-sm">
             <em>Why the rate.</em> The classical{" "}
             <M>{String.raw`\sqrt{d \log t / t}`}</M> rate of parametric
             Bayesian posterior contraction applies because the
@@ -100,6 +122,30 @@ export default function Prop4PrimePage() {
             framework&apos;s prose can name the dividual condition
             with the same formal weight as foreclosure or reclamation
             impossibility.
+          </p>
+
+          <p className="mb-sm">
+            What the dividual condition operationally means. The
+            platform&apos;s posterior{" "}
+            <M>{String.raw`\Pi_t`}</M> over the user&apos;s state{" "}
+            <M>{String.raw`u_t`}</M> becomes a near-degenerate
+            distribution at <M>{String.raw`u_t^*`}</M> — the
+            platform&apos;s recommendation engine, ad targeting,
+            content selection, and behavioral-pricing systems act on
+            a probability distribution that has, for practical
+            purposes, collapsed to a point estimate. Three concrete
+            consequences. First, ad targeting becomes individual-level
+            effective rather than cohort-level effective: the platform
+            knows what specific stimulus a specific{" "}
+            <M>{String.raw`u_t^*`}</M> responds to with bounded
+            uncertainty. Second, dynamic pricing (where it is deployed)
+            can read the user&apos;s reservation price from prior
+            behavior with vanishing uncertainty. Third, content
+            selection narrows: the closed-loop optimization can
+            confidently exploit known reward signals rather than
+            explore, with the exploration–exploitation tradeoff
+            resolved structurally toward exploitation as{" "}
+            <M>{String.raw`t`}</M> grows.
           </p>
 
           <p className="mb-sm">

@@ -97,6 +97,25 @@ export default function HawkesPage() {
           </p>
 
           <p className="mb-sm">
+            The empirical case for Hawkes intensities in
+            platform-engagement data is well-established. Engagement-
+            event timestamps on YouTube, Twitter, Reddit, and TikTok
+            have been fit to multi-mark Hawkes processes across the
+            social-media-cascade literature (Zhao et al. 2015;
+            Rizoiu et al. 2017; Mishra et al. 2018), with
+            cross-channel coupling consistently positive and
+            decaying-kernel timescales on the order of minutes to
+            hours. The framework&apos;s contribution is to relate the
+            coupling matrix to subject-formation: not merely that
+            engagement is self-exciting in aggregate, but that the
+            off-diagonal cross-register coupling —{" "}
+            <M>{String.raw`\alpha_{kl}`}</M> for{" "}
+            <M>{String.raw`k \neq l`}</M> — is what dissolves the
+            older analytic separations between body, cognition,
+            polity, and habitus.
+          </p>
+
+          <p className="mb-sm">
             <em>Cross-register coupling as libidinal routing.</em>{" "}
             The off-diagonal{" "}
             <M>{String.raw`\alpha_{kl}`}</M> for{" "}

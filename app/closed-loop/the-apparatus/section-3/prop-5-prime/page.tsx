@@ -120,6 +120,31 @@ export default function Prop5PrimePage() {
           </p>
 
           <p className="mb-sm">
+            The metric-superego concept gathers a number of older
+            critical claims that previously stood as separate
+            diagnoses. Freud&apos;s superego in <em>The Ego and the
+            Id</em> (1923) was an internalized judging organ formed
+            through identification with parental and cultural
+            authority — operating phenomenologically, with the
+            content of its judgments arrived at through analytic
+            interpretation. Foucault&apos;s technologies of the self
+            analyzed how the modern subject takes itself as the
+            object of its own evaluative practices — confession,
+            examination, the audit. Mark Fisher&apos;s capitalist
+            realism named the affective condition in which the
+            subject treats the platform-induced metric as the
+            horizon of what could be otherwise. Each diagnosed a
+            register of self-evaluation that had been routed through
+            an external standard. Proposition 5&apos; supplies the
+            dynamical form. The KL distance from the user&apos;s
+            behavioral distribution to the platform-induced target
+            decreases monotonically under the closure, at a rate set
+            by the user&apos;s behavioral-plasticity constant{" "}
+            <M>{String.raw`\beta_u`}</M> (axiom U3) and modulated by
+            exposure duration (Proposition 8).
+          </p>
+
+          <p className="mb-sm">
             <em>Cohort-dependence.</em> The proposition specifies
             convergence; it does not specify the convergence rate.
             For that, see{" "}

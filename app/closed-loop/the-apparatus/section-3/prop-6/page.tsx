@@ -108,6 +108,25 @@ export default function Prop6Page() {
           </p>
 
           <p className="mb-sm">
+            The proposition&apos;s empirical hinge is well-established.
+            Heart-rate variability under emotionally activating media
+            stimuli has been documented across the affective-computing
+            literature (Kreibig 2010; Picard et al. 1997).
+            Circadian-rhythm disruption from screen exposure during
+            the body&apos;s evening melatonin window has been
+            quantified in the chronobiology literature (Chang et al.
+            2015; Hatori et al. 2017). Pupillary and attention-system
+            coupling to short-form video pacing has been measured in
+            psychophysiological-engagement studies (Reeves et al.
+            2021). What these literatures jointly establish:{" "}
+            <M>{String.raw`K_{bm} > 0`}</M>. Somatic oscillators do
+            respond to media coupling. The framework&apos;s
+            contribution is the threshold — when does the body&apos;s
+            rhythm phase-lock to the platform&apos;s, and when does it
+            merely drift?
+          </p>
+
+          <p className="mb-sm">
             <em>The platform-side reading.</em> The platform&apos;s
             optimization (Theorem 9&apos;s sensitivity) selects
             policies that increase <M>{String.raw`K_{bm}`}</M> wherever
@@ -115,6 +134,21 @@ export default function Prop6Page() {
             equilibrium outcome of the closure, not an exogenous shock.
             Captured resonance is what the closure&apos;s temporal
             dynamics produce in the somatic register.
+          </p>
+
+          <p className="mb-sm">
+            The temporal politics this exposes was already named by
+            Jonathan Crary (<em>24/7: Late Capitalism and the Ends of
+            Sleep</em>, 2013) — the way capital progressively erodes
+            the temporal recesses (sleep, idle hours, the diurnal
+            pause) on which human reconstitution depended.
+            Proposition 6 specifies the structural mechanism. Once{" "}
+            <M>{String.raw`K_{bm} > |\omega_b - \omega_m|`}</M>, the
+            body&apos;s rhythm enters the platform&apos;s basin —
+            circadian, ultradian, cardiac, attentional. Crary&apos;s
+            diagnosis was that the recesses were being colonized; the
+            proposition supplies the mathematical form of the
+            colonization.
           </p>
 
           <p className="mb-sm">

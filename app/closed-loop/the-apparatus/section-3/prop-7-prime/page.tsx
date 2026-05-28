@@ -116,6 +116,27 @@ export default function Prop7PrimePage() {
           </p>
 
           <p className="mb-sm">
+            Each of the four registers had its own critical tradition.
+            The body had phenomenology, somatic theory, affect studies.
+            The mind had cognitive science and the discourse on
+            attention. The political had ideology critique and the
+            literatures on the public sphere. The kinaesthetic had
+            Bourdieu&apos;s work on habitus and the broader sociology
+            of bodily practice. Each tradition presupposed that its
+            register could be analyzed at least relatively
+            independently of the others — that the body did not need
+            to be modeled jointly with the political imaginary, that
+            cognition did not need to be modeled jointly with
+            gestural memory. Proposition 7&apos; specifies the
+            structural conditions under which that presupposition
+            breaks. Under closed-loop joint observation through{" "}
+            <M>{String.raw`O`}</M>, the four registers become
+            posterior-dependent; the analytic separations the older
+            traditions assumed available no longer hold at the level
+            of the platform&apos;s filter.
+          </p>
+
+          <p className="mb-sm">
             <em>The dynamical complement.</em>{" "}
             <Link
               href="/closed-loop/the-apparatus/section-3/3.5-hawkes"
