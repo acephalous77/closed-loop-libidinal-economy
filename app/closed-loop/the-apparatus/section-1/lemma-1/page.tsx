@@ -118,8 +118,9 @@ export default function Lemma1Page() {
             probability decays exponentially in the Cramér transform{" "}
             <M>{String.raw`J(\theta_{\mathrm{ref}})`}</M>. The
             framework&apos;s substantive claims survive under either
-            the polynomial or the exponential regime; the exponential
-            bound is a strengthening, not a load-bearing alternative.
+            the polynomial or the exponential regime. The exponential
+            bound strengthens what the polynomial bound already
+            establishes; the polynomial bound carries the work.
           </p>
 
           <p className="mb-sm">
