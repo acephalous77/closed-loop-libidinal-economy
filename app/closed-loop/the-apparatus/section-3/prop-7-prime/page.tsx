@@ -14,6 +14,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -188,6 +189,14 @@ export default function Prop7PrimePage() {
           <MBlock>
             {String.raw`\Pi_t(u^i, u^j \mid y_{1:t}) \neq \Pi_t(u^i \mid y_{1:t}) \Pi_t(u^j \mid y_{1:t}).`}
           </MBlock>
+          <Reads>
+            The platform&apos;s joint belief about two registers does
+            not split into a product of separate beliefs. Knowing what
+            the platform infers about the user&apos;s somatic state
+            changes what it infers about their political state —
+            however independent the two were in the prior, observing
+            the loop has tied them together.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(ii) Strict mutual information.</strong>
@@ -195,6 +204,14 @@ export default function Prop7PrimePage() {
           <MBlock>
             {String.raw`I_{\Pi_t}(u^i; u^j \mid y_{1:t}) > 0.`}
           </MBlock>
+          <Reads>
+            The same fact stated as a number: the mutual information
+            between the two registers is strictly above zero — real,
+            measurable shared information. This is the exact sense in
+            which the registers are <em>libidinally routed</em>; the
+            plate visualizes it as the off-diagonal cells of the 4×4
+            information matrix lighting up.
+          </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
             Proof
@@ -206,6 +223,15 @@ export default function Prop7PrimePage() {
           <MBlock>
             {String.raw`\Pi_t(u^i, u^j \mid y_{1:t}) \propto p_0^i(u^i) p_0^j(u^j) \cdot L_t(u^i, u^j),`}
           </MBlock>
+          <Reads>
+            By Bayes&apos; rule the joint posterior is the two
+            independent priors multiplied by a likelihood term{" "}
+            <M>{String.raw`L_t`}</M> that ties the registers together
+            through the shared observations. The whole question of
+            coupling reduces to one thing: does{" "}
+            <M>{String.raw`L_t`}</M> itself factor into separate pieces
+            for each register, or not?
+          </Reads>
           <p className="mb-sm text-ink-90">
             where{" "}
             <M>{String.raw`L_t(u^i, u^j) = \int [\prod_s O(y_s \mid u)] \prod_{a \neq i,j} p_0^a(u^a)\, du^a`}</M>.
@@ -230,6 +256,18 @@ export default function Prop7PrimePage() {
           <MBlock>
             {String.raw`\frac{\partial^2 \log L_t}{\partial u^i \partial u^j} = \int_{u^{-ij}} \left[\sum_s \frac{\partial^2 \log O(y_s \mid u)}{\partial u^i \partial u^j}\right] \cdot \frac{p_0^{-ij}(u^{-ij}) \prod_s O(y_s \mid u)}{L_t(u^i, u^j)}\, du^{-ij}.`}
           </MBlock>
+          <Reads>
+            This is the coupling test. A likelihood factors exactly
+            when its log has zero cross-derivative in the two
+            registers, so the left side is the quantity that has to
+            vanish for the registers to stay independent. It is an
+            average of the platform sensor&apos;s own cross-derivative
+            — how jointly the sensor responds to the two registers at
+            once. When the sensor is non-separable, that inner term is
+            non-zero, the whole integral is non-zero, and the
+            posterior cannot factor. The coupling is inherited
+            directly from the sensor.
+          </Reads>
 
           <p className="mb-sm text-ink-90">
             This is a continuous function of the observed trajectory{" "}

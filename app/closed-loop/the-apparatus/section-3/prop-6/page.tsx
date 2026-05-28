@@ -14,6 +14,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -180,6 +181,16 @@ export default function Prop6Page() {
           <MBlock>
             {String.raw`\frac{d\varphi_b}{dt} = \omega_b + K_{bm} \sin(\varphi_m - \varphi_b).`}
           </MBlock>
+          <Reads>
+            The body&apos;s rhythm advances at its own frequency{" "}
+            <M>{String.raw`\omega_b`}</M>, plus a tug from the media
+            rhythm. The tug&apos;s size is the coupling{" "}
+            <M>{String.raw`K_{bm}`}</M> times the sine of how far the
+            two phases are apart — strongest when they are a
+            quarter-cycle out of step, vanishing when aligned. This is
+            the Kuramoto equation: the minimal model of one oscillator
+            pulled toward another.
+          </Reads>
           <p className="mb-sm">
             <em>Phase-locking —{" "}
             <M>{String.raw`\varphi_m(t) - \varphi_b(t) \to \psi^*`}</M>{" "}

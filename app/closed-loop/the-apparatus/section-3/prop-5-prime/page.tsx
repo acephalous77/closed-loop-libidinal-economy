@@ -13,6 +13,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -184,6 +185,15 @@ export default function Prop5PrimePage() {
           <MBlock>
             {String.raw`D_{KL}(\nu_u(t) \,\|\, \pi_{\hat R}^*) \to 0 \quad \text{as } t \to \infty.`}
           </MBlock>
+          <Reads>
+            The gap between the user&apos;s behavioral distribution and
+            the platform-induced target — measured as KL divergence —
+            goes to zero. The user&apos;s behavior becomes
+            statistically indistinguishable from what the
+            platform&apos;s reward selects for. This is capture stated
+            as convergence: no coercion, just a distribution settling
+            onto its attractor.
+          </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
             Proof
@@ -196,6 +206,15 @@ export default function Prop5PrimePage() {
           <MBlock>
             {String.raw`\dot\nu_u(t) = -\beta_u \nabla_g D_{KL}(\nu_u \| \pi_{\hat R}(\theta_t)) + o(\beta_u).`}
           </MBlock>
+          <Reads>
+            This is axiom U3 written as motion: the user&apos;s
+            distribution drifts downhill on the KL gap to the current
+            target, at a speed set by the plasticity constant{" "}
+            <M>{String.raw`\beta_u`}</M>. The gradient is taken in the
+            Fisher–Rao geometry — the natural geometry of probability
+            distributions — so &ldquo;downhill&rdquo; means the
+            steepest statistically-meaningful descent.
+          </Reads>
           <p className="mb-sm text-ink-90">
             By Lemma 1&apos;s convergence{" "}
             <M>{String.raw`\theta_t \to \theta^*`}</M> and (R1)&apos;s
@@ -215,6 +234,15 @@ export default function Prop5PrimePage() {
           <MBlock>
             {String.raw`\frac{d}{dt} D_{KL}(\nu_u \| \pi_{\hat R}^*) = -\beta_u \|\nabla_g D_{KL}\|_g^2 \leq 0,`}
           </MBlock>
+          <Reads>
+            The KL gap&apos;s rate of change is a negative
+            squared-norm, so the gap only ever decreases along the
+            flow — and it stops decreasing only when the gradient
+            vanishes, which happens only at the target itself. The
+            descent is therefore monotone and lands exactly on{" "}
+            <M>{String.raw`\pi_{\hat R}^*`}</M>: no oscillation, no
+            stalling short of capture.
+          </Reads>
           <p className="mb-sm text-ink-90">
             with equality iff{" "}
             <M>{String.raw`\nu_u = \pi_{\hat R}^*`}</M>.
