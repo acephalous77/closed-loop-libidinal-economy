@@ -99,6 +99,11 @@ const SECTIONS: Section[] = [
         href: "/closed-loop/the-apparatus/section-3/prop-7-prime",
         status: "live",
       },
+      {
+        name: "§3.5 Somatic optimization (Hawkes instrument)",
+        href: "/closed-loop/the-apparatus/section-3/3.5-hawkes",
+        status: "live",
+      },
     ],
   },
   {
