@@ -15,6 +15,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -252,6 +253,18 @@ export default function Theorem9Page() {
           <MBlock>
             {String.raw`\frac{\partial \theta^*}{\partial X} = (I - D_\theta \Phi(\theta^*))^{-1} \cdot \partial_X \Phi(\theta^*).`}
           </MBlock>
+          <Reads>
+            Every intervention&apos;s effect on the stable point splits
+            into the same two factors. The right-hand piece{" "}
+            <M>{String.raw`\partial_X \Phi`}</M> is how directly the
+            mechanism <M>{String.raw`X`}</M> moves the loop — different
+            for each of reward, response, observation. The left piece{" "}
+            <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> is the
+            closure amplifier — identical for all of them, the factor
+            by which the loop magnifies any nudge. One shared
+            amplifier, three different levers: the whole intervention
+            theory is in those two factors.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(i) Closure amplification factor.</strong> <em>The
@@ -283,6 +296,17 @@ export default function Theorem9Page() {
           <MBlock>
             {String.raw`\partial_{T_i} \Phi(\theta^*) = \frac{1}{N} \partial_T \Phi(\theta^*) = O(1/N).`}
           </MBlock>
+          <Reads>
+            One user changing their own behavior contributes one share
+            out of <M>{String.raw`N`}</M> to the population average the
+            platform optimizes against — so the effect on the stable
+            point is smaller by exactly the factor{" "}
+            <M>{String.raw`1/N`}</M>. This is the whole asymmetry in a
+            line: regulation of the reward acts at full strength;
+            individual practice is divided by the size of the
+            population. On a platform with millions of users,{" "}
+            <M>{String.raw`1/N`}</M> is indistinguishable from zero.
+          </Reads>
 
           <p className="mb-sm">
             <em>The asymmetry between Mode A and individual-scale

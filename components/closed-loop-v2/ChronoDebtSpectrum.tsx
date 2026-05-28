@@ -178,7 +178,7 @@ export function ChronoDebtSpectrum() {
       </svg>
 
       {/* Readouts */}
-      <div className="grid grid-cols-3 gap-md mt-md font-mono text-sm">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-md mt-md font-mono text-sm">
         <div>
           <div className="text-xs uppercase tracking-wider text-ink-70 mb-xs">θ_t</div>
           <div className="text-ink">{state.theta.toFixed(4)}</div>

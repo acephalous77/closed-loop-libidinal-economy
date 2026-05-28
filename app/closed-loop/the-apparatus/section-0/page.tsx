@@ -20,6 +20,7 @@ import {
   Caption,
   Middle,
   Formal,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -262,6 +263,13 @@ export default function Section0Page() {
               stimulus <M>{String.raw`s_t`}</M>:
             </p>
             <MBlock>{String.raw`u_{t+1} \sim T(\cdot \mid u_t, s_t).`}</MBlock>
+            <Reads>
+              The next user state is drawn from a kernel that depends
+              on the current state and the stimulus just delivered.
+              The user evolves on their own, and the platform&apos;s
+              stimulus is one input to that evolution — not the whole
+              of it.
+            </Reads>
 
             <p className="mb-sm">
               <strong>(P2) Observation channel.</strong> A measurable
@@ -270,6 +278,13 @@ export default function Section0Page() {
               producing the platform&apos;s view of the user state:
             </p>
             <MBlock>{String.raw`y_t \sim O(\cdot \mid u_t).`}</MBlock>
+            <Reads>
+              The platform never sees the user state directly. It sees
+              an observation <M>{String.raw`y_t`}</M> drawn through a
+              channel that depends on the state — engagement-events,
+              clicks, dwell times. Everything the platform knows about
+              the user passes through this channel.
+            </Reads>
 
             <p className="mb-sm">
               <strong>(P3) Platform policy.</strong> A parameterized
@@ -278,6 +293,14 @@ export default function Section0Page() {
               producing the next stimulus from the observation history:
             </p>
             <MBlock>{String.raw`s_t \sim \pi_\theta(\cdot \mid y_{1:t}), \quad \theta \in \Theta \subseteq \mathbb{R}^p.`}</MBlock>
+            <Reads>
+              The next stimulus is drawn from the policy, which reads
+              the entire observation history{" "}
+              <M>{String.raw`y_{1:t}`}</M> up to now.{" "}
+              <M>{String.raw`\theta`}</M> is the tunable parameter the
+              platform optimizes — the single knob whose convergence
+              the whole framework is about.
+            </Reads>
 
             <p className="mb-sm">
               <strong>(P4) Performative distribution.</strong> For each
@@ -302,12 +325,27 @@ export default function Section0Page() {
               trajectories, and the performative value
             </p>
             <MBlock>{String.raw`F(\theta) := \mathbb{E}_{\mathcal{D}(\theta)}[\hat R].`}</MBlock>
+            <Reads>
+              The platform&apos;s score is its reward averaged over the
+              world its current policy produces. The averaging
+              distribution is <M>{String.raw`\mathcal{D}(\theta)`}</M> —
+              the world <M>{String.raw`\theta`}</M> itself induces —
+              and that self-dependence is what makes the problem
+              performative rather than ordinary optimization.
+            </Reads>
 
             <p className="mb-sm">
               The platform&apos;s optimization is online gradient ascent
               on <M>{String.raw`F`}</M>:
             </p>
             <MBlock>{String.raw`\theta_{t+1} = \theta_t + \alpha_t\, \widehat{\nabla F}(\theta_t),`}</MBlock>
+            <Reads>
+              Each step nudges the policy uphill on its score by a
+              shrinking amount <M>{String.raw`\alpha_t`}</M>. The
+              Robbins–Monro schedule below keeps the steps large
+              enough to travel the whole way to the target but small
+              enough to settle there rather than overshoot.
+            </Reads>
             <p className="mb-sm">
               with Robbins–Monro step sizes{" "}
               <M>{String.raw`\sum \alpha_t = \infty, \sum \alpha_t^2 < \infty`}</M>.
@@ -394,6 +432,16 @@ export default function Section0Page() {
             <MBlock>
               {String.raw`\theta^* \in \arg\max_{\theta \in \Theta}\, \mathbb{E}_{\mathcal{D}(\theta^*)}\!\left[\hat R(\theta)\right].`}
             </MBlock>
+            <Reads>
+              Read the subscript carefully. The average is taken over{" "}
+              <M>{String.raw`\mathcal{D}(\theta^*)`}</M> — the world
+              the <em>stable</em> policy produces — while the{" "}
+              <M>{String.raw`\arg\max`}</M> searches over candidate
+              policies <M>{String.raw`\theta`}</M>. A stable point is
+              the policy that is already best against the world it
+              makes: optimize against that world and the same policy
+              comes back.
+            </Reads>
             <p className="mb-sm">
               <em>Equivalently, <M>{String.raw`\theta^*`}</M> is a
               fixed point of the composite operator{" "}
@@ -409,6 +457,18 @@ export default function Section0Page() {
             <MBlock>
               {String.raw`\theta_{PO} \in \arg\max_{\theta \in \Theta}\, \mathbb{E}_{\mathcal{D}(\theta)}\!\left[\hat R(\theta)\right].`}
             </MBlock>
+            <Reads>
+              The only change from Definition 0.1 is the subscript:
+              here the averaging world{" "}
+              <M>{String.raw`\mathcal{D}(\theta)`}</M> moves with the
+              candidate <M>{String.raw`\theta`}</M>. The optimum
+              accounts for how each candidate reshapes the world it
+              will be judged in — what a regulator with full knowledge
+              of the loop could target. Nothing forces the stable
+              point <M>{String.raw`\theta^*`}</M> to reach it, and the
+              gap between them is where §7&apos;s regulatory analysis
+              lives.
+            </Reads>
           </Formal>
         </DepthLayers>
       </section>
@@ -514,10 +574,15 @@ export default function Section0Page() {
             <MBlock>
               {String.raw`\Pr_{\mathcal{D}(\theta)}\!\left(dN_{t+1} \geq 1 \mid s_t \neq 0, y_{1:t-1}\right) \geq p_0`}
             </MBlock>
-            <p className="mb-sm">
-              on the operating support. The user is reachable: stimulus
-              produces response with bounded-below probability.
-            </p>
+            <p className="mb-sm">on the operating support.</p>
+            <Reads>
+              Whenever the platform delivers a real stimulus (
+              <M>{String.raw`s_t \neq 0`}</M>), the user responds — at
+              least one engagement event — with probability no less
+              than a fixed floor <M>{String.raw`p_0`}</M>, regardless
+              of the tick or the policy. The user is reachable, never
+              fully inert: stimulus reliably lands.
+            </Reads>
 
             <p className="mb-sm">
               <strong>(U2) Identifiability under observation.</strong>{" "}

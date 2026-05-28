@@ -14,6 +14,7 @@ import {
   Caption,
   Middle,
   Formal,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -190,6 +191,14 @@ export default function ChronoDebtPage() {
           <MBlock>
             {String.raw`D(t, \tau) := S(\tau; \theta_\circ) - S(\tau; \theta_t).`}
           </MBlock>
+          <Reads>
+            At each scale <M>{String.raw`\tau`}</M>, the debt is simply
+            how much pause-time the closure has removed: the baseline
+            survival minus the closed-loop survival. Where the closed
+            loop has driven long pauses out but the baseline still had
+            them, the difference is large — that is the foreclosed
+            time, scale by scale.
+          </Reads>
 
           <p className="mb-sm">
             <em>
@@ -200,6 +209,14 @@ export default function ChronoDebtPage() {
           <MBlock>
             {String.raw`D_w(t) := \int_0^\infty w(\tau)\, D(t, \tau)\, d\tau.`}
           </MBlock>
+          <Reads>
+            Add the debt up across all scales, weighting each scale by{" "}
+            <M>{String.raw`w(\tau)`}</M>. The choice of weight is the
+            political content: weight long scales heavily and a
+            foreclosed adolescence dominates a foreclosed second; the
+            framework&apos;s default <M>{String.raw`w(\tau) \propto \tau`}</M>{" "}
+            does exactly that.
+          </Reads>
 
           <p className="mb-sm">
             <em>

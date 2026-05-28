@@ -38,7 +38,7 @@ const AUTHOR = {
   "@type": "Person",
   name: "Adnan Selimović",
   alternateName: "A. Selimović",
-  url: `${SITE_URL}/closed-loop/colophon`,
+  url: `${SITE_URL}/closed-loop/the-colophon`,
   ...(AUTHOR_SAME_AS.length ? { sameAs: AUTHOR_SAME_AS } : {}),
 };
 
@@ -80,7 +80,7 @@ interface ArticleArgs {
   headline: string;
   /** One-sentence description. */
   description: string;
-  /** Pathname (e.g. "/closed-loop/the-mathematics"). The site URL is prepended. */
+  /** Pathname (e.g. "/closed-loop/the-apparatus"). The site URL is prepended. */
   path: string;
   /** ISO date string for first publication; defaults to 2026-05-15. */
   datePublished?: string;
@@ -192,11 +192,11 @@ export function frameworkJsonLd() {
       "cohort gradient",
     ].join(", "),
     hasPart: [
-      { "@type": "ScholarlyArticle", name: "The Mathematics", url: `${SITE_URL}/closed-loop/the-mathematics` },
-      { "@type": "Article", name: "The Argument", url: `${SITE_URL}/closed-loop/the-argument` },
-      { "@type": "CollectionPage", name: "The Dynamics", url: `${SITE_URL}/closed-loop/the-dynamics` },
-      { "@type": "Article", name: "Reading List", url: `${SITE_URL}/closed-loop/reading-list` },
-      { "@type": "Article", name: "Open Questions", url: `${SITE_URL}/closed-loop/open-questions` },
+      { "@type": "Article", name: "The Argument", url: `${SITE_URL}/closed-loop/v2-argument` },
+      { "@type": "ScholarlyArticle", name: "The Apparatus", url: `${SITE_URL}/closed-loop/the-apparatus` },
+      { "@type": "CollectionPage", name: "The Dynamics", url: `${SITE_URL}/closed-loop/v2-dynamics` },
+      { "@type": "CollectionPage", name: "The Instruments", url: `${SITE_URL}/closed-loop/the-instruments` },
+      { "@type": "CreativeWork", name: "The Architecture", url: `${SITE_URL}/closed-loop/the-architecture` },
     ],
   };
 }

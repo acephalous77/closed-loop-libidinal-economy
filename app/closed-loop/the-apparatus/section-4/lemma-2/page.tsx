@@ -14,6 +14,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -230,6 +231,16 @@ export default function Lemma2Page() {
           <MBlock>
             {String.raw`\frac{dB(\theta_\beta^{*\prime})}{d\beta} = -\nabla B^\top (H_F + \beta H_B)^{-1} \nabla B \geq 0,`}
           </MBlock>
+          <Reads>
+            As the regulator dials up the regularization{" "}
+            <M>{String.raw`\beta`}</M>, the amount of pause the
+            stable point delivers can only increase. The right side
+            is a quadratic form in a positive-definite matrix, so it
+            is never negative — which means the bonus{" "}
+            <M>{String.raw`B`}</M> rises monotonically along the
+            curve. There are no dead zones where pushing harder buys
+            nothing: the slider always responds.
+          </Reads>
           <p className="mb-sm text-ink-90">
             strict when{" "}
             <M>{String.raw`\nabla B \neq 0`}</M>. By the envelope

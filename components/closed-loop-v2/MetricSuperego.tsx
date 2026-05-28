@@ -220,7 +220,7 @@ export function MetricSuperego() {
       </svg>
 
       {/* Readouts */}
-      <div className="grid grid-cols-4 gap-md mt-md font-mono text-sm">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-md mt-md font-mono text-sm">
         <div>
           <div className="text-xs uppercase tracking-wider text-ink-70 mb-xs">D_KL(ν_u || π_R*)</div>
           <div className="text-ink">{state.history[state.history.length - 1].kl.toExponential(2)}</div>

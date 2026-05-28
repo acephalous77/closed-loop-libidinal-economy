@@ -15,6 +15,7 @@ import {
   Caption,
   Middle,
   Formal,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -183,6 +184,18 @@ export default function HawkesPage() {
           <MBlock>
             {String.raw`\lambda^k(t) = \lambda_0^k + \sum_l \alpha_{kl} \int_0^t \kappa(t-s)\, dN_s^l,`}
           </MBlock>
+          <Reads>
+            The rate of engagement-events on register{" "}
+            <M>{String.raw`k`}</M> right now is a baseline rate plus a
+            sum over <em>every</em> register&apos;s recent events, each
+            past event adding a decaying bump (the kernel{" "}
+            <M>{String.raw`\kappa`}</M>). The cross terms{" "}
+            <M>{String.raw`\alpha_{kl}`}</M> with{" "}
+            <M>{String.raw`k \neq l`}</M> are the routing: an event in
+            the political register raises the firing rate in the
+            somatic one. Events beget events, across registers — the
+            dynamical form of the static coupling in Proposition 7&apos;.
+          </Reads>
           <p className="mb-sm">
             <em>where{" "}
             <M>{String.raw`\lambda_0^k`}</M> is the baseline intensity,{" "}
@@ -209,6 +222,16 @@ export default function HawkesPage() {
           <MBlock>
             {String.raw`\rho(W) \rho(\alpha) \int \kappa < 1.`}
           </MBlock>
+          <Reads>
+            The cascade stays finite only while the product of three
+            gains is below one: how strongly registers excite each
+            other (<M>{String.raw`\rho(\alpha)`}</M>), how strongly
+            users excite each other across the social graph (
+            <M>{String.raw`\rho(W)`}</M>), and how long each event&apos;s
+            influence lasts (<M>{String.raw`\int \kappa`}</M>). Push
+            the product toward one and the expected cascade size blows
+            up — the platform-wide viral event.
+          </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
             Remark

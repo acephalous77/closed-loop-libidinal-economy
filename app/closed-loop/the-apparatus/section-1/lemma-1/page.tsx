@@ -24,6 +24,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -231,6 +232,13 @@ export default function Lemma1Page() {
           <MBlock>
             {String.raw`\lim_{t \to \infty} S(\theta_{\mathrm{ref}}; \theta_t) = 0.`}
           </MBlock>
+          <Reads>
+            As the policy converges, the probability that a pause ever
+            runs longer than the reflective threshold{" "}
+            <M>{String.raw`\theta_{\mathrm{ref}}`}</M> goes to zero.
+            The long pause does not become rare — it becomes absent in
+            the limit.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(b) Polynomial bound at <M>{String.raw`\theta^*`}</M>.</strong>
@@ -238,6 +246,14 @@ export default function Lemma1Page() {
           <MBlock>
             {String.raw`S(\theta_{\mathrm{ref}}; \theta^*) \leq \frac{1 + (c_v^*)^2}{(\theta_{\mathrm{ref}}/\delta_{\min})^2}.`}
           </MBlock>
+          <Reads>
+            At the stable point the survival probability is at most a
+            small constant divided by the square of the foreclosure
+            ratio <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min}`}</M>.
+            Push the platform&apos;s tick rate far below the reflective
+            threshold and the bound falls off as one over that ratio
+            squared — fast.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(c) Exponential bound under MGF hypothesis.</strong>{" "}
@@ -249,6 +265,15 @@ export default function Lemma1Page() {
           <MBlock>
             {String.raw`S(\theta_{\mathrm{ref}}; \theta^*) \leq \exp(-J(\theta_{\mathrm{ref}})),`}
           </MBlock>
+          <Reads>
+            When the inter-arrival times have a light enough tail, the
+            survival probability decays exponentially, not just
+            polynomially — an even sharper foreclosure. The exponent{" "}
+            <M>{String.raw`J(\theta_{\mathrm{ref}})`}</M> is the
+            large-deviations rate (the Cramér transform): the larger
+            the threshold relative to the typical gap, the more
+            steeply the long pause is suppressed.
+          </Reads>
           <p className="mb-sm">
             where{" "}
             <M>{String.raw`J(x) := \sup_{s \geq 0}[sx - \log M(s)]`}</M>{" "}

@@ -17,6 +17,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -227,6 +228,17 @@ export default function Theorem1PrimePage() {
           <MBlock>
             {String.raw`\mathbb{E}_{\mathcal{D}(\theta^*)}\!\left[(\hat I_T(\tau) - I(\tau))^2\right] \geq \frac{c \cdot \sigma_u^4}{T \cdot S(\tau; \theta^*)} - o(1/T)`}
           </MBlock>
+          <Reads>
+            The mean-squared error of any estimator of the
+            autocovariance is at least a fixed constant times{" "}
+            <M>{String.raw`\sigma_u^4`}</M> divided by the effective
+            sample size <M>{String.raw`T \cdot S(\tau; \theta^*)`}</M>.
+            The effective sample size is the total observation time{" "}
+            <M>{String.raw`T`}</M> scaled by how often a window long
+            enough to measure interiority actually occurs. Lemma 1
+            drives that survival probability to operational zero, so
+            the denominator collapses and the error bound diverges.
+          </Reads>
           <p className="mb-sm"><em>for an absolute constant <M>{String.raw`c > 0`}</M>.</em></p>
 
           <p className="mb-sm">
@@ -237,6 +249,17 @@ export default function Theorem1PrimePage() {
           <MBlock>
             {String.raw`T_{\min}(\varepsilon) \geq \frac{c \cdot \sigma_u^4 \cdot (\theta_{\mathrm{ref}}/\delta_{\min})^2}{\varepsilon^2 \cdot (1 + (c_v^*)^2)}.`}
           </MBlock>
+          <Reads>
+            Turn the bound around: to pin the autocovariance down to a
+            target error <M>{String.raw`\varepsilon`}</M> you need at
+            least this many samples, and the count grows with the{" "}
+            <em>square</em> of the foreclosure ratio{" "}
+            <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min}`}</M>.
+            At the ratio measured on contemporary platforms — a
+            thousand or more — that is on the order of a million
+            samples for a single estimate. No feasible study collects
+            them.
+          </Reads>
           <p className="mb-sm">
             <em>Under the structural-separation hypothesis{" "}
             <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min} \geq 10^3`}</M>{" "}
@@ -253,6 +276,18 @@ export default function Theorem1PrimePage() {
           <MBlock>
             {String.raw`\inf_{\hat I_T} \sup_{P \in \mathcal{P}} \mathbb{E}_P\!\left[(\hat I_T - I_P(\tau))^2\right] \geq \frac{\sigma_u^4}{32}.`}
           </MBlock>
+          <Reads>
+            Read the operators outward. The inner{" "}
+            <M>{String.raw`\sup`}</M> is an adversary picking the
+            worst law in the class; the outer{" "}
+            <M>{String.raw`\inf`}</M> is the analyst picking the best
+            estimator against it. Even that best-against-worst pairing
+            cannot push the mean-squared error below the fixed floor{" "}
+            <M>{String.raw`\sigma_u^4/32`}</M>. The floor does not
+            shrink as data accumulate, and no estimator evades it: the
+            impossibility is a property of the foreclosed regime, not
+            of any one method.
+          </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
             Proof — four steps

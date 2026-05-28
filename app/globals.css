@@ -177,6 +177,18 @@ input:focus-visible,
   color: var(--color-paper);
 }
 
+/* Display equations: contain long formulas so they scroll within their
+   own block on narrow screens instead of stretching the page sideways.
+   Without this, a wide MBlock (e.g. the Theorem 1' variance bound) forces
+   ~120px of horizontal page scroll on a 375px viewport. */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  /* room for the scrollbar so it never clips descenders */
+  padding-bottom: 2px;
+}
+
 /* WCAG 1.4.1 (Use of Color): inline prose links must be distinguishable
    from body text by more than color. Content links carry the static
    `text-oxblood` class; breadcrumb, in-page-TOC, and other navigation

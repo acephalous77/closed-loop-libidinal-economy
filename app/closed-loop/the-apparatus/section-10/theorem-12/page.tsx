@@ -18,6 +18,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -260,6 +261,15 @@ export default function Theorem12Page() {
             Normal form:
           </p>
           <MBlock>{String.raw`\xi_{n+1} = \xi_n + \mu + a \xi_n^2, \quad \mu = \kappa - \kappa^*.`}</MBlock>
+          <Reads>
+            The simplest map that can lose a fixed point. Below
+            threshold (<M>{String.raw`\mu < 0`}</M>) two equilibria sit
+            close together; at <M>{String.raw`\mu = 0`}</M> they merge;
+            above it, none remain and the iteration shoots off. The
+            platform reading: stability vanishes with no nearby regime
+            to fall back to — a hard crisis, an algorithm rebuilt from
+            scratch.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(b) Pitchfork</strong> — <em>eigenvalue at{" "}
@@ -269,6 +279,13 @@ export default function Theorem12Page() {
             points appear.</em> Normal form:
           </p>
           <MBlock>{String.raw`\xi_{n+1} = (1+\mu)\xi_n + b \xi_n^3.`}</MBlock>
+          <Reads>
+            One stable state splits into two. Past threshold the
+            central equilibrium turns unstable and two symmetric
+            stable ones open up on either side. The platform reading:
+            a single regime bifurcating into two polarized stable
+            regimes the system settles into one or the other of.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(c) Period-doubling (flip)</strong> — <em>eigenvalue
@@ -279,6 +296,14 @@ export default function Theorem12Page() {
             Normal form:
           </p>
           <MBlock>{String.raw`\xi_{n+1} = -(1+\mu)\xi_n - c \xi_n^3.`}</MBlock>
+          <Reads>
+            The negative coefficient flips the iterate&apos;s sign each
+            step, so past threshold the system stops settling on a
+            fixed point and starts alternating between two values — a
+            2-cycle. Push further and the 2-cycle doubles to 4, then
+            8, the Feigenbaum road to chaos. The platform reading:
+            engagement that first oscillates, then turns erratic.
+          </Reads>
 
           <p className="mb-sm">
             <strong>(d) Neimark–Sacker</strong> — <em>complex eigenvalue
@@ -289,6 +314,16 @@ export default function Theorem12Page() {
             case.</em> Normal form (in complex coordinates):
           </p>
           <MBlock>{String.raw`\zeta_{n+1} = (1+\mu) e^{i\omega} \zeta_n + d|\zeta_n|^2 \zeta_n.`}</MBlock>
+          <Reads>
+            The complex multiplier{" "}
+            <M>{String.raw`e^{i\omega}`}</M> rotates the iterate as it
+            grows, so past threshold the system spirals out to a
+            standing loop — an invariant circle of radius{" "}
+            <M>{String.raw`\sqrt{\mu}`}</M> — rather than a point. The
+            platform reading: a sustained oscillation, the recurring
+            viral rhythm or rage-bait cycle that neither settles nor
+            blows up.
+          </Reads>
 
           <p className="mb-sm">
             <em>Which bifurcation occurs depends on the specific

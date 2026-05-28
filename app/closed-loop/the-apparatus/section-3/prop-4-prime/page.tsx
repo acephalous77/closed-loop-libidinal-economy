@@ -13,6 +13,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -194,6 +195,16 @@ export default function Prop4PrimePage() {
             and{" "}
             <M>{String.raw`\varepsilon_t \sim \sqrt{d \log t/t}`}</M>.</em>
           </p>
+          <Reads>
+            The platform&apos;s belief about the user concentrates: the
+            posterior mass sitting outside a shrinking ball around the
+            true state <M>{String.raw`u_t^*`}</M> goes to zero. The
+            ball&apos;s radius shrinks like{" "}
+            <M>{String.raw`\sqrt{d \log t / t}`}</M> — the fastest rate
+            statistical estimation allows. The longer the platform
+            watches, the more sharply it knows who the user is, and
+            there is no slower-than-parametric escape from being known.
+          </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
             Proof — three conditions
