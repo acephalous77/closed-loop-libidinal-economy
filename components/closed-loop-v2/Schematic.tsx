@@ -290,7 +290,7 @@ export function ClosedLoopSchematic() {
             strokeLinecap="round"
             markerEnd="url(#arrowhead-oxblood)"
           />
-          <text
+          <text aria-hidden="true"
             x="900"
             y="380"
             fill="var(--color-oxblood)"
@@ -316,7 +316,7 @@ export function ClosedLoopSchematic() {
             stroke="var(--color-ink)"
             strokeWidth="1"
           />
-          <text
+          <text aria-hidden="true"
             x="750"
             y="40"
             fill="var(--color-ink-70)"
@@ -327,7 +327,7 @@ export function ClosedLoopSchematic() {
           >
             REWARD F(θ)
           </text>
-          <text
+          <text aria-hidden="true"
             x="750"
             y="86"
             fill="var(--color-ink)"
@@ -352,7 +352,7 @@ export function ClosedLoopSchematic() {
             stroke="var(--color-ink)"
             strokeWidth="0.5"
           />
-          <text
+          <text aria-hidden="true"
             x="750"
             y="130"
             fill="var(--color-ink-70)"
@@ -363,7 +363,7 @@ export function ClosedLoopSchematic() {
           >
             PERFORMATIVE DISTRIBUTION D(θ)
           </text>
-          <text
+          <text aria-hidden="true"
             x="750"
             y="174"
             fill="var(--color-ink)"
@@ -387,7 +387,7 @@ export function ClosedLoopSchematic() {
             stroke="var(--color-ink)"
             strokeWidth="1"
           />
-          <text
+          <text aria-hidden="true"
             x="490"
             y="92"
             fill="var(--color-ink-70)"
@@ -398,7 +398,7 @@ export function ClosedLoopSchematic() {
           >
             PARAMETER UPDATE
           </text>
-          <text
+          <text aria-hidden="true"
             x="490"
             y="130"
             fill="var(--color-ink)"
@@ -447,7 +447,7 @@ export function ClosedLoopSchematic() {
             fill="var(--color-slate)"
             fillOpacity="0.06"
           />
-          <text
+          <text aria-hidden="true"
             x="490"
             y="232"
             fill="var(--color-ink-70)"
@@ -458,7 +458,7 @@ export function ClosedLoopSchematic() {
           >
             PLATFORM POLICY π_θ
           </text>
-          <text
+          <text aria-hidden="true"
             x="490"
             y="290"
             fill="var(--color-ink)"
@@ -481,7 +481,7 @@ export function ClosedLoopSchematic() {
             markerEnd="url(#arrowhead-ink)"
           />
           <circle cx="540" cy="390" r="6" fill="var(--color-ink)" />
-          <text
+          <text aria-hidden="true"
             x="555"
             y="395"
             fill="var(--color-ink)"
@@ -504,7 +504,7 @@ export function ClosedLoopSchematic() {
             strokeWidth="1.5"
             strokeDasharray="3 3"
           />
-          <text
+          <text aria-hidden="true"
             x="600"
             y="425"
             fill="var(--color-oxblood)"
@@ -527,7 +527,7 @@ export function ClosedLoopSchematic() {
             stroke="var(--color-ink)"
             strokeWidth="1.5"
           />
-          <text
+          <text aria-hidden="true"
             x="490"
             y="452"
             fill="var(--color-ink-70)"
@@ -540,13 +540,13 @@ export function ClosedLoopSchematic() {
           </text>
           {/* Four registers, 2x2 grid */}
           <rect x="400" y="480" width="85" height="55" fill="none" stroke="var(--color-ink-70)" strokeWidth="0.5" />
-          <text x="442" y="514" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">S</text>
+          <text aria-hidden="true" x="442" y="514" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">S</text>
           <rect x="495" y="480" width="85" height="55" fill="none" stroke="var(--color-ink-70)" strokeWidth="0.5" />
-          <text x="537" y="514" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">C</text>
+          <text aria-hidden="true" x="537" y="514" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">C</text>
           <rect x="400" y="540" width="85" height="55" fill="none" stroke="var(--color-ink-70)" strokeWidth="0.5" />
-          <text x="442" y="574" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">P</text>
+          <text aria-hidden="true" x="442" y="574" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">P</text>
           <rect x="495" y="540" width="85" height="55" fill="none" stroke="var(--color-ink-70)" strokeWidth="0.5" />
-          <text x="537" y="574" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">K</text>
+          <text aria-hidden="true" x="537" y="574" fill="var(--color-ink)" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" textAnchor="middle">K</text>
         </Part>
 
         {/* === USER DYNAMICS T === */}
@@ -558,7 +558,7 @@ export function ClosedLoopSchematic() {
             strokeWidth="1"
             markerEnd="url(#arrowhead-ink)"
           />
-          <text
+          <text aria-hidden="true"
             x="340"
             y="630"
             fill="var(--color-ink-70)"
@@ -579,7 +579,7 @@ export function ClosedLoopSchematic() {
             stroke="var(--color-ink)"
             strokeWidth="1.5"
           />
-          <text
+          <text aria-hidden="true"
             x="290"
             y="350"
             fill="var(--color-ink-70)"
@@ -595,7 +595,7 @@ export function ClosedLoopSchematic() {
         {/* === OBSERVATION y_t === */}
         <Part id="observation">
           <circle cx="210" cy="380" r="12" fill="var(--color-ink)" />
-          <text
+          <text aria-hidden="true"
             x="195"
             y="383"
             fill="var(--color-ink-70)"
@@ -629,7 +629,7 @@ export function ClosedLoopSchematic() {
             strokeWidth="1"
             rx="4"
           />
-          <text
+          <text aria-hidden="true"
             x="210"
             y="237"
             fill="var(--color-ink-70)"
@@ -640,7 +640,7 @@ export function ClosedLoopSchematic() {
           >
             FILTERING Π_t
           </text>
-          <text
+          <text aria-hidden="true"
             x="210"
             y="275"
             fill="var(--color-ink)"
@@ -673,7 +673,7 @@ export function ClosedLoopSchematic() {
             strokeWidth="1.5"
             strokeDasharray="3 3"
           />
-          <text
+          <text aria-hidden="true"
             x="940"
             y="315"
             fill="var(--color-oxblood)"
