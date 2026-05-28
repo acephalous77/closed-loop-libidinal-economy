@@ -37,7 +37,8 @@ const SECTIONS: Section[] = [
     title: "The spine",
     subtitle:
       "The performative setup (P1)–(P5), the closure as fixed point of Φ, the three axiom groups",
-    status: "not-started",
+    status: "live",
+    href: "/closed-loop/the-apparatus/section-0",
   },
   {
     no: "1",
@@ -217,7 +218,13 @@ export default function ApparatusIndex() {
                 §{section.no}
               </span>
               <h2 className="font-serif text-md text-ink m-0">
-                {section.title}
+                {section.href ? (
+                  <Link href={section.href} className="text-oxblood hover:underline">
+                    {section.title}
+                  </Link>
+                ) : (
+                  section.title
+                )}
               </h2>
               <StatusLabel status={section.status} />
             </div>
