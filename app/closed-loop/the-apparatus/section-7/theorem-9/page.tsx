@@ -180,6 +180,27 @@ export default function Theorem9Page() {
           </p>
 
           <p className="mb-sm">
+            The political vocabulary the theorem clarifies. What an
+            organizer or social-movement theorist would call
+            &ldquo;individual digital-hygiene practices&rdquo; — the
+            curated phone, the disabled notifications, the practiced
+            refusal of platform legibility — operates at the{" "}
+            <M>{String.raw`1/N`}</M> scale on the closed loop. What
+            the same organizer would call &ldquo;regulatory
+            reform&rdquo; — content-moderation rules, antitrust
+            action, privacy-regime overhauls — operates at the{" "}
+            <M>{String.raw`O(1)`}</M> scale through Mode A, the
+            fourth-cell mode, or the population-coordinated variant
+            of Mode B. The framework&apos;s claim is that the gap
+            between these two is not a difference of degree. It is
+            an <M>{String.raw`N`}</M>-fold structural gap baked into
+            the closure&apos;s geometry. The framework does not deny
+            the value of individual practice; it specifies what
+            individual practice can and cannot do at population
+            scale.
+          </p>
+
+          <p className="mb-sm">
             <em>The do-calculus extension.</em> The theorem extends
             Pearl&apos;s do-calculus in three ways. <em>Closure
             amplification:</em> standard do-calculus works on acyclic

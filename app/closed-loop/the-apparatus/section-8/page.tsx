@@ -311,6 +311,32 @@ export default function Section8Page() {
               <M>{String.raw`\int \kappa`}</M>. Stability requires the
               product to be below 1.
             </p>
+            <p className="mb-sm">
+              The platform&apos;s incentive structure pushes{" "}
+              <M>{String.raw`\rho(W) \cdot \rho(\alpha) \cdot \int \kappa`}</M>{" "}
+              toward 1 from below. Each factor is a quantity the
+              platform&apos;s optimization can influence.{" "}
+              <M>{String.raw`\rho(W)`}</M> — graph connectivity — is
+              influenced by recommendation surfaces that increase
+              exposure across users (the &ldquo;people you may
+              know&rdquo; widget, the cross-user re-share
+              architecture, the algorithmic-feed broadcast pattern).{" "}
+              <M>{String.raw`\rho(\alpha)`}</M>, the within-user
+              cross-register coupling, is influenced by content that
+              activates multiple registers simultaneously: rage-bait
+              that is somatic and political and cognitive,
+              aspirational lifestyle content that is kinaesthetic
+              and cognitive. <M>{String.raw`\int \kappa`}</M> — the
+              engagement-memory kernel — is influenced by interface
+              design that extends the user&apos;s attentional dwell.
+              The closure&apos;s incentive structure aligns all three
+              factors with the engagement-monetization objective.
+              Approach to the boundary{" "}
+              <M>{String.raw`\rho(W)\rho(\alpha)\int \kappa \to 1^-`}</M>{" "}
+              is what produces viral cascades and the
+              platform-spanning attention spikes the cascade
+              literature documents.
+            </p>
           </Middle>
           <Formal label="Theorem (engagement cascade stability)">
             <p className="mb-sm">

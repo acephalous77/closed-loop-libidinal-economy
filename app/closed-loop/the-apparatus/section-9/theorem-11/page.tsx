@@ -100,6 +100,22 @@ export default function Theorem11Page() {
           </p>
 
           <p className="mb-sm">
+            <em>The empirical-tail question.</em> Inter-arrival
+            times for engagement events on real platforms have been
+            measured across multiple studies, with consistent
+            findings: log-normal and Weibull-with-shape-less-than-one
+            are the dominant fits, with the shape parameter{" "}
+            <M>{String.raw`\beta`}</M> typically in the 0.3-to-0.7
+            range. Stouffer et al. (2006) on email correspondence;
+            Vázquez et al. (2006) on web-browsing intervals; Cheng
+            et al. (2014) on YouTube watch-session lengths — all in
+            the stretched-exponential class. The framework&apos;s
+            intermediate-regime bound is therefore the regime most
+            engagement-interval data sits in, which is what gives
+            Theorem 11 its empirical traction.
+          </p>
+
+          <p className="mb-sm">
             <em>The interpolation.</em>
           </p>
 
