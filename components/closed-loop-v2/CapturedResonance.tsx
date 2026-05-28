@@ -125,7 +125,7 @@ export function CapturedResonance() {
   const xOfIdx = (i: number) => plotX0 + (i / Math.max(HISTORY_LENGTH - 1, 1)) * plotW;
 
   const psiPath = state.psiHistory
-    .map((psi, i) => `${i === 0 ? "M" : "L"} ${xOfIdx(i)} ${yOfPsi(psi)}`)
+    .map((psi, i) => `${i === 0 ? "M" : "L"} ${xOfIdx(i).toFixed(2)} ${yOfPsi(psi).toFixed(2)}`)
     .join(" ");
 
   // Threshold visualization.

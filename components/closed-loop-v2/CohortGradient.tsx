@@ -49,7 +49,7 @@ export function CohortGradient() {
     curvePoints.push({ tauExp, dKL });
   }
   const curvePath = curvePoints
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${xOf(p.tauExp)} ${yOf(p.dKL)}`)
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${xOf(p.tauExp).toFixed(2)} ${yOf(p.dKL).toFixed(2)}`)
     .join(" ");
 
   // Cohort markers (specific τ_exp values where named cohorts sit).

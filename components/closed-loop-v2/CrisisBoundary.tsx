@@ -188,7 +188,7 @@ export function CrisisBoundary() {
 
   function pathOf(points: { mu: number; xi: number }[]): string {
     if (points.length === 0) return "";
-    return points.map((p, i) => `${i === 0 ? "M" : "L"} ${xOf(p.mu)} ${yOf(p.xi)}`).join(" ");
+    return points.map((p, i) => `${i === 0 ? "M" : "L"} ${xOf(p.mu).toFixed(2)} ${yOf(p.xi).toFixed(2)}`).join(" ");
   }
 
   return (

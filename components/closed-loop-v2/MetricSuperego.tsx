@@ -124,7 +124,7 @@ export function MetricSuperego() {
   const nuPt = bary(state.nu, triCorners);
   const trajectory = state.history.map((h) => bary(h.nu, triCorners));
   const trajPath = trajectory
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`)
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${p.x.toFixed(2)} ${p.y.toFixed(2)}`)
     .join(" ");
 
   // D_KL log-scale plot on the right.
@@ -143,7 +143,7 @@ export function MetricSuperego() {
     return klY0 + (1 - Math.max(0, Math.min(1, normalized))) * klH;
   };
   const klPath = state.history
-    .map((h, i) => `${i === 0 ? "M" : "L"} ${xOfT(h.t)} ${yOfKL(h.kl)}`)
+    .map((h, i) => `${i === 0 ? "M" : "L"} ${xOfT(h.t).toFixed(2)} ${yOfKL(h.kl).toFixed(2)}`)
     .join(" ");
 
   return (

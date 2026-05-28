@@ -91,7 +91,7 @@ export function DividualPosterior() {
     return leftY0 + (1 - Math.max(0, Math.min(1, normalized))) * leftH;
   };
   const variancePath = state.history
-    .map((h, i) => `${i === 0 ? "M" : "L"} ${xOfT(h.t)} ${yOfV(h.variance)}`)
+    .map((h, i) => `${i === 0 ? "M" : "L"} ${xOfT(h.t).toFixed(2)} ${yOfV(h.variance).toFixed(2)}`)
     .join(" ");
 
   // Right panel — 1-D posterior histogram (Gaussian) around the true u_t*.
@@ -118,7 +118,7 @@ export function DividualPosterior() {
   const xOfU = (u: number) => rightX0 + ((u - uMin) / (uMax - uMin)) * rightW;
   const yOfP = (p: number) => rightY0 + (1 - p / maxP) * rightH;
   const histPath = histPoints
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${xOfU(p.u)} ${yOfP(p.p)}`)
+    .map((p, i) => `${i === 0 ? "M" : "L"} ${xOfU(p.u).toFixed(2)} ${yOfP(p.p).toFixed(2)}`)
     .join(" ");
   const histFillPath = `${histPath} L ${xOfU(uMax)} ${rightY0 + rightH} L ${xOfU(uMin)} ${rightY0 + rightH} Z`;
 

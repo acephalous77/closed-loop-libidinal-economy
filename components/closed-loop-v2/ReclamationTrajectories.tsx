@@ -116,7 +116,7 @@ export function ReclamationTrajectories() {
 
   function pathOf(traj: { T: number; mse: number }[]): string {
     return traj
-      .map((p, i) => `${i === 0 ? "M" : "L"} ${xOf(p.T)} ${yOf(p.mse)}`)
+      .map((p, i) => `${i === 0 ? "M" : "L"} ${xOf(p.T).toFixed(2)} ${yOf(p.mse).toFixed(2)}`)
       .join(" ");
   }
 

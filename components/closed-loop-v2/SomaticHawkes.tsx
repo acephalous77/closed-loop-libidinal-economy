@@ -193,9 +193,9 @@ export function SomaticHawkes() {
           const curvePath =
             curve.length === 0
               ? ""
-              : curve.map((p, j) => `${j === 0 ? "M" : "L"} ${p.x} ${trackY + p.y}`).join(" ");
+              : curve.map((p, j) => `${j === 0 ? "M" : "L"} ${p.x.toFixed(2)} ${(trackY + p.y).toFixed(2)}`).join(" ");
           const fillPath = curvePath
-            ? curvePath + ` L ${padX + plotW} ${trackY + trackH} L ${padX} ${trackY + trackH} Z`
+            ? curvePath + ` L ${(padX + plotW).toFixed(2)} ${(trackY + trackH).toFixed(2)} L ${padX.toFixed(2)} ${(trackY + trackH).toFixed(2)} Z`
             : "";
           return (
             <g key={reg}>
