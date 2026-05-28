@@ -24,14 +24,27 @@ export function M({ children }: { children: string }) {
   return <span dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
-/** Block (display) variant. */
+/** Block (display) variant.
+ *
+ * Wrapped in a block-level overflow-x:auto container so a wide formula
+ * scrolls within its own block on narrow screens instead of stretching
+ * the page sideways. The inline style guarantees containment regardless
+ * of KaTeX-stylesheet load order. The companion .katex-display rule in
+ * globals.css covers MDX-rendered (rehype-katex) equations.
+ */
 export function MBlock({ children }: { children: string }) {
   const html = katex.renderToString(children, {
     throwOnError: false,
     displayMode: true,
     output: "html",
   });
-  return <span dangerouslySetInnerHTML={{ __html: html }} className="katex-display" />;
+  return (
+    <span
+      style={{ display: "block", overflowX: "auto", overflowY: "hidden", maxWidth: "100%" }}
+      dangerouslySetInnerHTML={{ __html: html }}
+      className="katex-display"
+    />
+  );
 }
 
 /**
