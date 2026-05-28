@@ -97,7 +97,14 @@ const SECTIONS: Section[] = [
     title: "Cohort gradient",
     subtitle:
       "Proposition 8 — formal derivation of the developmental decay D_KL · e^(−2Kτ)",
-    status: "not-started",
+    status: "in-progress",
+    results: [
+      {
+        name: "Proposition 8 (cohort gradient)",
+        href: "/closed-loop/the-apparatus/section-6/prop-8",
+        status: "live",
+      },
+    ],
   },
   {
     no: "7",
