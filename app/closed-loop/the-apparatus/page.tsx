@@ -168,7 +168,14 @@ const SECTIONS: Section[] = [
     title: "Rate-of-foreclosure refinement",
     subtitle:
       "Theorem 11 — intermediate tail regimes between polynomial and exponential",
-    status: "not-started",
+    status: "in-progress",
+    results: [
+      {
+        name: "Theorem 11 (stretched-exponential survival bound)",
+        href: "/closed-loop/the-apparatus/section-9/theorem-11",
+        status: "live",
+      },
+    ],
   },
   {
     no: "10",
