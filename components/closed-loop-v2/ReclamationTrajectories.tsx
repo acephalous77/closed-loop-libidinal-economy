@@ -239,7 +239,7 @@ export function ReclamationTrajectories() {
       </svg>
 
       {/* Readouts */}
-      <div className="grid grid-cols-3 gap-md mt-md font-mono text-sm">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-md mt-md font-mono text-sm">
         <div>
           <div className="text-xs uppercase tracking-wider text-ink-70 mb-xs">trajectories</div>
           <div className="text-ink">{params.N}</div>

@@ -210,7 +210,7 @@ export function CapturedResonance() {
       </svg>
 
       {/* Readouts */}
-      <div className="grid grid-cols-4 gap-md mt-md font-mono text-sm">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-md mt-md font-mono text-sm">
         <div>
           <div className="text-xs uppercase tracking-wider text-ink-70 mb-xs">|Δω|</div>
           <div className="text-ink">{deltaOmega.toFixed(3)}</div>
