@@ -55,20 +55,26 @@ export function ForeclosureClock() {
   // Y scale: linear from 0 to 1, inverted.
   const yOf = (s: number) => padY + (1 - s) * plotH;
 
+  // Round to 2 decimals — sufficient precision for screen rendering,
+  // and produces deterministic string output across server/client to
+  // avoid the React-19 SVG-path hydration warning on float-precision
+  // differences.
+  const fx = (n: number) => n.toFixed(2);
+
   // Build the SVG path for a curve.
   const pathOf = (curve: number[]) =>
     curve
-      .map((s, i) => `${i === 0 ? "M" : "L"} ${xOf(taus[i])} ${yOf(s)}`)
+      .map((s, i) => `${i === 0 ? "M" : "L"} ${fx(xOf(taus[i]))} ${fx(yOf(s))}`)
       .join(" ");
 
   // Chrono-debt shaded region: between baseline (upper) and current (lower).
   const debtPath = (() => {
     const top = curve(baselineCurve);
     const bottomReversed = [...curve(currentCurve)].reverse();
-    return `M ${xOf(taus[0])} ${yOf(baselineCurve[0])} ` +
-      top.slice(1).map((_, i) => `L ${xOf(taus[i + 1])} ${yOf(baselineCurve[i + 1])}`).join(" ") +
-      ` L ${xOf(taus[taus.length - 1])} ${yOf(currentCurve[taus.length - 1])} ` +
-      bottomReversed.slice(1).map((_, i) => `L ${xOf(taus[taus.length - 2 - i])} ${yOf(currentCurve[taus.length - 2 - i])}`).join(" ") +
+    return `M ${fx(xOf(taus[0]))} ${fx(yOf(baselineCurve[0]))} ` +
+      top.slice(1).map((_, i) => `L ${fx(xOf(taus[i + 1]))} ${fx(yOf(baselineCurve[i + 1]))}`).join(" ") +
+      ` L ${fx(xOf(taus[taus.length - 1]))} ${fx(yOf(currentCurve[taus.length - 1]))} ` +
+      bottomReversed.slice(1).map((_, i) => `L ${fx(xOf(taus[taus.length - 2 - i]))} ${fx(yOf(currentCurve[taus.length - 2 - i]))}`).join(" ") +
       " Z";
   })();
 
