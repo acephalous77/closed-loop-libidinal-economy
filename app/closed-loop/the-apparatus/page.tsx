@@ -103,7 +103,14 @@ const SECTIONS: Section[] = [
     title: "Performative do-calculus",
     subtitle:
       "Theorem 9 — the unified sensitivity formula. Closure-amplification (I − D_θ Φ)^(−1)",
-    status: "not-started",
+    status: "in-progress",
+    results: [
+      {
+        name: "Theorem 9 (causal sensitivity in performative systems)",
+        href: "/closed-loop/the-apparatus/section-7/theorem-9",
+        status: "live",
+      },
+    ],
   },
   {
     no: "8",
