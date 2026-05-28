@@ -160,7 +160,8 @@ const SECTIONS: Section[] = [
     title: "Network coupling",
     subtitle:
       "Theorem 10 + corollaries. Engagement cascade, percolation threshold, cohort graph-amplification",
-    status: "not-started",
+    status: "live",
+    href: "/closed-loop/the-apparatus/section-8",
   },
   {
     no: "9",
