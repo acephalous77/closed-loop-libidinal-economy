@@ -131,9 +131,10 @@ export default function Prop6Page() {
             optimization (Theorem 9&apos;s sensitivity) selects
             policies that increase <M>{String.raw`K_{bm}`}</M> wherever
             this raises engagement. The threshold-crossing is the
-            equilibrium outcome of the closure, not an exogenous shock.
-            Captured resonance is what the closure&apos;s temporal
-            dynamics produce in the somatic register.
+            equilibrium outcome of the closure — the platform&apos;s
+            own optimization drives it. Captured resonance is what the
+            closure&apos;s temporal dynamics produce in the somatic
+            register.
           </p>
 
           <p className="mb-sm">

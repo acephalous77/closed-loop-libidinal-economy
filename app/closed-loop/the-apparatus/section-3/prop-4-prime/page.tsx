@@ -117,11 +117,10 @@ export default function Prop4PrimePage() {
             The dividual is the user-state-as-jointly-observable.
             Identifiability comes from (U2). Excitation comes from (U1).
             Parametric stability comes from (R1) and (R2). The
-            dividual is not a metaphor; it is the operational form of
-            the platform&apos;s filter at the converged regime. The
-            framework&apos;s prose can name the dividual condition
-            with the same formal weight as foreclosure or reclamation
-            impossibility.
+            dividual is the operational form of the platform&apos;s
+            filter at the converged regime — the framework&apos;s
+            prose can name the dividual condition with the same formal
+            weight as foreclosure or reclamation impossibility.
           </p>
 
           <p className="mb-sm">

@@ -115,11 +115,12 @@ export default function Lemma2Page() {
 
           <p className="mb-sm">
             <em>What the lemma authorizes the prose to claim.</em>{" "}
-            Mode A is not an isolated point at some specific{" "}
-            <M>{String.raw`\beta`}</M>. It is a smooth curve through
-            parameter space along which the regularizer&apos;s payoff
-            grows continuously. Any target survival probability in
-            the achievable range corresponds to some{" "}
+            Mode A is a smooth curve through parameter space — a
+            continuum of settings indexed by{" "}
+            <M>{String.raw`\beta`}</M>, along which the
+            regularizer&apos;s payoff grows continuously. Any target
+            survival probability in the achievable range corresponds
+            to some{" "}
             <M>{String.raw`\beta_\varepsilon`}</M> on the curve. The
             political claim &ldquo;at sufficient regulation, the pause
             re-instantiates&rdquo; depends on Lemma 2&apos;s smoothness.

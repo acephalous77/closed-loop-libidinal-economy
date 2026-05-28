@@ -116,12 +116,12 @@ export default function DividualPosteriorPage() {
               The dividual is the user-state-as-jointly-observable.
               Identifiability is supplied by (U2); excitation is
               supplied by (U1); parametric stability is supplied by
-              (R1)+(R2). Deleuze&apos;s dividual is not a metaphor —
-              it is the operational form of the platform&apos;s filter
-              at the converged regime. The user-state continues to be
-              whatever the user is; the platform converges on the
-              user&apos;s state in the standard Bayesian-posterior
-              sense.
+              (R1)+(R2). Deleuze&apos;s dividual takes operational
+              form here as the platform&apos;s filter at the converged
+              regime — a formal object carrying the same weight as
+              foreclosure. The user-state continues to be whatever the
+              user is; the platform converges on the user&apos;s state
+              in the standard Bayesian-posterior sense.
             </p>
           </Middle>
         </DepthLayers>

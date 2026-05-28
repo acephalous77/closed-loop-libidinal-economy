@@ -127,9 +127,10 @@ export default function Section0Page() {
               setting differs from each in scope and stakes. The
               responding agent is a population of users observed only
               through engagement-events. The policy class is
-              engagement-monetizing. The quantity at stake is the
-              structure of the user&apos;s behavioral distribution
-              under the closure, not a per-instance prediction loss.
+              engagement-monetizing. And the quantity at stake is the
+              population-level structure of the user&apos;s behavioral
+              distribution under the closure, where ordinary
+              prediction would track a per-instance loss.
             </p>
             <p className="mb-sm">
               The result the framework leans on hardest from Perdomo et
@@ -159,8 +160,8 @@ export default function Section0Page() {
               is a formal object. Subject-formation under closed-loop
               optimization is what the framework studies; the dissolved
               objects (interiority, reflection, autonomy) are formal
-              consequences of the closure, not the framework&apos;s
-              premises.
+              consequences the closure produces, lying downstream of
+              the framework&apos;s premises.
             </p>
           </Middle>
         </DepthLayers>
@@ -365,9 +366,10 @@ export default function Section0Page() {
             appears on both sides of the performative-value expression:
             the platform optimizes against the distribution its own
             choice of <M>{String.raw`\theta`}</M> has produced. The
-            closed loop is not an axiom; it is the <em>form</em> of the
-            operator{" "}
-            <M>{String.raw`\Phi : \theta \mapsto \arg\max_{\theta'} \mathbb{E}_{\mathcal{D}(\theta)}[\hat R(\theta')]`}</M>.
+            closed loop is the <em>form</em> of the operator{" "}
+            <M>{String.raw`\Phi : \theta \mapsto \arg\max_{\theta'} \mathbb{E}_{\mathcal{D}(\theta)}[\hat R(\theta')]`}</M>{" "}
+            — a structure the setup produces and the analysis takes as
+            its object.
           </Caption>
           <Middle>
             <p className="mb-sm">
@@ -410,8 +412,9 @@ export default function Section0Page() {
               <M>{String.raw`\|\theta_t - \theta^*\| \leq \kappa^t \|\theta_0 - \theta^*\|`}</M>.
               The framework can therefore name how fast the user&apos;s
               environment is being optimized toward{" "}
-              <M>{String.raw`\theta^*`}</M>; the closure is a
-              quantitative claim, not an asymptotic idealization.{" "}
+              <M>{String.raw`\theta^*`}</M> — a convergence rate, which
+              makes the closure a quantitative claim with a clock on
+              it.{" "}
               <Link
                 href="/closed-loop/the-apparatus/section-10/theorem-12"
                 className="text-oxblood hover:underline"

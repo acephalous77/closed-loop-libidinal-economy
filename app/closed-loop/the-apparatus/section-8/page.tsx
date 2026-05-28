@@ -297,9 +297,10 @@ export default function Section8Page() {
               {String.raw`\sup_{x \in [0,1]} S(\theta_\mathrm{ref}; \theta_\infty^*, x) \leq \frac{1 + (c_v^*)^2}{(\theta_\mathrm{ref}/\delta_{\min})^2 \cdot w_{\min}^2}.`}
             </MBlock>
             <Reads>
-              Foreclosure holds for <em>every</em> user, not just on
-              average — the <M>{String.raw`\sup`}</M> over all users{" "}
-              <M>{String.raw`x`}</M> is bounded. The bound is the
+              Foreclosure holds uniformly: the{" "}
+              <M>{String.raw`\sup`}</M> over all users{" "}
+              <M>{String.raw`x`}</M> is bounded, so even the most
+              weakly-connected user is foreclosed. The bound is the
               single-user one inflated by{" "}
               <M>{String.raw`1/w_{\min}^2`}</M>, the graph-density
               penalty: the most weakly-connected user is foreclosed
