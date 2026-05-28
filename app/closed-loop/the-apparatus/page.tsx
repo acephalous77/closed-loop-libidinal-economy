@@ -112,7 +112,8 @@ const SECTIONS: Section[] = [
     title: "Intervention modes",
     subtitle:
       "Propositions 1'–3' on Modes A/B/C, the 2×2 site×source taxonomy, the Mode A scaffold's five features",
-    status: "not-started",
+    status: "live",
+    href: "/closed-loop/the-apparatus/section-5",
   },
   {
     no: "6",
