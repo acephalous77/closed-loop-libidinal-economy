@@ -325,7 +325,7 @@ export default function TheColophonPage() {
       </section>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 closed-loop — Phase 5 work.
+        v2 closed-loop.
       </footer>
     </main>
   );

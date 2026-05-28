@@ -274,7 +274,7 @@ export default function Theorem1PrimePage() {
             <M>{String.raw`P_0, P_1`}</M> differing only on{" "}
             <M>{String.raw`E_\tau`}</M> and total variation bounded
             by <M>{String.raw`T \cdot S(\tau; \theta^*)`}</M>, giving
-            (iii). <em>Full proof text to render here in Phase 2 final pass.</em>
+            (iii).
           </p>
           <ProofEnd />
         </Formal>
@@ -331,7 +331,7 @@ export default function Theorem1PrimePage() {
       </section>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 apparatus rendering — Phase 2 work in progress.
+        v2 apparatus rendering.
       </footer>
     </main>
   );

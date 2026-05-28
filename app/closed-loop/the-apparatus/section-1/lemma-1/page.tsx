@@ -274,7 +274,7 @@ export default function Lemma1Page() {
             <M>{String.raw`\mathbb{E}[(\tau^{(k)})^2] \leq (1 + (c_v^*)^2)\delta_{\min}^2`}</M>.
             The exponential refinement follows from Markov on the
             exponential transform plus the Cramér transform&apos;s
-            sup. <em>Full text to render here in Phase 2 final pass.</em>
+            sup.
           </p>
 
           <ProofEnd />
@@ -355,7 +355,7 @@ export default function Lemma1Page() {
       </section>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 apparatus rendering — Phase 2 work in progress.
+        v2 apparatus rendering.
       </footer>
     </main>
   );

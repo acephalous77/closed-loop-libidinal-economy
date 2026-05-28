@@ -309,7 +309,7 @@ export default function ApparatusIndex() {
       </ol>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 apparatus rendering — Phase 2 work in progress.
+        v2 apparatus rendering.
       </footer>
     </main>
   );

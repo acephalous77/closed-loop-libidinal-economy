@@ -525,7 +525,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 curated argument — Phase 5. v1 the-argument at{" "}
+        v2 curated argument. v1 the-argument at{" "}
         <Link href="/closed-loop/the-argument" className="text-oxblood hover:underline">
           /closed-loop/the-argument
         </Link>{" "}

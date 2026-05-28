@@ -309,8 +309,7 @@ export default function Theorem9Page() {
             <M>{String.raw`\mathcal{D} = (1/N)\sum_i \mathcal{D}_i`}</M>,
             individual-scale partials are{" "}
             <M>{String.raw`(1/N) \cdot \partial_T \Phi`}</M>. Mode A&apos;s
-            reward is not user-indexed; always at population level.{" "}
-            <em>Full proof text to render here in Phase 2 final pass.</em>
+            reward is not user-indexed; always at population level.
           </p>
           <ProofEnd />
 
@@ -394,7 +393,7 @@ export default function Theorem9Page() {
       </section>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 apparatus rendering — Phase 2 work in progress.
+        v2 apparatus rendering.
       </footer>
     </main>
   );

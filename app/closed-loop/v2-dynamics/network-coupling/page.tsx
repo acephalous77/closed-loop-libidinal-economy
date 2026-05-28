@@ -188,10 +188,7 @@ export default function NetworkCouplingPage() {
       </section>
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50 max-w-prose mx-auto">
-        v2 dynamics plate — twelfth and final plate. Phase 3 plate
-        coverage is complete: all twelve plates from the
-        autostimulus-planning/08_plate_sketches.md inventory now have
-        v2 implementations.
+        v2 dynamics plate — network coupling.
       </footer>
     </main>
   );
