@@ -131,7 +131,14 @@ const SECTIONS: Section[] = [
     title: "Crisis-boundary classification",
     subtitle:
       "Theorem 12 — four bifurcation regimes at the contractivity boundary",
-    status: "not-started",
+    status: "in-progress",
+    results: [
+      {
+        name: "Theorem 12 (crisis-boundary bifurcation classification)",
+        href: "/closed-loop/the-apparatus/section-10/theorem-12",
+        status: "live",
+      },
+    ],
   },
   {
     no: "11",
