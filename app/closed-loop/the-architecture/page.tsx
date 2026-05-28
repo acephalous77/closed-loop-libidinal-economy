@@ -62,13 +62,23 @@ export default function TheArchitecturePage() {
 
       <section className="mt-xl pt-md border-t border-paper-85">
         <h2 className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-sm">
-          Three navigation hubs
+          Five navigation hubs
         </h2>
         <p className="text-base text-ink-90 max-w-prose mb-sm">
-          The architecture is one of three navigation surfaces into
-          the framework. The other two are textual catalogs:
+          The architecture is one of five navigation surfaces. One
+          prose entry point, four catalogs:
         </p>
         <ul className="text-base text-ink-90 space-y-xs">
+          <li>
+            <Link
+              href="/closed-loop/v2-argument"
+              className="text-oxblood hover:underline"
+            >
+              the argument
+            </Link>{" "}
+            — the framework in prose. Eight load-bearing moves that
+            cross-link to the apparatus result authorizing each claim.
+          </li>
           <li>
             <Link
               href="/closed-loop/the-apparatus"
@@ -78,6 +88,17 @@ export default function TheArchitecturePage() {
             </Link>{" "}
             — the formal sections §0 through §12, each rendered with
             depth-layered presentation (caption, middle, formal).
+          </li>
+          <li>
+            <Link
+              href="/closed-loop/v2-dynamics"
+              className="text-oxblood hover:underline"
+            >
+              the dynamics
+            </Link>{" "}
+            — twelve interactive plates. Each operates an apparatus
+            result against a parameter so the reader sees the
+            mechanism behave.
           </li>
           <li>
             <Link

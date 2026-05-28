@@ -137,12 +137,12 @@ export default function Prop5PrimePage() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/metric-superego"
+              href="/closed-loop/v2-dynamics/metric-superego"
               className="text-oxblood hover:underline"
             >
               operate the metric-superego plate
             </Link>{" "}
-            (v1 lives, will be rebuilt) to drive the user&apos;s
+            to drive the user&apos;s
             behavioral distribution to{" "}
             <M>{String.raw`\pi_{\hat R}^*`}</M> across the simplex.
           </p>
@@ -282,12 +282,12 @@ export default function Prop5PrimePage() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/metric-superego"
+              href="/closed-loop/v2-dynamics/metric-superego"
               className="text-oxblood hover:underline"
             >
               metric-superego Lyapunov
             </Link>{" "}
-            (v1 lives, will be rebuilt)
+            
           </li>
         </ul>
       </section>

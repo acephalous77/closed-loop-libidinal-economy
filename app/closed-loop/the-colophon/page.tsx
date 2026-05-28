@@ -291,7 +291,7 @@ export default function TheColophonPage() {
           <li>Underline-on-hover as confirmation of an action chosen.</li>
           <li>Keyboard navigation for every interactive element.</li>
           <li>Visible focus indicators in the cream / warm-ink / oxblood palette.</li>
-          <li>A glossary, apparatus index, instrument index, and the architecture figure as four navigation hubs.</li>
+          <li>Five navigation hubs — the architecture figure, the apparatus index, the dynamics plates, the instruments, and the glossary.</li>
           <li>Plates with controls the reader operates — sliders, dropdowns, pause/step/replay.</li>
           <li>Equations rendered with KaTeX, configured for screen-reader compatibility.</li>
           <li>Theme that respects <code className="font-mono text-sm">prefers-color-scheme</code>.</li>

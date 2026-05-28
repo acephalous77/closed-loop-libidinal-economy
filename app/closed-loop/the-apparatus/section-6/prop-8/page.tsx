@@ -166,7 +166,7 @@ export default function Prop8Page() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/cohort-gradient"
+              href="/closed-loop/v2-dynamics/cohort-gradient"
               className="text-oxblood hover:underline"
             >
               operate the cohort-gradient plate
@@ -306,12 +306,12 @@ export default function Prop8Page() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/cohort-gradient"
+              href="/closed-loop/v2-dynamics/cohort-gradient"
               className="text-oxblood hover:underline"
             >
               cohort gradient
             </Link>{" "}
-            (operates this proposition; v1 lives, will be rebuilt)
+            (operates this proposition)
           </li>
           <li>
             What follows:{" "}

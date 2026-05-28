@@ -204,13 +204,13 @@ export default function Theorem12Page() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics"
+              href="/closed-loop/v2-dynamics/crisis-boundary"
               className="text-oxblood hover:underline"
             >
               operate the crisis-boundary plate
             </Link>{" "}
-            (planned, Phase 3) to drive a platform through each of the
-            four regimes by varying <M>{String.raw`\kappa`}</M>.
+            to drive a platform through each of the four regimes by
+            varying <M>{String.raw`\kappa`}</M>.
           </p>
         </Middle>
 

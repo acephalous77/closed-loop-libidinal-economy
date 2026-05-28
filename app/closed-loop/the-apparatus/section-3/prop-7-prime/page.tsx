@@ -118,7 +118,7 @@ export default function Prop7PrimePage() {
           <p className="mb-sm">
             <em>The dynamical complement.</em>{" "}
             <Link
-              href="/closed-loop/the-apparatus/section-3"
+              href="/closed-loop/the-apparatus/section-3/3.5-hawkes"
               className="text-oxblood hover:underline"
             >
               §3.5 (the somatic Hawkes instrument)
@@ -134,12 +134,12 @@ export default function Prop7PrimePage() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/libidinal-routing"
+              href="/closed-loop/v2-dynamics/libidinal-routing"
               className="text-oxblood hover:underline"
             >
               operate the libidinal-routing plate
             </Link>{" "}
-            (v1 lives, will be rebuilt) to watch the 4×4 mutual-
+            to watch the 4×4 mutual-
             information matrix of the four registers form across time
             — off-diagonals climbing from cream toward oxblood as the
             closure converges.
@@ -277,12 +277,12 @@ export default function Prop7PrimePage() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/libidinal-routing"
+              href="/closed-loop/v2-dynamics/libidinal-routing"
               className="text-oxblood hover:underline"
             >
               libidinal routing
             </Link>{" "}
-            (v1 lives, will be rebuilt)
+            
           </li>
         </ul>
       </section>

@@ -486,6 +486,15 @@ export default function CuratedArgumentPage() {
           </li>
           <li>
             <Link
+              href="/closed-loop/v2-dynamics"
+              className="text-oxblood hover:underline"
+            >
+              The dynamics
+            </Link>{" "}
+            — twelve interactive plates against the apparatus results
+          </li>
+          <li>
+            <Link
               href="/closed-loop/the-instruments"
               className="text-oxblood hover:underline"
             >

@@ -201,7 +201,7 @@ export default function Theorem9Page() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/intervention"
+              href="/closed-loop/v2-dynamics/intervention-asymmetry"
               className="text-oxblood hover:underline"
             >
               operate the intervention-asymmetry plate
@@ -351,12 +351,12 @@ export default function Theorem9Page() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/intervention"
+              href="/closed-loop/v2-dynamics/intervention-asymmetry"
               className="text-oxblood hover:underline"
             >
               intervention asymmetry (2×2)
             </Link>{" "}
-            (operates this theorem; v1 lives, will be rebuilt)
+            (operates this theorem)
           </li>
           <li>
             What follows:{" "}

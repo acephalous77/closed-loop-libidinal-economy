@@ -158,7 +158,7 @@ export default function Theorem1PrimePage() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/reclamation-trajectories"
+              href="/closed-loop/v2-dynamics/reclamation-trajectories"
               className="text-oxblood hover:underline"
             >
               observe the impossibility
@@ -263,12 +263,12 @@ export default function Theorem1PrimePage() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/reclamation-trajectories"
+              href="/closed-loop/v2-dynamics/reclamation-trajectories"
               className="text-oxblood hover:underline"
             >
               reclamation trajectories
             </Link>{" "}
-            (operates this theorem; v1 lives, will be rebuilt)
+            (operates this theorem)
           </li>
           <li>
             What follows:{" "}

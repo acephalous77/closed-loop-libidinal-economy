@@ -89,7 +89,7 @@ export default function Lemma1Page() {
             threshold approaches zero. The reader can watch this
             convergence happen at the{" "}
             <Link
-              href="/closed-loop/the-dynamics/foreclosure-clock"
+              href="/closed-loop/v2-dynamics/foreclosure-clock"
               className="text-oxblood hover:underline"
             >
               foreclosure-clock plate
@@ -216,7 +216,7 @@ export default function Lemma1Page() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/foreclosure-clock"
+              href="/closed-loop/v2-dynamics/foreclosure-clock"
               className="text-oxblood hover:underline"
             >
               foreclosure clock
@@ -262,22 +262,21 @@ export default function Lemma1Page() {
           </li>
         </ul>
         <p className="text-sm text-ink-50 italic mt-sm">
-          Cross-link targets that do not yet exist will 404 until
-          Phase 2 builds them. The schematic at{" "}
+          The schematic at{" "}
           <Link
-            href="/v2/schematic"
+            href="/closed-loop/the-architecture"
             className="text-oxblood hover:underline"
           >
-            /v2/schematic
+            /closed-loop/the-architecture
           </Link>{" "}
           and{" "}
           <Link
-            href="/closed-loop/the-dynamics/foreclosure-clock"
+            href="/closed-loop/v2-dynamics/foreclosure-clock"
             className="text-oxblood hover:underline"
           >
             the foreclosure-clock plate
           </Link>{" "}
-          (v1, will be rebuilt) are live.
+          are live.
         </p>
       </section>
 

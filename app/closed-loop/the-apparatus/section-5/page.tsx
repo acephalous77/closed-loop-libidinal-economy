@@ -215,7 +215,7 @@ export default function Section5Page() {
             <p className="mb-sm">
               The reader can{" "}
               <Link
-                href="/closed-loop/the-dynamics/intervention"
+                href="/closed-loop/v2-dynamics/intervention-asymmetry"
                 className="text-oxblood hover:underline"
               >
                 operate the intervention plate
@@ -684,12 +684,12 @@ export default function Section5Page() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/intervention"
+              href="/closed-loop/v2-dynamics/intervention-asymmetry"
               className="text-oxblood hover:underline"
             >
               intervention asymmetry (2×2)
             </Link>{" "}
-            (v1 lives, will be rebuilt)
+            
           </li>
         </ul>
       </section>

@@ -120,12 +120,12 @@ export default function Prop6Page() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/captured-resonance"
+              href="/closed-loop/v2-dynamics/captured-resonance"
               className="text-oxblood hover:underline"
             >
               operate the captured-resonance plate
             </Link>{" "}
-            (v1 lives, will be rebuilt) to vary{" "}
+            to vary{" "}
             <M>{String.raw`K_{bm}`}</M> and the frequency difference{" "}
             <M>{String.raw`|\omega_b - \omega_m|`}</M> and watch the
             phase-locking transition.
@@ -256,12 +256,12 @@ export default function Prop6Page() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/captured-resonance"
+              href="/closed-loop/v2-dynamics/captured-resonance"
               className="text-oxblood hover:underline"
             >
               captured resonance
             </Link>{" "}
-            (v1 lives, will be rebuilt)
+            
           </li>
         </ul>
       </section>

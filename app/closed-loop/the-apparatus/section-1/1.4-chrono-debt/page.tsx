@@ -105,7 +105,7 @@ export default function ChronoDebtPage() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/chrono-debt"
+              href="/closed-loop/v2-dynamics/chrono-debt-spectrum"
               className="text-oxblood hover:underline"
             >
               watch the spectrum form across scales
@@ -227,12 +227,12 @@ export default function ChronoDebtPage() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/chrono-debt"
+              href="/closed-loop/v2-dynamics/chrono-debt-spectrum"
               className="text-oxblood hover:underline"
             >
               chrono-debt spectrum
             </Link>{" "}
-            (operates this instrument; v1 lives, will be rebuilt)
+            (operates this instrument)
           </li>
           <li>
             Calibration:{" "}

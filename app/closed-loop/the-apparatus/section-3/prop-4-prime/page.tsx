@@ -121,13 +121,12 @@ export default function Prop4PrimePage() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/dividual-posterior"
+              href="/closed-loop/v2-dynamics/dividual-posterior"
               className="text-oxblood hover:underline"
             >
               operate the dividual-posterior plate
             </Link>{" "}
-            (planned, Phase 3) to see the posterior&apos;s variance
-            decay over time.
+            to see the posterior&apos;s variance decay over time.
           </p>
         </Middle>
 
@@ -255,12 +254,11 @@ export default function Prop4PrimePage() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/dividual-posterior"
+              href="/closed-loop/v2-dynamics/dividual-posterior"
               className="text-oxblood hover:underline"
             >
               dividual posterior contraction
-            </Link>{" "}
-            (planned, Phase 3)
+            </Link>
           </li>
           <li>
             Schematic part: the filtering posterior{" "}

@@ -142,12 +142,12 @@ export default function HawkesPage() {
           <p className="mb-sm">
             The reader can{" "}
             <Link
-              href="/closed-loop/the-dynamics/somatic-optimization"
+              href="/closed-loop/v2-dynamics/somatic-hawkes"
               className="text-oxblood hover:underline"
             >
               operate the somatic-Hawkes plate
             </Link>{" "}
-            (v1 lives, will be rebuilt) to see event rasters across
+            to see event rasters across
             the four registers with the intensity functions overlaid
             — events on one track raising intensity on the others
             via the coupling matrix.
@@ -242,12 +242,12 @@ export default function HawkesPage() {
           <li>
             Dynamics plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/somatic-optimization"
+              href="/closed-loop/v2-dynamics/somatic-hawkes"
               className="text-oxblood hover:underline"
             >
               somatic Hawkes
             </Link>{" "}
-            (v1 lives, will be rebuilt)
+            
           </li>
         </ul>
       </section>

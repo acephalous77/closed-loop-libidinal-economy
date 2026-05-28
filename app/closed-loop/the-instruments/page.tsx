@@ -43,8 +43,8 @@ const INSTRUMENTS: Instrument[] = [
     defHref: "/closed-loop/the-apparatus/section-0",
     defLabel: "§0.1 (P5)",
     calibrationAnchor: "",
-    plateHref: "/closed-loop/the-dynamics/surplus",
-    plateLive: true,
+    plateHref: "/closed-loop/v2-dynamics",
+    plateLive: false,
   },
   {
     name: "Chrono-debt spectrum",
@@ -54,7 +54,7 @@ const INSTRUMENTS: Instrument[] = [
     defHref: "/closed-loop/the-apparatus/section-1/1.4-chrono-debt",
     defLabel: "§1.4 Definition 1.1",
     calibrationAnchor: "/closed-loop/the-apparatus/section-12#hooks",
-    plateHref: "/closed-loop/the-dynamics/chrono-debt",
+    plateHref: "/closed-loop/v2-dynamics/chrono-debt-spectrum",
     plateLive: true,
   },
   {
@@ -65,8 +65,8 @@ const INSTRUMENTS: Instrument[] = [
     defHref: "/closed-loop/the-apparatus/section-3/prop-4-prime",
     defLabel: "§3.1 Proposition 4'",
     calibrationAnchor: "/closed-loop/the-apparatus/section-12#hooks",
-    plateHref: "/closed-loop/the-dynamics",
-    plateLive: false,
+    plateHref: "/closed-loop/v2-dynamics/dividual-posterior",
+    plateLive: true,
   },
   {
     name: "Metric superego",
@@ -76,7 +76,7 @@ const INSTRUMENTS: Instrument[] = [
     defHref: "/closed-loop/the-apparatus/section-3/prop-5-prime",
     defLabel: "§3.2 Proposition 5'",
     calibrationAnchor: "/closed-loop/the-apparatus/section-12#hooks",
-    plateHref: "/closed-loop/the-dynamics/metric-superego",
+    plateHref: "/closed-loop/v2-dynamics/metric-superego",
     plateLive: true,
   },
   {
@@ -87,7 +87,7 @@ const INSTRUMENTS: Instrument[] = [
     defHref: "/closed-loop/the-apparatus/section-3/prop-7-prime",
     defLabel: "§3.4 Proposition 7'",
     calibrationAnchor: "/closed-loop/the-apparatus/section-12#hooks",
-    plateHref: "/closed-loop/the-dynamics/libidinal-routing",
+    plateHref: "/closed-loop/v2-dynamics/libidinal-routing",
     plateLive: true,
   },
   {
@@ -98,7 +98,7 @@ const INSTRUMENTS: Instrument[] = [
     defHref: "/closed-loop/the-apparatus/section-3/3.5-hawkes",
     defLabel: "§3.5",
     calibrationAnchor: "/closed-loop/the-apparatus/section-12#hooks",
-    plateHref: "/closed-loop/the-dynamics/somatic-optimization",
+    plateHref: "/closed-loop/v2-dynamics/somatic-hawkes",
     plateLive: true,
   },
 ];

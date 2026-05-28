@@ -224,12 +224,11 @@ export default function ForeclosureClockPage() {
           <li>
             Companion plate:{" "}
             <Link
-              href="/closed-loop/the-dynamics/chrono-debt"
+              href="/closed-loop/v2-dynamics/chrono-debt-spectrum"
               className="text-oxblood hover:underline"
             >
               chrono-debt spectrum
-            </Link>{" "}
-            (v1, will be rebuilt against the new engine)
+            </Link>
           </li>
           <li>
             Next downstream:{" "}
