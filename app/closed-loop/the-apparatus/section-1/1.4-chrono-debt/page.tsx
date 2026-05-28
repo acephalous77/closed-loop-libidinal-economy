@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   description:
     "The chrono-debt spectrum — the foreclosed pause-time at every scale, measured against a pre-closure baseline. The framework's signature instrument for chronopolitical analysis.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function ChronoDebtPage() {

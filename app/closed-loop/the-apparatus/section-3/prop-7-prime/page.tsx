@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   description:
     "The four registers become dependently distributed under closed-loop joint observation. Explaining-away through the platform's observation channel. The formal content of Lyotard's libidinal economy claim.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Prop7PrimePage() {

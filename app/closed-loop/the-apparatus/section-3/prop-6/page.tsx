@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   description:
     "Somatic phase-locking under media coupling. Body rhythm phase-locks to platform delivery rhythm iff the coupling strength exceeds the frequency difference. Captured resonance.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Prop6Page() {

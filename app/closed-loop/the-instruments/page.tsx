@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   description:
     "The framework's six measurable instruments. Each has a formal definition in the apparatus, an empirical-calibration protocol in §12, and a dynamics plate.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 interface Instrument {

@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates Theorem 1': estimator MSE bounded below by the framework's lower bound. Almost all trajectories cluster above; recovery is operationally infeasible.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function ReclamationTrajectoriesPage() {

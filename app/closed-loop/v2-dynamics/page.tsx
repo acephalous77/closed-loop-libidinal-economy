@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description:
     "Twelve interactive plates. Each operates an apparatus result against a parameter so the reader sees the mechanism behave. The Machine surface of the v2 closed-loop rebuild.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 interface Plate {

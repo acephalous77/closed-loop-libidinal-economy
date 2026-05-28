@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   description:
     "The engagement-event process modeled as a multi-mark Hawkes process with cross-register coupling. The dynamical complement to libidinal routing's static explaining-away argument.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function HawkesPage() {

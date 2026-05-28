@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   description:
     "The conditional autocovariance the framework names as interiority has unbounded sample complexity under closed-loop sampling. The framework's hardest claim.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Theorem1PrimePage() {

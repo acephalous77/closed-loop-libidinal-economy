@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   description:
     "The stretched-exponential survival bound. Interpolates between Lemma 1's polynomial and exponential regimes. Empirically reachable for Weibull-shape engagement-interval tails.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Theorem11Page() {

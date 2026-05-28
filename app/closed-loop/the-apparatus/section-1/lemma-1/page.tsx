@@ -34,7 +34,6 @@ export const metadata: Metadata = {
   description:
     "The closed loop drives the survival function of inter-stimulus intervals at the reflective threshold to operational zero. The pause is uninstantiated. Foreclosure, formally.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false }, // v2 work-in-progress; un-noindex before launch
 };
 
 export default function Lemma1Page() {

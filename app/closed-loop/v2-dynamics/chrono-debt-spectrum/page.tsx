@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   description:
     "Operates Definition 1.1: the foreclosed pause-time at every scale, measured against the pre-closure baseline. The framework's signature instrument.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function ChronoDebtSpectrumPage() {

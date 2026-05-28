@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   description:
     "The user's behavioral distribution converges to the platform-induced target under Fisher–Rao gradient flow. Capture without coercion. The dynamical form of what Adorno's metric of inner damage gestures at.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Prop5PrimePage() {

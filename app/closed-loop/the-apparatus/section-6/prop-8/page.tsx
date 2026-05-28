@@ -27,7 +27,6 @@ export const metadata: Metadata = {
   description:
     "The cohort gradient. The user's capacity for resistance varies systematically with developmental-stage-at-introduction to the converged platform regime. The framework's first refutable empirical commitment.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Prop8Page() {

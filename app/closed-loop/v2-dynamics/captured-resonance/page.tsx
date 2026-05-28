@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates Proposition 6: Kuramoto entrainment under media coupling. Phase-locking iff K_bm > |ω_b − ω_m|.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function CapturedResonancePage() {

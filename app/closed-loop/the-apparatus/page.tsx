@@ -19,7 +19,6 @@ export const metadata: Metadata = {
   description:
     "The formal apparatus. 13 sections, 15 formal results, 6 measurable instruments, 3 intervention modes. The companion to the framework's prose.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false }, // v2 work-in-progress
 };
 
 interface Section {

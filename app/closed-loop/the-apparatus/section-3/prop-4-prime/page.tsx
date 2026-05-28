@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   description:
     "The platform's filtering posterior contracts at the parametric rate. The user-state becomes an estimable object under the platform's filtering apparatus. The structural fact behind Deleuze's dividual.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Prop4PrimePage() {

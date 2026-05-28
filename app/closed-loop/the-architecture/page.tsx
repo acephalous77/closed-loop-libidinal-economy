@@ -20,7 +20,6 @@ export const metadata: Metadata = {
   description:
     "The closed-loop architecture as an interactive schematic. Hover or keyboard-focus any part to see its plain-language caption; click to enter that part's apparatus treatment.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function TheArchitecturePage() {

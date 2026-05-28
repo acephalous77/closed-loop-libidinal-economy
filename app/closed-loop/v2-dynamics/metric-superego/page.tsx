@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates Proposition 5': ν_u(t) converging to π_R* under Fisher–Rao gradient flow. D_KL as strict Lyapunov function.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function MetricSuperegoPage() {

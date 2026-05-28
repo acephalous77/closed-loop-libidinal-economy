@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   description:
     "Credits, typography, color, the framework as design instruction, the refusals with their apparatus citations, reproducibility.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 interface Refusal {

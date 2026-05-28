@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   description:
     "The single-user apparatus extended to networked populations. Mean-field convergence, networked foreclosure, the engagement cascade theorem, the percolation threshold, the cohort graph-amplification theorem.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Section8Page() {

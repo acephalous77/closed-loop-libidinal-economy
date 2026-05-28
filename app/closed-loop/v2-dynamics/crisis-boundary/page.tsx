@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description:
     "Operates Theorem 12: four codimension-1 bifurcation regimes at the contractivity boundary kappa = L_R L_D = 1.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function CrisisBoundaryPage() {

@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description:
     "The fifteen formal results inventoried. The framework's three load-bearing claims. Open research-frontier questions. The framework as one sentence.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Section11Page() {

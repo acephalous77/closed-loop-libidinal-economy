@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates Proposition 8: D_KL(ν^init(τ_exp) || π_R*) ≤ D_KL(ν^pre || π_R*) · e^(−2K τ_exp). The cohort gradient as developmental Fisher–Rao convergence.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function CohortGradientPage() {

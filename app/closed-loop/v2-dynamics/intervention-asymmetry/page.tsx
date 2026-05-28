@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates Theorem 9: the 2×2 site×source intervention taxonomy with per-cell sensitivity. Mode A O(1) vs individual-scale Modes B/C O(1/N).",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function InterventionAsymmetryPage() {

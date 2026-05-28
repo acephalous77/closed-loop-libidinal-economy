@@ -15,7 +15,6 @@ export const metadata: Metadata = {
   description:
     "The framework's defined terms. Each entry links to the apparatus section that defines it.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 interface Term {

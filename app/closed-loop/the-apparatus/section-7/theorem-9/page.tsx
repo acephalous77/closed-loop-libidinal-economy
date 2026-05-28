@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   description:
     "The unified sensitivity formula. The performative do-calculus. The closure-amplification factor and the N-fold asymmetry between Mode A and individual-scale Modes B/C.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Theorem9Page() {

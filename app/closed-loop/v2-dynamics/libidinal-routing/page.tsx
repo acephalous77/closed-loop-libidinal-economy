@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates Proposition 7': the four registers become dependently distributed under closed-loop joint observation. Off-diagonal mutual information grows from zero.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function LibidinalRoutingPage() {

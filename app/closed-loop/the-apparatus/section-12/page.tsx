@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Per-result calibration hooks. What each formal result predicts, how it would be measured, what would confirm or refute it. Three priority studies. The reflexive measurement problem.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 interface Hook {

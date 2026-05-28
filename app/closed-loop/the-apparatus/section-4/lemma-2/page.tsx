@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   description:
     "The technical scaffold for Mode A. Parametric continuity of the regularized performative stable point under the IFT, supplying the continuous path Proposition 1' applies the IVT to.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Lemma2Page() {

@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description:
     "The prose entry point to the closed-loop libidinal economy framework. Eight load-bearing moves cross-linking to the formal apparatus.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function CuratedArgumentPage() {

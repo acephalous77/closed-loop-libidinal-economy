@@ -29,7 +29,6 @@ export const metadata: Metadata = {
   description:
     "The framework's central political content. Three intervention modes — A (reward), B (response), C (observation) — in a 2×2 causal taxonomy. The Mode A scaffold's five features.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Section5Page() {

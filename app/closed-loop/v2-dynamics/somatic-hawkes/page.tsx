@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   description:
     "Operates s3.5: multi-mark Hawkes intensity across the four registers. Self-excitation + cross-register coupling. The dynamical form of libidinal routing.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function SomaticHawkesPage() {

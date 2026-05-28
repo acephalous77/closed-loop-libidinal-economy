@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   description:
     "Operates Lemma 1: watch the survival function S(τ; θ_t) collapse at the reflective threshold θ_ref under closed-loop convergence. The shaded region is chrono-debt.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function ForeclosureClockPage() {

@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description:
     "Operates Proposition 4': the platform's filtering posterior contracts on the user state at the parametric rate sqrt(d log t / t).",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function DividualPosteriorPage() {

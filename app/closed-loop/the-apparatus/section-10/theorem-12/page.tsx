@@ -28,7 +28,6 @@ export const metadata: Metadata = {
   description:
     "Four bifurcation regimes at the contractivity boundary κ = 1. Saddle-node, pitchfork, period-doubling, Neimark–Sacker. The framework's vocabulary for platforms' own structural crises.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Theorem12Page() {

@@ -21,7 +21,6 @@ export const metadata: Metadata = {
   description:
     "Operates Theorem 10 + cascade + percolation. Networked engagement dynamics with the rho(W) rho(alpha) integral_k = 1 threshold.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function NetworkCouplingPage() {

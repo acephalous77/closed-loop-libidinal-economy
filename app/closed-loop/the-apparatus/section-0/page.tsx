@@ -30,7 +30,6 @@ export const metadata: Metadata = {
   description:
     "The performative setup. The closure as fixed point of Φ. The three axiom groups: regularity, user-side responsiveness, platform-side optimizing structure. The notation.",
   alternates: { canonical: PATH },
-  robots: { index: false, follow: false },
 };
 
 export default function Section0Page() {
