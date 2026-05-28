@@ -83,6 +83,22 @@ export default function Theorem1PrimePage() {
           </p>
 
           <p className="mb-sm">
+            The impossibility Theorem 1&apos; establishes is not of
+            the kind older critical traditions had imagined. It is not
+            metaphysical (the interior does not exist); it is not
+            transcendental (the interior cannot be cognized); it is
+            not computational (no algorithm can recover it). It is a
+            sample-complexity divergence: under the data the closed
+            loop generates, the variance of any estimator of the
+            conditional autocovariance{" "}
+            <M>{String.raw`I_P(\tau)`}</M> diverges as the closure
+            tightens. The interior persists at the user-state level.
+            What collapses is the observational ground on which any
+            structural project of demonstrating its preservation could
+            stand.
+          </p>
+
+          <p className="mb-sm">
             The theorem establishes three forms of the impossibility.
           </p>
 
@@ -153,6 +169,26 @@ export default function Theorem1PrimePage() {
             </Link>{" "}
             or from witnessing forms of practice the closure does not
             sample.
+          </p>
+
+          <p className="mb-sm">
+            The older critical traditions named something Theorem
+            1&apos; formalizes the structural inaccessibility of.
+            Adorno called it the metric of inner damage. Marcuse
+            called it the dimension that could not be reduced to one.
+            Lacan named the subject of the unconscious. Lyotard called
+            it the libidinal economy. Each names a property of the
+            experiencing subject — a quantity, structure, or operation
+            — and each was developed in a media regime in which the
+            property remained inferable through clinical interview,
+            dream analysis, or depth psychology. Theorem 1&apos;
+            specifies what the closed loop changes. The property
+            persists at the level of <M>{String.raw`u_t`}</M>, but the
+            observational regime in which it could be inferred has
+            been displaced. The frame that produced the older
+            traditions&apos; evidence was a frame in which time at
+            the reflective threshold was operationally available. The
+            closure has removed that frame.
           </p>
 
           <p className="mb-sm">

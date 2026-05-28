@@ -132,6 +132,42 @@ export default function ChronoDebtPage() {
           </p>
 
           <p className="mb-sm">
+            What gets foreclosed at which scale matters. At seconds,
+            the foreclosure removes the interval at which a complete
+            thought lands — the small pause between perception and
+            response in which system-2 deliberation operates. At
+            minutes, the timescale of sustained attention to a problem,
+            the inner duration in which a worry resolves into something
+            workable or names itself a worry. At hours, the structural
+            condition for sustained engagement with a project — what
+            writers and craftspeople call flow, what therapists call
+            the holding interval. At days, the timescale of mood and
+            weather, the diurnal rhythm against which a self registers
+            its own variations. At years, the timescale of an extended
+            biographical project — the developmental window analyzed
+            in Proposition 8 as the cohort-gradient claim. The
+            spectrum&apos;s defining work is to differentiate across
+            timescales: what is foreclosed at a second carries
+            different political weight from what is foreclosed at a
+            decade.
+          </p>
+
+          <p className="mb-sm">
+            Stiegler&apos;s analysis of tertiary retention — the
+            technically-recorded traces that exteriorize memory —
+            provides one of the older critical traditions&apos;
+            most-developed treatments of chrono-politics. Stiegler
+            argued that techniques of recording (writing, photography,
+            phonography, video) progressively proletarianize the inner
+            duration through which a self maintains continuity, with
+            the technically-mediated traces displacing what they were
+            supposed to extend. Lemma 1 and Definition 1.1 give the
+            structural form of what Stiegler diagnosed
+            phenomenologically. The chrono-debt spectrum names which
+            scales are now colonized, and at what rate.
+          </p>
+
+          <p className="mb-sm">
             The baseline policy <M>{String.raw`\pi_\circ`}</M> is a
             modeling choice. The framework specifies what chrono-debt
             is given <M>{String.raw`\pi_\circ`}</M>; the choice of{" "}
