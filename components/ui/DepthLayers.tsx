@@ -108,3 +108,28 @@ function FormalBody({
 export function ProofEnd() {
   return <p className="text-right mt-xs mb-0">∎</p>;
 }
+
+/**
+ * Plain-language reading of the equation directly above it. Always
+ * visible — lets a reader who can't parse the LaTeX (or who, on a narrow
+ * screen, can't see a wide formula in full) still follow the argument.
+ *
+ * Sits between the symbol-level glosses (MathTip tooltips on individual
+ * symbols) and the conceptual Middle layer: it narrates the specific
+ * equation, in words, one step at a time.
+ *
+ * Usage (inside a Formal block, right after an <MBlock>):
+ *   <MBlock>{String.raw`...`}</MBlock>
+ *   <Reads>Any estimator's error is at least … — and foreclosure drives
+ *   the denominator to zero.</Reads>
+ */
+export function Reads({ children }: { children: ReactNode }) {
+  return (
+    <p className="reads-line border-l-2 border-paper-85 pl-sm my-sm text-sm text-ink-70 leading-snug">
+      <span className="font-mono text-xs uppercase tracking-wider text-ink-50 mr-xs">
+        in words
+      </span>
+      {children}
+    </p>
+  );
+}
