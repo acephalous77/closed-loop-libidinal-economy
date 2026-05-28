@@ -194,7 +194,7 @@ export function ClosedLoopSchematic() {
         onBlur={() => setFocusedId(null)}
         onClick={() => handleActivate(id)}
         onKeyDown={(e) => handleKeyDown(id, e)}
-        style={{ cursor: "pointer", outline: "none" }}
+        style={{ cursor: "pointer" }}
         data-active={isActive || undefined}
       >
         {children}
@@ -215,11 +215,19 @@ export function ClosedLoopSchematic() {
         .schematic-svg [role="button"][data-active] path {
           stroke: var(--color-oxblood);
         }
+        /* Visible keyboard focus ring. SVG outline rendering varies across
+           browsers; thicken the part's stroke and add an outline for the
+           widest cross-browser support. */
+        .schematic-svg [role="button"] { outline: none; }
         .schematic-svg [role="button"]:focus-visible {
-          /* Visible keyboard focus ring on the part */
+          outline: 2px solid var(--color-oxblood);
+          outline-offset: 2px;
         }
-        .schematic-svg [role="button"]:focus-visible::after {
-          content: "";
+        .schematic-svg [role="button"]:focus-visible rect,
+        .schematic-svg [role="button"]:focus-visible circle,
+        .schematic-svg [role="button"]:focus-visible path {
+          stroke: var(--color-oxblood);
+          stroke-width: 2;
         }
       `}</style>
 

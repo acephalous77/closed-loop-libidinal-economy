@@ -208,6 +208,7 @@ export function CrisisBoundary() {
           <button
             key={r.id}
             type="button"
+            aria-pressed={regime === r.id}
             onClick={() => setRegime(r.id)}
             className={`font-mono text-xs uppercase tracking-wider px-sm py-xs border ${
               regime === r.id
