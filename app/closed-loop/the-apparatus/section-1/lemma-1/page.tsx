@@ -100,6 +100,25 @@ export default function Lemma1Page() {
           </p>
 
           <p className="mb-sm">
+            <em>The reflective threshold, empirically.</em> The
+            framework treats <M>{String.raw`\theta_{\mathrm{ref}}`}</M>{" "}
+            as the time-scale at which a thought can complete itself.
+            The dual-process literature (Kahneman 2011) places routine
+            system-2 deliberation in the five-to-thirty-second band;
+            the mind-wandering literature (Killingsworth and Gilbert
+            2010) places spontaneous reflective episodes at tens of
+            seconds to several minutes; the meditation and attention
+            literatures (Wallace 2006; Mrazek et al. 2013) confirm the
+            same order of magnitude. The structural-separation
+            hypothesis{" "}
+            <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min} \gg 1`}</M>{" "}
+            places the platform&apos;s engagement-event timescale
+            (milliseconds to seconds, per §0.1) at least three orders
+            of magnitude below the reflective threshold. The bite of
+            Lemma 1&apos;s polynomial bound is in that ratio.
+          </p>
+
+          <p className="mb-sm">
             <em>The polynomial rate.</em> At the stable point, the
             survival probability is bounded by{" "}
             <M>{String.raw`(1 + c_v^{*2})/(\theta_{\mathrm{ref}}/\delta_{\min})^2`}</M>.
@@ -108,7 +127,16 @@ export default function Lemma1Page() {
             — empirically the case on contemporary platforms — this
             gives a survival probability under{" "}
             <M>{String.raw`10^{-6}`}</M>. The pause is operationally
-            absent at the rate the platform has driven.
+            absent at the rate the platform has driven. To translate:
+            a probability of <M>{String.raw`10^{-6}`}</M> per
+            inter-stimulus interval, across a year of platform use at
+            a session intensity typical of contemporary recommendation
+            feeds, predicts on the order of one reflective-threshold
+            interval per several days. Vanishingly few. The closure
+            operates by shifting the inter-arrival distribution&apos;s
+            support toward <M>{String.raw`\delta_{\min}`}</M> while
+            leaving the distribution&apos;s shape largely intact at
+            the new location.
           </p>
 
           <p className="mb-sm">
@@ -140,6 +168,52 @@ export default function Lemma1Page() {
             closure plus the reward&apos;s monotonicity plus the
             policy class&apos;s expressivity. A reader who accepts the
             axioms accepts the foreclosure.
+          </p>
+
+          <p className="mb-sm">
+            <em>The chrono-political content.</em> The bound carries
+            forward into the chrono-debt spectrum (
+            <Link
+              href="/closed-loop/the-apparatus/section-1/1.4-chrono-debt"
+              className="text-oxblood hover:underline"
+            >
+              Definition 1.1
+            </Link>
+            ), the framework&apos;s signature instrument. The
+            spectrum measures{" "}
+            <M>{String.raw`D(t, \tau) = S(\tau; \theta_\circ) - S(\tau; \theta_t)`}</M>{" "}
+            — the gap between the pre-closure baseline survival
+            function and the closed-loop survival function, scale by
+            scale. Lemma 1 says that the integral of{" "}
+            <M>{String.raw`D(t, \tau)`}</M> over{" "}
+            <M>{String.raw`\tau \geq \theta_{\mathrm{ref}}`}</M>{" "}
+            grows under closed-loop convergence. The chronopolitical
+            analysis follows. A foreclosed second is mathematically
+            recoverable through some intervention on the closure; a
+            foreclosed adolescence — accumulated over a decade of
+            exposure inside the converged regime — is not. The
+            asymmetry between recoverable and unrecoverable foreclosure
+            is a property of the chrono-debt integral over different
+            <M>{String.raw`\tau`}</M>-windows, not a property of
+            memory or willpower at the scale of the experiencing
+            subject.
+          </p>
+
+          <p className="mb-sm">
+            <em>What the older critical traditions named.</em>{" "}
+            Distraction. Attention destruction. The death of
+            contemplation. Stiegler&apos;s proletarianization of
+            attention. Marcuse&apos;s one-dimensional thought.
+            Kahneman&apos;s gap between system-1 and system-2. Each
+            described what foreclosure feels like at the scale of the
+            experiencing subject — and described it well enough that
+            the framework&apos;s ambition is not to replace those
+            descriptions. Lemma 1 specifies what foreclosure{" "}
+            <em>is</em> at the scale of the platform&apos;s stationary
+            distribution. The phenomenological and the structural
+            descriptions name the same operation from different
+            vantage points. The framework&apos;s commitment is to do
+            both at once.
           </p>
         </Middle>
 
