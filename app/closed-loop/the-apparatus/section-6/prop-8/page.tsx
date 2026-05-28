@@ -17,6 +17,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -214,6 +215,16 @@ export default function Prop8Page() {
           <MBlock>
             {String.raw`D_{KL}(\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}}) \,\|\, \pi_{\hat R}^*) \;\leq\; D_{KL}(\nu_u^{\mathrm{pre}} \,\|\, \pi_{\hat R}^*) \cdot e^{-2 K \tau_{\mathrm{exp}}}.`}
           </MBlock>
+          <Reads>
+            A user&apos;s distance from the platform target when the
+            analysis begins is at most their pre-platform distance,
+            shrunk by an exponential factor in how long they developed
+            inside the converged regime. The exponent is set by
+            exposure duration <M>{String.raw`\tau_{\mathrm{exp}}`}</M>:
+            a decade of formative exposure does not reduce the
+            distance, it nearly erases it. That is the cohort gradient
+            in one line.
+          </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
             Proof — three steps
@@ -226,6 +237,12 @@ export default function Prop8Page() {
           <MBlock>
             {String.raw`\dot \nu_u(t) = -\beta_u \nabla_g D_{KL}(\nu_u \,\|\, \pi_{\hat R}^*).`}
           </MBlock>
+          <Reads>
+            The same Fisher–Rao descent as the metric superego (Prop
+            5&apos;), now read over developmental time: across the
+            formative years the user&apos;s distribution slides
+            steadily toward the platform target.
+          </Reads>
           <p className="mb-sm text-ink-90">
             By Proposition 5&apos;/the LaSalle argument,{" "}
             <M>{String.raw`D_{KL}(\nu_u(t) \| \pi_{\hat R}^*)`}</M> is
@@ -240,6 +257,14 @@ export default function Prop8Page() {
           <MBlock>
             {String.raw`\frac{d}{dt} D_{KL}(\nu_u(t) \,\|\, \pi_{\hat R}^*) = -\beta_u \|\nabla_g D_{KL}\|_g^2 = -2 \beta_u \cdot D_{KL} \cdot (1 + O(D_{KL})),`}
           </MBlock>
+          <Reads>
+            Near the target the gap&apos;s rate of decrease becomes
+            proportional to the gap itself — the defining signature of
+            exponential decay. The proportionality constant is{" "}
+            <M>{String.raw`2\beta_u`}</M>; the factor of 2 is
+            geometric, from the KL Hessian being twice the Fisher
+            information at the minimum.
+          </Reads>
           <p className="mb-sm text-ink-90">
             where the factor of 2 comes from the relation between{" "}
             <M>{String.raw`\|\nabla_g D_{KL}\|^2`}</M> and{" "}
@@ -263,6 +288,15 @@ export default function Prop8Page() {
           <MBlock>
             {String.raw`D_{KL}(\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}})) = D_{KL}(\nu_u^{\mathrm{pre}}) \cdot e^{-2 K \tau_{\mathrm{exp}}} + o(e^{-2K\tau_{\mathrm{exp}}}).`}
           </MBlock>
+          <Reads>
+            Rename the plasticity rate as <M>{String.raw`K`}</M> and
+            the elapsed time as developmental exposure{" "}
+            <M>{String.raw`\tau_{\mathrm{exp}}`}</M>, and the
+            cohort-gradient law falls out: exposure duration sets the
+            exponent. The proposition states it as an inequality
+            rather than an equality, since that is the claim that has
+            to hold for the empirical prediction to stand.
+          </Reads>
           <p className="mb-sm text-ink-90">
             The substantive bound is the inequality.
           </p>

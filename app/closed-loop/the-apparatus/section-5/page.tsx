@@ -19,6 +19,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -496,6 +497,16 @@ export default function Section5Page() {
             <MBlock>
               {String.raw`\frac{d}{dt} D_{KL}(\nu_u(t) \,\|\, \pi_{\hat R}^*) = -h_0(\beta_u) + r(L_m),`}
             </MBlock>
+            <Reads>
+              Two forces act on the user&apos;s distance from the
+              platform target: the closure pulls it down at rate{" "}
+              <M>{String.raw`h_0(\beta_u)`}</M>, and the user&apos;s
+              artisanal practice <M>{String.raw`L_m`}</M> pushes it
+              back up at rate <M>{String.raw`r(L_m)`}</M>. Mode B is
+              the second term — the disciplined refusal, the curated
+              feed. The gap survives only while the practice keeps
+              pace with the pull.
+            </Reads>
             <p className="mb-sm">
               <em>where <M>{String.raw`h_0, r`}</M> are continuous
               strictly increasing with{" "}
@@ -510,6 +521,16 @@ export default function Section5Page() {
             <MBlock>
               {String.raw`D_{KL}(\nu_u(t) \,\|\, \pi_{\hat R}^*) \geq D_{KL}(\nu_u(0) \,\|\, \pi_{\hat R}^*) =: \gamma > 0 \quad \forall t.`}
             </MBlock>
+            <Reads>
+              If the practice is strong enough — at least the
+              break-even level{" "}
+              <M>{String.raw`L_m^*`}</M> — the user holds a permanent
+              gap <M>{String.raw`\gamma`}</M> from the platform target,
+              for all time. The disciplined user really does keep a
+              distance. The next claim is the catch: this gap is the
+              user&apos;s alone and does nothing to the foreclosure
+              the closure imposes on everyone.
+            </Reads>
 
             <p className="mb-sm">
               <strong>(ii) Foreclosure invariance.</strong>{" "}
