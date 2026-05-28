@@ -92,12 +92,12 @@ const SECTIONS: Section[] = [
       {
         name: "Proposition 6 (somatic phase-locking, Kuramoto)",
         href: "/closed-loop/the-apparatus/section-3/prop-6",
-        status: "not-started",
+        status: "live",
       },
       {
         name: "Proposition 7' (libidinal routing)",
         href: "/closed-loop/the-apparatus/section-3/prop-7-prime",
-        status: "not-started",
+        status: "live",
       },
     ],
   },
