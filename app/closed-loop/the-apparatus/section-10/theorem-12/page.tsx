@@ -202,6 +202,29 @@ export default function Theorem12Page() {
           </p>
 
           <p className="mb-sm">
+            <em>Platform-history reading.</em> The framework&apos;s
+            bifurcation classification offers a vocabulary for events
+            the industry typically describes as engineering anomalies,
+            &ldquo;algorithmic shifts,&rdquo; or content-policy
+            upheavals. Twitter&apos;s recurrent algorithmic crises in
+            2014–2016 — the move from chronological to algorithmic
+            timeline, the shadow-banning controversies, the
+            platform&apos;s stated identity instability — plausibly
+            trace a saddle-node trajectory. The viral content rhythms
+            on TikTok&apos;s For You Page (content categories rising
+            to platform dominance and decaying in characteristic
+            cycles) exhibit the rotational dynamics Neimark–Sacker
+            classifies. Facebook&apos;s repeated News Feed pivots
+            between video-priority and friends-and-family-priority
+            read as period-doubling responses to overshooting
+            engagement targets. The framework does not claim that
+            these specific events are these specific bifurcations —
+            empirical work would have to demonstrate that — but
+            supplies the formal vocabulary against which those events
+            could be classified.
+          </p>
+
+          <p className="mb-sm">
             The reader can{" "}
             <Link
               href="/closed-loop/v2-dynamics/crisis-boundary"

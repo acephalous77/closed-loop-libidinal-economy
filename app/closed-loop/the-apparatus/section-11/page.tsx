@@ -118,7 +118,11 @@ export default function Section11Page() {
             <p className="mb-sm">
               <strong>Claim A — Foreclosure of reflective time.</strong>{" "}
               The platform&apos;s optimization drives the probability
-              of long no-stimulus windows to operationally zero.{" "}
+              of long no-stimulus windows to operationally zero. What
+              Stiegler called the proletarianization of attention and
+              what Kahneman documented as the gap between system-1 and
+              system-2 are phenomenological registers of the same
+              structural foreclosure.{" "}
               <em>Formal counterpart:</em>{" "}
               <Link href="/closed-loop/the-apparatus/section-1/lemma-1" className="text-oxblood hover:underline">
                 Lemma 1
@@ -134,7 +138,13 @@ export default function Section11Page() {
               <strong>Claim B — Reclamation is operationally
               incoherent.</strong> The recovery of pre-platform
               interiority through measurement of the closed loop&apos;s
-              dynamics has unbounded sample complexity.{" "}
+              dynamics has unbounded sample complexity. What Adorno,
+              Marcuse, and Lacan named with words like the metric of
+              inner damage, one-dimensional thought, and the subject
+              of the unconscious persists at the user-state level;
+              what becomes inaccessible is the observational regime
+              in which their preservation could be empirically
+              demonstrated.{" "}
               <em>Formal counterpart:</em>{" "}
               <Link href="/closed-loop/the-apparatus/section-2/theorem-1-prime" className="text-oxblood hover:underline">
                 Theorem 1&apos;
@@ -146,7 +156,11 @@ export default function Section11Page() {
               <strong>Claim C — Intervention asymmetry.</strong>{" "}
               Architectural interventions modify the stable point with{" "}
               <M>{String.raw`O(1)`}</M> propagation; individual
-              practice doesn&apos;t propagate at the population level.{" "}
+              practice doesn&apos;t propagate at the population level.
+              The framework&apos;s hardest political claim follows:
+              substituting individual-scale Modes B or C for Mode A
+              is the analytical error that converts political work
+              into its symptom.{" "}
               <em>Formal counterpart:</em>{" "}
               <Link href="/closed-loop/the-apparatus/section-7/theorem-9" className="text-oxblood hover:underline">
                 Theorem 9

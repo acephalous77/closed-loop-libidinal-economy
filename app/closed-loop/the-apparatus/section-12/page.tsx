@@ -305,6 +305,33 @@ export default function Section12Page() {
           </Caption>
           <Middle>
             <p className="mb-sm">
+              The reflexive measurement problem is not the older
+              epistemological problem of self-knowledge. Heraclitus
+              and the introspective tradition observed that the eye
+              cannot see itself directly; psychoanalysis observed
+              that the conscious mind cannot reliably report on its
+              unconscious; Heisenberg observed that measurement
+              perturbs the measured. These are all observations
+              about the geometry of self-reference. The reflexive
+              measurement problem the framework names is something
+              else: a specific structural prediction about what
+              closed-loop optimization does to the empirical
+              apparatus through which a foreclosed cohort would try
+              to test the foreclosure claim. The framework predicts
+              that the apparatus — self-report, attentional
+              autocorrelation, deliberative reflection — operates at
+              the time-scales{" "}
+              <Link
+                href="/closed-loop/the-apparatus/section-1/lemma-1"
+                className="text-oxblood hover:underline"
+              >
+                Lemma 1
+              </Link>{" "}
+              has driven to operational zero. The cohort whose
+              foreclosure the framework predicts cannot use the
+              older apparatus to test the prediction.
+            </p>
+            <p className="mb-sm">
               Three concrete consequences:
             </p>
             <ol className="list-decimal pl-md space-y-sm mb-sm">
