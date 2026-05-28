@@ -195,14 +195,16 @@ const SECTIONS: Section[] = [
     no: "11",
     title: "Synthesis",
     subtitle: "What the apparatus delivers; what it does not yet deliver",
-    status: "not-started",
+    status: "live",
+    href: "/closed-loop/the-apparatus/section-11",
   },
   {
     no: "12",
     title: "Empirical calibration",
     subtitle:
       "Per-result calibration hooks; the reflexive measurement problem",
-    status: "not-started",
+    status: "live",
+    href: "/closed-loop/the-apparatus/section-12",
   },
 ];
 
