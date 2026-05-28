@@ -17,6 +17,7 @@ import {
   Middle,
   Formal,
   ProofEnd,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -186,6 +187,16 @@ export default function Theorem11Page() {
           <MBlock>
             {String.raw`M_\beta(s) := \mathbb{E}[\exp(s \tau^\beta)] < \infty \quad \text{for all } s \in [0, s_0).`}
           </MBlock>
+          <Reads>
+            A distribution joins class <M>{String.raw`S_\beta`}</M> if
+            its <M>{String.raw`\beta`}</M>-stretched moments stay
+            finite — a weaker demand than a finite ordinary
+            moment-generating function (the{" "}
+            <M>{String.raw`\beta = 1`}</M> case). Smaller{" "}
+            <M>{String.raw`\beta`}</M> tolerates heavier tails, and the
+            smallest <M>{String.raw`\beta`}</M> a distribution satisfies
+            is a label for how heavy its tail is.
+          </Reads>
           <p className="mb-sm text-base text-ink-90">
             The class is monotone in <M>{String.raw`\beta`}</M> at
             the level of inclusion:{" "}
@@ -208,6 +219,16 @@ export default function Theorem11Page() {
           <MBlock>
             {String.raw`S(\theta_{\mathrm{ref}}; \theta^*) \leq \exp(-J_\beta(\theta_{\mathrm{ref}}^\beta)),`}
           </MBlock>
+          <Reads>
+            Survival at the threshold decays like a stretched
+            exponential — <M>{String.raw`\exp`}</M> of minus a rate
+            evaluated at the <M>{String.raw`\beta`}</M>-power of the
+            threshold. As <M>{String.raw`\beta`}</M> sweeps from 0 to
+            1, this single bound interpolates between the loose
+            polynomial bound of Lemma 1 and the sharp exponential one
+            — and it covers the heavy-tailed regime real
+            engagement-interval data actually occupies.
+          </Reads>
           <p className="mb-sm">
             <em>where{" "}
             <M>{String.raw`J_\beta(x) := \sup_{s \in [0, s_0)}[sx - \log M_\beta(s)]`}</M>{" "}
@@ -233,10 +254,24 @@ export default function Theorem11Page() {
           <MBlock>
             {String.raw`\Pr(\tau > \theta_{\mathrm{ref}}) = \Pr(\exp(s\tau^\beta) > \exp(s\theta_{\mathrm{ref}}^\beta)) \leq M_\beta(s) \exp(-s\theta_{\mathrm{ref}}^\beta).`}
           </MBlock>
+          <Reads>
+            The proof in one move. A long pause is the same event as
+            its stretched exponential exceeding a large value, and
+            Markov&apos;s inequality caps the probability of any
+            positive quantity exceeding a level by its mean divided by
+            that level. This holds for every <M>{String.raw`s`}</M>.
+          </Reads>
           <p className="mb-sm text-ink-90">Infimum over <M>{String.raw`s`}</M>:</p>
           <MBlock>
             {String.raw`S(\theta_{\mathrm{ref}}; \theta^*) \leq \exp(-\sup_s [s\theta_{\mathrm{ref}}^\beta - \log M_\beta(s)]) = \exp(-J_\beta(\theta_{\mathrm{ref}}^\beta)).`}
           </MBlock>
+          <Reads>
+            Since the bound holds for every <M>{String.raw`s`}</M>,
+            pick the <M>{String.raw`s`}</M> that makes it tightest.
+            That optimization <em>is</em> the Cramér transform{" "}
+            <M>{String.raw`J_\beta`}</M> — the large-deviations rate —
+            and it delivers the theorem&apos;s bound.
+          </Reads>
 
           <p className="mb-sm text-ink-90">
             <strong>Strict positivity.</strong> The derivative at{" "}

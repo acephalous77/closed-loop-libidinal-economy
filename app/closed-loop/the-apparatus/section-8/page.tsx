@@ -18,6 +18,7 @@ import {
   Caption,
   Middle,
   Formal,
+  Reads,
 } from "@/components/ui/DepthLayers";
 import { MBlock, M } from "@/components/ui/Math";
 
@@ -120,6 +121,15 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`\lambda^{i,k}(t) = \lambda_0^{i,k} + \sum_{j=1}^N W_{ij}^N \sum_l \alpha_{kl} \int_0^t \kappa(t-s)\, dN_s^{j,l}.`}
             </MBlock>
+            <Reads>
+              User <M>{String.raw`i`}</M>&apos;s firing rate on register{" "}
+              <M>{String.raw`k`}</M> now draws on the recent events of
+              every other user <M>{String.raw`j`}</M>, weighted by the
+              graph edge <M>{String.raw`W_{ij}`}</M>, on top of the
+              within-user coupling <M>{String.raw`\alpha_{kl}`}</M>.
+              Two channels of contagion run at once: across registers
+              inside one user, and across users along the graph.
+            </Reads>
             <p className="mb-sm">
               The off-diagonal <M>{String.raw`\alpha_{kl}`}</M>{" "}
               generates within-user libidinal routing (
@@ -182,6 +192,14 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`\theta_N^* \xrightarrow{N \to \infty} \theta_\infty^*,`}
             </MBlock>
+            <Reads>
+              As the population grows, the platform&apos;s stable point
+              settles onto a single continuum stable point. The
+              network does not change the <em>kind</em> of object the
+              framework studies — the closure still has a well-defined
+              fixed point in the large-population limit, so every
+              single-user result has a networked counterpart.
+            </Reads>
             <p className="mb-sm">
               <em>where{" "}
               <M>{String.raw`\theta_\infty^*`}</M> is the continuum
@@ -192,6 +210,15 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`F^\infty(\theta) = \int_0^1 \mathbb{E}_{\mu(x; \theta)}[\hat R^x]\, dx`}
             </MBlock>
+            <Reads>
+              The continuum platform score is the per-user reward
+              averaged over a continuum of users indexed by{" "}
+              <M>{String.raw`x \in [0,1]`}</M>. The finite friend graph
+              is replaced by a graphon — a density of connections — and
+              the sum over users becomes an integral. Otherwise this is
+              the same performative value <M>{String.raw`F`}</M> from
+              §0, lifted to the population.
+            </Reads>
             <p className="mb-sm">
               <em>under the continuum-limit consistency.</em>
             </p>
@@ -269,6 +296,15 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`\sup_{x \in [0,1]} S(\theta_\mathrm{ref}; \theta_\infty^*, x) \leq \frac{1 + (c_v^*)^2}{(\theta_\mathrm{ref}/\delta_{\min})^2 \cdot w_{\min}^2}.`}
             </MBlock>
+            <Reads>
+              Foreclosure holds for <em>every</em> user, not just on
+              average — the <M>{String.raw`\sup`}</M> over all users{" "}
+              <M>{String.raw`x`}</M> is bounded. The bound is the
+              single-user one inflated by{" "}
+              <M>{String.raw`1/w_{\min}^2`}</M>, the graph-density
+              penalty: the most weakly-connected user is foreclosed
+              least, but even they do not escape.
+            </Reads>
 
             <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
               Proof sketch
@@ -354,6 +390,16 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`\rho(W) \cdot \rho(\alpha) \cdot \int_0^\infty \kappa(s)\, ds < 1.`}
             </MBlock>
+            <Reads>
+              The cascade stays finite exactly when one event begets,
+              on average, fewer than one further event — the branching
+              ratio below one. It is a product of three gains:
+              user-to-user reach <M>{String.raw`\rho(W)`}</M>,
+              register-to-register reach <M>{String.raw`\rho(\alpha)`}</M>,
+              and how long each event keeps firing{" "}
+              <M>{String.raw`\int \kappa`}</M>. Lift any one and the
+              network drifts toward criticality.
+            </Reads>
 
             <p className="mb-sm">
               <em>The cascade amplification factor — expected
@@ -362,6 +408,15 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`\mathcal{A}(W, \alpha, \kappa) = \frac{\rho(W) \rho(\alpha) \int \kappa}{1 - \rho(W) \rho(\alpha) \int \kappa}.`}
             </MBlock>
+            <Reads>
+              The expected number of cross-user events a single event
+              sets off, summed over all generations — a geometric
+              series in the branching ratio. As the branching ratio
+              climbs toward one, the denominator goes to zero and the
+              amplification diverges: one post triggers an unbounded
+              expected cascade. This is the arithmetic of
+              &ldquo;going viral.&rdquo;
+            </Reads>
 
             <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
               Proof sketch
@@ -416,7 +471,18 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`\rho_c := \frac{1}{\rho(\alpha) \int_0^\infty \kappa(s)\, ds}.`}
             </MBlock>
-            <p className="mb-sm"><em>Then:</em></p>
+            <Reads>
+              The critical connectivity: the graph reach{" "}
+              <M>{String.raw`\rho(W)`}</M> at which cascades flip from
+              local to platform-wide. Below{" "}
+              <M>{String.raw`\rho_c`}</M> an event&apos;s influence
+              dies out in a neighborhood; above it, the cascade
+              percolates across the whole network. Regulating the
+              observation channel or the graph structure to hold{" "}
+              <M>{String.raw`\rho(W)`}</M> under{" "}
+              <M>{String.raw`\rho_c`}</M> keeps cascades local — a
+              concrete handle for the fourth-cell mode.
+            </Reads>
 
             <p className="mb-sm">
               <strong>(i) Below threshold (<M>{String.raw`\rho(W) < \rho_c`}</M>).</strong>{" "}
@@ -504,6 +570,16 @@ export default function Section8Page() {
             <MBlock>
               {String.raw`D_{KL}(\nu_u^{x, \mathrm{init}} \,\|\, \pi_{\hat R}^*) \leq C \cdot e^{-2 K \bar\tau_\mathrm{exp}(x)}.`}
             </MBlock>
+            <Reads>
+              The cohort gradient (Proposition 8) read across the
+              network. A user&apos;s distance from the platform target
+              is bounded by the exponential decay in their
+              <em> neighborhood&apos;s</em> average exposure{" "}
+              <M>{String.raw`\bar\tau_\mathrm{exp}(x)`}</M>, not just
+              their own. Developmentally-saturated communities pull
+              their members toward the target faster: the cohort
+              effect compounds through the graph.
+            </Reads>
 
             <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">
               Remark
