@@ -10,12 +10,26 @@
   --color-ink: #1a1612;
   --color-ink-90: #2b2520;
   --color-ink-70: #5a514a;
-  --color-ink-50: #8a7f74;
+  /* ink-50 darkened from #8a7f74 (3.36:1 on cream — failed WCAG AA) to
+     #6f665b (4.84:1) so muted text clears the 4.5:1 small-text minimum. */
+  --color-ink-50: #6f665b;
   --color-paper: #f4ede0;
   --color-paper-95: #ebe3d3;
   --color-paper-85: #ddd2bd;
   --color-oxblood: #7a1f1f;
   --color-oxblood-dark: #5e1818;
+
+  /* v2 closed-loop rebuild — additional semantic colors per
+     Design System §3.1 (autostimulus-planning/06_design_system.md).
+     Each carries theoretical meaning across closed-loop surfaces.
+     cream / warm-ink are aliases to paper / ink for new-code clarity;
+     fog / slate / moss / formal-bg are net-new. */
+  --color-cream: var(--color-paper);
+  --color-warm-ink: var(--color-ink);
+  --color-fog: #b8aea0;
+  --color-slate: #3c4a52;
+  --color-moss: #5a6b3c;
+  --color-formal-bg: #ede6d7;
 
   /* Fonts — variables populated by next/font/local on <html> */
   --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
@@ -59,12 +73,22 @@
     --color-ink: #e8e0d0;
     --color-ink-90: #d4ccbe;
     --color-ink-70: #9a907f;
-    --color-ink-50: #6d6357;
+    /* ink-50 lightened from #6d6357 (3.06:1 on dark paper — failed WCAG
+       AA) to #8d8474 (4.87:1) for the same small-text minimum. */
+    --color-ink-50: #8d8474;
     --color-paper: #1a1612;
     --color-paper-95: #221d18;
     --color-paper-85: #2f2820;
     --color-oxblood: #b04a4a;
     --color-oxblood-dark: #c25555;
+
+    /* v2 closed-loop rebuild — dark-mode counterparts for the
+       semantic colors added to @theme. Aliases (cream, warm-ink)
+       inherit from paper/ink automatically. */
+    --color-fog: #5a5247;
+    --color-slate: #a0b2bc;
+    --color-moss: #aabd86;
+    --color-formal-bg: #22201c;
   }
 }
 
@@ -151,6 +175,24 @@ input:focus-visible,
 ::selection {
   background: var(--color-oxblood);
   color: var(--color-paper);
+}
+
+/* WCAG 1.4.1 (Use of Color): inline prose links must be distinguishable
+   from body text by more than color. Content links carry the static
+   `text-oxblood` class; breadcrumb, in-page-TOC, and other navigation
+   links use `hover:text-oxblood` (oxblood on hover only, no static
+   text-oxblood) — so this persistent underline scopes to in-prose links
+   and leaves navigation chrome underline-free. Hover deepens the rule.
+   Unlayered, so it beats Tailwind's @layer utilities (incl. hover:underline). */
+a.text-oxblood {
+  text-decoration-line: underline;
+  text-decoration-color: var(--color-oxblood);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-thickness 0.12s ease;
+}
+a.text-oxblood:hover {
+  text-decoration-thickness: 2px;
 }
 
 /* Argument-page prose: auto-number h2 section headings with §N. in oxblood */

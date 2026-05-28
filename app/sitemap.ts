@@ -136,7 +136,60 @@ const CLOSED_LOOP_ROUTES = [
   "/closed-loop/colophon",
 ];
 
-const ROUTES = [...ATELIER_ROUTES, ...CLOSED_LOOP_ROUTES, ...OHCOSE_ROUTES, ...CHAIR_ROUTES, ...PATRIOTIC_ROUTES];
+// v2 closed-loop rebuild surface. Made indexable when the per-page
+// noindex flags were removed; listed here so the sitemap matches the
+// crawlable set. The v1 routes above are preserved alongside.
+const CLOSED_LOOP_V2_ROUTES = [
+  // Navigation hubs
+  "/closed-loop/the-architecture",
+  "/closed-loop/the-apparatus",
+  "/closed-loop/the-instruments",
+  "/closed-loop/v2-argument",
+  "/closed-loop/v2-dynamics",
+  "/closed-loop/glossary",
+  "/closed-loop/the-colophon",
+  // The apparatus — §0 through §12 (results)
+  "/closed-loop/the-apparatus/section-0",
+  "/closed-loop/the-apparatus/section-1/lemma-1",
+  "/closed-loop/the-apparatus/section-1/1.4-chrono-debt",
+  "/closed-loop/the-apparatus/section-2/theorem-1-prime",
+  "/closed-loop/the-apparatus/section-3/prop-4-prime",
+  "/closed-loop/the-apparatus/section-3/prop-5-prime",
+  "/closed-loop/the-apparatus/section-3/prop-6",
+  "/closed-loop/the-apparatus/section-3/prop-7-prime",
+  "/closed-loop/the-apparatus/section-3/3.5-hawkes",
+  "/closed-loop/the-apparatus/section-4/lemma-2",
+  "/closed-loop/the-apparatus/section-5",
+  "/closed-loop/the-apparatus/section-6/prop-8",
+  "/closed-loop/the-apparatus/section-7/theorem-9",
+  "/closed-loop/the-apparatus/section-8",
+  "/closed-loop/the-apparatus/section-9/theorem-11",
+  "/closed-loop/the-apparatus/section-10/theorem-12",
+  "/closed-loop/the-apparatus/section-11",
+  "/closed-loop/the-apparatus/section-12",
+  // The dynamics — twelve interactive plates
+  "/closed-loop/v2-dynamics/foreclosure-clock",
+  "/closed-loop/v2-dynamics/chrono-debt-spectrum",
+  "/closed-loop/v2-dynamics/dividual-posterior",
+  "/closed-loop/v2-dynamics/metric-superego",
+  "/closed-loop/v2-dynamics/captured-resonance",
+  "/closed-loop/v2-dynamics/libidinal-routing",
+  "/closed-loop/v2-dynamics/somatic-hawkes",
+  "/closed-loop/v2-dynamics/cohort-gradient",
+  "/closed-loop/v2-dynamics/intervention-asymmetry",
+  "/closed-loop/v2-dynamics/reclamation-trajectories",
+  "/closed-loop/v2-dynamics/crisis-boundary",
+  "/closed-loop/v2-dynamics/network-coupling",
+];
+
+const ROUTES = [
+  ...ATELIER_ROUTES,
+  ...CLOSED_LOOP_ROUTES,
+  ...CLOSED_LOOP_V2_ROUTES,
+  ...OHCOSE_ROUTES,
+  ...CHAIR_ROUTES,
+  ...PATRIOTIC_ROUTES,
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -154,6 +207,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ? 0.9
         : // Project-section landings + per-section pages — high
         path.startsWith("/closed-loop/the-") ||
+          path === "/closed-loop/v2-argument" ||
+          path === "/closed-loop/v2-dynamics" ||
+          path === "/closed-loop/glossary" ||
           path.startsWith("/ohcose/i-") ||
           path.startsWith("/ohcose/ii-") ||
           path.startsWith("/ohcose/iii-") ||
@@ -168,7 +224,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path === "/patriotic-times/plates"
         ? 0.8
         : // Per-plate / per-subsystem / per-lineage / etc. — lower
-        path.startsWith("/patriotic-times/plates/") ||
+        path.startsWith("/closed-loop/v2-dynamics/") ||
+          path.startsWith("/patriotic-times/plates/") ||
           path.startsWith("/chair/")
         ? 0.7
         : 0.5,

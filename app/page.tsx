@@ -95,7 +95,7 @@ export default function AtelierIndex() {
               "@type": "Person",
               name: "Adnan Selimović",
               alternateName: "A. Selimović",
-              url: `${SITE_URL}/closed-loop/colophon`,
+              url: `${SITE_URL}/closed-loop/the-colophon`,
               sameAs: [],
             },
           },
