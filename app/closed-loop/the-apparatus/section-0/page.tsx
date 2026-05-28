@@ -84,21 +84,83 @@ export default function Section0Page() {
           </Caption>
           <Middle>
             <p className="mb-sm">
-              The mathematical apparatus must be one in which the closure
-              is the <em>object</em> of analysis, not a stipulated feature
-              of the model. The relevant mathematical idiom is{" "}
-              <strong>performative prediction</strong> (Perdomo, Zrnic,
-              Mendler-Dünner, Hardt 2020, <em>ICML</em>; Hardt &
-              Mendler-Dünner 2023, <em>Annual Review of Statistics</em>):
-              the setting in which the predictor&apos;s choice of model
-              determines the distribution it is then evaluated against.
+              The mathematical apparatus must take the closure as its
+              object. Stipulating the closure — declaring up front that
+              the loop closes and proceeding from there — would
+              short-circuit the analysis: the framework&apos;s claims
+              about what the closure produces would become circular,
+              with the conclusions smuggled into the premises. The
+              closure has to arise out of the model&apos;s mechanics.
+              What the framework needs is the smallest mathematical
+              setting in which a predictor&apos;s outputs change the
+              distribution it is then evaluated against, and in which
+              the resulting fixed-point structure becomes a formal
+              object the framework can reason about.
             </p>
             <p className="mb-sm">
-              Performative prediction generalizes strategic classification,
-              recommender feedback loops, reinforcement learning with
-              persistent users, and adaptive control of adapting systems.
-              It is the technical home for the framework&apos;s central
-              condition.
+              That setting is <strong>performative prediction</strong>{" "}
+              (Perdomo, Zrnic, Mendler-Dünner, Hardt 2020,{" "}
+              <em>ICML</em>; Hardt and Mendler-Dünner 2023,{" "}
+              <em>Annual Review of Statistics</em>). A learning
+              algorithm chooses a model parameter{" "}
+              <M>{String.raw`\theta`}</M>; the distribution over data
+              depends on <M>{String.raw`\theta`}</M>; the loss is taken
+              with respect to that{" "}
+              <M>{String.raw`\theta`}</M>-dependent distribution. The
+              framework&apos;s central operator{" "}
+              <M>{String.raw`\Phi`}</M> is the composition: take a
+              policy parameter, push it through the world, observe the
+              data, derive the next policy. The closure is the
+              property that <M>{String.raw`\Phi`}</M> has fixed points;
+              the framework&apos;s substantive claims are about what
+              holds at those fixed points.
+            </p>
+            <p className="mb-sm">
+              Performative prediction generalizes four older settings —
+              strategic classification (users re-positioning their
+              features against a classifier), recommender feedback
+              (engagement signals depending on what the system
+              surfaced), persistent-user reinforcement learning (user
+              state evolving under the agent&apos;s policy), and
+              adaptive control of adapting systems (controller as one
+              input among many shaping the plant). The framework&apos;s
+              setting differs from each in scope and stakes. The
+              responding agent is a population of users observed only
+              through engagement-events. The policy class is
+              engagement-monetizing. The quantity at stake is the
+              structure of the user&apos;s behavioral distribution
+              under the closure, not a per-instance prediction loss.
+            </p>
+            <p className="mb-sm">
+              The result the framework leans on hardest from Perdomo et
+              al. is the existence and characterization of the{" "}
+              <em>performative stable point</em>{" "}
+              <M>{String.raw`\theta^*`}</M> — a{" "}
+              <M>{String.raw`\theta`}</M> that is optimal against the
+              distribution it itself induces. Under contractivity
+              conditions on the policy-to-distribution map, the stable
+              point exists and is the limit of online optimization. It
+              need not coincide with the <em>performative optimum</em>{" "}
+              <M>{String.raw`\theta_{PO}`}</M>, the policy a regulator
+              with full knowledge of the operator could in principle
+              choose. Online optimization converges to{" "}
+              <M>{String.raw`\theta^*`}</M>; the social-welfare
+              benchmark is <M>{String.raw`\theta_{PO}`}</M>; the
+              asymmetry between them is structural, and the gap between
+              them is where the framework&apos;s regulatory analysis
+              lives.
+            </p>
+            <p className="mb-sm">
+              What the performative-prediction idiom gives the older
+              critical vocabularies — interpellation, ideological state
+              apparatus, repressive desublimation, biopower — is a
+              fixed-point grammar for the dynamical claims those
+              vocabularies could only state qualitatively. The closure
+              is a formal object. Subject-formation under closed-loop
+              optimization is what the framework studies; the dissolved
+              objects (interiority, reflection, autonomy) are formal
+              consequences of the closure, not the framework&apos;s
+              premises.
             </p>
           </Middle>
         </DepthLayers>
@@ -133,9 +195,64 @@ export default function Section0Page() {
               {String.raw`u_t = (u_t^S, u_t^C, u_t^P, u_t^K) \in \mathcal{U}^S \times \mathcal{U}^C \times \mathcal{U}^P \times \mathcal{U}^K.`}
             </MBlock>
             <p className="mb-sm">
-              The five structural objects of the closed loop are the
-              setup&apos;s formal content. Click any to see its full
-              treatment in the apparatus.
+              Discrete time is a substantive modeling commitment.
+              Real platforms operate at the engagement-event timescale
+              — a click, a scroll, a tap, a view-completion. The
+              minimum spacing <M>{String.raw`\delta_{\min}`}</M>{" "}
+              captures the platform&apos;s smallest engagement
+              resolution and sets the structural floor on what the
+              framework can speak about. Below{" "}
+              <M>{String.raw`\delta_{\min}`}</M> the apparatus is
+              silent; at <M>{String.raw`\delta_{\min}`}</M> and above
+              it commits to claims about how the closure operates.
+              Empirically <M>{String.raw`\delta_{\min}`}</M> ranges
+              from milliseconds (ad auctions, high-frequency feeds)
+              through seconds (recommendation systems) to minutes
+              (content-moderation cycles). The structural-separation
+              hypothesis stated in §0.4 —{" "}
+              <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min} \gg 1`}</M>{" "}
+              — has <M>{String.raw`\delta_{\min}`}</M> as its
+              denominator, which is why the choice of tick is the
+              framework&apos;s first empirical hinge.
+            </p>
+            <p className="mb-sm">
+              The four-register decomposition (S, C, P, K) regroups
+              what older critical traditions analyzed separately. The
+              somatic register names the body — the rhythms and
+              refusals biology contributes. Cognition handles attention,
+              working memory, and the reflective interval at which a
+              thought completes itself. The political register tracks
+              the affective infrastructure that connects the user to
+              publics. Kinaesthesia names the gestural and rhythmic
+              engagements — the muscle memory of scroll, swipe, tap.
+              At the pre-closure baseline the registers factor: their
+              joint distribution is a product of marginals (axiom
+              U2&apos;s starting point). The framework&apos;s claim is
+              that closed-loop joint observation through the platform&apos;s
+              sensor channel <M>{String.raw`O`}</M> couples them
+              dependently (Proposition 7&apos;). The decomposition is
+              the framework&apos;s bookkeeping for what the closure
+              will then dissolve.
+            </p>
+            <p className="mb-sm">
+              The five structural objects (P1)–(P5) compose the
+              closed loop. (P1) the user dynamics{" "}
+              <M>{String.raw`T`}</M>, a Markov kernel describing how
+              the user state evolves under stimulus; (P2) the
+              observation channel <M>{String.raw`O`}</M> through which
+              the platform reads the user state; (P3) the policy{" "}
+              <M>{String.raw`\pi_\theta`}</M> producing the next
+              stimulus from the observation history; (P4) the
+              performative distribution{" "}
+              <M>{String.raw`\mathcal{D}(\theta)`}</M> that policy
+              induces on trajectories; (P5) the reward functional{" "}
+              <M>{String.raw`\hat R`}</M> the platform optimizes,
+              integrated against{" "}
+              <M>{String.raw`\mathcal{D}(\theta)`}</M> to give the
+              performative value{" "}
+              <M>{String.raw`F(\theta)`}</M>. Every load-bearing result
+              downstream is a claim about what (P1)–(P5) jointly
+              produce under the axioms in §0.3.
             </p>
           </Middle>
           <Formal label="The five structural objects (P1)–(P5)">
@@ -241,6 +358,34 @@ export default function Section0Page() {
               words is fixed-point convergence of the performative
               operator.
             </p>
+            <p className="mb-sm">
+              The existence of <M>{String.raw`\theta^*`}</M> follows
+              from Banach&apos;s fixed-point theorem applied to{" "}
+              <M>{String.raw`\Phi`}</M> under contractivity (axiom R1).
+              When the policy-to-distribution map is{" "}
+              <M>{String.raw`L_{\mathcal{D}}`}</M>-Lipschitz and the
+              reward functional is{" "}
+              <M>{String.raw`L_{\hat R}`}</M>-Lipschitz, the composite
+              operator <M>{String.raw`\Phi`}</M> contracts at rate{" "}
+              <M>{String.raw`\kappa := L_{\hat R} L_{\mathcal{D}} < 1`}</M>.
+              Banach gives a unique stable point and geometric
+              convergence:{" "}
+              <M>{String.raw`\|\theta_t - \theta^*\| \leq \kappa^t \|\theta_0 - \theta^*\|`}</M>.
+              The framework can therefore name how fast the user&apos;s
+              environment is being optimized toward{" "}
+              <M>{String.raw`\theta^*`}</M>; the closure is a
+              quantitative claim, not an asymptotic idealization.{" "}
+              <Link
+                href="/closed-loop/the-apparatus/section-10/theorem-12"
+                className="text-oxblood hover:underline"
+              >
+                Section 10
+              </Link>{" "}
+              returns to what happens at{" "}
+              <M>{String.raw`\kappa = 1`}</M>, where contractivity
+              fails and the closure produces bifurcations — saddle-node,
+              pitchfork, period-doubling, Neimark–Sacker.
+            </p>
           </Middle>
           <Formal label="Definition 0.1 (performative stable point)">
             <p className="mb-sm">
@@ -285,6 +430,46 @@ export default function Section0Page() {
             side.
           </Caption>
           <Middle>
+            <p className="mb-sm">
+              The framework&apos;s axioms have been reorganized into
+              three groups whose contents do different kinds of work.
+              Group I (regularity) is the mathematical infrastructure:
+              measurability, Lipschitz continuity, contractivity,
+              smoothness — the conditions under which the closure is
+              an object that can be reasoned about at all. Group II
+              (user-side responsiveness) names what the framework
+              claims is true of the user: positive response to
+              stimulus (U1), identifiability under sufficient
+              observation (U2), and behavioral plasticity converging
+              on the platform-induced target (U3). Group III
+              (platform-side optimizing structure) names what the
+              framework claims is true of the platform: that its
+              monetization is engagement-monetization (P-I), that its
+              policy class is expressive enough to reach any feasible
+              engagement rate (P-II), and that its optimization
+              converges (P-III).
+            </p>
+            <p className="mb-sm">
+              Each group makes the framework refusable at a different
+              point. A reader who rejects Group I — who argues that
+              platforms are not contractive, that the dynamics admit
+              no stationary distribution, or that the reward
+              functional is not Lipschitz — has rejected the
+              framework&apos;s setting itself, and the rest of the
+              apparatus does not engage. A reader who accepts Group I
+              but rejects Group II — who argues that users are not
+              behaviorally plastic in the sense U3 makes precise — has
+              rejected the framework&apos;s diagnostic claims about
+              subject-formation, and Theorem 1&apos; and Proposition
+              5&apos; collapse with the rejection. A reader who
+              accepts Groups I and II but rejects Group III — who
+              argues that platform monetization is not
+              engagement-monetization, or that the optimization does
+              not converge to a stable point — has rejected the
+              framework&apos;s structural-economic claims, and the
+              cohort-gradient analysis in Proposition 8 loses its
+              hinge.
+            </p>
             <p className="mb-sm">
               A reader who rejects the framework can locate the
               rejection in one of the three groups. A reader who
