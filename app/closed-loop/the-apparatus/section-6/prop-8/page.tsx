@@ -150,6 +150,29 @@ export default function Prop8Page() {
           </p>
 
           <p className="mb-sm">
+            The framework&apos;s analysis of adolescence-as-class
+            rests on this structural claim. Erikson (1968) named the
+            psychosocial moratorium as the developmental window in
+            which identity commitments are provisionally tried,
+            suspended, revised — the inner duration in which a self
+            gathers itself. Erikson assumed the moratorium had a
+            structural outside: media regimes that supplied
+            alternative positions for a self to try on.
+            Proposition 8&apos;s exponential rate eliminates that
+            assumption for the native cohort. By the time the
+            long-exposure subject reaches the analysis period, the
+            developmental propagator has driven the user&apos;s
+            behavioral distribution onto the platform-induced target.
+            The moratorium has occurred, structurally — but inside
+            the closed loop, with no outside against which alternative
+            positions could be measured. Adolescence-as-class names
+            the political consequence: the cohort whose developmental
+            window closed inside the converged regime cannot draw on
+            the subject-forms older cohorts inherited from regimes
+            that still admitted an outside.
+          </p>
+
+          <p className="mb-sm">
             <em>The developmental-rate constant <M>{String.raw`K`}</M>.</em>{" "}
             <M>{String.raw`K`}</M> depends on the user&apos;s
             behavioral-plasticity rate <M>{String.raw`\beta_u`}</M>{" "}

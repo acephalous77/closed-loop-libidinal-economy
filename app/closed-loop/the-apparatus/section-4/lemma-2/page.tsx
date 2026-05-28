@@ -124,6 +124,26 @@ export default function Lemma2Page() {
             political claim &ldquo;at sufficient regulation, the pause
             re-instantiates&rdquo; depends on Lemma 2&apos;s smoothness.
           </p>
+
+          <p className="mb-sm">
+            The policy-design corollary follows. A regulator
+            considering a Mode A intervention is not choosing between
+            &ldquo;regulate&rdquo; and &ldquo;don&apos;t
+            regulate&rdquo; but choosing a point on a continuous
+            curve indexed by <M>{String.raw`\beta`}</M>. Larger{" "}
+            <M>{String.raw`\beta`}</M> yields more pause-instantiation
+            and less platform-side reward; the curve is monotone in
+            both, and smooth. The policy question is therefore
+            quantitative: which target survival probability{" "}
+            <M>{String.raw`\varepsilon`}</M> at{" "}
+            <M>{String.raw`\theta_{\mathrm{ref}}`}</M> is socially
+            acceptable, and what <M>{String.raw`\beta`}</M> achieves
+            it? Lemma 2 guarantees that the question has an answer in
+            the framework&apos;s feasibility envelope — any{" "}
+            <M>{String.raw`\varepsilon`}</M> in that envelope
+            corresponds to some <M>{String.raw`\beta_\varepsilon`}</M>{" "}
+            on the curve.
+          </p>
         </Middle>
 
         <Formal label="Lemma 2 (parametric continuity of regularized stable points)">

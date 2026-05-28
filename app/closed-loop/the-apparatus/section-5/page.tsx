@@ -133,6 +133,27 @@ export default function Section5Page() {
               </table>
             </div>
             <p className="mb-sm">
+              The 2×2 separates two questions older critical-theory
+              frameworks tended to conflate: which structural variable
+              is being modified, and who is doing the modifying. The
+              reward functional <M>{String.raw`\hat R`}</M>, the
+              response kernel <M>{String.raw`T`}</M>, and the
+              observation channel <M>{String.raw`O`}</M> are the
+              framework&apos;s three intervention sites — derived
+              from the apparatus&apos;s (P1)–(P5) setup. The
+              imposition source is either individual practice (the
+              reflective subject working on themselves) or regulatory
+              imposition (the institutional apparatus acting on the
+              platform). The cross-product gives six cells, two of
+              which are structurally degenerate — individual practice
+              on the reward functional (users cannot rewrite{" "}
+              <M>{String.raw`\hat R`}</M>) and regulatory imposition
+              on the response kernel (no policy acts on{" "}
+              <M>{String.raw`T`}</M> directly for any non-coordinated
+              population). The remaining four cells are the
+              framework&apos;s intervention modes.
+            </p>
+            <p className="mb-sm">
               The top-left cell (individual practice on the reward) is
               structurally vacuous — users cannot rewrite the platform&apos;s
               reward functional. The remaining cells correspond to the
@@ -148,7 +169,16 @@ export default function Section5Page() {
               The policy-translation of the formal observation that{" "}
               <em>bounding the platform&apos;s information about the
               user bounds the platform&apos;s extraction from the
-              user</em>.
+              user</em>. Zuboff&apos;s analysis of surveillance
+              capitalism (
+              <em>The Age of Surveillance Capitalism</em>, 2019)
+              argued precisely this — that the platform&apos;s
+              extractive capacity is grounded in its access to the
+              behavioral surplus the observation channel produces.
+              The fourth-cell mode is the apparatus reading of
+              Zuboff&apos;s policy implication: regulate{" "}
+              <M>{String.raw`O`}</M>, not just{" "}
+              <M>{String.raw`\hat R`}</M>.
             </p>
           </Middle>
         </DepthLayers>
