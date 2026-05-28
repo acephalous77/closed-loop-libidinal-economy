@@ -62,7 +62,14 @@ const SECTIONS: Section[] = [
     no: "2",
     title: "Reclamation as learnability",
     subtitle: "Theorem 1' — sample-complexity divergence under closed-loop sampling",
-    status: "not-started",
+    status: "in-progress",
+    results: [
+      {
+        name: "Theorem 1' (reclamation as sample-complexity divergence)",
+        href: "/closed-loop/the-apparatus/section-2/theorem-1-prime",
+        status: "live",
+      },
+    ],
   },
   {
     no: "3",
