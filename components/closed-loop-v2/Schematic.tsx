@@ -2,6 +2,7 @@
 
 import { useState, type ReactNode, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
+import { SvgM } from "@/components/ui/Math";
 
 /**
  * The closed-loop schematic — the centerpiece of the v2 /closed-loop/
@@ -132,7 +133,7 @@ const PARTS: Record<PartId, PartMeta> = {
   closure: {
     label: "The closure Φ",
     caption:
-      "The closure — the platform's optimization runs against the distribution its own policy has produced. The framework's central architectural fact. Formally: the performative operator Φ : θ ↦ argmax E_D(θ)[Ȓ(θ')]. Definitions 0.1 and 0.2 name the closure's two distinguished points.",
+      "The closure — the platform's optimization runs against the distribution its own policy has produced. The framework's central architectural fact. Formally: the performative operator Φ : θ ↦ argmax E_D(θ)[R̂(θ')]. Definitions 0.1 and 0.2 name the closure's two distinguished points.",
     route: "/closed-loop/the-apparatus/section-0/0.2-closure",
   },
   reflectiveThreshold: {
@@ -142,9 +143,9 @@ const PARTS: Record<PartId, PartMeta> = {
     route: "/closed-loop/the-apparatus/section-1/lemma-1",
   },
   contractivityBoundary: {
-    label: "Contractivity boundary L_Ȓ L_D = 1",
+    label: "Contractivity boundary L_R̂ L_D = 1",
     caption:
-      "The contractivity boundary — where the framework's contractivity hypothesis L_Ȓ L_D < 1 fails. Near it, four bifurcation regimes characterize platform instability (Theorem 12).",
+      "The contractivity boundary — where the framework's contractivity hypothesis L_R̂ L_D < 1 fails. Near it, four bifurcation regimes characterize platform instability (Theorem 12).",
     route: "/closed-loop/the-apparatus/section-10/theorem-12",
   },
 };
@@ -327,17 +328,9 @@ export function ClosedLoopSchematic() {
           >
             REWARD F(θ)
           </text>
-          <text aria-hidden="true"
-            x="750"
-            y="86"
-            fill="var(--color-ink)"
-            fontFamily="var(--font-serif)"
-            fontStyle="italic"
-            fontSize="16"
-            textAnchor="middle"
-          >
-            F(θ) = E[Ȓ]
-          </text>
+          <SvgM x={640} y={72} w={220} h={28} align="center" color="var(--color-ink)" size="16px">
+            {String.raw`F(\theta) = \mathbb{E}[\hat R]`}
+          </SvgM>
         </Part>
 
         {/* === PERFORMATIVE DISTRIBUTION D(θ) === */}
@@ -363,17 +356,9 @@ export function ClosedLoopSchematic() {
           >
             PERFORMATIVE DISTRIBUTION D(θ)
           </text>
-          <text aria-hidden="true"
-            x="750"
-            y="174"
-            fill="var(--color-ink)"
-            fontFamily="var(--font-serif)"
-            fontStyle="italic"
-            fontSize="14"
-            textAnchor="middle"
-          >
-            D(θ) = stationary joint of (u, y, s)
-          </text>
+          <SvgM x={630} y={162} w={240} h={24} align="center" color="var(--color-ink)" size="12px">
+            {String.raw`\mathcal{D}(\theta) = \text{stationary joint of } (u, y, s)`}
+          </SvgM>
         </Part>
 
         {/* === PARAMETER UPDATE === */}
@@ -398,17 +383,9 @@ export function ClosedLoopSchematic() {
           >
             PARAMETER UPDATE
           </text>
-          <text aria-hidden="true"
-            x="490"
-            y="130"
-            fill="var(--color-ink)"
-            fontFamily="var(--font-serif)"
-            fontStyle="italic"
-            fontSize="14"
-            textAnchor="middle"
-          >
-            θ_(t+1) = θ_t + α∇̂F(θ_t)
-          </text>
+          <SvgM x={370} y={118} w={240} h={24} align="center" color="var(--color-ink)" size="13px">
+            {String.raw`\theta_{t+1} = \theta_t + \alpha\, \widehat{\nabla F}(\theta_t)`}
+          </SvgM>
         </Part>
 
         {/* Arrow from PARAMETER UPDATE down to POLICY (non-interactive) */}
@@ -456,19 +433,11 @@ export function ClosedLoopSchematic() {
             letterSpacing="0.05em"
             textAnchor="middle"
           >
-            PLATFORM POLICY π_θ
+            PLATFORM POLICY π
           </text>
-          <text aria-hidden="true"
-            x="490"
-            y="290"
-            fill="var(--color-ink)"
-            fontFamily="var(--font-serif)"
-            fontStyle="italic"
-            fontSize="18"
-            textAnchor="middle"
-          >
-            π_θ : Y* → Δ(S)
-          </text>
+          <SvgM x={380} y={274} w={220} h={30} align="center" color="var(--color-ink)" size="16px">
+            {String.raw`\pi_\theta : \mathcal{Y}^* \to \Delta(\mathcal{S})`}
+          </SvgM>
         </Part>
 
         {/* === STIMULUS s_t === */}
@@ -481,16 +450,9 @@ export function ClosedLoopSchematic() {
             markerEnd="url(#arrowhead-ink)"
           />
           <circle cx="540" cy="390" r="6" fill="var(--color-ink)" />
-          <text aria-hidden="true"
-            x="555"
-            y="395"
-            fill="var(--color-ink)"
-            fontFamily="var(--font-serif)"
-            fontStyle="italic"
-            fontSize="14"
-          >
-            s_t
-          </text>
+          <SvgM x={553} y={385} w={40} h={20} align="left" color="var(--color-ink)" size="13px">
+            {String.raw`s_t`}
+          </SvgM>
         </Part>
 
         {/* === θ_ref annotation === */}
@@ -536,7 +498,7 @@ export function ClosedLoopSchematic() {
             letterSpacing="0.05em"
             textAnchor="middle"
           >
-            USER STATE u_t
+            USER STATE uₜ
           </text>
           {/* Four registers, 2x2 grid */}
           <rect x="400" y="480" width="85" height="55" fill="none" stroke="var(--color-ink-70)" strokeWidth="0.5" />
@@ -604,7 +566,7 @@ export function ClosedLoopSchematic() {
             letterSpacing="0.05em"
             textAnchor="end"
           >
-            y_t
+            yₜ
           </text>
         </Part>
 
@@ -638,19 +600,11 @@ export function ClosedLoopSchematic() {
             letterSpacing="0.05em"
             textAnchor="middle"
           >
-            FILTERING Π_t
+            FILTERING Πₜ
           </text>
-          <text aria-hidden="true"
-            x="210"
-            y="275"
-            fill="var(--color-ink)"
-            fontFamily="var(--font-serif)"
-            fontStyle="italic"
-            fontSize="14"
-            textAnchor="middle"
-          >
-            Π_t
-          </text>
+          <SvgM x={190} y={264} w={40} h={22} align="center" color="var(--color-ink)" size="13px">
+            {String.raw`\Pi_t`}
+          </SvgM>
         </Part>
 
         {/* Arrow from Π_t back to POLICY (non-interactive) */}
@@ -673,16 +627,9 @@ export function ClosedLoopSchematic() {
             strokeWidth="1.5"
             strokeDasharray="3 3"
           />
-          <text aria-hidden="true"
-            x="940"
-            y="315"
-            fill="var(--color-oxblood)"
-            fontFamily="var(--font-mono)"
-            fontSize="10"
-            letterSpacing="0.05em"
-          >
-            L_Ȓ L_D = 1
-          </text>
+          <SvgM x={936} y={306} w={130} h={18} align="left" color="var(--color-oxblood)" size="11px">
+            {String.raw`L_{\hat R}\, L_{\mathcal{D}} = 1`}
+          </SvgM>
         </Part>
       </svg>
 
