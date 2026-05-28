@@ -17,9 +17,9 @@ export default function Cover() {
         data={[
           frameworkJsonLd(),
           itemListJsonLd("Three paths through the material", [
-            { name: "the argument", url: "/closed-loop/the-argument", description: "four prose pieces and a coda" },
-            { name: "the mathematics", url: "/closed-loop/the-mathematics", description: "the formal apparatus" },
-            { name: "the dynamics", url: "/closed-loop/the-dynamics", description: "interactive plates and the live simulator" },
+            { name: "the argument", url: "/closed-loop/v2-argument", description: "eight load-bearing moves — the framework in prose" },
+            { name: "the apparatus", url: "/closed-loop/the-apparatus", description: "the formal companion — thirteen sections, fifteen results" },
+            { name: "the dynamics", url: "/closed-loop/v2-dynamics", description: "twelve interactive plates — the mechanisms made operable" },
           ]),
         ]}
       />

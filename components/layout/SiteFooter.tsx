@@ -38,33 +38,33 @@ export function SiteFooter() {
           </a>
         </p>
         <nav aria-label="Site sections" className="font-mono text-xs text-ink-50">
-          <a href="/closed-loop/the-argument" className={linkClass(isActive("/closed-loop/the-argument"))}>
+          <a href="/closed-loop/v2-argument" className={linkClass(isActive("/closed-loop/v2-argument"))}>
             the argument
           </a>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/the-mathematics" className={linkClass(isActive("/closed-loop/the-mathematics"))}>
-            the mathematics
+          <a href="/closed-loop/the-apparatus" className={linkClass(isActive("/closed-loop/the-apparatus"))}>
+            the apparatus
           </a>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/the-dynamics" className={linkClass(isActive("/closed-loop/the-dynamics"))}>
+          <a href="/closed-loop/v2-dynamics" className={linkClass(isActive("/closed-loop/v2-dynamics"))}>
             the dynamics
           </a>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/reading-list" className={linkClass(isActive("/closed-loop/reading-list"))}>
-            reading list
+          <a href="/closed-loop/the-instruments" className={linkClass(isActive("/closed-loop/the-instruments"))}>
+            the instruments
           </a>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/open-questions" className={linkClass(isActive("/closed-loop/open-questions"))}>
-            open questions
+          <a href="/closed-loop/glossary" className={linkClass(isActive("/closed-loop/glossary"))}>
+            the glossary
           </a>
         </nav>
         <p className="font-mono text-xs text-ink-50">
-          <a href="/closed-loop/colophon" className={linkClass(isActive("/closed-loop/colophon"))}>
-            colophon
+          <a href="/closed-loop/the-architecture" className={linkClass(isActive("/closed-loop/the-architecture"))}>
+            the architecture
           </a>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/instrumentation" className={linkClass(isActive("/closed-loop/instrumentation"))}>
-            instrumentation
+          <a href="/closed-loop/the-colophon" className={linkClass(isActive("/closed-loop/the-colophon"))}>
+            the colophon
           </a>
         </p>
       </div>
