@@ -23,10 +23,12 @@ export default function SchematicPreview() {
       </h1>
 
       <p className="text-base text-ink-90 max-w-prose mb-lg">
-        Static stub of the closed-loop figure. Ten labeled parts in
-        position. No hover captions, no click-to-navigate, no keyboard
-        semantics yet — those land in subsequent passes per
-        autostimulus-planning/07_schematic_design.md §2 and §8.
+        Interactive prototype of the closed-loop figure. Hover or
+        keyboard-focus a part to see its plain-language caption in the
+        panel below the figure. Click — or Tab to focus and press
+        Enter — to enter that part&apos;s apparatus section. Routes
+        target pages that don&apos;t exist until Phase 2 builds them;
+        they 404 for now.
       </p>
 
       <div className="my-lg">
