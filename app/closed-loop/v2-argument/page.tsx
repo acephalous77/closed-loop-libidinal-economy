@@ -82,12 +82,11 @@ export default function CuratedArgumentPage() {
           arrive when. The users respond. The platform observes the
           responses and updates the policy. The optimization runs
           against the distribution the policy itself has produced.
-          This is the closure. It is not a stipulation. It is the
-          structural form of any learning system whose outputs shape
-          the world it is then evaluated against — the technical
-          condition the framework borrows from the performative-
-          prediction literature (Perdomo, Zrnic, Mendler-Dünner,
-          Hardt 2020; Hardt & Mendler-Dünner 2023).
+          This is the closure: the structural form of any learning
+          system whose outputs shape the world it is then evaluated
+          against. The framework borrows the condition from the
+          performative-prediction literature (Perdomo, Zrnic,
+          Mendler-Dünner, Hardt 2020; Hardt & Mendler-Dünner 2023).
         </p>
         <p className="text-base text-ink-90 mb-sm">
           The closure has two distinguished points. The{" "}
@@ -445,9 +444,10 @@ export default function CuratedArgumentPage() {
           optimizing structure), the load-bearing results (Lemma 1,
           Theorem 1&apos;, Theorem 9), or the prose claims about how
           the structural results live in the registers where they
-          are lived. Each rejection is well-posed. The framework is
-          not a story; it is a structure with stated commitments
-          and a path from those commitments to its conclusions.
+          are lived. Each rejection is well-posed. The framework is a
+          structure with stated commitments and a path from those
+          commitments to its conclusions — something a reader can
+          argue with point by point.
         </p>
       </section>
 

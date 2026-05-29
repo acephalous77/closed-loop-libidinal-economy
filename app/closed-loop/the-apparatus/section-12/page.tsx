@@ -304,16 +304,13 @@ export default function Section12Page() {
           </Caption>
           <Middle>
             <p className="mb-sm">
-              The reflexive measurement problem is not the older
-              epistemological problem of self-knowledge. Heraclitus
-              and the introspective tradition observed that the eye
-              cannot see itself directly; psychoanalysis observed
-              that the conscious mind cannot reliably report on its
-              unconscious; Heisenberg observed that measurement
-              perturbs the measured. These are all observations
-              about the geometry of self-reference. The reflexive
-              measurement problem the framework names is something
-              else: a specific structural prediction about what
+              The reflexive measurement problem is specific to the
+              closure. Older traditions mapped the geometry of
+              self-reference — Heraclitus&apos;s eye that cannot see
+              itself, psychoanalysis&apos;s unconscious beyond
+              conscious report, Heisenberg&apos;s measurement that
+              perturbs the measured. The framework names something
+              sharper: a specific structural prediction about what
               closed-loop optimization does to the empirical
               apparatus through which a foreclosed cohort would try
               to test the foreclosure claim. The framework predicts

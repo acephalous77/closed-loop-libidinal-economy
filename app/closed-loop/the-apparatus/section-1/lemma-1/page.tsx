@@ -163,11 +163,10 @@ export default function Lemma1Page() {
 
           <p className="mb-sm">
             <em>What the lemma authorizes the prose to claim.</em> The
-            foreclosure of the pause is not a stipulation. It is a
-            derived consequence of the architectural setup — the
-            closure plus the reward&apos;s monotonicity plus the
-            policy class&apos;s expressivity. A reader who accepts the
-            axioms accepts the foreclosure.
+            foreclosure of the pause is a derived consequence of the
+            architectural setup — the closure plus the reward&apos;s
+            monotonicity plus the policy class&apos;s expressivity. A
+            reader who accepts the axioms accepts the foreclosure.
           </p>
 
           <p className="mb-sm">

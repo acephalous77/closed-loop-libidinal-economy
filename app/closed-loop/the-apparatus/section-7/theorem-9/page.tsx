@@ -192,12 +192,11 @@ export default function Theorem9Page() {
             <M>{String.raw`O(1)`}</M> scale through Mode A, the
             fourth-cell mode, or the population-coordinated variant
             of Mode B. The framework&apos;s claim is that the gap
-            between these two is not a difference of degree. It is
-            an <M>{String.raw`N`}</M>-fold structural gap baked into
-            the closure&apos;s geometry. The framework does not deny
-            the value of individual practice; it specifies what
-            individual practice can and cannot do at population
-            scale.
+            between these two is a difference of kind — an{" "}
+            <M>{String.raw`N`}</M>-fold structural gap baked into the
+            closure&apos;s geometry. Individual practice has real
+            value for the person who practices it; what the framework
+            specifies is its reach at population scale.
           </p>
 
           <p className="mb-sm">

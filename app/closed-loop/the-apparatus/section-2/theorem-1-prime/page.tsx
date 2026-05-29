@@ -156,9 +156,9 @@ export default function Theorem1PrimePage() {
             demonstration</em> of preserved interiority faces a
             structural obstacle: the closed loop generates a sampling
             regime in which the demonstration cannot succeed at any
-            feasible sample size. This is not an argument against
-            resistance. It is an argument about what kinds of
-            vindication resistance can hope for. The substantive
+            feasible sample size. The argument bears on what kinds of
+            vindication resistance can hope for; it leaves the worth
+            of resistance itself untouched. The substantive
             demonstration cannot come from sampling the closed loop.
             It must come from{" "}
             <Link
