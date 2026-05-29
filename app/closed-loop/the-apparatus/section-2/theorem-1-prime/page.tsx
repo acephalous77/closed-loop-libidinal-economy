@@ -132,7 +132,7 @@ export default function Theorem1PrimePage() {
             <em>The minimax form.</em> No estimator achieves better
             than the bound. Via Le Cam&apos;s two-point method, the
             minimax MSE is bounded below by{" "}
-            <M>{String.raw`\sigma_u^4/32`}</M> for any sample size in
+            <M>{String.raw`\sigma_u^4/64`}</M> for any sample size in
             the regime <M>{String.raw`T \cdot S(\tau; \theta^*) \leq 1/2`}</M>{" "}
             — the framework&apos;s operating regime.
           </p>
@@ -274,7 +274,7 @@ export default function Theorem1PrimePage() {
             <M>{String.raw`T \cdot S(\tau; \theta^*) \leq 1/2`}</M>:</em>
           </p>
           <MBlock>
-            {String.raw`\inf_{\hat I_T} \sup_{P \in \mathcal{P}} \mathbb{E}_P\!\left[(\hat I_T - I_P(\tau))^2\right] \geq \frac{\sigma_u^4}{32}.`}
+            {String.raw`\inf_{\hat I_T} \sup_{P \in \mathcal{P}} \mathbb{E}_P\!\left[(\hat I_T - I_P(\tau))^2\right] \geq \frac{\sigma_u^4}{64}.`}
           </MBlock>
           <Reads>
             Read the operators outward. The inner{" "}
@@ -283,7 +283,7 @@ export default function Theorem1PrimePage() {
             <M>{String.raw`\inf`}</M> is the analyst picking the best
             estimator against it. Even that best-against-worst pairing
             cannot push the mean-squared error below the fixed floor{" "}
-            <M>{String.raw`\sigma_u^4/32`}</M>. The floor does not
+            <M>{String.raw`\sigma_u^4/64`}</M>. The floor does not
             shrink as data accumulate, and no estimator evades it: the
             impossibility is a property of the foreclosed regime, not
             of any one method.
