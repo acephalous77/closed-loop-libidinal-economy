@@ -360,7 +360,8 @@ export default function CuratedArgumentPage() {
           The framework&apos;s first refutable empirical commitment.
           Developmental exposure to the converged platform regime
           drives the user&apos;s behavioral distribution toward the
-          platform-induced target at exponential rate{" "}
+          platform-induced target. The KL distance decays toward zero,
+          asymptotically exponential at a terminal rate{" "}
           <M>{String.raw`2K`}</M> (
           <Link
             href="/closed-loop/the-apparatus/section-6/prop-8"
@@ -369,9 +370,9 @@ export default function CuratedArgumentPage() {
             Proposition 8
           </Link>
           ). The cohort that arrived in the platform&apos;s converged
-          regime as adolescents — exposure of roughly a decade — has
-          a KL distance from the target that has decayed by a factor
-          of{" "}
+          regime as adolescents — exposure of roughly a decade — sits
+          deep in that terminal regime: its KL distance from the
+          target has decayed by a factor of{" "}
           <M>{String.raw`e^{-2 K \tau_{\mathrm{exp}}}`}</M>. Under
           plausible empirical calibrations, the long-exposure
           cohort starts the analysis essentially at the platform-

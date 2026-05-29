@@ -85,7 +85,13 @@ export default function NetworkCouplingPage() {
               the percolation theorem (§8.5) classifies the resulting
               cascade dynamics. The plate visualizes both: cascades
               live on the graph; the branching-ratio bar shows where
-              the parameters sit relative to threshold.
+              the parameters sit relative to threshold. In the
+              plate&apos;s reduction the temporal kernel is absorbed
+              into a single per-edge probability{" "}
+              <M>{String.raw`\alpha`}</M>, so the branching ratio it
+              displays, <M>{String.raw`\rho(W) \cdot \alpha`}</M>, is
+              the scalar stand-in for{" "}
+              <M>{String.raw`\rho(W) \cdot \rho(\alpha) \cdot \int \kappa`}</M>.
             </p>
 
             <p className="mb-sm">
