@@ -105,7 +105,7 @@ const HOOKS: Hook[] = [
     result: "Theorem 9 — Causal sensitivity",
     href: "/closed-loop/the-apparatus/section-7/theorem-9",
     predicted:
-      "∂θ*/∂X for each mechanism; closure amplification (1 − L_R L_D)^(−1).",
+      "∂θ*/∂X for each mechanism; closure amplification (1 − κ_Φ)^(−1).",
     measurement:
       "Natural-experiment data from platform policy changes, regulatory interventions, algorithm rebuilds; document policy-parameter shift; estimate sensitivities.",
     confirmation:

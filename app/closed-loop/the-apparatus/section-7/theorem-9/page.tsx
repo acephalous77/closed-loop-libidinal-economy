@@ -122,21 +122,24 @@ export default function Theorem9Page() {
           <p className="mb-sm">
             <em>The closure amplification factor.</em> Under
             contractivity{" "}
-            <M>{String.raw`L_{\hat R} L_{\mathcal{D}} < 1`}</M>, the
-            matrix <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> has
-            operator norm bounded by{" "}
-            <M>{String.raw`(1 - L_{\hat R} L_{\mathcal{D}})^{-1}`}</M>.
-            Small interventions amplify through the closure by this
-            factor. As contractivity approaches its boundary{" "}
-            <M>{String.raw`L_{\hat R} L_{\mathcal{D}} \to 1`}</M>, the
-            amplification diverges — the regime{" "}
+            <M>{String.raw`\kappa_\Phi < 1`}</M> — the operator
+            modulus of §0.3,{" "}
+            <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha) L_{\mathcal{D}}`}</M>{" "}
+            — the matrix{" "}
+            <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> has operator
+            norm bounded by{" "}
+            <M>{String.raw`(1 - \kappa_\Phi)^{-1}`}</M>. Small
+            interventions amplify through the closure by this factor.
+            As contractivity approaches its boundary{" "}
+            <M>{String.raw`\kappa_\Phi \to 1`}</M>, the amplification
+            diverges — the regime{" "}
             <Link
               href="/closed-loop/the-apparatus/section-10/theorem-12"
               className="text-oxblood hover:underline"
             >
               Theorem 12 classifies
             </Link>{" "}
-            as the four bifurcation regimes.
+            as the bifurcation regimes at the boundary.
           </p>
 
           <p className="mb-sm">
@@ -241,7 +244,9 @@ export default function Theorem9Page() {
               <M>{String.raw`C^1`}</M> in{" "}
               <M>{String.raw`(\theta, T, O, \hat R)`}</M> and the
               contractivity condition{" "}
-              <M>{String.raw`L_{\hat R} L_{\mathcal{D}} < 1`}</M> holds.
+              <M>{String.raw`\kappa_\Phi < 1`}</M> holds (the operator
+              modulus of §0.3,{" "}
+              <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha) L_{\mathcal{D}}`}</M>).
               Let <M>{String.raw`\theta^*`}</M> be the performative
               stable point. Then for any mechanism{" "}
               <M>{String.raw`X \in \{\hat R, T, O\}`}</M>, the sensitivity
@@ -269,7 +274,7 @@ export default function Theorem9Page() {
             <strong>(i) Closure amplification factor.</strong> <em>The
             matrix <M>{String.raw`(I - D_\theta \Phi(\theta^*))^{-1}`}</M>{" "}
             has operator norm at most{" "}
-            <M>{String.raw`(1 - L_{\hat R} L_{\mathcal{D}})^{-1}`}</M>.</em>
+            <M>{String.raw`(1 - \kappa_\Phi)^{-1}`}</M>.</em>
           </p>
 
           <p className="mb-sm">
@@ -321,7 +326,7 @@ export default function Theorem9Page() {
             <M>{String.raw`\theta^* = \Phi(\theta^*; T, O, \hat R)`}</M>{" "}
             gives <M>{String.raw`(I - D_\theta \Phi) \cdot \partial \theta^*/\partial X = \partial_X \Phi`}</M>.
             Contractivity (R1) plus Neumann series gives the inverse
-            with operator-norm bound (1−L_R L_D)^{`{-1}`} — establishing (i).
+            with operator-norm bound (1−κ_Φ)^{`{-1}`} — establishing (i).
             (2) Decomposition of partial derivatives: comparative statics
             on the FOC under (R2)&apos;s Hessian-invertibility gives{" "}
             <M>{String.raw`\partial_{\hat R} \Phi = O(1)`}</M> (Milgrom &

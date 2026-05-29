@@ -113,10 +113,11 @@ export default function ChronoDebtPage() {
             at the chrono-debt-spectrum plate. The plate exposes the
             parameter{" "}
             <M>{String.raw`\theta_{\mathrm{ref}}/\delta_{\min}`}</M>{" "}
-            and the contractivity{" "}
-            <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M>; the reader
-            can see how the debt distribution shifts across scales as
-            those parameters change.
+            and the contraction modulus{" "}
+            <M>{String.raw`\kappa_\Phi = (\beta/\alpha)\, L_{\mathcal{D}}`}</M>{" "}
+            through its three constituents; the reader can see how the
+            debt distribution shifts across scales as those parameters
+            change.
           </p>
 
           <p className="mb-sm">

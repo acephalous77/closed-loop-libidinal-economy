@@ -46,8 +46,8 @@ export default function TheArchitecturePage() {
         the platform policy, the stimulus, the user dynamics, the
         performative distribution, the reward functional, the
         parameter update, and the closure operator Φ. The reflective
-        threshold θ_ref and the contractivity boundary L_R L_D = 1
-        are annotated.
+        threshold θ_ref and the contractivity boundary κ_Φ = 1 are
+        annotated.
       </p>
       <p className="text-base text-ink-70 italic max-w-prose mb-lg">
         Hover or keyboard-focus a part to see its plain-language
