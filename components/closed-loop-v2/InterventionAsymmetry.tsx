@@ -12,8 +12,10 @@ import { useState } from "react";
  * B and C scale O(1/N).
  *
  * The reader adjusts: intervention intensity in each cell, population
- * size N, contractivity κ = L_R L_D. The closure amplification factor
- * is 1/(1 - κ); it diverges as κ → 1 (the crisis boundary, Theorem 12).
+ * size N, and the operator contraction modulus κ_Φ = (β/α)·L_D via its
+ * three constituents (R1 under R2's α-strong concavity). The closure
+ * amplification factor is 1/(1 - κ_Φ); it diverges as κ_Φ → 1 (the
+ * crisis boundary, Theorem 12).
  */
 
 type Mode = "A" | "B-ind" | "C-ind" | "fourth";
@@ -68,7 +70,10 @@ const MODES: ModeInfo[] = [
 ];
 
 export function InterventionAsymmetry() {
-  const [kappa, setKappa] = useState(0.6); // L_R L_D
+  // κ_Φ = (β/α)·L_D, set via its three constituents (R1 under R2).
+  const [beta, setBeta] = useState(0.6); // reward smoothness
+  const [alpha, setAlpha] = useState(1.0); // strong-concavity modulus
+  const [L_D, setL_D] = useState(1.0); // distribution sensitivity
   const [N, setN] = useState(1e4); // population size
   const [intensity, setIntensity] = useState<Record<Mode, number>>({
     A: 0.5,
@@ -77,7 +82,9 @@ export function InterventionAsymmetry() {
     fourth: 0.5,
   });
 
-  // Closure amplification factor: 1/(1 - κ).
+  const kappa = (beta / alpha) * L_D;
+
+  // Closure amplification factor: 1/(1 - κ_Φ).
   const amp = 1 / Math.max(1 - kappa, 0.001);
 
   // Per-mode effect on θ*.
@@ -215,27 +222,66 @@ export function InterventionAsymmetry() {
 
         {/* Amplification factor readout */}
         <text x={width / 2} y={height - 20} textAnchor="middle" className="axis-label">
-          closure amplification (1 − L_R L_D)⁻¹ = {amp.toFixed(2)}
+          closure amplification (1 − κ_Φ)⁻¹ = {amp.toFixed(2)}
           {kappa > 0.95 && (
             <tspan fill="var(--color-oxblood)"> · approaching crisis boundary</tspan>
           )}
         </text>
       </svg>
 
+      {/* Computed operator modulus κ_Φ = (β/α)·L_D */}
+      <div className="mt-md font-mono text-xs uppercase tracking-wider text-ink-70">
+        κ_Φ = (β/α)·L_D
+        <span className="ml-sm text-ink">{kappa.toFixed(2)}</span>
+        {kappa >= 1 && (
+          <span className="ml-sm text-oxblood">contractivity boundary crossed</span>
+        )}
+      </div>
+
       {/* Top-level controls */}
-      <div className="mt-md grid grid-cols-1 sm:grid-cols-2 gap-md text-sm">
+      <div className="mt-sm grid grid-cols-1 sm:grid-cols-2 gap-md text-sm">
         <label className="block">
           <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">
-            L_R L_D (contractivity κ){" "}
-            <span className="ml-sm text-ink">{kappa.toFixed(2)}</span>
+            β (reward smoothness){" "}
+            <span className="ml-sm text-ink">{beta.toFixed(2)}</span>
           </div>
           <input
             type="range"
-            min={0.05}
-            max={0.99}
-            step={0.01}
-            value={kappa}
-            onChange={(e) => setKappa(parseFloat(e.target.value))}
+            min={0.1}
+            max={1.0}
+            step={0.05}
+            value={beta}
+            onChange={(e) => setBeta(parseFloat(e.target.value))}
+            className="w-full"
+          />
+        </label>
+        <label className="block">
+          <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">
+            α (strong concavity){" "}
+            <span className="ml-sm text-ink">{alpha.toFixed(2)}</span>
+          </div>
+          <input
+            type="range"
+            min={0.5}
+            max={2.0}
+            step={0.05}
+            value={alpha}
+            onChange={(e) => setAlpha(parseFloat(e.target.value))}
+            className="w-full"
+          />
+        </label>
+        <label className="block">
+          <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">
+            L_D (distribution sensitivity){" "}
+            <span className="ml-sm text-ink">{L_D.toFixed(2)}</span>
+          </div>
+          <input
+            type="range"
+            min={0.1}
+            max={1.0}
+            step={0.05}
+            value={L_D}
+            onChange={(e) => setL_D(parseFloat(e.target.value))}
             className="w-full"
           />
         </label>

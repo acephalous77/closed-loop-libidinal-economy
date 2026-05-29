@@ -569,7 +569,7 @@ export default function Section8Page() {
               </em>
             </p>
             <MBlock>
-              {String.raw`D_{KL}(\nu_u^{x, \mathrm{init}} \,\|\, \pi_{\hat R}^*) \leq C \cdot e^{-2 K \bar\tau_\mathrm{exp}(x)}.`}
+              {String.raw`D_{KL}(\nu_u^{x, \mathrm{init}} \,\|\, \pi_{\hat R}^*) \leq C \cdot e^{-2 K_{\mathrm{glob}} \bar\tau_\mathrm{exp}(x)}.`}
             </MBlock>
             <Reads>
               The cohort gradient (Proposition 8) read across the

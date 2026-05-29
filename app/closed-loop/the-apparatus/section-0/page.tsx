@@ -401,15 +401,15 @@ export default function Section0Page() {
               The existence of <M>{String.raw`\theta^*`}</M> follows
               from Banach&apos;s fixed-point theorem applied to{" "}
               <M>{String.raw`\Phi`}</M> under contractivity (axiom R1).
-              When the policy-to-distribution map is{" "}
-              <M>{String.raw`L_{\mathcal{D}}`}</M>-Lipschitz and the
-              reward functional is{" "}
-              <M>{String.raw`L_{\hat R}`}</M>-Lipschitz, the composite
-              operator <M>{String.raw`\Phi`}</M> contracts at rate{" "}
-              <M>{String.raw`\kappa := L_{\hat R} L_{\mathcal{D}} < 1`}</M>.
-              Banach gives a unique stable point and geometric
-              convergence:{" "}
-              <M>{String.raw`\|\theta_t - \theta^*\| \leq \kappa^t \|\theta_0 - \theta^*\|`}</M>.
+              The operator&apos;s contraction modulus is{" "}
+              <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha)\, L_{\mathcal{D}}`}</M>{" "}
+              — the platform&apos;s distribution-sensitivity{" "}
+              <M>{String.raw`L_{\mathcal{D}}`}</M> times the reward&apos;s
+              condition number{" "}
+              <M>{String.raw`\beta/\alpha`}</M> (Perdomo et al. 2020).
+              When <M>{String.raw`\kappa_\Phi < 1`}</M>, Banach gives a
+              unique stable point and geometric convergence:{" "}
+              <M>{String.raw`\|\theta_t - \theta^*\| \leq \kappa_\Phi^t \|\theta_0 - \theta^*\|`}</M>.
               The framework can therefore name how fast the user&apos;s
               environment is being optimized toward{" "}
               <M>{String.raw`\theta^*`}</M> — a convergence rate, which
@@ -422,9 +422,10 @@ export default function Section0Page() {
                 Section 10
               </Link>{" "}
               returns to what happens at{" "}
-              <M>{String.raw`\kappa = 1`}</M>, where contractivity
+              <M>{String.raw`\kappa_\Phi = 1`}</M>, where contractivity
               fails and the closure produces bifurcations — saddle-node,
-              pitchfork, period-doubling, Neimark–Sacker.
+              period-doubling, Neimark–Sacker, and (under cohort
+              symmetry) the pitchfork.
             </p>
           </Middle>
           <Formal label="Definition 0.1 (performative stable point)">
@@ -543,26 +544,49 @@ export default function Section0Page() {
             <p className="mb-sm">
               <strong>(R1) Measurability and integrability.</strong>{" "}
               <M>{String.raw`T, O, \pi_\theta, \hat R`}</M> are
-              measurable. The reward kernel is bounded and{" "}
-              <M>{String.raw`L_{\hat R}`}</M>-Lipschitz in{" "}
+              measurable. The reward kernel is bounded,{" "}
+              <M>{String.raw`L_{\hat R}`}</M>-Lipschitz and{" "}
+              <M>{String.raw`\beta`}</M>-smooth in{" "}
               <M>{String.raw`\theta`}</M>. The performative distribution{" "}
               <M>{String.raw`\mathcal{D}(\theta)`}</M> exists, is
               unique, and is <M>{String.raw`L_{\mathcal{D}}`}</M>-Lipschitz
               in <M>{String.raw`\theta`}</M> in the Wasserstein-1
-              metric. The contractivity condition holds:{" "}
-              <M>{String.raw`L_{\hat R} L_{\mathcal{D}} < 1`}</M>. The
-              inter-stimulus interval distribution has coefficient of
-              variation{" "}
+              metric. The performative operator{" "}
+              <M>{String.raw`\Phi`}</M> is a contraction with modulus{" "}
+              <M>{String.raw`\kappa_\Phi < 1`}</M>. Under the{" "}
+              <M>{String.raw`\alpha`}</M>-strong concavity of (R2),{" "}
+              <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha)\, L_{\mathcal{D}}`}</M>{" "}
+              — the convergence condition of Perdomo, Zrnic,
+              Mendler-Dünner & Hardt (2020): distribution-sensitivity
+              times the reward&apos;s condition number. (The product{" "}
+              <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M> bounds the{" "}
+              <em>objective-value</em> sensitivity, not the operator
+              modulus; the modulus{" "}
+              <M>{String.raw`\kappa_\Phi`}</M> carries the condition
+              number <M>{String.raw`\beta/\alpha`}</M>, which{" "}
+              <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M> omits.)
+              The inter-stimulus interval distribution has coefficient
+              of variation{" "}
               <M>{String.raw`c_v(\theta) \leq c_v^* < \infty`}</M>{" "}
               uniformly in <M>{String.raw`\theta \in \Theta`}</M>.
             </p>
             <p className="mb-sm">
-              <strong>(R2) Smoothness and isolation.</strong>{" "}
+              <strong>(R2) Smoothness, strong concavity, and
+              isolation.</strong>{" "}
               <M>{String.raw`F`}</M> is <M>{String.raw`C^1`}</M> on{" "}
-              <M>{String.raw`\Theta`}</M>. Performative stable points
-              exist (by Banach fixed-point theorem under (R1)&apos;s
-              contractivity); the operative one is isolated and the
-              Jacobian of <M>{String.raw`\Phi`}</M> at{" "}
+              <M>{String.raw`\Theta`}</M>, and the performative
+              objective{" "}
+              <M>{String.raw`\theta' \mapsto \mathbb{E}_{\mathcal{D}(\theta)}[\hat R(\theta')]`}</M>{" "}
+              is <M>{String.raw`\alpha`}</M>-strongly concave uniformly
+              in <M>{String.raw`\theta`}</M> (so{" "}
+              <M>{String.raw`\Phi`}</M> is single-valued and the
+              comparative-statics bound of §1.2 holds globally on{" "}
+              <M>{String.raw`\Theta`}</M>, not merely locally).
+              Performative stable points exist (by the Banach
+              fixed-point theorem under the contractivity{" "}
+              <M>{String.raw`\kappa_\Phi < 1`}</M> of (R1)); the
+              operative one is isolated and the Jacobian of{" "}
+              <M>{String.raw`\Phi`}</M> at{" "}
               <M>{String.raw`\theta^*`}</M> is non-singular.
             </p>
           </Formal>
@@ -767,7 +791,7 @@ export default function Section0Page() {
             >
               §10 Theorem 12 (crisis boundary)
             </Link>{" "}
-            — classifies what happens at the contractivity boundary L_R L_D = 1
+            — classifies what happens at the contractivity boundary κ_Φ = 1
           </li>
         </ul>
       </section>

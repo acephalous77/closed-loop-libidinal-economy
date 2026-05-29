@@ -9,6 +9,6 @@ export default async function Image() {
     eyebrow: "the apparatus · §10",
     title: "Theorem 12",
     subtitle:
-      "the crisis boundary — four bifurcation regimes where contractivity fails and the platform itself destabilizes",
+      "the crisis boundary — where contractivity fails and the platform itself destabilizes into three generic bifurcations",
   });
 }

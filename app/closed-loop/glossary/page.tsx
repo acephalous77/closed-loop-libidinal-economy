@@ -33,7 +33,7 @@ const TERMS: Term[] = [
   {
     name: "Bifurcation regime",
     gloss:
-      "One of four codimension-1 bifurcations (saddle-node, pitchfork, period-doubling, Neimark–Sacker) that platform dynamics undergo at the contractivity boundary L_R L_D = 1.",
+      "One of three generic codimension-1 bifurcations (saddle-node, period-doubling, Neimark–Sacker) that platform dynamics undergo at the contractivity boundary κ_Φ = 1 — plus the non-generic pitchfork, which appears only when the operator commutes with a cohort ℤ₂ symmetry.",
     apparatus: "§10 Theorem 12",
     href: "/closed-loop/the-apparatus/section-10/theorem-12",
     hrefLive: true,
@@ -65,7 +65,7 @@ const TERMS: Term[] = [
   {
     name: "Closure amplification factor",
     gloss:
-      "(I − D_θΦ)^(−1). The factor by which small interventions amplify through the closure. Operator norm bounded by (1 − L_R L_D)^(−1); diverges at the contractivity boundary.",
+      "(I − D_θΦ)^(−1). The factor by which small interventions amplify through the closure. Operator norm bounded by (1 − κ_Φ)^(−1), where κ_Φ = (β/α)L_D; diverges at the contractivity boundary.",
     apparatus: "§7 Theorem 9 (i)",
     href: "/closed-loop/the-apparatus/section-7/theorem-9",
     hrefLive: true,
@@ -73,7 +73,7 @@ const TERMS: Term[] = [
   {
     name: "Cohort gradient",
     gloss:
-      "The exponential decay D_KL(ν_u^init(τ_exp) || π_R*) ≤ D_KL(ν_u^pre || π_R*) · e^(−2Kτ_exp) of behavioral distance with developmental exposure. The framework's first refutable empirical commitment.",
+      "The exponential decay D_KL(ν_u^init(τ_exp) || π_R*) ≤ D_KL(ν_u^pre || π_R*) · e^(−2K_glob·τ_exp) of behavioral distance with developmental exposure, where K_glob ≤ β_u is the global rate and the terminal log-slope approaches −2K (K = β_u). The framework's first refutable empirical commitment.",
     apparatus: "§6 Proposition 8",
     href: "/closed-loop/the-apparatus/section-6/prop-8",
     hrefLive: true,
@@ -81,7 +81,7 @@ const TERMS: Term[] = [
   {
     name: "Contractivity boundary",
     gloss:
-      "L_R L_D = 1, where the framework's contractivity hypothesis fails and stable-point analysis breaks down. Near it, four bifurcation regimes (Theorem 12).",
+      "κ_Φ = 1, where the framework's contractivity hypothesis fails and stable-point analysis breaks down. Near it, three generic bifurcation regimes plus the symmetry-protected pitchfork (Theorem 12).",
     apparatus: "§10",
     href: "/closed-loop/the-apparatus/section-10/theorem-12",
     hrefLive: true,

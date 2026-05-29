@@ -143,9 +143,9 @@ const PARTS: Record<PartId, PartMeta> = {
     route: "/closed-loop/the-apparatus/section-1/lemma-1",
   },
   contractivityBoundary: {
-    label: "Contractivity boundary L_R̂ L_D = 1",
+    label: "Contractivity boundary κ_Φ = 1",
     caption:
-      "The contractivity boundary — where the framework's contractivity hypothesis L_R̂ L_D < 1 fails. Near it, four bifurcation regimes characterize platform instability (Theorem 12).",
+      "The contractivity boundary — where the framework's contractivity hypothesis κ_Φ < 1 fails (κ_Φ ≤ (β/α)L_D, the operator modulus). Near it, codimension-1 bifurcation regimes characterize platform instability (Theorem 12).",
     route: "/closed-loop/the-apparatus/section-10/theorem-12",
   },
 };
@@ -628,7 +628,7 @@ export function ClosedLoopSchematic() {
             strokeDasharray="3 3"
           />
           <SvgM x={936} y={306} w={130} h={18} align="left" color="var(--color-oxblood)" size="11px">
-            {String.raw`L_{\hat R}\, L_{\mathcal{D}} = 1`}
+            {String.raw`\kappa_\Phi = 1`}
           </SvgM>
         </Part>
       </svg>

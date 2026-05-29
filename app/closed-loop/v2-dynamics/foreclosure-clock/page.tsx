@@ -102,17 +102,24 @@ export default function ForeclosureClockPage() {
             </p>
 
             <p className="mb-sm">
-              <em>The two controls.</em>
+              <em>The controls.</em>
             </p>
 
             <ul className="list-disc pl-md mb-sm space-y-xs">
               <li>
-                <strong>L_R · L_D (contractivity).</strong> Per
-                axiom R1, the framework requires{" "}
-                <M>{String.raw`L_{\hat R} L_{\mathcal{D}} < 1`}</M>.
-                Higher contractivity (closer to 1) gives slower
+                <strong>β, α, L_D → κ_Φ (contractivity).</strong> The
+                plate exposes the operator modulus through its three
+                constituents: reward smoothness{" "}
+                <M>{String.raw`\beta`}</M>, strong-concavity modulus{" "}
+                <M>{String.raw`\alpha`}</M>, and distribution
+                sensitivity <M>{String.raw`L_{\mathcal{D}}`}</M>. It
+                computes{" "}
+                <M>{String.raw`\kappa_\Phi = (\beta/\alpha)\, L_{\mathcal{D}}`}</M>;
+                axiom R1 (under R2&apos;s strong concavity) requires{" "}
+                <M>{String.raw`\kappa_\Phi < 1`}</M>. Driving{" "}
+                <M>{String.raw`\kappa_\Phi`}</M> toward 1 slows
                 convergence — the closure operator{" "}
-                <M>{String.raw`\Phi`}</M> is &ldquo;barely a
+                <M>{String.raw`\Phi`}</M> becomes &ldquo;barely a
                 contraction.&rdquo; The closure-amplification factor{" "}
                 <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> (
                 <Link
@@ -121,8 +128,9 @@ export default function ForeclosureClockPage() {
                 >
                   Theorem 9
                 </Link>
-                ) diverges as <M>{String.raw`L_R L_D \to 1^-`}</M>{" "}
-                — the crisis boundary (
+                ) diverges as{" "}
+                <M>{String.raw`\kappa_\Phi \to 1^-`}</M> — the crisis
+                boundary (
                 <Link
                   href="/closed-loop/the-apparatus/section-10/theorem-12"
                   className="text-oxblood hover:underline"
@@ -156,9 +164,10 @@ export default function ForeclosureClockPage() {
               2); ISIs are exponential at rate{" "}
               <M>{String.raw`\theta/\delta_{\min}`}</M>; the policy
               update is geometric convergence{" "}
-              <M>{String.raw`\theta_{t+1} - \theta^* = \kappa (\theta_t - \theta^*)`}</M>{" "}
-              at contractivity{" "}
-              <M>{String.raw`\kappa = L_R L_D`}</M>. The simplifications
+              <M>{String.raw`\theta_{t+1} - \theta^* = \kappa_\Phi (\theta_t - \theta^*)`}</M>{" "}
+              at modulus{" "}
+              <M>{String.raw`\kappa_\Phi = (\beta/\alpha) L_{\mathcal{D}}`}</M>.
+              The simplifications
               preserve Lemma 1&apos;s qualitative behavior; the full
               multi-register sim is Phase 3&apos;s primary engine.
             </p>

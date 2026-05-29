@@ -5,15 +5,17 @@ import { useState } from "react";
 /**
  * The crisis-boundary plate -- v2.
  *
- * Operates Theorem 12 (apparatus s10). Four bifurcation regimes at
- * the contractivity boundary kappa = 1 (codimension-1 generic cases):
+ * Operates Theorem 12 (apparatus s10). At the contractivity boundary
+ * kappa_Phi = 1, three generic codimension-1 bifurcations can occur:
  *   saddle-node:     stable + unstable fixed points collide
- *   pitchfork:       single fixed point splits into two
  *   period-doubling: stable fixed point becomes unstable; 2-cycle
  *   Neimark-Sacker:  invariant circle appears (Hopf-like)
+ * The pitchfork is NON-generic: it requires Phi to commute with a
+ * Z_2 symmetry, which symmetric cohorts can supply. Shown here as the
+ * fourth, symmetry-protected case.
  *
  * Visualization: bifurcation diagram for the selected regime. The
- * x-axis is the control parameter mu = kappa - kappa*; the y-axis
+ * x-axis is the control parameter mu = kappa_Phi - 1; the y-axis
  * is the state (xi for the 1-D normal forms, or the amplitude for
  * Neimark-Sacker).
  *
@@ -31,8 +33,8 @@ const REGIMES: { id: Regime; label: string; description: string }[] = [
   },
   {
     id: "pitchfork",
-    label: "Pitchfork",
-    description: "Stable point becomes unstable; two new symmetric stable points appear.",
+    label: "Pitchfork (Z₂)",
+    description: "Non-generic: requires Φ to commute with a ℤ₂ symmetry, which symmetric cohorts can supply. The stable point becomes unstable; two new symmetric stable points appear.",
   },
   {
     id: "period-doubling",
@@ -242,7 +244,7 @@ export function CrisisBoundary() {
           stroke="var(--color-oxblood)" strokeWidth={1} strokeDasharray="3 4"
         />
         <text x={xOf(0) + 6} y={padY + 14} className="axis-label" fill="var(--color-oxblood)">
-          bifurcation (mu = 0, kappa = 1)
+          bifurcation (μ = 0, κ_Φ = 1)
         </text>
 
         {/* xi = 0 line */}
@@ -265,7 +267,7 @@ export function CrisisBoundary() {
 
         {/* Axis labels */}
         <text x={padX + plotW / 2} y={height - 4} textAnchor="middle" className="axis-label">
-          mu = kappa - kappa* (control parameter)
+          μ = κ_Φ − 1 (control parameter)
         </text>
         <text
           x={14} y={padY + plotH / 2}

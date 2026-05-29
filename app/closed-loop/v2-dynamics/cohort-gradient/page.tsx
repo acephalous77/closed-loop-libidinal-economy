@@ -3,7 +3,9 @@
  *
  * Operates Proposition 8 (apparatus §6). The framework's first
  * refutable empirical commitment: D_KL(ν^init || π_R*) decays
- * exponentially in developmental exposure τ_exp.
+ * asymptotically exponentially in developmental exposure τ_exp,
+ * at terminal rate 2K (K = β_u), with a slower global bound at
+ * 2K_glob and log D_KL concave at short exposure.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -20,7 +22,7 @@ const PATH = "/closed-loop/v2-dynamics/cohort-gradient";
 export const metadata: Metadata = {
   title: "Cohort gradient — v2 dynamics — closed-loop",
   description:
-    "Operates Proposition 8: D_KL(ν^init(τ_exp) || π_R*) ≤ D_KL(ν^pre || π_R*) · e^(−2K τ_exp). The cohort gradient as developmental Fisher–Rao convergence.",
+    "Operates Proposition 8: D_KL(ν^init(τ_exp) || π_R*) decays asymptotically exponentially with terminal rate 2K, under a global bound at the slower log-Sobolev rate 2K_glob. The cohort gradient as developmental Fisher–Rao convergence.",
   alternates: { canonical: PATH },
 };
 
@@ -63,9 +65,10 @@ export default function CohortGradientPage() {
           <Caption>
             The KL distance{" "}
             <M>{String.raw`D_{KL}(\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}}) \| \pi_{\hat R}^*)`}</M>{" "}
-            decays exponentially in developmental exposure{" "}
-            <M>{String.raw`\tau_{\mathrm{exp}}`}</M>, at rate{" "}
-            <M>{String.raw`2K`}</M>. Three cohorts are marked: the
+            decays in developmental exposure{" "}
+            <M>{String.raw`\tau_{\mathrm{exp}}`}</M> toward zero,
+            steepening to a terminal log-slope of{" "}
+            <M>{String.raw`-2K`}</M>. Three cohorts are marked: the
             pre-platform cohort (τ_exp = 0, at the baseline), the
             transition cohort (τ_exp = 5y), and the native cohort
             (τ_exp = 15y, typically below the operational-foreclosure
@@ -86,10 +89,14 @@ export default function CohortGradientPage() {
               dynamics: the developmental propagator{" "}
               <M>{String.raw`\mathcal{T}_{\theta^*}`}</M> has{" "}
               <M>{String.raw`\pi_{\hat R}^*`}</M> as an attracting
-              fixed point with exponential rate{" "}
-              <M>{String.raw`K > 0`}</M>. The user&apos;s initial
-              behavioral distance decays as{" "}
-              <M>{String.raw`e^{-2K\tau_{\mathrm{exp}}}`}</M>.
+              fixed point. The user&apos;s initial behavioral distance
+              decays toward zero asymptotically exponentially — terminal
+              rate <M>{String.raw`2K`}</M>,{" "}
+              <M>{String.raw`K = \beta_u`}</M> — with a global upper
+              bound at the slower log-Sobolev rate{" "}
+              <M>{String.raw`2K_{\mathrm{glob}} \leq 2\beta_u`}</M> and{" "}
+              <M>{String.raw`\log D_{KL}`}</M> concave at short exposure.
+              The plate renders the terminal exponential.
             </p>
 
             <p className="mb-sm">
@@ -142,10 +149,14 @@ export default function CohortGradientPage() {
               predicts a falsifiable functional form. To calibrate{" "}
               <M>{String.raw`K`}</M> empirically: stratify a study
               population by τ_exp, measure each cohort&apos;s KL
-              distance from the platform target, fit the exponential.
-              Confirmation: monotone, exponentially-decreasing
-              relationship. Falsification: no cohort effect, or
-              non-exponential functional form. The{" "}
+              distance from the platform target, fit the curve.
+              Confirmation: a monotone, asymptotically-exponential
+              relationship — concave in log at short exposure, with
+              log-slope approaching{" "}
+              <M>{String.raw`-2K`}</M> in the long-exposure cohort.
+              Falsification: no cohort effect, non-monotonicity, or a
+              tail that is not asymptotically exponential (e.g. power-law
+              decay). The{" "}
               <Link
                 href="/closed-loop/the-apparatus/section-12#priorities"
                 className="text-oxblood hover:underline"

@@ -27,7 +27,7 @@ const PATH = "/closed-loop/the-apparatus/section-10/theorem-12";
 export const metadata: Metadata = {
   title: "Theorem 12 (crisis-boundary classification) — the apparatus — closed-loop",
   description:
-    "Four bifurcation regimes at the contractivity boundary κ = 1. Saddle-node, pitchfork, period-doubling, Neimark–Sacker. The framework's vocabulary for platforms' own structural crises.",
+    "Bifurcation classification at the contractivity boundary κ_Φ = 1. Three generic codimension-1 regimes — saddle-node, period-doubling, Neimark–Sacker — plus the pitchfork under cohort symmetry. The framework's vocabulary for platforms' own structural crises.",
   alternates: { canonical: PATH },
 };
 
@@ -57,19 +57,24 @@ export default function Theorem12Page() {
       <DepthLayers>
         <Caption>
           What happens at and beyond the contractivity boundary{" "}
-          <M>{String.raw`\kappa := L_{\hat R} L_{\mathcal{D}} = 1`}</M>.
-          The framework&apos;s stable-point analysis fails. Four
-          bifurcation regimes — saddle-node, pitchfork, period-doubling,
-          Neimark–Sacker — each with an empirically observable platform-
-          dynamical signature. The framework now has formal vocabulary
-          for platforms&apos; own structural crises.
+          <M>{String.raw`\kappa_\Phi = 1`}</M> (the operator modulus
+          of §0.3). The framework&apos;s stable-point analysis fails.
+          Three generic codimension-1 bifurcation regimes —
+          saddle-node, period-doubling, Neimark–Sacker — plus the
+          pitchfork under cohort symmetry, each with an empirically
+          observable platform-dynamical signature. The framework now
+          has formal vocabulary for platforms&apos; own structural
+          crises.
         </Caption>
 
         <Middle>
           <p className="mb-sm">
             The framework&apos;s regularity hypothesis (R1) requires
-            contractivity{" "}
-            <M>{String.raw`\kappa := L_{\hat R} L_{\mathcal{D}} < 1`}</M>.
+            the operator to contract:{" "}
+            <M>{String.raw`\kappa := \kappa_\Phi < 1`}</M>, where{" "}
+            <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha) L_{\mathcal{D}}`}</M>{" "}
+            is the operator modulus of §0.3 — not the value-sensitivity
+            product <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M>.
             As <M>{String.raw`\kappa \to 1^-`}</M>, the closure
             amplification factor{" "}
             <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> from{" "}
@@ -101,10 +106,12 @@ export default function Theorem12Page() {
           </p>
 
           <p className="mb-sm">
-            <em>The four bifurcation regimes.</em> In the generic
-            codimension-1 case (a single eigenvalue touching the unit
-            circle at <M>{String.raw`\kappa = 1`}</M>), one of four
-            bifurcations occurs:
+            <em>The bifurcation regimes.</em> At{" "}
+            <M>{String.raw`\kappa = 1`}</M> a single eigenvalue of the
+            linearization touches the unit circle (the generic
+            codimension-1 case). Where it touches fixes the
+            bifurcation type. Three types are generic in a
+            one-parameter family:
           </p>
 
           <ul className="list-disc pl-md mb-sm space-y-xs">
@@ -116,10 +123,15 @@ export default function Theorem12Page() {
               attractor.
             </li>
             <li>
-              <strong>Pitchfork</strong> — eigenvalue at{" "}
-              <M>{String.raw`+1`}</M>, cubic non-degeneracy with
-              symmetry. Single stable fixed point becomes unstable;
-              two symmetric stable fixed points appear.
+              <strong>Pitchfork</strong> (non-generic) — eigenvalue at{" "}
+              <M>{String.raw`+1`}</M>, cubic non-degeneracy. It is{" "}
+              <em>not</em> generic in a one-parameter family; it
+              replaces the saddle-node only when{" "}
+              <M>{String.raw`\Phi`}</M> commutes with a{" "}
+              <M>{String.raw`\mathbb{Z}_2`}</M> symmetry — which the
+              framework&apos;s symmetric cohorts can supply. A single
+              stable fixed point becomes unstable; two symmetric stable
+              fixed points appear.
             </li>
             <li>
               <strong>Period-doubling (flip)</strong> — eigenvalue at{" "}
@@ -139,9 +151,14 @@ export default function Theorem12Page() {
           </ul>
 
           <p className="mb-sm">
-            The generic case is Neimark–Sacker — real eigenvalues at
-            exactly <M>{String.raw`\pm 1`}</M> are non-generic among
-            all unit-circle crossings.
+            All three — saddle-node, period-doubling, Neimark–Sacker —
+            are generic codimension-1 events; which one obtains is a
+            property of <M>{String.raw`\Phi`}</M> at{" "}
+            <M>{String.raw`(\theta^*, \kappa = 1)`}</M>, not a matter
+            of one being more typical than the others. The pitchfork
+            is the lone exception — it requires the{" "}
+            <M>{String.raw`\mathbb{Z}_2`}</M>-equivariance of a
+            symmetric cohort and is non-generic without it.
           </p>
 
           <p className="mb-sm">
@@ -186,8 +203,10 @@ export default function Theorem12Page() {
           <p className="mb-sm">
             Real platforms likely exhibit a mixture: Neimark–Sacker
             oscillations at intermediate timescales, saddle-node
-            crises at longer timescales, with period-doubling and
-            pitchfork rarer but possible.
+            crises at longer timescales, period-doubling where
+            self-correction overshoots, and the pitchfork where a
+            symmetric cohort supplies the{" "}
+            <M>{String.raw`\mathbb{Z}_2`}</M> symmetry it requires.
           </p>
 
           <p className="mb-sm">
@@ -232,23 +251,29 @@ export default function Theorem12Page() {
             >
               operate the crisis-boundary plate
             </Link>{" "}
-            to drive a platform through each of the four regimes by
-            varying <M>{String.raw`\kappa`}</M>.
+            to view the bifurcation diagram for each regime — the three
+            generic cases and the symmetry-protected pitchfork.
           </p>
         </Middle>
 
         <Formal label="Theorem 12 (crisis-boundary bifurcation classification)">
           <p className="mb-sm">
             <em>
-              Let <M>{String.raw`\kappa := L_{\hat R} L_{\mathcal{D}}`}</M>{" "}
-              be the contractivity parameter, treated as a
-              one-dimensional control parameter. Suppose at{" "}
-              <M>{String.raw`\kappa = 1`}</M>,{" "}
+              Let <M>{String.raw`\kappa := \kappa_\Phi`}</M> be the
+              contractivity parameter (the operator modulus of §0.3),
+              treated as a one-dimensional control parameter. Suppose
+              at <M>{String.raw`\kappa = 1`}</M>,{" "}
               <M>{String.raw`J^*(\kappa)`}</M> has a single eigenvalue
               touching the unit circle (the generic codimension-1 case).
               Then the local dynamics near{" "}
               <M>{String.raw`(\theta^*, \kappa = 1)`}</M> undergo one
-              of four bifurcations:
+              of three generic codimension-1 bifurcations — saddle-node
+              (a), period-doubling (c), or Neimark–Sacker (d) below.
+              The pitchfork (b) is not generic in a one-parameter
+              family; it arises in place of the saddle-node when{" "}
+              <M>{String.raw`\Phi`}</M> commutes with a{" "}
+              <M>{String.raw`\mathbb{Z}_2`}</M> symmetry, which the
+              framework&apos;s symmetric cohorts can supply:
             </em>
           </p>
 
@@ -341,14 +366,22 @@ export default function Theorem12Page() {
             <M>{String.raw`\kappa`}</M> as control parameter (Wiggins
             2003 Ch. 1; Kuznetsov 2004 Ch. 4). Saddle-node: fixed points{" "}
             <M>{String.raw`\pm\sqrt{-\mu/a}`}</M> collide at threshold.
-            Pitchfork: symmetry-breaking. Period-doubling:{" "}
-            <M>{String.raw`\Phi^2`}</M> has a pitchfork-like bifurcation
-            giving the period-2 attractor; Feigenbaum cascade follows.
-            Neimark–Sacker: invariant circle of radius{" "}
+            Pitchfork: symmetry-breaking under a{" "}
+            <M>{String.raw`\mathbb{Z}_2`}</M>-equivariance.
+            Period-doubling: <M>{String.raw`\Phi^2`}</M> has a
+            pitchfork-like bifurcation giving the period-2 attractor;
+            Feigenbaum cascade follows. Neimark–Sacker: invariant
+            circle of radius{" "}
             <M>{String.raw`\sqrt{-\mu/\mathrm{Re}(d)}`}</M> in
-            super-critical case (Hassard–Kazarinoff–Wan 1981). The
-            generic case (open and dense in codim-1 bifurcations) is
-            Neimark–Sacker.
+            super-critical case (Hassard–Kazarinoff–Wan 1981). In a
+            generic one-parameter family the eigenvalue crosses the
+            unit circle transversally at a single point, and the type
+            is fixed by where it crosses — at{" "}
+            <M>{String.raw`+1`}</M> (saddle-node),{" "}
+            <M>{String.raw`-1`}</M> (period-doubling), or a complex
+            pair (Neimark–Sacker). All three are generic; the
+            pitchfork is the lone exception, requiring the{" "}
+            <M>{String.raw`\mathbb{Z}_2`}</M>-equivariance.
           </p>
           <ProofEnd />
         </Formal>

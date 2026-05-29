@@ -289,9 +289,13 @@ export default function Lemma1Page() {
           <p className="mb-sm text-ink-70 text-sm">
             Full proof drawn directly from apparatus §1.2 (manuscript
             source). Three steps: SGD convergence to{" "}
-            <M>{String.raw`\theta^*`}</M> via Banach fixed-point on{" "}
-            <M>{String.raw`\Phi`}</M>&apos;s contractivity (R1); rate
-            saturation at <M>{String.raw`\lambda_{\max} = 1/\delta_{\min}`}</M>{" "}
+            <M>{String.raw`\theta^*`}</M>, with{" "}
+            <M>{String.raw`\Phi`}</M>&apos;s contraction modulus{" "}
+            <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha) L_{\mathcal{D}}`}</M>{" "}
+            established by a comparative-statics bound on the
+            maximizer&apos;s displacement (Milgrom–Shannon 1994;
+            Bonnans–Shapiro 2000), then Banach; rate saturation at{" "}
+            <M>{String.raw`\lambda_{\max} = 1/\delta_{\min}`}</M>{" "}
             via stochastic dominance and (P-I), (P-II); survival bound
             via Markov on the second moment with{" "}
             <M>{String.raw`\mathbb{E}[(\tau^{(k)})^2] \leq (1 + (c_v^*)^2)\delta_{\min}^2`}</M>.
