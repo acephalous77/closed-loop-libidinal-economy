@@ -4,10 +4,11 @@
  *
  * The framework's first refutable empirical commitment. The
  * developmental propagator T_θ* has π_R* as an attracting fixed
- * point with exponential rate K > 0, giving the cohort-gradient
- * decay D_KL(ν^init(τ_exp) || π_R*) ≤ D_KL(ν^pre || π_R*) · e^(−2Kτ_exp).
- *
- * Content per publishing-pipeline manuscript §6.1-§6.3.
+ * point. The cohort-gradient decay is asymptotically exponential
+ * with terminal rate 2K (K = β_u) as τ_exp → ∞; a global upper
+ * bound D_KL(ν^init(τ_exp) || π_R*) ≤ D_KL(ν^pre || π_R*) · e^(−2K_glob·τ_exp)
+ * holds at the slower log-Sobolev rate 2K_glob (K_glob ≤ β_u), with
+ * log D_KL concave in τ_exp at short exposure.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -86,10 +87,14 @@ export default function Prop8Page() {
             <M>{String.raw`\nu_u`}</M> under platform exposure at the
             converged policy) has{" "}
             <M>{String.raw`\pi_{\hat R}^*`}</M> as an attracting fixed
-            point with exponential rate{" "}
-            <M>{String.raw`K > 0`}</M>. The user&apos;s initial KL
-            distance from the platform target decays as{" "}
-            <M>{String.raw`e^{-2K\tau_{\mathrm{exp}}}`}</M>.
+            point. The user&apos;s initial KL distance from the
+            platform target decays toward zero with exposure — at a
+            terminal rate <M>{String.raw`2K`}</M>,{" "}
+            <M>{String.raw`K = \beta_u`}</M>, that the decay approaches
+            asymptotically. Far from the target, at short exposure,
+            the decay is slower; a global bound holds at the
+            log-Sobolev rate{" "}
+            <M>{String.raw`2K_{\mathrm{glob}} \leq 2\beta_u`}</M>.
           </p>
 
           <p className="mb-sm">
@@ -208,13 +213,38 @@ export default function Prop8Page() {
               developmental propagator{" "}
               <M>{String.raw`\mathcal{T}_{\theta^*}`}</M> has{" "}
               <M>{String.raw`\pi_{\hat R}^*`}</M> as an attracting
-              fixed point with exponential rate{" "}
-              <M>{String.raw`K > 0`}</M>:
+              fixed point. The convergence is{" "}
+              <strong>asymptotically exponential</strong> with terminal
+              rate <M>{String.raw`2K`}</M>,{" "}
+              <M>{String.raw`K = \beta_u > 0`}</M>:
             </em>
           </p>
           <MBlock>
-            {String.raw`D_{KL}(\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}}) \,\|\, \pi_{\hat R}^*) \;\leq\; D_{KL}(\nu_u^{\mathrm{pre}} \,\|\, \pi_{\hat R}^*) \cdot e^{-2 K \tau_{\mathrm{exp}}}.`}
+            {String.raw`D_{KL}(\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}}) \,\|\, \pi_{\hat R}^*) = \Theta\!\big(e^{-2 K \tau_{\mathrm{exp}}}\big) \quad \text{as } \tau_{\mathrm{exp}} \to \infty.`}
           </MBlock>
+          <p className="mb-sm">
+            <em>
+              A global upper bound, valid for all{" "}
+              <M>{String.raw`\tau_{\mathrm{exp}}`}</M>, holds at a
+              possibly slower rate set by the global
+              log-Sobolev / Polyak–Łojasiewicz constant{" "}
+              <M>{String.raw`K_{\mathrm{glob}} \leq \beta_u`}</M>:
+            </em>
+          </p>
+          <MBlock>
+            {String.raw`D_{KL}(\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}}) \,\|\, \pi_{\hat R}^*) \;\leq\; D_{KL}(\nu_u^{\mathrm{pre}} \,\|\, \pi_{\hat R}^*) \cdot e^{-2 K_{\mathrm{glob}} \tau_{\mathrm{exp}}}.`}
+          </MBlock>
+          <p className="mb-sm">
+            <em>
+              At short exposure — far from{" "}
+              <M>{String.raw`\pi_{\hat R}^*`}</M> — the decay is slower
+              than the terminal rate:{" "}
+              <M>{String.raw`\log D_{KL}`}</M> is concave in{" "}
+              <M>{String.raw`\tau_{\mathrm{exp}}`}</M>, steepening to
+              slope <M>{String.raw`-2K`}</M> as{" "}
+              <M>{String.raw`\tau_{\mathrm{exp}} \to \infty`}</M>.
+            </em>
+          </p>
           <Reads>
             A user&apos;s distance from the platform target when the
             analysis begins is at most their pre-platform distance,
@@ -313,9 +343,12 @@ export default function Prop8Page() {
               a study population by{" "}
               <M>{String.raw`\tau_{\mathrm{exp}}`}</M> and measuring{" "}
               <M>{String.raw`D_{KL}(\hat\nu_u^{\mathrm{init}}(\tau_{\mathrm{exp}}) \| \hat\pi_{\hat R}^*)`}</M>.
-              Confirmation: a monotone, exponentially-decreasing
-              relationship. Falsification: no cohort effect, or
-              non-exponential functional form.
+              Confirmation: a monotone, asymptotically-exponential
+              relationship — concave in log at short exposure, with
+              log-slope approaching <M>{String.raw`-2K`}</M> in the
+              long-exposure cohort. Falsification: no cohort effect,
+              non-monotonicity, or a tail that is not asymptotically
+              exponential (e.g. power-law decay).
             </li>
             <li>
               <strong>Corollary 8.2 (network amplification).</strong>{" "}
