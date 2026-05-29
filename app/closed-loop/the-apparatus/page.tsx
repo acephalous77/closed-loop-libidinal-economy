@@ -180,7 +180,7 @@ const SECTIONS: Section[] = [
     no: "10",
     title: "Crisis-boundary classification",
     subtitle:
-      "Theorem 12 — four bifurcation regimes at the contractivity boundary",
+      "Theorem 12 — three generic bifurcation regimes at the contractivity boundary, plus the symmetry-protected pitchfork",
     status: "in-progress",
     results: [
       {

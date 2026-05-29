@@ -116,7 +116,7 @@ const PLATES: Plate[] = [
     name: "Crisis-boundary bifurcations",
     href: "/closed-loop/v2-dynamics/crisis-boundary",
     gloss:
-      "Four bifurcation regimes at the contractivity boundary κ = 1 — saddle-node, pitchfork, period-doubling, Neimark-Sacker. The empirical signatures of each.",
+      "Three generic bifurcation regimes at the contractivity boundary κ_Φ = 1 — saddle-node, period-doubling, Neimark-Sacker — plus the pitchfork under cohort symmetry. The empirical signatures of each.",
     apparatusName: "Theorem 12",
     apparatusHref: "/closed-loop/the-apparatus/section-10/theorem-12",
   },

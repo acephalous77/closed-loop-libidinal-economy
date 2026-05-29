@@ -1,8 +1,9 @@
 /**
  * Crisis-boundary bifurcations -- v2 dynamics plate.
  *
- * Operates Theorem 12 (apparatus s10). Four codimension-1 bifurcation
- * regimes at the contractivity boundary kappa = 1.
+ * Operates Theorem 12 (apparatus s10). Three generic codimension-1
+ * bifurcation regimes at the contractivity boundary kappa_Phi = 1,
+ * plus the non-generic pitchfork under cohort (Z_2) symmetry.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -19,7 +20,7 @@ const PATH = "/closed-loop/v2-dynamics/crisis-boundary";
 export const metadata: Metadata = {
   title: "Crisis-boundary bifurcations — v2 dynamics — closed-loop",
   description:
-    "Operates Theorem 12: four codimension-1 bifurcation regimes at the contractivity boundary kappa = L_R L_D = 1.",
+    "Operates Theorem 12: three generic codimension-1 bifurcation regimes at the contractivity boundary κ_Φ = 1, plus the non-generic pitchfork under cohort (ℤ₂) symmetry.",
   alternates: { canonical: PATH },
 };
 
@@ -50,7 +51,7 @@ export default function CrisisBoundaryPage() {
         >
           Theorem 12
         </Link>
-        {" · "}four bifurcation regimes at the contractivity boundary
+        {" · "}three generic bifurcation regimes at the contractivity boundary, plus the symmetry-protected pitchfork
       </p>
 
       <div className="my-lg">
@@ -60,12 +61,13 @@ export default function CrisisBoundaryPage() {
       <div className="max-w-prose mx-auto">
         <DepthLayers>
           <Caption>
-            Four codimension-1 bifurcation regimes at the contractivity
-            boundary{" "}
-            <M>{String.raw`\kappa := L_{\hat R} L_{\mathcal{D}} = 1`}</M>:
-            saddle-node, pitchfork, period-doubling, Neimark-Sacker.
-            Each has an empirically observable platform-dynamical
-            signature.
+            Three generic codimension-1 bifurcation regimes at the
+            contractivity boundary{" "}
+            <M>{String.raw`\kappa_\Phi = 1`}</M> — saddle-node,
+            period-doubling, Neimark-Sacker — plus the non-generic
+            pitchfork, which appears when cohort{" "}
+            <M>{String.raw`\mathbb{Z}_2`}</M> symmetry is present. Each
+            has an empirically observable platform-dynamical signature.
           </Caption>
 
           <Middle>
@@ -80,13 +82,13 @@ export default function CrisisBoundaryPage() {
               classifies the generic codimension-1 bifurcations of the
               performative operator Phi when its dominant eigenvalue
               touches the unit circle at{" "}
-              <M>{String.raw`\kappa = 1`}</M>. The plate visualizes the
-              bifurcation diagrams of each regime; the reader selects
+              <M>{String.raw`\kappa_\Phi = 1`}</M>. The plate visualizes
+              the bifurcation diagrams of each regime; the reader selects
               which to view.
             </p>
 
             <p className="mb-sm">
-              <em>The four regimes.</em>
+              <em>Three generic regimes, plus one under symmetry.</em>
             </p>
 
             <ul className="list-disc pl-md mb-sm space-y-xs">
@@ -100,11 +102,15 @@ export default function CrisisBoundaryPage() {
                 rebuild events.
               </li>
               <li>
-                <strong>Pitchfork.</strong> Eigenvalue at{" "}
-                <M>{String.raw`+1`}</M>, cubic non-degeneracy with
-                symmetry. Single stable fixed point becomes unstable;
-                two symmetric stable points appear. Empirical
-                signature: polarized stable regimes.
+                <strong>Pitchfork (non-generic).</strong> Eigenvalue at{" "}
+                <M>{String.raw`+1`}</M>, cubic non-degeneracy. This one
+                is non-generic: it requires{" "}
+                <M>{String.raw`\Phi`}</M> to commute with a{" "}
+                <M>{String.raw`\mathbb{Z}_2`}</M> symmetry, which
+                symmetric cohorts can supply. Where that symmetry holds,
+                a single stable fixed point becomes unstable and two
+                symmetric stable points appear. Empirical signature:
+                polarized stable regimes.
               </li>
               <li>
                 <strong>Period-doubling (flip).</strong> Eigenvalue at{" "}
@@ -118,8 +124,8 @@ export default function CrisisBoundaryPage() {
                 pair on the unit circle (Hopf-like). Stable fixed
                 point becomes unstable; stable invariant circle
                 appears with amplitude{" "}
-                <M>{String.raw`\sqrt{\mu}`}</M>. Generic among
-                codim-1 bifurcations. Empirical signature: rage-bait
+                <M>{String.raw`\sqrt{\mu}`}</M>. One of the three
+                generic codim-1 cases. Empirical signature: rage-bait
                 cycles, viral rhythms, recurrent content patterns.
               </li>
             </ul>
@@ -130,17 +136,17 @@ export default function CrisisBoundaryPage() {
               oxblood. The dashed oxblood vertical line at{" "}
               <M>{String.raw`\mu = 0`}</M> marks the bifurcation point
               (i.e., the crisis boundary{" "}
-              <M>{String.raw`\kappa = 1`}</M>). To the left: pre-
+              <M>{String.raw`\kappa_\Phi = 1`}</M>). To the left: pre-
               crisis regime; to the right: post-crisis.
             </p>
 
             <p className="mb-sm">
               <em>What the theorem authorizes the prose to claim.</em>{" "}
               Repeated algorithm-rebuild events, monetization pivots,
-              rage-bait cycles, viral cascade rhythms — these are not
-              anomalies. They are bifurcation phenomena at the
-              contractivity boundary the framework names. The platform
-              is in crisis along structurally classifiable trajectories.
+              rage-bait cycles, viral cascade rhythms are bifurcation
+              phenomena at the contractivity boundary the framework
+              names — structurally classifiable trajectories of a
+              platform in crisis.
             </p>
           </Middle>
         </DepthLayers>
@@ -168,8 +174,8 @@ export default function CrisisBoundaryPage() {
             >
               Theorem 9 (causal sensitivity)
             </Link>{" "}
-            — the closure-amplification factor that diverges as kappa
-            approaches the boundary
+            — the closure-amplification factor that diverges as{" "}
+            <M>{String.raw`\kappa_\Phi`}</M> approaches the boundary
           </li>
           <li>
             Required:{" "}
