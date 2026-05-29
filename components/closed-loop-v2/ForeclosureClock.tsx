@@ -38,6 +38,11 @@ export function ForeclosureClock() {
   const baselineCurve = survivalCurve(params.theta0, taus, params);
   const currentCurve = survivalCurve(state.theta, taus, params);
 
+  // Operator contraction modulus κ_Φ = (β/α)·L_D (R1, under R2's α-strong
+  // concavity). Convergence holds for κ_Φ < 1; κ_Φ = 1 is the
+  // contractivity boundary (Theorem 12).
+  const kappaPhi = (params.beta / params.alpha) * params.L_D;
+
   // Plot dimensions.
   const width = 900;
   const height = 360;
@@ -270,23 +275,67 @@ export function ForeclosureClock() {
         </button>
       </div>
 
+      {/* Computed operator modulus κ_Φ = (β/α)·L_D */}
+      <div className="mt-md font-mono text-xs uppercase tracking-wider text-ink-70">
+        κ_Φ = (β/α)·L_D
+        <span className="ml-sm text-ink">{kappaPhi.toFixed(2)}</span>
+        {kappaPhi >= 1 && (
+          <span className="ml-sm text-oxblood">contractivity boundary crossed</span>
+        )}
+      </div>
+
       {/* Parameter controls */}
-      <div className="mt-md grid grid-cols-1 sm:grid-cols-2 gap-md text-sm">
+      <div className="mt-sm grid grid-cols-1 sm:grid-cols-2 gap-md text-sm">
         <label className="block">
           <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">
-            L_R L_D (contractivity)
-            <span className="ml-sm text-ink">{(params.L_R * params.L_D).toFixed(2)}</span>
+            β (reward smoothness)
+            <span className="ml-sm text-ink">{params.beta.toFixed(2)}</span>
           </div>
           <input
             type="range"
             min={0.1}
-            max={0.99}
-            step={0.01}
-            value={params.L_R * params.L_D}
+            max={1.0}
+            step={0.05}
+            value={params.beta}
             onChange={(e) => {
-              const kappa = parseFloat(e.target.value);
-              const sqrtKappa = Math.sqrt(kappa);
-              setParams((p) => ({ ...p, L_R: sqrtKappa, L_D: sqrtKappa }));
+              const beta = parseFloat(e.target.value);
+              setParams((p) => ({ ...p, beta }));
+            }}
+            className="w-full"
+          />
+        </label>
+        <label className="block">
+          <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">
+            α (strong concavity)
+            <span className="ml-sm text-ink">{params.alpha.toFixed(2)}</span>
+          </div>
+          <input
+            type="range"
+            min={0.5}
+            max={2.0}
+            step={0.05}
+            value={params.alpha}
+            onChange={(e) => {
+              const alpha = parseFloat(e.target.value);
+              setParams((p) => ({ ...p, alpha }));
+            }}
+            className="w-full"
+          />
+        </label>
+        <label className="block">
+          <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">
+            L_D (distribution sensitivity)
+            <span className="ml-sm text-ink">{params.L_D.toFixed(2)}</span>
+          </div>
+          <input
+            type="range"
+            min={0.1}
+            max={1.0}
+            step={0.05}
+            value={params.L_D}
+            onChange={(e) => {
+              const L_D = parseFloat(e.target.value);
+              setParams((p) => ({ ...p, L_D }));
             }}
             className="w-full"
           />

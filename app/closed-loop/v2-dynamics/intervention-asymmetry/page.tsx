@@ -97,18 +97,21 @@ export default function InterventionAsymmetryPage() {
               <em>The closure amplification factor.</em>{" "}
               <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> has operator
               norm at most{" "}
-              <M>{String.raw`(1 - L_{\hat R} L_{\mathcal{D}})^{-1}`}</M>{" "}
-              under contractivity. The same factor amplifies every
-              intervention; what differs across cells is the mechanism
-              partial. As <M>{String.raw`L_R L_D \to 1`}</M>, the
-              amplification diverges — the regime{" "}
+              <M>{String.raw`(1 - \kappa_\Phi)^{-1}`}</M>{" "}
+              under contractivity, where{" "}
+              <M>{String.raw`\kappa_\Phi = (\beta/\alpha)\, L_{\mathcal{D}}`}</M>.
+              The same factor amplifies every intervention; what differs
+              across cells is the mechanism partial. As{" "}
+              <M>{String.raw`\kappa_\Phi \to 1`}</M>, the amplification
+              diverges — the regime{" "}
               <Link
                 href="/closed-loop/the-apparatus/section-10/theorem-12"
                 className="text-oxblood hover:underline"
               >
                 Theorem 12
               </Link>{" "}
-              classifies as the four bifurcation regimes.
+              classifies into three generic bifurcations, plus the
+              pitchfork under cohort symmetry.
             </p>
 
             <p className="mb-sm">
