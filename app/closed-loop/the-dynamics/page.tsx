@@ -262,11 +262,11 @@ export default function TheDynamicsPage() {
                     target={inst.external ? "_self" : undefined}
                     className="group block"
                   >
-                    <div className="flex items-baseline justify-between gap-sm">
+                    <div className="flex flex-col gap-xs sm:flex-row sm:items-baseline sm:justify-between sm:gap-sm">
                       <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
                         {inst.title}
                       </h2>
-                      <span className="font-mono text-xs text-ink-50 shrink-0">
+                      <span className="font-mono text-xs text-ink-50 sm:shrink-0">
                         {inst.note}
                       </span>
                     </div>

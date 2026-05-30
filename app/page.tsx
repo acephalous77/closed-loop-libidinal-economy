@@ -137,6 +137,7 @@ export default function AtelierIndex() {
       >
         {/* ============ MASTHEAD ============ */}
         <header
+          className="atelier-masthead"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr auto",
@@ -160,6 +161,7 @@ export default function AtelierIndex() {
             autostimulus<span style={{ color: ACCENT }}>.</span>
           </h1>
           <div
+            className="atelier-byline"
             style={{
               fontFamily: MONO,
               fontSize: "0.85rem",
@@ -178,6 +180,7 @@ export default function AtelierIndex() {
 
         {/* ============ WORKS LIST ============ */}
         <section
+          className="atelier-works"
           style={{
             maxWidth: "1080px",
             margin: "0 0 0 auto", /* asymmetric: pushed right */
@@ -204,6 +207,7 @@ export default function AtelierIndex() {
               const live = w.status === "live";
               const Inner = (
                 <div
+                  className="atelier-work-row"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "5rem 1fr auto",
@@ -255,6 +259,7 @@ export default function AtelierIndex() {
                   </div>
                   {/* meta column */}
                   <div
+                    className="atelier-work-meta"
                     style={{
                       textAlign: "right",
                       fontFamily: MONO,
@@ -310,6 +315,7 @@ export default function AtelierIndex() {
 
         {/* ============ COLOPHON FOOTER ============ */}
         <footer
+          className="atelier-footer"
           style={{
             marginTop: "20vh",
             paddingTop: "2rem",
@@ -349,6 +355,44 @@ export default function AtelierIndex() {
       <style>{`
         .atelier-work-link:hover [data-title="true"] {
           color: ${ACCENT};
+        }
+
+        /* ── Mobile (≤ 640px) ──────────────────────────────────────
+           The atelier index is built from inline styles (the page is
+           its own enclosed object); the desktop grids are fixed-track
+           and overflow a phone. These overrides — scoped by class and
+           forced with !important since they beat inline styles — stack
+           the masthead, the works rows, and the footer into a single
+           column so nothing runs off the right edge. */
+        @media (max-width: 640px) {
+          .atelier-masthead {
+            grid-template-columns: 1fr !important;
+            align-items: start !important;
+            gap: 0.75rem !important;
+            margin-bottom: 3rem !important;
+          }
+          .atelier-byline {
+            text-align: left !important;
+          }
+          .atelier-works {
+            padding-left: 0 !important;
+          }
+          .atelier-work-row {
+            grid-template-columns: 1fr !important;
+            column-gap: 0 !important;
+            row-gap: 0.75rem !important;
+          }
+          .atelier-work-meta {
+            text-align: left !important;
+          }
+          .atelier-footer {
+            grid-template-columns: 1fr !important;
+            gap: 1.5rem !important;
+            margin-top: 6rem !important;
+          }
+          .atelier-footer > div {
+            text-align: left !important;
+          }
         }
       `}</style>
     </>

@@ -132,7 +132,7 @@ export function SomaticOptimization() {
           </label>
           <button
             onClick={() => setSeedTick((s) => s + 1)}
-            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100"
+            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100 py-xs"
           >
             regenerate sample
           </button>

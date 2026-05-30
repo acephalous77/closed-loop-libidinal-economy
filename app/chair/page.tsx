@@ -547,18 +547,36 @@ function Schematic() {
       {/* The blueprint at full natural aspect, full width, no crop.
           The pair (front + side) is wide-format and reads as drawn. */}
       <div style={{ padding: "0 0 56px" }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/chair/ils/blueprint.jpg"
-          alt="ILS Closed-Loop Resource Cycle · cross-section + side perspective · Aeternum Biometrics technical schematic v 4.1"
-          style={{
-            width: "100%", height: "auto", display: "block",
-          }}
-        />
+        <div className="brochure-blueprint-wrap">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/chair/ils/blueprint.jpg"
+            alt="ILS Closed-Loop Resource Cycle · cross-section + side perspective · Aeternum Biometrics technical schematic v 4.1"
+            className="brochure-blueprint"
+            style={{
+              width: "100%", height: "auto", display: "block",
+            }}
+          />
+        </div>
+        <div className="brochure-blueprint-hint" aria-hidden="true">
+          ↔ drag to read the full drawing
+        </div>
       </div>
       <style>{`
+        .brochure-blueprint-hint { display: none; }
         @media (max-width: 700px) {
           .brochure-schematic-head { grid-template-columns: 1fr !important; padding: 40px 16px 18px !important; gap: 18px !important; }
+          /* Fit-to-width, this front+side schematic is illegible on a phone.
+             Show it at a readable height inside a horizontal scroller so the
+             reader can pan across the detail the brochure wants studied. */
+          .brochure-blueprint-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+          .brochure-blueprint { height: 360px !important; width: auto !important; max-width: none !important; }
+          .brochure-blueprint-hint {
+            display: block;
+            padding: 16px 16px 0;
+            font-family: ${FONT.mono}; font-size: 10px; letter-spacing: 0.18em;
+            text-transform: uppercase; color: rgba(236, 234, 216, 0.55);
+          }
         }
       `}</style>
     </section>

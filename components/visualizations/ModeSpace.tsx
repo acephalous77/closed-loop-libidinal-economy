@@ -297,7 +297,7 @@ export function ModeSpace() {
           </label>
           <button
             onClick={() => setResetKey((k) => k + 1)}
-            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100"
+            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100 py-xs"
           >
             reset view
           </button>
