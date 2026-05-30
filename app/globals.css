@@ -829,7 +829,9 @@ select.border-ink-50.cursor-pointer {
 label:has(> select.border-ink-50.cursor-pointer) {
   align-items: center;
 }
-input[type="range"].accent-oxblood {
+/* all sliders — v1 oxblood-accented and v2 bare `w-full` alike — render
+   a ~16px track; bump to a comfortable touch height. */
+input[type="range"] {
   min-height: 1.75rem;
 }
 input[type="checkbox"].accent-oxblood {

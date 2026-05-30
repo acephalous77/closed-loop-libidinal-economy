@@ -74,7 +74,7 @@ export function Formal({
           type="button"
           onClick={() => setExpanded((e) => !e)}
           aria-expanded={expanded}
-          className="font-mono text-xs uppercase tracking-wider text-ink-90 hover:text-oxblood transition-colors"
+          className="font-mono text-xs uppercase tracking-wider text-ink-90 hover:text-oxblood transition-colors py-xs"
         >
           {expanded ? "▾" : "▸"}{" "}
           {expanded ? `hide ${label.toLowerCase()}` : `show ${label.toLowerCase()}`}
