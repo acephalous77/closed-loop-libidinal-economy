@@ -256,7 +256,7 @@ export function ReclamationTrajectories() {
           </button>
           <button
             onClick={reset}
-            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100"
+            className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100 py-xs"
           >
             reset
           </button>
@@ -327,7 +327,7 @@ function Picker<T>({
   onChange: (v: T) => void;
 }) {
   return (
-    <label className="inline-flex items-baseline gap-x-xs text-ink-90">
+    <label className="inline-flex items-center gap-x-xs text-ink-90">
       <span className="text-ink-70">{label} =</span>
       <select
         value={String(value)}
@@ -335,7 +335,7 @@ function Picker<T>({
           const next = options.find((o) => String(o.value) === e.target.value);
           if (next) onChange(next.value);
         }}
-        className="bg-paper-95 text-ink-90 border-b border-ink-50 hover:border-oxblood focus:border-oxblood outline-none cursor-pointer transition-colors duration-100 px-[0.3em]"
+        className="bg-paper-95 text-ink-90 border-b border-ink-50 hover:border-oxblood focus:border-oxblood outline-none cursor-pointer transition-colors duration-100 px-[0.3em] py-[0.45rem]"
       >
         {options.map((o) => (
           <option key={String(o.value)} value={String(o.value)}>

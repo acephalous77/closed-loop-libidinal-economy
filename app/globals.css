@@ -68,6 +68,12 @@
   --measure: 32rem;
 }
 
+/* Edge-shadow tint for horizontally scrollable blocks (wide equations).
+   Dark ink on light paper; flipped to a light glow in dark mode below. */
+:root {
+  --scroll-shadow-color: rgba(26, 22, 18, 0.16);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-ink: #e8e0d0;
@@ -89,6 +95,7 @@
     --color-slate: #a0b2bc;
     --color-moss: #aabd86;
     --color-formal-bg: #22201c;
+    --scroll-shadow-color: rgba(232, 224, 208, 0.13);
   }
 }
 
@@ -187,6 +194,20 @@ input:focus-visible,
   max-width: 100%;
   /* room for the scrollbar so it never clips descenders */
   padding-bottom: 2px;
+  /* Horizontal-scroll affordance (Lea Verou's CSS-only technique): a soft
+     shadow appears at whichever edge still has equation to reveal and
+     recedes as you scroll to that end — so wide formulas read as swipeable
+     on a phone instead of looking clipped. The cover gradients are the page
+     color, so equations that fit show nothing; the shadow tint flips for
+     dark mode via --scroll-shadow-color. */
+  background:
+    linear-gradient(to right, var(--color-paper), rgba(0, 0, 0, 0) 2.5rem) 0 0,
+    linear-gradient(to left, var(--color-paper), rgba(0, 0, 0, 0) 2.5rem) 100% 0,
+    radial-gradient(farthest-side at 0 50%, var(--scroll-shadow-color), rgba(0, 0, 0, 0)) 0 0,
+    radial-gradient(farthest-side at 100% 50%, var(--scroll-shadow-color), rgba(0, 0, 0, 0)) 100% 0;
+  background-repeat: no-repeat;
+  background-size: 2.5rem 100%, 2.5rem 100%, 0.85rem 100%, 0.85rem 100%;
+  background-attachment: local, local, scroll, scroll;
 }
 
 /* WCAG 1.4.1 (Use of Color): inline prose links must be distinguishable
@@ -775,4 +796,43 @@ a.text-oxblood:hover {
   border-bottom: 1px solid var(--color-paper-85);
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
+}
+
+/* OHCOSE data tables — the institutional register leans on dense mono
+   tables (channels, schedules, metrics) whose content is wider than a
+   phone. Without containment they force horizontal page scroll on
+   mobile. Mirror the .mathematics-prose table treatment: make the table
+   its own block-level horizontal scroller so it scrolls within itself
+   instead of stretching the page. overflow-x:auto only engages when the
+   table actually exceeds its container, so narrow tables are untouched. */
+.ohcose-theme table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* ── Touch targets — interactive dynamics-plate controls ────────────
+   The plates ship a deliberately minimal control set: underline
+   <select>s, bare range sliders, small checkboxes — several rendered
+   ~22px tall, below the 44px touch-target minimum. These rules give
+   them comfortable vertical room. They're keyed to the shared utility
+   classes the controls already carry (the underline color + pointer
+   cursor for selects, the oxblood accent for range/checkbox), so they
+   reach every plate without per-file edits and cover plates added
+   later. Extra height is invisible on a pointer device, so the desktop
+   look is unchanged. */
+select.border-ink-50.cursor-pointer {
+  padding-block: 0.45rem;
+}
+/* keep the value vertically centered against its "x =" label once the
+   select grows (labels are inline-flex items-baseline by default). */
+label:has(> select.border-ink-50.cursor-pointer) {
+  align-items: center;
+}
+input[type="range"].accent-oxblood {
+  min-height: 1.75rem;
+}
+input[type="checkbox"].accent-oxblood {
+  width: 1.05rem;
+  height: 1.05rem;
 }

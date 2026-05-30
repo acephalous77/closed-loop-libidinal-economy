@@ -169,11 +169,11 @@ export function ForeclosureClock() {
 
           {/* Reference picker */}
           <div className="mt-md font-mono text-sm">
-            <span className="text-ink-70">compared against: </span>
+            <span className="text-ink-70 block sm:inline mb-xs sm:mb-0">compared against: </span>
             <select
               value={refIdx}
               onChange={(e) => setRefIdx(Number(e.target.value))}
-              className="font-mono text-sm bg-paper-95 text-ink-90 border-b border-ink-50 hover:border-oxblood focus:border-oxblood outline-none cursor-pointer transition-colors duration-100 px-[0.3em]"
+              className="font-mono text-sm bg-paper-95 text-ink-90 border-b border-ink-50 hover:border-oxblood focus:border-oxblood outline-none cursor-pointer transition-colors duration-100 px-[0.3em] max-w-full min-w-0"
             >
               {REFERENCES.map((r, i) => (
                 <option key={i} value={i}>

@@ -131,7 +131,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
             >
               document code
             </div>
-            <div className="flex gap-xs justify-end">
+            <div className="flex flex-wrap gap-xs justify-end">
               {["OHCOSE-LR", "SCC", "GEN-C"].map((c) => (
                 <span
                   key={c}
