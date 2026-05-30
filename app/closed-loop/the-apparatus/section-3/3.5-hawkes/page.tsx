@@ -6,7 +6,7 @@
  * Hawkes with cross-register coupling. Definition 3.1 + the
  * stability condition.
  *
- * Content per publishing-pipeline manuscript §3.5.
+ * Content per the canonical apparatus manuscript, §3.5.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

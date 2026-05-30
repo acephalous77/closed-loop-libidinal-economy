@@ -5,7 +5,7 @@
  * Lives in the same §1 directory as Lemma 1 (which it follows from).
  *
  * Content per autostimulus-planning/10_sample_apparatus_section.md §1.4
- * and the formal definition from publishing-pipeline manuscript §1.4.
+ * and the formal definition from the canonical apparatus manuscript, §1.4.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

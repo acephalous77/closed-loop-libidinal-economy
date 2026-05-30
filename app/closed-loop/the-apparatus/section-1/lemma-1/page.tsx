@@ -9,8 +9,7 @@
  * (the worked sample of an apparatus section page). Layout uses the
  * v2 DepthLayers component for the three-layer pedagogical kit.
  *
- * Source of the formal statement: publishing-pipeline/manuscripts/
- * closed-loop-complete/source/20_part_iv_formal_apparatus.md §1.
+ * Source of the formal statement: the canonical apparatus manuscript, §1.
  *
  * Note: the /closed-loop/the-apparatus/ index page and section index
  * pages don't exist yet; this page is intentionally orphaned from the

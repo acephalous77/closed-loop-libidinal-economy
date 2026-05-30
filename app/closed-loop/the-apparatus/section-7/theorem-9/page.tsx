@@ -5,7 +5,7 @@
  * claim. The three intervention propositions (1', 2', 3') become
  * corollaries of a single result.
  *
- * Content per publishing-pipeline manuscript §7.1-§7.5.
+ * Content per the canonical apparatus manuscript, §7.1-§7.5.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

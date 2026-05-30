@@ -9,7 +9,7 @@
  *
  * Single page with anchored subsections — matches the §0 pattern.
  *
- * Source: publishing-pipeline manuscript §5.0-§5.3.
+ * Source: the canonical apparatus manuscript, §5.0-§5.3.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

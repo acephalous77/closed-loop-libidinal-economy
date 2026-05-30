@@ -7,7 +7,7 @@
  * itself has measure zero. The object is uninstantiated in the data
  * the closed loop generates.
  *
- * Content per publishing-pipeline manuscript §2.1-§2.3.
+ * Content per the canonical apparatus manuscript, §2.1-§2.3.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
