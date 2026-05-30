@@ -8,7 +8,7 @@
  *
  * The schematic's contractivity-boundary annotation links here.
  *
- * Content per publishing-pipeline manuscript §10.1-§10.4.
+ * Content per the canonical apparatus manuscript, §10.1-§10.4.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

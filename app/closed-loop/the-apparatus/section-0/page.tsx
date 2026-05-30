@@ -11,7 +11,7 @@
  *   §0.3  Conditions, regrouped (three axiom groups)
  *   §0.4  Notation
  *
- * Content per publishing-pipeline manuscript §0.
+ * Content per the canonical apparatus manuscript, §0.
  */
 import type { Metadata } from "next";
 import Link from "next/link";

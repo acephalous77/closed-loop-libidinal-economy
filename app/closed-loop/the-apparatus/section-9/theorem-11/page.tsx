@@ -7,7 +7,7 @@
  * regime — Weibull-shape sub-exponential tails — is where most
  * empirical engagement distributions sit.
  *
- * Content per publishing-pipeline manuscript §9.
+ * Content per the canonical apparatus manuscript, §9.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
