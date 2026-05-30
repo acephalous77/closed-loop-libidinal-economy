@@ -53,6 +53,14 @@ const WORKS: Work[] = [
     href: "/patriotic-times",
     status: "live",
   },
+  {
+    no: "05",
+    title: "The Ouroboric Condition",
+    year: "2026",
+    register: "atlas · psychic surplus · interactive specimen plates",
+    href: "/ouroboric-condition",
+    status: "live",
+  },
 ];
 
 /**
@@ -107,7 +115,7 @@ export default function AtelierIndex() {
             name: "autostimulus — works",
             url: SITE_URL,
             description:
-              "Catalog of works by A. Selimović. Four live projects spanning critical-theory framework, performance-fiction manual, speculative-design artifact, and interactive coloring book.",
+              "Catalog of works by A. Selimović. Five live projects spanning critical-theory framework, performance-fiction manual, speculative-design artifact, interactive coloring book, and an explorable atlas of capture.",
             inLanguage: "en",
             hasPart: WORKS.map((w, idx) => ({
               "@type": "CreativeWork",

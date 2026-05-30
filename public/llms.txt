@@ -1,6 +1,6 @@
 # autostimulus
 
-> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute. All four current works are live.
+> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute. All five current works are live.
 
 ## Works
 
@@ -8,6 +8,7 @@
 - **OHCOSE — Office of Human Continuity and Social Equilibrium** (2026, live) — Performance-piece manual of a fictional federal agency administering the human lifecycle in seven phases. Three phases (Ontogenesis, Inscriptive Normalization, Adolescent Calibration) fully published with twenty-one sub-protocols, original visualizations, in-character voice throughout. Project root: https://www.autostimulus.org/ohcose
 - **The Ouroboros Life System** (2025, live) — Dystopian art project: a fully-enclosed integrated life-support chair. Essay, subsystems index, lineage, precedents, archive, refusal, and zine. Project root: https://www.autostimulus.org/chair
 - **Patriotic Times — A Coloring Book** (2025–2026, live) — Sixty-three plates of US democratic state failures and the emergence of fascism, 2000–2026. Each plate is interactive: color it in the browser with a paint-bucket flood-fill, print your colored version. Project root: https://www.autostimulus.org/patriotic-times
+- **The Ouroboric Condition — An Atlas of Capture** (2026, live) — An explorable atlas of the apparatus that captures psychic surplus. Seventeen specimens across four movements, drawn as a measured specimen chart; opening a site of capture descends into a dark "apparatus" plate with a live capture readout, and the remainder — holding, the face, the custodial labor that holds — surfaces back to paper. A visual companion to the manuscript. Project root: https://www.autostimulus.org/ouroboric-condition
 
 ---
 
@@ -109,10 +110,33 @@ The Ouroboros Life System is a speculative-design artifact in essay, schematic, 
 
 ---
 
+# The Ouroboric Condition — An Atlas of Capture
+
+> An explorable atlas of the apparatus that captures psychic surplus — and of what survives the capture. By Adnan Selimović. Published 2026 at https://www.autostimulus.org/ouroboric-condition.
+
+A self-running, pannable conceptual map — a visual companion to the manuscript *The Ouroboric Condition* (on psychic surplus and the capture of desire). It renders the whole apparatus as a measured specimen chart of seventeen specimens across four movements, joined by an interconnection web. The piece performs the book's central duality through two registers: the map and the remainder are paper-and-ink "Anatomy" (the analyst's distance); opening any site of capture drops into a dark "Apparatus" plate — sodium glow, the mechanism performing, a live capture readout ticking — and surfacing to the remainder returns to the light. Serif is the lived; monospace is the rendered.
+
+## The specimens (seventeen, four movements)
+
+- **The Framework** — Psychic Surplus (the excess that remains after survival); The Ouroboric Circuit (solicit · channel · harvest · return); Tri-Axial Capture (time, body, bond)
+- **One Loop, Three Scales** — The Satisfaction Loop (the session); The Repair Commodity (recovery); The Cultic Value-Form (identity)
+- **The Sites of Capture** — Boredom & Dead Air; The Affective Janitor; The Rogan Apparatus; The Surplus Crisis; The First Screen; The Mortality Problem
+- **The Remainder** — The Custodial Remainder; The Glitch in the Feed; What Is to Be Held; Holding (Winnicott); The Face (Levinas)
+
+## Theoretical lineage
+
+Reads through Marx, Freud, Marcuse, Lyotard, Stiegler, Deleuze & Guattari, Althusser, Melanie Klein, Winnicott, and Levinas.
+
+## Interaction
+
+Drag or pinch the paper to move and zoom; an index drawer lists every specimen by movement. Each specimen opens a reading plate carrying the argument condensed from the manuscript, a verbatim pull-quote, the genealogy it reads through, and links to interconnected specimens. On phones the atlas opens centered on the central circuit, with the index as the primary way in.
+
+---
+
 ## Author
 
 Adnan Selimović. Critical theory, media psychology, political economy. See each project's colophon for project-specific attribution and citation.
 
 ## License
 
-Textual content under CC BY-SA 4.0 (Closed-Loop), CC BY-SA 4.0 (OHCOSE), CC BY-NC-SA 4.0 (Patriotic Times — non-commercial). Code under MIT. Citation welcome.
+Textual content under CC BY-SA 4.0 (Closed-Loop), CC BY-SA 4.0 (OHCOSE), CC BY-NC-SA 4.0 (Patriotic Times — non-commercial), CC BY-SA 4.0 (The Ouroboric Condition). Code under MIT. Citation welcome.

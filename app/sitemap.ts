@@ -182,6 +182,8 @@ const CLOSED_LOOP_V2_ROUTES = [
   "/closed-loop/v2-dynamics/network-coupling",
 ];
 
+const OUROBORIC_ROUTES = ["/ouroboric-condition"];
+
 const ROUTES = [
   ...ATELIER_ROUTES,
   ...CLOSED_LOOP_ROUTES,
@@ -189,6 +191,7 @@ const ROUTES = [
   ...OHCOSE_ROUTES,
   ...CHAIR_ROUTES,
   ...PATRIOTIC_ROUTES,
+  ...OUROBORIC_ROUTES,
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -203,7 +206,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         : path === "/closed-loop" ||
           path === "/ohcose" ||
           path === "/chair" ||
-          path === "/patriotic-times"
+          path === "/patriotic-times" ||
+          path === "/ouroboric-condition"
         ? 0.9
         : // Project-section landings + per-section pages — high
         path.startsWith("/closed-loop/the-") ||
