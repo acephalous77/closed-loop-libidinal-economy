@@ -1,13 +1,10 @@
 /**
  * The apparatus index — `/closed-loop/the-apparatus`.
  *
- * Lists all 13 apparatus sections (§0 through §12) with their current
- * v2 build status. Built pages link through; in-progress pages render
- * as plain text with a note.
+ * Lists all 13 apparatus sections (§0 through §12). Each links
+ * through to its section page or its result sub-pages.
  *
  * The apparatus is the formal companion to the closed-loop framework.
- * Source: publishing-pipeline/manuscripts/closed-loop-complete/source/
- * 20_part_iv_formal_apparatus.md.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -44,7 +41,7 @@ const SECTIONS: Section[] = [
     title: "Foreclosure",
     subtitle:
       "The closed loop drives the survival function at the reflective threshold to operational zero",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Lemma 1 (foreclosure of the no-stimulus window)",
@@ -62,7 +59,7 @@ const SECTIONS: Section[] = [
     no: "2",
     title: "Reclamation as learnability",
     subtitle: "Theorem 1' — sample-complexity divergence under closed-loop sampling",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Theorem 1' (reclamation as sample-complexity divergence)",
@@ -76,7 +73,7 @@ const SECTIONS: Section[] = [
     title: "Auxiliary structural results",
     subtitle:
       "Propositions 4'–7': dividual condition, metric superego, captured resonance, libidinal routing",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Proposition 4' (dividual via posterior contraction)",
@@ -109,7 +106,7 @@ const SECTIONS: Section[] = [
     no: "4",
     title: "Parametric continuity",
     subtitle: "Lemma 2 — the technical scaffold for Mode A's parametric continuity argument",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Lemma 2 (parametric continuity of regularized stable points)",
@@ -131,7 +128,7 @@ const SECTIONS: Section[] = [
     title: "Cohort gradient",
     subtitle:
       "Proposition 8 — formal derivation of the developmental decay D_KL · e^(−2Kτ)",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Proposition 8 (cohort gradient)",
@@ -145,7 +142,7 @@ const SECTIONS: Section[] = [
     title: "Performative do-calculus",
     subtitle:
       "Theorem 9 — the unified sensitivity formula. Closure-amplification (I − D_θ Φ)^(−1)",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Theorem 9 (causal sensitivity in performative systems)",
@@ -167,7 +164,7 @@ const SECTIONS: Section[] = [
     title: "Rate-of-foreclosure refinement",
     subtitle:
       "Theorem 11 — intermediate tail regimes between polynomial and exponential",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Theorem 11 (stretched-exponential survival bound)",
@@ -181,7 +178,7 @@ const SECTIONS: Section[] = [
     title: "Crisis-boundary classification",
     subtitle:
       "Theorem 12 — three generic bifurcation regimes at the contractivity boundary, plus the symmetry-protected pitchfork",
-    status: "in-progress",
+    status: "live",
     results: [
       {
         name: "Theorem 12 (crisis-boundary bifurcation classification)",
@@ -206,25 +203,6 @@ const SECTIONS: Section[] = [
     href: "/closed-loop/the-apparatus/section-12",
   },
 ];
-
-function StatusLabel({ status }: { status: Section["status"] }) {
-  const text = status === "live"
-    ? "live"
-    : status === "in-progress"
-    ? "in progress"
-    : "not started";
-  const color =
-    status === "live"
-      ? "text-oxblood"
-      : status === "in-progress"
-      ? "text-ink-90"
-      : "text-ink-50";
-  return (
-    <span className={`font-mono text-xs uppercase tracking-wider ${color}`}>
-      {text}
-    </span>
-  );
-}
 
 export default function ApparatusIndex() {
   return (
@@ -251,16 +229,6 @@ export default function ApparatusIndex() {
         apparatus is the spine the prose mirrors at every load-bearing
         claim.
       </p>
-      <p className="text-base text-ink-70 italic max-w-prose mb-lg">
-        The v2 rebuild is in progress. Sections marked &ldquo;live&rdquo;
-        are rendered; the rest are pending. The full apparatus markdown
-        lives in the manuscript pipeline at{" "}
-        <code className="font-mono text-sm">
-          publishing-pipeline/manuscripts/closed-loop-complete/source/
-          20_part_iv_formal_apparatus.md
-        </code>.
-      </p>
-
       <ol className="space-y-md">
         {SECTIONS.map((section) => (
           <li key={section.no} className="border-l-2 border-paper-85 pl-sm">
@@ -277,7 +245,6 @@ export default function ApparatusIndex() {
                   section.title
                 )}
               </h2>
-              <StatusLabel status={section.status} />
             </div>
             <p className="text-base text-ink-90 mb-xs">
               {section.subtitle}
@@ -298,7 +265,6 @@ export default function ApparatusIndex() {
                         {r.name}
                       </span>
                     )}
-                    <StatusLabel status={r.status} />
                   </li>
                 ))}
               </ul>

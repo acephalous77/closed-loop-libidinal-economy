@@ -159,9 +159,8 @@ export default function TheColophonPage() {
           >
             /closed-loop/the-apparatus
           </Link>{" "}
-          renders the formal apparatus from the publishing-pipeline
-          manuscript source against the new performative-prediction
-          spine.
+          renders the formal apparatus from the canonical manuscript
+          against the new performative-prediction spine.
         </p>
       </section>
 
@@ -312,13 +311,9 @@ export default function TheColophonPage() {
           . The v2 rebuild lives on the <code className="font-mono text-sm">v2/closed-loop-rebuild</code> branch.
         </p>
         <p className="text-base text-ink-90">
-          The apparatus content is rendered from canonical markdown
-          source at{" "}
-          <code className="font-mono text-sm">
-            ~/publishing-pipeline/manuscripts/closed-loop-complete/source/20_part_iv_formal_apparatus.md
-          </code>
-          . Substantive changes to the apparatus flow upstream from
-          the manuscript; the site is the rendering, not the source
+          The apparatus content is rendered from a canonical manuscript
+          source. Substantive changes to the apparatus flow upstream
+          from the manuscript; the site is the rendering, not the source
           of truth.
         </p>
       </section>
