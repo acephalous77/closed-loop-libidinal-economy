@@ -30,6 +30,39 @@ const OHCOSE_ROUTES = [
   "/ohcose/iii-adolescent-calibration/pharmacopornographic-order",
   "/ohcose/iii-adolescent-calibration/quantified-selfhood",
   "/ohcose/iii-adolescent-calibration/the-initiate",
+  "/ohcose/iv-economic-subjectification",
+  "/ohcose/iv-economic-subjectification/onboarding",
+  "/ohcose/iv-economic-subjectification/algorithmic-mentorship",
+  "/ohcose/iv-economic-subjectification/romantic-markets",
+  "/ohcose/iv-economic-subjectification/curating-life",
+  "/ohcose/iv-economic-subjectification/happiness-mandate",
+  "/ohcose/iv-economic-subjectification/entrenchment",
+  "/ohcose/v-peak-productivity",
+  "/ohcose/v-peak-productivity/consolidation",
+  "/ohcose/v-peak-productivity/economic-zenith",
+  "/ohcose/v-peak-productivity/family-formation",
+  "/ohcose/v-peak-productivity/civic-anchoring",
+  "/ohcose/v-peak-productivity/midlife-affect",
+  "/ohcose/v-peak-productivity/decline-foreshadowing",
+  "/ohcose/vi-consolidation",
+  "/ohcose/vi-consolidation/high-water-mark",
+  "/ohcose/vi-consolidation/managing-decline",
+  "/ohcose/vi-consolidation/intergenerational-obligations",
+  "/ohcose/vi-consolidation/golden-years",
+  "/ohcose/vi-consolidation/knowledge-transfer",
+  "/ohcose/vi-consolidation/phase-closure",
+  "/ohcose/vii-exit",
+  "/ohcose/vii-exit/liminal-retirement",
+  "/ohcose/vii-exit/death-as-logistics",
+  "/ohcose/vii-exit/memorial-capitalism",
+  "/ohcose/vii-exit/eldercare-markets",
+  "/ohcose/vii-exit/cracks-and-residues",
+  "/ohcose/vii-exit/lifecycle-closure",
+  "/ohcose/viii-ouroboros",
+  "/ohcose/viii-ouroboros/closure-of-the-cycle",
+  "/ohcose/viii-ouroboros/sovereign-interface",
+  "/ohcose/viii-ouroboros/post-human-harvest",
+  "/ohcose/viii-ouroboros/the-broadcast",
 ];
 
 const CHAIR_ROUTES = [
@@ -217,6 +250,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path.startsWith("/ohcose/i-") ||
           path.startsWith("/ohcose/ii-") ||
           path.startsWith("/ohcose/iii-") ||
+          path.startsWith("/ohcose/iv-") ||
+          path.startsWith("/ohcose/v-") ||
+          path.startsWith("/ohcose/vi-") ||
+          path.startsWith("/ohcose/vii-") ||
+          path.startsWith("/ohcose/viii-") ||
           path === "/chair/essay" ||
           path === "/chair/zine" ||
           path === "/chair/lineage" ||
