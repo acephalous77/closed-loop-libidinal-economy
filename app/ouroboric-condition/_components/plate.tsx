@@ -161,6 +161,11 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
               {site.axis !== "—" && site.axis !== "all" ? ` · AXIS: ${site.axis.toUpperCase()}` : ""}
             </span>
           </div>
+          {site.stage && (
+            <div className="mono" style={{ fontSize: narrow ? 9.5 : 10.5, letterSpacing: "0.2em", color: c.dim, marginTop: 6 }}>
+              LIFE STAGE <span style={{ color: c.accent }}>· {site.stage.toUpperCase()}</span>
+            </div>
+          )}
           <h1 className="serif" style={{ fontSize: narrow ? 36 : 54, fontWeight: 500, margin: "8px 0 0", lineHeight: 1.05, letterSpacing: "0.005em", textWrap: "balance" }}>
             {site.title}
           </h1>
@@ -183,7 +188,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
                 “{site.quote}”
               </div>
               <div className="mono" style={{ fontSize: 10.5, letterSpacing: "0.16em", color: c.dim, marginTop: 10 }}>
-                THE OUROBORIC CONDITION · {site.cite.toUpperCase()}
+                {(site.quoteSource || "The Ouroboric Condition").toUpperCase()} · {site.cite.toUpperCase()}
               </div>
             </div>
             {/* genealogy */}

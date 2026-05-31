@@ -66,7 +66,12 @@ export const ATLAS_CSS = `
 @keyframes at-flick{0%,96%,100%{opacity:1}97%{opacity:.7}98.5%{opacity:.92}}
 @keyframes at-dash{to{stroke-dashoffset:-1000}}
 @keyframes at-blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes at-pulse{0%,100%{opacity:.2}50%{opacity:.05}}
+@keyframes at-drift{0%,100%{opacity:.5}50%{opacity:.85}}
 @keyframes at-plunge{0%{clip-path:circle(0% at var(--ox,50%) var(--oy,50%));opacity:1}42%{clip-path:circle(180% at var(--ox,50%) var(--oy,50%));opacity:1}100%{clip-path:circle(180% at var(--ox,50%) var(--oy,50%));opacity:0}}
+@media (prefers-reduced-motion: reduce){
+  .atlas-root *{animation-duration:.001ms !important;animation-iteration-count:1 !important}
+}
 `;
 
 // rAF clock — milliseconds since mount. Every resting (t=0) frame in the

@@ -23,6 +23,10 @@ export interface AtlasSite {
   prose: string[];
   quote: string;
   cite: string;
+  /** the work the pull-quote is drawn from (defaults to The Ouroboric Condition) */
+  quoteSource?: string;
+  /** where in the lifecycle this specimen bites (the descent read as a life) */
+  stage?: string;
   genealogy: string[];
   related: string[];
   loop?: AtlasLoop;
@@ -258,12 +262,106 @@ export const ATLAS_SITES: AtlasSite[] = [
   },
 ];
 
+// ── Deepening · drawn from the companion essay "The Psychopolitics of Psychic
+// Surplus: Libidinal Governance Across the Human Lifecycle" (Selimović),
+// verbatim and lightly condensed. `stage` places each specimen in the lifecycle
+// (the descent read as a life); `add` is a third prose movement; `quote` +
+// `quoteSource` upgrade the pull-quote where the essay's line is sharper.
+const ESSAY = "The Psychopolitics of Psychic Surplus";
+const DEEPEN: Record<string, { stage: string; add?: string; quote?: string; quoteSource?: string; cite?: string }> = {
+  surplus: {
+    stage: "the whole arc",
+    add: "The marketer's category for it is life-time value — the projected return on a person if every moment of a life, crib to deathbed, can be metabolized into a stream of transactions. Capital still wants the working day, but its frontier has moved inward, to attention, to affect, to desire. The data thrown off is the exhaust; what burns underneath is the capacity to feel, to imagine, to want, to play, to attach.",
+    quote: "Behavioral surplus is what the meters read; psychic surplus is what the meters are clamped to.",
+    quoteSource: ESSAY,
+    cite: "Introduction",
+  },
+  ouroboros: {
+    stage: "the whole arc",
+    add: "Lyotard's wager was that every political economy is already a libidinal economy — that there is no clean wall between the circulation of capital and the circulation of desire. Foucault tracked power as it passed from the sovereign's sword to the discipline of the institution to the management of populations; what runs now is a further passage, into the government of the inner life. The factory did not close. It was relocated behind the eyes.",
+  },
+  triaxial: { stage: "the whole arc" },
+  boredom: {
+    stage: "ontogenesis",
+    add: "The mechanism Marcuse named is repressive desublimation: a society that no longer represses the drive but discharges it on terms that defuse it. The toddler's restless energy is spent on a video rather than on mischief; the drive gets its release and loses its charge in the same motion, and the charge is the part that might have gone somewhere unscripted. The boredom that is the seedbed of invention is reclassified as a problem with a purchasable solution.",
+  },
+  satisfaction: {
+    stage: "adolescence",
+    add: "Watch the game do it. The work, a designer will tell you, is to start a loop in the player's wanting and keep it from closing. A small achievement releases its small pleasure; the pleasure subsides into a fresh lack; the lack reaches for the next achievement. The player's libidinal investment is the labor that makes the product, paid in the token pleasures the product doles back — playbor, play that is also work — and the longer the wanting stays open, the more of it can be monetized.",
+  },
+  janitor: {
+    stage: "adulthood",
+    add: "It is hardest to see because it looks like friendship. The need for recognition becomes the raw feed for an advertising machine, and a bond starts to feel like an audience to be kept. The cruelty of the arrangement is its tact: the extraction coincides with the discovery, so that the moment of joy and the moment of capture are the same moment, and the subject has no vantage from which to tell them apart.",
+  },
+  rogan: {
+    stage: "adulthood",
+    add: "By adulthood the apparatus has refined its hold. It does not command; it offers, endlessly and in a register tuned to the individual, a marketplace of satisfactions wide enough to feel like the open world and arranged so that every path returns to the work-and-spend. The voice in the ear is one more such offer — companionship that asks nothing, and takes the residual attention nothing else had claimed.",
+  },
+  cult: {
+    stage: "adulthood",
+    add: "The adult is now asked to be a product as well as to buy them. The avatar-subject is the self lived increasingly through the profile — the persona that both expresses a person and reshapes them in the image of what the platform rewards. Subjectivity becomes an enterprise, a project in value-maximization, and Marcuse's verdict holds: a comfortable, smooth, reasonable, democratic unfreedom, which holds not by force but by the difficulty of imagining the alternative from inside a life this padded.",
+  },
+  crisis: {
+    stage: "adulthood",
+    add: "Stiegler gave the loss its name. Industrial capitalism proletarianized the worker by taking his savoir-faire, the craft that had lived in his hands, and depositing it in the machine; consumer capitalism extends the operation to savoir-vivre, the knowledge of how to live and how to want, and deposits it in the market, which hands the desire back ready-made. The subject keeps the sensation of wanting and loses the authorship of it. When the labor that once absorbed the surplus is automated, the surplus has no credible elsewhere to go.",
+  },
+  repair: {
+    stage: "adulthood · late adulthood",
+    add: "The pharmaceutical industry has moved into the regulation of affect itself. Anxious and flattened by precarious work, there are the SSRIs that save lives and keep the worker functional and uncomplaining; unfocused, the quiet epidemic of stimulants; flagging, the pill that restores performance and, with it, the expectation that performance is owed further into the years. Preciado's name for the regime is the pharmacopornographic: power has stopped saying no and started saying have all you want, on our molecule, by our protocol. Government has reached the level of the dose.",
+  },
+  firstscreen: {
+    stage: "ontogenesis",
+    add: "The media-industrial firms understand birth as the opening of an account. The licensed character arrives as a child's first love and first loyalty, installed as a transitional object that, unlike the worn blanket Winnicott described, is owned upstream and renewed on a release schedule. I have called the mechanism gadgetized mediation — the interface through which a child's earliest libidinal processes are modulated by something that is also, quietly, a meter. The gap between an impulse and its gratification, the interval where a child once learned that wanting can be tolerated, thins toward zero.",
+  },
+  mortality: {
+    stage: "late adulthood · the exit",
+    add: "At the end the hold the apparatus finds is the clinic. The aging of the body is rewritten as a sequence of treatable deficits, each with a product — the pill that restores function, the hormone that manages decline, the shelf of supplements that sells decline back as a thing one has failed to prevent. The wellness industry supplies the narrative: that with the right purchases one may age successfully, which means actively, youthfully, and above all consumingly. And at the very end the meter is still running — the hospital bill, the facility fee, the costly final drugs — and in more than one wealthy country the spending peaks, and so do the profits, in the last months of a life.",
+    quote: "The exit does not exit the economy. It is booked as an input.",
+    quoteSource: ESSAY,
+    cite: "On Late Adulthood",
+  },
+  custodial: {
+    stage: "the remainder",
+    add: "Capital extracts from care the way it extracts from everything: by depending on what it refuses to pay for. The care that continues despite its devaluation is also what survives the capture, and the materials of any politics built on it are modest and mostly old — mutual aid the apparatus has not yet sold back as a feature, the convoy that moves people because they must be moved.",
+  },
+  glitch: {
+    stage: "the remainder",
+    add: "There are seams. Children misuse their toys in ways no focus group sanctioned; the old withdraw into a quiet the market cannot price; people still love each other off the record, where no data is generated. Whether those seams are anything more than the texture the system tolerates, or the beginning of an outside, is not a question this map can settle.",
+  },
+  held: {
+    stage: "the remainder",
+    add: "This is sublimation in the unglamorous sense — a drive that becomes something made instead of something bought. A reading group, a repair café, an open-source project, a fan archive kept for love and held off the market. None of it is safe; the apparatus is patient, and it has absorbed every one of these before. The live question is whether a given place exists to be captured, or exists, first, for the people in it.",
+  },
+  holding: {
+    stage: "the remainder",
+    add: "The materials are modest: time that no one is metering, the right to be bored, a room with no feed running in it, work whose reward is the work and the people doing it beside you. Holding leaves the capacities for attention, boredom, relationship, and play — with their friction, their slowness, their occasional uselessness — in the hands of the person whose they are.",
+  },
+  face: {
+    stage: "the remainder",
+    add: "The desire for one another that no platform stands between is the surplus the apparatus is built to catch first, and the one thing it cannot manufacture. People still love each other off the record, where no data is generated. The face is what the profile cannot render.",
+  },
+};
+
+ATLAS_SITES.forEach((s) => {
+  const d = DEEPEN[s.id];
+  if (!d) return;
+  s.stage = d.stage;
+  if (d.add && !s.prose.includes(d.add)) s.prose = [...s.prose, d.add];
+  if (d.quote) {
+    s.quote = d.quote;
+    s.quoteSource = d.quoteSource;
+    if (d.cite) s.cite = d.cite;
+  }
+});
+
 // Curated visual threads between sites (the interconnection web).
 export const ATLAS_EDGES: AtlasEdge[] = [
   ['surplus', 'triaxial'], ['triaxial', 'ouroboros'],
   ['ouroboros', 'satisfaction'], ['ouroboros', 'boredom'], ['ouroboros', 'janitor'],
   ['ouroboros', 'rogan'], ['ouroboros', 'crisis'], ['ouroboros', 'firstscreen'],
   ['satisfaction', 'boredom'],
+  // the loop's three scales, wired as one operation: session → recovery → identity
+  ['ouroboros', 'repair'], ['satisfaction', 'repair'], ['repair', 'cult'], ['repair', 'mortality'],
   ['janitor', 'rogan'], ['rogan', 'cult'], ['crisis', 'mortality'],
   ['firstscreen', 'surplus'], ['mortality', 'custodial'],
   ['boredom', 'glitch'], ['glitch', 'face'], ['janitor', 'face'],
@@ -271,4 +369,8 @@ export const ATLAS_EDGES: AtlasEdge[] = [
   ['holding', 'held'], ['face', 'held'], ['glitch', 'held'], ['firstscreen', 'holding'],
 ];
 
-export const ATLAS_WORLD = { w: 2600, h: 1980 };
+// "The Descent": the atlas is a tall stratigraphic section read top-to-bottom —
+// surface light → the darkening strata of capture → the remainder as bedrock.
+// Node positions for this section are defined in chart.tsx (the `POS` map); the
+// per-site `pos` above is retained for the type and any non-spatial use.
+export const ATLAS_WORLD = { w: 1320, h: 2940 };

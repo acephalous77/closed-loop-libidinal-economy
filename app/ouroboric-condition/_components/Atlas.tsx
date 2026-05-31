@@ -21,7 +21,7 @@ import { AtlasPlate } from "./plate";
 
 const W = ATLAS_WORLD.w,
   H = ATLAS_WORLD.h;
-const LS = "ouroboric-atlas-v3";
+const LS = "ouroboric-atlas-v5";
 const order = ATLAS_SITES.map((s) => s.id);
 const SITE: Record<string, AtlasSite> = {};
 ATLAS_SITES.forEach((s) => {
@@ -260,46 +260,56 @@ export default function AtlasApp() {
     [openId]
   );
 
+  // apply the transform, clamped so the tall section can be scrolled top→bottom
+  // without being lost off-screen.
   const apply = useCallback(() => {
-    const el = worldRef.current;
-    if (!el || !tf.current) return;
-    const { x, y, scale } = tf.current;
-    el.style.transform = `translate(${x}px,${y}px) scale(${scale})`;
+    const el = worldRef.current,
+      vp = vpRef.current;
+    if (!el || !vp || !tf.current) return;
+    const r = vp.getBoundingClientRect();
+    const t = tf.current;
+    const sw = W * t.scale,
+      sh = H * t.scale;
+    if (sw <= r.width) t.x = (r.width - sw) / 2;
+    else t.x = Math.max(r.width - sw - 80, Math.min(80, t.x));
+    if (sh <= r.height) t.y = (r.height - sh) / 2;
+    else t.y = Math.max(r.height - sh - 50, Math.min(64, t.y));
+    el.style.transform = `translate(${t.x}px,${t.y}px) scale(${t.scale})`;
   }, []);
 
+  // "fit" the section: fit to width, anchored at the top — the surface fills the
+  // screen and the reader descends. On a wide monitor the section is scaled up
+  // (more legible); the depth gauge and scroll carry the descent.
   const fit = useCallback(() => {
     const vp = vpRef.current;
     if (!vp) return;
     const r = vp.getBoundingClientRect();
-    const s = Math.min(r.width / W, r.height / H) * (r.width < 760 ? 0.98 : 0.92);
-    tf.current = { scale: s, x: (r.width - W * s) / 2, y: (r.height - H * s) / 2 };
-    apply();
-    setScaleDisp(s);
-  }, [apply]);
-
-  // center the viewport on a world point at a given scale
-  const centerOn = useCallback(
-    (wx: number, wy: number, scale: number) => {
-      const vp = vpRef.current;
-      if (!vp) return;
-      const r = vp.getBoundingClientRect();
-      tf.current = { scale, x: r.width / 2 - wx * scale, y: r.height / 2 - wy * scale };
+    const narrowVp = r.width < 760;
+    if (narrowVp) {
+      // a phone reads the section the way the section reads — downward. Open
+      // zoomed on the surface (masthead + strata legible), anchored left below
+      // the top bar; the reader scrolls to descend, pans for the far clusters,
+      // and the Index jumps anywhere.
+      const s = 0.48;
+      tf.current = { scale: s, x: 6, y: 58 };
       apply();
-      setScaleDisp(scale);
-    },
-    [apply]
-  );
+      setScaleDisp(s);
+    } else {
+      const s = (r.width / W) * 0.94;
+      tf.current = { scale: s, x: (r.width - W * s) / 2, y: 8 };
+      apply();
+      setScaleDisp(s);
+    }
+  }, [apply]);
 
   useLayoutEffect(() => {
     if (tf.current) {
       apply();
       setScaleDisp(tf.current.scale);
-    } else if (vpRef.current && vpRef.current.getBoundingClientRect().width < 760) {
-      // phones: open zoomed-in on the central circuit (Index is the wayfinder)
-      centerOn(1300, 860, 0.66);
     } else fit();
     const onResize = () => {
       if (!tf.current) fit();
+      else apply();
     };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
@@ -332,11 +342,19 @@ export default function AtlasApp() {
     if (!vp) return;
     const handler = (e: WheelEvent) => {
       e.preventDefault();
-      zoomAt(e.clientX, e.clientY, e.deltaY < 0 ? 1.12 : 1 / 1.12);
+      if (e.ctrlKey) {
+        // trackpad pinch / ctrl+wheel → zoom toward the cursor
+        zoomAt(e.clientX, e.clientY, e.deltaY < 0 ? 1.1 : 1 / 1.1);
+      } else if (tf.current) {
+        // the section is read top→bottom: the wheel descends through the strata
+        tf.current.y -= e.deltaY;
+        tf.current.x -= e.deltaX;
+        apply();
+      }
     };
     vp.addEventListener("wheel", handler, { passive: false });
     return () => vp.removeEventListener("wheel", handler);
-  }, [zoomAt]);
+  }, [zoomAt, apply]);
 
   // zoom from the viewport center (the + / − controls)
   const zoomBy = useCallback(
@@ -480,29 +498,26 @@ export default function AtlasApp() {
         style={{ position: "absolute", inset: 0, cursor: "grab", touchAction: "none" }}
       >
         <div ref={worldRef} style={{ position: "absolute", top: 0, left: 0, width: W, height: H, transformOrigin: "0 0", willChange: "transform" }}>
-          <AtlasChart onOpen={open} hovered={hovered} setHovered={setHovered} />
+          <AtlasChart onOpen={open} hovered={hovered} setHovered={setHovered} narrow={narrow} />
         </div>
       </div>
 
-      {/* top bar */}
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: 52, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 14px", pointerEvents: "none" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 14, pointerEvents: "auto" }}>
-          <Link href="/" className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: L.gloss, textDecoration: "none", whiteSpace: "nowrap" }}>
-            ↑ AUTOSTIMULUS
-          </Link>
-          <button onClick={() => setIndexOpen(true)} className="mono" style={{ fontSize: 10.5, letterSpacing: "0.14em", color: L.ink, background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 13px", cursor: "pointer" }}>
-            ☰ INDEX
-          </button>
-          <div className="serif" style={{ fontSize: 16, color: L.ink }}>
-            <span style={{ fontStyle: "italic" }}>The Ouroboric Condition</span>
-            {!narrow && <span className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: L.oxide, marginLeft: 12 }}>· ATLAS OF CAPTURE</span>}
-          </div>
-        </div>
-        {!narrow && (
-          <div className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: L.gloss, pointerEvents: "auto" }}>
-            ADNAN SELIMOVIĆ
-          </div>
-        )}
+      {/* top bar — slim: the chart's masthead carries the title & author */}
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: 52, display: "flex", alignItems: "center", gap: 10, padding: "0 14px", pointerEvents: "none" }}>
+        <Link
+          href="/"
+          className="mono"
+          style={{ fontSize: 10, letterSpacing: "0.18em", color: L.ink, textDecoration: "none", whiteSpace: "nowrap", background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 12px", pointerEvents: "auto", boxShadow: "0 2px 10px rgba(0,0,0,.08)" }}
+        >
+          ↑ AUTOSTIMULUS
+        </Link>
+        <button
+          onClick={() => setIndexOpen(true)}
+          className="mono"
+          style={{ fontSize: 10.5, letterSpacing: "0.14em", color: L.ink, background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 13px", cursor: "pointer", pointerEvents: "auto", boxShadow: "0 2px 10px rgba(0,0,0,.08)" }}
+        >
+          ☰ INDEX
+        </button>
       </div>
 
       {/* controls */}
@@ -525,6 +540,36 @@ export default function AtlasApp() {
           +
         </button>
       </div>
+
+      {/* live read-out — fixed, follows the hover as the reader descends */}
+      {!narrow && (
+        <div
+          style={{
+            position: "fixed",
+            left: 14,
+            bottom: 14,
+            width: 320,
+            border: `1px solid ${hovered ? L.oxide : L.ink}`,
+            background: L.paper,
+            pointerEvents: "none",
+            zIndex: 41,
+            boxShadow: "0 6px 24px rgba(0,0,0,.12)",
+            transition: "border-color .2s",
+          }}
+        >
+          <div style={{ display: "flex", borderBottom: `1px solid ${hovered ? L.oxide : L.ink}` }}>
+            <div className="serif" style={{ flex: 1, padding: "8px 13px", fontSize: 17, color: L.ink, borderRight: `1px solid ${hovered ? L.oxide : L.ink}` }}>
+              {hovered && SITE[hovered] ? SITE[hovered].title : "The Ouroboric Apparatus"}
+            </div>
+            <div className="mono" style={{ padding: "8px 11px", fontSize: 10.5, color: hovered ? L.oxide : L.gloss, display: "flex", alignItems: "center" }}>
+              FIG. {hovered && SITE[hovered] ? SITE[hovered].fig : "00"}
+            </div>
+          </div>
+          <div className="serif ital" style={{ padding: "8px 13px", fontSize: 13.5, lineHeight: 1.32, color: L.gloss }}>
+            {hovered && SITE[hovered] ? SITE[hovered].gloss : "hover a specimen to read it; click to descend into its plate."}
+          </div>
+        </div>
+      )}
 
       {keyOpen && <Key onClose={() => setKeyOpen(false)} narrow={narrow} />}
       {indexOpen && <IndexDrawer onOpen={open} onClose={() => setIndexOpen(false)} />}
