@@ -396,18 +396,33 @@ export default function AtelierIndex() {
       </main>
 
       <style>{`
-        /* Hard, snapping invert on hover/focus — a stamped press, no fade. */
-        .zine-entry { transition: background-color 80ms steps(1), color 80ms steps(1); }
-        .zine-link:hover .zine-entry,
+        /* Full-block invert on hover/focus — a stamped press. The whole
+           entry (bg, every line, the register box border) transitions
+           together so it reads as one deliberate flip, never mid-state.
+           Pointer hover is gated to real hover devices so a touch tap
+           never leaves an entry stuck inverted; keyboard focus keeps it. */
+        .zine-entry,
+        .zine-entry .zine-stamp,
+        .zine-entry .zine-ident,
+        .zine-entry .zine-year,
+        .zine-entry .zine-reg {
+          transition: background-color 110ms ease, color 110ms ease, border-color 110ms ease;
+        }
+
         .zine-link:focus-visible .zine-entry { background: ${INK}; color: ${PAPER}; }
-        .zine-link:hover .zine-stamp,
-        .zine-link:focus-visible .zine-stamp { color: ${PAPER}; }
-        .zine-link:hover .zine-ident,
-        .zine-link:focus-visible .zine-ident { color: ${PAPER}; }
-        .zine-link:hover .zine-year,
+        .zine-link:focus-visible .zine-stamp,
+        .zine-link:focus-visible .zine-ident,
         .zine-link:focus-visible .zine-year { color: ${PAPER}; }
-        .zine-link:hover .zine-reg,
         .zine-link:focus-visible .zine-reg { color: ${PAPER}; border-color: ${PAPER}; }
+
+        @media (hover: hover) and (pointer: fine) {
+          .zine-link:hover .zine-entry { background: ${INK}; color: ${PAPER}; }
+          .zine-link:hover .zine-stamp,
+          .zine-link:hover .zine-ident,
+          .zine-link:hover .zine-year { color: ${PAPER}; }
+          .zine-link:hover .zine-reg { color: ${PAPER}; border-color: ${PAPER}; }
+        }
+
         .zine-footlink:hover { color: ${RED} !important; }
 
         /* ── Mobile (≤ 640px) ────────────────────────────────────── */
