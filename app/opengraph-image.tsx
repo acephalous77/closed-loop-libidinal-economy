@@ -1,97 +1,113 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
 export const alt = "autostimulus — works by A. Selimović";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 /**
- * Atelier-level OG card. Mirrors the landing's design language:
- * pure white paper, near-black ink, neon-green accent on the period.
- * System sans for the wordmark. Mono for the meta strip.
+ * Atelier-level OG card — xerox-zine register matching the landing:
+ * bone stock, toner-black ink, a cut-up wordmark with the inverted
+ * "stimulus" block and a rubber-stamp red period.
  *
- * Built with @vercel/og (next/og) — no external font files needed;
- * uses the OS default sans which is fine at OG resolution.
+ * JetBrains Mono only: Satori (next/og) caps the bundle at 500KB and
+ * each EB Garamond file is ~590KB, so the serif can't ride along here.
+ * The inverted block and the red period carry the cut-up instead.
  */
 export default async function Image() {
+  const mono = await readFile(
+    join(process.cwd(), "public/fonts/JetBrainsMono-Bold.ttf")
+  );
+
+  const PAPER = "#e9e3d3";
+  const INK = "#0b0b0b";
+  const INK_2 = "#3a3733";
+  const RED = "#cc1f1f";
+
   return new ImageResponse(
     (
       <div
         style={{
           width: "100%",
           height: "100%",
-          background: "#ffffff",
+          background: PAPER,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "72px 80px",
-          fontFamily: "system-ui, -apple-system, sans-serif",
+          padding: "70px 80px",
+          fontFamily: "JetBrains Mono",
+          color: INK,
         }}
       >
-        {/* Top mono strip */}
+        {/* top strip */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            fontSize: 18,
+            fontSize: 21,
             textTransform: "uppercase",
-            letterSpacing: "0.28em",
-            color: "#5a5a5a",
+            letterSpacing: "0.22em",
             fontWeight: 700,
           }}
         >
-          <div>a. selimović</div>
-          <div style={{ color: "#9a9a9a" }}>works · 2026</div>
+          <div>A. SELIMOVIĆ</div>
+          <div style={{ color: INK_2 }}>WORKS 2025—2026</div>
         </div>
 
-        {/* Wordmark */}
+        {/* cut-up wordmark */}
         <div
           style={{
             display: "flex",
-            alignItems: "flex-end",
-            fontSize: 220,
-            fontWeight: 900,
-            color: "#0a0a0a",
-            letterSpacing: "-0.05em",
-            lineHeight: 1,
+            alignItems: "center",
             marginTop: "auto",
+            lineHeight: 1,
           }}
         >
-          autostimulus
-          <span style={{ color: "#00ff5f" }}>.</span>
+          <div style={{ fontSize: 120, fontWeight: 700 }}>auto</div>
+          <div
+            style={{
+              fontSize: 120,
+              fontWeight: 700,
+              background: INK,
+              color: PAPER,
+              padding: "0 16px",
+            }}
+          >
+            stimulus
+          </div>
+          <div style={{ fontSize: 120, fontWeight: 700, color: RED }}>.</div>
         </div>
 
-        {/* Subtitle strip */}
+        {/* bottom strip */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "baseline",
-            fontSize: 24,
-            color: "#3a3a3a",
-            fontWeight: 500,
-            marginTop: 36,
-            paddingTop: 18,
-            borderTop: "2px solid #0a0a0a",
+            alignItems: "flex-end",
+            fontSize: 22,
+            fontWeight: 700,
+            textTransform: "uppercase",
+            letterSpacing: "0.08em",
+            marginTop: 40,
+            paddingTop: 20,
+            borderTop: `3px solid ${INK}`,
           }}
         >
-          <div style={{ maxWidth: 760 }}>
+          <div style={{ maxWidth: 820 }}>
             Critical theory · media psychology · political economy
           </div>
-          <div
-            style={{
-              fontSize: 16,
-              textTransform: "uppercase",
-              letterSpacing: "0.22em",
-              color: "#5a5a5a",
-              fontWeight: 700,
-              fontFamily: "ui-monospace, monospace",
-            }}
-          >
+          <div style={{ fontSize: 17, color: INK_2, letterSpacing: "0.16em" }}>
             autostimulus.org
           </div>
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        { name: "JetBrains Mono", data: mono, weight: 700, style: "normal" },
+      ],
+    }
   );
 }

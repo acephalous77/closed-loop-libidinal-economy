@@ -2,120 +2,186 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   // Bypass the root layout's "%s — autostimulus" template so the
-  // title stays singular (was producing "not found — The Closed-Loop
-  // Libidinal Economy — autostimulus" — wrong-branded triple-wrap).
+  // title stays singular.
   title: { absolute: "Not Found — autostimulus" },
   description: "The page you requested does not exist.",
 };
 
-// Match the atelier's clinical-maximalist register so a 404 reads
-// as a consistent atelier surface — not as a leak of closed-loop
-// register from when the project lived at root.
-const PAPER = "#ffffff";
-const INK = "#0a0a0a";
-const INK_70 = "#5a5a5a";
-const INK_40 = "#9a9a9a";
-const ACCENT = "#00ff5f";
+/**
+ * 404 in the landing's xerox-zine register — its own enclosed object,
+ * scheme-independent: bone stock, toner black, rubber-stamp red,
+ * photocopy grain. Mirrors the cut-up wordmark and the stamped links.
+ */
+const PAPER = "#e9e3d3";
+const INK = "#0b0b0b";
+const INK_2 = "#3a3733";
+const RED = "#cc1f1f";
 
-const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
+const SERIF = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
+
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
+
+const LINKS = [
+  { href: "/", label: "↑ autostimulus" },
+  { href: "/chair", label: "the ouroboros life system" },
+  { href: "/ohcose", label: "ohcose" },
+  { href: "/ouroboric-condition", label: "the ouroboric condition" },
+  { href: "/closed-loop", label: "the closed-loop libidinal economy" },
+  { href: "/patriotic-times", label: "patriotic times" },
+];
 
 export default function NotFound() {
   return (
-    <main
-      style={{
-        background: PAPER,
-        color: INK,
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "5vw 6vw",
-        fontFamily: DISPLAY,
-        colorScheme: "light",
-      }}
-    >
-      <div style={{ maxWidth: "44rem", textAlign: "center" }}>
-        <div
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.8rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.28em",
-            color: INK_40,
-            marginBottom: "1.5rem",
-          }}
-        >
-          HTTP 404 · Page Not Found
-        </div>
-        <h1
-          style={{
-            fontFamily: DISPLAY,
-            fontWeight: 900,
-            fontSize: "clamp(3rem, 9vw, 7rem)",
-            lineHeight: 0.9,
-            letterSpacing: "-0.04em",
-            color: INK,
-            margin: 0,
-            textTransform: "lowercase",
-          }}
-        >
-          not here<span style={{ color: ACCENT }}>.</span>
-        </h1>
-        <p
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.9rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.18em",
-            color: INK_70,
-            marginTop: "2rem",
-            lineHeight: 1.6,
-          }}
-        >
-          The page you requested does not exist
-          <br />
-          or has not been written yet.
-        </p>
+    <>
+      {/* photocopy grain */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          inset: 0,
+          backgroundImage: GRAIN,
+          backgroundSize: "160px 160px",
+          opacity: 0.16,
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+          zIndex: 60,
+        }}
+      />
 
-        {/* Routing back into the atelier — the four current works */}
-        <nav
-          style={{
-            marginTop: "3.5rem",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-            gap: "1rem",
-            maxWidth: "32rem",
-            marginInline: "auto",
-          }}
-        >
-          {[
-            { href: "/", label: "↑ autostimulus" },
-            { href: "/closed-loop", label: "→ closed-loop" },
-            { href: "/ohcose", label: "→ ohcose" },
-            { href: "/patriotic-times", label: "→ patriotic times" },
-          ].map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
+      <main
+        style={{
+          background: PAPER,
+          color: INK,
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          padding: "8vh 6vw",
+          fontFamily: MONO,
+          colorScheme: "light",
+        }}
+      >
+        <div style={{ maxWidth: "46rem", width: "100%", margin: "0 auto" }}>
+          <div
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.78rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.24em",
+              color: INK_2,
+              marginBottom: "1.6rem",
+            }}
+          >
+            HTTP 404 · NOT ON FILE
+          </div>
+
+          {/* cut-up headline */}
+          <h1
+            style={{
+              margin: 0,
+              lineHeight: 0.92,
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "baseline",
+              columnGap: "0.12em",
+            }}
+          >
+            <span
+              style={{
+                fontFamily: SERIF,
+                fontStyle: "italic",
+                fontWeight: 500,
+                fontSize: "clamp(3rem, 11vw, 7rem)",
+                color: INK,
+                textTransform: "lowercase",
+              }}
+            >
+              not
+            </span>
+            <span
               style={{
                 fontFamily: MONO,
-                fontSize: "0.78rem",
-                textTransform: "uppercase",
-                letterSpacing: "0.18em",
-                color: INK,
-                textDecoration: "none",
-                padding: "0.75rem 1rem",
-                border: `1px solid ${INK}`,
+                fontWeight: 700,
+                fontSize: "clamp(2.5rem, 9vw, 5.6rem)",
+                background: INK,
+                color: PAPER,
+                padding: "0 0.12em",
+                letterSpacing: "-0.03em",
+                textTransform: "lowercase",
+              }}
+            >
+              here
+            </span>
+            <span
+              style={{
+                fontFamily: SERIF,
+                fontSize: "clamp(3rem, 11vw, 7rem)",
+                color: RED,
                 fontWeight: 700,
               }}
             >
-              {l.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </main>
+              .
+            </span>
+          </h1>
+
+          <p
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.88rem",
+              textTransform: "uppercase",
+              letterSpacing: "0.16em",
+              color: INK_2,
+              marginTop: "2rem",
+              lineHeight: 1.7,
+              maxWidth: "34rem",
+            }}
+          >
+            The page you requested does not exist, or has not been written yet.
+          </p>
+
+          {/* stamped routes back in */}
+          <nav
+            style={{
+              marginTop: "3rem",
+              display: "flex",
+              flexWrap: "wrap",
+              gap: "0.6rem",
+            }}
+          >
+            {LINKS.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className="nf-link"
+                style={{
+                  fontFamily: MONO,
+                  fontSize: "0.74rem",
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.13em",
+                  color: INK,
+                  textDecoration: "none",
+                  padding: "0.5rem 0.7rem",
+                  border: `1.5px solid ${INK}`,
+                }}
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </main>
+
+      <style>{`
+        .nf-link { transition: background-color 80ms steps(1), color 80ms steps(1); }
+        .nf-link:focus-visible { background: ${INK}; color: ${PAPER}; outline-offset: 3px; }
+        @media (hover: hover) and (pointer: fine) {
+          .nf-link:hover { background: ${INK}; color: ${PAPER}; }
+        }
+      `}</style>
+    </>
   );
 }
