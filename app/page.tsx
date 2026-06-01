@@ -8,12 +8,12 @@ const SITE_URL =
 export const metadata: Metadata = {
   title: { absolute: "autostimulus" },
   description:
-    "Works by A. Selimović. Critical theory, media psychology, political economy. The closed-loop libidinal economy, the OHCOSE manual, the ouroboros chair, the patriotic-times coloring book, and the ouroboric-condition atlas — each entered by the question it asks.",
+    "Works by A. Selimović. Critical theory, media psychology, political economy. The ouroboros chair, the OHCOSE manual, the ouroboric-condition atlas, the closed-loop libidinal economy, and the patriotic-times coloring book.",
 };
 
 interface Work {
-  question: string;
-  title: string;
+  stamp: string; // terse focus-hit — the work called by what it asks
+  title: string; // the work's real name, kept as the identifier
   year: string;
   register: string;
   href: string;
@@ -21,19 +21,19 @@ interface Work {
 }
 
 /**
- * The five works, hung as a catalogue rather than ranked as a list.
- * Each is called by the question it investigates — so a visitor can
- * tell the three ouroboros-named works apart (the chair, the atlas,
- * and OHCOSE's machine) and know what kind of encounter to expect.
+ * Works hung as a cut-and-paste flyer, not a ranked list. Each is
+ * called by a terse stamped hit (what it focuses on), with its real
+ * title kept underneath as the identifier — so the three ouroboros-
+ * named works read apart at a glance. Curatorial order, un-numbered:
+ * object -> institution -> territory -> formal engine -> outside.
  *
- * Order is curatorial, not numbered: the apparatus made concrete
- * (object → institution → territory), then the formal engine beneath
- * them, then the political outside. Nothing reads as first or best.
+ * The stamp lines are drafts in Adnan's terse register — flagged for
+ * his vetting, anchored by the real titles so the page reads right
+ * even before he tunes the wording.
  */
 const WORKS: Work[] = [
   {
-    question:
-      "What if everything the platforms already do to you were built into a single chair — and sold to you as comfort?",
+    stamp: "SIT. BE HELD. BE HARVESTED.",
     title: "The Ouroboros Life System",
     year: "2025",
     register: "essay · brochure · speculative-design artifact",
@@ -41,8 +41,7 @@ const WORKS: Work[] = [
     status: "live",
   },
   {
-    question:
-      "What does the apparatus call itself once it opens an office, issues a case number, and schedules your life from cradle to grave?",
+    stamp: "YOUR LIFE, ON FILE.",
     title: "OHCOSE",
     year: "2026",
     register: "office of human continuity & social equilibrium",
@@ -50,8 +49,7 @@ const WORKS: Work[] = [
     status: "live",
   },
   {
-    question:
-      "Once the apparatus reaches the surplus of attention, desire, and care that survival leaves behind — what survives the capture?",
+    stamp: "WHAT SURVIVES CAPTURE?",
     title: "The Ouroboric Condition",
     year: "2026",
     register: "atlas · psychic surplus · interactive specimen plates",
@@ -59,8 +57,7 @@ const WORKS: Work[] = [
     status: "live",
   },
   {
-    question:
-      "Can the capture of attention be written down — its operators, its equations, the fixed point where the loop closes on itself?",
+    stamp: "THE LOOP, WRITTEN DOWN.",
     title: "The Closed-Loop Libidinal Economy",
     year: "2026",
     register: "framework · essays · mathematics · interactive plates",
@@ -68,8 +65,7 @@ const WORKS: Work[] = [
     status: "live",
   },
   {
-    question:
-      "What happens when two decades of democratic collapse arrive as a coloring book, and the crayons are already in your hand?",
+    stamp: "COLOR THE COLLAPSE.",
     title: "Patriotic Times",
     year: "2025—2026",
     register: "coloring book · state failure · interactive plates",
@@ -79,31 +75,32 @@ const WORKS: Work[] = [
 ];
 
 /**
- * Atelier landing — the quiet base register.
- * The umbrella finally shares material with the works behind it: the
- * site's own tokens (cream paper, warm-ink, the lone oxblood accent),
- * EB Garamond for the questions and the wordmark, JetBrains Mono for
- * the catalogue chrome. A title page, not a homepage. Because it draws
- * on the @theme variables it inherits system dark mode for free — no
- * forced color-scheme, no toggle.
+ * Atelier landing — xerox-zine / ransom-note register.
+ * The umbrella is its own enclosed object: a high-contrast bone-and-
+ * black flyer with photocopy grit, cut-up type, and a rubber-stamp
+ * red. Scheme-independent (a printed flyer has no dark mode), so it
+ * forces its own palette and never touches the site theme tokens —
+ * the interior works keep their own looks.
  */
 
-// Palette + type — references to globals.css @theme tokens.
-const PAPER = "var(--color-paper)";
-const INK = "var(--color-ink)";
-const INK_70 = "var(--color-ink-70)";
-const INK_50 = "var(--color-ink-50)";
-const FOG = "var(--color-fog)";
-const OXBLOOD = "var(--color-oxblood)";
-const SERIF = "var(--font-serif)";
-const MONO = "var(--font-mono)";
+// Palette — printed-flyer stock, toner black, rubber-stamp red.
+const PAPER = "#e9e3d3"; // bone / photocopy stock
+const INK = "#0b0b0b"; // toner black
+const INK_2 = "#3a3733"; // secondary
+const RED = "#cc1f1f"; // rubber-stamp red
+
+const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
+const SERIF = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
+
+// Photocopy grain — fractal-noise SVG multiplied over the page.
+const GRAIN =
+  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 export default function AtelierIndex() {
   return (
     <>
       <JsonLd
         data={[
-          // Site identity
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
@@ -120,167 +117,217 @@ export default function AtelierIndex() {
               sameAs: [],
             },
           },
-          // Catalog of works — each part carries the question it asks as
-          // its description, so search / LLM agents get the same
-          // expositional cue a human reader does.
           {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             name: "autostimulus — works",
             url: SITE_URL,
             description:
-              "Catalog of works by A. Selimović, each entered by the question it investigates. Five live projects spanning a speculative-design artifact, a bureaucratic manual, an explorable atlas of capture, a critical-theory framework, and an interactive coloring book.",
+              "Catalog of works by A. Selimović. Five live projects: a speculative-design artifact, a bureaucratic manual, an explorable atlas of capture, a critical-theory framework, and an interactive coloring book.",
             inLanguage: "en",
             hasPart: WORKS.map((w, idx) => ({
               "@type": "CreativeWork",
               position: idx + 1,
               name: w.title,
-              description: w.question,
               url: `${SITE_URL}${w.href}`,
               dateCreated: w.year,
               creativeWorkStatus:
                 w.status === "live" ? "Published" : "InProduction",
-              creator: {
-                "@type": "Person",
-                name: "Adnan Selimović",
-              },
+              creator: { "@type": "Person", name: "Adnan Selimović" },
             })),
           },
         ]}
       />
+
+      {/* photocopy grain */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          inset: 0,
+          backgroundImage: GRAIN,
+          backgroundSize: "160px 160px",
+          opacity: 0.16,
+          mixBlendMode: "multiply",
+          pointerEvents: "none",
+          zIndex: 60,
+        }}
+      />
+
       <main
-        className="atelier-main"
+        className="zine-main"
         style={{
           background: PAPER,
           color: INK,
           minHeight: "100vh",
-          fontFamily: SERIF,
-          padding: "6vw 6vw 0",
+          fontFamily: MONO,
+          padding: "5vw 6vw 0",
+          colorScheme: "light",
         }}
       >
         {/* ============ MASTHEAD ============ */}
-        <header className="atelier-masthead" style={{ marginBottom: "11vh" }}>
+        <header
+          className="zine-masthead"
+          style={{ marginBottom: "9vh" }}
+        >
           <div
             style={{
               fontFamily: MONO,
-              fontSize: "var(--text-xs)",
+              fontSize: "0.78rem",
               textTransform: "uppercase",
-              letterSpacing: "0.22em",
-              color: INK_50,
-              marginBottom: "1.6rem",
-            }}
-          >
-            a. selimović — works 2025—
-          </div>
-          <h1
-            style={{
-              fontFamily: SERIF,
-              fontWeight: 500,
-              fontSize: "clamp(2.75rem, 9vw, 7rem)",
-              lineHeight: 0.95,
-              letterSpacing: "-0.015em",
+              letterSpacing: "0.24em",
               color: INK,
-              margin: 0,
+              marginBottom: "1.4rem",
             }}
           >
-            autostimulus<span style={{ color: OXBLOOD }}>.</span>
-          </h1>
-          <p
+            A. SELIMOVIĆ — WORKS 2025—
+          </div>
+
+          {/* cut-up wordmark */}
+          <h1
+            className="zine-wordmark"
             style={{
-              fontFamily: SERIF,
-              fontStyle: "italic",
-              fontSize: "var(--text-md)",
-              lineHeight: 1.4,
-              color: INK_70,
-              maxWidth: "34rem",
-              marginTop: "1.7rem",
-              marginBottom: 0,
+              margin: "0",
+              lineHeight: 0.86,
+              letterSpacing: "-0.02em",
+              display: "flex",
+              flexWrap: "wrap",
+              alignItems: "baseline",
             }}
           >
-            Works on a single apparatus — the closed loop that captures
-            attention, desire, and care, and the remainder it cannot reach.
-          </p>
+            <span
+              style={{
+                fontFamily: SERIF,
+                fontWeight: 500,
+                fontStyle: "italic",
+                fontSize: "clamp(3rem, 11vw, 8.5rem)",
+                color: INK,
+                textTransform: "lowercase",
+              }}
+            >
+              auto
+            </span>
+            <span
+              style={{
+                fontFamily: MONO,
+                fontWeight: 700,
+                fontSize: "clamp(2.5rem, 9vw, 7rem)",
+                background: INK,
+                color: PAPER,
+                padding: "0 0.12em",
+                textTransform: "lowercase",
+                letterSpacing: "-0.04em",
+              }}
+            >
+              stimulus
+            </span>
+            <span
+              style={{
+                fontFamily: SERIF,
+                fontSize: "clamp(3rem, 11vw, 8.5rem)",
+                color: RED,
+                fontWeight: 700,
+              }}
+            >
+              .
+            </span>
+          </h1>
         </header>
 
-        {/* ============ WORKS CATALOGUE ============ */}
+        {/* ============ WORKS — cut flyer ============ */}
         <section
-          className="atelier-works"
-          style={{ maxWidth: "46rem" }}
+          className="zine-works"
+          style={{ maxWidth: "48rem" }}
           aria-label="Works"
         >
           <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {WORKS.map((w) => {
               const live = w.status === "live";
+              const head = w.stamp.slice(0, -1);
+              const tail = w.stamp.slice(-1);
               const body = (
-                <>
+                <div className="zine-entry" style={{ padding: "2.2rem 1rem" }}>
                   <div
+                    className="zine-year"
                     style={{
                       fontFamily: MONO,
-                      fontSize: "var(--text-xs)",
-                      letterSpacing: "0.14em",
-                      color: live ? INK_50 : OXBLOOD,
-                      marginBottom: "1.1rem",
+                      fontSize: "0.74rem",
+                      fontWeight: 700,
+                      letterSpacing: "0.16em",
+                      color: live ? INK_2 : RED,
+                      marginBottom: "0.9rem",
                     }}
                   >
-                    {live ? w.year : `${w.year} · in production`}
+                    {live ? w.year : `${w.year} · IN PRODUCTION`}
                   </div>
                   <h2
-                    className="work-question"
+                    className="zine-stamp"
                     style={{
-                      fontFamily: SERIF,
-                      fontWeight: 500,
-                      fontSize: "var(--text-xl)",
-                      lineHeight: 1.22,
+                      fontFamily: MONO,
+                      fontWeight: 700,
+                      fontSize: "clamp(1.5rem, 4.6vw, 2.7rem)",
+                      lineHeight: 1.05,
                       letterSpacing: "-0.01em",
-                      color: live ? INK : INK_70,
+                      textTransform: "uppercase",
+                      color: INK,
                       margin: 0,
                     }}
                   >
-                    {w.question}
+                    {head}
+                    <span className="stamp-dot" style={{ color: RED }}>
+                      {tail}
+                    </span>
                   </h2>
                   <div
+                    className="zine-ident"
                     style={{
                       fontFamily: SERIF,
                       fontStyle: "italic",
-                      fontSize: "var(--text-base)",
-                      color: INK_70,
-                      marginTop: "1rem",
+                      fontSize: "1.15rem",
+                      color: INK_2,
+                      marginTop: "0.9rem",
                     }}
                   >
                     {w.title}
                   </div>
                   <div
+                    className="zine-reg"
                     style={{
+                      display: "inline-block",
                       fontFamily: MONO,
-                      fontSize: "var(--text-xs)",
+                      fontSize: "0.68rem",
                       textTransform: "uppercase",
-                      letterSpacing: "0.15em",
-                      color: INK_50,
-                      marginTop: "0.5rem",
+                      letterSpacing: "0.13em",
+                      color: INK,
+                      border: `1px solid ${INK}`,
+                      padding: "0.3rem 0.5rem",
+                      marginTop: "1rem",
                     }}
                   >
                     {w.register}
                   </div>
-                </>
+                </div>
               );
               return (
-                <li key={w.href} style={{ borderTop: `1px solid ${FOG}` }}>
+                <li
+                  key={w.href}
+                  style={{ borderTop: `2px solid ${INK}` }}
+                >
                   {live ? (
                     <a
                       href={w.href}
-                      className="work-link"
-                      aria-label={`${w.title} — ${w.question}`}
+                      className="zine-link"
+                      aria-label={`${w.title} — ${w.stamp}`}
                       style={{
                         display: "block",
                         textDecoration: "none",
                         color: "inherit",
-                        padding: "2.6rem 0",
                       }}
                     >
                       {body}
                     </a>
                   ) : (
-                    <div style={{ padding: "2.6rem 0" }}>{body}</div>
+                    body
                   )}
                 </li>
               );
@@ -290,45 +337,42 @@ export default function AtelierIndex() {
 
         {/* ============ COLOPHON FOOTER ============ */}
         <footer
-          className="atelier-footer"
+          className="zine-footer"
           style={{
-            marginTop: "18vh",
-            paddingTop: "2rem",
+            marginTop: "14vh",
+            paddingTop: "1.5rem",
             paddingBottom: "6vh",
-            borderTop: `1px solid ${INK}`,
+            borderTop: `4px solid ${INK}`,
             display: "grid",
             gridTemplateColumns: "1fr 1fr 1fr",
-            gap: "2rem",
+            gap: "1.5rem",
             fontFamily: MONO,
-            fontSize: "var(--text-xs)",
+            fontSize: "0.72rem",
             textTransform: "uppercase",
-            letterSpacing: "0.14em",
-            color: INK_50,
+            letterSpacing: "0.13em",
+            color: INK,
           }}
         >
           <div>
-            <div style={{ color: INK_50 }}>site</div>
-            <div style={{ marginTop: "0.5rem", color: INK_70 }}>
-              autostimulus.org
-            </div>
+            <div style={{ color: INK_2 }}>SITE</div>
+            <div style={{ marginTop: "0.5rem" }}>autostimulus.org</div>
             <div style={{ marginTop: "0.5rem" }}>
               <a
                 href="/closed-loop/the-colophon"
-                className="footer-link"
-                style={{ color: INK_50, textDecoration: "none" }}
+                className="zine-footlink"
+                style={{ color: INK, textDecoration: "none" }}
               >
-                colophon →
+                COLOPHON →
               </a>
             </div>
           </div>
           <div>
-            <div style={{ color: INK_50 }}>license</div>
+            <div style={{ color: INK_2 }}>LICENSE</div>
             <div
               style={{
                 marginTop: "0.5rem",
-                color: INK_70,
                 textTransform: "none",
-                letterSpacing: "0.05em",
+                letterSpacing: "0.04em",
               }}
             >
               text · cc by-sa 4.0
@@ -337,32 +381,46 @@ export default function AtelierIndex() {
             </div>
           </div>
           <div className="col-right" style={{ textAlign: "right" }}>
-            <div style={{ color: INK_50 }}>year</div>
-            <div style={{ marginTop: "0.5rem", color: OXBLOOD }}>2026</div>
+            <div style={{ color: INK_2 }}>YEAR</div>
+            <div
+              style={{
+                marginTop: "0.5rem",
+                color: RED,
+                fontWeight: 700,
+              }}
+            >
+              2026
+            </div>
           </div>
         </footer>
       </main>
 
       <style>{`
-        /* Hover / keyboard-focus confirmation: the question turns oxblood
-           — the site's quiet link idiom, not a telegraphed CTA. */
-        .work-question { transition: color 140ms ease; }
-        .work-link:hover .work-question,
-        .work-link:focus-visible .work-question { color: var(--color-oxblood); }
-        .footer-link:hover { color: var(--color-oxblood) !important; }
+        /* Hard, snapping invert on hover/focus — a stamped press, no fade. */
+        .zine-entry { transition: background-color 80ms steps(1), color 80ms steps(1); }
+        .zine-link:hover .zine-entry,
+        .zine-link:focus-visible .zine-entry { background: ${INK}; color: ${PAPER}; }
+        .zine-link:hover .zine-stamp,
+        .zine-link:focus-visible .zine-stamp { color: ${PAPER}; }
+        .zine-link:hover .zine-ident,
+        .zine-link:focus-visible .zine-ident { color: ${PAPER}; }
+        .zine-link:hover .zine-year,
+        .zine-link:focus-visible .zine-year { color: ${PAPER}; }
+        .zine-link:hover .zine-reg,
+        .zine-link:focus-visible .zine-reg { color: ${PAPER}; border-color: ${PAPER}; }
+        .zine-footlink:hover { color: ${RED} !important; }
 
-        /* ── Mobile (≤ 640px) ──────────────────────────────────────
-           The catalogue is already a single column; only the footer's
-           three tracks and the outer padding need to relax. */
+        /* ── Mobile (≤ 640px) ────────────────────────────────────── */
         @media (max-width: 640px) {
-          .atelier-main { padding: 11vw 7vw 0 !important; }
-          .atelier-masthead { margin-bottom: 4rem !important; }
-          .atelier-footer {
-            grid-template-columns: 1fr !important;
-            gap: 1.5rem !important;
-            margin-top: 6rem !important;
+          .zine-main { padding: 9vw 6vw 0 !important; }
+          .zine-masthead { margin-bottom: 3.5rem !important; }
+          .zine-entry { padding-left: 0 !important; padding-right: 0 !important; }
+          .zine-footer {
+            grid-template-columns: 1fr 1fr !important;
+            gap: 1.25rem !important;
+            margin-top: 5rem !important;
           }
-          .atelier-footer .col-right { text-align: left !important; }
+          .zine-footer .col-right { text-align: left !important; }
         }
       `}</style>
     </>
