@@ -96,11 +96,13 @@ function Engine({
   hovered,
   setHovered,
   dimmed,
+  narrow,
 }: {
   onOpen: OpenFn;
   hovered: string | null;
   setHovered: (id: string | null) => void;
   dimmed: boolean;
+  narrow: boolean;
 }) {
   const t = useTick();
   const isHot = hovered === "ouroboros";
@@ -117,9 +119,11 @@ function Engine({
   return (
     <div
       data-atlas-node="1"
-      onMouseEnter={() => setHovered("ouroboros")}
-      onMouseLeave={() => setHovered(null)}
-      onClick={(e) => onOpen("ouroboros", e)}
+      onMouseEnter={() => !narrow && setHovered("ouroboros")}
+      onMouseLeave={() => !narrow && setHovered(null)}
+      onClick={(e) =>
+        narrow && hovered !== "ouroboros" ? setHovered("ouroboros") : onOpen("ouroboros", e)
+      }
       style={{ position: "absolute", left: CX, top: CY, transform: "translate(-50%,-50%)", cursor: "pointer", zIndex: isHot ? 7 : 5, opacity: dimmed ? 0.32 : 1, transition: "opacity .25s" }}
     >
       <svg viewBox="0 0 336 336" width="336" height="336" style={{ display: "block" }}>
@@ -169,6 +173,7 @@ function SmallNode({
   setHovered,
   dimmed,
   lit,
+  narrow,
 }: {
   s: AtlasSite;
   onOpen: OpenFn;
@@ -176,6 +181,7 @@ function SmallNode({
   setHovered: (id: string | null) => void;
   dimmed: boolean;
   lit: boolean;
+  narrow: boolean;
 }) {
   const dark = s.tone === "dark";
   const onDark = ON_DARK.has(s.id); // sits in the dark sediment band
@@ -189,9 +195,9 @@ function SmallNode({
   return (
     <div
       data-atlas-node="1"
-      onMouseEnter={() => setHovered(s.id)}
-      onMouseLeave={() => setHovered(null)}
-      onClick={(e) => onOpen(s.id, e)}
+      onMouseEnter={() => !narrow && setHovered(s.id)}
+      onMouseLeave={() => !narrow && setHovered(null)}
+      onClick={(e) => (narrow && hovered !== s.id ? setHovered(s.id) : onOpen(s.id, e))}
       style={{ position: "absolute", left: POS[s.id].x, top: POS[s.id].y, transform: "translate(-50%,-50%)", width: sz, height: sz, cursor: "pointer", opacity: dimmed ? 0.2 : 1, transition: "opacity .25s", zIndex: isHot ? 6 : 3 }}
     >
       <div
@@ -412,9 +418,9 @@ export function AtlasChart({ onOpen, hovered, setHovered, narrow = false }: Char
       </div>
 
       {/* the engine, then the specimens */}
-      <Engine onOpen={onOpen} hovered={hovered} setHovered={setHovered} dimmed={!!litN && !litN.has("ouroboros")} />
+      <Engine onOpen={onOpen} hovered={hovered} setHovered={setHovered} dimmed={!!litN && !litN.has("ouroboros")} narrow={narrow} />
       {ATLAS_SITES.filter((s) => s.id !== "ouroboros").map((s) => (
-        <SmallNode key={s.id} s={s} onOpen={onOpen} hovered={hovered} setHovered={setHovered} dimmed={!!litN && !litN.has(s.id)} lit={!!litN && litN.has(s.id) && s.id !== "surplus"} />
+        <SmallNode key={s.id} s={s} onOpen={onOpen} hovered={hovered} setHovered={setHovered} dimmed={!!litN && !litN.has(s.id)} lit={!!litN && litN.has(s.id) && s.id !== "surplus"} narrow={narrow} />
       ))}
     </div>
   );

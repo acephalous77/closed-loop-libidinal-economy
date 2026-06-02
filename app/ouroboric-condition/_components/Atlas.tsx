@@ -10,7 +10,7 @@
 // localStorage / rAF during render, so it must run only after mount. Until
 // then a quiet paper splash stands in (and is what the route prerenders).
 
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import { L, D, useTick, useViewport, ptOnCircle, ATLAS_CSS, type OpenFn } from "./shared";
@@ -221,14 +221,9 @@ function Key({ onClose, narrow }: { onClose: () => void; narrow: boolean }) {
 export default function AtlasApp() {
   const vw = useViewport();
   const narrow = vw < 760;
-  const saved: Saved = useMemo(() => {
-    try {
-      return JSON.parse(localStorage.getItem(LS) || "{}");
-    } catch {
-      return {};
-    }
-  }, []);
-  const [entered, setEntered] = useState(!!saved.entered);
+  // The explainer is the deliberate landing — show it on every visit (no
+  // persisted "entered" skip; openId and tf aren't restored either).
+  const [entered, setEntered] = useState(false);
   // Always land on the map: never restore a previously-open plate. A
   // returning visitor was re-entering inside the last specimen placard.
   const [openId, setOpenId] = useState<string | null>(null);
@@ -575,6 +570,39 @@ export default function AtlasApp() {
         </div>
       )}
 
+      {/* mobile read-out — tap a specimen to light its connection threads;
+          tap again (or here) to descend. The phone's stand-in for hover. */}
+      {narrow && hovered && SITE[hovered] && (
+        <div
+          style={{ position: "fixed", left: "max(14px, env(safe-area-inset-left))", right: "max(14px, env(safe-area-inset-right))", bottom: "calc(max(14px, env(safe-area-inset-bottom)) + 52px)", zIndex: 41, background: L.paper, border: `1px solid ${L.oxide}`, boxShadow: "0 8px 30px rgba(0,0,0,.22)" }}
+        >
+          <button
+            onClick={() => setHovered(null)}
+            className="mono"
+            aria-label="clear highlight"
+            style={{ position: "absolute", top: 4, right: 8, fontSize: 17, lineHeight: 1, color: L.gloss, background: "none", border: "none", cursor: "pointer", padding: 4 }}
+          >
+            ×
+          </button>
+          <button
+            onClick={(e) => open(hovered, e)}
+            style={{ display: "block", width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer", padding: "12px 36px 13px 14px" }}
+          >
+            <div className="mono" style={{ fontSize: 9.5, letterSpacing: "0.16em", color: L.oxide }}>
+              FIG. {SITE[hovered].fig}
+            </div>
+            <div className="serif" style={{ fontSize: 18, color: L.ink, marginTop: 4 }}>
+              {SITE[hovered].title}
+            </div>
+            <div className="serif ital" style={{ fontSize: 13.5, lineHeight: 1.34, color: L.gloss, marginTop: 3 }}>
+              {SITE[hovered].gloss}
+            </div>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: L.oxide, marginTop: 9 }}>
+              TAP AGAIN TO DESCEND →
+            </div>
+          </button>
+        </div>
+      )}
       {keyOpen && <Key onClose={() => setKeyOpen(false)} narrow={narrow} />}
       {indexOpen && <IndexDrawer onOpen={open} onClose={() => setIndexOpen(false)} />}
 
