@@ -191,7 +191,7 @@ function Key({ onClose, narrow }: { onClose: () => void; narrow: boolean }) {
     </div>
   );
   return (
-    <div className="atlas-root" style={{ position: "fixed", right: 14, bottom: 66, width: "min(300px,90vw)", background: L.paper, border: `1px solid ${L.ink}`, padding: "16px 18px", zIndex: 30, boxShadow: "0 10px 40px rgba(0,0,0,.18)" }}>
+    <div className="atlas-root" style={{ position: "fixed", right: "max(14px, env(safe-area-inset-right))", bottom: "calc(max(14px, env(safe-area-inset-bottom)) + 52px)", width: "min(300px,90vw)", background: L.paper, border: `1px solid ${L.ink}`, padding: "16px 18px", zIndex: 30, boxShadow: "0 10px 40px rgba(0,0,0,.18)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
         <span className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: L.oxide }}>
           KEY
@@ -229,7 +229,9 @@ export default function AtlasApp() {
     }
   }, []);
   const [entered, setEntered] = useState(!!saved.entered);
-  const [openId, setOpenId] = useState<string | null>(saved.openId || null);
+  // Always land on the map: never restore a previously-open plate. A
+  // returning visitor was re-entering inside the last specimen placard.
+  const [openId, setOpenId] = useState<string | null>(null);
   const [hovered, setHovered] = useState<string | null>(null);
   const [scaleDisp, setScaleDisp] = useState(1);
   const [keyOpen, setKeyOpen] = useState(false);
@@ -242,7 +244,9 @@ export default function AtlasApp() {
   }, [openId]);
   const vpRef = useRef<HTMLDivElement>(null),
     worldRef = useRef<HTMLDivElement>(null);
-  const tf = useRef<TF | null>(saved.tf || null);
+  // Re-fit for the current viewport on load rather than restoring a saved
+  // pan/zoom — a transform captured on desktop must not load onto a phone.
+  const tf = useRef<TF | null>(null);
   const pointers = useRef<Map<number, { x: number; y: number }>>(new Map());
   const gesture = useRef<Gesture>(null);
 
@@ -503,7 +507,7 @@ export default function AtlasApp() {
       </div>
 
       {/* top bar — slim: the chart's masthead carries the title & author */}
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, height: 52, display: "flex", alignItems: "center", gap: 10, padding: "0 14px", pointerEvents: "none" }}>
+      <div style={{ position: "fixed", top: 0, left: 0, right: 0, minHeight: 52, display: "flex", alignItems: "center", gap: 10, padding: "max(8px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) 0 max(14px, env(safe-area-inset-left))", pointerEvents: "none" }}>
         <Link
           href="/"
           className="mono"
@@ -521,7 +525,7 @@ export default function AtlasApp() {
       </div>
 
       {/* controls */}
-      <div style={{ position: "fixed", right: 14, bottom: 14, display: "flex", gap: 6, alignItems: "center" }}>
+      <div style={{ position: "fixed", right: "max(14px, env(safe-area-inset-right))", bottom: "max(14px, env(safe-area-inset-bottom))", display: "flex", gap: 6, alignItems: "center" }}>
         {!narrow && (
           <div className="mono" style={{ fontSize: 10, color: L.gloss, marginRight: 4, width: 38, textAlign: "right" }}>
             {Math.round(scaleDisp * 100)}%
@@ -584,33 +588,46 @@ export default function AtlasApp() {
         />
       )}
       {site && <AtlasPlate site={site} onOpen={open} onClose={close} onNav={nav} idx={order.indexOf(site.id)} total={order.length} />}
-      {trans && (
-        <div
-          key={trans.key}
-          style={
-            {
-              position: "fixed",
-              inset: 0,
-              zIndex: 70,
-              pointerEvents: "none",
-              "--ox": trans.x + "px",
-              "--oy": trans.y + "px",
-              background:
-                trans.kind === "descent"
-                  ? `radial-gradient(circle at ${trans.x}px ${trans.y}px, ${D.glow}66, ${D.bg} 42%)`
-                  : `radial-gradient(circle at ${trans.x}px ${trans.y}px, rgba(255,255,255,.55), ${L.paper} 46%)`,
-              animation: "at-plunge .85s cubic-bezier(.55,0,.3,1) forwards",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            } as CSSProperties
-          }
-        >
-          <div className="mono" style={{ fontSize: narrow ? 9 : 11, letterSpacing: "0.32em", color: trans.kind === "descent" ? D.glow : L.oxide, textAlign: "center", padding: "0 20px" }}>
-            {trans.kind === "descent" ? "DESCENDING INTO THE APPARATUS" : "SURFACING"}
-          </div>
-        </div>
-      )}
+      {trans &&
+        (() => {
+          const descent = trans.kind === "descent";
+          // disc radius covers the screen from any origin point
+          const R =
+            (typeof window !== "undefined"
+              ? Math.hypot(window.innerWidth, window.innerHeight)
+              : 1400) * 1.06;
+          return (
+            <div
+              key={trans.key}
+              aria-hidden
+              style={{ position: "fixed", inset: 0, zIndex: 70, pointerEvents: "none", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}
+            >
+              <div
+                className="atlas-disc"
+                style={{
+                  position: "absolute",
+                  left: trans.x - R,
+                  top: trans.y - R,
+                  width: 2 * R,
+                  height: 2 * R,
+                  borderRadius: "50%",
+                  transformOrigin: "center",
+                  willChange: "transform,opacity",
+                  background: descent
+                    ? `radial-gradient(circle, ${D.glow}66, ${D.bg} 60%)`
+                    : `radial-gradient(circle, rgba(255,255,255,.6), ${L.paper} 62%)`,
+                  animation: "at-disc .85s cubic-bezier(.55,0,.3,1) forwards",
+                }}
+              />
+              <div
+                className="mono atlas-label"
+                style={{ position: "relative", fontSize: narrow ? 9 : 11, letterSpacing: "0.32em", color: descent ? D.glow : L.oxide, textAlign: "center", padding: "0 20px", animation: "at-label .85s ease forwards" }}
+              >
+                {descent ? "DESCENDING INTO THE APPARATUS" : "SURFACING"}
+              </div>
+            </div>
+          );
+        })()}
     </div>
   );
 }

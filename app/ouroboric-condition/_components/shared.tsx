@@ -68,9 +68,16 @@ export const ATLAS_CSS = `
 @keyframes at-blink{0%,100%{opacity:1}50%{opacity:.25}}
 @keyframes at-pulse{0%,100%{opacity:.2}50%{opacity:.05}}
 @keyframes at-drift{0%,100%{opacity:.5}50%{opacity:.85}}
-@keyframes at-plunge{0%{clip-path:circle(0% at var(--ox,50%) var(--oy,50%));opacity:1}42%{clip-path:circle(180% at var(--ox,50%) var(--oy,50%));opacity:1}100%{clip-path:circle(180% at var(--ox,50%) var(--oy,50%));opacity:0}}
+/* Descent/surface wash. A transform-scaled disc (not clip-path with
+   CSS vars in @keyframes, which iOS/WebKit resolves unreliably). */
+@keyframes at-disc{0%{transform:scale(0);opacity:1}44%{transform:scale(1);opacity:1}100%{transform:scale(1);opacity:0}}
+@keyframes at-label{0%{opacity:0}22%{opacity:1}74%{opacity:1}100%{opacity:0}}
+@keyframes at-disc-rm{0%{transform:scale(1);opacity:.82}100%{transform:scale(1);opacity:0}}
 @media (prefers-reduced-motion: reduce){
   .atlas-root *{animation-duration:.001ms !important;animation-iteration-count:1 !important}
+  /* degrade the wash to a brief fade rather than nothing */
+  .atlas-root .atlas-disc{animation:at-disc-rm .34s ease forwards !important}
+  .atlas-root .atlas-label{animation:at-label .34s ease forwards !important}
 }
 `;
 
