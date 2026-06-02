@@ -96,6 +96,47 @@ const SERIF = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
 const GRAIN =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
+// One work-row's contents, rendered twice per entry: a base (ink on paper)
+// and an inverted copy (paper on ink) that the ink-press wipes in on hover.
+function entryBody(w: Work, inv: boolean) {
+  const live = w.status === "live";
+  const head = w.stamp.slice(0, -1);
+  const tail = w.stamp.slice(-1);
+  const cText = inv ? PAPER : INK;
+  const cYear = inv ? PAPER : live ? INK_2 : RED;
+  const cIdent = inv ? PAPER : INK_2;
+  const cReg = inv ? PAPER : INK;
+  return (
+    <>
+      <div
+        className="zine-year"
+        style={{ fontFamily: MONO, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.16em", color: cYear, marginBottom: "0.9rem" }}
+      >
+        {live ? w.year : `${w.year} · IN PRODUCTION`}
+      </div>
+      <h2
+        className="zine-stamp"
+        style={{ fontFamily: MONO, fontWeight: 700, fontSize: "clamp(1.5rem, 4.6vw, 2.7rem)", lineHeight: 1.05, letterSpacing: "-0.01em", textTransform: "uppercase", color: cText, margin: 0 }}
+      >
+        {head}
+        <span style={{ color: RED }}>{tail}</span>
+      </h2>
+      <div
+        className="zine-ident"
+        style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "1.15rem", color: cIdent, marginTop: "0.9rem" }}
+      >
+        {w.title}
+      </div>
+      <div
+        className="zine-reg"
+        style={{ display: "inline-block", fontFamily: MONO, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.13em", color: cReg, border: `1px solid ${cReg}`, padding: "0.3rem 0.5rem", marginTop: "1rem" }}
+      >
+        {w.register}
+      </div>
+    </>
+  );
+}
+
 export default function AtelierIndex() {
   return (
     <>
@@ -243,91 +284,34 @@ export default function AtelierIndex() {
           <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {WORKS.map((w) => {
               const live = w.status === "live";
-              const head = w.stamp.slice(0, -1);
-              const tail = w.stamp.slice(-1);
-              const body = (
-                <div className="zine-entry" style={{ padding: "2.2rem 1rem" }}>
-                  <div
-                    className="zine-year"
-                    style={{
-                      fontFamily: MONO,
-                      fontSize: "0.74rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.16em",
-                      color: live ? INK_2 : RED,
-                      marginBottom: "0.9rem",
-                    }}
-                  >
-                    {live ? w.year : `${w.year} · IN PRODUCTION`}
-                  </div>
-                  <h2
-                    className="zine-stamp"
-                    style={{
-                      fontFamily: MONO,
-                      fontWeight: 700,
-                      fontSize: "clamp(1.5rem, 4.6vw, 2.7rem)",
-                      lineHeight: 1.05,
-                      letterSpacing: "-0.01em",
-                      textTransform: "uppercase",
-                      color: INK,
-                      margin: 0,
-                    }}
-                  >
-                    {head}
-                    <span className="stamp-dot" style={{ color: RED }}>
-                      {tail}
-                    </span>
-                  </h2>
-                  <div
-                    className="zine-ident"
-                    style={{
-                      fontFamily: SERIF,
-                      fontStyle: "italic",
-                      fontSize: "1.15rem",
-                      color: INK_2,
-                      marginTop: "0.9rem",
-                    }}
-                  >
-                    {w.title}
-                  </div>
-                  <div
-                    className="zine-reg"
-                    style={{
-                      display: "inline-block",
-                      fontFamily: MONO,
-                      fontSize: "0.68rem",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.13em",
-                      color: INK,
-                      border: `1px solid ${INK}`,
-                      padding: "0.3rem 0.5rem",
-                      marginTop: "1rem",
-                    }}
-                  >
-                    {w.register}
-                  </div>
-                </div>
-              );
               return (
-                <li
-                  key={w.href}
-                  style={{ borderTop: `2px solid ${INK}` }}
-                >
+                <li key={w.href} style={{ borderTop: `2px solid ${INK}` }}>
                   {live ? (
                     <a
                       href={w.href}
                       className="zine-link"
                       aria-label={`${w.title} — ${w.stamp}`}
-                      style={{
-                        display: "block",
-                        textDecoration: "none",
-                        color: "inherit",
-                      }}
+                      style={{ display: "block", position: "relative", textDecoration: "none", color: "inherit" }}
                     >
-                      {body}
+                      <div
+                        className="zine-entry"
+                        style={{ padding: "2.2rem 1rem", position: "relative", zIndex: 0 }}
+                      >
+                        {entryBody(w, false)}
+                      </div>
+                      {/* inverted copy — the ink-press wipes this in on hover */}
+                      <div
+                        className="zine-press"
+                        aria-hidden="true"
+                        style={{ position: "absolute", inset: 0, background: INK, padding: "2.2rem 1rem", zIndex: 1, pointerEvents: "none" }}
+                      >
+                        {entryBody(w, true)}
+                      </div>
                     </a>
                   ) : (
-                    body
+                    <div className="zine-entry" style={{ padding: "2.2rem 1rem" }}>
+                      {entryBody(w, false)}
+                    </div>
                   )}
                 </li>
               );
@@ -396,31 +380,19 @@ export default function AtelierIndex() {
       </main>
 
       <style>{`
-        /* Full-block invert on hover/focus — a stamped press. The whole
-           entry (bg, every line, the register box border) transitions
-           together so it reads as one deliberate flip, never mid-state.
-           Pointer hover is gated to real hover devices so a touch tap
-           never leaves an entry stuck inverted; keyboard focus keeps it. */
-        .zine-entry,
-        .zine-entry .zine-stamp,
-        .zine-entry .zine-ident,
-        .zine-entry .zine-year,
-        .zine-entry .zine-reg {
-          transition: background-color 110ms ease, color 110ms ease, border-color 110ms ease;
+        /* Full ink-press on hover/focus: the inverted copy (.zine-press)
+           wipes in left→right like an ink roller, fully covering the row —
+           a committed press, never a half-state color crossfade. Pointer
+           hover is gated to real hover devices so a touch tap can't leave
+           it stuck; keyboard focus keeps it. Reduced-motion (globals.css)
+           collapses the wipe to an instant, clean flip. */
+        .zine-press {
+          clip-path: inset(0 100% 0 0);
+          transition: clip-path 340ms cubic-bezier(.72, 0, .24, 1);
         }
-
-        .zine-link:focus-visible .zine-entry { background: ${INK}; color: ${PAPER}; }
-        .zine-link:focus-visible .zine-stamp,
-        .zine-link:focus-visible .zine-ident,
-        .zine-link:focus-visible .zine-year { color: ${PAPER}; }
-        .zine-link:focus-visible .zine-reg { color: ${PAPER}; border-color: ${PAPER}; }
-
+        .zine-link:focus-visible .zine-press { clip-path: inset(0 0 0 0); }
         @media (hover: hover) and (pointer: fine) {
-          .zine-link:hover .zine-entry { background: ${INK}; color: ${PAPER}; }
-          .zine-link:hover .zine-stamp,
-          .zine-link:hover .zine-ident,
-          .zine-link:hover .zine-year { color: ${PAPER}; }
-          .zine-link:hover .zine-reg { color: ${PAPER}; border-color: ${PAPER}; }
+          .zine-link:hover .zine-press { clip-path: inset(0 0 0 0); }
         }
 
         .zine-footlink:hover { color: ${RED} !important; }
@@ -429,7 +401,7 @@ export default function AtelierIndex() {
         @media (max-width: 640px) {
           .zine-main { padding: 9vw 6vw 0 !important; }
           .zine-masthead { margin-bottom: 3.5rem !important; }
-          .zine-entry { padding-left: 0 !important; padding-right: 0 !important; }
+          .zine-entry, .zine-press { padding-left: 0 !important; padding-right: 0 !important; }
           .zine-footer {
             grid-template-columns: 1fr 1fr !important;
             gap: 1.25rem !important;
