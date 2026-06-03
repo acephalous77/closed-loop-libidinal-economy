@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+import { prefersReducedMotion } from "@/lib/motion";
 
 /**
  * ZineSpread — full samizdat-zine /chair page.
@@ -35,10 +37,8 @@ import {
   StencilNumeral,
   RubberStamp,
   HandArrow,
-  MarkerCircle,
   HalftoneOverlay,
   DefacementX,
-  RedactionBar,
   StrikeSlash,
   ApparatusRedaction,
 } from "./ZineAssets";
@@ -63,7 +63,7 @@ const CAVEAT = `var(--font-caveat), "Comic Sans MS", cursive`;
 // ─── Imperial Archive dotted-underline anchor ─────────────────────────
 function A({ to, title, children }: { to: string; title: string; children: ReactNode }) {
   return (
-    <a
+    <Link
       href={`/chair/archive/${to}`}
       title={title}
       style={{
@@ -77,7 +77,7 @@ function A({ to, title, children }: { to: string; title: string; children: React
       }}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -195,6 +195,7 @@ function CursorTrail({ target }: { target: React.MutableRefObject<{ x: number; y
     window.addEventListener("resize", resize);
     const colors = ["255,42,138", "57,255,20", "63,191,214"];
     const onMove = (e: MouseEvent) => {
+      if (prefersReducedMotion()) return;
       const now = performance.now();
       if (now - last.current.t < 22) return;
       last.current.t = now;
@@ -228,7 +229,8 @@ function CursorTrail({ target }: { target: React.MutableRefObject<{ x: number; y
       });
       raf = requestAnimationFrame(loop);
     };
-    loop();
+    // Honor reduced-motion: leave the canvas still — no drifting confetti.
+    if (!prefersReducedMotion()) loop();
     return () => {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);
@@ -699,7 +701,7 @@ export default function ZineSpread() {
             }}
           >
             * this is not a brochure.{" "}
-            <a
+            <Link
               href="/chair"
               style={{
                 color: NEON_GREEN,
@@ -709,7 +711,7 @@ export default function ZineSpread() {
               }}
             >
               theirs is here →
-            </a>
+            </Link>
           </div>
           <p
             style={{
@@ -1910,9 +1912,9 @@ export default function ZineSpread() {
             }}
           >
             Session yielded {m.PS.toFixed(2)} Ψ across {m.moves} micro-movements ·{" "}
-            <a href="/" style={{ color: PAPER_DIM, textDecoration: "none" }}>↑ autostimulus</a>
+            <Link href="/" style={{ color: PAPER_DIM, textDecoration: "none" }}>↑ autostimulus</Link>
             {" · "}
-            <a href="/chair/colophon" style={{ color: PAPER_DIM, textDecoration: "none" }}>colophon</a>
+            <Link href="/chair/colophon" style={{ color: PAPER_DIM, textDecoration: "none" }}>colophon</Link>
           </div>
         </div>
       </section>
@@ -2044,7 +2046,7 @@ function CountdownClock({ dwell }: { dwell: number }) {
       <div style={{ marginTop: 12, fontFamily: MONO, fontSize: 11, color: PAPER_DIM, letterSpacing: "0.18em", textTransform: "uppercase" }}>
         the apparatus accepts new occupants every eight minutes
       </div>
-      <a
+      <Link
         href="/chair/refusal"
         style={{
           display: "inline-block",
@@ -2062,7 +2064,7 @@ function CountdownClock({ dwell }: { dwell: number }) {
         }}
       >
         ✕ Refuse the fitting
-      </a>
+      </Link>
     </div>
   );
 }

@@ -42,3 +42,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# internal working artifacts (de-AI / voice review scratch, not site content)
+autostimulus-deai-xy-review.md

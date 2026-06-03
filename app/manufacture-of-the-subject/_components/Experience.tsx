@@ -39,7 +39,7 @@ const HUD = React.memo(function HUD() {
   return (
     <div className="hud">
       <div className="hud-title">
-        THE SUBJECT <span style={{ color: "var(--bone-faint)", margin: "0 8px" }}>//</span> LEDGER
+        THE SUBJECT <span style={{ color: "var(--bone-faint)", margin: "0 8px" }}>{"//"}</span> LEDGER
       </div>
       <div className="hud-spacer" />
       <div className="hud-cell">

@@ -202,7 +202,6 @@ export function ReclamationTrajectories() {
   // Initial draw on mount.
   useEffect(() => {
     drawFrame();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRunPause = () => {

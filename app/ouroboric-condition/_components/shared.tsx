@@ -19,6 +19,7 @@
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import type { Tone } from "./data";
+import { prefersReducedMotion } from "@/lib/motion";
 
 // Open a specimen plate. The optional event carries the click point so the
 // engine can originate the descent/surfacing transition from it.
@@ -86,6 +87,9 @@ export const ATLAS_CSS = `
 export function useTick(): number {
   const [t, setT] = useState(0);
   useEffect(() => {
+    // Honor reduced-motion: the t=0 frame is already a complete composition,
+    // so we simply never start the clock — the atlas rests, motionless.
+    if (prefersReducedMotion()) return;
     let raf = 0;
     const start = performance.now();
     const loop = (n: number) => {

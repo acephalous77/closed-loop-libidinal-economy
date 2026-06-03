@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PLATES, getPlateBySlug } from "../_data";
 import { ColoringCanvas } from "../_components/ColoringCanvas";
@@ -60,9 +61,9 @@ export default async function PlateColorPage({ params }: PageProps) {
           flexWrap: "wrap",
         }}
       >
-        <a href="/" style={crumbStyle}>← autostimulus</a>
-        <a href="/patriotic-times" style={crumbStyle}>← Patriotic Times</a>
-        <a href="/patriotic-times/plates" style={crumbStyle}>← All plates</a>
+        <Link href="/" style={crumbStyle}>← autostimulus</Link>
+        <Link href="/patriotic-times" style={crumbStyle}>← Patriotic Times</Link>
+        <Link href="/patriotic-times/plates" style={crumbStyle}>← All plates</Link>
       </nav>
 
       {/* Header */}
@@ -129,14 +130,14 @@ export default async function PlateColorPage({ params }: PageProps) {
           }}
         >
           {prev ? (
-            <a href={`/patriotic-times/plates/${prev.slug}`} style={navLinkStyle}>
+            <Link href={`/patriotic-times/plates/${prev.slug}`} style={navLinkStyle}>
               ← № {prev.no.toString().padStart(2, "0")} · {prev.title}
-            </a>
+            </Link>
           ) : <span />}
           {next ? (
-            <a href={`/patriotic-times/plates/${next.slug}`} style={navLinkStyle}>
+            <Link href={`/patriotic-times/plates/${next.slug}`} style={navLinkStyle}>
               № {next.no.toString().padStart(2, "0")} · {next.title} →
-            </a>
+            </Link>
           ) : <span />}
         </nav>
       )}

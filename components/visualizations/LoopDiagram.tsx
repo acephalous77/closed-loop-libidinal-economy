@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { M, SvgM } from "@/components/ui/Math";
+import { prefersReducedMotion } from "@/lib/motion";
 
 /**
  * The closed loop as a directed graph — equations (1)–(6) wired together
@@ -13,6 +14,9 @@ export function LoopDiagram() {
   const [tick, setTick] = useState(0);
 
   useEffect(() => {
+    // Honor reduced-motion: tick 0 lights the first edge — a valid resting
+    // frame — so we leave the pulse unstarted rather than cycling edges.
+    if (prefersReducedMotion()) return;
     const interval = setInterval(() => setTick((t) => t + 1), 700);
     return () => clearInterval(interval);
   }, []);

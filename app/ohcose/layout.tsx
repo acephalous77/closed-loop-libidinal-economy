@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 /**
  * OHCOSE project layout. Sets the institutional grayscale register
@@ -56,7 +57,7 @@ export default function OhcoseLayout({
         className="mx-auto text-center pt-md flex items-baseline justify-center gap-md"
         style={{ maxWidth: "880px" }}
       >
-        <a
+        <Link
           href="/ohcose/colophon"
           className="font-mono uppercase hover:underline"
           style={{
@@ -66,9 +67,9 @@ export default function OhcoseLayout({
           }}
         >
           colophon
-        </a>
+        </Link>
         <span style={{ color: "var(--color-ink-50)", fontSize: "0.55rem" }}>·</span>
-        <a
+        <Link
           href="/"
           className="font-mono uppercase hover:underline"
           style={{
@@ -78,7 +79,7 @@ export default function OhcoseLayout({
           }}
         >
           ↑ exit portal
-        </a>
+        </Link>
       </div>
     </div>
   );

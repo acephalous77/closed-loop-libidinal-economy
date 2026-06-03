@@ -97,7 +97,6 @@ export function Heartbeat() {
     return () => {
       if (toRef.current) clearTimeout(toRef.current);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [on]);
 
   return (

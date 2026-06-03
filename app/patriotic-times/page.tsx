@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Image from "next/image";
 
 export const metadata: Metadata = {
@@ -155,7 +156,7 @@ export default function PatrioticTimesLanding() {
           }}
         >
           <div style={{ display: "flex", alignItems: "baseline", gap: "1.25rem", flexWrap: "wrap" }}>
-            <a
+            <Link
               href="/"
               style={{
                 fontFamily: MONO,
@@ -167,7 +168,7 @@ export default function PatrioticTimesLanding() {
               }}
             >
               ← autostimulus
-            </a>
+            </Link>
             <span
               style={{
                 fontFamily: MONO,
@@ -240,7 +241,7 @@ export default function PatrioticTimesLanding() {
         }}
       >
         <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 5vw" }}>
-          <a
+          <Link
             href="/patriotic-times/plates/the-gallows"
             aria-label="Open the gallows plate to color"
             style={{ display: "block" }}
@@ -253,7 +254,7 @@ export default function PatrioticTimesLanding() {
               priority
               style={{ width: "100%", height: "auto", display: "block", background: "white" }}
             />
-          </a>
+          </Link>
           <p
             style={{
               marginTop: "1.5rem",
@@ -280,12 +281,12 @@ export default function PatrioticTimesLanding() {
               fontWeight: 700,
             }}
           >
-            <a
+            <Link
               href="/patriotic-times/plates/the-gallows"
               style={{ color: RED, textDecoration: "none" }}
             >
               → Color this plate
-            </a>
+            </Link>
           </p>
         </div>
       </section>
@@ -470,7 +471,7 @@ export default function PatrioticTimesLanding() {
                   </span>
                   <div>
                     {ev.plateSlug ? (
-                      <a
+                      <Link
                         href={`/patriotic-times/plates/${ev.plateSlug}`}
                         style={{
                           fontFamily: DISPLAY,
@@ -488,7 +489,7 @@ export default function PatrioticTimesLanding() {
                         }}
                       >
                         {ev.title}
-                      </a>
+                      </Link>
                     ) : (
                       <div
                         style={{
@@ -519,7 +520,7 @@ export default function PatrioticTimesLanding() {
                     )}
                   </div>
                   {ev.plateSlug && (
-                    <a
+                    <Link
                       href={`/patriotic-times/plates/${ev.plateSlug}`}
                       aria-label={`Color the ${ev.title} plate`}
                       style={{
@@ -536,7 +537,7 @@ export default function PatrioticTimesLanding() {
                       }}
                     >
                       color →
-                    </a>
+                    </Link>
                   )}
                 </li>
               ))}
@@ -577,7 +578,7 @@ export default function PatrioticTimesLanding() {
             flexWrap: "wrap",
           }}
         >
-          <a
+          <Link
             href="/patriotic-times/plates"
             style={{
               fontFamily: MONO,
@@ -593,8 +594,8 @@ export default function PatrioticTimesLanding() {
             }}
           >
             → The plates (63)
-          </a>
-          <a
+          </Link>
+          <Link
             href="/patriotic-times/colophon"
             style={{
               fontFamily: MONO,
@@ -609,7 +610,7 @@ export default function PatrioticTimesLanding() {
             }}
           >
             → Project colophon
-          </a>
+          </Link>
         </div>
       </section>
 

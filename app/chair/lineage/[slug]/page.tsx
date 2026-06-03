@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MASTER, FONT } from "../../_components/tokens";
 import { PlateHeader, PlateFooter, ChairGlyph } from "../../_components/PlateChrome";
@@ -165,9 +166,9 @@ export default async function LineageDetailPage({ params }: PageProps) {
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 36,
         }}>
-          <a href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
+          <Link href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</Link>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
-          <a href="/chair/lineage" style={{ color: "inherit", textDecoration: "none" }}>Lineage</a>
+          <Link href="/chair/lineage" style={{ color: "inherit", textDecoration: "none" }}>Lineage</Link>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
           <span style={{ color: T.accent }}>{l.num} · {l.title.replace(/^The /, "").toLowerCase()}</span>
         </div>
@@ -266,7 +267,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24,
         }} className="lin-nav">
           {prev ? (
-            <a href={`/chair/lineage/${prev.slug}`} style={navStyle()}>
+            <Link href={`/chair/lineage/${prev.slug}`} style={navStyle()}>
               <div style={{
                 fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase", marginBottom: 6,
@@ -275,10 +276,10 @@ export default async function LineageDetailPage({ params }: PageProps) {
                 fontFamily: FONT.serif, fontSize: 20, fontStyle: "italic",
                 fontWeight: 500, color: T.ink,
               }}>{prev.title}</div>
-            </a>
+            </Link>
           ) : <div />}
           {next ? (
-            <a href={`/chair/lineage/${next.slug}`}
+            <Link href={`/chair/lineage/${next.slug}`}
                style={{ ...navStyle(), textAlign: "right" }}>
               <div style={{
                 fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
@@ -288,7 +289,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
                 fontFamily: FONT.serif, fontSize: 20, fontStyle: "italic",
                 fontWeight: 500, color: T.ink,
               }}>{next.title}</div>
-            </a>
+            </Link>
           ) : <div />}
         </div>
 

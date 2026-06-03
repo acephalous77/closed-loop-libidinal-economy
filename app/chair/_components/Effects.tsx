@@ -16,7 +16,8 @@
  */
 
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { prefersReducedMotion } from "@/lib/motion";
 
 const ACCENT = "#ff3a25";
 const MUTED = "#6b6760";
@@ -101,6 +102,11 @@ export function TextScramble({
   const [text, setText] = useState(children);
   useEffect(() => {
     const targetText = children;
+    // Honor reduced-motion: skip the scramble, settle on the final text.
+    if (prefersReducedMotion()) {
+      setText(targetText);
+      return;
+    }
     const start = performance.now();
     let raf = 0;
     const tick = (t: number) => {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PLATES, DECADES, getPlatesByDecade } from "./_data";
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function PlatesIndex() {
     <main style={{ padding: "3.5rem 5vw 5rem", maxWidth: "1400px", margin: "0 auto" }}>
       {/* Breadcrumb */}
       <nav style={{ marginBottom: "2.5rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-        <a
+        <Link
           href="/"
           style={{
             fontFamily: MONO,
@@ -38,8 +39,8 @@ export default function PlatesIndex() {
           }}
         >
           ← autostimulus
-        </a>
-        <a
+        </Link>
+        <Link
           href="/patriotic-times"
           style={{
             fontFamily: MONO,
@@ -51,7 +52,7 @@ export default function PlatesIndex() {
           }}
         >
           ← Patriotic Times
-        </a>
+        </Link>
       </nav>
 
       {/* Masthead */}
@@ -139,7 +140,7 @@ export default function PlatesIndex() {
           Jump to:
         </span>
         {DECADES.map((dec) => (
-          <a
+          <Link
             key={dec.label}
             href={`#decade-${dec.label}`}
             style={{
@@ -153,7 +154,7 @@ export default function PlatesIndex() {
             }}
           >
             {dec.label}
-          </a>
+          </Link>
         ))}
       </nav>
 
@@ -347,7 +348,7 @@ export default function PlatesIndex() {
 
                 if (isReady) {
                   return (
-                    <a
+                    <Link
                       key={p.slug}
                       href={`/patriotic-times/plates/${p.slug}`}
                       style={{
@@ -357,7 +358,7 @@ export default function PlatesIndex() {
                       }}
                     >
                       {card}
-                    </a>
+                    </Link>
                   );
                 }
                 return <div key={p.slug}>{card}</div>;

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageFrame } from "../_components/PageFrame";
 import { SectionHead } from "../_components/SectionHead";
 
@@ -13,13 +14,13 @@ export default function OhcoseColophon() {
   return (
     <PageFrame pageNum="c" secCode="OHCOSE / LR / Colophon">
       <nav className="mb-md">
-        <a
+        <Link
           href="/ohcose"
           className="font-mono uppercase hover:underline"
           style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           ← schedule of phases
-        </a>
+        </Link>
       </nav>
 
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -86,12 +87,12 @@ export default function OhcoseColophon() {
             <p>
               The work is also continuous with the author's other projects
               at this atelier — most directly with the{" "}
-              <a
+              <Link
                 href="/closed-loop"
                 style={{ color: "var(--color-oxblood)", textDecoration: "underline" }}
               >
                 Closed-Loop Libidinal Economy
-              </a>
+              </Link>
               , which provides the formal framework (the foreclosure lemma,
               the reclamation theorem, the three modes of intervention)
               that OHCOSE dramatizes as institutional procedure.
@@ -169,8 +170,8 @@ export default function OhcoseColophon() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ schedule of phases</a>
-          <a href="/" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ autostimulus</a>
+          <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ schedule of phases</Link>
+          <Link href="/" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ autostimulus</Link>
         </nav>
       </article>
     </PageFrame>

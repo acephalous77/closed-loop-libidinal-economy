@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 /**
  * Patriotic Times project layout — samizdat zine register.
@@ -71,13 +72,13 @@ export default function PatrioticTimesLayout({
           borderTop: "1px solid #d8caa3",
         }}
       >
-        <a href="/" style={{ color: "#7a7163", textDecoration: "none" }}>
+        <Link href="/" style={{ color: "#7a7163", textDecoration: "none" }}>
           ↑ autostimulus
-        </a>
+        </Link>
         <span style={{ margin: "0 1rem", color: "#c5b694" }}>·</span>
-        <a href="/patriotic-times/colophon" style={{ color: "#7a7163", textDecoration: "none" }}>
+        <Link href="/patriotic-times/colophon" style={{ color: "#7a7163", textDecoration: "none" }}>
           colophon
-        </a>
+        </Link>
       </div>
     </div>
   );

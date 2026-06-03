@@ -4,6 +4,7 @@
    LedgerCard (a life as a ledger) · BlisterPack (affect, dosed)
    ============================================================ */
 import React from "react";
+import { prefersReducedMotion } from "@/lib/motion";
 
 /* ---------- the life ledger ---------- */
 const LEDGER_ROWS = [
@@ -37,6 +38,11 @@ export function LedgerCard() {
     const el = ref.current;
     if (!el) return;
     const total = 2380000;
+    // Honor reduced-motion: settle on the final figure, skip the count-up.
+    if (prefersReducedMotion()) {
+      setBal(total);
+      return;
+    }
     const io = new IntersectionObserver(
       (ents) => {
         if (ents[0].isIntersecting) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ARCHIVE, FONT } from "../../_components/tokens";
 import { PlateHeader, PlateFooter } from "../../_components/PlateChrome";
@@ -253,12 +254,12 @@ export default async function ArchiveEntryPage({ params }: PageProps) {
 
         {/* main */}
         <div>
-          <a href="/chair/archive" style={{
+          <Link href="/chair/archive" style={{
             fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
             color: A.inkMute, textTransform: "uppercase",
             textDecoration: "none",
             display: "inline-block", marginBottom: 28,
-          }}>← Imperial Archive · index</a>
+          }}>← Imperial Archive · index</Link>
 
           <div style={{
             fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",

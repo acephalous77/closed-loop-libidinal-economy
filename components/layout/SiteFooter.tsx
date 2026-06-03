@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 /**
@@ -30,51 +31,51 @@ export function SiteFooter() {
     <footer className="print-hide w-full mt-2xl pt-md pb-md border-t border-paper-85">
       <div className="mx-auto max-w-[var(--container-page)] px-sm flex flex-col sm:flex-row items-baseline justify-between gap-sm text-center sm:text-left">
         <p className="font-mono text-xs text-ink-50">
-          <a
+          <Link
             href="/closed-loop"
             className={linkClass(isActive("/closed-loop"))}
           >
             the closed-loop libidinal economy
-          </a>
+          </Link>
         </p>
         <nav aria-label="Site sections" className="font-mono text-xs text-ink-50">
-          <a href="/closed-loop/v2-argument" className={linkClass(isActive("/closed-loop/v2-argument"))}>
+          <Link href="/closed-loop/v2-argument" className={linkClass(isActive("/closed-loop/v2-argument"))}>
             the argument
-          </a>
+          </Link>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/the-apparatus" className={linkClass(isActive("/closed-loop/the-apparatus"))}>
+          <Link href="/closed-loop/the-apparatus" className={linkClass(isActive("/closed-loop/the-apparatus"))}>
             the apparatus
-          </a>
+          </Link>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/v2-dynamics" className={linkClass(isActive("/closed-loop/v2-dynamics"))}>
+          <Link href="/closed-loop/v2-dynamics" className={linkClass(isActive("/closed-loop/v2-dynamics"))}>
             the dynamics
-          </a>
+          </Link>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/the-instruments" className={linkClass(isActive("/closed-loop/the-instruments"))}>
+          <Link href="/closed-loop/the-instruments" className={linkClass(isActive("/closed-loop/the-instruments"))}>
             the instruments
-          </a>
+          </Link>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/glossary" className={linkClass(isActive("/closed-loop/glossary"))}>
+          <Link href="/closed-loop/glossary" className={linkClass(isActive("/closed-loop/glossary"))}>
             the glossary
-          </a>
+          </Link>
         </nav>
         <p className="font-mono text-xs text-ink-50">
-          <a href="/closed-loop/the-architecture" className={linkClass(isActive("/closed-loop/the-architecture"))}>
+          <Link href="/closed-loop/the-architecture" className={linkClass(isActive("/closed-loop/the-architecture"))}>
             the architecture
-          </a>
+          </Link>
           <span aria-hidden="true" className="mx-xs">·</span>
-          <a href="/closed-loop/the-colophon" className={linkClass(isActive("/closed-loop/the-colophon"))}>
+          <Link href="/closed-loop/the-colophon" className={linkClass(isActive("/closed-loop/the-colophon"))}>
             the colophon
-          </a>
+          </Link>
         </p>
       </div>
       <div className="mx-auto max-w-[var(--container-page)] px-sm mt-sm text-center sm:text-left">
-        <a
+        <Link
           href="/"
           className="font-mono text-xs text-ink-50 hover:text-oxblood transition-colors duration-100"
         >
           ↑ autostimulus
-        </a>
+        </Link>
       </div>
     </footer>
   );

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MASTER, FONT } from "../../_components/tokens";
 import { PlateHeader, PlateFooter, ChairGlyph } from "../../_components/PlateChrome";
@@ -119,9 +120,9 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 36,
         }}>
-          <a href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
+          <Link href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</Link>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
-          <a href="/chair/subsystems" style={{ color: "inherit", textDecoration: "none" }}>Subsystems</a>
+          <Link href="/chair/subsystems" style={{ color: "inherit", textDecoration: "none" }}>Subsystems</Link>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
           <span style={{ color: T.accent }}>{s.num} · {s.title.toLowerCase()}</span>
         </div>
@@ -199,7 +200,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24,
         }} className="sub-nav">
           {prev ? (
-            <a href={`/chair/subsystems/${prev.slug}`} style={navStyle()}>
+            <Link href={`/chair/subsystems/${prev.slug}`} style={navStyle()}>
               <div style={{
                 fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase", marginBottom: 6,
@@ -208,10 +209,10 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
                 fontFamily: FONT.serif, fontSize: 22,
                 fontStyle: "italic", fontWeight: 500, color: T.ink,
               }}>{prev.title}</div>
-            </a>
+            </Link>
           ) : <div />}
           {next ? (
-            <a href={`/chair/subsystems/${next.slug}`}
+            <Link href={`/chair/subsystems/${next.slug}`}
                style={{ ...navStyle(), textAlign: "right" }}>
               <div style={{
                 fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
@@ -221,7 +222,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
                 fontFamily: FONT.serif, fontSize: 22,
                 fontStyle: "italic", fontWeight: 500, color: T.ink,
               }}>{next.title}</div>
-            </a>
+            </Link>
           ) : <div />}
         </div>
 

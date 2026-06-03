@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { FONT } from "./_components/tokens";
 import { PlateHeader, PlateFooter } from "./_components/PlateChrome";
 import { OccupantGallery } from "./_components/OccupantGallery";
@@ -364,9 +365,9 @@ function RingDetail() {
               background: B.panel, border: `0.5px solid ${B.rule}`,
               position: "relative", aspectRatio: "4 / 3", overflow: "hidden",
             }}>
-              <img src="/chair/ils/render-side.jpg" alt="The Ring, side view"
-                   style={{ width: "100%", height: "100%", objectFit: "contain",
-                            display: "block", background: B.panel }} />
+              <Image src="/chair/ils/render-side.jpg" alt="The Ring, side view"
+                     fill sizes="(max-width: 900px) 100vw, 600px"
+                     style={{ objectFit: "contain", background: B.panel }} />
               <div style={{
                 position: "absolute", top: 14, left: 14,
                 fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
@@ -743,8 +744,9 @@ function CTAandCostco() {
         }}>● Cohort 2026.05 opens next month</div>
       </div>
       <div style={{ position: "relative", overflow: "hidden", background: "#0a0a0a" }}>
-        <img src="/chair/ils/costco.jpg" alt="Available at Costco"
-             style={{ width: "100%", height: "100%", objectFit: "contain", display: "block" }} />
+        <Image src="/chair/ils/costco.jpg" alt="Available at Costco"
+               width={2816} height={1536} sizes="100vw"
+               style={{ width: "100%", height: "auto", objectFit: "contain", display: "block" }} />
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0,
           padding: "32px 40px",

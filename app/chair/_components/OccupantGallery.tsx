@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FONT } from "./tokens";
 
 // ──────────────────────────────────────────────────────────────────
@@ -84,9 +85,9 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
             overflow: "hidden",
           }}>
             <div style={{ position: "relative", aspectRatio: "16 / 9", overflow: "hidden" }}>
-              <img src={o.src} alt={o.name}
-                   style={{ width: "100%", height: "100%", objectFit: "cover",
-                            display: "block" }} />
+              <Image src={o.src} alt={o.name}
+                     fill sizes="(max-width: 760px) 100vw, 50vw"
+                     style={{ objectFit: "cover" }} />
               <div style={{
                 position: "absolute", top: 12, left: 12,
                 fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",

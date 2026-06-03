@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Spectral, IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
 import { MASTER } from "./_components/tokens";
 import { ChairGlyph } from "./_components/PlateChrome";
@@ -202,7 +203,7 @@ function ChairFoot() {
       {/* Identity row — chair brand. The autostimulus parent link is
           held back to the lower foot text below so the chair project
           presents itself as a single coherent volume in the footer. */}
-      <a
+      <Link
         href="/chair"
         style={{
           display: "inline-flex",
@@ -221,7 +222,7 @@ function ChairFoot() {
       >
         <ChairGlyph size={18} stroke={T.accent} />
         <span>On the Chair</span>
-      </a>
+      </Link>
 
       {/* Route grid */}
       <div
@@ -254,7 +255,7 @@ function ChairFoot() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {g.items.map(([href, label]) => (
                 <li key={href} style={{ padding: "0.3rem 0" }}>
-                  <a
+                  <Link
                     href={href}
                     style={{
                       fontFamily: serif,
@@ -266,7 +267,7 @@ function ChairFoot() {
                     }}
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -297,9 +298,9 @@ function ChairFoot() {
           textTransform: "uppercase",
         }}
       >
-        <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           ↑ part of autostimulus.org
-        </a>
+        </Link>
       </div>
 
       <style>{`

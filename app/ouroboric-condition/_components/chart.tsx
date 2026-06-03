@@ -12,7 +12,7 @@
 // glow as hot cores; the substrate and the remainder stay open paper.
 
 import { useMemo } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties } from "react";
 import { L, D, AtlasDefs, useTick, ptOnCircle, type OpenFn } from "./shared";
 import { ATLAS_SITES, ATLAS_EDGES } from "./data";
 import type { AtlasSite } from "./data";

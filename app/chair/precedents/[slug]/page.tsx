@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MASTER, FONT } from "../../_components/tokens";
 import { PlateHeader, PlateFooter, SectionMark } from "../../_components/PlateChrome";
@@ -144,9 +145,9 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 30,
         }}>
-          <a href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</a>
+          <Link href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</Link>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
-          <a href="/chair/precedents" style={{ color: "inherit", textDecoration: "none" }}>Precedents</a>
+          <Link href="/chair/precedents" style={{ color: "inherit", textDecoration: "none" }}>Precedents</Link>
           <span style={{ margin: "0 12px", color: T.inkFaint }}>/</span>
           <span style={{ color: T.accent }}>{p.num} · {p.title.toLowerCase()}</span>
         </div>
@@ -249,9 +250,9 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
                 }}>
                   {body.related.map((r) => (
                     <li key={r.slug} style={{ fontStyle: "italic" }}>
-                      <a href={`/chair/precedents/${r.slug}`} style={{
+                      <Link href={`/chair/precedents/${r.slug}`} style={{
                         color: "inherit", textDecoration: "none",
-                      }}>→ {r.label}</a>
+                      }}>→ {r.label}</Link>
                     </li>
                   ))}
                 </ul>

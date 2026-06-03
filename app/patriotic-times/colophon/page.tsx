@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Colophon",
@@ -21,7 +22,7 @@ export default function PatrioticColophon() {
   return (
     <main style={{ padding: "5rem 5vw 4rem", maxWidth: "44rem", margin: "0 auto" }}>
       <nav style={{ marginBottom: "3rem", display: "flex", gap: "1.5rem", flexWrap: "wrap" }}>
-        <a
+        <Link
           href="/"
           style={{
             fontFamily: MONO,
@@ -33,8 +34,8 @@ export default function PatrioticColophon() {
           }}
         >
           ← autostimulus
-        </a>
-        <a
+        </Link>
+        <Link
           href="/patriotic-times"
           style={{
             fontFamily: MONO,
@@ -46,7 +47,7 @@ export default function PatrioticColophon() {
           }}
         >
           ← Patriotic Times
-        </a>
+        </Link>
       </nav>
 
       <div
@@ -98,9 +99,9 @@ export default function PatrioticColophon() {
         <Section n="2" title="Color it Here. Print it There.">
           <p>
             Every plate is interactive. Open any one on the{" "}
-            <a href="/patriotic-times/plates" style={{ color: INK, textDecoration: "underline" }}>
+            <Link href="/patriotic-times/plates" style={{ color: INK, textDecoration: "underline" }}>
               plates index
-            </a>{" "}
+            </Link>{" "}
             and color it in the browser — paint-bucket fills the closed
             regions of the line art in your chosen color. When you are
             done, the <em>Print your version</em> button exports your
@@ -144,14 +145,14 @@ export default function PatrioticColophon() {
         <Section n="5" title="Continuous With">
           <p>
             The project sits beside{" "}
-            <a href="/closed-loop" style={{ color: INK, textDecoration: "underline" }}>
+            <Link href="/closed-loop" style={{ color: INK, textDecoration: "underline" }}>
               The Closed-Loop Libidinal Economy
-            </a>{" "}
+            </Link>{" "}
             (the framework that names the conditions under which the
             book&apos;s events were possible) and{" "}
-            <a href="/ohcose" style={{ color: INK, textDecoration: "underline" }}>
+            <Link href="/ohcose" style={{ color: INK, textDecoration: "underline" }}>
               OHCOSE
-            </a>{" "}
+            </Link>{" "}
             (the imagined bureaucratic register that administers the
             lifecycle the book&apos;s subjects inhabit).
           </p>

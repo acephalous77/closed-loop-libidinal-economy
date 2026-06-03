@@ -25,10 +25,8 @@ import {
   Scanlines,
   Artifact,
   HeartbeatPulse,
-  RGBShift,
-  TextScramble,
-  EvidenceCaption,
 } from "./Effects";
+import { prefersReducedMotion } from "@/lib/motion";
 
 // ─── Cinematic dark palette ───────────────────────────────────────────
 const BG = "#0a0908";
@@ -252,6 +250,7 @@ function CursorTrail({
     window.addEventListener("resize", resize);
 
     const onMove = (e: MouseEvent) => {
+      if (prefersReducedMotion()) return;
       const now = performance.now();
       const dt = now - last.current.t;
       if (dt < 18) return;
@@ -296,7 +295,8 @@ function CursorTrail({
       });
       raf = requestAnimationFrame(loop);
     };
-    loop();
+    // Honor reduced-motion: leave the canvas still — no drifting embers.
+    if (!prefersReducedMotion()) loop();
     return () => {
       window.removeEventListener("resize", resize);
       window.removeEventListener("mousemove", onMove);

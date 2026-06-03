@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 /**
  * ZineAssets — original drawn SVG components for the punk-zine register.
  *
@@ -616,12 +618,12 @@ export function PolaroidCard({
         }}
       >
         {imageSrc && imageAlt && (
-          <img
+          <Image
             src={imageSrc}
             alt={imageAlt}
+            fill
+            sizes="(max-width: 700px) 90vw, 360px"
             style={{
-              width: "100%",
-              height: "100%",
               objectFit: "cover",
               filter: "saturate(0.85) contrast(1.05)",
             }}

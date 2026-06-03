@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { MASTER, FONT } from "./tokens";
-import { PlateHeader, PlateFooter, ChairGlyph } from "./PlateChrome";
+import { PlateHeader, PlateFooter } from "./PlateChrome";
 
 const T = MASTER;
 

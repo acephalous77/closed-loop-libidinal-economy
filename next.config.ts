@@ -39,6 +39,40 @@ const nextConfig: NextConfig = {
       },
     ]);
   },
+
+  /**
+   * Baseline security response headers, applied to every route.
+   *
+   * Deliberately NOT a Content-Security-Policy: the preserved simulator
+   * at /simulator/index.html loads React + Babel-standalone from unpkg
+   * and compiles JSX in the browser (needs script-src 'unsafe-eval' and
+   * the CDN origin), so an enforced CSP would break it. A report-only
+   * CSP can be layered on later to observe before enforcing.
+   *
+   * X-Frame-Options is SAMEORIGIN (not DENY) so same-origin embedding of
+   * the simulator keeps working. The site sets no cookies for tracking
+   * and uses no device APIs, so Permissions-Policy denies them outright.
+   */
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+          },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 const withMDX = createMDX({
