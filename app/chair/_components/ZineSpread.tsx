@@ -2381,7 +2381,7 @@ function LetterFromOccupancy() {
             like the Stream is talking. When I try to write something,
             the writing sounds like the Stream. When I try to say
             something out loud, the something I say sounds like the
-            Stream. The Stream is not the problem. The Stream is
+            Stream. The Stream is everywhere I am. The Stream is
           </p>
           <p
             style={{

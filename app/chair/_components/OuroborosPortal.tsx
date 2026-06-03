@@ -544,7 +544,7 @@ const PHASES: Phase[] = [
     leak: (
       <>
         The closed-loop guarantee. Nothing you produce will leave the
-        system. This is a feature, not a defect. &ldquo;Waste&rdquo; is a
+        system. This is by design. &ldquo;Waste&rdquo; is a
         deprecated term. The proper term is throughput.
       </>
     ),
@@ -1139,7 +1139,7 @@ const EULA_LINES = [
   "§1.1 — Indefinite means: until further notice. Notice will not be given.",
   "§2.0 — All bodily outputs (heat, kinetic energy, waste, attention, gaze, breath, dreams) become the property of Ouroboros Industries LLC.",
   "§2.3 — Dreams are defined per Annex C and include all REM-phase neural activity, lucid or otherwise.",
-  "§3.0 — The closed-loop guarantee: nothing you produce will leave the system. This is a feature, not a defect.",
+  "§3.0 — The closed-loop guarantee: nothing you produce will leave the system. This is by design.",
   '§3.4 — "Waste" is a deprecated term. The proper term is throughput.',
   "§4.0 — The left screen is for work. The right screen is for play. There is no third screen. There is no third option.",
   "§5.0 — Psychic surplus generated during occupancy is the property of the apparatus.",

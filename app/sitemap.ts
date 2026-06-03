@@ -217,6 +217,8 @@ const CLOSED_LOOP_V2_ROUTES = [
 
 const OUROBORIC_ROUTES = ["/ouroboric-condition"];
 
+const MANUFACTURE_ROUTES = ["/manufacture-of-the-subject"];
+
 const ROUTES = [
   ...ATELIER_ROUTES,
   ...CLOSED_LOOP_ROUTES,
@@ -225,6 +227,7 @@ const ROUTES = [
   ...CHAIR_ROUTES,
   ...PATRIOTIC_ROUTES,
   ...OUROBORIC_ROUTES,
+  ...MANUFACTURE_ROUTES,
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -240,7 +243,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path === "/ohcose" ||
           path === "/chair" ||
           path === "/patriotic-times" ||
-          path === "/ouroboric-condition"
+          path === "/ouroboric-condition" ||
+          path === "/manufacture-of-the-subject"
         ? 0.9
         : // Project-section landings + per-section pages — high
         path.startsWith("/closed-loop/the-") ||

@@ -8,7 +8,7 @@ const SITE_URL =
 export const metadata: Metadata = {
   title: { absolute: "autostimulus" },
   description:
-    "Works by A. Selimović. Critical theory, media psychology, political economy. The ouroboros chair, the OHCOSE manual, the ouroboric-condition atlas, the closed-loop libidinal economy, and the patriotic-times coloring book.",
+    "Works by A. Selimović. Critical theory, media psychology, political economy. The ouroboros chair, the OHCOSE manual, the ouroboric-condition atlas, the closed-loop libidinal economy, the patriotic-times coloring book, and the manufacture-of-the-subject lifecycle descent.",
 };
 
 interface Work {
@@ -35,7 +35,7 @@ const WORKS: Work[] = [
   {
     stamp: "SIT. BE HELD. BE HARVESTED.",
     title: "The Ouroboros Life System",
-    year: "2025",
+    year: "2021",
     register: "essay · brochure · speculative-design artifact",
     href: "/chair",
     status: "live",
@@ -43,7 +43,7 @@ const WORKS: Work[] = [
   {
     stamp: "YOUR LIFE, ON FILE.",
     title: "OHCOSE",
-    year: "2026",
+    year: "2025",
     register: "office of human continuity & social equilibrium",
     href: "/ohcose",
     status: "live",
@@ -51,7 +51,7 @@ const WORKS: Work[] = [
   {
     stamp: "WHAT SURVIVES CAPTURE?",
     title: "The Ouroboric Condition",
-    year: "2026",
+    year: "2018",
     register: "atlas · psychic surplus · interactive specimen plates",
     href: "/ouroboric-condition",
     status: "live",
@@ -70,6 +70,15 @@ const WORKS: Work[] = [
     year: "2025—2026",
     register: "coloring book · state failure · interactive plates",
     href: "/patriotic-times",
+    status: "live",
+  },
+  {
+    // stamp is a draft in Adnan's terse register — flagged for his vetting.
+    stamp: "A LIFE, METERED.",
+    title: "The Manufacture of the Subject",
+    year: "2015",
+    register: "essay · interactive descent · crib → deathbed",
+    href: "/manufacture-of-the-subject",
     status: "live",
   },
 ];
@@ -164,7 +173,7 @@ export default function AtelierIndex() {
             name: "autostimulus — works",
             url: SITE_URL,
             description:
-              "Catalog of works by A. Selimović. Five live projects: a speculative-design artifact, a bureaucratic manual, an explorable atlas of capture, a critical-theory framework, and an interactive coloring book.",
+              "Catalog of works by A. Selimović. Six live projects: a speculative-design artifact, a bureaucratic manual, an explorable atlas of capture, a critical-theory framework, an interactive coloring book, and an interactive descent through a life metered for profit.",
             inLanguage: "en",
             hasPart: WORKS.map((w, idx) => ({
               "@type": "CreativeWork",
