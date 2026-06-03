@@ -58,7 +58,8 @@ export default function Prop6Page() {
           <M>{String.raw`|\omega_b - \omega_m|`}</M>, phase-locking
           occurs. The body&apos;s rhythm becomes the platform&apos;s.
           Captured resonance: somatic rhythms are exposed to media
-          coupling regardless of being &ldquo;biological.&rdquo; Their
+          coupling like any other oscillator; their biological
+          character grants no exemption. Their
           only protection is a structural relation, and the
           platform&apos;s parameters routinely cross the threshold.
         </Caption>
@@ -97,8 +98,9 @@ export default function Prop6Page() {
             <em>What the proposition authorizes the prose to claim.</em>{" "}
             <em>Captured resonance</em> is the formal name. Somatic
             rhythms — circadian, ultradian, cardiovascular,
-            attentional — are exposed to media coupling regardless of
-            being biological. Their only protection is structural: the
+            attentional — are exposed to media coupling like any other
+            oscillator; their biological character grants no exemption.
+            Their only protection is structural: the
             relation between{" "}
             <M>{String.raw`K_{bm}`}</M> and{" "}
             <M>{String.raw`|\omega_b - \omega_m|`}</M>. The platform
@@ -263,8 +265,9 @@ export default function Prop6Page() {
             locking occurs. The platform sets the coupling strength
             by choosing delivery timing; the threshold is, by the
             policy&apos;s convergence, routinely crossed. Somatic
-            rhythms are exposed to media coupling regardless of being
-            &ldquo;biological.&rdquo; Their only protection is a
+            rhythms are exposed to media coupling like any other
+            oscillator; their biological character grants no exemption.
+            Their only protection is a
             structural relation between <M>{String.raw`K_{bm}`}</M> and{" "}
             <M>{String.raw`|\omega_b - \omega_m|`}</M>. The
             platform&apos;s parameters move users across the threshold.

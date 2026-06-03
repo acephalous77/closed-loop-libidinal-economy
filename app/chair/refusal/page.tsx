@@ -97,12 +97,12 @@ export default function RefusalPage() {
         </div>
 
         <RP>
-          The apparatus&apos;s grip on us is secured by the cumulative
-          effect of small consents. They are
-          the apparatus&apos;s primary legitimation mechanism. Refusing
-          them leaves the apparatus standing but forecloses its legal
-          alibis. The political horizon is modest. The practice is,
-          even so, rarely undertaken.
+          The first move is the smallest and the most neglected. The
+          apparatus&apos;s grip is secured by the cumulative effect of
+          tiny consents, each one trivial, the aggregate decisive.
+          Refusing them leaves the apparatus standing — but it strips
+          the legal alibi the aggregate was building. The horizon is
+          modest, the practice rare, and the two facts are related.
         </RP>
         <RP>
           The second move is harder. The apparatus&apos;s deepest grip
@@ -121,9 +121,9 @@ export default function RefusalPage() {
           fontSize: 26, lineHeight: 1.32, color: T.ink,
           letterSpacing: "-0.008em", textAlign: "center",
         }}>
-          The apparatus has a long history of pathologising this kind
-          of practice. The rebranding is the apparatus&apos;s tribute
-          to the practice&apos;s effectiveness.
+          Slowness, silence, inattention — the apparatus has a long
+          history of pathologising all three, then selling them back as
+          wellness. The rebranding is its tribute to how well they work.
         </blockquote>
 
         <RP>
@@ -134,7 +134,7 @@ export default function RefusalPage() {
           friction in which non-apparatus-mediated life consists.
         </RP>
         <RP>
-          None of the four is adequate on its own. The interior they
+          No single one of these is adequate on its own. The interior they
           collectively defend is small. But the smallness is the point.
           What the moves preserve is the capacity to recognise the
           apparatus as an apparatus, and to act on the recognition.

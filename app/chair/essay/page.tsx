@@ -104,10 +104,11 @@ export default function OnTheChair() {
 
           <SectionMark n="III" title="Psychic Surplus" />
           <P>
-            What is the apparatus extracting? Something just past labor,
-            at labor&apos;s edge. The Marxian construct of <em>surplus
-            labor</em> does not quite reach what the contemporary
-            apparatus takes. We need a parallel construct. I have called it <em>psychic surplus</em>:
+            What is the apparatus extracting? Something that sits just
+            past labor, at its edge — close enough that Marx&apos;s{" "}
+            <em>surplus labor</em> almost reaches it, and falls short.
+            The construct I have used for what the contemporary
+            apparatus actually takes is <em>psychic surplus</em>:
             the portion of our attention, affect, fantasy, and motivation
             that exceeds what is strictly required for biological survival
             and that can be captured and re-routed by the apparatus
@@ -254,10 +255,10 @@ export default function OnTheChair() {
             its legal alibis.
           </P>
           <P>
-            <strong>Two.</strong> Interrupt the cadence. To withhold
+            <strong>Two.</strong> Interrupt the cadence. Withhold
             attention at the moment the apparatus has scheduled it to
-            fire — to be slow when speed is demanded, silent when noise
-            is rewarded, inattentive when engagement is metered.
+            fire: be slow when speed is demanded, silent when noise is
+            rewarded, inattentive when engagement is metered.
           </P>
           <P>
             <strong>Three.</strong> Accept the friction. The friction the

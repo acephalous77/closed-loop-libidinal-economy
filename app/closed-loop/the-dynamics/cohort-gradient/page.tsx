@@ -64,14 +64,14 @@ export default function CohortGradientPage() {
               exact predicted value at that age. The shaded paper-85 band is
               the framework's hedge on magnitude. The band is no classical
               confidence interval; it marks that the formal mechanism is
-              asserted, and equations (1)–(5) do not by themselves derive it —{" "}
+              asserted, and{" "}
               <a
                 href="/closed-loop/the-mathematics#1-the-closed-loop-dynamics"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 equations (1)–(5)
               </a>{" "}
-              do not yet derive it (see{" "}
+              do not by themselves derive it (see{" "}
               <a
                 href="/closed-loop/the-mathematics#8-open-formal-questions"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"

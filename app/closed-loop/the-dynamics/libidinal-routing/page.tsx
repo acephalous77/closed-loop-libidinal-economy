@@ -77,11 +77,10 @@ export default function LibidinalRoutingPage() {
               and the dividual condition turns oxblood in the readout.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              This is the framework's structural account of dividuality. Not
-              that the individual has been divided — that the four channels of
-              address have collapsed into a single jointly-observable object.
-              The four registers haven't been compressed; their independence
-              has been engineered away.
+              This is the framework's structural account of dividuality: the
+              four channels of address have collapsed into a single
+              jointly-observable object. The four registers haven't been
+              compressed; their independence has been engineered away.
             </p>
           </section>
           <RelatedPlates

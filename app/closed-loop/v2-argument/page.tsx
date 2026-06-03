@@ -171,9 +171,9 @@ export default function CuratedArgumentPage() {
         <p className="text-base text-ink-90 mb-sm">
           Under closed-loop convergence, the user&apos;s behavioral
           distribution drifts toward the platform-induced target.
-          Not because the platform forces choices. Because the
-          user&apos;s self-evaluative apparatus increasingly takes
-          the platform&apos;s reward signal as its standard. The
+          The drift has nothing to do with forced choices; it happens
+          because the user&apos;s self-evaluative apparatus increasingly
+          takes the platform&apos;s reward signal as its standard. The
           framework names this the metric superego (
           <Link
             href="/closed-loop/the-apparatus/section-3/prop-5-prime"
@@ -271,8 +271,9 @@ export default function CuratedArgumentPage() {
         <h2 className="font-serif text-lg text-ink mb-md">5. The body&apos;s clocks captured</h2>
         <p className="text-base text-ink-90 mb-sm">
           Somatic rhythms — circadian, ultradian, cardiovascular,
-          attentional — are exposed to media coupling regardless of
-          being biological. Their only protection is structural: the
+          attentional — are exposed to media coupling like any other
+          oscillator; being biological grants them no exemption. Their
+          only protection is structural: the
           relation between the platform&apos;s coupling strength{" "}
           <M>{String.raw`K_{bm}`}</M> and the frequency difference{" "}
           <M>{String.raw`|\omega_b - \omega_m|`}</M> between the

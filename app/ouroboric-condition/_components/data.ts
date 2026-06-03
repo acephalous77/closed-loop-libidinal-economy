@@ -147,7 +147,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     sub: 'automation without elsewhere', movement: 3, axis: 'time', diagram: 'crisis',
     gloss: 'automation frees the time labor once absorbed — and the surplus has no credible elsewhere to go',
     prose: [
-      "After Tesla's We, Robot event, the Optimus robots greeting guests turned out to be remotely operated by humans. The spectacle sold autonomy; the labor was hidden. Automation is arriving in Stiegler's form — proletarianizing workers without dramatically replacing them, decomposing skilled labor into microtasks. The futurists' form, the dramatic replacement, is not what is happening.",
+      "After Tesla's We, Robot event, the Optimus robots greeting guests turned out to be remotely operated by humans. The spectacle sold autonomy; the labor was hidden. Automation is arriving in Stiegler's form — proletarianizing workers without dramatically replacing them, decomposing skilled labor into microtasks. The futurists' dramatic replacement stays offstage.",
       "The surplus crisis is what happens to psychic surplus when the labor that once absorbed it is automated and the surplus has no credible elsewhere to go — visible already in the epidemiology of anxiety, the politics of resentment, the platform's capacity to absorb directionless desire as engagement.",
     ],
     quote: 'Whether anything exists between the automated labor and the captured surplus.', cite: 'Ch. 8',
