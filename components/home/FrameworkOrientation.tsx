@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SvgM } from "@/components/ui/Math";
 
 /**
@@ -216,12 +217,12 @@ function DocumentMap() {
       </h2>
       <p className="mt-sm font-serif italic text-sm text-ink-50 leading-snug text-center max-w-[36rem] mx-auto">
         First-time reader: start with{" "}
-        <a
+        <Link
           href="/closed-loop/v2-argument"
           className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
         >
           the argument
-        </a>{" "}
+        </Link>{" "}
         — the framework laid out in prose. The apparatus is for readers who
         want the proofs; the dynamics for those who want the mechanisms
         running.
@@ -232,12 +233,12 @@ function DocumentMap() {
             <span className="font-mono text-xs text-ink-50">
               0{i + 1}.
             </span>
-            <a
+            <Link
               href={p.href}
               className="block mt-xs font-mono text-md text-ink-90 hover:text-oxblood transition-colors duration-100"
             >
               {p.label}
-            </a>
+            </Link>
             <p className="mt-xs font-serif italic text-sm text-ink-70 leading-snug">
               {p.sub}
             </p>

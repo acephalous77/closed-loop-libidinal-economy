@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { MASTER, FONT } from "../_components/tokens";
 import { PlateHeader, PlateFooter, ChairGlyph } from "../_components/PlateChrome";
@@ -46,11 +47,11 @@ export default function SubsystemsIndex() {
       <PlateHeader plate="V.0" route="/chair/subsystems" code="DOSS · OLS · INDEX" />
 
       <div className="chair-pad" style={{ padding: "60px 80px 80px", maxWidth: 1200, margin: "0 auto" }}>
-        <a href="/chair/essay" style={{
+        <Link href="/chair/essay" style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 36,
-        }}>← On the Chair · § V</a>
+        }}>← On the Chair · § V</Link>
 
         <div style={{
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
@@ -85,7 +86,7 @@ export default function SubsystemsIndex() {
             <li key={row.slug} style={{
               borderBottom: `0.75px solid ${T.rule}`,
             }}>
-              <a href={`/chair/subsystems/${row.slug}`} style={{
+              <Link href={`/chair/subsystems/${row.slug}`} style={{
                 display: "grid",
                 gridTemplateColumns: "60px 70px 1fr 280px 60px",
                 gap: 24, alignItems: "center",
@@ -115,7 +116,7 @@ export default function SubsystemsIndex() {
                   fontFamily: FONT.mono, fontSize: 14, color: T.accent,
                   textAlign: "right",
                 }}>→</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ol>

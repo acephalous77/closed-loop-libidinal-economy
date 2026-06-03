@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -35,39 +36,39 @@ export default function InterventionPage() {
           </header>
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
-            <a
+            <Link
               href="/closed-loop/the-mathematics#5-three-modes-of-intervention"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               §5
-            </a>{" "}
+            </Link>{" "}
             of the formal exposition states three formally distinct modes of
             intervention on the closed loop. They are three different
             operations on three different objects in the apparatus. They share
             no common mechanism that would make them flavors of one
             intervention. The framework's central
             political claim is that only Mode A breaks{" "}
-            <a
+            <Link
               href="/closed-loop/the-dynamics/causal-chain"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               the proof chain
-            </a>{" "}
+            </Link>{" "}
             from Lemma 1 to Theorem 1, while Modes B and C produce real
             effects on parallel structures —{" "}
-            <a
+            <Link
               href="/closed-loop/the-dynamics/metric-superego"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               <M>{String.raw`D_{\mathrm{KL}}`}</M>
-            </a>{" "}
+            </Link>{" "}
             and{" "}
-            <a
+            <Link
               href="/closed-loop/the-dynamics/surplus"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               <M>{String.raw`\Sigma(T)`}</M>
-            </a>{" "}
+            </Link>{" "}
             respectively — which the proof of Theorem 1 does not depend on.
             Substituting one mode for another is substituting an intervention
             on one structure for an intervention on a different structure.

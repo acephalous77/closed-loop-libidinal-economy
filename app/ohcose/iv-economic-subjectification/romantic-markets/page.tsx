@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function RomanticMarkets() {
   return (
     <PageFrame pageNum="4.3" secCode="OHCOSE / LR / SP-4.3">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/iv-economic-subjectification" className="hover:underline">← phase IV</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/iv-economic-subjectification" className="hover:underline">← phase IV</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 4.3" title="Romantic Markets" qualifier="Phase IV · Economic Subjectification" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -74,8 +75,8 @@ export default function RomanticMarkets() {
           </div>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/iv-economic-subjectification/algorithmic-mentorship" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.2 algorithmic mentorship</a>
-          <a href="/ohcose/iv-economic-subjectification/curating-life" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.4 curating life →</a>
+          <Link href="/ohcose/iv-economic-subjectification/algorithmic-mentorship" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.2 algorithmic mentorship</Link>
+          <Link href="/ohcose/iv-economic-subjectification/curating-life" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.4 curating life →</Link>
         </nav>
       </article>
     </PageFrame>

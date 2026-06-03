@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function ConsolidationOverview() {
   return (
     <PageFrame pageNum="5.1" secCode="OHCOSE / LR / SP-5.1">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 5.1" title="Consolidation Overview" qualifier="Phase V · Peak Productivity" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -54,8 +55,8 @@ export default function ConsolidationOverview() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 5.1.A — Phase-V cohort surplus yield by channel (2049 cohort median)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/v-peak-productivity" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase V</a>
-          <a href="/ohcose/v-peak-productivity/economic-zenith" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.2 economic zenith →</a>
+          <Link href="/ohcose/v-peak-productivity" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase V</Link>
+          <Link href="/ohcose/v-peak-productivity/economic-zenith" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.2 economic zenith →</Link>
         </nav>
       </article>
     </PageFrame>

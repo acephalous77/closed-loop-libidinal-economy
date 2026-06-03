@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function MemorialCapitalism() {
   return (
     <PageFrame pageNum="7.3" secCode="OHCOSE / LR / SP-7.3">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/vii-exit" className="hover:underline">← phase VII</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/vii-exit" className="hover:underline">← phase VII</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 7.3" title="Memorial Capitalism" qualifier="Phase VII · Exit" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -74,8 +75,8 @@ export default function MemorialCapitalism() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 7.3.A — Phase-VII memorial catalog (extract)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/vii-exit/death-as-logistics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.2 death as logistics</a>
-          <a href="/ohcose/vii-exit/eldercare-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.4 eldercare markets →</a>
+          <Link href="/ohcose/vii-exit/death-as-logistics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.2 death as logistics</Link>
+          <Link href="/ohcose/vii-exit/eldercare-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.4 eldercare markets →</Link>
         </nav>
       </article>
     </PageFrame>

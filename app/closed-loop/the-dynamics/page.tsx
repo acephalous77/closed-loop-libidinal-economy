@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { M } from "@/components/ui/Math";
@@ -200,7 +201,7 @@ export default function TheDynamicsPage() {
           <ol className="flex flex-col gap-lg">
             {PLATES.map((plate) => (
               <li key={plate.slug}>
-                <a
+                <Link
                   href={`/closed-loop/the-dynamics/${plate.slug}`}
                   className="group block"
                 >
@@ -215,7 +216,7 @@ export default function TheDynamicsPage() {
                   <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
                     {plate.description}
                   </p>
-                </a>
+                </Link>
               </li>
             ))}
           </ol>
@@ -231,7 +232,7 @@ export default function TheDynamicsPage() {
             <ol className="flex flex-col gap-lg">
               {MECHANISMS.map((m) => (
                 <li key={m.slug}>
-                  <a href={`/closed-loop/the-dynamics/${m.slug}`} className="group block">
+                  <Link href={`/closed-loop/the-dynamics/${m.slug}`} className="group block">
                     <div className="flex items-baseline justify-between gap-sm">
                       <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
                         {m.title}
@@ -243,7 +244,7 @@ export default function TheDynamicsPage() {
                     <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
                       {m.description}
                     </p>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ol>
@@ -257,7 +258,7 @@ export default function TheDynamicsPage() {
             <ol className="flex flex-col gap-lg">
               {INSTRUMENTS.map((inst) => (
                 <li key={inst.href}>
-                  <a
+                  <Link
                     href={inst.href}
                     target={inst.external ? "_self" : undefined}
                     className="group block"
@@ -273,7 +274,7 @@ export default function TheDynamicsPage() {
                     <p className="font-serif text-base text-ink-70 mt-xs max-w-[34rem]">
                       {inst.description}
                     </p>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ol>

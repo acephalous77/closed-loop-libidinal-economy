@@ -1,3 +1,4 @@
+import Link from "next/link";
 /**
  * "Related reading in the argument" — a small footer surfaced on plate
  * pages that have a substantive prose counterpart in one of the four
@@ -37,12 +38,12 @@ export function RelatedReading({ entries }: RelatedReadingProps) {
       <ul className="flex flex-col gap-sm max-w-[var(--measure)]">
         {entries.map((e) => (
           <li key={e.href}>
-            <a
+            <Link
               href={e.href}
               className="font-mono text-sm text-ink-90 hover:text-oxblood transition-colors duration-100"
             >
               ↗ {e.title}
-            </a>
+            </Link>
             <span className="font-serif italic text-sm text-ink-70 ml-xs">
               · {e.note}
             </span>

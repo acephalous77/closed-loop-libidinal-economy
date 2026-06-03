@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 /* ============================================================
    NARRATIVE SECTIONS — the lifecycle, crib to grave
    ============================================================ */
@@ -221,11 +222,11 @@ export function Masthead() {
               ["06", "Exit", "the map is for", "conclusion"],
             ] as [string, string, string, string][]
           ).map(([n, op, age, id]) => (
-            <a key={id} href={"#" + id}>
+            <Link key={id} href={"#" + id}>
               <span className="mi-n">{n}</span>
               <span className="mi-op">{op}</span>
               <span className="mi-age">{age}</span>
-            </a>
+            </Link>
           ))}
         </div>
         <div className="rule thin mt24" />

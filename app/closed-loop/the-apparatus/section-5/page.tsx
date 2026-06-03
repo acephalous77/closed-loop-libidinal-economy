@@ -59,11 +59,11 @@ export default function Section5Page() {
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">On this page</p>
         <ol className="space-y-xs text-ink-90">
-          <li><a href="#taxonomy" className="hover:text-oxblood">§5.0 The 2×2 taxonomy</a></li>
-          <li><a href="#mode-a" className="hover:text-oxblood">§5.1 Proposition 1&apos; — Mode A (reward intervention)</a></li>
-          <li><a href="#scaffold" className="hover:text-oxblood">§5.1.1 Mode A scaffold — five features</a></li>
-          <li><a href="#mode-b" className="hover:text-oxblood">§5.2 Proposition 2&apos; — Mode B (response intervention)</a></li>
-          <li><a href="#mode-c" className="hover:text-oxblood">§5.3 Proposition 3&apos; — Mode C (observation intervention)</a></li>
+          <li><Link href="#taxonomy" className="hover:text-oxblood">§5.0 The 2×2 taxonomy</Link></li>
+          <li><Link href="#mode-a" className="hover:text-oxblood">§5.1 Proposition 1&apos; — Mode A (reward intervention)</Link></li>
+          <li><Link href="#scaffold" className="hover:text-oxblood">§5.1.1 Mode A scaffold — five features</Link></li>
+          <li><Link href="#mode-b" className="hover:text-oxblood">§5.2 Proposition 2&apos; — Mode B (response intervention)</Link></li>
+          <li><Link href="#mode-c" className="hover:text-oxblood">§5.3 Proposition 3&apos; — Mode C (observation intervention)</Link></li>
         </ol>
       </nav>
 

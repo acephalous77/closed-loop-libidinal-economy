@@ -184,9 +184,9 @@ export default function Section12Page() {
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">On this page</p>
         <ol className="space-y-xs text-ink-90">
-          <li><a href="#hooks" className="hover:text-oxblood">§12.1 Per-result calibration hooks</a></li>
-          <li><a href="#priorities" className="hover:text-oxblood">§12.2 Three priority empirical studies</a></li>
-          <li><a href="#reflexive" className="hover:text-oxblood">§12.3 The reflexive measurement problem</a></li>
+          <li><Link href="#hooks" className="hover:text-oxblood">§12.1 Per-result calibration hooks</Link></li>
+          <li><Link href="#priorities" className="hover:text-oxblood">§12.2 Three priority empirical studies</Link></li>
+          <li><Link href="#reflexive" className="hover:text-oxblood">§12.3 The reflexive measurement problem</Link></li>
         </ol>
       </nav>
 

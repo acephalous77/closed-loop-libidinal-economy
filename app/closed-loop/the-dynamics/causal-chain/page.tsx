@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -36,12 +37,12 @@ export default function CausalChainPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             The structural argument of{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#4-the-foreclosure-lemma-and-the-reclamation-theorem"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               §4
-            </a>{" "}
+            </Link>{" "}
             as a directed graph. The six assumptions{" "}
             <span className="font-mono">(A1)–(A6)</span> feed three intermediate
             results: the policy reaches{" "}
@@ -56,12 +57,12 @@ export default function CausalChainPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             The framework's structural claim about{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#5-three-modes-of-intervention"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               the three modes of intervention
-            </a>{" "}
+            </Link>{" "}
             is visible directly on this chain. Mode A intercepts at the{" "}
             <M>{String.raw`\theta^*`}</M> node — by adding{" "}
             <M>{String.raw`\beta \cdot b(\tau^{(k)})`}</M> to

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -37,12 +38,12 @@ export default function ReclamationTrajectoriesPage() {
           </header>
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
-            <a
+            <Link
               href="/closed-loop/the-mathematics#4-the-foreclosure-lemma-and-the-reclamation-theorem"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               Theorem 1 (the reclamation theorem)
-            </a>{" "}
+            </Link>{" "}
             says that under (1)–(5) and (A1)–(A5) the conditional autocovariance{" "}
             <M>{String.raw`I(\tau) := \mathrm{Cov}(u_t,\, u_{t+\tau} \mid E_\tau)`}</M> is
             undefined-on-trajectory in the limit{" "}
@@ -70,12 +71,12 @@ export default function ReclamationTrajectoriesPage() {
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               Switch the policy to{" "}
               <M>{String.raw`\text{with-bonus } (\beta = 10)`}</M> —{" "}
-              <a
+              <Link
                 href="/closed-loop/the-mathematics#5-three-modes-of-intervention"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 Mode A (Proposition 1)
-              </a>
+              </Link>
               , architectural — and re-run. Now oxblood trajectories emerge. The
               regularized objective{" "}
               <M>{String.raw`\hat{R}'(\theta; \beta) = \mathbb{E}[\hat{R}] + \beta \cdot \mathbb{E}[\sum b(\tau^{(k)})]`}</M>{" "}

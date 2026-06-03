@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
@@ -23,13 +24,13 @@ export default function PhaseIOntogenesis() {
     <PageFrame pageNum="I" secCode="OHCOSE / LR / Phase I">
       {/* Breadcrumb back to portal */}
       <nav className="mb-md">
-        <a
+        <Link
           href="/ohcose"
           className="font-mono uppercase hover:underline"
           style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           ← schedule of phases
-        </a>
+        </Link>
       </nav>
 
       {/* Phase banner */}
@@ -121,12 +122,12 @@ export default function PhaseIOntogenesis() {
                 style={{ borderBottom: "1px solid var(--color-paper-85)" }}
               >
                 {isLive ? (
-                  <a
+                  <Link
                     href={`/ohcose/i-ontogenesis/${s.slug}`}
                     className="contents group"
                   >
                     {Row}
-                  </a>
+                  </Link>
                 ) : (
                   <div className="contents" aria-disabled="true">
                     {Row}

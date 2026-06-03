@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 /**
  * OuroborosPortal — cinematic dark, slow horror.
@@ -52,7 +53,7 @@ function A({
   children: ReactNode;
 }) {
   return (
-    <a
+    <Link
       href={`/chair/archive/${to}`}
       title={title}
       style={{
@@ -66,7 +67,7 @@ function A({
       }}
     >
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -819,7 +820,7 @@ function FittingInquiry() {
         will visit your residence for biometric calibration and chair
         sizing.
       </p>
-      <a
+      <Link
         href="#"
         style={{
           display: "inline-block",
@@ -835,7 +836,7 @@ function FittingInquiry() {
         }}
       >
         Begin a fitting →
-      </a>
+      </Link>
     </div>
   );
 }

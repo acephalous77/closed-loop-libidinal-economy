@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -36,12 +37,12 @@ export default function SomaticOptimizationPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             One of{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#3-the-six-instruments"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               the six instruments
-            </a>{" "}
+            </Link>{" "}
             (§3.5). Engagement is a counting process. No sequence of choices
             underlies it. The marked process{" "}
             <M>{String.raw`N_t^i`}</M> has Hawkes intensity{" "}
@@ -65,12 +66,12 @@ export default function SomaticOptimizationPage() {
               stimulus lane fills out toward the tick floor; the engagement
               lanes cluster underneath, often firing across multiple registers
               at once — the off-diagonal{" "}
-              <a
+              <Link
                 href="/closed-loop/the-dynamics/libidinal-routing"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 libidinal routing
-              </a>{" "}
+              </Link>{" "}
               becoming visible at the event level.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">

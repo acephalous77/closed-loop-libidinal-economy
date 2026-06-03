@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useState } from "react";
 import { M, SvgM } from "@/components/ui/Math";
@@ -199,19 +200,19 @@ function InstrumentPanel({ panel }: { panel: Panel }) {
       </p>
 
       <div className="mt-sm font-mono text-xs">
-        <a
+        <Link
           href={`/the-mathematics${panel.mathSection}`}
           className="text-ink-70 hover:text-oxblood transition-colors duration-100"
         >
           ↗ the formal statement
-        </a>
+        </Link>
         <span className="text-ink-50 mx-xs">·</span>
-        <a
+        <Link
           href={panel.mechanismPlate}
           className="text-ink-70 hover:text-oxblood transition-colors duration-100"
         >
           ↗ the mechanism plate
-        </a>
+        </Link>
       </div>
     </section>
   );

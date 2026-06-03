@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function QuantifiedSelfhood() {
   return (
     <PageFrame pageNum="3.5" secCode="OHCOSE / LR / SP-3.5">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 3.5" title="Quantified Selfhood" qualifier="Phase III · Adolescent Calibration" />
@@ -133,8 +134,8 @@ export default function QuantifiedSelfhood() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/iii-adolescent-calibration/pharmacopornographic-order" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.4 pharmacopornographic</a>
-          <a href="/ohcose/iii-adolescent-calibration/the-initiate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.6 the initiate →</a>
+          <Link href="/ohcose/iii-adolescent-calibration/pharmacopornographic-order" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.4 pharmacopornographic</Link>
+          <Link href="/ohcose/iii-adolescent-calibration/the-initiate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.6 the initiate →</Link>
         </nav>
       </article>
     </PageFrame>

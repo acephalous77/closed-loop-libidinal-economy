@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useEffect, useState } from "react";
 
@@ -68,7 +69,7 @@ export function MarginTOC({ entries }: MarginTOCProps) {
           return (
             <li key={entry.slug} className="flex gap-x-xs leading-snug">
               <span className="text-oxblood shrink-0">{entry.number}</span>
-              <a
+              <Link
                 href={`#${entry.slug}`}
                 aria-current={isActive ? "true" : undefined}
                 className={
@@ -78,7 +79,7 @@ export function MarginTOC({ entries }: MarginTOCProps) {
                 }
               >
                 {entry.title}
-              </a>
+              </Link>
             </li>
           );
         })}

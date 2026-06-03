@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { MASTER, FONT } from "../_components/tokens";
 import { PlateHeader, PlateFooter } from "../_components/PlateChrome";
@@ -54,11 +55,11 @@ export default function ConceptsPage() {
       <PlateHeader plate="R.0" route="/chair/concepts" code="DOSS · OLS · GLOSSARY" />
 
       <div className="chair-pad" style={{ padding: "60px 80px 80px", maxWidth: 1200, margin: "0 auto" }}>
-        <a href="/chair/essay" style={{
+        <Link href="/chair/essay" style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 28,
-        }}>← On the Chair · index</a>
+        }}>← On the Chair · index</Link>
 
         <div style={{
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
@@ -136,9 +137,9 @@ export default function ConceptsPage() {
         }}>
           The concepts here are working definitions, provisional and
           open to revision; revisions are tracked in{" "}
-          <a href="/chair/colophon" style={{
+          <Link href="/chair/colophon" style={{
             color: T.ink, textDecorationColor: T.accent,
-          }}>/chair/colophon</a>.
+          }}>/chair/colophon</Link>.
         </p>
       </div>
 

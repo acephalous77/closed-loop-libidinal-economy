@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function KnowledgeTransfer() {
   return (
     <PageFrame pageNum="6.5" secCode="OHCOSE / LR / SP-6.5">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/vi-consolidation" className="hover:underline">← phase VI</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/vi-consolidation" className="hover:underline">← phase VI</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 6.5" title="Knowledge Transfer" qualifier="Phase VI · Consolidation" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -59,8 +60,8 @@ export default function KnowledgeTransfer() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 6.5.A — Standard 24-month Knowledge Transfer Plan</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/vi-consolidation/golden-years" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.4 golden years</a>
-          <a href="/ohcose/vi-consolidation/phase-closure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.6 phase closure →</a>
+          <Link href="/ohcose/vi-consolidation/golden-years" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.4 golden years</Link>
+          <Link href="/ohcose/vi-consolidation/phase-closure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.6 phase closure →</Link>
         </nav>
       </article>
     </PageFrame>

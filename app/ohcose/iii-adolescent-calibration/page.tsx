@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
@@ -64,13 +65,13 @@ export default function PhaseIIIAdolescentCalibration() {
   return (
     <PageFrame pageNum="III" secCode="OHCOSE / LR / Phase III">
       <nav className="mb-md">
-        <a
+        <Link
           href="/ohcose"
           className="font-mono uppercase hover:underline"
           style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           ← schedule of phases
-        </a>
+        </Link>
       </nav>
 
       <PhaseBanner code="Phase III" title="Adolescent Calibration" qualifier="13–18 yrs" />
@@ -159,12 +160,12 @@ export default function PhaseIIIAdolescentCalibration() {
                 className="py-sm flex items-baseline gap-md"
                 style={{ borderBottom: "1px solid var(--color-paper-85)" }}
               >
-                <a
+                <Link
                   href={`/ohcose/iii-adolescent-calibration/${s.slug}`}
                   className="contents group"
                 >
                   {Row}
-                </a>
+                </Link>
               </li>
             );
           })}

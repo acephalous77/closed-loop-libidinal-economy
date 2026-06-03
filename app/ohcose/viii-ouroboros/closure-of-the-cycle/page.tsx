@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function ClosureOfTheCycle() {
   return (
     <PageFrame pageNum="8.1" secCode="OHCOSE / LR / SP-8.1">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/viii-ouroboros" className="hover:underline">← phase VIII</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/viii-ouroboros" className="hover:underline">← phase VIII</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 8.1" title="Closure of the Cycle" qualifier="Phase VIII · Ouroboros Machine" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -65,8 +66,8 @@ export default function ClosureOfTheCycle() {
           </div>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/viii-ouroboros" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VIII</a>
-          <a href="/ohcose/viii-ouroboros/sovereign-interface" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>8.2 sovereign interface →</a>
+          <Link href="/ohcose/viii-ouroboros" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VIII</Link>
+          <Link href="/ohcose/viii-ouroboros/sovereign-interface" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>8.2 sovereign interface →</Link>
         </nav>
       </article>
     </PageFrame>

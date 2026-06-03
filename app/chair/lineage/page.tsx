@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { MASTER, FONT } from "../_components/tokens";
 import { PlateHeader, PlateFooter, ChairGlyph } from "../_components/PlateChrome";
@@ -45,11 +46,11 @@ export default function LineageIndex() {
       <PlateHeader plate="VII.0" route="/chair/lineage" code="DOSS · OLS · LINEAGE" />
 
       <div className="chair-pad" style={{ padding: "60px 80px 0", maxWidth: 1200, margin: "0 auto" }}>
-        <a href="/chair/essay" style={{
+        <Link href="/chair/essay" style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 36,
-        }}>← On the Chair · § VII</a>
+        }}>← On the Chair · § VII</Link>
 
         <div style={{
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
@@ -114,7 +115,7 @@ export default function LineageIndex() {
               <li key={row.slug} style={{
                 borderBottom: `0.75px solid ${T.rule}`,
               }}>
-                <a href={`/chair/lineage/${row.slug}`} style={{
+                <Link href={`/chair/lineage/${row.slug}`} style={{
                   display: "grid",
                   gridTemplateColumns: "60px 70px 110px 1fr 180px 60px",
                   gap: 20, alignItems: "center",
@@ -154,7 +155,7 @@ export default function LineageIndex() {
                     fontFamily: FONT.mono, fontSize: 14, color: T.accent,
                     textAlign: "right",
                   }}>→</span>
-                </a>
+                </Link>
               </li>
             );
           })}

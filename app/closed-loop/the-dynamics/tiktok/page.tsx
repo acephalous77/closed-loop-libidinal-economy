@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -66,10 +67,10 @@ export default function TikTokPage() {
               structural relation each; the prose does the explanatory work.
               Each instrument's mechanism plate (linked in the related
               footer below) renders the same structure in interactive form;
-              the math doc <a
+              the math doc <Link
                 href="/closed-loop/the-mathematics#3-the-six-instruments"
                 className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
-              >§3 (the six instruments)</a> states each formally.
+              >§3 (the six instruments)</Link> states each formally.
             </p>
           </section>
           <RelatedPlates

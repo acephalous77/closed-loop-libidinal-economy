@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function DigitalArchitectures() {
   return (
     <PageFrame pageNum="3.3" secCode="OHCOSE / LR / SP-3.3">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 3.3" title="Digital Architectures" qualifier="Phase III · Adolescent Calibration" />
@@ -129,8 +130,8 @@ export default function DigitalArchitectures() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/iii-adolescent-calibration/rebellion-packaged" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.2 rebellion packaged</a>
-          <a href="/ohcose/iii-adolescent-calibration/pharmacopornographic-order" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.4 pharmacopornographic →</a>
+          <Link href="/ohcose/iii-adolescent-calibration/rebellion-packaged" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.2 rebellion packaged</Link>
+          <Link href="/ohcose/iii-adolescent-calibration/pharmacopornographic-order" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.4 pharmacopornographic →</Link>
         </nav>
       </article>
     </PageFrame>

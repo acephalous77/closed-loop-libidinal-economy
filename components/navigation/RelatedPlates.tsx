@@ -1,3 +1,4 @@
+import Link from "next/link";
 interface Entry {
   href: string;
   title: string;
@@ -27,12 +28,12 @@ export function RelatedPlates({ entries }: RelatedPlatesProps) {
       <ul className="flex flex-col gap-sm max-w-[var(--measure)]">
         {entries.map((e) => (
           <li key={e.href}>
-            <a
+            <Link
               href={e.href}
               className="font-mono text-sm text-ink-90 hover:text-oxblood transition-colors duration-100"
             >
               ↗ {e.title}
-            </a>
+            </Link>
             <span className="font-serif italic text-sm text-ink-70 ml-xs">
               · {e.note}
             </span>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
@@ -64,13 +65,13 @@ export default function PhaseIIInscriptiveNormalization() {
   return (
     <PageFrame pageNum="II" secCode="OHCOSE / LR / Phase II">
       <nav className="mb-md">
-        <a
+        <Link
           href="/ohcose"
           className="font-mono uppercase hover:underline"
           style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}
         >
           ← schedule of phases
-        </a>
+        </Link>
       </nav>
 
       <PhaseBanner code="Phase II" title="Inscriptive Normalization" qualifier="4–12 yrs" />
@@ -158,12 +159,12 @@ export default function PhaseIIInscriptiveNormalization() {
                 className="py-sm flex items-baseline gap-md"
                 style={{ borderBottom: "1px solid var(--color-paper-85)" }}
               >
-                <a
+                <Link
                   href={`/ohcose/ii-inscriptive-normalization/${s.slug}`}
                   className="contents group"
                 >
                   {Row}
-                </a>
+                </Link>
               </li>
             );
           })}

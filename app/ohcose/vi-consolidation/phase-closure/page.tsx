@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function PhaseClosure() {
   return (
     <PageFrame pageNum="6.6" secCode="OHCOSE / LR / SP-6.6">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/vi-consolidation" className="hover:underline">← phase VI</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/vi-consolidation" className="hover:underline">← phase VI</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 6.6" title="Closing of Phase VI" qualifier="Phase VI · Consolidation" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -54,8 +55,8 @@ export default function PhaseClosure() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 6.6.A — Phase VI → Phase VII Transfer Certificate</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/vi-consolidation/knowledge-transfer" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.5 knowledge transfer</a>
-          <a href="/ohcose/vi-consolidation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VI</a>
+          <Link href="/ohcose/vi-consolidation/knowledge-transfer" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.5 knowledge transfer</Link>
+          <Link href="/ohcose/vi-consolidation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VI</Link>
         </nav>
       </article>
     </PageFrame>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { signOut } from "./actions";
 
@@ -72,7 +73,7 @@ export default function ThinkroomPortal() {
         </ul>
 
         <div className="flex flex-col gap-3 mb-md">
-          <a
+          <Link
             href={THINKROOM_URL}
             target="_blank"
             rel="noopener"
@@ -88,7 +89,7 @@ export default function ThinkroomPortal() {
           >
             <span>launch a session</span>
             <span style={{ opacity: 0.6 }}>↗</span>
-          </a>
+          </Link>
           <p
             className="text-xs"
             style={{ color: "var(--color-ink-50)", lineHeight: 1.6 }}

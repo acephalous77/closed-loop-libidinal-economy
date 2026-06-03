@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function LiminalRetirement() {
   return (
     <PageFrame pageNum="7.1" secCode="OHCOSE / LR / SP-7.1">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/vii-exit" className="hover:underline">← phase VII</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/vii-exit" className="hover:underline">← phase VII</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 7.1" title="Retirement as Liminal Economic Phase" qualifier="Phase VII · Exit" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -55,8 +56,8 @@ export default function LiminalRetirement() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 7.1.A — Phase-VII weekly time allocation (cohort median, age 70)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/vii-exit" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VII</a>
-          <a href="/ohcose/vii-exit/death-as-logistics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.2 death as logistics →</a>
+          <Link href="/ohcose/vii-exit" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VII</Link>
+          <Link href="/ohcose/vii-exit/death-as-logistics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.2 death as logistics →</Link>
         </nav>
       </article>
     </PageFrame>

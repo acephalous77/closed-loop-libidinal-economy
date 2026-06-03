@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -43,12 +44,12 @@ export default function ModeSpacePage() {
             <M>{String.raw`B`}</M>, zero <M>{String.raw`D_{\mathrm{KL}}`}</M>. The three modes
             of intervention move along three orthogonal directions from this
             point. The non-substitutability of{" "}
-            <a
+            <Link
               href="/closed-loop/the-dynamics/intervention"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               the modes
-            </a>{" "}
+            </Link>{" "}
             becomes geometrically obvious when you can see them in three
             dimensions.
           </p>

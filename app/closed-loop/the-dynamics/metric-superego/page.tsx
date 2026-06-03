@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -36,12 +37,12 @@ export default function MetricSuperegoPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             One of{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#3-the-six-instruments"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               the six instruments
-            </a>{" "}
+            </Link>{" "}
             (§3.4). Let <M>{String.raw`\nu_u(t)`}</M> be the user's
             self-evaluative distribution — the posterior over their own
             value-states inferred from observed feedback. Let{" "}
@@ -81,12 +82,12 @@ export default function MetricSuperegoPage() {
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               This is the formal content of{" "}
-              <a
+              <Link
                 href="/closed-loop/the-mathematics#5-three-modes-of-intervention"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 Mode B (Proposition 2)
-              </a>
+              </Link>
               : artisanal labor preserves a real gap{" "}
               <M>{String.raw`\gamma > 0`}</M> for the user who
               practices it. But the closure persists — Lemma 1's bound is

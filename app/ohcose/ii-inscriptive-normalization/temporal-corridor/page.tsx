@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function TemporalCorridor() {
   return (
     <PageFrame pageNum="2.6" secCode="OHCOSE / LR / SP-2.6">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 2.6" title="The Temporal Corridor" qualifier="Phase II · Inscriptive Normalization" />
@@ -127,8 +128,8 @@ export default function TemporalCorridor() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/ii-inscriptive-normalization/playing-at-consumption" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.5 playing at consumption</a>
-          <a href="/ohcose/ii-inscriptive-normalization" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase II</a>
+          <Link href="/ohcose/ii-inscriptive-normalization/playing-at-consumption" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.5 playing at consumption</Link>
+          <Link href="/ohcose/ii-inscriptive-normalization" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase II</Link>
         </nav>
       </article>
     </PageFrame>

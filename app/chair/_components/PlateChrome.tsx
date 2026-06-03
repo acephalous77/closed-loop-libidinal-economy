@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { CSSProperties, ReactNode } from "react";
 import { MASTER, type Tokens, FONT } from "./tokens";
 
@@ -67,7 +68,7 @@ export function PlateHeader({
           }}
         >
           {/* Brand mark */}
-          <a
+          <Link
             href="/chair"
             style={{
               display: "inline-flex", alignItems: "center", gap: 8,
@@ -76,7 +77,7 @@ export function PlateHeader({
           >
             <ChairGlyph size={16} stroke={tokens.accent} />
             <span>On the Chair</span>
-          </a>
+          </Link>
           {/* Plate marker + menu indicator */}
           <span style={{ display: "inline-flex", alignItems: "center", gap: 14 }}>
             <span style={{ color: tokens.inkMute }}>{plate}</span>
@@ -113,7 +114,7 @@ export function PlateHeader({
               <ul style={{ listStyle: "none", margin: 0, padding: 0 }}>
                 {group.items.map(([href, label]) => (
                   <li key={href}>
-                    <a
+                    <Link
                       href={href}
                       style={{
                         display: "block",
@@ -124,7 +125,7 @@ export function PlateHeader({
                       }}
                     >
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -144,13 +145,13 @@ export function PlateHeader({
           gap: 14, flexWrap: "wrap",
         }}>
           <div style={{ display: "flex", gap: 22, alignItems: "center", flexWrap: "wrap" }}>
-            <a href="/chair/essay" style={{
+            <Link href="/chair/essay" style={{
               color: tokens.accent, fontWeight: 600, textDecoration: "none",
               display: "flex", alignItems: "center", gap: 8,
             }}>
               <ChairGlyph size={14} stroke={tokens.accent} />
               <span>On the Chair</span>
-            </a>
+            </Link>
             <span style={{ color: tokens.inkFaint }}>·</span>
             <span style={{ color: tokens.accent, fontWeight: 600 }}>plate {plate}</span>
             <span style={{ color: tokens.inkDim }}>{route}</span>
@@ -185,9 +186,9 @@ export function PlateHeader({
                   display: "inline-flex", alignItems: "center", gap: "0.9rem",
                 }}>
                   {ii > 0 && <span style={{ color: tokens.inkFaint }}>·</span>}
-                  <a href={item[0]} style={{
+                  <Link href={item[0]} style={{
                     color: "inherit", textDecoration: "none",
-                  }}>{item[1]}</a>
+                  }}>{item[1]}</Link>
                 </span>
               ))}
             </span>

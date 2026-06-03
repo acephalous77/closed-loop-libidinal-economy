@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -36,12 +37,12 @@ export default function ChronoDebtPage() {
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
             One of{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#3-the-six-instruments"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               the six instruments
-            </a>{" "}
+            </Link>{" "}
             (§3.2). Let{" "}
             <M>{String.raw`\Lambda_\circ(\tau)`}</M> be the pre-closure survival
             function of the inter-stimulus interval — the probability under the

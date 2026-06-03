@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { ARCHIVE, FONT } from "../_components/tokens";
 import { PlateHeader, PlateFooter } from "../_components/PlateChrome";
@@ -139,7 +140,7 @@ export default function ArchiveIndex() {
                   fontWeight: 600, letterSpacing: "0.06em",
                 }}>{e.code}</td>
                 <td style={td}>
-                  <a href={`/chair/archive/${e.slug}`} style={{
+                  <Link href={`/chair/archive/${e.slug}`} style={{
                     color: "inherit", textDecoration: "none", display: "block",
                   }}>
                     <div style={{
@@ -151,7 +152,7 @@ export default function ArchiveIndex() {
                       fontFamily: FONT.serif, fontSize: 13, color: A.inkDim,
                       lineHeight: 1.55,
                     }}>{e.summary}</div>
-                  </a>
+                  </Link>
                 </td>
                 <td style={{
                   ...td,

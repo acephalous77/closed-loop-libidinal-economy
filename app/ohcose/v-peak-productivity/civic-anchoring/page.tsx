@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function CivicAnchoring() {
   return (
     <PageFrame pageNum="5.4" secCode="OHCOSE / LR / SP-5.4">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 5.4" title="Civic Anchoring" qualifier="Phase V · Peak Productivity" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -59,8 +60,8 @@ export default function CivicAnchoring() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 5.4.A — Phase-V Civic Anchoring Inventory (rev. 11.2)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/v-peak-productivity/family-formation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.3 family formation</a>
-          <a href="/ohcose/v-peak-productivity/midlife-affect" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.5 midlife affect →</a>
+          <Link href="/ohcose/v-peak-productivity/family-formation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.3 family formation</Link>
+          <Link href="/ohcose/v-peak-productivity/midlife-affect" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.5 midlife affect →</Link>
         </nav>
       </article>
     </PageFrame>

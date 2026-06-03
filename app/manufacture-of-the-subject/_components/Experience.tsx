@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 /* ============================================================
    EXPERIENCE (root) — HUD ledger · scroll engine · reveals
    NOTE: sections are memoised + the HUD updates via direct DOM
@@ -151,9 +152,9 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
             After Adnan Selimović, “The Manufacture of the Subject.” Stiegler · Zuboff · Marcuse · Lyotard · Preciado ·
             Rifkin · Han.
           </span>
-          <a href="#top" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
+          <Link href="#top" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
             ↑ return to birth
-          </a>
+          </Link>
         </div>
       </div>
     </section>

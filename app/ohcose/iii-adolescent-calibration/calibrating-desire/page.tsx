@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function CalibratingDesire() {
   return (
     <PageFrame pageNum="3.1" secCode="OHCOSE / LR / SP-3.1">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 3.1" title="Calibrating Desire" qualifier="Phase III · Adolescent Calibration" />
@@ -130,8 +131,8 @@ export default function CalibratingDesire() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/iii-adolescent-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase III</a>
-          <a href="/ohcose/iii-adolescent-calibration/rebellion-packaged" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.2 rebellion packaged →</a>
+          <Link href="/ohcose/iii-adolescent-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase III</Link>
+          <Link href="/ohcose/iii-adolescent-calibration/rebellion-packaged" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.2 rebellion packaged →</Link>
         </nav>
       </article>
     </PageFrame>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -142,9 +143,9 @@ export default function RootLayout({
       className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
     >
       <body>
-        <a href="#main-content" className="skip-to-content">
+        <Link href="#main-content" className="skip-to-content">
           skip to content
-        </a>
+        </Link>
         <div className="min-h-screen flex flex-col">
           <div id="main-content" className="flex-1">
             {children}

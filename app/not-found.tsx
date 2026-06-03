@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -152,7 +153,7 @@ export default function NotFound() {
             }}
           >
             {LINKS.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
                 className="nf-link"
@@ -169,7 +170,7 @@ export default function NotFound() {
                 }}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

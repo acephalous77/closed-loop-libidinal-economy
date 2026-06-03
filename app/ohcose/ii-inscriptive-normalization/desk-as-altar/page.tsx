@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function DeskAsAltar() {
   return (
     <PageFrame pageNum="2.1" secCode="OHCOSE / LR / SP-2.1">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 2.1" title="The Desk as Altar" qualifier="Phase II · Inscriptive Normalization" />
@@ -123,8 +124,8 @@ export default function DeskAsAltar() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/ii-inscriptive-normalization" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase II</a>
-          <a href="/ohcose/ii-inscriptive-normalization/algorithmic-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.2 algorithmic calibration →</a>
+          <Link href="/ohcose/ii-inscriptive-normalization" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase II</Link>
+          <Link href="/ohcose/ii-inscriptive-normalization/algorithmic-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.2 algorithmic calibration →</Link>
         </nav>
       </article>
     </PageFrame>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/lib/jsonld";
 
@@ -231,7 +232,7 @@ export default function AtelierIndex() {
               marginBottom: "1.4rem",
             }}
           >
-            A. SELIMOVIĆ — WORKS 2025—
+            A. SELIMOVIĆ — WORKS 2015—2026
           </div>
 
           {/* cut-up wordmark */}
@@ -297,7 +298,7 @@ export default function AtelierIndex() {
               return (
                 <li key={w.href} style={{ borderTop: `2px solid ${INK}` }}>
                   {live ? (
-                    <a
+                    <Link
                       href={w.href}
                       className="zine-link"
                       aria-label={`${w.title} — ${w.stamp}`}
@@ -317,7 +318,7 @@ export default function AtelierIndex() {
                       >
                         {entryBody(w, true)}
                       </div>
-                    </a>
+                    </Link>
                   ) : (
                     <div className="zine-entry" style={{ padding: "2.2rem 1rem" }}>
                       {entryBody(w, false)}
@@ -351,13 +352,13 @@ export default function AtelierIndex() {
             <div style={{ color: INK_2 }}>SITE</div>
             <div style={{ marginTop: "0.5rem" }}>autostimulus.org</div>
             <div style={{ marginTop: "0.5rem" }}>
-              <a
+              <Link
                 href="/closed-loop/the-colophon"
                 className="zine-footlink"
                 style={{ color: INK, textDecoration: "none" }}
               >
                 COLOPHON →
-              </a>
+              </Link>
             </div>
           </div>
           <div>

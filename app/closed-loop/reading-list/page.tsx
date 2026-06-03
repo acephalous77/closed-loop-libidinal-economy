@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import ReadingList from "@/content/reading-list.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
@@ -104,12 +105,12 @@ export default function ReadingListPage() {
           <ul className="flex flex-wrap gap-x-md gap-y-xs">
             {TOC.map((t) => (
               <li key={t.slug}>
-                <a
+                <Link
                   href={`#${t.slug}`}
                   className="font-mono text-xs text-ink-70 hover:text-oxblood transition-colors duration-100"
                 >
                   ↓ {t.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

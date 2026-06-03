@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { MASTER, FONT } from "../_components/tokens";
 import { PlateHeader, PlateFooter } from "../_components/PlateChrome";
@@ -35,11 +36,11 @@ export default function PrecedentsIndex() {
       <PlateHeader plate="VI.0" route="/chair/precedents" code="DOSS · OLS · INDEX" />
 
       <div className="chair-pad" style={{ padding: "60px 80px 80px", maxWidth: 1200, margin: "0 auto" }}>
-        <a href="/chair/essay" style={{
+        <Link href="/chair/essay" style={{
           fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 36,
-        }}>← On the Chair · § VI</a>
+        }}>← On the Chair · § VI</Link>
 
         <div style={{
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
@@ -71,7 +72,7 @@ export default function PrecedentsIndex() {
         }}>
           {PRECEDENTS.map((row) => (
             <li key={row.slug} style={{ borderBottom: `0.75px solid ${T.rule}` }}>
-              <a href={`/chair/precedents/${row.slug}`} style={{
+              <Link href={`/chair/precedents/${row.slug}`} style={{
                 display: "grid",
                 gridTemplateColumns: "60px 1fr 280px 60px",
                 gap: 24, alignItems: "center",
@@ -100,7 +101,7 @@ export default function PrecedentsIndex() {
                   fontFamily: FONT.mono, fontSize: 14, color: T.accent,
                   textAlign: "right",
                 }}>→</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ol>

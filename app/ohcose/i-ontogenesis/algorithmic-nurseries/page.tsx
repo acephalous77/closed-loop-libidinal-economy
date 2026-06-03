@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -15,8 +16,8 @@ export default function AlgorithmicNurseries() {
   return (
     <PageFrame pageNum="1.2" secCode="OHCOSE / LR / SP-1.2">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 1.2" title="Algorithmic Nurseries" qualifier="Phase I · Ontogenesis" />
@@ -174,8 +175,8 @@ export default function AlgorithmicNurseries() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/i-ontogenesis/cradle-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.1 cradle anchoring</a>
-          <a href="/ohcose/i-ontogenesis/caregiver-as-infrastructure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>1.3 caregiver →</a>
+          <Link href="/ohcose/i-ontogenesis/cradle-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.1 cradle anchoring</Link>
+          <Link href="/ohcose/i-ontogenesis/caregiver-as-infrastructure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>1.3 caregiver →</Link>
         </nav>
       </article>
     </PageFrame>

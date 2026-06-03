@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -35,12 +36,12 @@ export default function ForeclosureClockPage() {
           </header>
 
           <p className="font-serif text-base text-ink-90 leading-[1.55] mb-md max-w-[var(--measure)]">
-            <a
+            <Link
               href="/closed-loop/the-mathematics#4-the-foreclosure-lemma-and-the-reclamation-theorem"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               Lemma 1 (foreclosure of the no-input window)
-            </a>{" "}
+            </Link>{" "}
             establishes that the survival function of the inter-stimulus interval at the
             converged policy <M>{String.raw`\theta^*`}</M> satisfies{" "}
             <M>{String.raw`S(\theta_{\mathrm{ref}};\, \theta^*) \le C(c_v)\, \exp(-\theta_{\mathrm{ref}}/\delta_{\min})`}</M>{" "}

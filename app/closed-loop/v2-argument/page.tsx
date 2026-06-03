@@ -63,14 +63,14 @@ export default function CuratedArgumentPage() {
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">Eight moves</p>
         <ol className="space-y-xs text-ink-90">
-          <li><a href="#architecture" className="hover:text-oxblood">1. The architecture</a></li>
-          <li><a href="#registers" className="hover:text-oxblood">2. The four registers, fused</a></li>
-          <li><a href="#capture" className="hover:text-oxblood">3. Capture without coercion</a></li>
-          <li><a href="#pause" className="hover:text-oxblood">4. The pause foreclosed</a></li>
-          <li><a href="#clocks" className="hover:text-oxblood">5. The body&apos;s clocks captured</a></li>
-          <li><a href="#asymmetry" className="hover:text-oxblood">6. The asymmetry of the intervention modes</a></li>
-          <li><a href="#cohort" className="hover:text-oxblood">7. The cohort gradient</a></li>
-          <li><a href="#recursive" className="hover:text-oxblood">8. The recursive limit</a></li>
+          <li><Link href="#architecture" className="hover:text-oxblood">1. The architecture</Link></li>
+          <li><Link href="#registers" className="hover:text-oxblood">2. The four registers, fused</Link></li>
+          <li><Link href="#capture" className="hover:text-oxblood">3. Capture without coercion</Link></li>
+          <li><Link href="#pause" className="hover:text-oxblood">4. The pause foreclosed</Link></li>
+          <li><Link href="#clocks" className="hover:text-oxblood">5. The body&apos;s clocks captured</Link></li>
+          <li><Link href="#asymmetry" className="hover:text-oxblood">6. The asymmetry of the intervention modes</Link></li>
+          <li><Link href="#cohort" className="hover:text-oxblood">7. The cohort gradient</Link></li>
+          <li><Link href="#recursive" className="hover:text-oxblood">8. The recursive limit</Link></li>
         </ol>
       </nav>
 

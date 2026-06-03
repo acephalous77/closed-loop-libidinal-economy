@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function MidlifeAffect() {
   return (
     <PageFrame pageNum="5.5" secCode="OHCOSE / LR / SP-5.5">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 5.5" title="Midlife Affect Regulation" qualifier="Phase V · Peak Productivity" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -54,8 +55,8 @@ export default function MidlifeAffect() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 5.5.A — Phase-V Affect Regulation Catalog (extract)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/v-peak-productivity/civic-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.4 civic anchoring</a>
-          <a href="/ohcose/v-peak-productivity/decline-foreshadowing" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.6 decline foreshadowing →</a>
+          <Link href="/ohcose/v-peak-productivity/civic-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.4 civic anchoring</Link>
+          <Link href="/ohcose/v-peak-productivity/decline-foreshadowing" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.6 decline foreshadowing →</Link>
         </nav>
       </article>
     </PageFrame>

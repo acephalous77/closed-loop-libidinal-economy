@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "./_components/PageFrame";
 import { SealWatermark } from "./_components/SealWatermark";
@@ -146,7 +147,7 @@ export default function OhcosePortal() {
               className="py-sm flex items-baseline gap-md"
               style={{ borderBottom: "1px solid var(--color-paper-85)" }}
             >
-              <a
+              <Link
                 href={`/ohcose/${phase.slug}`}
                 className="contents group"
                 aria-label={`Phase ${phase.numeral}: ${phase.name}`}
@@ -188,7 +189,7 @@ export default function OhcosePortal() {
                 >
                   {phase.ages}
                 </span>
-              </a>
+              </Link>
             </li>
           ))}
         </ol>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -45,21 +46,21 @@ export default function ClosedLoopPage() {
             is shaped, recursively, by the policy's prior shaping of the user.
             The exogenous channel{" "}
             <M>{String.raw`e_t \equiv 0`}</M> from{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#1-the-closed-loop-dynamics"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               equation (6)
-            </a>{" "}
+            </Link>{" "}
             stands outside the loop — it is definitional. The
             propositional consequence (that no-input windows of reflective
             length vanish) is{" "}
-            <a
+            <Link
               href="/closed-loop/the-mathematics#4-the-foreclosure-lemma-and-the-reclamation-theorem"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               Lemma 1
-            </a>
+            </Link>
             , derived from this architecture.
           </p>
 

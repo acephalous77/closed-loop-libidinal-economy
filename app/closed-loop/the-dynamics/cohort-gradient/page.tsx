@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
@@ -42,12 +43,12 @@ export default function CohortGradientPage() {
             self-evaluative distribution{" "}
             <M>{String.raw`\nu_u`}</M> constructed under an
             architectural regime that included extra-platform inputs; the{" "}
-            <a
+            <Link
               href="/closed-loop/the-dynamics/metric-superego"
               className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               artisanal mode
-            </a>{" "}
+            </Link>{" "}
             has something to maintain. Younger cohorts have{" "}
             <M>{String.raw`\nu_u`}</M> approximating{" "}
             <M>{String.raw`\pi_{\hat{R}}`}</M> at the outset.
@@ -65,19 +66,19 @@ export default function CohortGradientPage() {
               the framework's hedge on magnitude. The band is no classical
               confidence interval; it marks that the formal mechanism is
               asserted, and{" "}
-              <a
+              <Link
                 href="/closed-loop/the-mathematics#1-the-closed-loop-dynamics"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 equations (1)–(5)
-              </a>{" "}
+              </Link>{" "}
               do not by themselves derive it (see{" "}
-              <a
+              <Link
                 href="/closed-loop/the-mathematics#8-open-formal-questions"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 §8.2 open questions
-              </a>
+              </Link>
               ).
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">

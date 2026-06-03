@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function CuratingLife() {
   return (
     <PageFrame pageNum="4.4" secCode="OHCOSE / LR / SP-4.4">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/iv-economic-subjectification" className="hover:underline">← phase IV</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/iv-economic-subjectification" className="hover:underline">← phase IV</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 4.4" title="Curating Life" qualifier="Phase IV · Economic Subjectification" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -66,8 +67,8 @@ export default function CuratingLife() {
           </div>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/iv-economic-subjectification/romantic-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.3 romantic markets</a>
-          <a href="/ohcose/iv-economic-subjectification/happiness-mandate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.5 happiness mandate →</a>
+          <Link href="/ohcose/iv-economic-subjectification/romantic-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.3 romantic markets</Link>
+          <Link href="/ohcose/iv-economic-subjectification/happiness-mandate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.5 happiness mandate →</Link>
         </nav>
       </article>
     </PageFrame>

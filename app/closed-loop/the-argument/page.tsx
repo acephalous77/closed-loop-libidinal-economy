@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PIECES } from "@/lib/argument-pieces";
@@ -85,7 +86,7 @@ export default function TheArgumentIndexPage() {
           <ol className="flex flex-col gap-lg mt-2xl">
             {PIECES.map((piece) => (
               <li key={piece.slug}>
-                <a
+                <Link
                   href={`/closed-loop/the-argument/${piece.slug}`}
                   className="group block"
                 >
@@ -103,7 +104,7 @@ export default function TheArgumentIndexPage() {
                   <p className="font-mono text-xs text-ink-50 mt-xs">
                     {piece.meta}
                   </p>
-                </a>
+                </Link>
               </li>
             ))}
           </ol>
@@ -113,7 +114,7 @@ export default function TheArgumentIndexPage() {
             <p className="font-mono text-xs text-ink-50 mb-sm">
               the companion document
             </p>
-            <a href="/closed-loop/the-mathematics" className="group block">
+            <Link href="/closed-loop/the-mathematics" className="group block">
               <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
                 the mathematics
               </h2>
@@ -122,11 +123,11 @@ export default function TheArgumentIndexPage() {
                 assumptions, open questions. The proofs the prose's claims rest
                 on.
               </p>
-            </a>
+            </Link>
           </section>
 
           <section className="mt-lg">
-            <a href="/closed-loop/reading-list" className="group block">
+            <Link href="/closed-loop/reading-list" className="group block">
               <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
                 reading list
               </h2>
@@ -137,11 +138,11 @@ export default function TheArgumentIndexPage() {
                 Kuramoto, Hawkes) and contemporary work the diagnostic builds
                 on or argues against.
               </p>
-            </a>
+            </Link>
           </section>
 
           <section className="mt-lg">
-            <a href="/closed-loop/open-questions" className="group block">
+            <Link href="/closed-loop/open-questions" className="group block">
               <h2 className="font-mono font-medium text-md text-ink-90 group-hover:text-oxblood transition-colors duration-100">
                 open questions
               </h2>
@@ -151,7 +152,7 @@ export default function TheArgumentIndexPage() {
                 the prose, five where the empirical record is genuinely thin.
                 Each with what would refute, what would confirm.
               </p>
-            </a>
+            </Link>
           </section>
         </article>
       </div>

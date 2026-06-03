@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function CradleAnchoring() {
     <PageFrame pageNum="1.1" secCode="OHCOSE / LR / SP-1.1">
       {/* Breadcrumbs */}
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/i-ontogenesis" className="hover:underline">← phase I</Link>
       </nav>
 
       {/* Phase banner — same as parent so the reader knows which phase */}
@@ -195,13 +196,13 @@ export default function CradleAnchoring() {
           className="pt-md flex items-center justify-between gap-md mt-2xl"
           style={{ borderTop: "1px solid var(--color-paper-85)" }}
         >
-          <a
+          <Link
             href="/ohcose/i-ontogenesis"
             className="font-mono uppercase hover:underline"
             style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}
           >
             ← phase I
-          </a>
+          </Link>
           <div
             className="font-mono uppercase"
             style={{

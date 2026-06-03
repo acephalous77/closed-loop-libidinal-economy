@@ -304,13 +304,13 @@ export default function GlossaryIndex() {
         className="my-md font-mono text-sm text-ink-70 flex flex-wrap gap-sm"
       >
         {letters.map((letter) => (
-          <a
+          <Link
             key={letter}
             href={`#letter-${letter}`}
             className="hover:text-oxblood"
           >
             {letter}
-          </a>
+          </Link>
         ))}
       </nav>
 

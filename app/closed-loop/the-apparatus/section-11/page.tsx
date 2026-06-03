@@ -49,10 +49,10 @@ export default function Section11Page() {
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">On this page</p>
         <ol className="space-y-xs text-ink-90">
-          <li><a href="#fifteen" className="hover:text-oxblood">§11.1 The fifteen formal results</a></li>
-          <li><a href="#claims" className="hover:text-oxblood">§11.2 The three load-bearing claims</a></li>
-          <li><a href="#open" className="hover:text-oxblood">§11.3 Open research-frontier questions</a></li>
-          <li><a href="#one-sentence" className="hover:text-oxblood">§11.4 The framework as one sentence</a></li>
+          <li><Link href="#fifteen" className="hover:text-oxblood">§11.1 The fifteen formal results</Link></li>
+          <li><Link href="#claims" className="hover:text-oxblood">§11.2 The three load-bearing claims</Link></li>
+          <li><Link href="#open" className="hover:text-oxblood">§11.3 Open research-frontier questions</Link></li>
+          <li><Link href="#one-sentence" className="hover:text-oxblood">§11.4 The framework as one sentence</Link></li>
         </ol>
       </nav>
 

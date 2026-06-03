@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function IntergenerationalObligations() {
   return (
     <PageFrame pageNum="6.3" secCode="OHCOSE / LR / SP-6.3">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/vi-consolidation" className="hover:underline">← phase VI</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/vi-consolidation" className="hover:underline">← phase VI</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 6.3" title="Intergenerational Obligations" qualifier="Phase VI · Consolidation" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -60,8 +61,8 @@ export default function IntergenerationalObligations() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 6.3.A — Phase-VI weekly time allocation (cohort median, hours)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/vi-consolidation/managing-decline" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.2 managing decline</a>
-          <a href="/ohcose/vi-consolidation/golden-years" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.4 golden years →</a>
+          <Link href="/ohcose/vi-consolidation/managing-decline" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.2 managing decline</Link>
+          <Link href="/ohcose/vi-consolidation/golden-years" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.4 golden years →</Link>
         </nav>
       </article>
     </PageFrame>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 interface Crumb {
   label: string;
   href?: string;
@@ -19,12 +20,12 @@ export function Breadcrumb({ path }: BreadcrumbProps) {
           return (
             <li key={i} className="flex items-baseline gap-x-xs">
               {crumb.href && !isLast ? (
-                <a
+                <Link
                   href={crumb.href}
                   className="hover:text-oxblood transition-colors duration-100"
                 >
                   {crumb.label}
-                </a>
+                </Link>
               ) : (
                 <span className={isLast ? "text-ink-70" : ""}>{crumb.label}</span>
               )}

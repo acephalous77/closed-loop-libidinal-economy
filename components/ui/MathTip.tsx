@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import { useEffect, useRef, useState } from "react";
 import type { GlossEntry } from "@/lib/math-glossary";
@@ -55,13 +56,13 @@ export function MathTip({
         <span className="math-tip__popover" role="tooltip">
           <span className="math-tip__gloss">{gloss.gloss}</span>
           {gloss.href && (
-            <a
+            <Link
               href={gloss.href}
               className="math-tip__link"
               onClick={(e) => e.stopPropagation()}
             >
               →&nbsp;source
-            </a>
+            </Link>
           )}
         </span>
       )}

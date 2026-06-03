@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function PlayingAtConsumption() {
   return (
     <PageFrame pageNum="2.5" secCode="OHCOSE / LR / SP-2.5">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/ii-inscriptive-normalization" className="hover:underline">← phase II</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 2.5" title="Playing at Consumption" qualifier="Phase II · Inscriptive Normalization" />
@@ -124,8 +125,8 @@ export default function PlayingAtConsumption() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/ii-inscriptive-normalization/recess-as-release-valve" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.4 recess</a>
-          <a href="/ohcose/ii-inscriptive-normalization/temporal-corridor" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.6 temporal corridor →</a>
+          <Link href="/ohcose/ii-inscriptive-normalization/recess-as-release-valve" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.4 recess</Link>
+          <Link href="/ohcose/ii-inscriptive-normalization/temporal-corridor" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.6 temporal corridor →</Link>
         </nav>
       </article>
     </PageFrame>

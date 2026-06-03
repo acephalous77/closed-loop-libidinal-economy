@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function DeclineForeshadowing() {
   return (
     <PageFrame pageNum="5.6" secCode="OHCOSE / LR / SP-5.6">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/v-peak-productivity" className="hover:underline">← phase V</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 5.6" title="Foreshadowing Managed Decline" qualifier="Phase V · Peak Productivity" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -59,8 +60,8 @@ export default function DeclineForeshadowing() {
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 5.6.A — Phase V Closing Certificate</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/v-peak-productivity/midlife-affect" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.5 midlife affect</a>
-          <a href="/ohcose/v-peak-productivity" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase V</a>
+          <Link href="/ohcose/v-peak-productivity/midlife-affect" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.5 midlife affect</Link>
+          <Link href="/ohcose/v-peak-productivity" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase V</Link>
         </nav>
       </article>
     </PageFrame>

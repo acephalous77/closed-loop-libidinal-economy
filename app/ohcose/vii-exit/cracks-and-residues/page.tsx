@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -13,8 +14,8 @@ export default function CracksAndResidues() {
   return (
     <PageFrame pageNum="7.5" secCode="OHCOSE / LR / SP-7.5">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/vii-exit" className="hover:underline">← phase VII</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/vii-exit" className="hover:underline">← phase VII</Link>
       </nav>
       <PhaseBanner code="Sub-Protocol 7.5" title="Cracks & Residues" qualifier="Phase VII · Exit" />
       <header className="mt-2xl mb-2xl max-w-[var(--measure)] mx-auto">
@@ -74,8 +75,8 @@ export default function CracksAndResidues() {
           </div>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/vii-exit/eldercare-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.4 eldercare markets</a>
-          <a href="/ohcose/vii-exit/lifecycle-closure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.6 lifecycle closure →</a>
+          <Link href="/ohcose/vii-exit/eldercare-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.4 eldercare markets</Link>
+          <Link href="/ohcose/vii-exit/lifecycle-closure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.6 lifecycle closure →</Link>
         </nav>
       </article>
     </PageFrame>

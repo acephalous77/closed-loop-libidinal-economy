@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { FONT } from "./_components/tokens";
@@ -110,7 +111,7 @@ function Nav() {
           ["Schematic",  "#schematic"],
           ["Tiers",      "#tiers"],
         ] as [string, string][]).map(([label, href]) => (
-          <a key={label} href={href} style={{ color: "inherit", textDecoration: "none" }}>{label}</a>
+          <Link key={label} href={href} style={{ color: "inherit", textDecoration: "none" }}>{label}</Link>
         ))}
       </nav>
       <div style={{ display: "flex", justifyContent: "flex-end", gap: 14, alignItems: "center" }}>
@@ -829,12 +830,12 @@ function Footer() {
           </div>
           {items.map(([label, href]) => (
             <div key={label} style={{ padding: "4px 0" }}>
-              <a
+              <Link
                 href={href}
                 style={{ color: "inherit", textDecoration: "none" }}
               >
                 {label}
-              </a>
+              </Link>
             </div>
           ))}
         </div>

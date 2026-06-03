@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../../_components/PageFrame";
 import { PhaseBanner } from "../../_components/PhaseBanner";
@@ -16,8 +17,8 @@ export default function TheInitiate() {
   return (
     <PageFrame pageNum="3.6" secCode="OHCOSE / LR / SP-3.6">
       <nav className="mb-md flex flex-wrap gap-x-md font-mono uppercase" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>
-        <a href="/ohcose" className="hover:underline">← schedule of phases</a>
-        <a href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</a>
+        <Link href="/ohcose" className="hover:underline">← schedule of phases</Link>
+        <Link href="/ohcose/iii-adolescent-calibration" className="hover:underline">← phase III</Link>
       </nav>
 
       <PhaseBanner code="Sub-Protocol 3.6" title="The Initiate" qualifier="Phase III · Adolescent Calibration" />
@@ -132,8 +133,8 @@ export default function TheInitiate() {
         </section>
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-          <a href="/ohcose/iii-adolescent-calibration/quantified-selfhood" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.5 quantified selfhood</a>
-          <a href="/ohcose/iii-adolescent-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase III</a>
+          <Link href="/ohcose/iii-adolescent-calibration/quantified-selfhood" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.5 quantified selfhood</Link>
+          <Link href="/ohcose/iii-adolescent-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase III</Link>
         </nav>
       </article>
     </PageFrame>

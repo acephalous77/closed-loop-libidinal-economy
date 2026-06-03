@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
@@ -39,7 +40,7 @@ export default function PhaseVIIIOuroboros() {
   return (
     <PageFrame pageNum="VIII" secCode="OHCOSE / LR / Phase VIII">
       <nav className="mb-md">
-        <a href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>← schedule of phases</a>
+        <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>← schedule of phases</Link>
       </nav>
       <PhaseBanner code="Phase VIII" title="The Ouroboros Machine" qualifier="closure of the cycle" />
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
@@ -70,14 +71,14 @@ export default function PhaseVIIIOuroboros() {
         <ol>
           {SUB_PROTOCOLS.map((s) => (
             <li key={s.slug} className="py-sm flex items-baseline gap-md" style={{ borderBottom: "1px solid var(--color-paper-85)" }}>
-              <a href={`/ohcose/viii-ouroboros/${s.slug}`} className="contents group">
+              <Link href={`/ohcose/viii-ouroboros/${s.slug}`} className="contents group">
                 <span className="font-mono font-bold tabular-nums" style={{ color: "var(--color-ink)", fontSize: "1rem", width: "3.5rem" }}>{s.code}</span>
                 <span className="flex-1">
                   <span className="block group-hover:underline" style={{ color: "var(--color-ink-90)", fontSize: "1.15rem", fontWeight: 600 }}>{s.name}</span>
                   <span className="block text-sm mt-xs leading-snug" style={{ color: "var(--color-ink-70)" }}>{s.summary}</span>
                 </span>
                 <span className="font-mono uppercase" style={{ color: "var(--color-oxblood)", border: "1px solid var(--color-oxblood)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.15em", padding: "0.2rem 0.5rem", whiteSpace: "nowrap" }}>publ.</span>
-              </a>
+              </Link>
             </li>
           ))}
         </ol>

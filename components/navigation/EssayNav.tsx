@@ -1,3 +1,4 @@
+import Link from "next/link";
 interface EssayNavProps {
   prev?: { title: string; href: string };
   next?: { title: string; href: string };
@@ -25,34 +26,34 @@ export function EssayNav({
       <ol className="flex flex-wrap items-baseline justify-between gap-x-md gap-y-xs">
         <li className="flex-1 min-w-0">
           {prev ? (
-            <a
+            <Link
               href={prev.href}
               className="hover:text-oxblood transition-colors duration-100"
             >
               <span aria-hidden="true">←</span> previous:{" "}
               <span className="text-ink-70">{prev.title}</span>
-            </a>
+            </Link>
           ) : (
             <span className="text-ink-50/60">—</span>
           )}
         </li>
         <li className="text-center">
-          <a
+          <Link
             href={indexHref}
             className="hover:text-oxblood transition-colors duration-100"
           >
             {indexLabel}
-          </a>
+          </Link>
         </li>
         <li className="flex-1 min-w-0 text-right">
           {next ? (
-            <a
+            <Link
               href={next.href}
               className="hover:text-oxblood transition-colors duration-100"
             >
               next: <span className="text-ink-70">{next.title}</span>{" "}
               <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           ) : (
             <span className="text-ink-50/60">—</span>
           )}

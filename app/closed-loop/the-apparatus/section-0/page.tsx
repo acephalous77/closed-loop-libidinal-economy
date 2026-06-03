@@ -60,11 +60,11 @@ export default function Section0Page() {
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">On this page</p>
         <ol className="space-y-xs text-ink-90">
-          <li><a href="#what-this-is" className="hover:text-oxblood">§0.0 What this apparatus is</a></li>
-          <li><a href="#setup" className="hover:text-oxblood">§0.1 The performative setup</a></li>
-          <li><a href="#closure" className="hover:text-oxblood">§0.2 The closure as fixed point</a></li>
-          <li><a href="#axioms" className="hover:text-oxblood">§0.3 Conditions, regrouped (the three axiom groups)</a></li>
-          <li><a href="#notation" className="hover:text-oxblood">§0.4 Notation</a></li>
+          <li><Link href="#what-this-is" className="hover:text-oxblood">§0.0 What this apparatus is</Link></li>
+          <li><Link href="#setup" className="hover:text-oxblood">§0.1 The performative setup</Link></li>
+          <li><Link href="#closure" className="hover:text-oxblood">§0.2 The closure as fixed point</Link></li>
+          <li><Link href="#axioms" className="hover:text-oxblood">§0.3 Conditions, regrouped (the three axiom groups)</Link></li>
+          <li><Link href="#notation" className="hover:text-oxblood">§0.4 Notation</Link></li>
         </ol>
       </nav>
 

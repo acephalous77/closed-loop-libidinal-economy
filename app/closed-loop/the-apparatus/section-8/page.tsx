@@ -58,12 +58,12 @@ export default function Section8Page() {
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">On this page</p>
         <ol className="space-y-xs text-ink-90">
-          <li><a href="#model" className="hover:text-oxblood">§8.1 The networked closed-loop model</a></li>
-          <li><a href="#theorem-10" className="hover:text-oxblood">§8.2 Theorem 10 — mean-field convergence</a></li>
-          <li><a href="#networked-lemma-1" className="hover:text-oxblood">§8.3 Networked Lemma 1</a></li>
-          <li><a href="#cascade" className="hover:text-oxblood">§8.4 Engagement cascade theorem</a></li>
-          <li><a href="#percolation" className="hover:text-oxblood">§8.5 Percolation threshold</a></li>
-          <li><a href="#cohort-amp" className="hover:text-oxblood">§8.6 Cohort graph-amplification</a></li>
+          <li><Link href="#model" className="hover:text-oxblood">§8.1 The networked closed-loop model</Link></li>
+          <li><Link href="#theorem-10" className="hover:text-oxblood">§8.2 Theorem 10 — mean-field convergence</Link></li>
+          <li><Link href="#networked-lemma-1" className="hover:text-oxblood">§8.3 Networked Lemma 1</Link></li>
+          <li><Link href="#cascade" className="hover:text-oxblood">§8.4 Engagement cascade theorem</Link></li>
+          <li><Link href="#percolation" className="hover:text-oxblood">§8.5 Percolation threshold</Link></li>
+          <li><Link href="#cohort-amp" className="hover:text-oxblood">§8.6 Cohort graph-amplification</Link></li>
         </ol>
       </nav>
 
