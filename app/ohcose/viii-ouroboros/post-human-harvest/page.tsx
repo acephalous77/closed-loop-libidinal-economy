@@ -5,7 +5,7 @@ import { SectionHead } from "../../_components/SectionHead";
 
 export const metadata: Metadata = {
   title: "8.3 — The Post-Human Harvest",
-  description: "OHCOSE Phase VIII, Sub-Protocol 8.3. The harvest after the subject. Lifelong record as input to next-cohort modelling. The aggregate yield of the closed apparatus.",
+  description: "OHCOSE Phase VIII, Sub-Protocol 8.3. The harvest after the subject. Lifelong record as input to next-cohort modeling. The aggregate yield of the closed apparatus.",
   alternates: { canonical: "/ohcose/viii-ouroboros/post-human-harvest" },
 };
 
@@ -23,7 +23,7 @@ export default function PostHumanHarvest() {
         <p className="mt-md text-base leading-snug" style={{ color: "var(--color-ink-70)" }}>
           The harvest after the subject has closed. The aggregated
           lifelong records, processed at cohort scale, return to the
-          Office as the precision-modelling input for the calibration
+          Office as the precision-modeling input for the calibration
           of the next cohort.
         </p>
       </header>
@@ -36,8 +36,8 @@ export default function PostHumanHarvest() {
               archive. The archives accrue continuously as the cohort
               ages out; by year fifty of a cohort the harvest stream
               is delivering roughly two million archives per fiscal
-              quarter to the Office's modelling apparatus. The yields
-              below summarise the aggregate at cohort-decade scale.
+              quarter to the Office's modeling apparatus. The yields
+              below summarize the aggregate at cohort-decade scale.
             </p>
           </div>
         </section>

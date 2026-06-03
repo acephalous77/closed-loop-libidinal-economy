@@ -81,14 +81,14 @@ export default function AlgorithmicNurseries() {
           </p>
         </section>
 
-        {/* 1.2.3 — Brand-Primer Catalogue */}
+        {/* 1.2.3 — Brand-Primer Catalog */}
         <section>
-          <SectionHead code="1.2.3" title="Brand-Primer Catalogue" />
+          <SectionHead code="1.2.3" title="Brand-Primer Catalog" />
           <p className="text-base leading-snug mb-md" style={{ color: "var(--color-ink-90)" }}>
             The mobile rotates slow-turning visual primers in soft pastel
             registers; the feeding apparatus interleaves audio motifs into
             the suckling rhythm; the wall display projects abstract figural
-            primitives during pre-sleep windows. The full catalogue is
+            primitives during pre-sleep windows. The full catalog is
             classified at intake; the table below lists the high-frequency
             stimulus families authorized for Phase-I subjects.
           </p>

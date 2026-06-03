@@ -170,7 +170,7 @@ const Narrative = React.memo(function Narrative({ onFreeze }: { onFreeze?: () =>
       <Interstitial
         id="x-hab"
         age="06"
-        op="Habitualisation"
+        op="Habitualization"
         v={18000}
         line="What looks like a settled toddler is a settling habit — the asset the next stage inherits."
       />

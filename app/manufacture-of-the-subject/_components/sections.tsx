@@ -204,7 +204,7 @@ export function Masthead() {
           of the Subject
         </h1>
         <p className="lede mt24" style={{ maxWidth: "38ch" }}>
-          The industrialisation of socialisation — how a human subject is produced, station by station, on a line that
+          The industrialization of socialization — how a human subject is produced, station by station, on a line that
           runs from crib to deathbed.
         </p>
       </div>
@@ -263,11 +263,11 @@ export function Intro() {
           <p>
             Capital still wants the working day, but its frontier has moved inward — to attention, to affect, to
             desire.{" "}
-            <Term gloss="Zuboff: private experience claimed, unilaterally and without the asking, as free raw material — rendered into behavioural data and sold forward as prediction.">
-              Behavioural surplus
+            <Term gloss="Zuboff: private experience claimed, unilaterally and without the asking, as free raw material — rendered into behavioral data and sold forward as prediction.">
+              Behavioral surplus
             </Term>{" "}
             is what the meters read.{" "}
-            <Term gloss="The capacity to feel, imagine, want, play, attach. Broader than behavioural surplus — it is what the meters are clamped to.">
+            <Term gloss="The capacity to feel, imagine, want, play, attach. Broader than behavioral surplus — it is what the meters are clamped to.">
               Psychic surplus
             </Term>{" "}
             is what the meters are clamped to.
@@ -282,8 +282,8 @@ export function Intro() {
       </div>
       <div className="marquee mt64">
         <div className="marquee-inner mono" style={{ fontSize: 22, padding: "12px 0", letterSpacing: ".08em" }}>
-          ONTOGENESIS&nbsp;·&nbsp;HABITUALISATION&nbsp;·&nbsp;CONSUMPTION&nbsp;·&nbsp;OBSOLESCENCE&nbsp;·&nbsp;STAGNATION&nbsp;·&nbsp;
-          <b>EXIT</b>&nbsp;·&nbsp;ONTOGENESIS&nbsp;·&nbsp;HABITUALISATION&nbsp;·&nbsp;CONSUMPTION&nbsp;·&nbsp;OBSOLESCENCE&nbsp;·&nbsp;STAGNATION&nbsp;·&nbsp;
+          ONTOGENESIS&nbsp;·&nbsp;HABITUALIZATION&nbsp;·&nbsp;CONSUMPTION&nbsp;·&nbsp;OBSOLESCENCE&nbsp;·&nbsp;STAGNATION&nbsp;·&nbsp;
+          <b>EXIT</b>&nbsp;·&nbsp;ONTOGENESIS&nbsp;·&nbsp;HABITUALIZATION&nbsp;·&nbsp;CONSUMPTION&nbsp;·&nbsp;OBSOLESCENCE&nbsp;·&nbsp;STAGNATION&nbsp;·&nbsp;
           <b>EXIT</b>&nbsp;·&nbsp;
         </div>
       </div>
@@ -321,7 +321,7 @@ export function Ontogenesis() {
           <p>
             I call the mechanism{" "}
             <Term gloss="Selimović: the technological interface through which a child's earliest libidinal processes are modulated by something that is also, quietly, a meter.">
-              gadgetised mediation
+              gadgetized mediation
             </Term>
             . The educational app that teaches the alphabet also logs the taps. The gap between an impulse and its
             gratification — the interval where a child once learned that wanting can be tolerated — thins toward zero.
@@ -343,7 +343,7 @@ export function Ontogenesis() {
                 Repressive desublimation
               </Term>
               : the restless energy that once found mischief is spent on a video. Nothing is forbidden. Everything is
-              channelled. The charge is exactly the part that might have gone somewhere unscripted.
+              channeled. The charge is exactly the part that might have gone somewhere unscripted.
             </p>
           </div>
           <div className="halftone mt16" style={{ height: 70, opacity: 0.5 }} />
@@ -389,7 +389,7 @@ export function Adolescence() {
         <div className="prose rev" style={{ flex: "1 1 380px" }}>
           <p>
             Scholars named the condition{" "}
-            <Term gloss="Play that is also work. The player's libidinal investment is the labour that makes the product — paid back in the token pleasures the product doles out.">
+            <Term gloss="Play that is also work. The player's libidinal investment is the labor that makes the product — paid back in the token pleasures the product doles out.">
               playbor
             </Term>
             . The same operation runs through the feed, where it is harder to see because it looks like friendship. A
@@ -493,7 +493,7 @@ export function LateAdulthood() {
           <p>
             A person disappointed by a life might once have taken the disappointment to a church, a movement, a kitchen
             table. Now it is far likelier to be taken to a prescriber and adjusted at the level of serotonin. The
-            discontent is individualised into a chemical correction that keeps the person consuming — and leaves
+            discontent is individualized into a chemical correction that keeps the person consuming — and leaves
             untouched the conditions that produced the ache.
           </p>
           <p>

@@ -196,7 +196,7 @@ export default function InstrumentsIndex() {
           The six instruments together specify what would have to be
           measured to test the framework. Per-result calibration
           hooks — predicted quantity, measurement protocol,
-          confirmation, falsification — are catalogued in{" "}
+          confirmation, falsification — are cataloged in{" "}
           <Link
             href="/closed-loop/the-apparatus/section-12"
             className="text-oxblood hover:underline"

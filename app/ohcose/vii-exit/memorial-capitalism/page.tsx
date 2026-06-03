@@ -65,13 +65,13 @@ export default function MemorialCapitalism() {
           </div>
         </section>
         <section>
-          <SectionHead code="7.3.3" title="Memorial Catalogue" />
+          <SectionHead code="7.3.3" title="Memorial Catalog" />
           <p className="text-base leading-snug mb-md" style={{ color: "var(--color-ink-90)" }}>
             A representative extract from the Office's certified
-            memorial-product catalogue.
+            memorial-product catalog.
           </p>
           <MemorialCatalogue />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 7.3.A — Phase-VII memorial catalogue (extract)</p>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 7.3.A — Phase-VII memorial catalog (extract)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <a href="/ohcose/vii-exit/death-as-logistics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.2 death as logistics</a>
@@ -119,7 +119,7 @@ function MemorialCatalogue() {
       </table>
       <div className="mt-md text-center">
         <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
-          full catalogue: Annex 27 · cohort-median spend: 67,300 SU
+          full catalog: Annex 27 · cohort-median spend: 67,300 SU
         </span>
       </div>
     </div>

@@ -42,7 +42,7 @@ export default function EmotionalHygiene() {
           <SectionHead code="2.3.1" title="The Hygiene Premise" />
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
-              Emotional hygiene is the Phase-II analogue of the physical
+              Emotional hygiene is the Phase-II analog of the physical
               hygiene the schoolhouse instilled in earlier centuries.
               Where the schoolhouse once taught the subject to wash their
               hands, the certified Phase-II facility teaches the subject

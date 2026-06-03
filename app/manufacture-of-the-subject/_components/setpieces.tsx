@@ -5,7 +5,7 @@
    ============================================================ */
 import React, { useState, useEffect, useRef } from "react";
 
-/* shared: a labelled meter bar */
+/* shared: a labeled meter bar */
 export function Meter({
   label,
   pct,
@@ -173,7 +173,7 @@ export function LoopDemo() {
           {pulls >= 12 && (
             <div className="rev in" style={{ borderTop: "1px solid var(--bone-faint)", paddingTop: 12 }}>
               <span className="accuse" style={{ fontSize: 13 }}>
-                You pulled {pulls} times. Your wanting was the labour. The loop was the product.
+                You pulled {pulls} times. Your wanting was the labor. The loop was the product.
               </span>
             </div>
           )}
@@ -335,7 +335,7 @@ export function DesireTags() {
 }
 
 /* ------------------------------------------------------------
-   3 · THE AVATAR-SUBJECT — optimised toward the marketable mean
+   3 · THE AVATAR-SUBJECT — optimized toward the marketable mean
 ------------------------------------------------------------ */
 const TRAITS = [
   { id: "look", you: "your actual face", mkt: "the lit, symmetrical angle" },
@@ -438,7 +438,7 @@ export function AvatarSubject() {
             className="mono dim"
             style={{ fontSize: 9, letterSpacing: ".15em", textTransform: "uppercase" }}
           >
-            the profile, regularised
+            the profile, regularized
           </div>
           <Meter label="market legibility / reach" pct={reach} color="var(--acc)" />
           <div style={{ borderTop: "1px solid var(--bone-faint)", paddingTop: 12 }}>
@@ -466,7 +466,7 @@ export function AvatarSubject() {
 const SEAMS = [
   { t: "a reading group", d: "attention given slowly, to no metric" },
   { t: "a repair café", d: "use-value, recovered with your hands" },
-  { t: "an open-source project", d: "labour whose reward is the work" },
+  { t: "an open-source project", d: "labor whose reward is the work" },
   { t: "a fan archive kept for love", d: "held off the market, on purpose" },
   { t: "an afternoon with no feed in it", d: "the right to be bored" },
   { t: "people who love you off the record", d: "where no data is generated" },

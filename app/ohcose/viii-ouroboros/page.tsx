@@ -25,7 +25,7 @@ const SUB_PROTOCOLS = [
     slug: "post-human-harvest",
     code: "8.3",
     name: "The Post-Human Harvest",
-    summary: "The harvest after the subject. Lifelong record as input to next-cohort modelling. Yields of the closed apparatus.",
+    summary: "The harvest after the subject. Lifelong record as input to next-cohort modeling. Yields of the closed apparatus.",
   },
   {
     slug: "the-broadcast",

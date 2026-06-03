@@ -61,7 +61,7 @@ export default function LifecycleClosure() {
               full lifecycle, into the Office's apparatus. What returns
               at the closing is the demographic precision the subject's
               eighty years of measurement now afford the Office's
-              modelling of the next cohort.
+              modeling of the next cohort.
             </p>
             <p>
               See sub-protocol 8.1 for the structural account of the

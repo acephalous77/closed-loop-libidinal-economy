@@ -152,7 +152,7 @@ export default function TheColophonPage() {
           Author: Adnan Selimović. Apparatus design: A. Selimović with
           collaborator contributions documented in the manuscript&apos;s
           bibliography. The site is built atop the v1 closed-loop
-          rebuild; the v2 work catalogued at{" "}
+          rebuild; the v2 work cataloged at{" "}
           <Link
             href="/closed-loop/the-apparatus"
             className="text-oxblood hover:underline"

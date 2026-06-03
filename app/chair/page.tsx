@@ -421,7 +421,7 @@ function OHCOSE() {
   const phases: [string, string, string, string][] = [
     ["O", "Onboarding",  "days 1 – 7",     "Bonded fitting consultant. Ring engagement in a single visit. First night is, for most occupants, the deepest sleep of their adult life."],
     ["H", "Habituation", "days 8 – 90",    "Circadian and metabolic rhythms acclimate. By day 90, ≈ 94 % of occupants report the apparatus has receded from conscious attention."],
-    ["C", "Calibration", "months 4 – 12",  "The apparatus tunes feedback to the occupant's measured response profile. By month 12, behaviour is indistinguishable from intention."],
+    ["C", "Calibration", "months 4 – 12",  "The apparatus tunes feedback to the occupant's measured response profile. By month 12, behavior is indistinguishable from intention."],
     ["O", "Occupancy",   "year 2 →",       "Steady state. Productive output, biometric reads, content engagement route through the Service Ledger uninterrupted."],
     ["S", "Stewardship", "late life",      "Nutritional, pharmacological and ambient subsystems adjust to preserve continuous occupancy as output declines."],
     ["E", "Estate",      "post-mortem",    "Data record and productivity profile remain active. Eternal-tier configurations operate for 99 fiscal years."],

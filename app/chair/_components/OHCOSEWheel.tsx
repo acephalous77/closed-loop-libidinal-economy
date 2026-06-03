@@ -25,7 +25,7 @@ const PHASES: Phase[] = [
     note: "≈ 94% report by day 90 that the apparatus has receded from conscious attention." },
   { letter: "C", name: "Calibration", window: "months 4 – 12",  yield: 0.90,
     body: "The Biometric Integration tunes Content Stream, the Acknowledgment Cycle, and pharmacological adjuncts to the occupant's measured response profile.",
-    note: "Behaviour becomes indistinguishable, by the occupant's account, from their intention." },
+    note: "Behavior becomes indistinguishable, by the occupant's account, from their intention." },
   { letter: "O", name: "Occupancy",   window: "year 2 →",       yield: 1.00,
     body: "The steady state. The occupant inhabits the apparatus continuously. Productive output, biometric reads, and engagement route through the Service Ledger without interruption.",
     note: "Open-ended by contract. Most occupants never leave it." },

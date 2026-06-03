@@ -45,13 +45,13 @@ export default function MidlifeAffect() {
           </div>
         </section>
         <section>
-          <SectionHead code="5.5.2" title="The Industry Catalogue" />
+          <SectionHead code="5.5.2" title="The Industry Catalog" />
           <p className="text-base leading-snug mb-md" style={{ color: "var(--color-ink-90)" }}>
-            The Office's standard midlife regulation catalogue, an
+            The Office's standard midlife regulation catalog, an
             extract.
           </p>
           <CrisisCatalogue />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 5.5.A — Phase-V Affect Regulation Catalogue (extract)</p>
+          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 5.5.A — Phase-V Affect Regulation Catalog (extract)</p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <a href="/ohcose/v-peak-productivity/civic-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.4 civic anchoring</a>
@@ -99,7 +99,7 @@ function CrisisCatalogue() {
       </table>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
         <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
-          full catalogue: Annex 22 · partner-channel revenue share: standard
+          full catalog: Annex 22 · partner-channel revenue share: standard
         </span>
       </div>
     </div>

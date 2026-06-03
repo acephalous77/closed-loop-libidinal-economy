@@ -16,7 +16,7 @@ const AXES: Axis[] = [
     body: "The cadence at which the occupant's attention and affect are produced and answered. What Selimović calls Capture of Cadence.",
     inh: "Stiegler · cybernetic tradition", angle: -90 },
   { key: "e", name: "Economic", capture: "metering · price",
-    body: "The metering and pricing of the occupant's attention, affect and productive output. The Service Ledger meters; the Portfolio Optimisation Layer prices.",
+    body: "The metering and pricing of the occupant's attention, affect and productive output. The Service Ledger meters; the Portfolio Optimization Layer prices.",
     inh: "Berardi · Zuboff", angle: 150 },
   { key: "a", name: "Affective", capture: "modulation",
     body: "The modulation of which emotions the subject is permitted, or invited, to feel. The Biometric Integration reads continuously; the Content Stream responds.",

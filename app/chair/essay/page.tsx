@@ -63,7 +63,7 @@ export default function OnTheChair() {
             experiment because the apparatus&apos;s distribution is what
             makes it hard to see. It has a developmental morphology —
             what I have elsewhere called <em>OHCOSE</em>, a six-phase
-            lifecycle that organises the occupant&apos;s relation to it
+            lifecycle that organizes the occupant&apos;s relation to it
             from onboarding to estate.<Fn n="1" />
           </P>
           <P>
@@ -166,7 +166,7 @@ export default function OnTheChair() {
             — the closed loop running — and the analytic question is
             usually <em>which moment of the loop the occupant is currently
             inside</em>, rarely <em>which subsystem</em>. I call the
-            loop&apos;s temporal organisation <em>Capture of Cadence</em>.
+            loop&apos;s temporal organization <em>Capture of Cadence</em>.
             <Fn n="13" />
           </P>
 
@@ -267,7 +267,7 @@ export default function OnTheChair() {
           </P>
           <Pull>The smallness is the point.</Pull>
           <P>
-            What the moves preserve is the capacity to recognise the
+            What the moves preserve is the capacity to recognize the
             apparatus as an apparatus, and to act on the recognition. That
             recognition is what the rest of this project has been trying
             to make available.
@@ -506,8 +506,8 @@ function LoopDiagram() {
 function SubsystemsList() {
   const rows: [string, string, string, string][] = [
     ["desire-engines", "Desire Engines", "Content surfaces that generate desire-objects calibrated to the occupant's response profile.", "Deleuze & Guattari · Baudrillard · McLuhan"],
-    ["consent-loops", "Consent Loops", "Ritualised agreement architecture through which the occupant's participation is repeatedly legitimised.", "Foucault · legal-positivist tradition"],
-    ["compliance-monitors", "Compliance Monitors", "Continuous behavioural surveillance and correction systems.", "Foucault · Bentham · Zuboff"],
+    ["consent-loops", "Consent Loops", "Ritualised agreement architecture through which the occupant's participation is repeatedly legitimized.", "Foucault · legal-positivist tradition"],
+    ["compliance-monitors", "Compliance Monitors", "Continuous behavioral surveillance and correction systems.", "Foucault · Bentham · Zuboff"],
     ["surplus-reservoirs", "Surplus Reservoirs", "Data and capital aggregation systems where the apparatus stores what it has extracted.", "Marx, transposed · Zuboff"],
     ["feedback-rituals", "Feedback Rituals", "Micro-rewards and acknowledgments that reinforce continued participation.", "Klein · Winnicott · Skinner · casino industry"],
     ["affective-signal-translators", "Affective Signal Translators", "Biometric and neuro-monitoring systems that read the occupant's interior states.", "Preciado · Damasio · affective computing"],
@@ -575,7 +575,7 @@ function Coda() {
         apparatus. The position does not exist. What I have been able to
         do is describe the apparatus from a position inside it that has
         not yet been completely calibrated, and that retains the capacity
-        to recognise the calibration in progress.
+        to recognize the calibration in progress.
       </p>
       <p style={{
         fontFamily: FONT.serif, fontStyle: "italic", fontSize: "1.15rem",

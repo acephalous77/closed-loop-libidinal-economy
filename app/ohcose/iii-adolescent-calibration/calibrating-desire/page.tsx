@@ -61,13 +61,13 @@ export default function CalibratingDesire() {
         </section>
 
         <section>
-          <SectionHead code="3.1.2" title="The Subjectivity Catalogue" />
+          <SectionHead code="3.1.2" title="The Subjectivity Catalog" />
           <p className="text-base leading-snug mb-md" style={{ color: "var(--color-ink-90)" }}>
-            The Office maintains a catalogue of pre-approved Phase-III
+            The Office maintains a catalog of pre-approved Phase-III
             subjectivities. Each entry is a packaged identity-bundle:
             wardrobe register, music affiliation, semantic tic,
             consumption pattern, and adjacent peer cohort. Subjects are
-            presented with the catalogue continuously through the
+            presented with the catalog continuously through the
             digital architecture (see sub-protocol 3.3) and select among
             its entries at their own apparent initiative.
           </p>
@@ -75,7 +75,7 @@ export default function CalibratingDesire() {
           <SubjectivityCatalogue />
 
           <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 3.1.A — Sample page from the Phase-III Subjectivity Catalogue
+            Fig. 3.1.A — Sample page from the Phase-III Subjectivity Catalog
           </p>
         </section>
 
@@ -139,7 +139,7 @@ export default function CalibratingDesire() {
 }
 
 /**
- * Subjectivity Catalogue — mock catalogue-page layout in the style of
+ * Subjectivity Catalog — mock catalog-page layout in the style of
  * a wholesale-product brochure. Five "subject models" arranged in a
  * grid, each with a code, name, affect-register, and the consumption
  * channel it routes into.
@@ -166,7 +166,7 @@ function SubjectivityCatalogue() {
           OHCOSE · Phase III
         </div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.15rem", color: ink, letterSpacing: "0.03em" }}>
-          Subjectivity Catalogue — Cohort 2042
+          Subjectivity Catalog — Cohort 2042
         </div>
         <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: accent, fontWeight: 700 }}>
           Form OHCOSE-SC / GenC · vol. 14.2

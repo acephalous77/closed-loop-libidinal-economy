@@ -490,15 +490,15 @@ const PHASES: Phase[] = [
         Cognitive load is logged from the pupil. Emotional intensity
         from galvanic skin response. Time investment from the absence of
         motion. The sum is your Libidinal Investment (LI). The fraction
-        monetised is your Commodification Efficiency (CE). The residue
+        monetized is your Commodification Efficiency (CE). The residue
         is the Psychic Surplus (Ψ) the apparatus has been waiting for.
       </>
     ),
     leak: (
       <>
-        Behavioural surplus: the excess data emitted by a subject going
+        Behavioral surplus: the excess data emitted by a subject going
         about its life, harvested without consent and re-sold to predict
-        and shape its subsequent behaviour. The apparatus is the
+        and shape its subsequent behavior. The apparatus is the
         institutionalisation of the act of being read.
       </>
     ),

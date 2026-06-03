@@ -478,7 +478,7 @@ export function RedactionBar({
   );
 }
 
-// ─── Strike-through (single diagonal slash) for cancelling text ──────
+// ─── Strike-through (single diagonal slash) for canceling text ──────
 export function StrikeSlash({
   width = 120,
   thickness = 6,

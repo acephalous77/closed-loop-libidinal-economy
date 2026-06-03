@@ -1,7 +1,7 @@
 "use client";
 /* ============================================================
    TELEMETRY — the page surveils the reader
-   BirthOverlay (cold open) · Telemetry (live behavioural surplus)
+   BirthOverlay (cold open) · Telemetry (live behavioral surplus)
    ============================================================ */
 import React from "react";
 
@@ -93,7 +93,7 @@ export function BirthOverlay() {
   );
 }
 
-/* ---------- live behavioural-surplus readout ---------- */
+/* ---------- live behavioral-surplus readout ---------- */
 type TelemView = {
   events: number;
   depth: number;
@@ -207,7 +207,7 @@ export function Telemetry() {
     <div className={"telem" + (min ? " min" : "") + (paused ? " paused" : "") + (view.show ? " show" : "")}>
       <div className="telem-head" onClick={() => setMin((m) => !m)}>
         <span className="rec" />
-        <span className="telem-title">{paused ? "capture suspended" : "behavioural surplus — live"}</span>
+        <span className="telem-title">{paused ? "capture suspended" : "behavioral surplus — live"}</span>
         <span className="telem-tg">{min ? "▢" : "▬"}</span>
       </div>
       {!min && (

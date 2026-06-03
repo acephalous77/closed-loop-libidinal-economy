@@ -1462,7 +1462,7 @@ export default function ZineSpread() {
               {[
                 { l: "TI", v: m.TI.toFixed(2), c: PAPER, sub: "time invested" },
                 { l: "LI", v: m.LI.toFixed(2), c: PAPER, sub: "libidinal" },
-                { l: "CE", v: (m.CE * 100).toFixed(0) + "%", c: NEON_CYAN, sub: "monetised" },
+                { l: "CE", v: (m.CE * 100).toFixed(0) + "%", c: NEON_CYAN, sub: "monetized" },
                 { l: "Ψ", v: m.PS.toFixed(2), c: NEON_PINK, sub: "yours / theirs" },
               ].map((x) => (
                 <div key={x.l}>
@@ -1568,7 +1568,7 @@ export default function ZineSpread() {
           </div>
         </div>
         <Leakage
-          quote={<>Behavioural surplus: the excess data emitted by a subject going about its life, harvested without consent and re-sold to predict and shape its behaviour.</>}
+          quote={<>Behavioral surplus: the excess data emitted by a subject going about its life, harvested without consent and re-sold to predict and shape its behavior.</>}
           cite="— Zuboff · Selimović"
         />
       </PhaseSection>
@@ -2359,7 +2359,7 @@ function LetterFromOccupancy() {
             had written about a trip my husband and I took to Maine in
             2021, and the Stream connected it to a clip from someone
             else&apos;s vacation, and when the chime sounded I had the
-            feeling that I have learned to recognise as nostalgia. I
+            feeling that I have learned to recognize as nostalgia. I
             asked the Wellness Watch what was happening and it told me
             the memory had been preserved in the Service Ledger and
             would be retained for the duration of the contract. I asked
@@ -2369,7 +2369,7 @@ function LetterFromOccupancy() {
             wished.
           </p>
           <p style={{ margin: "0 0 1.2rem" }}>
-            We had not, I realised, spoken in some time. He is in the
+            We had not, I realized, spoken in some time. He is in the
             Park Slope cohort. I am in the Crown Heights cohort. He is
             on Pro and I am on Essential. I did not know how to ask the
             Watch why our cohorts were different. The Watch did not

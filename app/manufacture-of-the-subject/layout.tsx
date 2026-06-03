@@ -60,11 +60,11 @@ export const metadata: Metadata = {
     template: "%s — The Manufacture of the Subject",
   },
   description:
-    "The industrialisation of socialisation — how a human subject is produced, station by station, on a line that runs from crib to deathbed. An interactive descent through a life metered for profit: desire, attention and affect harvested at every life stage. By Adnan Selimović.",
+    "The industrialization of socialization — how a human subject is produced, station by station, on a line that runs from crib to deathbed. An interactive descent through a life metered for profit: desire, attention and affect harvested at every life stage. By Adnan Selimović.",
   keywords: [
     "the manufacture of the subject",
     "psychic surplus",
-    "behavioural surplus",
+    "behavioral surplus",
     "life-time value",
     "libidinal economy",
     "platform capitalism",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
     siteName: "autostimulus",
     title: "The Manufacture of the Subject",
     description:
-      "A political economy of the human lifecycle — socialisation as industry, crib to deathbed. An interactive descent.",
+      "A political economy of the human lifecycle — socialization as industry, crib to deathbed. An interactive descent.",
     url: `${SITE_URL}/manufacture-of-the-subject`,
     locale: "en_US",
   },
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Manufacture of the Subject",
     description:
-      "A political economy of the human lifecycle — socialisation as industry, crib to deathbed.",
+      "A political economy of the human lifecycle — socialization as industry, crib to deathbed.",
   },
 };
 
@@ -127,7 +127,7 @@ export default function ManufactureLayout({
             license: "https://creativecommons.org/licenses/by-sa/4.0/",
             isAccessibleForFree: true,
             keywords:
-              "psychic surplus, behavioural surplus, life-time value, libidinal economy, socialization, lifecycle, platform capitalism",
+              "psychic surplus, behavioral surplus, life-time value, libidinal economy, socialization, lifecycle, platform capitalism",
             author: {
               "@type": "Person",
               name: "Adnan Selimović",

@@ -7,7 +7,7 @@
  * these are sparse cinematic moments. Each diagram is one element on
  * dark ground — a line, a ticker, a stamp, a clock. No frames, no
  * captions inside the SVG. The text in the narrative around them
- * does the labelling work.
+ * does the labeling work.
  *
  *   01 Ontogenesis    — single dimension line (the empty footprint)
  *   02 Habitualization — single sedation curve, no axes

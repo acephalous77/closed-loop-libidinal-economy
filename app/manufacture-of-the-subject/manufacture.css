@@ -244,7 +244,7 @@
   .ecg polyline{stroke-dasharray:1400;stroke-dashoffset:1400;animation:ecg 2.1s linear infinite;}
 
   /* ============================================================
-     TELEMETRY — behavioural surplus readout
+     TELEMETRY — behavioral surplus readout
      ============================================================ */
   .telem{position:fixed;left:16px;bottom:16px;z-index:7000;width:282px;max-width:calc(100vw - 32px);
     background:rgba(8,8,8,.94);border:2px solid var(--bone);font-family:var(--f-mono);
@@ -424,7 +424,7 @@
   &.telem-ready .hb-btn{opacity:1;transform:none;pointer-events:auto;}
 
   /* ============================================================
-     RECEIPT — your behavioural surplus, itemized (thermal slip)
+     RECEIPT — your behavioral surplus, itemized (thermal slip)
      ============================================================ */
   .receipt{max-width:480px;margin:0 auto;font-family:var(--f-mono);color:var(--ink);}
   .receipt-perf{height:14px;background:

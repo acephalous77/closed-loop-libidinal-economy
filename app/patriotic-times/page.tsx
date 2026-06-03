@@ -91,7 +91,7 @@ const CHAPTERS: Chapter[] = [
   },
   {
     no: "III",
-    title: "The Theatre of Force",
+    title: "The Theater of Force",
     range: "2017—2020",
     thesis:
       "Federal forces deployed against citizens; state-sponsored cruelty as policy; right-wing mobilization into the streets.",

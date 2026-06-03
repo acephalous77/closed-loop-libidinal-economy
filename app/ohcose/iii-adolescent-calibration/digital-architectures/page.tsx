@@ -48,7 +48,7 @@ export default function DigitalArchitectures() {
               entertainment applications they have chosen. The Office
               experiences the suite as the principal Phase-III
               instrument: the platform through which subjectivity-
-              catalogue offerings (sub-protocol 3.1) are delivered, the
+              catalog offerings (sub-protocol 3.1) are delivered, the
               channel through which subculture recuperation pathways
               (sub-protocol 3.2) are launched, and the substrate from
               which the Phase-III Affective Officer reads the subject's

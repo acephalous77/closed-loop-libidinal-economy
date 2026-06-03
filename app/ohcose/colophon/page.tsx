@@ -122,7 +122,7 @@ export default function OhcoseColophon() {
               the Bell-Keyed Day, the Parent–Teacher Feedback Rubric, the
               Emotional Hygiene Compliance Report, the Yard Zone Map, the
               Consumption Pipeline, the Corridor Passage diagram, the
-              Subjectivity Catalogue, the Feed Composition Chart, the
+              Subjectivity Catalog, the Feed Composition Chart, the
               Wellness Dashboard, the Initiation Certificate — are
               instruments the work invented to make the manuscript's
               claims operable.

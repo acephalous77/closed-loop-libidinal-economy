@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const A = ARCHIVE;
 
 // ──────────────────────────────────────────────────────────────────
-// /chair/archive — catalogue of 2197 entries.
+// /chair/archive — catalog of 2197 entries.
 // REGISTER INVERSION: scholarly slate-blue cream.
 // ──────────────────────────────────────────────────────────────────
 
@@ -46,10 +46,10 @@ export const ENTRIES = [
     topic: "Material" },
   { num: "29", slug: "sensor-stack",         code: "2197.29",
     title: "Sensor Stack · Class III Reading",
-    summary: "The multi-modal sensor array catalogued against contemporary medical-device taxonomy.",
+    summary: "The multi-modal sensor array cataloged against contemporary medical-device taxonomy.",
     topic: "Design" },
-  { num: "33", slug: "cohort-2049-cataloguing", code: "2197.33",
-    title: "Cohort 2049 Cataloguing Operation",
+  { num: "33", slug: "cohort-2049-cataloging", code: "2197.33",
+    title: "Cohort 2049 Cataloging Operation",
     summary: "The state action by which the surviving devices were defaced and sealed.",
     topic: "Regulation" },
 ] as const;
@@ -79,7 +79,7 @@ export default function ArchiveIndex() {
             fontFamily: FONT.serif, fontSize: "clamp(56px, 9vw, 80px)",
             lineHeight: 0.94, letterSpacing: "-0.022em",
             fontStyle: "italic", fontWeight: 400, margin: 0, color: A.ink,
-          }}>Catalogue.</h1>
+          }}>Catalog.</h1>
           <p style={{
             margin: 0, fontFamily: FONT.serif, fontSize: 15, lineHeight: 1.55,
             color: A.inkDim, fontStyle: "italic",
@@ -171,12 +171,12 @@ export default function ArchiveIndex() {
           color: A.inkDim, fontStyle: "italic",
         }}>
           Compiled under the standing brief of Dossier 2197. Entries
-          are catalogued by the Office of Apparatus Studies, Imperial
+          are cataloged by the Office of Apparatus Studies, Imperial
           Archive.
         </p>
       </div>
 
-      <PlateFooter folio="VIII" total="XLII" section="Archive · catalogue" tokens={A} />
+      <PlateFooter folio="VIII" total="XLII" section="Archive · catalog" tokens={A} />
 
       <style>{`
         @media (max-width: 800px) {

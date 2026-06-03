@@ -34,7 +34,7 @@ export default function ClosureOfTheCycle() {
             The schematic below presents the seven Phases as one closed
             loop. The harvested surplus current that ran through every
             preceding sub-protocol returns at Phase VIII to the Office's
-            modelling apparatus, which uses the aggregate to re-tune the
+            modeling apparatus, which uses the aggregate to re-tune the
             calibration parameters that meet the next cohort at Phase I.
           </p>
           <OuroborosDiagram />
@@ -57,7 +57,7 @@ export default function ClosureOfTheCycle() {
               The subject does not, in the conventional sense, exit the
               loop. The loop continues to operate on the subject's
               archive across the ninety-nine post-mortem fiscal years,
-              and the archive continues to inform the modelling. The
+              and the archive continues to inform the modeling. The
               subject's contribution to the apparatus is measured in
               the persistence of the apparatus's accuracy over the
               cohorts that follow.
@@ -91,7 +91,7 @@ function OuroborosDiagram() {
       <g>
         <circle cx={cx} cy={cy} r={68} fill={fill} stroke={accent} strokeWidth="2" />
         <text x={cx} y={cy - 8} fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fontWeight="700" fill={accent}>OFFICE</text>
-        <text x={cx} y={cy + 10} fontSize="12" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>MODELLING</text>
+        <text x={cx} y={cy + 10} fontSize="12" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={stroke}>MODELING</text>
         <text x={cx} y={cy + 26} fontSize="11" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={strokeLight}>re-tunes next cohort</text>
       </g>
       {/* Phase nodes around the circle */}

@@ -72,7 +72,7 @@ export default function LineageIndex() {
           against the historical record. What was real, what
           wasn&apos;t, and what survives the verification. The
           interactive scrubber lives on the essay page; this is the
-          full catalogue.
+          full catalog.
         </p>
 
         {/* horizontal timeline */}

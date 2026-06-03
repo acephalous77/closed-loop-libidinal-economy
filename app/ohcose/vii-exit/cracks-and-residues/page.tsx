@@ -91,7 +91,7 @@ function AnomalyRegister() {
     { code: "A-01", pattern: "Refusal of Tier-3 transfer", action: "Soft outreach · quarterly review" },
     { code: "A-02", pattern: "Sustained mourning > 14 mo", action: "Bereavement Coaching Pathway" },
     { code: "A-03", pattern: "Unscheduled end-of-cycle declaration", action: "Form 27-Z · advance-directive review" },
-    { code: "A-04", pattern: "Estate-instrument refusal", action: "Legacy Counsellor referral" },
+    { code: "A-04", pattern: "Estate-instrument refusal", action: "Legacy Counselor referral" },
     { code: "A-05", pattern: "Continued political activity post-72", action: "Note on file · no intervention" },
     { code: "A-06", pattern: "Public off-script statement", action: "Communications-team review · soft correction" },
   ];

@@ -2,7 +2,7 @@
 /* ============================================================
    SENSORY + END-STATE
    Heartbeat (WebAudio, slows with age, flatlines at exit) ·
-   Receipt (your session's behavioural surplus, itemized)
+   Receipt (your session's behavioral surplus, itemized)
    ============================================================ */
 import React from "react";
 
@@ -117,7 +117,7 @@ export function Heartbeat() {
   );
 }
 
-/* ---------- the receipt: your behavioural surplus, itemized ---------- */
+/* ---------- the receipt: your behavioral surplus, itemized ---------- */
 type ReceiptData = { lines: [string, string, string][]; total: number; stamp: string };
 export function Receipt() {
   const [data, setData] = React.useState<ReceiptData | null>(null);
@@ -142,7 +142,7 @@ export function Receipt() {
             ["scroll depth reached", (p.depth || 0).toFixed(0) + "%", "how far you let it take you"],
             ["taps / intents", (p.taps || 0).toString(), "every press read as a preference"],
             ["terms dwelt on", (p.dwells || 0).toString(), "your curiosity, indexed"],
-            ["cursor distance", km + " km", "the labour of your attention, in motion"],
+            ["cursor distance", km + " km", "the labor of your attention, in motion"],
           ];
           const now = new Date();
           const stamp = now.toLocaleDateString("en-GB") + "  " + now.toTimeString().slice(0, 8);
@@ -195,7 +195,7 @@ export function Receipt() {
           <div className="receipt-merchant mono">THE APPARATUS &amp; CO.</div>
           <div className="receipt-t">RECEIPT — YOU</div>
           <div className="receipt-sub mono">
-            behavioural surplus generated this visit
+            behavioral surplus generated this visit
             <br />
             {data ? data.stamp : "—"}
             <br />
