@@ -178,8 +178,8 @@ export default function Section11Page() {
           <Caption>
             The original apparatus&apos;s open questions are all closed.
             Five new research-frontier questions surface from the
-            rebuild — well-formulated extensions rather than gaps in
-            the basic apparatus.
+            rebuild — well-formulated extensions of a complete
+            apparatus.
           </Caption>
           <Middle>
             <ol className="list-decimal pl-md space-y-sm">

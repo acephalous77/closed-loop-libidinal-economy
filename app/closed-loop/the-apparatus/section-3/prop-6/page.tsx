@@ -57,10 +57,10 @@ export default function Prop6Page() {
           body and platform intrinsic frequencies{" "}
           <M>{String.raw`|\omega_b - \omega_m|`}</M>, phase-locking
           occurs. The body&apos;s rhythm becomes the platform&apos;s.
-          Captured resonance: somatic rhythms are not protected from
-          media coupling by being &ldquo;biological.&rdquo; The
-          protection is a structural relation, and the platform&apos;s
-          parameters routinely cross the threshold.
+          Captured resonance: somatic rhythms are exposed to media
+          coupling regardless of being &ldquo;biological.&rdquo; Their
+          only protection is a structural relation, and the
+          platform&apos;s parameters routinely cross the threshold.
         </Caption>
 
         <Middle>
@@ -97,8 +97,9 @@ export default function Prop6Page() {
             <em>What the proposition authorizes the prose to claim.</em>{" "}
             <em>Captured resonance</em> is the formal name. Somatic
             rhythms — circadian, ultradian, cardiovascular,
-            attentional — are not protected by being biological. The
-            protection is structural: the relation between{" "}
+            attentional — are exposed to media coupling regardless of
+            being biological. Their only protection is structural: the
+            relation between{" "}
             <M>{String.raw`K_{bm}`}</M> and{" "}
             <M>{String.raw`|\omega_b - \omega_m|`}</M>. The platform
             sets the coupling strength by choosing delivery timing.
@@ -262,9 +263,9 @@ export default function Prop6Page() {
             locking occurs. The platform sets the coupling strength
             by choosing delivery timing; the threshold is, by the
             policy&apos;s convergence, routinely crossed. Somatic
-            rhythms are not protected from media coupling by being
-            &ldquo;biological.&rdquo; The protection is a structural
-            relation between <M>{String.raw`K_{bm}`}</M> and{" "}
+            rhythms are exposed to media coupling regardless of being
+            &ldquo;biological.&rdquo; Their only protection is a
+            structural relation between <M>{String.raw`K_{bm}`}</M> and{" "}
             <M>{String.raw`|\omega_b - \omega_m|`}</M>. The
             platform&apos;s parameters move users across the threshold.
           </p>

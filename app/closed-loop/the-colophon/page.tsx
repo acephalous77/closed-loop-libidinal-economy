@@ -235,7 +235,7 @@ export default function TheColophonPage() {
         <p className="text-base text-ink-90">
           Reading the colophon as a substantive document: each
           refusal cites the apparatus result that licenses it. The
-          framework is not separable from its presentation.
+          framework is inseparable from its presentation.
         </p>
       </section>
 
@@ -313,8 +313,8 @@ export default function TheColophonPage() {
         <p className="text-base text-ink-90">
           The apparatus content is rendered from a canonical manuscript
           source. Substantive changes to the apparatus flow upstream
-          from the manuscript; the site is the rendering, not the source
-          of truth.
+          from the manuscript; the manuscript is the source of truth,
+          and the site is its rendering.
         </p>
       </section>
 

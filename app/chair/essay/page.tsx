@@ -56,8 +56,8 @@ export default function OnTheChair() {
             directly.
           </P>
           <P>
-            A few things follow. The closed-loop libidinal economy is not
-            coming; it is here already, distributed across the platforms,
+            A few things follow. The closed-loop libidinal economy is
+            here already, distributed across the platforms,
             devices, and consent rituals we inhabit. Its concentration
             into a single piece of furniture is useful as a thought
             experiment because the apparatus&apos;s distribution is what
@@ -89,8 +89,8 @@ export default function OnTheChair() {
             desire is captured and re-circulated by the same apparatus
             that produces it. Lyotard proposed in 1974 that capitalism is
             most fruitfully approached &ldquo;through the lens of desire
-            or libido&rdquo; rather than as a system of material
-            production alone.<Fn n="3" />
+            or libido&rdquo; — against the frame that treats it as
+            material production alone.<Fn n="3" />
           </P>
           <P>
             The loop has two features that distinguish it from earlier
@@ -104,10 +104,10 @@ export default function OnTheChair() {
 
           <SectionMark n="III" title="Psychic Surplus" />
           <P>
-            What is the apparatus extracting? Not labor, exactly. The
-            Marxian construct of <em>surplus labor</em> does not quite
-            reach what the contemporary apparatus takes. We need a
-            parallel construct. I have called it <em>psychic surplus</em>:
+            What is the apparatus extracting? Something just past labor,
+            at labor&apos;s edge. The Marxian construct of <em>surplus
+            labor</em> does not quite reach what the contemporary
+            apparatus takes. We need a parallel construct. I have called it <em>psychic surplus</em>:
             the portion of our attention, affect, fantasy, and motivation
             that exceeds what is strictly required for biological survival
             and that can be captured and re-routed by the apparatus
@@ -124,7 +124,7 @@ export default function OnTheChair() {
 
           <SectionMark n="IV" title="OHCOSE" />
           <P>
-            The apparatus is not a single event but a developmental
+            The apparatus is a developmental
             sequence. I name its six phases OHCOSE: <em>Onboarding</em>,{" "}
             <em>Habituation</em>, <em>Calibration</em>, <em>Occupancy</em>,{" "}
             <em>Stewardship</em>, <em>Estate</em>. The apparatus relates
@@ -163,15 +163,15 @@ export default function OnTheChair() {
             The list of seven is misleading if read as a list of seven
             separate things. The subsystems are facets of one operation
             — the closed loop running — and the analytic question is
-            rarely <em>which subsystem</em> but <em>which moment of the
-            loop the occupant is currently inside</em>. I call the
+            usually <em>which moment of the loop the occupant is currently
+            inside</em>, rarely <em>which subsystem</em>. I call the
             loop&apos;s temporal organisation <em>Capture of Cadence</em>.
             <Fn n="13" />
           </P>
 
           <SectionMark n="VI" title="The Apparatus Already Exists" />
           <P>
-            The chair is a figure; the apparatus is not. Four
+            The chair is a figure. The apparatus is real. Four
             well-documented cases.
           </P>
           <P>
@@ -216,9 +216,9 @@ export default function OnTheChair() {
           <P>
             The lineage is partial. Two of the named devices shipped only
             in tiny quantities; the connections between iterations are
-            reconstructed retrospectively rather than documented
-            contemporaneously. The morphological argument is independent
-            of the contemporaneous-development one.<Fn n="18" />
+            reconstructed retrospectively; the contemporaneous record
+            does not document them. The morphological argument is
+            independent of the contemporaneous-development one.<Fn n="18" />
           </P>
 
           <SectionMark n="VIII" title="Tri-Axial Ouroboric Governance" />
@@ -250,7 +250,7 @@ export default function OnTheChair() {
           <P>
             <strong>One.</strong> Withhold the consent. The apparatus&apos;s
             grip is secured by the cumulative effect of small consents.
-            Refusing them does not destroy the apparatus; it forecloses
+            Refusing them leaves the apparatus standing but forecloses
             its legal alibis.
           </P>
           <P>
@@ -604,10 +604,10 @@ function Signature() {
 }
 
 const NOTES: { n: string; body: React.ReactNode }[] = [
-  { n: "1", body: <>OHCOSE is the working name for the six-phase lifecycle model. The phases are a research apparatus, not a literal timeline.</> },
+  { n: "1", body: <>OHCOSE is the working name for the six-phase lifecycle model. The phases are a research apparatus; the occupant&apos;s lived sequence may run them in any order.</> },
   { n: "3", body: <>Jean-François Lyotard, <em>Libidinal Economy</em> (1974); Grant&apos;s translation introduces the &ldquo;libido as method&rdquo; framing.</> },
-  { n: "4", body: <>Jean Baudrillard, <em>La société de consommation</em> (1970); the phrase is paraphrase, not citation.</> },
-  { n: "5", body: <>The term is mine but not original to me; see Selimović 2024 and the manuscripts for <em>Theory, Culture &amp; Society</em>.</> },
+  { n: "4", body: <>Jean Baudrillard, <em>La société de consommation</em> (1970); the phrase paraphrases Baudrillard in my own words.</> },
+  { n: "5", body: <>I use the term as my own, though I did not originate it; see Selimović 2024 and the manuscripts for <em>Theory, Culture &amp; Society</em>.</> },
   { n: "11", body: <>Melanie Klein, &ldquo;Notes on Some Schizoid Mechanisms&rdquo; (1946); D. W. Winnicott, <em>Playing and Reality</em> (1971).</> },
   { n: "13", body: <>Capture of Cadence is one of the project&apos;s named frameworks; see <Link href="/closed-loop/the-dynamics">the dynamics</Link>.</> },
   { n: "14", body: <>Kramer, Guillory, Hancock, &ldquo;Experimental evidence of massive-scale emotional contagion through social networks,&rdquo; <em>PNAS</em> 111 (2014): 8788–8790.</> },

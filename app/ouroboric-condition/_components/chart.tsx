@@ -403,13 +403,13 @@ export function AtlasChart({ onOpen, hovered, setHovered, narrow = false }: Char
       <div style={{ position: "absolute", left: 0, top: CODA_Y + 18, width: W, display: "flex", justifyContent: narrow ? "flex-start" : "center", paddingLeft: narrow ? GAUGE + 18 : 0, pointerEvents: "none" }}>
         <div style={{ width: narrow ? 560 : 760, maxWidth: W - 280 }}>
           <p className="serif" style={{ fontSize: 19, lineHeight: 1.5, color: L.ink, margin: 0, textWrap: "pretty" }}>
-            The map shows where the energy goes. It does not show whether it can be made to go elsewhere, and the honest position is to leave that open — not to pretend the diagnosis is already the cure.
+            The map shows where the energy goes. Whether it can be made to go elsewhere, the map does not show — and the honest position leaves that open. The diagnosis is where the cure would have to start.
           </p>
           <p className="serif" style={{ fontSize: 19, lineHeight: 1.5, color: L.ink, margin: "1.4em 0 0", textWrap: "pretty" }}>
-            The surplus is real. It is ours. It is the one thing the circuit cannot manufacture and must therefore take from us — and that, rather than any reassurance, is where the fight is.
+            The surplus is real. It is ours. It is the one thing the circuit cannot manufacture and must therefore take from us — and that is where the fight is. The register is the fight.
           </p>
           <p className="serif ital" style={{ fontSize: 24, lineHeight: 1.4, color: L.ink, margin: "1.55em 0 0", paddingLeft: 22, borderLeft: `2px solid ${L.oxide}` }}>
-            Whether we keep enough of it to matter is not something the map can tell us. It is the work the map is for.
+            Whether we keep enough of it to matter, the map cannot tell us. It is the work the map is for.
           </p>
           <div className="mono" style={{ fontSize: 10.5, letterSpacing: "0.18em", color: L.gloss, marginTop: 24 }}>
             THE PSYCHOPOLITICS OF PSYCHIC SURPLUS · A. SELIMOVIĆ

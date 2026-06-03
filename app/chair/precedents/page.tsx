@@ -59,7 +59,7 @@ export default function PrecedentsIndex() {
           fontFamily: FONT.serif, fontSize: 17, lineHeight: 1.55,
           fontStyle: "italic", color: T.inkDim,
         }}>
-          The chair is a figure; the apparatus is not. These are the
+          The chair is a figure. The apparatus is real. These are the
           four well-documented cases the main essay&apos;s § VI names.
           Each is a deployment, today, of a subsystem the chair
           integrates.

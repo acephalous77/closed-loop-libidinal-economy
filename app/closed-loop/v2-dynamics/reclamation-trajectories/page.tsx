@@ -114,8 +114,9 @@ export default function ReclamationTrajectoriesPage() {
               Roughly 5% of trajectories briefly pierce below the
               bound at large{" "}
               <M>{String.raw`T`}</M> — sample-fluctuation effects.
-              These don&apos;t falsify the framework; the bound is{" "}
-              <em>expected-MSE</em>, not minimum sample-MSE. The
+              These don&apos;t falsify the framework: the bound is on{" "}
+              <em>expected-MSE</em>, while a single realization&apos;s
+              sample-MSE can dip below it. The
               highlight emphasizes that even these rare trajectories
               remain in the operationally-infeasible regime: the
               estimator is &ldquo;lucky&rdquo; on one realization;

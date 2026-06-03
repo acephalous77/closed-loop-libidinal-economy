@@ -177,7 +177,7 @@ export default function Section5Page() {
               behavioral surplus the observation channel produces.
               The fourth-cell mode is the apparatus reading of
               Zuboff&apos;s policy implication: regulate{" "}
-              <M>{String.raw`O`}</M>, not just{" "}
+              <M>{String.raw`O`}</M> as well as{" "}
               <M>{String.raw`\hat R`}</M>.
             </p>
           </Middle>
@@ -331,8 +331,9 @@ export default function Section5Page() {
         <h2 className="font-serif text-lg text-ink mb-md">§5.1.1 Mode A scaffold — five features</h2>
         <DepthLayers>
           <Caption>
-            Mode A&apos;s formal possibility (Proposition 1&apos;) is
-            not its substantive political content. Effective
+            Mode A&apos;s formal possibility (Proposition 1&apos;)
+            states a structural condition; its substantive political
+            content is a further achievement. Effective
             architectural intervention requires five coupled features.
             The mathematics specifies the structural condition under
             which intervention works; the scaffold specifies what
@@ -391,14 +392,14 @@ export default function Section5Page() {
                 threshold, the cohort starts essentially at{" "}
                 <M>{String.raw`\pi_{\hat R}^*`}</M>; there is nothing
                 left to protect that has not already been foreclosed.
-                Cohort timing is what makes intervention substantive
-                rather than commemorative.
+                Cohort timing is what makes intervention substantive.
+                Without it, intervention is merely commemorative.
               </li>
             </ol>
             <p className="mb-sm">
-              The five-feature scaffold is what makes Proposition
-              1&apos; a substantive political claim rather than a
-              formal possibility. The mathematics specifies the
+              The five-feature scaffold is what turns Proposition
+              1&apos; from a formal possibility into a substantive
+              political claim. The mathematics specifies the
               structural condition under which intervention works;
               the scaffold specifies what must obtain for the
               structural condition to be reachable.

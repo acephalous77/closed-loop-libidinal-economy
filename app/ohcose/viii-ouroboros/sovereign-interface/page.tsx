@@ -59,7 +59,7 @@ export default function SovereignInterface() {
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
               That the interface and the world have become
-              indistinguishable is not a metaphor. The interface is
+              indistinguishable is a literal description. The interface is
               where work is done, where partnership is found, where
               children are conceived in negotiation, where grief is
               expressed, where the dead are remembered, where the

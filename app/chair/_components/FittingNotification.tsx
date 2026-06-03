@@ -281,7 +281,7 @@ export function FittingNotification({ delayMs = 45000 }: { delayMs?: number }) {
           <div style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.5, color: PAPER_DIM, marginBottom: 14 }}>
             You just consented to {appointment.name} at your door at {appointment.time} {appointment.day}.
             Adaeze Nwankwo consented at this stage. So did Jeremiah Walsh.
-            Their consents are on file. They are not.
+            Their consents are on file. The two of them are not.
           </div>
           <button
             onClick={() => setPhase("refused")}

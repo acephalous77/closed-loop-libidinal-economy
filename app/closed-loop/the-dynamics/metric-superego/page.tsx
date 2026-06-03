@@ -90,8 +90,8 @@ export default function MetricSuperegoPage() {
               : artisanal labor preserves a real gap{" "}
               <M>{String.raw`\gamma > 0`}</M> for the user who
               practices it. But the closure persists — Lemma 1's bound is
-              unchanged; the trajectory the user maintains is parallel to the
-              loop, not a modification of it. The framework's claim is that
+              unchanged; the trajectory the user maintains runs parallel to the
+              loop; it leaves the loop unmodified. The framework's claim is that
               Mode B is real for the practitioner and structurally invisible at
               the population level.
             </p>

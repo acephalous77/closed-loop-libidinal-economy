@@ -76,8 +76,8 @@ export default function HawkesPage() {
             four registers <M>{String.raw`k \in \{S, C, P, K\}`}</M>{" "}
             is modeled as a counting process{" "}
             <M>{String.raw`\{N_t^k\}`}</M> with a Hawkes intensity
-            that depends on the past of all four registers (not just
-            its own). An event on the somatic register can trigger
+            that depends on the past of all four registers, its own
+            among them. An event on the somatic register can trigger
             events on the cognitive, political, or kinaesthetic
             registers via the off-diagonal coupling weights{" "}
             <M>{String.raw`\alpha_{kl}`}</M>.
@@ -106,13 +106,14 @@ export default function HawkesPage() {
             cross-channel coupling consistently positive and
             decaying-kernel timescales on the order of minutes to
             hours. The framework&apos;s contribution is to relate the
-            coupling matrix to subject-formation: not merely that
-            engagement is self-exciting in aggregate, but that the
-            off-diagonal cross-register coupling —{" "}
+            coupling matrix to subject-formation: the off-diagonal
+            cross-register coupling —{" "}
             <M>{String.raw`\alpha_{kl}`}</M> for{" "}
             <M>{String.raw`k \neq l`}</M> — is what dissolves the
             older analytic separations between body, cognition,
-            polity, and habitus.
+            polity, and habitus. That engagement is self-exciting in
+            aggregate is the well-established part; the cross-register
+            coupling is the new claim.
           </p>
 
           <p className="mb-sm">
@@ -148,8 +149,8 @@ export default function HawkesPage() {
           <p className="mb-sm">
             <em>What the instrument authorizes the prose to claim.</em>{" "}
             The framework&apos;s prose can name cross-register
-            cascading events as Hawkes dynamics rather than as
-            metaphor. A burst of political engagement triggering
+            cascading events as Hawkes dynamics literally — no metaphor
+            required. A burst of political engagement triggering
             somatic activation triggering cognitive rumination
             triggering more political engagement — this is{" "}
             <M>{String.raw`\alpha_{PS} > 0, \alpha_{SC} > 0, \alpha_{CP} > 0`}</M>{" "}

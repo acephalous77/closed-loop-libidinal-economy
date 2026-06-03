@@ -62,16 +62,16 @@ export default function CohortGradientPage() {
               decreasing from cohort age 25 (~0.7) to cohort age 3 (~0.1). The
               oxblood dots mark the six cohort bins; hover any one to see the
               exact predicted value at that age. The shaded paper-85 band is
-              the framework's hedge on magnitude — not a confidence interval
-              in the classical sense, but an acknowledgement that the formal
-              mechanism is asserted, not derived from{" "}
+              the framework's hedge on magnitude. The band is no classical
+              confidence interval; it marks that the formal mechanism is
+              asserted, and equations (1)–(5) do not by themselves derive it —{" "}
               <a
                 href="/closed-loop/the-mathematics#1-the-closed-loop-dynamics"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
               >
                 equations (1)–(5)
               </a>{" "}
-              alone (see{" "}
+              do not yet derive it (see{" "}
               <a
                 href="/closed-loop/the-mathematics#8-open-formal-questions"
                 className="text-ink underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
@@ -93,7 +93,7 @@ export default function CohortGradientPage() {
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55]">
               The prediction sits beneath the framework's structural claims,
-              not above them. If the data look flat or inverted, the framework
+              resting on them. If the data look flat or inverted, the framework
               is wrong on the cohort gradient — the rest of the formal
               apparatus would survive that disconfirmation, but the most
               testable empirical commitment would not.

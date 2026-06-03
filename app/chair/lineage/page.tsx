@@ -25,7 +25,7 @@ export const LINEAGE = [
     subtitle: "Hartman's Integrated Office Workstation. Eighty-three units shipped.",
     tag: "thin" },
   { slug: "virtual-ouroboros",     num: "05", year: 1985, title: "The Virtual Ouroboros",
-    subtitle: "The brochure backdates by twenty years. The phenomenon is real; the date isn't.",
+    subtitle: "The brochure backdates by twenty years: the phenomenon is real, the date invented.",
     tag: "fabricated" },
   { slug: "ouroboros-life-system", num: "06", year: 2024, title: "The Ouroboros Life System",
     subtitle: "The seventh seat. The only iteration I have not had to verify against historical records.",

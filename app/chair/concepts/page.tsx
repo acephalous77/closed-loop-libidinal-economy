@@ -38,7 +38,7 @@ const CONCEPTS: Concept[] = [
     def: "Earlier extraction worked on quanta (hours, units). Contemporary extraction works on cadence — the rhythm at which the occupant's life proceeds. Cadence is not legible to the occupant the way labor-hours are.",
     inh: "Stiegler · Berardi" },
   { id: "IGLF", title: "Integrated Global Libidinal Frontier", tag: "Geopolitical scope",
-    def: "The configuration's planetary extension — the apparatus's portfolio-level optimisation across cohorts, not against any individual occupant but against the population's aggregate response profile.",
+    def: "The configuration's planetary extension — the apparatus's portfolio-level optimisation across cohorts, operating on the population's aggregate response profile, above the level of any individual occupant.",
     inh: "Lyotard · cybernetics tradition" },
   { id: "L-OURO", title: "Libidinal Ouroboros", tag: "Structural figure",
     def: "The figure of the snake devouring its own tail — the apparatus's structural confession. Every output the occupant generates routes back as input.",
@@ -134,8 +134,9 @@ export default function ConceptsPage() {
           fontFamily: FONT.serif, fontSize: 13.5, lineHeight: 1.6,
           color: T.inkDim, fontStyle: "italic",
         }}>
-          The concepts here are working definitions and not finalities;
-          revisions are tracked in <a href="/chair/colophon" style={{
+          The concepts here are working definitions, provisional and
+          open to revision; revisions are tracked in{" "}
+          <a href="/chair/colophon" style={{
             color: T.ink, textDecorationColor: T.accent,
           }}>/chair/colophon</a>.
         </p>

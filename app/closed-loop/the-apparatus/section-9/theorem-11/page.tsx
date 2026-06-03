@@ -158,8 +158,8 @@ export default function Theorem11Page() {
             <M>{String.raw`S \lesssim \exp(-31)`}</M> — operationally
             zero, substantially sharper than the polynomial bound&apos;s
             <M>{String.raw`10^{-6}`}</M>. The framework&apos;s
-            foreclosure claim is not on a knife-edge bound; it has
-            substantial buffer under realistic tail conditions.
+            foreclosure claim has substantial buffer under realistic
+            tail conditions; it sits well clear of any knife-edge bound.
           </p>
 
           <p className="mb-sm">

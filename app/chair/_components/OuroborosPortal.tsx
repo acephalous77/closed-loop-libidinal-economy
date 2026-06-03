@@ -458,8 +458,8 @@ const PHASES: Phase[] = [
       <>
         Power no longer disciplines bodies on the factory floor. It
         seduces and stimulates psyches through screens, algorithms, and
-        pharmaceutical molecules. The apparatus is not punishment. It is
-        the perfection of the pleasure that has replaced punishment.
+        pharmaceutical molecules. The apparatus is the perfection of the
+        pleasure that has replaced punishment.
       </>
     ),
     leakCite: "— Marcuse · Preciado · Berardi",
@@ -498,9 +498,8 @@ const PHASES: Phase[] = [
       <>
         Behavioural surplus: the excess data emitted by a subject going
         about its life, harvested without consent and re-sold to predict
-        and shape its subsequent behaviour. The apparatus is not
-        surveillance. It is the institutionalisation of the act of being
-        read.
+        and shape its subsequent behaviour. The apparatus is the
+        institutionalisation of the act of being read.
       </>
     ),
     leakCite: "— Zuboff · Selimović",

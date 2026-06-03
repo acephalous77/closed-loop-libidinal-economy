@@ -56,7 +56,7 @@ const MECHANISMS: Mechanism[] = [
   {
     slug: "chrono-debt",
     title: "chrono-debt spectrum",
-    description: <>the deficit in pause-time at every scale simultaneously; <M>{String.raw`D(t,\tau) = \Lambda_\circ(\tau) - \Lambda(t,\tau)`}</M> as a spectrum, not a quantity at one scale</>,
+    description: <>the deficit in pause-time at every scale simultaneously; <M>{String.raw`D(t,\tau) = \Lambda_\circ(\tau) - \Lambda(t,\tau)`}</M> as a spectrum across all scales at once</>,
     section: "§3.2",
   },
   {

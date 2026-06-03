@@ -96,8 +96,8 @@ export default function PhaseIIIAdolescentCalibration() {
           <p>
             The work proceeds along six sub-protocols. Phase-III subjects
             present greater volatility than Phase-II subjects; the Office's
-            instruments respond by deepening calibration rather than by
-            restraining the subject. Caregivers serving in Phase III are
+            instruments respond by deepening calibration. They do not
+            restrain the subject; they intensify. Caregivers serving in Phase III are
             asked to recognize that the subject's adolescent register
             requires the appearance of caregiver retreat. The retreat is
             permitted. The Office's instruments do not retreat.

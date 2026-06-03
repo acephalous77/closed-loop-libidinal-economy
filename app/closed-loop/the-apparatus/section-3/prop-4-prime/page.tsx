@@ -63,8 +63,9 @@ export default function Prop4PrimePage() {
         <Middle>
           <p className="mb-sm">
             The proposition asserts a property of the platform&apos;s
-            filter, not of the user. The user continues to be whatever
-            the user is. The platform, under closed-loop sampling at{" "}
+            filter. The user continues to be whatever the user is;
+            nothing here is claimed about the user. The platform, under
+            closed-loop sampling at{" "}
             <Link
               href="/closed-loop/the-apparatus/section-1/lemma-1"
               className="text-oxblood hover:underline"
@@ -134,16 +135,17 @@ export default function Prop4PrimePage() {
             a probability distribution that has, for practical
             purposes, collapsed to a point estimate. Three concrete
             consequences. First, ad targeting becomes individual-level
-            effective rather than cohort-level effective: the platform
+            effective: the platform
             knows what specific stimulus a specific{" "}
             <M>{String.raw`u_t^*`}</M> responds to with bounded
-            uncertainty. Second, dynamic pricing (where it is deployed)
+            uncertainty, where before it could target only at the
+            cohort level. Second, dynamic pricing (where it is deployed)
             can read the user&apos;s reservation price from prior
             behavior with vanishing uncertainty. Third, content
             selection narrows: the closed-loop optimization can
-            confidently exploit known reward signals rather than
-            explore, with the exploration–exploitation tradeoff
-            resolved structurally toward exploitation as{" "}
+            confidently exploit known reward signals, with the
+            exploration–exploitation tradeoff resolved structurally
+            toward exploitation as{" "}
             <M>{String.raw`t`}</M> grows.
           </p>
 

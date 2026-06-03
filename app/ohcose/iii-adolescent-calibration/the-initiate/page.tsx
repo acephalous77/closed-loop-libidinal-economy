@@ -84,7 +84,7 @@ export default function TheInitiate() {
               The Office's longitudinal evidence indicates that
               subjects who internalize the hustle frame experience
               their Phase-IV obligation servicing as personal
-              cultivation rather than as imposition. The internalization
+              cultivation. What an earlier subject would have felt as imposition, this subject feels as growth. The internalization
               materially reduces Phase-IV affective friction and is
               accordingly the Office's recommended exit posture from
               Phase III.

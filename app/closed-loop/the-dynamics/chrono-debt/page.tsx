@@ -64,18 +64,17 @@ export default function ChronoDebtPage() {
               <span className="font-mono">converged</span>. The realized
               survival curve (oxblood) collapses inward; the chrono-debt area
               (shaded oxblood) fills out across the whole τ axis. The deficit
-              accumulates at every scale, not at one preferred scale — a
-              foreclosed second and a foreclosed adolescence are not the same
-              quantity, but they are both present in D simultaneously.
+              accumulates at every scale simultaneously — a foreclosed
+              second and a foreclosed adolescence are different quantities,
+              and both are present in D at once.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               The aggregate readout uses the framework's default weighting{" "}
               <M>{String.raw`w(\tau) \propto \tau`}</M> — longer foreclosed
-              windows count more. The choice is not arbitrary; it reflects the
-              empirical claim that developmental and political consequences of
-              foreclosed pause-time scale with the foreclosed window's scale. A
-              foreclosed second is recoverable; a foreclosed adolescence is
-              not.
+              windows count more. The choice reflects an empirical claim: the
+              developmental and political consequences of foreclosed pause-time
+              scale with the foreclosed window's scale. A foreclosed second is
+              recoverable; a foreclosed adolescence is lost for good.
             </p>
           </section>
           <RelatedPlates

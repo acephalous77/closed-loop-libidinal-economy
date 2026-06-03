@@ -51,10 +51,9 @@ export default function RecessAsReleaseValve() {
               minimal.
             </p>
             <p>
-              Recess is therefore not a respite from the calibration
-              regime. It is a calibrated feature of the regime. The
-              subject experiences it as freedom. The Office records it
-              as a controlled release.
+              Recess is therefore a calibrated feature of the regime
+              itself. The subject experiences it as freedom. The Office
+              records it as a controlled release.
             </p>
           </div>
         </section>

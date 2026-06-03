@@ -177,7 +177,8 @@ export default function CradleAnchoring() {
               into that affective interval without disturbance. The
               data-officer's presence is calibrated to be informational and
               warm. The instruments are designed to evoke confidence in the
-              subject's lifelong infrastructure rather than apprehension.
+              subject's lifelong infrastructure. Apprehension is engineered
+              out.
             </p>
             <p>
               Caregivers who find themselves nonetheless apprehensive are

@@ -162,9 +162,9 @@ export default function AlgorithmicNurseries() {
               caregivers will not notice the rotation and the subject will
               not appear "advertised to." The exposure is ambient and
               continuous, in the same register as a parent's natural choice
-              of nursery décor — but produced according to the Office's
-              longitudinal evidence rather than the caregiver's individual
-              taste.
+              of nursery décor — produced according to the Office's
+              longitudinal evidence. The caregiver's individual taste does
+              not enter the rotation.
             </p>
             <p>
               Caregivers seeking additional reassurance are referred to

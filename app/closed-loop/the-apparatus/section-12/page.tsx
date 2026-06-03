@@ -367,9 +367,9 @@ export default function Section12Page() {
               collaboration.
             </p>
             <p className="mb-sm">
-              The reflexive problem is not solvable in principle, but
-              it can be partially mitigated by explicit methodological
-              practice. The framework&apos;s empirical credibility
+              The reflexive problem has no in-principle solution.
+              Explicit methodological practice can partially mitigate
+              it. The framework&apos;s empirical credibility
               depends on this practice being adopted by the research
               community.
             </p>

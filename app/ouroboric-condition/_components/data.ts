@@ -41,8 +41,8 @@ export const ATLAS_SITES: AtlasSite[] = [
     sub: 'the substrate', movement: 1, axis: '—', diagram: 'surplus',
     gloss: 'the excess of attention, curiosity, libido and care that remains after survival',
     prose: [
-      "After the day has taken its labor and its performed enthusiasm, a residue remains — not energy exactly, but charge: a diffuse, restless, unsatisfied capacity that nothing on offer was worth spending on. It is the substrate of everything that is not labor — friendship, play, art, organized political life — and a basic feature of psychic life, not a luxury. We are, constitutionally, creatures of excess.",
-      "It is not free time, not attention, not Zuboff's behavioral surplus — that is the data mined from it. Surplus used is directed toward an object of one's own choosing, at a pace one controls. Surplus captured is routed toward objects the system selects, at a pace it administers. The difference is sovereignty: who decides where the surplus goes.",
+      "After the day has taken its labor and its performed enthusiasm, a residue remains — a charge, more than energy in any literal sense: a diffuse, restless, unsatisfied capacity that nothing on offer was worth spending on. It is the substrate of everything that is not labor — friendship, play, art, organized political life — and a basic feature of psychic life. It is no luxury. We are, constitutionally, creatures of excess.",
+      "Psychic surplus is the live capacity itself. The behavioral surplus Zuboff named is only the data mined from it; free time and attention are likewise downstream of it. Surplus used is directed toward an object of one's own choosing, at a pace one controls. Surplus captured is routed toward objects the system selects, at a pace it administers. The difference is sovereignty: who decides where the surplus goes.",
     ],
     quote: 'Psychic surplus is what makes the subject structurally dangerous.', cite: 'Ch. 2',
     genealogy: ['Marx', 'Freud', 'Marcuse', 'Lyotard'],
@@ -78,9 +78,9 @@ export const ATLAS_SITES: AtlasSite[] = [
   {
     id: 'boredom', fig: '03', tone: 'dark', title: 'Boredom & Dead Air',
     sub: 'the colonization of the gap', movement: 2, axis: 'time', diagram: 'boredom',
-    gloss: 'not absence but the felt edge of uncaptured surplus — and the apparatus rushes to fill it',
+    gloss: 'the felt edge of uncaptured surplus — and the apparatus rushes to fill it',
     prose: [
-      "Boredom is misidentified as an absence — a gap in the stimulation supply. It is not absence but pressure: the felt experience of surplus that has not yet found its object. It is the dead air out of which other uses of attention might emerge — the bout that turns into a project, the restlessness that congeals into thought.",
+      "Boredom registers, to the apparatus, as an absence — a gap in the stimulation supply. It is pressure: the felt experience of surplus that has not yet found its object. It is the dead air out of which other uses of attention might emerge — the bout that turns into a project, the restlessness that congeals into thought.",
       "Which is why the apparatus cannot tolerate it. Every notification and autoplay exists to colonize the dead air before the surplus can congeal into something ungoverned. Boredom resists management; it is the condition the apparatus most fears.",
     ],
     quote: "That boredom is the crack in the serpent's jaw.", cite: 'Ch. 3',
@@ -121,7 +121,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     gloss: 'the voice in the ear that hails you — companionship that captures the residual attention',
     prose: [
       "The listener is driving home, the shift run long, the day's attention already drawn off. The podcast arrives as companionship — a voice in the ear, the sense of being addressed, hailed, recognized. It fills the commute, the chore, the dead hours, and in filling them captures the residual attention nothing else claimed.",
-      "No force is required. The apparatus does not coerce the listener; it is simply there, addressing him, whenever he reaches for it. Interpellation is the mechanism — the subject constituted by being hailed.",
+      "No force is required. The apparatus is simply there, addressing him, whenever he reaches for it. Interpellation is the mechanism — the subject constituted by being hailed.",
     ],
     quote: 'The serpent needs only to be there when he reaches for it. Force is unnecessary to close its jaw.', cite: 'Ch. 6',
     genealogy: ['Althusser', 'Stiegler'],
@@ -147,7 +147,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     sub: 'automation without elsewhere', movement: 3, axis: 'time', diagram: 'crisis',
     gloss: 'automation frees the time labor once absorbed — and the surplus has no credible elsewhere to go',
     prose: [
-      "After Tesla's We, Robot event, the Optimus robots greeting guests turned out to be remotely operated by humans. The spectacle sold autonomy; the labor was hidden. Automation is arriving in Stiegler's form, not the futurists' — proletarianizing workers without dramatically replacing them, decomposing skilled labor into microtasks.",
+      "After Tesla's We, Robot event, the Optimus robots greeting guests turned out to be remotely operated by humans. The spectacle sold autonomy; the labor was hidden. Automation is arriving in Stiegler's form — proletarianizing workers without dramatically replacing them, decomposing skilled labor into microtasks. The futurists' form, the dramatic replacement, is not what is happening.",
       "The surplus crisis is what happens to psychic surplus when the labor that once absorbed it is automated and the surplus has no credible elsewhere to go — visible already in the epidemiology of anxiety, the politics of resentment, the platform's capacity to absorb directionless desire as engagement.",
     ],
     quote: 'Whether anything exists between the automated labor and the captured surplus.', cite: 'Ch. 8',
@@ -161,7 +161,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     gloss: 'the system sells the cure for the damage it produces — a secondary loop at higher sophistication',
     prose: [
       "Once the loop's damage becomes legible, the system sells the repair: the wellness app, the meditation retreat, the therapy platform, the burnout book. It converts the system's damage into the system's market, producing a secondary loop — damage-repair-damage-repair — that sustains the ouroboros at a higher level of sophistication.",
-      "The tiredness sleep does not fix is not a protocol deficiency. It is the felt experience of a system that extracts from psychic surplus continuously and then sells the depleted subject the means of her own optimization.",
+      "The tiredness sleep does not fix is the felt experience of a system that extracts from psychic surplus continuously and then sells the depleted subject the means of her own optimization.",
     ],
     quote: "It converts the system's damage into the system's market.", cite: 'Ch. 9',
     genealogy: ['Marcuse', 'Stiegler'],
@@ -175,7 +175,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     gloss: 'the colonization of the space in which children form their relation to their own capacities',
     prose: [
       "The toddler reaches for the tablet with the same gesture she uses to reach for her mother's face — the reaching of a psyche in formation, extending toward the object that will hold it. Children have the most psychic surplus per unit of waking time, which makes them the most valuable target for capture and the most damaged by it.",
-      "The surplus does not disappear; it is routed into loops designed by adults in a corporate office, optimized for retention. The capture of surplus during development shapes the kind of self that emerges — habituated to receiving its objects of desire rather than generating them.",
+      "The surplus persists, routed into loops designed by adults in a corporate office, optimized for retention. The capture of surplus during development shapes the kind of self that emerges — habituated to receiving its objects of desire, its capacity to generate them left unexercised.",
     ],
     quote: "The toddler reaches for the tablet with the same gesture she uses to reach for her mother's face.", cite: 'Ch. 10',
     genealogy: ['Klein', 'Winnicott', 'Stiegler'],
@@ -213,7 +213,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     sub: 'where the encounter survives', movement: 4, axis: 'bond', diagram: 'glitch',
     gloss: 'sometimes the feed breaks, and the face the platform cannot render appears',
     prose: [
-      "Sometimes the feed breaks. Not technically — technically the feed never breaks, redundancy built into every layer, the autoplay primed. It breaks ethically: a face appears that the apparatus cannot render as data, a vulnerability that makes a demand preceding any calculation, and for a moment the scroll stops.",
+      "Sometimes the feed breaks. Technically it never breaks — redundancy built into every layer, the autoplay primed. It breaks ethically: a face appears that the apparatus cannot render as data, a vulnerability that makes a demand preceding any calculation, and for a moment the scroll stops.",
       "The glitch is where the ethical encounter survives the capture. But the event alone is not a politics. A politics requires that the face's demand be translated into institutional form — that the momentary constitution be held past the moment.",
     ],
     quote: 'Technically the feed never breaks.', cite: 'Ch. 13',
@@ -227,7 +227,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     gloss: 'the counter-principle — a politics of holding against the logic of capture',
     prose: [
       "The book has described a system that captures psychic surplus and converts it into shareholder value. Holding is the counter-concept. Capture extracts; holding maintains. Capture converts the person into a data object whose value is the value of the data; holding maintains the person as a person whose value cannot be assigned.",
-      "The interventions are collective demands, structural in scope — temporal sovereignty, the protection of the developmental commons, the revaluation of care — not adjustments to a lifestyle. Hope is not the closing register. A map of the terrain; a specification of the pressure points where the apparatus might be made to give.",
+      "The interventions are collective demands, structural in scope — temporal sovereignty, the protection of the developmental commons, the revaluation of care. No lifestyle adjustment is on offer here. Hope is not the closing register. A map of the terrain; a specification of the pressure points where the apparatus might be made to give.",
     ],
     quote: 'That is where politics starts.', cite: 'Ch. 14',
     genealogy: ['Winnicott', 'Levinas', 'Marx'],
@@ -240,7 +240,7 @@ export const ATLAS_SITES: AtlasSite[] = [
     gloss: 'the relational environment in which a person can exist without being reduced to a function',
     prose: [
       "Holding is Winnicott's name for the relational environment in which the infant's psyche develops — and by extension, the environment in which any person can exist without being reduced to a function. It is the counter-concept to capture. Where capture proletarianizes the capacities for attention, boredom, relationship, and play by decomposing them into operations the system performs on the user's behalf, holding leaves those capacities — with their friction, slowness, and occasional uselessness — in the hands of the person whose they are.",
-      "The platform has become the primary holding environment for hundreds of millions, offering transitional objects engineered for retention rather than development. To name holding is to name what the capture targets.",
+      "The platform has become the primary holding environment for hundreds of millions, offering transitional objects engineered for retention; development is foreclosed. To name holding is to name what the capture targets.",
     ],
     quote: 'Capture extracts; holding maintains.', cite: 'Intro',
     genealogy: ['Winnicott', 'Klein'],
@@ -278,12 +278,12 @@ const DEEPEN: Record<string, { stage: string; add?: string; quote?: string; quot
   },
   ouroboros: {
     stage: "the whole arc",
-    add: "Lyotard's wager was that every political economy is already a libidinal economy — that there is no clean wall between the circulation of capital and the circulation of desire. Foucault tracked power as it passed from the sovereign's sword to the discipline of the institution to the management of populations; what runs now is a further passage, into the government of the inner life. The factory did not close. It was relocated behind the eyes.",
+    add: "Lyotard's wager was that every political economy is already a libidinal economy — that there is no clean wall between the circulation of capital and the circulation of desire. Foucault tracked power as it passed from the sovereign's sword to the discipline of the institution to the management of populations; what runs now is a further passage, into the government of the inner life. The factory relocated behind the eyes.",
   },
   triaxial: { stage: "the whole arc" },
   boredom: {
     stage: "ontogenesis",
-    add: "The mechanism Marcuse named is repressive desublimation: a society that no longer represses the drive but discharges it on terms that defuse it. The toddler's restless energy is spent on a video rather than on mischief; the drive gets its release and loses its charge in the same motion, and the charge is the part that might have gone somewhere unscripted. The boredom that is the seedbed of invention is reclassified as a problem with a purchasable solution.",
+    add: "The mechanism Marcuse named is repressive desublimation: a society that licenses the drive's discharge on terms that defuse it, where an older order would have repressed it. The toddler's restless energy is spent on a video; the mischief it might have become never happens. The drive gets its release and loses its charge in the same motion, and the charge is the part that might have gone somewhere unscripted. The boredom that is the seedbed of invention is reclassified as a problem with a purchasable solution.",
   },
   satisfaction: {
     stage: "adolescence",
@@ -299,7 +299,7 @@ const DEEPEN: Record<string, { stage: string; add?: string; quote?: string; quot
   },
   cult: {
     stage: "adulthood",
-    add: "The adult is now asked to be a product as well as to buy them. The avatar-subject is the self lived increasingly through the profile — the persona that both expresses a person and reshapes them in the image of what the platform rewards. Subjectivity becomes an enterprise, a project in value-maximization, and Marcuse's verdict holds: a comfortable, smooth, reasonable, democratic unfreedom, which holds not by force but by the difficulty of imagining the alternative from inside a life this padded.",
+    add: "The adult is now asked to be a product as well as to buy them. The avatar-subject is the self lived increasingly through the profile — the persona that both expresses a person and reshapes them in the image of what the platform rewards. Subjectivity becomes an enterprise, a project in value-maximization, and Marcuse's verdict holds: a comfortable, smooth, reasonable, democratic unfreedom, which holds by the difficulty of imagining the alternative from inside a life this padded.",
   },
   crisis: {
     stage: "adulthood",
@@ -330,7 +330,7 @@ const DEEPEN: Record<string, { stage: string; add?: string; quote?: string; quot
   },
   held: {
     stage: "the remainder",
-    add: "This is sublimation in the unglamorous sense — a drive that becomes something made instead of something bought. A reading group, a repair café, an open-source project, a fan archive kept for love and held off the market. None of it is safe; the apparatus is patient, and it has absorbed every one of these before. The live question is whether a given place exists to be captured, or exists, first, for the people in it.",
+    add: "This is sublimation in the unglamorous sense — a drive that becomes something made: created, where it would otherwise be bought. A reading group, a repair café, an open-source project, a fan archive kept for love and held off the market. None of it is safe; the apparatus is patient, and it has absorbed every one of these before. The live question is whether a given place exists to be captured, or exists, first, for the people in it.",
   },
   holding: {
     stage: "the remainder",

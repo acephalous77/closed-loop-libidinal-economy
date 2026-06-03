@@ -151,15 +151,14 @@ export default function DynamicsIndex() {
         Twelve interactive plates. Each plate is a small machine: a
         reader operates the apparatus result against a parameter and
         sees the mechanism behave. The plates are the framework&apos;s
-        Machine surface — its claims are not only statable but
-        operable.
+        Machine surface — its claims are statable and operable.
       </p>
       <p className="text-base text-ink-70 italic max-w-prose mb-lg">
         Each plate carries a caption (the result in one sentence), a
         middle layer (what the controls do, what to look for), and a
         link back to the apparatus section that authorizes it. The
-        plates are pedagogical companions to the formal results, not
-        replacements.
+        plates are pedagogical companions to the formal results, which
+        they illustrate without standing in for.
       </p>
 
       <ol className="space-y-md">

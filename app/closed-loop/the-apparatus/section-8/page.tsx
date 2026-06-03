@@ -576,8 +576,8 @@ export default function Section8Page() {
               network. A user&apos;s distance from the platform target
               is bounded by the exponential decay in their
               <em> neighborhood&apos;s</em> average exposure{" "}
-              <M>{String.raw`\bar\tau_\mathrm{exp}(x)`}</M>, not just
-              their own. Developmentally-saturated communities pull
+              <M>{String.raw`\bar\tau_\mathrm{exp}(x)`}</M> — a collective
+              quantity, governed by the community, not by the user&apos;s own exposure alone. Developmentally-saturated communities pull
               their members toward the target faster: the cohort
               effect compounds through the graph.
             </Reads>

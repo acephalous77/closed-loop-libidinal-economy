@@ -69,11 +69,11 @@ export default function CapturedResonancePage() {
               vectors phase-lock and the lock indicator turns oxblood.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
-              The phenomenon is not metaphorical. It is the same Kuramoto
+              The phenomenon is literal: the same Kuramoto
               entrainment observed in circadian biology, in social
               synchronization, and in neural population dynamics. The framework
-              names the mechanism by which the apparatus crosses the threshold,
-              not the threshold itself.
+              names the mechanism by which the apparatus crosses the threshold;
+              the threshold itself lies outside it.
             </p>
           </section>
           <RelatedPlates

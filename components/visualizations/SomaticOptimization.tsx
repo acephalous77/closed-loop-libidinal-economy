@@ -192,7 +192,8 @@ export function SomaticOptimization() {
         below. Each tick is a marked point process: the differential of the
         body — saccades, taps, scroll-events, gaze shifts — under Hawkes
         intensity <M>{String.raw`\lambda^i(t) = \lambda_0^i + \sum_j \alpha_{ij} \int \kappa(t-s)\, dN_s^j`}</M>.
-        The optimization is over these somatic micro-events, not over
+        The optimization is over these somatic micro-events — the thumb's
+        contacts with the screen. Its object is the body's differential, not
         deliberative choice. Under the converged policy the raster
         concentrates near the technical floor; under Mode A intervention it
         thins back out.

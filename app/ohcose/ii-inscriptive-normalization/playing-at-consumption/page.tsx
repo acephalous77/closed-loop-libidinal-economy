@@ -42,8 +42,7 @@ export default function PlayingAtConsumption() {
           <SectionHead code="2.5.1" title="The Toy as Ambassador" />
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
-              A toy is no longer a toy in the Phase-II environment. The
-              toy is an ambassador. Each Office-approved Phase-II toy
+              In the Phase-II environment, a toy is an ambassador. Each Office-approved Phase-II toy
               comes embedded in an ecosystem: the toy itself, the
               accessory line, the supplementary characters sold
               separately, the affiliated bedding, breakfast cereal,
@@ -53,7 +52,7 @@ export default function PlayingAtConsumption() {
             </p>
             <p>
               The Office observes the subject's engagement with the
-              ecosystem rather than with the individual toy. The metric
+              ecosystem, not with the individual toy. The metric
               of interest is the subject's lateral expansion across the
               ecosystem's surfaces over the Phase-II span. A subject who
               completes their lateral expansion before age twelve is

@@ -57,8 +57,8 @@ export default function PhaseIOntogenesis() {
           <p>
             The work proceeds along six sub-protocols, administered in
             parallel from week one. Caregivers serving as auxiliary Phase-I
-            staff are reminded that compliance with the schedule is not
-            optional; the lifecycle does not accommodate delayed enrollment.
+            staff are reminded that compliance with the schedule is
+            mandatory; the lifecycle does not accommodate delayed enrollment.
           </p>
         </div>
       </section>

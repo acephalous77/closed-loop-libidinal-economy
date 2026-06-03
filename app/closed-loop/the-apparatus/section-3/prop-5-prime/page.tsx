@@ -99,7 +99,7 @@ export default function Prop5PrimePage() {
             learning are three distinct cognitive mechanisms; all three
             produce the same Fisher–Rao gradient flow at the operating-
             point linearization. The framework&apos;s claim is about
-            the linearization, not about which mechanism is at work.
+            the linearization. Which mechanism is at work is left open.
             This is why the metric-superego concept survives across
             psychological and cognitive-scientific traditions that
             otherwise disagree.
@@ -110,7 +110,7 @@ export default function Prop5PrimePage() {
             The user&apos;s self-evaluative distribution drifts toward
             the platform&apos;s ledger. The judging organ is the
             platform&apos;s metric, internalized as the user&apos;s
-            standard. This is not metaphor. The Fisher–Rao gradient
+            standard. This is literal. The Fisher–Rao gradient
             flow with <M>{String.raw`\pi_{\hat R}^*`}</M> as Lyapunov
             target is what is happening in the user&apos;s behavioral
             distribution under closed-loop exposure. The metric

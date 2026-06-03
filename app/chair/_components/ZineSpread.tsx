@@ -866,8 +866,8 @@ export default function ZineSpread() {
             advertisement for the Ouroboros Life System. You will not
             have searched for it. You will not have spoken its name to
             anyone. The advertisement will know what you read tonight.
-            This is not paranoia; it is the part of the apparatus we
-            have already documented.
+            Call it paranoia if you like; it is the part of the
+            apparatus we have already documented.
           </p>
           <p
             style={{
@@ -1948,7 +1948,7 @@ export default function ZineSpread() {
             "§3.0 — Nothing you produce leaves the system. Including this thought.",
             "§4.0 — Form §6 does not exist. It has not existed. It will not exist.",
             "§5.0 — Your consultant is your friend. Your consultant has been issued a script.",
-            "§6.0 — Standing is not a supported operation. Sitting is the supported operation.",
+            "§6.0 — Sitting is the only supported operation. Standing falls outside the menu.",
             "§7.0 — The loop chooses you. You have already chosen the loop. These are the same fact.",
             "§8.0 — The cohort you are in has already closed. The cohort you are entering is open.",
           ].concat([
@@ -2572,7 +2572,7 @@ function ConsultantTranscript() {
           the prospect on her phone, without the consultant&apos;s or
           the company&apos;s knowledge, and forwarded to us with her
           permission. Names and addresses redacted by the source.
-          Edited for length, not for tone.
+          Edited for length; the tone is untouched.
         </p>
 
         {/* The transcript itself */}
@@ -2712,7 +2712,7 @@ function FittingConsultantBlacklist() {
         >
           Verified fitting consultants currently active in the cohort 2026.02 region.
           Compiled from cohort meetings and recovered ID badges. Numbers are spoofable;{" "}
-          <strong style={{ color: NEON_PINK, fontWeight: 700 }}>names + descriptions + regions are not</strong>. If a stranger appears at your door matching any of these, do not open.
+          <strong style={{ color: NEON_PINK, fontWeight: 700 }}>names, descriptions, and regions hold</strong>. If a stranger appears at your door matching any of these, do not open.
         </p>
 
         <div

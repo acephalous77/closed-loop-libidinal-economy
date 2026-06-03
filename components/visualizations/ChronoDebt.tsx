@@ -302,8 +302,8 @@ export function ChronoDebt() {
         The vertical gap between them at any τ is the chrono-debt at scale τ —
         the pause-time that has been foreclosed at that scale. The framework's
         observation is that D is non-zero across the entire τ axis
-        simultaneously: not localized at one preferred scale but accumulated
-        everywhere, weighted by{" "}
+        simultaneously: accumulated everywhere, at every scale at once, with
+        no single preferred scale where it concentrates, weighted by{" "}
         <M>{String.raw`w(\tau) \propto \tau`}</M> so that longer foreclosed
         windows count more. A foreclosed second is recoverable; a foreclosed
         adolescence is not.

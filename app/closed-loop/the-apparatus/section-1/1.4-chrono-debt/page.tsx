@@ -124,8 +124,8 @@ export default function ChronoDebtPage() {
             The instrument&apos;s substantive content: what the
             closure removes is a spectrum of foreclosed intervals,
             foreclosed time resolved scale by scale. A foreclosed
-            second is recoverable. A foreclosed adolescence is not.
-            The weighting function
+            second is recoverable. A foreclosed adolescence is lost
+            for good. The weighting function
             encodes which scales of foreclosed survival the analysis
             cares about; the framework&apos;s default linear weighting
             encodes the claim that a foreclosed adolescence weighs

@@ -42,9 +42,10 @@ export default function InterventionPage() {
               §5
             </a>{" "}
             of the formal exposition states three formally distinct modes of
-            intervention on the closed loop. They are not three flavors of the
-            same intervention; they are three different operations on three
-            different objects in the apparatus. The framework's central
+            intervention on the closed loop. They are three different
+            operations on three different objects in the apparatus. They share
+            no common mechanism that would make them flavors of one
+            intervention. The framework's central
             political claim is that only Mode A breaks{" "}
             <a
               href="/closed-loop/the-dynamics/causal-chain"

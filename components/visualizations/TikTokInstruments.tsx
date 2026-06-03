@@ -101,7 +101,7 @@ const PANELS: Panel[] = [
         distribution — converges toward whatever produces a high count, and
         the count IS the platform's reward-induced distribution{" "}
         <M>{String.raw`\pi_{\hat{R}}`}</M> made visible. The
-        D_KL collapse is not hidden — it is the platform's UX.
+        D_KL collapse is on the surface — it is the platform's UX.
       </>
     ),
     mathSection: "#3-the-six-instruments",

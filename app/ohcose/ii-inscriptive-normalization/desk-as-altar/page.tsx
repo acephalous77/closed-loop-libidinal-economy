@@ -97,8 +97,8 @@ export default function DeskAsAltar() {
             <p>
               Caregivers who observe Phase-II classrooms occasionally
               report that the children appear unusually compliant. This
-              is the calibration working. Compliance under Phase II is not
-              imposed; it is invited, and the subject accepts. The Office
+              is the calibration working. Compliance under Phase II is
+              invited, and the subject accepts. No imposition is needed. The Office
               prefers this mechanism because it produces no resistance
               record, and because it generalizes naturally into the
               workplace registers of Phases IV and V.

@@ -42,8 +42,8 @@ export default function SomaticOptimizationPage() {
             >
               the six instruments
             </a>{" "}
-            (§3.5). Engagement is not a sequence of choices. It is a counting
-            process. The marked process{" "}
+            (§3.5). Engagement is a counting process. No sequence of choices
+            underlies it. The marked process{" "}
             <M>{String.raw`N_t^i`}</M> has Hawkes intensity{" "}
             <M>{String.raw`\lambda^i(t) = \lambda_0^i + \sum_j \alpha_{ij} \int \kappa(t-s)\, dN_s^j`}</M>{" "}
             — events cluster via cross-excitation between registers. The{" "}
@@ -77,8 +77,8 @@ export default function SomaticOptimizationPage() {
               Switch to <M>{String.raw`\text{with-bonus } (\beta = 10)`}</M> —
               Mode A — and the stimulus lane thins back out. The architectural
               intervention bears on the rate at which the differential is taken
-              from the body; the body is not the actor in the loop, it is what
-              the loop integrates against.
+              from the body; the body is what the loop integrates against. The
+              loop acts on it.
             </p>
             <p className="font-serif text-base text-ink-90 leading-[1.55]">
               The lanes are colored by register: S oxblood, C ink-90, P ink-70,

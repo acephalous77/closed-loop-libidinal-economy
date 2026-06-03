@@ -45,11 +45,11 @@ export default function CaregiverAsInfrastructure() {
             <p>
               At cradle anchoring (sub-protocol 1.1), the Office issues each
               subject a primary and a secondary caregiver designation.
-              Caregivers are auxiliary Phase-I contractors. They are not
-              compensated by the Office in fiscal currency; they are
-              compensated in the form of subject continuity and in the
-              Office's certification of their compliance posture, which
-              attaches benefits across their own active phase.
+              Caregivers are auxiliary Phase-I contractors. The Office
+              compensates them in subject continuity and in certification
+              of their compliance posture, which attaches benefits across
+              their own active phase. Fiscal currency does not enter the
+              arrangement.
             </p>
             <p>
               The caregiver's mandate is straightforward. Love is the first

@@ -33,8 +33,9 @@ export default function AlgorithmicMentorship() {
               Each Phase-IV subject is assigned a Continuous Mentor at
               onboarding. The Mentor is delivered through the same
               digital architecture that served Phase III (sub-protocol
-              3.3). It now performs a different function: not affective
-              calibration, but career-trajectory shepherding.
+              3.3). It now performs a different function: where Phase III
+              ran affective calibration, Phase IV runs career-trajectory
+              shepherding.
             </p>
             <p>
               The Mentor recommends. The Mentor flags. The Mentor

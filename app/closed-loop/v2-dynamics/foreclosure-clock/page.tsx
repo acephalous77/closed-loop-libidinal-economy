@@ -206,9 +206,9 @@ export default function ForeclosureClockPage() {
               >
                 Theorem 11
               </Link>
-              ) — would require a Weibull-shape ISI distribution
-              rather than the exponential simplification this plate
-              uses. Phase 3&apos;s full sim engine handles those
+              ) — would require a Weibull-shape ISI distribution; this
+              plate uses the exponential simplification instead.
+              Phase 3&apos;s full sim engine handles those
               tail-shape variations.
             </p>
           </Formal>

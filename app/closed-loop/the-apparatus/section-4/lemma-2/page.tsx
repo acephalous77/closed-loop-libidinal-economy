@@ -128,10 +128,10 @@ export default function Lemma2Page() {
 
           <p className="mb-sm">
             The policy-design corollary follows. A regulator
-            considering a Mode A intervention is not choosing between
-            &ldquo;regulate&rdquo; and &ldquo;don&apos;t
-            regulate&rdquo; but choosing a point on a continuous
-            curve indexed by <M>{String.raw`\beta`}</M>. Larger{" "}
+            considering a Mode A intervention is choosing a point on a
+            continuous curve indexed by <M>{String.raw`\beta`}</M>. The
+            binary &ldquo;regulate / don&apos;t regulate&rdquo; never
+            describes the real decision. Larger{" "}
             <M>{String.raw`\beta`}</M> yields more pause-instantiation
             and less platform-side reward; the curve is monotone in
             both, and smooth. The policy question is therefore

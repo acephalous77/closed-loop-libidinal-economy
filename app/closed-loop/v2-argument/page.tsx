@@ -185,7 +185,8 @@ export default function CuratedArgumentPage() {
           metric.
         </p>
         <p className="text-base text-ink-90 mb-sm">
-          The convergence is dynamical, not chosen. Under the
+          The convergence is dynamical — it happens to the user, who
+          undergoes it and does not author it. Under the
           framework&apos;s plasticity hypothesis (axiom U3) — which
           unifies free-energy minimization, operant reinforcement,
           and Bayesian social learning at the operating-point
@@ -193,7 +194,7 @@ export default function CuratedArgumentPage() {
           follows a Fisher–Rao gradient flow with the platform-
           induced target as its strict Lyapunov sink. The KL
           distance decreases monotonically to zero. The capture is
-          structural, not motivational.
+          structural; it operates regardless of what the user wants.
         </p>
         <p className="text-base text-ink-90">
           What Adorno called the metric of inner damage gestures at
@@ -228,10 +229,10 @@ export default function CuratedArgumentPage() {
           The pause is operationally absent.
         </p>
         <p className="text-base text-ink-90 mb-sm">
-          The foreclosure is not destruction. Not erasure.
-          Uninstantiation. The user-state continues to exist; the
-          user continues to register, to feel, to choose, to refuse.
-          What is absent is the architectural condition for a
+          The foreclosure is uninstantiation. The user-state
+          continues to exist; the user continues to register, to
+          feel, to choose, to refuse. What never gets installed is
+          the architectural condition for a
           specific kind of internal motion: the reflective interval
           at which the older critical traditions situated their
           subject. The conditioning event under which a
@@ -259,8 +260,8 @@ export default function CuratedArgumentPage() {
           inter-stimulus interval, the difference between the closed-
           loop survival function and the pre-closure baseline is the
           debt the closure has accumulated. A foreclosed second is
-          recoverable. A foreclosed adolescence is not. The
-          weighting that prioritizes longer scales is the
+          recoverable. A foreclosed adolescence is lost for good.
+          The weighting that prioritizes longer scales is the
           framework&apos;s default — and the political content of
           the instrument.
         </p>
@@ -270,8 +271,8 @@ export default function CuratedArgumentPage() {
         <h2 className="font-serif text-lg text-ink mb-md">5. The body&apos;s clocks captured</h2>
         <p className="text-base text-ink-90 mb-sm">
           Somatic rhythms — circadian, ultradian, cardiovascular,
-          attentional — are not protected from media coupling by
-          being biological. The protection is structural: the
+          attentional — are exposed to media coupling regardless of
+          being biological. Their only protection is structural: the
           relation between the platform&apos;s coupling strength{" "}
           <M>{String.raw`K_{bm}`}</M> and the frequency difference{" "}
           <M>{String.raw`|\omega_b - \omega_m|`}</M> between the
@@ -292,7 +293,7 @@ export default function CuratedArgumentPage() {
           <M>{String.raw`\theta^*`}</M>, the coupling routinely
           crosses the threshold. Captured resonance is what the
           closure&apos;s temporal dynamics produce in the somatic
-          register: not metaphor, structural relation. The
+          register — a structural relation. The
           chronopolitical analysis the framework licenses is built
           on this mechanism extended across registers and
           time-scales.

@@ -46,12 +46,13 @@ export default function PhaseVIIIOuroboros() {
         <div className="font-mono uppercase mb-md" style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>Phase Statement</div>
         <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
           <p>
-            Phase VIII is not a phase of the subject's lifecycle.
             Phase VIII is the apparatus's own description of what the
-            seven preceding phases have, between them, produced. The
-            Office presents Phase VIII not as a calibration to perform
-            on the subject but as the structural account of the
-            closure that the cycle, as cycle, performs on itself.
+            seven preceding phases have, between them, produced. It does
+            not sit in the subject's lifecycle; it stands outside the
+            sequence and accounts for it. The Office presents Phase VIII
+            as the structural account of the closure that the cycle, as
+            cycle, performs on itself — no calibration to perform on the
+            subject, for once.
           </p>
           <p>
             The Ouroboros Machine is the name the Office uses for the

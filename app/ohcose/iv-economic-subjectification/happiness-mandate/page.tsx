@@ -33,8 +33,8 @@ export default function HappinessMandate() {
             <p>
               The Phase-IV workplace expects the subject to deliver
               productive output and a sustained positive affect. The
-              two deliverables are not separable in the Office's
-              published guidance to employers; a worker delivering
+              Office's published guidance to employers binds the two
+              deliverables together; a worker delivering
               output without the affect is recorded as a
               calibration-pending case. The Office considers sustained
               positive affect to be the cheapest available proxy for

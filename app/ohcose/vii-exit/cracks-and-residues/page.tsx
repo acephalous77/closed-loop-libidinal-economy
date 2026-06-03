@@ -57,9 +57,9 @@ export default function CracksAndResidues() {
           <SectionHead code="7.5.3" title="On Residues" />
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
-              A residue is not a failure. A residue is the portion of
-              the subject's affective signal the Office's instruments
-              could not convert. The Office's published guidance is
+              In the Office's accounting, a residue is an expected
+              remainder: the portion of the subject's affective signal
+              its instruments could not convert. The Office's published guidance is
               that residues are inevitable, are recorded but not
               actively pursued, and are expected to settle within two
               cohort generations as the residue-producer ages out and

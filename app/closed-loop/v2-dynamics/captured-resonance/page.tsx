@@ -134,8 +134,8 @@ export default function CapturedResonancePage() {
 
             <p className="mb-sm">
               <em>What the proposition authorizes the prose to claim.</em>{" "}
-              Somatic rhythms are not protected from media coupling
-              by being biological. The protection is the structural
+              Somatic rhythms are exposed to media coupling regardless
+              of being biological. Their only protection is the structural
               relation between <M>{String.raw`K_{bm}`}</M> and{" "}
               <M>{String.raw`|\omega_b - \omega_m|`}</M>. The platform
               sets the coupling strength by choosing delivery timing.

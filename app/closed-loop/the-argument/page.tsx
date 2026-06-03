@@ -62,9 +62,9 @@ export default function TheArgumentIndexPage() {
           {/* Framing — the prose's own self-description, in epigraph register. */}
           <figure className="my-lg max-w-[var(--measure)]">
             <blockquote className="font-serif italic text-md text-ink-70 leading-snug border-l-2 border-paper-85 pl-sm">
-              The mathematics is the spine; the prose is the body. The two
-              halves are not redundant. They are not summary and elaboration.
-              The formalism is what makes the prose's structural claims
+              The mathematics is the spine; the prose is the body. Each half
+              does work the other cannot. The formalism is what makes the
+              prose's structural claims
               refusable; the prose is what makes the formalism's structural
               claims sayable in the registers that have produced the readers
               the document is for.
@@ -76,8 +76,8 @@ export default function TheArgumentIndexPage() {
             architecture's specification, through democratic substrate, through
             formation, to adult end-state. The coda turns back on the document
             itself — what it is, what it is not, what its open questions are,
-            and the position from which it closes. The pieces are not
-            independent essays but registers of a single argument.
+            and the position from which it closes. The pieces are registers
+            of a single argument.
           </p>
 
           <PiecesArc pieces={PIECES} />

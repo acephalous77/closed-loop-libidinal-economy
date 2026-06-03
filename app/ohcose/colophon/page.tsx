@@ -31,7 +31,7 @@ export default function OhcoseColophon() {
         </h1>
         <p className="mt-md text-base leading-snug" style={{ color: "var(--color-ink-70)" }}>
           The page that breaks character. What this document actually is,
-          who made it, what it is not.
+          who made it, and what it only appears to be.
         </p>
       </header>
 
@@ -107,8 +107,8 @@ export default function OhcoseColophon() {
               The site is built from a manuscript draft titled simply{" "}
               <em>OHCOSE</em> (December 2025) — an eight-chapter document
               describing the lifecycle Phases I–VII plus a closing chapter
-              on the Ouroboros Machine. The on-site work is not a
-              transcription of that manuscript. The voice has been recast:
+              on the Ouroboros Machine. The on-site work recasts the
+              manuscript, going beyond transcription. The voice has been recast:
               the critical-theory analytical layer has been removed; the
               in-character Office voice has been drafted fresh per page
               and run through the author's de-AI principles. The manuscript

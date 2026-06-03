@@ -107,12 +107,12 @@ export default function Prop7PrimePage() {
             closure. Lyotard&apos;s libidinal economy — desire flowing
             across registers without respect for analytic separations —
             is what the closed loop produces operationally. Subject,
-            Citizen, Person, Consumer are no longer dynamically
-            decoupled. They are dependently distributed via the
+            Citizen, Person, Consumer, once dynamically decoupled, are
+            now dependently distributed via the
             platform&apos;s observation channel. The pre-closure
-            baseline (factorizing prior) is a modeling choice, not a
-            counterfactual to be derived: the framework specifies what
-            libidinal routing <em>is</em>, given the baseline.
+            baseline (factorizing prior) is a stipulated modeling
+            choice: the framework takes it as given and specifies what
+            libidinal routing <em>is</em>, relative to it.
           </p>
 
           <p className="mb-sm">
@@ -288,13 +288,12 @@ export default function Prop7PrimePage() {
           <p className="text-base text-ink-90">
             Proposition 7&apos; supplies the formal content of
             Lyotard&apos;s <em>libidinal economy</em> claim. The four
-            registers — Subject, Citizen, Person, Consumer — are no
-            longer dynamically decoupled; they are dependently
+            registers — Subject, Citizen, Person, Consumer — once
+            dynamically decoupled, are dependently
             distributed under closed-loop, with the dependence routed
             through the platform&apos;s joint observation channel.
-            The pre-closure baseline is a modeling choice (factorizing
-            prior <M>{String.raw`p_0`}</M>), not a counterfactual to
-            be derived. Closed-loop joint observation couples the
+            The pre-closure baseline is a stipulated modeling choice
+            (factorizing prior <M>{String.raw`p_0`}</M>). Closed-loop joint observation couples the
             registers via explaining-away — a textbook property of
             Bayesian networks (Pearl 1988, Ch. 2).
           </p>

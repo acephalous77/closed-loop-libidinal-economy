@@ -268,8 +268,7 @@ export default function Section0Page() {
               The next user state is drawn from a kernel that depends
               on the current state and the stimulus just delivered.
               The user evolves on their own, and the platform&apos;s
-              stimulus is one input to that evolution — not the whole
-              of it.
+              stimulus is one of the inputs to that evolution.
             </Reads>
 
             <p className="mb-sm">
@@ -332,7 +331,8 @@ export default function Section0Page() {
               distribution is <M>{String.raw`\mathcal{D}(\theta)`}</M> —
               the world <M>{String.raw`\theta`}</M> itself induces —
               and that self-dependence is what makes the problem
-              performative rather than ordinary optimization.
+              performative. Ordinary optimization has no such
+              self-dependence.
             </Reads>
 
             <p className="mb-sm">
@@ -344,8 +344,8 @@ export default function Section0Page() {
               Each step nudges the policy uphill on its score by a
               shrinking amount <M>{String.raw`\alpha_t`}</M>. The
               Robbins–Monro schedule below keeps the steps large
-              enough to travel the whole way to the target but small
-              enough to settle there rather than overshoot.
+              enough to travel the whole way to the target and small
+              enough to settle there without overshooting.
             </Reads>
             <p className="mb-sm">
               with Robbins–Monro step sizes{" "}
@@ -638,7 +638,7 @@ export default function Section0Page() {
               Free-energy minimization, operant conditioning, and
               Bayesian social learning are three mechanisms producing
               this linearization; the framework&apos;s claim is about
-              the linearization, not any particular mechanism.
+              the linearization. The particular mechanism is left open.
             </p>
           </Formal>
 

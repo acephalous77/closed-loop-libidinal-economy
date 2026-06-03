@@ -323,9 +323,9 @@ export default function Prop8Page() {
             the elapsed time as developmental exposure{" "}
             <M>{String.raw`\tau_{\mathrm{exp}}`}</M>, and the
             cohort-gradient law falls out: exposure duration sets the
-            exponent. The proposition states it as an inequality
-            rather than an equality, since that is the claim that has
-            to hold for the empirical prediction to stand.
+            exponent. The proposition states it as an inequality,
+            since the inequality is the claim that has to hold for the
+            empirical prediction to stand.
           </Reads>
           <p className="mb-sm text-ink-90">
             The substantive bound is the inequality.

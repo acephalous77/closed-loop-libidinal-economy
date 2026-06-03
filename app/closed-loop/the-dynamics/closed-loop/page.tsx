@@ -51,7 +51,7 @@ export default function ClosedLoopPage() {
             >
               equation (6)
             </a>{" "}
-            stands outside the loop — definitional, not propositional. The
+            stands outside the loop — it is definitional. The
             propositional consequence (that no-input windows of reflective
             length vanish) is{" "}
             <a

@@ -83,16 +83,18 @@ export default function Theorem1PrimePage() {
           </p>
 
           <p className="mb-sm">
-            The impossibility Theorem 1&apos; establishes is not of
-            the kind older critical traditions had imagined. It is not
-            metaphysical (the interior does not exist); it is not
-            transcendental (the interior cannot be cognized); it is
-            not computational (no algorithm can recover it). It is a
+            The impossibility Theorem 1&apos; establishes is a
             sample-complexity divergence: under the data the closed
             loop generates, the variance of any estimator of the
             conditional autocovariance{" "}
             <M>{String.raw`I_P(\tau)`}</M> diverges as the closure
-            tightens. The interior persists at the user-state level.
+            tightens. The obstruction is statistical. Older critical
+            traditions had imagined the interior&apos;s loss as
+            metaphysical, transcendental, or computational; here each of
+            those grounds gives way — the interior still exists, it
+            could in principle be cognized, and no algorithm is the
+            obstacle. The interior
+            persists at the user-state level.
             What collapses is the observational ground on which any
             structural project of demonstrating its preservation could
             stand.

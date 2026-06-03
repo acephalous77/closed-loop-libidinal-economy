@@ -187,14 +187,15 @@ export default function Lemma1Page() {
             <M>{String.raw`\tau \geq \theta_{\mathrm{ref}}`}</M>{" "}
             grows under closed-loop convergence. The chronopolitical
             analysis follows. A foreclosed second is mathematically
-            recoverable through some intervention on the closure; a
+            recoverable through some intervention on the closure. A
             foreclosed adolescence — accumulated over a decade of
-            exposure inside the converged regime — is not. The
-            asymmetry between recoverable and unrecoverable foreclosure
-            is a property of the chrono-debt integral over different
-            <M>{String.raw`\tau`}</M>-windows, not a property of
-            memory or willpower at the scale of the experiencing
-            subject.
+            exposure inside the converged regime — is beyond recovery.
+            The asymmetry between recoverable and unrecoverable
+            foreclosure is a property of the chrono-debt integral over
+            different
+            <M>{String.raw`\tau`}</M>-windows. It is structural — a
+            property of the apparatus, beyond the reach of the
+            experiencing subject&apos;s memory or willpower.
           </p>
 
           <p className="mb-sm">
@@ -204,9 +205,8 @@ export default function Lemma1Page() {
             attention. Marcuse&apos;s one-dimensional thought.
             Kahneman&apos;s gap between system-1 and system-2. Each
             described what foreclosure feels like at the scale of the
-            experiencing subject — and described it well enough that
-            the framework&apos;s ambition is not to replace those
-            descriptions. Lemma 1 specifies what foreclosure{" "}
+            experiencing subject, and described it well. Lemma 1 leaves
+            those descriptions standing and specifies what foreclosure{" "}
             <em>is</em> at the scale of the platform&apos;s stationary
             distribution. The phenomenological and the structural
             descriptions name the same operation from different
@@ -265,8 +265,8 @@ export default function Lemma1Page() {
           </MBlock>
           <Reads>
             When the inter-arrival times have a light enough tail, the
-            survival probability decays exponentially, not just
-            polynomially — an even sharper foreclosure. The exponent{" "}
+            survival probability decays exponentially — sharper than
+            polynomial, an even sharper foreclosure. The exponent{" "}
             <M>{String.raw`J(\theta_{\mathrm{ref}})`}</M> is the
             large-deviations rate (the Cramér transform): the larger
             the threshold relative to the typical gap, the more

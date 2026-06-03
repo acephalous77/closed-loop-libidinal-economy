@@ -60,8 +60,8 @@ export default function SurplusPage() {
             <h2 className="font-mono text-md text-ink-90 mb-sm">what to look for</h2>
             <p className="font-serif text-base text-ink-90 leading-[1.55] mb-sm">
               At <span className="font-mono">baseline</span> the four registers
-              extract roughly equally — pre-closure apparatuses were not
-              jointly optimized. Step to{" "}
+              extract roughly equally — pre-closure apparatuses extracted
+              without joint optimization. Step to{" "}
               <span className="font-mono">converged</span> and the distribution
               skews sharply: the Consumer register dominates the yield because
               the policy has learned where extraction kernels{" "}

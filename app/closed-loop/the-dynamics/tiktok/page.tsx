@@ -41,7 +41,7 @@ export default function TikTokPage() {
             chosen because its architectural commitments — the For You Page,
             short-loop video, vertical scroll, sound-on-by-default — are the
             cleanest empirical realization of the closure. The analysis is
-            anatomical, not moralistic. Other platforms have parallel walks;
+            anatomical. It assigns no blame. Other platforms have parallel walks;
             they're Phase 4 additions.
           </p>
 

@@ -5,7 +5,7 @@ import { PlateHeader, PlateFooter, ChairGlyph } from "../_components/PlateChrome
 export const metadata: Metadata = {
   title: { absolute: "On Refusal — On the Chair" },
   description:
-    "Longer treatment of § IX of the chair essay. Four moves rather than three, and a more honest accounting of what each can and cannot do.",
+    "Longer treatment of § IX of the chair essay. A fourth move added to the essay's three, and a more honest accounting of what each can and cannot do.",
   alternates: { canonical: "/chair/refusal" },
 };
 
@@ -43,8 +43,8 @@ export default function RefusalPage() {
           color: T.inkDim, fontStyle: "italic", textAlign: "center",
           marginTop: 28, marginBottom: 0,
         }}>
-          Four moves rather than three, and a more honest accounting
-          of what each can and cannot do.
+          A fourth move added to the essay&apos;s three, and a more
+          honest accounting of what each can and cannot do.
         </p>
 
         <div style={{ margin: "52px auto", width: 80, height: 0.5, background: T.accent }} />
@@ -55,8 +55,8 @@ export default function RefusalPage() {
         }}>
           A politics is owed. The argument so far has been that the
           chair is useful as a figure because it makes the apparatus
-          visible — but visibility is not refusal, and what follows
-          is about what to do once you have it. The longer treatment
+          visible. Visibility is one thing; refusal is another, and
+          what follows is about what to do once you have it. The longer treatment
           of the first three moves appears in the main essay at §IX;
           here I am more direct about what I have and have not
           managed to do myself.
@@ -68,7 +68,7 @@ export default function RefusalPage() {
           borderBottom: `0.5px solid ${T.rule}`,
         }}>
           {[
-            ["i",   "Withhold the consent.",   "The cookie banner, the TOS update, the permission prompt — the apparatus's primary legitimation. Refusing them does not destroy the apparatus; it forecloses its legal alibis."],
+            ["i",   "Withhold the consent.",   "The cookie banner, the TOS update, the permission prompt — the apparatus's primary legitimation. Refusing them leaves the apparatus standing but forecloses its legal alibis."],
             ["ii",  "Interrupt the cadence.",  "To be slow when speed is demanded, silent when noise is rewarded, inattentive when engagement is metered."],
             ["iii", "Accept the friction.",    "The friction the apparatus eliminates is frequently the very friction in which non-apparatus-mediated life consists."],
             ["iv",  "Be illegible.",           "Refuse the categories the apparatus uses to model you. This is the move I have struggled with most, and the one I would rather not lecture on from a position I have not earned."],
@@ -98,9 +98,9 @@ export default function RefusalPage() {
 
         <RP>
           The apparatus&apos;s grip on us is secured by the cumulative
-          effect of small consents. They are not innocuous. They are
+          effect of small consents. They are
           the apparatus&apos;s primary legitimation mechanism. Refusing
-          them does not destroy the apparatus; it forecloses its legal
+          them leaves the apparatus standing but forecloses its legal
           alibis. The political horizon is modest. The practice is,
           even so, rarely undertaken.
         </RP>

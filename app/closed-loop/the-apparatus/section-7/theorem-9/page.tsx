@@ -214,11 +214,11 @@ export default function Theorem9Page() {
             captured as the difference between intervening on one term
             of an averaged variable and intervening on the variable
             itself. <em>Mechanism interventions on non-acyclic settings:</em>{" "}
-            the framework operates on mechanisms, not on the closure
-            variable directly (setting{" "}
-            <M>{String.raw`\theta^*`}</M> to a constant is meaningless;{" "}
-            <M>{String.raw`\theta^*`}</M> is defined as the fixed point
-            of <M>{String.raw`\Phi`}</M>).
+            the framework operates on mechanisms. It cannot operate on
+            the closure variable directly: setting{" "}
+            <M>{String.raw`\theta^*`}</M> to a constant is meaningless,
+            since <M>{String.raw`\theta^*`}</M> is defined as the fixed
+            point of <M>{String.raw`\Phi`}</M>.
           </p>
 
           <p className="mb-sm">

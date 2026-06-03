@@ -154,8 +154,8 @@ export default function Theorem12Page() {
             All three — saddle-node, period-doubling, Neimark–Sacker —
             are generic codimension-1 events; which one obtains is a
             property of <M>{String.raw`\Phi`}</M> at{" "}
-            <M>{String.raw`(\theta^*, \kappa = 1)`}</M>, not a matter
-            of one being more typical than the others. The pitchfork
+            <M>{String.raw`(\theta^*, \kappa = 1)`}</M>; the three are
+            equally typical. The pitchfork
             is the lone exception — it requires the{" "}
             <M>{String.raw`\mathbb{Z}_2`}</M>-equivariance of a
             symmetric cohort and is non-generic without it.
@@ -213,9 +213,11 @@ export default function Theorem12Page() {
             <em>What the theorem authorizes the prose to claim.</em>{" "}
             The platform itself is in crisis. Repeated algorithm-rebuild
             events, monetization pivots, rage-bait cycles, viral cascade
-            rhythms — these are not anomalies. They are bifurcation
-            phenomena at the contractivity boundary the framework names.
-            The platform-crisis chapter of Part II develops the
+            rhythms — these are bifurcation phenomena at the
+            contractivity boundary the framework names. The platform
+            reads them as anomalies; the theorem reads them as
+            structure. The platform-crisis chapter of Part II develops
+            the
             substantive content; Theorem 12 supplies the formal
             vocabulary.
           </p>
@@ -344,10 +346,10 @@ export default function Theorem12Page() {
             <M>{String.raw`e^{i\omega}`}</M> rotates the iterate as it
             grows, so past threshold the system spirals out to a
             standing loop — an invariant circle of radius{" "}
-            <M>{String.raw`\sqrt{\mu}`}</M> — rather than a point. The
+            <M>{String.raw`\sqrt{\mu}`}</M>, no longer a point. The
             platform reading: a sustained oscillation, the recurring
-            viral rhythm or rage-bait cycle that neither settles nor
-            blows up.
+            viral rhythm or rage-bait cycle that holds at a fixed
+            amplitude.
           </Reads>
 
           <p className="mb-sm">

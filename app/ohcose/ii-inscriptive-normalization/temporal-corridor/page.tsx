@@ -113,8 +113,8 @@ export default function TemporalCorridor() {
               procedurally invisible to the subject. The Phase-II
               instruments enter standby; the Phase-III instruments come
               online. The subject continues to attend their
-              Office-certified facility, now styled as a middle school
-              rather than an elementary school. The caregiver is
+              Office-certified facility, now styled as a middle school.
+              The elementary-school styling is retired. The caregiver is
               re-briefed on the Phase-III mandate and re-certified for
               auxiliary Phase-III work. The day continues.
             </p>

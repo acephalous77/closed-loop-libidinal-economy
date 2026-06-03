@@ -112,9 +112,10 @@ export default function CalibratingDesire() {
               Caregivers entering Phase III often report a perception
               that the subject has become a stranger to them. The
               perception is correct in the immediate register and
-              misleading in the structural one. The subject is not a
-              stranger; the subject is a Phase-III subject, which
-              presents differently than a Phase-II subject. The Office
+              misleading in the structural one. The subject is a
+              Phase-III subject, which presents differently from a
+              Phase-II subject. The stranger the caregiver perceives is
+              an artifact of that shift. The Office
               has accounted for the difference and is operating within
               published parameters.
             </p>

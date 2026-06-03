@@ -45,7 +45,7 @@ export default function GoldenYears() {
               The narrative is the Office's primary Phase-VI affective
               instrument. A subject who is looking forward to the
               Golden Years performs the final Phase-VI work
-              cheerfully. A subject who is not requires intervention.
+              cheerfully. A subject who dreads them requires intervention.
               Most internalize.
             </p>
           </div>

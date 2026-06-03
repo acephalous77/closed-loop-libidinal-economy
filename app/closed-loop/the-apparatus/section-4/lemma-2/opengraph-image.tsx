@@ -9,6 +9,6 @@ export default async function Image() {
     eyebrow: "the apparatus · §4",
     title: "Lemma 2",
     subtitle:
-      "parametric continuity — the smooth regularization curve that makes Mode A a slider, not a switch",
+      "parametric continuity — the smooth regularization curve that makes Mode A a continuous slider",
   });
 }
