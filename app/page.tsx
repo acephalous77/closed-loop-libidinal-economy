@@ -21,41 +21,18 @@ interface Work {
 }
 
 /**
- * Works hung as a cut-and-paste flyer, not a ranked list. Each is
- * called by a terse stamped hit (what it focuses on), with its real
- * title kept underneath as the identifier — so the three ouroboros-
- * named works read apart at a glance. Curatorial order, un-numbered:
- * object -> institution -> territory -> formal engine -> outside.
+ * Works hung as a cut-and-paste flyer. Each is called by a terse
+ * stamped hit (what it focuses on), with its real title kept
+ * underneath as the identifier — so the three ouroboros-named works
+ * read apart at a glance. Ordered reverse-chronologically by year —
+ * newest at the top, oldest at the foot (a 2025—2026 span sorts by
+ * its close).
  *
  * The stamp lines are drafts in Adnan's terse register — flagged for
  * his vetting, anchored by the real titles so the page reads right
  * even before he tunes the wording.
  */
 const WORKS: Work[] = [
-  {
-    stamp: "SIT. BE HELD. BE HARVESTED.",
-    title: "The Ouroboros Life System",
-    year: "2021",
-    register: "essay · brochure · speculative-design artifact",
-    href: "/chair",
-    status: "live",
-  },
-  {
-    stamp: "YOUR LIFE, ON FILE.",
-    title: "OHCOSE",
-    year: "2025",
-    register: "office of human continuity & social equilibrium",
-    href: "/ohcose",
-    status: "live",
-  },
-  {
-    stamp: "WHAT SURVIVES CAPTURE?",
-    title: "The Ouroboric Condition",
-    year: "2018",
-    register: "atlas · psychic surplus · interactive specimen plates",
-    href: "/ouroboric-condition",
-    status: "live",
-  },
   {
     stamp: "THE LOOP, WRITTEN DOWN.",
     title: "The Closed-Loop Libidinal Economy",
@@ -70,6 +47,30 @@ const WORKS: Work[] = [
     year: "2025—2026",
     register: "coloring book · state failure · interactive plates",
     href: "/patriotic-times",
+    status: "live",
+  },
+  {
+    stamp: "YOUR LIFE, ON FILE.",
+    title: "OHCOSE",
+    year: "2025",
+    register: "office of human continuity & social equilibrium",
+    href: "/ohcose",
+    status: "live",
+  },
+  {
+    stamp: "SIT. BE HELD. BE HARVESTED.",
+    title: "The Ouroboros Life System",
+    year: "2021",
+    register: "essay · brochure · speculative-design artifact",
+    href: "/chair",
+    status: "live",
+  },
+  {
+    stamp: "WHAT SURVIVES CAPTURE?",
+    title: "The Ouroboric Condition",
+    year: "2018",
+    register: "atlas · psychic surplus · interactive specimen plates",
+    href: "/ouroboric-condition",
     status: "live",
   },
   {
