@@ -45,8 +45,11 @@ export function OHCOSEWheel() {
   const cx = 280, cy = 320, rOuter = 200, rInner = 110;
   const segStart = -Math.PI / 2 - Math.PI / 6;
   const segAngle = (Math.PI * 2) / 6;
+  // Quantize trig-derived coords to 2dp so SSR and client serialize identical
+  // path/line strings — Math.cos/sin differ by ULPs across engines, tripping hydration.
+  const q = (n: number) => Math.round(n * 100) / 100;
   const pt = (r: number, a: number): [number, number] =>
-    [cx + Math.cos(a) * r, cy + Math.sin(a) * r];
+    [q(cx + Math.cos(a) * r), q(cy + Math.sin(a) * r)];
 
   const scrubAngle = segStart + scrub * Math.PI * 2;
   const [mx, my] = pt(rOuter + 20, scrubAngle);
