@@ -339,10 +339,10 @@ export function Ontogenesis() {
             </div>
             <div className="rule thin" style={{ margin: "18px 0" }} />
             <p className="cap" style={{ fontSize: 12 }}>
-              <Term gloss="Marcuse: a society that no longer represses the drive but discharges it on terms that defuse it. The drive gets its release and loses its charge in the same motion.">
+              <Term gloss="Marcuse: repression gives way to discharge — the drive released on terms that defuse it, its charge spent in the same motion.">
                 Repressive desublimation
               </Term>
-              : the restless energy is spent on a video rather than on mischief. Nothing is forbidden. Everything is
+              : the restless energy that once found mischief is spent on a video. Nothing is forbidden. Everything is
               channelled. The charge is exactly the part that might have gone somewhere unscripted.
             </p>
           </div>
@@ -448,7 +448,7 @@ export function Adulthood() {
             <Term gloss="Preciado: power has stopped saying no to sex and started saying — have all you want, on our molecule, by our protocol. Government has reached the level of the dose.">
               pharmacopornographic
             </Term>
-            : pleasure is not forbidden, it is provisioned, metered through the substance and the device.
+            : pleasure is provisioned, metered through the substance and the device.
           </p>
         </div>
         <div className="rev d2" style={{ flex: "1 1 320px", minWidth: 280 }}>
@@ -463,11 +463,11 @@ export function Adulthood() {
 
       <Accuse side="l" mark="US">
         Participation in one&rsquo;s own extraction is experienced, from the inside, as{" "}
-        <span className="hot">self-fulfilment</span>. The enjoyment is not false. It is the binding agent.
+        <span className="hot">self-fulfilment</span>. The enjoyment is real. It is the binding agent.
       </Accuse>
       <p className="prose rev mt40" style={{ color: "var(--bone-dim)" }}>
-        Marcuse described it better than anyone since — a “comfortable, smooth, reasonable, democratic unfreedom,” held
-        not by force but by the difficulty of imagining the alternative from inside a life this padded.
+        Marcuse named it decades ago, and the phrase still fits — a “comfortable, smooth, reasonable, democratic unfreedom,” held
+        in place by the difficulty of imagining the alternative from inside a life this padded.
       </p>
     </Stage>
   );
@@ -547,7 +547,7 @@ export function LateAdulthood() {
         </div>
       </div>
       <Accuse side="r" mark="84">
-        The exit does not exit the economy. <span className="hot">It is booked as an input.</span>
+        The exit has no outside. <span className="hot">It is booked as an input.</span>
       </Accuse>
       <div className="cap rev mt24">
         In more than one wealthy country the spending peaks — and so do the profits — in the last months of a life. ↑ the

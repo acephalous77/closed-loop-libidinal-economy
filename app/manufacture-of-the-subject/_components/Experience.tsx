@@ -110,7 +110,7 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
             </p>
             <p>
               The surplus is the one resource the circuit cannot make for itself. It must therefore <b>take</b> it from
-              us. That, rather than any reassurance, is where the fight is.
+              us. That is where the fight is.
             </p>
           </div>
         </div>

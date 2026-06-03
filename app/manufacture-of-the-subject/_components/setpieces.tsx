@@ -446,7 +446,7 @@ export function AvatarSubject() {
               <span className="cap">Curate the self. The metrics are watching which way you lean.</span>
             ) : legible ? (
               <span className="accuse" style={{ fontSize: 13 }}>
-                Legible. Your desires now answer to the avatar, not to anything underneath it.
+                Legible. Your desires now answer to the avatar — the thing underneath has no say.
               </span>
             ) : (
               <span className="mono" style={{ fontSize: 13, color: "var(--bone)" }}>
