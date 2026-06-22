@@ -1,6 +1,6 @@
 # autostimulus
 
-> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute. All five current works are live.
+> Works by Adnan Selimović. Critical theory, media psychology, political economy. The atelier root is at https://www.autostimulus.org; each work lives at its own project subroute. All current works are live.
 
 ## Works
 
@@ -9,6 +9,7 @@
 - **The Ouroboros Life System** (2025, live) — Dystopian art project: a fully-enclosed integrated life-support chair. Essay, subsystems index, lineage, precedents, archive, refusal, and zine. Project root: https://www.autostimulus.org/chair
 - **Patriotic Times — A Coloring Book** (2025–2026, live) — Sixty-three plates of US democratic state failures and the emergence of fascism, 2000–2026. Each plate is interactive: color it in the browser with a paint-bucket flood-fill, print your colored version. Project root: https://www.autostimulus.org/patriotic-times
 - **The Ouroboric Condition — An Atlas of Capture** (2026, live) — An explorable atlas of the apparatus that captures psychic surplus. Seventeen specimens across four movements, drawn as a measured specimen chart; opening a site of capture descends into a dark "apparatus" plate with a live capture readout, and the remainder — holding, the face, the custodial labor that holds — surfaces back to paper. A visual companion to the manuscript. Project root: https://www.autostimulus.org/ouroboric-condition
+- **The Psychopolitics of Socialization — a relational atlas** (2026, live) — An interrogable relational field of ~600 nodes and ~1,050 ties mapping the genealogy of crowding science, Cold-War behavior-engineering, and the contemporary population-control apparatus (venture capital, embryo selection, the data-state, sovereign money), 1938–2026. Network, matrix and timeline views; analytic lenses; documented/contested/speculative evidence tiers; a region navigator; guided narrative threads. Project root: https://www.autostimulus.org/psychopolitics-atlas/index.html
 
 ---
 

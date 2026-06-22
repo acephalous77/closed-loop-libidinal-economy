@@ -35,6 +35,14 @@ interface Work {
  */
 const WORKS: Work[] = [
   {
+    stamp: "FOLLOW THE WIRES.",
+    title: "The Psychopolitics of Socialization",
+    year: "2026",
+    register: "relational atlas · ~600 nodes · crowding science → the population present",
+    href: "/psychopolitics-atlas/index.html",
+    status: "live",
+  },
+  {
     stamp: "THE LOOP, WRITTEN DOWN.",
     title: "The Closed-Loop Libidinal Economy",
     year: "2026",

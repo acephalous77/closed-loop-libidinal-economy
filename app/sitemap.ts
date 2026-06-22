@@ -219,6 +219,8 @@ const OUROBORIC_ROUTES = ["/ouroboric-condition"];
 
 const MANUFACTURE_ROUTES = ["/manufacture-of-the-subject"];
 
+const PSYCHOPOLITICS_ROUTES = ["/psychopolitics-atlas/index.html"];
+
 const ROUTES = [
   ...ATELIER_ROUTES,
   ...CLOSED_LOOP_ROUTES,
@@ -228,6 +230,7 @@ const ROUTES = [
   ...PATRIOTIC_ROUTES,
   ...OUROBORIC_ROUTES,
   ...MANUFACTURE_ROUTES,
+  ...PSYCHOPOLITICS_ROUTES,
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -244,7 +247,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path === "/chair" ||
           path === "/patriotic-times" ||
           path === "/ouroboric-condition" ||
-          path === "/manufacture-of-the-subject"
+          path === "/manufacture-of-the-subject" ||
+          path === "/psychopolitics-atlas/index.html"
         ? 0.9
         : // Project-section landings + per-section pages — high
         path.startsWith("/closed-loop/the-") ||
