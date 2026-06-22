@@ -486,7 +486,7 @@ class Component extends DCLogic {
     if(this.state2.view==='matrix')this.drawMatrixAxes(); else if(this.state2.view==='timeline')this.drawTimelineAxes(); else this.clearAxes();
   }
   setViewNote(){ const n=this.qs('[data-role="viewnote"]'); const v=this.state2.view;
-    const notes={network:'Grouped into the five domains of the genealogy \u2014 patrons \u2192 science \u2192 programs \u2192 present \u2192 frame. Hover to magnify nearby labels; click a region to isolate it; size = how connected.',matrix:'The coercion\u2013seduction \u00D7 lever map \u2014 the subset of programs triaged by mechanism (how they work, against the will \u2192 through desire). Most actors aren\u2019t mechanisms and don\u2019t appear here.',timeline:'The genealogy across time \u2014 watch the loop close, from 1938 urban sociology to the 2026 litigation record.'};
+    const notes={network:'Proximity is the argument \u2014 clusters that share more ties sit closer, so the historical genealogy and the contemporary apparatus interleave exactly where they actually connect (eugenics fuses to embryo selection; crowding science to its afterlife). Hover to magnify nearby labels; click a region to isolate it; size = how connected.',matrix:'The coercion\u2013seduction \u00D7 lever map \u2014 the subset of programs triaged by mechanism (how they work, against the will \u2192 through desire). Most actors aren\u2019t mechanisms and don\u2019t appear here.',timeline:'The genealogy across time \u2014 watch the loop close, from 1938 urban sociology to the 2026 litigation record.'};
     n.style.color='#6b7390'; n.textContent=notes[v];
   }
   railSection(title,startCollapsed){ const d=document.createElement('div'); d.style.padding='15px 18px 4px';
@@ -655,7 +655,9 @@ class Component extends DCLogic {
     this.renderThreadPath(); this.setStatus();
   }
   showIntro(){ const o=this.qs('[data-role="intro"]'); if(o)o.style.display='flex'; }
-  maybeIntro(){ const o=this.qs('[data-role="intro"]'); if(!o)return; const go=o.querySelector('[data-role="intro-go"]');
+  maybeIntro(){ const o=this.qs('[data-role="intro"]'); if(!o)return;
+    if((location.hash||'').indexOf('nointro')>=0){ o.style.display='none'; return; }  // shareable clean-link / capture escape hatch
+    const go=o.querySelector('[data-role="intro-go"]');
     if(go)go.addEventListener('click',()=>{ o.style.display='none'; try{localStorage.setItem('atlas_intro_seen','1');}catch(e){} });
     const tc=o.querySelector('[data-role="intro-threads"]');
     if(tc && !tc._filled){ tc._filled=true;
@@ -731,7 +733,7 @@ class Component extends DCLogic {
     window.addEventListener('mousemove',mv); window.addEventListener('mouseup',up);
   }
 
-  clusterAnchors(){ return {
+  clusterAnchors(){ if(this.D&&this.D.CLUSTER_POS){ const o={}; for(const c in this.D.CLUSTER_POS){ const p=this.D.CLUSTER_POS[c]; o[c]={x:p[0],y:p[1]}; } return o; } return {
     eugenics:{x:-1180,y:-450}, philan:{x:-1180,y:70}, state:{x:-1180,y:560},
     density:{x:-560,y:-470}, coercion:{x:-560,y:60}, persuasion:{x:-560,y:580},
     mkultra:{x:90,y:-560}, carceral:{x:90,y:-120}, haight:{x:90,y:330}, control:{x:90,y:800},
@@ -764,11 +766,10 @@ class Component extends DCLogic {
     if(this.state2.view!=='network' || this.state2.regionsOn===false || this.state2.thread)return;
     const groups={}; this.nodes.forEach(n=>{ (groups[n.cl]=groups[n.cl]||[]).push(n); });
     const cf=this.state2.clusterFocus;
-    (this.zones||[]).forEach(z=>{ let xs=[],ys=[]; z.cls.forEach(c=>(groups[c]||[]).forEach(n=>{xs.push(n.x);ys.push(n.y);})); if(!xs.length)return;
-      const cxz=(Math.min(...xs)+Math.max(...xs))/2, topz=Math.min(...ys); const zanc=z.label==='The patrons'?'start':(z.label==='The frame'?'end':'middle');
-      const yoff=z.label==='The frame'?252:(z.label==='The present'?78:120);
-      const t=this.E('text',{x:cxz.toFixed(1),y:(topz-yoff).toFixed(1),'text-anchor':zanc,'font-family':'IBM Plex Sans Condensed, sans-serif','font-weight':'700','letter-spacing':'4','fill':'#1d2435'});
-      t.dataset.base='15'; t.setAttribute('font-size',(15/this.tf.k).toFixed(1)); t.textContent=z.label.toUpperCase(); gz.appendChild(t); });
+    // zone watermark labels removed: under the connectivity-driven layout the thematic zones
+    // interleave spatially, so a single giant per-zone label no longer marks a contiguous region.
+    // (Zones still drive the Bridges view via _zone membership; the cluster labels below follow the
+    // emergent positions.)
     this.clOrder.forEach(cl=>{ const arr=groups[cl]; if(!arr||!arr.length)return;
       const C=this.D.CLUSTERS[cl], hue=C?C.hue:255, dim=cf&&cf!==cl;
       const pts=arr.map(n=>[n.x,n.y]); let d,cx,top;
