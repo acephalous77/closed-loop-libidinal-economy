@@ -135,7 +135,7 @@ class Component extends DCLogic {
       this.D = data;
       this.root = this.rootRef.current || document.querySelector('[data-atlas-root]');
       this.SVGNS = 'http://www.w3.org/2000/svg';
-      this.state2 = { view:'network', lens:'structure', evFilter:new Set(['documented','contested','speculative']), typeFilter:new Set(Object.keys(this.D.TYPES)), relFocus:null, bridges:false, clusterMode:'internal', selected:null, hover:null, search:'' };
+      this.state2 = { view:'network', lens:'structure', evFilter:new Set(['documented','contested','speculative']), typeFilter:new Set(Object.keys(this.D.TYPES)), relFocus:null, bridges:false, connectors:false, clusterMode:'internal', selected:null, hover:null, search:'' };
       this.reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       this.tf = { x:0, y:0, k:1 };
       this.qs = s => this.root.querySelector(s);
@@ -178,6 +178,7 @@ class Component extends DCLogic {
     this.relGroupMap={ became:['became'], influenced:['influenced'], theorizes:['theorizes'], funded:['funded'], conduit:['conduit'], ran:['ran','sited','subjects'], exposed:['exposed'], rival:['rival'], appropriated:['appropriated'], denies:['denies'], staffs:['staffs'], convenes:['convenes'], feeds:['feeds'], captures:['captures'], litigates:['litigates'], rhymes:['rhymes'] };
     this.relLabel={ became:'becomes / migrates', influenced:'influences', theorizes:'reads / theorises', funded:'funds', conduit:'is conduit', ran:'runs / sites', exposed:'exposes', rival:'in tension', appropriated:'appropriated', denies:'denies', staffs:'sits inside / staffs', convenes:'convenes / co-present', feeds:'shares a data pipe', captures:'state / govt tie', litigates:'shared counsel / party', rhymes:'rhymes with / parallels' };
     this.computeBridges();
+    this.computeConnectors();
   }
 
   // ---------- SVG scaffold ----------
@@ -268,7 +269,7 @@ class Component extends DCLogic {
   }
 
   // ---------- view targets & tween ----------
-  setView(v){ if(this.state2.view===v)return; this.state2.view=v; this.state2.clusterFocus=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.select(null);
+  setView(v){ if(this.state2.view===v)return; this.state2.view=v; this.state2.clusterFocus=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.select(null);
     let bb;
     if(v==='network'){ this.nodes.forEach(n=>{n.tx=n.nx;n.ty=n.ny;}); bb=this.nodeBounds(); }
     else if(v==='matrix'){ this.targetsMatrix(); bb={x:-700,y:-430,w:1400,h:920}; }
@@ -297,10 +298,11 @@ class Component extends DCLogic {
     // edges (deduped a<b), width/opacity ∝ shared-tie count
     const ge=this.E('g'); g.appendChild(ge); const seen=new Set();
     this.clOrder.forEach(a=>{ Object.keys(W[a]||{}).forEach(b=>{ const k=[a,b].sort().join('|'); if(seen.has(k))return; seen.add(k); const w=W[a][b]; const A=cen[a],B=cen[b];
-      const t=w/maxW; const ln=this.E('line',{x1:A.x,y1:A.y,x2:B.x,y2:B.y,stroke:'oklch(0.70 0.05 255)','stroke-linecap':'round','stroke-width':(1.4+Math.pow(t,0.8)*13).toFixed(2),'stroke-opacity':(0.10+Math.pow(t,0.8)*0.52).toFixed(3)}); ln.dataset.a=a; ln.dataset.b=b; ln.dataset.w=w; ge.appendChild(ln); }); });
+      const t=w/maxW; const ln=this.E('line',{x1:A.x,y1:A.y,x2:B.x,y2:B.y,stroke:'oklch(0.70 0.05 255)','stroke-linecap':'round','stroke-width':(1.4+Math.pow(t,0.8)*13).toFixed(2),'stroke-opacity':(0.10+Math.pow(t,0.8)*0.52).toFixed(3)}); ln.dataset.a=a; ln.dataset.b=b; ln.dataset.w=w; const la=(this.D.CLUSTERS[a]&&this.D.CLUSTERS[a].label)||a; const lb=(this.D.CLUSTERS[b]&&this.D.CLUSTERS[b].label)||b; const lt=this.E('title'); lt.textContent=`${la} ↔ ${lb} · ${w} ties`; ln.appendChild(lt); ge.appendChild(ln); }); });
     // cluster super-nodes
     this.clOrder.forEach(c=>{ const C=this.D.CLUSTERS[c]; const hue=C?C.hue:255; const p=cen[c]; const r=rOf(c);
       const grp=this.E('g'); grp.style.cursor='pointer';
+      const tt=this.E('title'); const tM=Object.values(W[c]||{}).filter(v=>v>0).length; tt.textContent=`${(C&&C.label)||c} · ${cnt[c]||0} nodes${tM?` · ties to ${tM} domains`:''}`; grp.appendChild(tt);
       const circ=this.E('circle',{cx:p.x,cy:p.y,r,fill:`oklch(0.55 0.14 ${hue} / 0.34)`,stroke:`oklch(0.76 0.13 ${hue})`,'stroke-width':2.4}); grp.appendChild(circ);
       const lab=this.E('text',{x:p.x,y:p.y-r-12,'text-anchor':'middle','font-family':'IBM Plex Sans Condensed, sans-serif','font-weight':'700','paint-order':'stroke','stroke':'#0a0c12','stroke-width':4,'stroke-linejoin':'round','fill':`oklch(0.86 0.10 ${hue})`}); lab.dataset.base='17'; lab.setAttribute('font-size',(17/this.tf.k).toFixed(1)); lab.textContent=(C?C.label:c).toUpperCase(); grp.appendChild(lab);
       const nf=Math.round(r*0.52); const num=this.E('text',{x:p.x,y:p.y+nf*0.34,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-weight':'700','fill':`oklch(0.96 0.03 ${hue})`}); num.dataset.base=String(nf); num.setAttribute('font-size',(nf/this.tf.k).toFixed(1)); num.textContent=cnt[c]||0; num.style.pointerEvents='none'; grp.appendChild(num);
@@ -375,6 +377,7 @@ class Component extends DCLogic {
     if(RF){ relNodes=new Set(); this.links.forEach(l=>{ if(rset.indexOf(l.r)>=0 && this.lensActive(l.source)&&this.evVisible(l.source)&&this.typeVisible(l.source) && this.lensActive(l.target)&&this.evVisible(l.target)&&this.typeVisible(l.target)){ relNodes.add(l.s); relNodes.add(l.t); } }); }
     const BR=S.bridges; let bridgeNodes=null;
     if(BR){ bridgeNodes=new Set(); this.links.forEach(l=>{ if(l.source._zone!==l.target._zone && this.lensActive(l.source)&&this.evVisible(l.source)&&this.typeVisible(l.source) && this.lensActive(l.target)&&this.evVisible(l.target)&&this.typeVisible(l.target)){ bridgeNodes.add(l.s); bridgeNodes.add(l.t); } }); }
+    const CN=S.connectors; const connectorSet=CN?(this._artic||this.computeConnectors()):null; // LOAD-BEARING: cut-vertices
     const PA=S.path; const pathSet=PA?PA.nodeSet:null; const pathEdge=PA?PA.edgeKeys:null;
     const CF=S.clusterFocus; const cmode=S.clusterMode||'internal'; let extNodes=null, bridgeIn=null;
     if(CF && !focus && cmode==='connections'){ extNodes=new Set(); bridgeIn=new Set(); this.links.forEach(l=>{ const a=l.source.cl===CF, b=l.target.cl===CF; if(a!==b){ const sOk=this.lensActive(l.source)&&this.evVisible(l.source)&&this.typeVisible(l.source), tOk=this.lensActive(l.target)&&this.evVisible(l.target)&&this.typeVisible(l.target); if(sOk&&tOk){ if(a){ bridgeIn.add(l.s); extNodes.add(l.t); } else { bridgeIn.add(l.t); extNodes.add(l.s); } } } }); }
@@ -387,6 +390,7 @@ class Component extends DCLogic {
       if(CF && !focus){ if(cmode==='connections'){ op = (n.cl===CF)?1:(extNodes.has(n.id)?0.62:0.05); } else if(n.cl!==CF){ op=Math.min(op,0.07); } }
       if(RF) op = relNodes.has(n.id)?1:0.06;
       if(BR) op = bridgeNodes.has(n.id)?1:0.05;
+      if(CN) op = connectorSet.has(n.id)?1:0.06;  // LOAD-BEARING node dim
       if(PA) op = pathSet.has(n.id)?1:0.045;
       const col=this.nodeColor(n);
       n._c.setAttribute('fill', col);
@@ -401,6 +405,7 @@ class Component extends DCLogic {
       const hot = focus && (n.id===focus);
       n._halo.setAttribute('stroke', col); n._halo.style.opacity = hot? '0.5':'0';
       if(BR && bridgeNodes.has(n.id) && n._span>=2){ n._halo.setAttribute('stroke','#cfe0ff'); n._halo.style.opacity=(0.28+Math.min(0.5,n._span*0.16)).toFixed(2); }
+      if(CN && connectorSet.has(n.id)){ n._halo.setAttribute('stroke','oklch(0.82 0.14 80)'); n._halo.style.opacity='0.6'; }  // LOAD-BEARING warm halo
       if(CF && cmode==='connections' && bridgeIn && bridgeIn.has(n.id)){ n._halo.setAttribute('stroke','#cfe0ff'); n._halo.style.opacity='0.5'; }
       if(PA && pathSet.has(n.id)){ const endp=(n.id===PA.a||n.id===PA.b); n._halo.setAttribute('stroke',endp?'#ffd9a0':'#cfe0ff'); n._halo.style.opacity=endp?'0.85':'0.45'; }
       // labels
@@ -416,6 +421,7 @@ class Component extends DCLogic {
       if(RF){ visible=(rset.indexOf(l.r)>=0 && relNodes.has(l.s) && relNodes.has(l.t)); hot=visible; }
       else if(PA){ visible=pathEdge.has(l.s+'|'+l.t)||pathEdge.has(l.t+'|'+l.s); hot=visible; }
       else if(BR){ visible=(l.source._zone!==l.target._zone && bridgeNodes.has(l.s) && bridgeNodes.has(l.t)); hot=visible; }
+      else if(CN){ visible=(connectorSet.has(l.s) && connectorSet.has(l.t)); hot=visible; }  // LOAD-BEARING edge: both endpoints are cut-vertices
       else if(focus){ hot=(l.s===focus||l.t===focus); visible=hot; }
       else if(!netView){ visible=false; }
       else if(S.clusterFocus){ if(cmode==='connections'){ const a=l.source.cl===CF, b=l.target.cl===CF; visible=(a!==b); hot=visible; } else { visible=(l.source.cl===S.clusterFocus && l.target.cl===S.clusterFocus); } }
@@ -424,13 +430,13 @@ class Component extends DCLogic {
       if(hot){ l.el.setAttribute('stroke', this.relColor(l.r)); l.el.setAttribute('stroke-width',1.7); l.el.setAttribute('stroke-opacity',0.92); l.el.setAttribute('marker-end', (l.r==='rival'||l.r==='rhymes')?'':'url(#atl-arrow)'); l.el.setAttribute('stroke-dasharray', (l.r==='rival'||l.r==='theorizes'||l.r==='denies'||l.r==='rhymes')?'4 4':'none'); }
       else { const wv=l._wmin||1; const ro=(aOk&&bOk)?Math.min(0.46,0.085+0.063*Math.log2(1+wv)):0.045; const rw=Math.min(1.75,0.8+0.17*Math.log2(1+wv));
         l.el.setAttribute('stroke','oklch(0.58 0.03 255)'); l.el.setAttribute('stroke-width',rw.toFixed(2)); l.el.setAttribute('stroke-opacity', ro.toFixed(3)); l.el.setAttribute('marker-end',''); l.el.setAttribute('stroke-dasharray','none'); }
-      if(l.q && visible){ l.el.setAttribute('stroke-dasharray', l.q==='S'?'1 5':'2 4'); }  // contested/speculative tie rendered broken
+      if(l.q && visible){ l.el.setAttribute('stroke-dasharray', l.q==='S'?'1 5':'2 4'); l.el.setAttribute('stroke-opacity', Math.max(parseFloat(l.el.getAttribute('stroke-opacity'))||0, 0.30).toFixed(3)); }  // contested/speculative tie rendered broken + kept legible at rest
     });
     if(this._cbar) this._cbar.style.display=this.state2.clusterFocus?'flex':'none';
     this.setStatus();
   }
 
-  onHover(id){ if(this.state2.selected||this.state2.bridges||this.state2.relFocus||this.state2.path)return; this.state2.hover=id; this.refresh(); const tip=this.qs('[data-role="tooltip"]');
+  onHover(id){ if(this.state2.selected||this.state2.bridges||this.state2.connectors||this.state2.relFocus||this.state2.path)return; this.state2.hover=id; this.refresh(); const tip=this.qs('[data-role="tooltip"]');
     if(id){ const n=this.byId[id];
       tip.innerHTML=`<span style="color:${this.nodeColor(n)};font-weight:600">${n.label}</span> · <span style="color:#7b85a0">${this.D.TYPES[n.type].label}</span>${n.ev?` · <span style="color:${this.evColor(n.ev)}">${n.ev}</span>`:''}`;
       const sc=n._g.getBoundingClientRect(); const st=this.qs('[data-role="stage"]').getBoundingClientRect(); tip.style.left=(sc.left+sc.width/2-st.left)+'px'; tip.style.top=(sc.top-st.top)+'px'; tip.style.opacity='1'; }
@@ -438,7 +444,7 @@ class Component extends DCLogic {
   }
 
   // ---------- selection / panel ----------
-  select(id){ if(id && (this.state2.relFocus||this.state2.bridges||this.state2.path)){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.setViewNote(); }
+  select(id){ if(id && (this.state2.relFocus||this.state2.bridges||this.state2.connectors||this.state2.path)){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.setViewNote(); }
     if(this.state2.thread && !this._tnav){ this.state2.thread=null; this.hideThread(); this.renderThreadPath(); }
     this.state2.selected=id; this.state2.hover=null; this.qs('[data-role="tooltip"]').style.opacity='0'; this.refresh();
     const panel=this.qs('[data-role="panel"]'); if(!id){ panel.style.transform='translateX(102%)'; return; }
@@ -499,7 +505,7 @@ class Component extends DCLogic {
     this.qs('[data-role="reset"]').addEventListener('click',()=>{ const v=this.state2.view; const bb=v==='network'?this.nodeBounds():(v==='matrix'?{x:-700,y:-430,w:1400,h:860}:{x:-820,y:-470,w:1640,h:940}); this.fitTo(bb,true); });
     const rb=this.qs('[data-role="regions"]'); if(rb)rb.addEventListener('click',()=>{ this.state2.regionsOn = (this.state2.regionsOn===false); const off=this.state2.regionsOn===false; rb.style.color=off?'#5d6680':'#9aa3bd'; rb.style.borderColor=off?'#1c2231':'#2b3346'; this.renderHulls(); });
     const sh=this.qs('[data-role="share"]'); if(sh)sh.addEventListener('click',()=>this.shareLink());
-    this.qs('[data-role="stage"]').addEventListener('click',()=>{ if(this.state2.selected)this.select(null); else if(this.state2.path){ this.clearPath(); } else if(this.state2.bridges){ this.state2.bridges=false; this.syncBridges(); this.setViewNote(); this.refresh(); } else if(this.state2.relFocus){ this.state2.relFocus=null; this.syncRel(); this.setViewNote(); this.refresh(); } else if(this.state2.clusterFocus){ this.state2.clusterFocus=null; this.state2.clusterMode='internal'; this.renderClusterBar(); this.renderHulls(); this.setViewNote(); this.refresh(); this.fitTo(this.nodeBounds(),true); } });
+    this.qs('[data-role="stage"]').addEventListener('click',()=>{ if(this.state2.selected)this.select(null); else if(this.state2.path){ this.clearPath(); } else if(this.state2.bridges){ this.state2.bridges=false; this.syncBridges(); this.setViewNote(); this.refresh(); } else if(this.state2.connectors){ this.state2.connectors=false; this.syncConnectors(); this.setViewNote(); this.refresh(); } else if(this.state2.relFocus){ this.state2.relFocus=null; this.syncRel(); this.setViewNote(); this.refresh(); } else if(this.state2.clusterFocus){ this.state2.clusterFocus=null; this.state2.clusterMode='internal'; this.renderClusterBar(); this.renderHulls(); this.setViewNote(); this.refresh(); this.fitTo(this.nodeBounds(),true); } });
     this.buildRail(); this.setViewNote();
     this._onKey = (e)=>{ if(this._destroyed)return; const S=this.state2; const tag=(e.target&&e.target.tagName)||''; const typing=tag==='INPUT'||tag==='TEXTAREA';
       if(e.key==='/' && !typing){ e.preventDefault(); const s=this.qs('[data-role="search"]'); if(s){ s.focus(); if(s.select)s.select(); } return; }
@@ -508,6 +514,7 @@ class Component extends DCLogic {
         else if(S.selected){ this.select(null); }
         else if(S.path){ this.clearPath(); }
         else if(S.bridges){ S.bridges=false; this.syncBridges(); this.setViewNote(); this.refresh(); }
+        else if(S.connectors){ S.connectors=false; this.syncConnectors(); this.setViewNote(); this.refresh(); }
         else if(S.relFocus){ S.relFocus=null; this.syncRel(); this.setViewNote(); this.refresh(); }
         else if(S.clusterFocus){ this.toggleCluster(S.clusterFocus); }
         else if(si&&si.value){ si.value=''; S.search=''; this.refresh(); if(this.updateSearchCount)this.updateSearchCount(); }
@@ -570,6 +577,7 @@ class Component extends DCLogic {
     const desc=document.createElement('div'); desc.dataset.lensdesc='1'; Object.assign(desc.style,{fontSize:'11px',lineHeight:'1.45',color:'#6b7390',padding:'6px 9px 2px'}); ls.appendChild(desc); rail.appendChild(ls);
     // EVIDENCE
     const es=this.railSection('Evidence tier'); const note=document.createElement('div'); note.innerHTML='<b style="color:oklch(0.80 0.13 75)">Documented ≠ effective.</b> Intent &amp; ambition are not demonstrated capability.'; Object.assign(note.style,{fontSize:'10.5px',lineHeight:'1.4',color:'#6b7390',marginBottom:'9px'}); es.appendChild(note);
+    const cTies=this.links.filter(l=>l.q==='C').length, sTies=this.links.filter(l=>l.q==='S').length; const wnote=document.createElement('div'); wnote.innerHTML=`Dashed wire = contested (${cTies}) · dotted = speculative (${sTies}).`; Object.assign(wnote.style,{fontSize:'10.5px',lineHeight:'1.4',color:'#6b7390',marginBottom:'9px'}); es.appendChild(wnote);
     this.evEls={}; ['documented','contested','speculative'].forEach(t=>{ const b=document.createElement('button'); const c=this.evColor(t);
       b.innerHTML=`<span data-dot style="width:9px;height:9px;border-radius:50%;flex:none"></span><span style="flex:1;text-align:left">${this.D.EVIDENCE[t].label}</span><span data-chk style="font-family:'IBM Plex Mono';font-size:10px"></span>`;
       Object.assign(b.style,{display:'flex',alignItems:'center',gap:'8px',width:'100%',background:'transparent',border:'1px solid #1c2231',color:'#c4ccde',borderRadius:'6px',padding:'7px 9px',cursor:'pointer',marginBottom:'4px',fontFamily:'inherit',fontSize:'12px'});
@@ -604,6 +612,13 @@ class Component extends DCLogic {
       btn.addEventListener('mouseleave',()=>{ btn.style.borderColor='#161b27'; btn.style.background='transparent'; });
       btn.addEventListener('click',()=>{ this.select(n.id); this.centerOn(n,560); }); bs.appendChild(btn); });
     rail.appendChild(bs);
+    // LOAD-BEARING — articulation points (cut-vertices)
+    const cs=this.railSection('Load-bearing — what holds the field', true);
+    const cnote=document.createElement('div'); cnote.innerHTML='A few nodes are structurally load-bearing: remove one and the field splits into disconnected pieces. These cut-vertices are the single points of failure — where the whole coheres through one person, fund or case.'; Object.assign(cnote.style,{fontSize:'10.5px',lineHeight:'1.4',color:'#6b7390',marginBottom:'9px'}); cs.appendChild(cnote);
+    const cb=document.createElement('button'); cb.innerHTML=`<span style="flex:1;text-align:left">◇ show load-bearing nodes</span><span style="font-family:'IBM Plex Mono';font-size:9.5px;color:#5d6680">${this._artic?this._artic.size:0}</span>`;
+    Object.assign(cb.style,{display:'flex',alignItems:'center',gap:'9px',width:'100%',background:'transparent',border:'1px solid #232b3c',color:'#9aa3bd',borderRadius:'6px',padding:'8px 10px',cursor:'pointer',marginBottom:'4px',fontFamily:"'IBM Plex Sans Condensed',sans-serif",fontSize:'12.5px',fontWeight:'600',letterSpacing:'.02em',transition:'border-color .15s,background .15s'});
+    cb.addEventListener('click',()=>this.toggleConnectors()); cs.appendChild(cb); this.connBtn=cb;
+    rail.appendChild(cs);
     // PATH FINDER \u2014 connect any two nodes
     this.labelToId={}; this.nodes.forEach(n=>{ this.labelToId[n.label.toLowerCase()]=n.id; });
     const ps=this.railSection('Path \u2014 connect any two', true);
@@ -640,7 +655,7 @@ class Component extends DCLogic {
   // ---------- guided threads ----------
   curThread(){ return this.D.THREADS.find(t=>t.id===this.state2.thread.id); }
   enterThread(id){ if(this.state2.view!=='network'){ this.setView('network'); }
-    this.state2.thread={id,step:0}; this.state2.clusterFocus=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.setViewNote(); this.state2.search=''; this.qs('[data-role="search"]').value='';
+    this.state2.thread={id,step:0}; this.state2.clusterFocus=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.setViewNote(); this.state2.search=''; this.qs('[data-role="search"]').value='';
     this.renderThreadPath(); this.renderClusterBar(); this.gotoStep(0,true); }
   exitThread(){ this.state2.thread=null; this.hideThread(); this.renderThreadPath(); this.select(null); }
   hideThread(){ const t=this.qs('[data-role="thread"]'); if(t)t.style.display='none'; }
@@ -822,7 +837,7 @@ class Component extends DCLogic {
       lab.setAttribute('fill',`oklch(0.80 0.11 ${hue} / ${dim?0.55:0.95})`); lab.style.cursor='pointer';
       lab.addEventListener('click',ev=>{ ev.stopPropagation(); this.toggleCluster(cl); }); g.appendChild(lab); });
   }
-  toggleCluster(cl){ this.state2.clusterFocus = this.state2.clusterFocus===cl?null:cl; this.state2.clusterMode='internal'; this.state2.selected=null; this.state2.hover=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.setViewNote();
+  toggleCluster(cl){ this.state2.clusterFocus = this.state2.clusterFocus===cl?null:cl; this.state2.clusterMode='internal'; this.state2.selected=null; this.state2.hover=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.setViewNote();
     this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0';
     this.renderClusterBar(); this.renderHulls(); this.refresh();
     if(this.state2.clusterFocus){ this.fitTo(this.nodeBounds(this.nodes.filter(n=>n.cl===cl)),true); } else { this.fitTo(this.nodeBounds(),true); } }
@@ -847,7 +862,7 @@ class Component extends DCLogic {
   toggleRel(r){ const next=this.state2.relFocus===r?null:r;
     if(next && this.state2.view!=='network'){ this.setView('network'); }
     this.state2.relFocus=next;
-    if(next){ this.state2.selected=null; this.state2.clusterFocus=null; this.state2.bridges=false; this.state2.path=null; if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
+    if(next){ this.state2.selected=null; this.state2.clusterFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
     this.syncRel(); this.renderHulls();
     const vn=this.qs('[data-role="viewnote"]'); if(vn){ if(next){ vn.style.color=this.relColor(next); vn.textContent='Tracing every “'+(this.relLabel[next]||next)+'” tie across the field — arrows point the direction. Click the tie again, or the background, to release.'; } else this.setViewNote(); }
     this.refresh(); }
@@ -856,9 +871,36 @@ class Component extends DCLogic {
     this.bridgeCount=this.links.filter(l=>this.cl2zone[l.source.cl]!==this.cl2zone[l.target.cl]).length;
     this.nodes.forEach(n=>{ const zs=new Set(); this.adj[n.id].forEach(id=>{ const z=this.cl2zone[this.byId[id].cl]; if(z!==n._zone)zs.add(z); }); n._span=zs.size; });
     this.connectors=this.nodes.filter(n=>n._span>=2).sort((a,b)=> b._span-a._span || b.deg-a.deg).slice(0,9); }
+  // ---- LOAD-BEARING: articulation points (cut-vertices) via iterative Tarjan ----
+  computeConnectors(){ if(this._artic)return this._artic; const ids=this.nodes.map(n=>n.id); const nbr={}; ids.forEach(id=>nbr[id]=Array.from(this.adj[id]||[]));
+    const disc={}, low={}, visited={}; let timer=0; const artic=new Set();
+    for(const root of ids){ if(visited[root])continue;
+      const stack=[{u:root,parent:null,i:0,children:0}]; visited[root]=true; disc[root]=low[root]=timer++;
+      while(stack.length){ const f=stack[stack.length-1]; const u=f.u; const adj=nbr[u];
+        if(f.i<adj.length){ const v=adj[f.i++]; if(v===f.parent)continue;
+          if(visited[v]){ if(disc[v]<low[u])low[u]=disc[v]; }
+          else { visited[v]=true; disc[v]=low[v]=timer++; f.children++; stack.push({u:v,parent:u,i:0,children:0}); }
+        } else { stack.pop(); const p=stack.length?stack[stack.length-1]:null;
+          if(p){ const pu=p.u; if(low[u]<low[pu])low[pu]=low[u]; if(p.parent!==null && low[u]>=disc[pu])artic.add(pu); }
+        }
+      }
+    }
+    const vis2={};
+    for(const root of ids){ if(vis2[root])continue; let childCount=0; const st=[{u:root,parent:null,i:0}]; vis2[root]=true;
+      while(st.length){ const f=st[st.length-1]; const adj=nbr[f.u]; if(f.i<adj.length){ const v=adj[f.i++]; if(v===f.parent||vis2[v])continue; vis2[v]=true; if(f.u===root)childCount++; st.push({u:v,parent:f.u,i:0}); } else st.pop(); }
+      if(childCount>1)artic.add(root);
+    }
+    this._artic=artic; return artic; }
+  toggleConnectors(){ const next=!this.state2.connectors; if(next && this.state2.view!=='network')this.setView('network');
+    this.state2.connectors=next;
+    if(next){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
+    this.syncConnectors(); this.renderHulls();
+    const vn=this.qs('[data-role="viewnote"]'); if(vn){ if(next){ const c=(this._artic?this._artic.size:0); vn.style.color='oklch(0.82 0.14 80)'; vn.textContent='Showing the '+c+' load-bearing nodes — cut-vertices whose removal would split the field into disconnected pieces. Remove one and a whole region falls away. Click the background to release.'; } else this.setViewNote(); }
+    this.refresh(); if(next)this.fitTo(this.nodeBounds(),true); }
+  syncConnectors(){ const b=this.connBtn; if(!b)return; const on=this.state2.connectors; b.style.borderColor=on?'oklch(0.82 0.14 80)':'#232b3c'; b.style.background=on?'oklch(0.78 0.13 80 / .15)':'transparent'; b.style.color=on?'#f3f5fa':'#9aa3bd'; b.firstChild.textContent=on?'◈ load-bearing shown':'◇ show load-bearing nodes'; }
   toggleBridges(){ const next=!this.state2.bridges; if(next && this.state2.view!=='network')this.setView('network');
     this.state2.bridges=next;
-    if(next){ this.state2.relFocus=null; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
+    if(next){ this.state2.relFocus=null; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
     this.syncBridges(); this.renderHulls();
     const vn=this.qs('[data-role="viewnote"]'); if(vn){ if(next){ vn.style.color='#cfe0ff'; vn.textContent='Showing only the '+this.bridgeCount+' ties that cross between domains \u2014 the glowing nodes are the connectors that hold the field together. Click any to open it, or the background to release.'; } else this.setViewNote(); }
     this.refresh(); if(next)this.fitTo(this.nodeBounds(),true); }
@@ -869,8 +911,8 @@ class Component extends DCLogic {
   relBetween(a,b){ for(const l of this.links){ if(l.s===a&&l.t===b)return {r:l.r,fwd:true}; if(l.s===b&&l.t===a)return {r:l.r,fwd:false}; } return null; }
   setPath(a,b){ if(!a||!b||a===b||!this.byId[a]||!this.byId[b])return;
     if(this.state2.view!=='network')this.setView('network');
-    this.state2.relFocus=null; this.state2.bridges=false; this.state2.clusterFocus=null; this.state2.clusterMode='internal'; this.state2.selected=null; this.state2.hover=null;
-    if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); this.renderClusterBar(); this.renderHulls();
+    this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.clusterFocus=null; this.state2.clusterMode='internal'; this.state2.selected=null; this.state2.hover=null;
+    if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); this.renderClusterBar(); this.renderHulls();
     this.qs('[data-role=\"panel\"]').style.transform='translateX(102%)'; this.qs('[data-role=\"tooltip\"]').style.opacity='0';
     const seq=this.findPath(a,b);
     if(!seq){ this.state2.path=null; this.syncPath(); this.renderPathReadout(a,b,null); this.refresh(); return; }
@@ -896,6 +938,7 @@ class Component extends DCLogic {
     if(S.thread)p.push('thread='+S.thread.id+'.'+(S.thread.step||0));
     else if(S.path)p.push('path='+S.path.a+'.'+S.path.b);
     else if(S.bridges)p.push('bridges=1');
+    else if(S.connectors)p.push('loadbearing=1');
     else if(S.relFocus)p.push('rel='+S.relFocus);
     else if(S.clusterFocus)p.push('region='+S.clusterFocus+(S.clusterMode==='connections'?'.conn':''));
     else if(S.selected)p.push('sel='+S.selected);
@@ -910,6 +953,7 @@ class Component extends DCLogic {
       if(m.thread){ const a=m.thread.split('.'); if(this.D.THREADS.some(t=>t.id===a[0])){ this.enterThread(a[0]); const s=parseInt(a[1])||0; if(s>0)this.gotoStep(s); } }
       else if(m.path){ const a=m.path.split('.'); if(this.byId[a[0]]&&this.byId[a[1]])this.setPath(a[0],a[1]); }
       else if(m.bridges){ this.toggleBridges(); }
+      else if(m.loadbearing){ this.toggleConnectors(); }
       else if(m.rel){ this.toggleRel(m.rel); }
       else if(m.region){ const a=m.region.split('.'); if(this.D.CLUSTERS[a[0]]){ this.toggleCluster(a[0]); if(a[1]==='conn')this.setClusterMode('connections'); } }
       else if(m.sel){ if(this.byId[m.sel]){ this.select(m.sel); if(this.state2.view==='network')this.centerOn(this.byId[m.sel],500); } }
@@ -934,6 +978,7 @@ class Component extends DCLogic {
   setStatus(){ const st=this.qs('[data-role="status"]'); if(!st)return; const shown=this.nodes.filter(n=>this.lensActive(n)&&this.evVisible(n)&&this.typeVisible(n)).length;
     if(this.state2.view==='matrix'){ const plotted=this.nodes.filter(n=>n.lever!=null&&n.co!=null).length;
       st.innerHTML=`${this.nodes.length} nodes · ${this.links.length} relations · <span style="color:#aeb6cc">${plotted} of ${this.nodes.length} plotted by mechanism</span>`; return; }
+    if(this.state2.connectors){ const c=(this._artic?this._artic.size:0); st.innerHTML=`${this.nodes.length} nodes · ${this.links.length} relations · <span style="color:oklch(0.82 0.14 80)">${c} load-bearing (cut-vertices)</span>`; return; }
     st.innerHTML=`${this.nodes.length} nodes · ${this.links.length} relations · <span style="color:#aeb6cc">${shown} in view</span>`; }
 }
 </script>
