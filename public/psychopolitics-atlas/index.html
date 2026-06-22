@@ -167,6 +167,9 @@ class Component extends DCLogic {
     this.nodes.forEach(n=>n.deg=0);
     this.links.forEach(l=>{ l.source.deg++; l.target.deg++; });
     this.nodes.forEach(n=>{ n.r = Math.max(5.5, Math.min(17, 5.2 + Math.sqrt(n.deg)*2.5)); });
+    // edge "backbone weight" = bottleneck endpoint degree: high where a tie joins two well-connected
+    // nodes (the spine), 1 for the ~137 pendant/leaf edges. Used to fade fuzz, brighten the spine.
+    this.links.forEach(l=>{ l._wmin = Math.min(l.source.deg, l.target.deg); });
     // adjacency for ego highlight
     this.adj = {}; this.nodes.forEach(n=>this.adj[n.id]=new Set());
     this.links.forEach(l=>{ this.adj[l.s].add(l.t); this.adj[l.t].add(l.s); });
@@ -192,6 +195,7 @@ class Component extends DCLogic {
     this.gWorld=this.E('g'); svg.appendChild(this.gWorld);
     this.gHulls=this.E('g'); this.gZone=this.E('g'); this.gAxes=this.E('g'); this.gEdges=this.E('g'); this.gThread=this.E('g'); this.gNodes=this.E('g');
     this.gWorld.appendChild(this.gHulls); this.gWorld.appendChild(this.gZone); this.gWorld.appendChild(this.gAxes); this.gWorld.appendChild(this.gEdges); this.gWorld.appendChild(this.gThread); this.gWorld.appendChild(this.gNodes);
+    this.gDom=this.E('g'); this.gDom.style.display='none'; this.gWorld.appendChild(this.gDom);  // Domains constellation overlay
     stage.appendChild(svg); this.svg=svg;
     // edges
     this.edgeEls=this.links.map(l=>{ const ln=this.E('line',{'stroke-linecap':'round'}); l.el=ln; this.gEdges.appendChild(ln); return ln; });
@@ -268,11 +272,43 @@ class Component extends DCLogic {
     let bb;
     if(v==='network'){ this.nodes.forEach(n=>{n.tx=n.nx;n.ty=n.ny;}); bb=this.nodeBounds(); }
     else if(v==='matrix'){ this.targetsMatrix(); bb={x:-700,y:-430,w:1400,h:920}; }
-    else { this.targetsTimeline(); bb={x:-820,y:-470,w:1640,h:1000}; }
+    else if(v==='timeline'){ this.targetsTimeline(); bb={x:-820,y:-470,w:1640,h:1000}; }
+    else { this.nodes.forEach(n=>{n.tx=n.nx;n.ty=n.ny;}); bb=this.domainsBounds(); }
+    const dom=v==='domains';
+    this.gNodes.style.display=dom?'none':''; this.gEdges.style.display=dom?'none':''; this.gHulls.style.display=dom?'none':''; this.gZone.style.display=dom?'none':'';
+    if(this.gDom)this.gDom.style.display=dom?'':'none';
+    if(dom){ this.drawDomains(); } else { if(this.gDom){ while(this.gDom.firstChild)this.gDom.removeChild(this.gDom.firstChild); } this.renderHulls(); }
     this.syncTabs();
     this.tweenPositions(680);
     this.fitTo(bb,true);
     this.setViewNote(); this.refresh();
+  }
+  clusterAdj(){ if(this._cadj)return this._cadj; const W={}; const cls=this.clOrder; cls.forEach(a=>W[a]={});
+    this.links.forEach(l=>{ const a=l.source.cl, b=l.target.cl; if(a===b||!W[a]||!W[b])return; W[a][b]=(W[a][b]||0)+1; W[b][a]=(W[b][a]||0)+1; });
+    this._cadj=W; return W; }
+  domainCenter(c){ const P=this.D.CLUSTER_POS; if(P&&P[c])return {x:P[c][0],y:P[c][1]}; const arr=this.nodes.filter(n=>n.cl===c); if(!arr.length)return {x:0,y:0}; return {x:arr.reduce((s,n)=>s+n.x,0)/arr.length, y:arr.reduce((s,n)=>s+n.y,0)/arr.length}; }
+  domLayout(){ const cen={}; this.clOrder.forEach(c=>cen[c]=this.domainCenter(c)); let mx=0,my=0,k=0; this.clOrder.forEach(c=>{mx+=cen[c].x;my+=cen[c].y;k++;}); mx/=k;my/=k; const SP=1.42; const out={}; this.clOrder.forEach(c=>out[c]={x:mx+(cen[c].x-mx)*SP,y:my+(cen[c].y-my)*SP}); return out; }
+  domainsBounds(){ const cen=this.domLayout(); const cs=this.clOrder.map(c=>cen[c]); let a=1e9,b=1e9,cc=-1e9,d=-1e9; cs.forEach(p=>{a=Math.min(a,p.x);b=Math.min(b,p.y);cc=Math.max(cc,p.x);d=Math.max(d,p.y);}); return {x:a-300,y:b-300,w:(cc-a)+600,h:(d-b)+600}; }
+  drawDomains(){ const g=this.gDom; if(!g)return; while(g.firstChild)g.removeChild(g.firstChild);
+    const cnt={}; this.nodes.forEach(n=>cnt[n.cl]=(cnt[n.cl]||0)+1);
+    const W=this.clusterAdj(); const cen=this.domLayout();
+    const rOf=c=>Math.max(22, Math.min(86, 13+Math.sqrt(cnt[c]||1)*9));
+    const maxW=Math.max(1,...this.clOrder.flatMap(a=>Object.values(W[a]||{})));
+    // edges (deduped a<b), width/opacity ∝ shared-tie count
+    const ge=this.E('g'); g.appendChild(ge); const seen=new Set();
+    this.clOrder.forEach(a=>{ Object.keys(W[a]||{}).forEach(b=>{ const k=[a,b].sort().join('|'); if(seen.has(k))return; seen.add(k); const w=W[a][b]; const A=cen[a],B=cen[b];
+      const t=w/maxW; const ln=this.E('line',{x1:A.x,y1:A.y,x2:B.x,y2:B.y,stroke:'oklch(0.70 0.05 255)','stroke-linecap':'round','stroke-width':(1.4+Math.pow(t,0.8)*13).toFixed(2),'stroke-opacity':(0.10+Math.pow(t,0.8)*0.52).toFixed(3)}); ln.dataset.a=a; ln.dataset.b=b; ln.dataset.w=w; ge.appendChild(ln); }); });
+    // cluster super-nodes
+    this.clOrder.forEach(c=>{ const C=this.D.CLUSTERS[c]; const hue=C?C.hue:255; const p=cen[c]; const r=rOf(c);
+      const grp=this.E('g'); grp.style.cursor='pointer';
+      const circ=this.E('circle',{cx:p.x,cy:p.y,r,fill:`oklch(0.55 0.14 ${hue} / 0.34)`,stroke:`oklch(0.76 0.13 ${hue})`,'stroke-width':2.4}); grp.appendChild(circ);
+      const lab=this.E('text',{x:p.x,y:p.y-r-12,'text-anchor':'middle','font-family':'IBM Plex Sans Condensed, sans-serif','font-weight':'700','paint-order':'stroke','stroke':'#0a0c12','stroke-width':4,'stroke-linejoin':'round','fill':`oklch(0.86 0.10 ${hue})`}); lab.dataset.base='17'; lab.setAttribute('font-size',(17/this.tf.k).toFixed(1)); lab.textContent=(C?C.label:c).toUpperCase(); grp.appendChild(lab);
+      const nf=Math.round(r*0.52); const num=this.E('text',{x:p.x,y:p.y+nf*0.34,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-weight':'700','fill':`oklch(0.96 0.03 ${hue})`}); num.dataset.base=String(nf); num.setAttribute('font-size',(nf/this.tf.k).toFixed(1)); num.textContent=cnt[c]||0; num.style.pointerEvents='none'; grp.appendChild(num);
+      const enter=()=>{ ge.querySelectorAll('line').forEach(ln=>{ const on=ln.dataset.a===c||ln.dataset.b===c; ln.setAttribute('stroke', on?`oklch(0.78 0.12 ${hue})`:'oklch(0.66 0.05 255)'); ln.setAttribute('stroke-opacity', on?'0.85':'0.04'); }); circ.setAttribute('fill',`oklch(0.6 0.14 ${hue} / 0.5)`); };
+      const leave=()=>{ this.drawDomains(); };
+      grp.addEventListener('mouseenter',enter); grp.addEventListener('mouseleave',leave);
+      grp.addEventListener('click',ev=>{ ev.stopPropagation(); this.setView('network'); this.toggleCluster(c); });
+      g.appendChild(grp); });
   }
   tweenPositions(dur){ if(this.reduceMotion){ this.nodes.forEach(n=>{ n.x=n.tx; n.y=n.ty; }); this.renderPositions(); return; } if(this._tw)cancelAnimationFrame(this._tw); const s=this.nodes.map(n=>({x:n.x,y:n.y})); const t0=performance.now(); const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
     const snap=()=>{ this.nodes.forEach(n=>{ n.x=n.tx; n.y=n.ty; }); this.renderPositions(); };
@@ -386,7 +422,8 @@ class Component extends DCLogic {
       else { visible=true; }
       l.el.style.display = visible? '' : 'none';
       if(hot){ l.el.setAttribute('stroke', this.relColor(l.r)); l.el.setAttribute('stroke-width',1.7); l.el.setAttribute('stroke-opacity',0.92); l.el.setAttribute('marker-end', (l.r==='rival'||l.r==='rhymes')?'':'url(#atl-arrow)'); l.el.setAttribute('stroke-dasharray', (l.r==='rival'||l.r==='theorizes'||l.r==='denies'||l.r==='rhymes')?'4 4':'none'); }
-      else { l.el.setAttribute('stroke','oklch(0.58 0.03 255)'); l.el.setAttribute('stroke-width',1.0); l.el.setAttribute('stroke-opacity', (aOk&&bOk)?0.32:0.05); l.el.setAttribute('marker-end',''); l.el.setAttribute('stroke-dasharray','none'); }
+      else { const wv=l._wmin||1; const ro=(aOk&&bOk)?Math.min(0.46,0.085+0.063*Math.log2(1+wv)):0.045; const rw=Math.min(1.75,0.8+0.17*Math.log2(1+wv));
+        l.el.setAttribute('stroke','oklch(0.58 0.03 255)'); l.el.setAttribute('stroke-width',rw.toFixed(2)); l.el.setAttribute('stroke-opacity', ro.toFixed(3)); l.el.setAttribute('marker-end',''); l.el.setAttribute('stroke-dasharray','none'); }
       if(l.q && visible){ l.el.setAttribute('stroke-dasharray', l.q==='S'?'1 5':'2 4'); }  // contested/speculative tie rendered broken
     });
     if(this._cbar) this._cbar.style.display=this.state2.clusterFocus?'flex':'none';
@@ -448,7 +485,7 @@ class Component extends DCLogic {
   // ---------- chrome (tabs, rail) ----------
   buildChrome(){
     // tabs
-    const tabs=this.qs('[data-role="tabs"]'); const views=[['network','Network'],['matrix','Matrix'],['timeline','Timeline']];
+    const tabs=this.qs('[data-role="tabs"]'); const views=[['network','Network'],['matrix','Matrix'],['timeline','Timeline'],['domains','Domains']];
     tabs.innerHTML=''; this.tabEls={};
     views.forEach(([v,label])=>{ const b=document.createElement('button'); b.textContent=label; b.dataset.view=v;
       Object.assign(b.style,{fontFamily:"'IBM Plex Sans Condensed',sans-serif",fontWeight:'600',fontSize:'12.5px',letterSpacing:'.03em',background:'transparent',border:'1px solid #232b3c',color:'#8b93ab',borderRadius:'6px',padding:'7px 14px',cursor:'pointer'});
@@ -486,7 +523,7 @@ class Component extends DCLogic {
     if(this.state2.view==='matrix')this.drawMatrixAxes(); else if(this.state2.view==='timeline')this.drawTimelineAxes(); else this.clearAxes();
   }
   setViewNote(){ const n=this.qs('[data-role="viewnote"]'); const v=this.state2.view;
-    const notes={network:'Proximity is the argument \u2014 clusters that share more ties sit closer, so the historical genealogy and the contemporary apparatus interleave exactly where they actually connect (eugenics fuses to embryo selection; crowding science to its afterlife). Hover to magnify nearby labels; click a region to isolate it; size = how connected.',matrix:'The coercion\u2013seduction \u00D7 lever map \u2014 the subset of programs triaged by mechanism (how they work, against the will \u2192 through desire). Most actors aren\u2019t mechanisms and don\u2019t appear here.',timeline:'The genealogy across time \u2014 watch the loop close, from 1938 urban sociology to the 2026 litigation record.'};
+    const notes={network:'Proximity is the argument \u2014 clusters that share more ties sit closer, so the historical genealogy and the contemporary apparatus interleave exactly where they actually connect (eugenics fuses to embryo selection; crowding science to its afterlife). Hover to magnify nearby labels; click a region to isolate it; size = how connected.',matrix:'The coercion\u2013seduction \u00D7 lever map \u2014 the subset of programs triaged by mechanism (how they work, against the will \u2192 through desire). Most actors aren\u2019t mechanisms and don\u2019t appear here.',timeline:'The genealogy across time \u2014 watch the loop close, from 1938 urban sociology to the 2026 litigation record.',domains:'The 26 domains as one weighted graph \u2014 circle size = how many nodes the domain holds, wire thickness = how many ties bind two domains. Hover a domain to trace its bonds; click to drop into it. This is the macro-skeleton the field layout is built from.'};
     n.style.color='#6b7390'; n.textContent=notes[v];
   }
   railSection(title,startCollapsed){ const d=document.createElement('div'); d.style.padding='15px 18px 4px';
@@ -882,7 +919,7 @@ class Component extends DCLogic {
     const flash=(ok)=>{ const t=btn.textContent; btn.textContent=ok?'✓ copied':'⤓ '+(this._lastHash?'link ready':'top view'); btn.style.color=ok?'#7fd6a8':'#8b93ab'; setTimeout(()=>{ btn.textContent='⧉ link'; btn.style.color='#8b93ab'; },1400); };
     try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(()=>flash(true),()=>this._copyFallback(url,flash)); } else this._copyFallback(url,flash); }catch(e){ this._copyFallback(url,flash); } }
   _copyFallback(url,flash){ try{ const ta=document.createElement('textarea'); ta.value=url; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); const ok=document.execCommand('copy'); document.body.removeChild(ta); flash(ok); }catch(e){ flash(false); } }
-  scaleLabels(){ if(!this.gHulls)return; const k=this.tf.k; [this.gHulls,this.gZone].forEach(g=>{ g.querySelectorAll('text').forEach(t=>{ const b=+t.dataset.base; if(b)t.setAttribute('font-size',(b/k).toFixed(1)); }); }); }
+  scaleLabels(){ if(!this.gHulls)return; const k=this.tf.k; [this.gHulls,this.gZone,this.gDom].forEach(g=>{ if(!g)return; g.querySelectorAll('text').forEach(t=>{ const b=+t.dataset.base; if(b)t.setAttribute('font-size',(b/k).toFixed(1)); }); }); }
   wireMagnify(){ const stage=this.qs('[data-role="stage"]');
     stage.addEventListener('mousemove',e=>{ const r=stage.getBoundingClientRect(); this._mx=e.clientX-r.left; this._my=e.clientY-r.top; if(this.state2.thread)return; if(!this._magRAF)this._magRAF=requestAnimationFrame(()=>{ this._magRAF=null; this.applyMagnify(); }); });
     stage.addEventListener('mouseleave',()=>{ this._mx=null; this._my=null; this.applyMagnify(); }); }
