@@ -28,20 +28,46 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  html,body{margin:0;height:100%;background:#0a0c12;overflow:hidden;font-family:"IBM Plex Sans",system-ui,sans-serif}
+  html,body{margin:0;height:100%;background:#0a0c12;overflow:hidden;font-family:"IBM Plex Sans",system-ui,sans-serif;overscroll-behavior:none;-webkit-tap-highlight-color:transparent}
   @keyframes atlas-fade{from{opacity:0}to{opacity:1}}
   @keyframes atlas-spin{to{transform:rotate(360deg)}}
   @keyframes atlas-pulse{0%,100%{opacity:.35}50%{opacity:.9}}
   @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important} }
   :focus-visible{outline:2px solid oklch(0.69 0.15 30);outline-offset:1px}
   [data-role="railtoggle"]{display:none}
+  [data-role="panel"]{transform:translateX(102%)}
+  [data-role="panel"][data-open="1"]{transform:none}
+  [data-grip]{display:none}
+  [data-hint="touch"]{display:none}
+  [data-role="tabs"]::-webkit-scrollbar{display:none}
   @media (max-width:760px){
-    [data-atlas-root] aside[data-role="rail"]{position:absolute;left:0;top:0;height:100%;z-index:7;width:min(304px,85%);transform:translateX(-103%);transition:transform .3s cubic-bezier(.22,.61,.36,1);box-shadow:18px 0 50px #04060abb}
+    [data-atlas-root] aside[data-role="rail"]{position:absolute;left:0;top:0;height:100%;z-index:7;width:min(304px,85%);transform:translateX(-103%);transition:transform .3s cubic-bezier(.22,.61,.36,1);box-shadow:18px 0 50px #04060abb;overscroll-behavior:contain}
     [data-atlas-root][data-railopen="1"] aside[data-role="rail"]{transform:none}
-    [data-atlas-root] [data-role="railtoggle"]{display:inline-flex}
-    [data-atlas-root] header h1{font-size:13px;white-space:normal;line-height:1.15}
-    [data-atlas-root] header{gap:10px;padding:10px 13px}
-    [data-role="panel"]{width:100% !important;max-width:100% !important}
+    [data-atlas-root] [data-role="railtoggle"]{display:inline-flex;padding:9px 13px !important;font-size:16px !important}
+    /* header re-flows into three calm rows: title / view tabs / search+actions */
+    [data-atlas-root] header{flex-wrap:wrap;gap:8px 10px !important;padding:9px 12px !important}
+    [data-atlas-root] header h1{font-size:13.5px !important;white-space:normal !important;line-height:1.15 !important}
+    [data-atlas-root] header h1 ~ span{display:none}
+    [data-atlas-root] header p{display:none}
+    [data-atlas-root] [data-role="tabs"]{order:3;margin-left:0 !important;width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+    [data-atlas-root] [data-role="tabs"] button{flex:none;padding:8px 13px !important}
+    [data-atlas-root] header>div:last-child{order:4;width:100%;min-width:0}
+    [data-atlas-root] [data-role="search"]{flex:1;width:auto !important;min-width:0;padding:9px 10px !important}
+    [data-atlas-root] [data-role="regions"],[data-atlas-root] [data-role="export"]{display:none}
+    [data-atlas-root] [data-role="share"],[data-atlas-root] [data-role="reset"]{padding:9px 11px !important;flex:none}
+    /* node record becomes a bottom sheet — the map stays visible above it */
+    [data-role="panel"]{top:auto !important;bottom:0;height:min(62%,560px) !important;width:100% !important;max-width:100% !important;border-left:0 !important;border-top:1px solid #2b3346;border-radius:16px 16px 0 0;box-shadow:0 -24px 60px #05070b99 !important;transform:translateY(calc(100% + 60px));z-index:9 !important;overscroll-behavior:contain}
+    [data-role="panel"][data-open="1"]{transform:none}
+    [data-grip]{display:block;width:42px;height:4px;border-radius:2px;background:#2b3346;margin:0 auto 10px}
+    [data-role="thread"]{left:10px !important;right:10px !important;bottom:8px !important;padding:11px 12px 10px !important}
+    [data-role="viewnote"]{left:12px !important;right:12px;bottom:10px !important;max-width:none !important;font-size:10px !important;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+    [data-cbar]{left:8px !important;right:8px !important;transform:none !important;flex-wrap:wrap;max-width:none}
+    [data-role="intro"]>div{padding:24px 18px 22px !important;margin:14px !important}
+    [data-role="intro"] h2{font-size:22px !important}
+    [data-hint="mouse"]{display:none}
+    [data-hint="touch"]{display:inline;margin-left:auto;color:#707a94;white-space:nowrap}
+    [data-atlas-root] footer{padding:5px 12px !important;gap:2px 12px !important;font-size:9.5px !important;flex-wrap:wrap}
+    [data-atlas-root] footer [data-role="status"]{white-space:nowrap}
   }
   [data-role="stage"]::-webkit-scrollbar,[data-role="panel"]::-webkit-scrollbar,[data-role="rail"]::-webkit-scrollbar{width:9px;height:9px}
   [data-role="panel"]::-webkit-scrollbar-thumb,[data-role="rail"]::-webkit-scrollbar-thumb{background:#262d3d;border-radius:6px}
@@ -80,13 +106,13 @@
       </div>
       <div data-role="viewnote" style="position:absolute;left:16px;bottom:14px;max-width:540px;font-size:11.5px;color:#6b7390;pointer-events:none"></div>
     </div>
-    <div data-role="panel" style="position:absolute;top:0;right:0;height:100%;width:430px;max-width:88%;background:linear-gradient(#0e121c,#0b0e16);border-left:1px solid #232b3c;box-shadow:-24px 0 60px #05070b88;transform:translateX(102%);transition:transform .42s cubic-bezier(.22,.61,.36,1);overflow-y:auto;z-index:6"></div>
+    <div data-role="panel" data-open="0" style="position:absolute;top:0;right:0;height:100%;width:430px;max-width:88%;background:linear-gradient(#0e121c,#0b0e16);border-left:1px solid #232b3c;box-shadow:-24px 0 60px #05070b88;transition:transform .42s cubic-bezier(.22,.61,.36,1);overflow-y:auto;z-index:6"></div>
     <div data-role="tooltip" style="position:absolute;pointer-events:none;opacity:0;transform:translate(-50%,-130%);background:#161b27;border:1px solid #2b3346;border-radius:5px;padding:5px 9px;font-size:11px;font-family:'IBM Plex Mono';color:#dfe4f0;white-space:nowrap;z-index:7;transition:opacity .12s"></div>
 
     <div data-role="thread" style="position:absolute;left:20px;right:452px;bottom:16px;display:none;background:linear-gradient(#12161f,#0d1118);border:1px solid #2b3346;border-radius:9px;padding:13px 16px 12px;box-shadow:0 18px 50px #04060a99;z-index:8"></div>
 
     <div data-role="intro" style="position:absolute;inset:0;display:none;align-items:center;justify-content:center;background:rgba(6,8,12,.86);z-index:10;animation:atlas-fade .4s">
-      <div style="max-width:660px;margin:24px;background:linear-gradient(#11151f,#0b0e16);border:1px solid #242c3d;border-radius:12px;padding:34px 38px 30px;box-shadow:0 40px 100px #03050a">
+      <div style="max-width:660px;margin:24px;max-height:calc(100% - 28px);overflow-y:auto;background:linear-gradient(#11151f,#0b0e16);border:1px solid #242c3d;border-radius:12px;padding:34px 38px 30px;box-shadow:0 40px 100px #03050a">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px">
           <span style="width:8px;height:8px;border-radius:50%;background:oklch(0.69 0.15 30);box-shadow:0 0 10px oklch(0.69 0.15 30 / .8)"></span>
           <span style="font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.2em;color:#6b7390;text-transform:uppercase">How to read this atlas</span>
@@ -112,7 +138,8 @@
 
   <footer style="flex:none;display:flex;align-items:center;gap:18px;padding:7px 18px;border-top:1px solid #1c2231;background:#0b0e16;font-family:'IBM Plex Mono';font-size:10.5px;color:#5d6680">
     <span data-role="status" style="color:#7b85a0"></span>
-    <span style="margin-left:auto;color:#707a94">hover to magnify · drag to reposition · scroll to zoom · click a region to isolate · <span style="color:oklch(0.80 0.13 75)">documented ≠ effective</span></span>
+    <span data-hint="mouse" style="margin-left:auto;color:#707a94">hover to magnify · drag to reposition · scroll to zoom · click a region to isolate · <span style="color:oklch(0.80 0.13 75)">documented ≠ effective</span></span>
+    <span data-hint="touch">pinch to zoom · tap a node · <span style="color:oklch(0.80 0.13 75)">documented ≠ effective</span></span>
   </footer>
 </div>
 </x-dc>
@@ -121,7 +148,7 @@ class Component extends DCLogic {
   rootRef = React.createRef();
   renderVals(){ return { rootRef: this.rootRef }; }
   componentWillUnmount(){ this._destroyed=true;
-    try{ if(this._zoomMove)window.removeEventListener('mousemove',this._zoomMove); if(this._zoomUp)window.removeEventListener('mouseup',this._zoomUp); if(this._onKey)window.removeEventListener('keydown',this._onKey); }catch(e){}
+    try{ if(this._zoomMove)window.removeEventListener('mousemove',this._zoomMove); if(this._zoomUp)window.removeEventListener('mouseup',this._zoomUp); if(this._onKey)window.removeEventListener('keydown',this._onKey); if(this._onResize)window.removeEventListener('resize',this._onResize); }catch(e){}
     [this._tw,this._magRAF,this._hashRAF,this._twRAF].forEach(id=>{ if(id)try{cancelAnimationFrame(id);}catch(e){} });
     [this._tfSnap,this._twSnap].forEach(id=>{ if(id)try{clearTimeout(id);}catch(e){} });
   }
@@ -137,8 +164,11 @@ class Component extends DCLogic {
       this.SVGNS = 'http://www.w3.org/2000/svg';
       this.state2 = { view:'network', lens:'structure', evFilter:new Set(['documented','contested','speculative']), typeFilter:new Set(Object.keys(this.D.TYPES)), relFocus:null, bridges:false, connectors:false, clusterMode:'internal', selected:null, hover:null, search:'' };
       this.reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      this.KMIN = 0.05;  // shared zoom-out floor: on a phone the full-field fit needs k ≈ 0.06, so fit/wheel/pinch must all allow it
+      this._coarse = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
       this.tf = { x:0, y:0, k:1 };
       this.qs = s => this.root.querySelector(s);
+      window.addEventListener('resize', this._onResize = ()=>{ const st=this.qs('[data-role="stage"]'); if(!st)return; const r=st.getBoundingClientRect(); if(r.width&&r.height){ this.W=r.width; this.H=r.height; } });
       this.prep();
       this.buildSVG();
       this.layoutNetwork(true);
@@ -204,12 +234,14 @@ class Component extends DCLogic {
     this.nodeEls={};
     this.nodes.forEach(n=>{
       const g=this.E('g'); g.style.cursor='pointer';
+      // coarse pointers get an invisible oversized hit disc — small nodes are untappable at their painted radius
+      const hit=this._coarse ? this.E('circle',{r:Math.max(n.r+8,15),fill:'#000','fill-opacity':'0'}) : null;
       const halo=this.E('circle',{r:n.r+6,fill:'none','stroke-width':'2'}); halo.style.opacity='0';
       const c=this.E('circle',{r:n.r,'stroke-width':'1.4'});
       const ring=this.E('circle',{r:n.r,fill:'none','stroke-width':'1.6'}); // evidence ring overlay
       const lbl=this.E('text',{x:0,y:n.r+13,'text-anchor':'middle','font-size':'11','font-family':'IBM Plex Sans Condensed, sans-serif','font-weight':'600','paint-order':'stroke','stroke':'#0a0c12','stroke-width':'2.6','stroke-linejoin':'round'}); lbl.textContent=n.label; lbl.style.pointerEvents='none';
       const ttl=this.E('title'); ttl.textContent=n.label+(n.sub?' — '+n.sub:'')+' · '+(this.D.CLUSTERS[n.cl]?this.D.CLUSTERS[n.cl].label:n.cl)+(n.ev?' · '+n.ev:'');
-      g.appendChild(ttl); g.appendChild(halo); g.appendChild(c); g.appendChild(ring); g.appendChild(lbl);
+      g.appendChild(ttl); if(hit)g.appendChild(hit); g.appendChild(halo); g.appendChild(c); g.appendChild(ring); g.appendChild(lbl);
       g.setAttribute('role','img'); g.setAttribute('aria-label', ttl.textContent);
       n._g=g; n._c=c; n._halo=halo; n._ring=ring; n._lbl=lbl;
       g.addEventListener('mouseenter',()=>this.onHover(n.id));
@@ -252,7 +284,7 @@ class Component extends DCLogic {
   }
 
   nodeBounds(list){ const ns=list||this.nodes; let a=1e9,b=1e9,c=-1e9,d=-1e9; ns.forEach(n=>{a=Math.min(a,n.x);b=Math.min(b,n.y);c=Math.max(c,n.x);d=Math.max(d,n.y);}); return {x:a,y:b,w:c-a,h:d-b}; }
-  fitTo(bb,animate){ const pad=this.state2&&this.state2.view==='network'?120:70; const k=Math.min(this.W/(bb.w+pad*2), this.H/(bb.h+pad*2)); const kk=Math.max(0.14,Math.min(1.6,k));
+  fitTo(bb,animate){ const pad=this.state2&&this.state2.view==='network'?120:70; const k=Math.min(this.W/(bb.w+pad*2), this.H/(bb.h+pad*2)); const kk=Math.max(this.KMIN,Math.min(1.6,k));
     const tx=this.W/2 - (bb.x+bb.w/2)*kk; const ty=this.H/2 - (bb.y+bb.h/2)*kk;
     if(animate){ this.tweenTransform({x:tx,y:ty,k:kk},520); } else { this.tf={x:tx,y:ty,k:kk}; this.applyTransform(); } }
   applyTransform(){ this.gWorld.setAttribute('transform',`translate(${this.tf.x},${this.tf.y}) scale(${this.tf.k})`); this.scaleLabels(); }
@@ -304,8 +336,8 @@ class Component extends DCLogic {
       const grp=this.E('g'); grp.style.cursor='pointer';
       const tt=this.E('title'); const tM=Object.values(W[c]||{}).filter(v=>v>0).length; tt.textContent=`${(C&&C.label)||c} · ${cnt[c]||0} nodes${tM?` · ties to ${tM} domains`:''}`; grp.appendChild(tt);
       const circ=this.E('circle',{cx:p.x,cy:p.y,r,fill:`oklch(0.55 0.14 ${hue} / 0.34)`,stroke:`oklch(0.76 0.13 ${hue})`,'stroke-width':2.4}); grp.appendChild(circ);
-      const lab=this.E('text',{x:p.x,y:p.y-r-12,'text-anchor':'middle','font-family':'IBM Plex Sans Condensed, sans-serif','font-weight':'700','paint-order':'stroke','stroke':'#0a0c12','stroke-width':4,'stroke-linejoin':'round','fill':`oklch(0.86 0.10 ${hue})`}); lab.dataset.base='17'; lab.setAttribute('font-size',(17/this.tf.k).toFixed(1)); lab.textContent=(C?C.label:c).toUpperCase(); grp.appendChild(lab);
-      const nf=Math.round(r*0.52); const num=this.E('text',{x:p.x,y:p.y+nf*0.34,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-weight':'700','fill':`oklch(0.96 0.03 ${hue})`}); num.dataset.base=String(nf); num.setAttribute('font-size',(nf/this.tf.k).toFixed(1)); num.textContent=cnt[c]||0; num.style.pointerEvents='none'; grp.appendChild(num);
+      const lab=this.E('text',{x:p.x,y:p.y-r-12,'text-anchor':'middle','font-family':'IBM Plex Sans Condensed, sans-serif','font-weight':'700','paint-order':'stroke','stroke':'#0a0c12','stroke-width':4,'stroke-linejoin':'round','fill':`oklch(0.86 0.10 ${hue})`}); lab.dataset.base='17'; lab.setAttribute('font-size',(17/this.tf.k).toFixed(1)); if(this.tf.k<0.09)lab.style.display='none'; lab.textContent=(C?C.label:c).toUpperCase(); grp.appendChild(lab);
+      const nf=Math.round(r*0.52); const num=this.E('text',{x:p.x,y:p.y+nf*0.34,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace','font-weight':'700','fill':`oklch(0.96 0.03 ${hue})`}); num.dataset.base=String(nf); num.setAttribute('font-size',(nf/this.tf.k).toFixed(1)); if(this.tf.k<0.09)num.style.display='none'; num.textContent=cnt[c]||0; num.style.pointerEvents='none'; grp.appendChild(num);
       const enter=()=>{ ge.querySelectorAll('line').forEach(ln=>{ const on=ln.dataset.a===c||ln.dataset.b===c; ln.setAttribute('stroke', on?`oklch(0.78 0.12 ${hue})`:'oklch(0.66 0.05 255)'); ln.setAttribute('stroke-opacity', on?'0.85':'0.04'); }); circ.setAttribute('fill',`oklch(0.6 0.14 ${hue} / 0.5)`); };
       const leave=()=>{ this.drawDomains(); };
       grp.addEventListener('mouseenter',enter); grp.addEventListener('mouseleave',leave);
@@ -444,11 +476,19 @@ class Component extends DCLogic {
   }
 
   // ---------- selection / panel ----------
-  select(id){ if(id && (this.state2.relFocus||this.state2.bridges||this.state2.connectors||this.state2.path)){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.setViewNote(); }
+  _mobile(){ return !!(window.matchMedia && window.matchMedia('(max-width:760px)').matches); }
+  // open/close via data-open so the stylesheet decides the axis: desktop slides in from the
+  // right, ≤760px rises as a bottom sheet. Never set panel transform inline.
+  panelOpen(on){ const p=this.qs('[data-role="panel"]'); if(p)p.dataset.open=on?'1':'0'; }
+  select(id){
+    // on a phone the record sheet is an optional overlay on a running thread — dismissing it must not exit the thread (the thread bar has its own ×)
+    if(id==null && this.state2.thread && !this._tnav && this._mobile()){ this.panelOpen(false); return; }
+    if(id && (this.state2.relFocus||this.state2.bridges||this.state2.connectors||this.state2.path)){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.setViewNote(); }
     if(this.state2.thread && !this._tnav){ this.state2.thread=null; this.hideThread(); this.renderThreadPath(); }
     this.state2.selected=id; this.state2.hover=null; this.qs('[data-role="tooltip"]').style.opacity='0'; this.refresh();
-    const panel=this.qs('[data-role="panel"]'); if(!id){ panel.style.transform='translateX(102%)'; return; }
-    this.fillPanel(this.byId[id]); panel.style.transform='translateX(0)'; panel.scrollTop=0;
+    const panel=this.qs('[data-role="panel"]'); if(!id){ this.panelOpen(false); return; }
+    if(this._tnav && this._mobile()){ this.panelOpen(false); return; }  // in a thread on a phone, keep the map+thread bar visible; the step label opens the record
+    this.fillPanel(this.byId[id]); this.panelOpen(true); panel.scrollTop=0;
   }
   relPhrase(r){ return ({funded:'funds',conduit:'is conduit for',ran:'ran / directed',sited:'sited at',subjects:'subject pool of',influenced:'influences',became:'becomes / migrates into',exposed:'exposes / litigates',appropriated:'appropriated by',rival:'in tension with',denies:'denies',theorizes:'reads / theorizes',staffs:'holds a post at',convenes:'co-present at',feeds:'shares a data pipe with',captures:'state tie →',litigates:'co-counsel / party',rhymes:'rhymes with'})[r]||r; }
   relPhraseIn(r){ return ({funded:'funds',conduit:'conduit for',ran:'run by',sited:'site of',subjects:'draws subjects',influenced:'influenced by',became:'flows from',exposed:'exposed by',appropriated:'appropriates',rival:'in tension with',denies:'denied by',theorizes:'read by',staffs:'principal',convenes:'co-presence',feeds:'data from',captures:'state tie ←',litigates:'co-party',rhymes:'rhymes with'})[r]||r; }
@@ -464,6 +504,7 @@ class Component extends DCLogic {
     const srcs=(n.rec&&n.rec.src&&n.rec.src.length)? `<div style="margin-top:16px"><div style="font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:.14em;color:#6b7390;text-transform:uppercase;margin-bottom:6px">Primary sources</div>${n.rec.src.map(s=>`<div style="font-family:'IBM Plex Mono';font-size:10.5px;line-height:1.5;color:#8b93ab;padding-left:12px;text-indent:-12px;margin-bottom:4px">› ${s}</div>`).join('')}</div>`:'';
     p.innerHTML=`
       <div style="position:sticky;top:0;background:#0e121c;padding:16px 20px 12px;border-bottom:1px solid #1c2231;z-index:2">
+        <div data-grip></div>
         <div style="display:flex;align-items:center;gap:8px;margin-bottom:9px">
           <span style="font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.06em;color:#0a0c12;background:${tc};border-radius:3px;padding:2px 7px;font-weight:600">${this.D.TYPES[n.type].label}</span>
           ${ev?`<span style="font-family:'IBM Plex Mono';font-size:10px;letter-spacing:.04em;color:${this.evColor(n.ev)};border:1px solid ${this.evColor(n.ev)};border-radius:3px;padding:1px 7px;font-weight:600">${ev.label.toUpperCase()}</span>`:''}
@@ -502,6 +543,11 @@ class Component extends DCLogic {
     _si.addEventListener('keydown',e=>{ if(e.key==='Enter'){ e.preventDefault(); const t=(this.state2.search||'').trim().toLowerCase(); if(!t)return; const m=this.searchMatches(t); if(m.length){ this.select(m[0].id); if(this.state2.view==='network'&&this.byId[m[0].id])this.centerOn(this.byId[m[0].id],560); } } });
     this.qs('[data-role="export"]').addEventListener('click',()=>this.exportSVG());
     { const rt=this.qs('[data-role="railtoggle"]'); const root=document.querySelector('[data-atlas-root]'); if(rt&&root){ rt.addEventListener('click',()=>{ root.dataset.railopen = root.dataset.railopen==='1'?'0':'1'; }); this.qs('[data-role="stage"]').addEventListener('click',()=>{ if(root.dataset.railopen==='1')root.dataset.railopen='0'; }); } }
+    // bottom-sheet gesture: with the record scrolled to its top, a firm downward pull dismisses it
+    { const panel=this.qs('[data-role="panel"]'); let ts=null;
+      panel.addEventListener('touchstart',e=>{ if(e.touches.length===1)ts={y:e.touches[0].clientY}; },{passive:true});
+      panel.addEventListener('touchmove',e=>{ if(!ts)return; const dy=e.touches[0].clientY-ts.y; if(panel.scrollTop<=0 && dy>80){ ts=null; this.select(null); } },{passive:true});
+      panel.addEventListener('touchend',()=>{ ts=null; }); }
     this.qs('[data-role="reset"]').addEventListener('click',()=>{ const v=this.state2.view; const bb=v==='network'?this.nodeBounds():(v==='matrix'?{x:-700,y:-430,w:1400,h:860}:{x:-820,y:-470,w:1640,h:940}); this.fitTo(bb,true); });
     const rb=this.qs('[data-role="regions"]'); if(rb)rb.addEventListener('click',()=>{ this.state2.regionsOn = (this.state2.regionsOn===false); const off=this.state2.regionsOn===false; rb.style.color=off?'#5d6680':'#9aa3bd'; rb.style.borderColor=off?'#1c2231':'#2b3346'; this.renderHulls(); });
     const sh=this.qs('[data-role="share"]'); if(sh)sh.addEventListener('click',()=>this.shareLink());
@@ -673,7 +719,7 @@ class Component extends DCLogic {
         <button data-tx style="margin-left:auto;background:none;border:1px solid #2b3346;color:#8b93ab;border-radius:5px;width:24px;height:24px;cursor:pointer;font-size:13px;line-height:1">×</button>
       </div>
       <div style="display:flex;align-items:baseline;gap:9px;margin-bottom:11px">
-        <span style="font-family:'IBM Plex Sans Condensed';font-weight:600;font-size:13.5px;color:${th.accent};flex:none">${this.byId[st.node].label}</span>
+        <button data-tnode title="Open the full record" style="font-family:'IBM Plex Sans Condensed';font-weight:600;font-size:13.5px;color:${th.accent};flex:none;background:none;border:0;padding:0;cursor:pointer;border-bottom:1px dotted ${th.accent}66">${this.byId[st.node].label}</button>
         <span style="font-size:12.5px;line-height:1.5;color:#c4ccde">${st.note}</span>
       </div>
       <div style="display:flex;align-items:center;gap:8px">
@@ -682,6 +728,7 @@ class Component extends DCLogic {
         <div style="flex:1;display:flex;gap:4px;justify-content:flex-end">${th.steps.map((s,k)=>`<span data-dot="${k}" style="width:${k===i?'18px':'7px'};height:7px;border-radius:4px;background:${k===i?th.accent:(k<i?'#3a4256':'#262d3d')};transition:all .3s;cursor:pointer"></span>`).join('')}</div>
       </div>`;
     bar.querySelector('[data-tx]').onclick=()=>this.exitThread();
+    { const tb=bar.querySelector('[data-tnode]'); if(tb)tb.onclick=()=>{ const nn=this.byId[st.node]; if(!nn)return; this.fillPanel(nn); this.panelOpen(true); const pp=this.qs('[data-role="panel"]'); if(pp)pp.scrollTop=0; }; }
     bar.querySelector('[data-tp]').onclick=()=>{ if(i>0)this.gotoStep(i-1); };
     bar.querySelector('[data-tn]').onclick=()=>{ this.gotoStep(i>=th.steps.length-1?0:i+1); };
     bar.querySelectorAll('[data-dot]').forEach(d=>{ d.style.background=(+d.dataset.dot<i)?'#3a4256':d.style.background; d.onclick=()=>this.gotoStep(+d.dataset.dot); });
@@ -760,7 +807,7 @@ class Component extends DCLogic {
 
   // ---------- zoom / pan / drag ----------
   wireZoom(){ const stage=this.qs('[data-role="stage"]');
-    stage.addEventListener('wheel',e=>{ e.preventDefault(); const r=stage.getBoundingClientRect(); const mx=e.clientX-r.left, my=e.clientY-r.top; const f=Math.exp(-e.deltaY*0.0014); const nk=Math.max(0.18,Math.min(3.5,this.tf.k*f)); const s=nk/this.tf.k; this.tf.x=mx-(mx-this.tf.x)*s; this.tf.y=my-(my-this.tf.y)*s; this.tf.k=nk; this.applyTransform(); },{passive:false});
+    stage.addEventListener('wheel',e=>{ e.preventDefault(); const r=stage.getBoundingClientRect(); const mx=e.clientX-r.left, my=e.clientY-r.top; const f=Math.exp(-e.deltaY*0.0014); const nk=Math.max(this.KMIN,Math.min(3.5,this.tf.k*f)); const s=nk/this.tf.k; this.tf.x=mx-(mx-this.tf.x)*s; this.tf.y=my-(my-this.tf.y)*s; this.tf.k=nk; this.applyTransform(); },{passive:false});
     let pan=null; stage.addEventListener('mousedown',e=>{ if(e.target.closest('g')&&e.target.closest('g').__node)return; pan={x:e.clientX,y:e.clientY,tx:this.tf.x,ty:this.tf.y}; stage.style.cursor='grabbing'; });
     window.addEventListener('mousemove', this._zoomMove = e=>{ if(pan){ this.tf.x=pan.tx+(e.clientX-pan.x); this.tf.y=pan.ty+(e.clientY-pan.y); this.applyTransform(); } });
     window.addEventListener('mouseup', this._zoomUp = ()=>{ if(pan){pan=null; stage.style.cursor='grab';} });
@@ -769,11 +816,12 @@ class Component extends DCLogic {
     let tpan=null, pinch=null;
     const tpt=t=>{ const r=stage.getBoundingClientRect(); return {x:t.clientX-r.left, y:t.clientY-r.top}; };
     stage.addEventListener('touchstart',e=>{
-      if(e.touches.length===1){ if(e.target.closest('g')){ tpan=null; return; } tpan={x:e.touches[0].clientX,y:e.touches[0].clientY,tx:this.tf.x,ty:this.tf.y}; }
+      // pan starts anywhere, nodes included — a clean tap still fires click (movement past the tap slop cancels it)
+      if(e.touches.length===1){ tpan={x:e.touches[0].clientX,y:e.touches[0].clientY,tx:this.tf.x,ty:this.tf.y}; }
       else if(e.touches.length===2){ tpan=null; const a=tpt(e.touches[0]),b=tpt(e.touches[1]); pinch={d:Math.hypot(a.x-b.x,a.y-b.y)||1,cx:(a.x+b.x)/2,cy:(a.y+b.y)/2,k:this.tf.k,x:this.tf.x,y:this.tf.y}; }
     },{passive:false});
     stage.addEventListener('touchmove',e=>{
-      if(pinch && e.touches.length===2){ e.preventDefault(); const a=tpt(e.touches[0]),b=tpt(e.touches[1]); const nd=Math.hypot(a.x-b.x,a.y-b.y); const nk=Math.max(0.18,Math.min(3.5,pinch.k*(nd/pinch.d))); const s=nk/pinch.k; this.tf.x=pinch.cx-(pinch.cx-pinch.x)*s; this.tf.y=pinch.cy-(pinch.cy-pinch.y)*s; this.tf.k=nk; this.applyTransform(); }
+      if(pinch && e.touches.length===2){ e.preventDefault(); const a=tpt(e.touches[0]),b=tpt(e.touches[1]); const nd=Math.hypot(a.x-b.x,a.y-b.y); const nk=Math.max(this.KMIN,Math.min(3.5,pinch.k*(nd/pinch.d))); const s=nk/pinch.k; this.tf.x=pinch.cx-(pinch.cx-pinch.x)*s; this.tf.y=pinch.cy-(pinch.cy-pinch.y)*s; this.tf.k=nk; this.applyTransform(); }
       else if(tpan && e.touches.length===1){ e.preventDefault(); this.tf.x=tpan.tx+(e.touches[0].clientX-tpan.x); this.tf.y=tpan.ty+(e.touches[0].clientY-tpan.y); this.applyTransform(); }
     },{passive:false});
     const tend=e=>{ if(e.touches.length===0){ tpan=null; pinch=null; } else if(e.touches.length===1){ pinch=null; tpan={x:e.touches[0].clientX,y:e.touches[0].clientY,tx:this.tf.x,ty:this.tf.y}; } };
@@ -833,12 +881,12 @@ class Component extends DCLogic {
       path.style.cursor='pointer'; path.addEventListener('click',ev=>{ ev.stopPropagation(); this.toggleCluster(cl); }); g.appendChild(path);
       const anc=(cl==='eugenics'||cl==='philan'||cl==='state')?'start':((cl==='theory'||cl==='transmission')?'end':'middle');
       const lab=this.E('text',{x:cx.toFixed(1),y:(top-14).toFixed(1),'text-anchor':anc,'font-family':'IBM Plex Mono, monospace','font-weight':'600','letter-spacing':'1.2','paint-order':'stroke','stroke':'#0a0c12','stroke-width':'3.5','stroke-linejoin':'round'});
-      lab.dataset.base='12'; lab.setAttribute('font-size',(12/this.tf.k).toFixed(1)); lab.textContent=(C?C.label:cl).toUpperCase();
+      lab.dataset.base='12'; lab.setAttribute('font-size',(12/this.tf.k).toFixed(1)); if(this.tf.k<0.09)lab.style.display='none'; lab.textContent=(C?C.label:cl).toUpperCase();
       lab.setAttribute('fill',`oklch(0.80 0.11 ${hue} / ${dim?0.55:0.95})`); lab.style.cursor='pointer';
       lab.addEventListener('click',ev=>{ ev.stopPropagation(); this.toggleCluster(cl); }); g.appendChild(lab); });
   }
   toggleCluster(cl){ this.state2.clusterFocus = this.state2.clusterFocus===cl?null:cl; this.state2.clusterMode='internal'; this.state2.selected=null; this.state2.hover=null; this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.setViewNote();
-    this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0';
+    this.panelOpen(false); this.qs('[data-role="tooltip"]').style.opacity='0';
     this.renderClusterBar(); this.renderHulls(); this.refresh();
     if(this.state2.clusterFocus){ this.fitTo(this.nodeBounds(this.nodes.filter(n=>n.cl===cl)),true); } else { this.fitTo(this.nodeBounds(),true); } }
   ensureClusterBar(){ if(this._cbar)return this._cbar; const stage=this.qs('[data-role="stage"]'); const d=document.createElement('div'); d.dataset.cbar='1';
@@ -862,7 +910,7 @@ class Component extends DCLogic {
   toggleRel(r){ const next=this.state2.relFocus===r?null:r;
     if(next && this.state2.view!=='network'){ this.setView('network'); }
     this.state2.relFocus=next;
-    if(next){ this.state2.selected=null; this.state2.clusterFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
+    if(next){ this.state2.selected=null; this.state2.clusterFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.path=null; if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.panelOpen(false); this.qs('[data-role="tooltip"]').style.opacity='0'; }
     this.syncRel(); this.renderHulls();
     const vn=this.qs('[data-role="viewnote"]'); if(vn){ if(next){ vn.style.color=this.relColor(next); vn.textContent='Tracing every “'+(this.relLabel[next]||next)+'” tie across the field — arrows point the direction. Click the tie again, or the background, to release.'; } else this.setViewNote(); }
     this.refresh(); }
@@ -893,14 +941,14 @@ class Component extends DCLogic {
     this._artic=artic; return artic; }
   toggleConnectors(){ const next=!this.state2.connectors; if(next && this.state2.view!=='network')this.setView('network');
     this.state2.connectors=next;
-    if(next){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
+    if(next){ this.state2.relFocus=null; this.state2.bridges=false; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.pathEls)this.syncPath(); this.panelOpen(false); this.qs('[data-role="tooltip"]').style.opacity='0'; }
     this.syncConnectors(); this.renderHulls();
     const vn=this.qs('[data-role="viewnote"]'); if(vn){ if(next){ const c=(this._artic?this._artic.size:0); vn.style.color='oklch(0.82 0.14 80)'; vn.textContent='Showing the '+c+' load-bearing nodes — cut-vertices whose removal would split the field into disconnected pieces. Remove one and a whole region falls away. Click the background to release.'; } else this.setViewNote(); }
     this.refresh(); if(next)this.fitTo(this.nodeBounds(),true); }
   syncConnectors(){ const b=this.connBtn; if(!b)return; const on=this.state2.connectors; b.style.borderColor=on?'oklch(0.82 0.14 80)':'#232b3c'; b.style.background=on?'oklch(0.78 0.13 80 / .15)':'transparent'; b.style.color=on?'#f3f5fa':'#9aa3bd'; b.firstChild.textContent=on?'◈ load-bearing shown':'◇ show load-bearing nodes'; }
   toggleBridges(){ const next=!this.state2.bridges; if(next && this.state2.view!=='network')this.setView('network');
     this.state2.bridges=next;
-    if(next){ this.state2.relFocus=null; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.qs('[data-role="panel"]').style.transform='translateX(102%)'; this.qs('[data-role="tooltip"]').style.opacity='0'; }
+    if(next){ this.state2.relFocus=null; this.state2.clusterFocus=null; this.state2.selected=null; this.state2.connectors=false; this.state2.path=null; if(this.relEls)this.syncRel(); if(this.connBtn)this.syncConnectors(); if(this.pathEls)this.syncPath(); this.panelOpen(false); this.qs('[data-role="tooltip"]').style.opacity='0'; }
     this.syncBridges(); this.renderHulls();
     const vn=this.qs('[data-role="viewnote"]'); if(vn){ if(next){ vn.style.color='#cfe0ff'; vn.textContent='Showing only the '+this.bridgeCount+' ties that cross between domains \u2014 the glowing nodes are the connectors that hold the field together. Click any to open it, or the background to release.'; } else this.setViewNote(); }
     this.refresh(); if(next)this.fitTo(this.nodeBounds(),true); }
@@ -913,7 +961,7 @@ class Component extends DCLogic {
     if(this.state2.view!=='network')this.setView('network');
     this.state2.relFocus=null; this.state2.bridges=false; this.state2.connectors=false; this.state2.clusterFocus=null; this.state2.clusterMode='internal'; this.state2.selected=null; this.state2.hover=null;
     if(this.relEls)this.syncRel(); if(this.bridgeBtn)this.syncBridges(); if(this.connBtn)this.syncConnectors(); this.renderClusterBar(); this.renderHulls();
-    this.qs('[data-role=\"panel\"]').style.transform='translateX(102%)'; this.qs('[data-role=\"tooltip\"]').style.opacity='0';
+    this.panelOpen(false); this.qs('[data-role=\"tooltip\"]').style.opacity='0';
     const seq=this.findPath(a,b);
     if(!seq){ this.state2.path=null; this.syncPath(); this.renderPathReadout(a,b,null); this.refresh(); return; }
     const nodeSet=new Set(seq), edgeKeys=new Set(); for(let i=0;i<seq.length-1;i++)edgeKeys.add(seq[i]+'|'+seq[i+1]);
@@ -963,7 +1011,9 @@ class Component extends DCLogic {
     const flash=(ok)=>{ const t=btn.textContent; btn.textContent=ok?'✓ copied':'⤓ '+(this._lastHash?'link ready':'top view'); btn.style.color=ok?'#7fd6a8':'#8b93ab'; setTimeout(()=>{ btn.textContent='⧉ link'; btn.style.color='#8b93ab'; },1400); };
     try{ if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(()=>flash(true),()=>this._copyFallback(url,flash)); } else this._copyFallback(url,flash); }catch(e){ this._copyFallback(url,flash); } }
   _copyFallback(url,flash){ try{ const ta=document.createElement('textarea'); ta.value=url; ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta); ta.select(); const ok=document.execCommand('copy'); document.body.removeChild(ta); flash(ok); }catch(e){ flash(false); } }
-  scaleLabels(){ if(!this.gHulls)return; const k=this.tf.k; [this.gHulls,this.gZone,this.gDom].forEach(g=>{ if(!g)return; g.querySelectorAll('text').forEach(t=>{ const b=+t.dataset.base; if(b)t.setAttribute('font-size',(b/k).toFixed(1)); }); }); }
+  scaleLabels(){ if(!this.gHulls)return; const k=this.tf.k; [this.gHulls,this.gZone,this.gDom].forEach(g=>{ if(!g)return; g.querySelectorAll('text').forEach(t=>{ const b=+t.dataset.base; if(b){ t.setAttribute('font-size',(b/k).toFixed(1));
+    // scaled labels are screen-constant, so zoomed far out (a phone fitting the whole field) all 26 collide — hide them until the zoom gives them room
+    t.style.display = k<0.09 ? 'none' : ''; } }); }); }
   wireMagnify(){ const stage=this.qs('[data-role="stage"]');
     stage.addEventListener('mousemove',e=>{ const r=stage.getBoundingClientRect(); this._mx=e.clientX-r.left; this._my=e.clientY-r.top; if(this.state2.thread)return; if(!this._magRAF)this._magRAF=requestAnimationFrame(()=>{ this._magRAF=null; this.applyMagnify(); }); });
     stage.addEventListener('mouseleave',()=>{ this._mx=null; this._my=null; this.applyMagnify(); }); }
