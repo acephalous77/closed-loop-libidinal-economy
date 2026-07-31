@@ -33,7 +33,7 @@ export default function PatrioticColophon() {
             textDecoration: "none",
           }}
         >
-          ← autostimulus
+          ↑ autostimulus
         </Link>
         <Link
           href="/patriotic-times"

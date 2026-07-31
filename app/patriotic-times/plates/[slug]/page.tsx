@@ -61,7 +61,7 @@ export default async function PlateColorPage({ params }: PageProps) {
           flexWrap: "wrap",
         }}
       >
-        <Link href="/" style={crumbStyle}>← autostimulus</Link>
+        <Link href="/" style={crumbStyle}>↑ autostimulus</Link>
         <Link href="/patriotic-times" style={crumbStyle}>← Patriotic Times</Link>
         <Link href="/patriotic-times/plates" style={crumbStyle}>← All plates</Link>
       </nav>

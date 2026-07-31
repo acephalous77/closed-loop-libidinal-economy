@@ -152,9 +152,17 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
             After Adnan Selimović, “The Manufacture of the Subject.” Stiegler · Zuboff · Marcuse · Lyotard · Preciado ·
             Rifkin · Han.
           </span>
-          <Link href="#top" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
-            ↑ return to birth
-          </Link>
+          {/* The piece had no link back to the umbrella anywhere — the only
+              way out of the descent was the browser's back button. It rides
+              the closing row beside the internal return, in the same register. */}
+          <span className="flex gap16" style={{ alignItems: "baseline" }}>
+            <Link href="#top" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
+              ↑ return to birth
+            </Link>
+            <Link href="/" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
+              ↑ autostimulus
+            </Link>
+          </span>
         </div>
       </div>
     </section>

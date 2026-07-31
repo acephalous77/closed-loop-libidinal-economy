@@ -38,7 +38,7 @@ export default function PlatesIndex() {
             textDecoration: "none",
           }}
         >
-          ← autostimulus
+          ↑ autostimulus
         </Link>
         <Link
           href="/patriotic-times"

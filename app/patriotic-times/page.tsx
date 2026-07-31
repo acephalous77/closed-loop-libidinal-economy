@@ -167,7 +167,7 @@ export default function PatrioticTimesLanding() {
                 textDecoration: "none",
               }}
             >
-              ← autostimulus
+              ↑ autostimulus
             </Link>
             <span
               style={{
