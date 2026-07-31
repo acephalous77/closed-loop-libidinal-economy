@@ -30,7 +30,32 @@ interface PageFrameProps {
   secCode?: string;
 }
 
+/**
+ * Sheets per phase, keyed by the first component of `pageNum` ("3.4" → 3).
+ * Phases I–VII run to six leaves; Phase VIII closes the cycle in four.
+ * Derived here so the extent is declared on all 56 leaves from one place
+ * rather than hand-set 56 times.
+ */
+const PHASE_SHEETS: Record<string, number> = {
+  "1": 6, "2": 6, "3": 6, "4": 6, "5": 6, "6": 6, "7": 6, "8": 4,
+};
+
+/**
+ * "Sheet 4 of 6" — what a real form prints under its folio. Each leaf
+ * carried its own number but said nothing about the document it belonged
+ * to, so the 56 sheets read as separate pages rather than one bound
+ * dossier. Static information, deliberately: it bounds the document
+ * instead of pointing the reader onward.
+ */
+function sheetOf(pageNum: string): string | null {
+  const m = /^(\d+)\.(\d+)$/.exec(pageNum);
+  if (!m) return null;
+  const total = PHASE_SHEETS[m[1]];
+  return total ? `sheet ${Number(m[2])} of ${total}` : null;
+}
+
 export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
+  const sheet = sheetOf(pageNum);
   return (
     <div
       className="mx-auto"
@@ -105,6 +130,19 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
             >
               {pageNum}
             </div>
+            {sheet && (
+              <div
+                className="font-mono uppercase"
+                style={{
+                  fontSize: "0.62rem",
+                  letterSpacing: "0.16em",
+                  color: "var(--color-ink-50)",
+                  marginTop: "0.15rem",
+                }}
+              >
+                {sheet}
+              </div>
+            )}
             {secCode && (
               <div
                 className="font-mono mt-xs uppercase"
