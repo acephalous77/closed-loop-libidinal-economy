@@ -199,7 +199,12 @@ export default function PatrioticTimesLanding() {
           style={{
             fontFamily: DISPLAY,
             fontWeight: 900,
-            fontSize: "clamp(3.5rem, 12vw, 12rem)",
+            /* Capped at 12rem, the title set to about two-thirds of the
+               1240px measure and left the right third of the masthead empty.
+               A coloring-book cover carries its type edge to edge, so the cap
+               rises to 14rem — "PATRIOTIC", the longer of the two lines, now
+               reaches the measure. */
+            fontSize: "clamp(3.5rem, 15vw, 14rem)",
             lineHeight: 0.82,
             letterSpacing: "-0.045em",
             textTransform: "uppercase",
