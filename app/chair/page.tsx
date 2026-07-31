@@ -104,10 +104,14 @@ function Nav() {
       <nav className="brochure-nav-links" style={{
         display: "flex", gap: 28, fontSize: 13, color: B.inkDim,
       }}>
+        {/* Same-page anchors only. "Subsystems" used to sit here pointing at
+            /chair/subsystems — a site route that the plate header's route
+            strip already carries two rows above, so the page opened with the
+            same link twice in two different registers. The product bar is the
+            brochure's own contents; site navigation belongs to the header. */}
         {([
           ["The Ring",   "#ring"],
           ["OHCOSE",     "#ohcose"],
-          ["Subsystems", "/chair/subsystems"],
           ["Schematic",  "#schematic"],
           ["Tiers",      "#tiers"],
         ] as [string, string][]).map(([label, href]) => (
