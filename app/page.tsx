@@ -125,34 +125,45 @@ function entryBody(w: Work, inv: boolean) {
   const cYear = inv ? PAPER : live ? INK_2 : RED;
   const cIdent = inv ? PAPER : INK_2;
   const cReg = inv ? PAPER : INK;
+  /* Laid across the whole sheet rather than stacked in a 48rem column —
+     year hanging in the left gutter, the stamp on the main measure, the
+     register stamped into the right margin. The old single column left the
+     right third of a wide screen empty, so the flyer read as a narrow list
+     pasted on a large sheet. Collapses back to the stack below 1100px. */
   return (
-    <>
+    <div className="zine-row">
       <div
         className="zine-year"
-        style={{ fontFamily: MONO, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.16em", color: cYear, marginBottom: "0.9rem" }}
+        style={{ fontFamily: MONO, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.16em", color: cYear }}
       >
         {live ? w.year : `${w.year} · IN PRODUCTION`}
       </div>
-      <h2
-        className="zine-stamp"
-        style={{ fontFamily: MONO, fontWeight: 700, fontSize: "clamp(1.5rem, 4.6vw, 2.7rem)", lineHeight: 1.05, letterSpacing: "-0.01em", textTransform: "uppercase", color: cText, margin: 0 }}
-      >
-        {head}
-        <span style={{ color: RED }}>{tail}</span>
-      </h2>
-      <div
-        className="zine-ident"
-        style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "1.15rem", color: cIdent, marginTop: "0.9rem" }}
-      >
-        {w.title}
+
+      <div className="zine-body">
+        <h2
+          className="zine-stamp"
+          style={{ fontFamily: MONO, fontWeight: 700, fontSize: "clamp(1.5rem, 3.1vw, 2.4rem)", lineHeight: 1.05, letterSpacing: "-0.01em", textTransform: "uppercase", color: cText, margin: 0 }}
+        >
+          {head}
+          <span style={{ color: RED }}>{tail}</span>
+        </h2>
+        <div
+          className="zine-ident"
+          style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "1.15rem", color: cIdent, marginTop: "0.9rem" }}
+        >
+          {w.title}
+        </div>
       </div>
-      <div
-        className="zine-reg"
-        style={{ display: "inline-block", fontFamily: MONO, fontSize: "0.68rem", textTransform: "uppercase", letterSpacing: "0.13em", color: cReg, border: `1px solid ${cReg}`, padding: "0.3rem 0.5rem", marginTop: "1rem" }}
-      >
-        {w.register}
+
+      <div className="zine-regwrap">
+        <div
+          className="zine-reg"
+          style={{ display: "inline-block", fontFamily: MONO, fontSize: "0.68rem", lineHeight: 1.5, textTransform: "uppercase", letterSpacing: "0.13em", color: cReg, border: `1px solid ${cReg}`, padding: "0.35rem 0.55rem", textAlign: "left" }}
+        >
+          {w.register}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -295,11 +306,7 @@ export default function AtelierIndex() {
         </header>
 
         {/* ============ WORKS — cut flyer ============ */}
-        <section
-          className="zine-works"
-          style={{ maxWidth: "48rem" }}
-          aria-label="Works"
-        >
+        <section className="zine-works" aria-label="Works">
           <ol style={{ listStyle: "none", padding: 0, margin: 0 }}>
             {WORKS.map((w) => {
               const live = w.status === "live";
@@ -415,6 +422,37 @@ export default function AtelierIndex() {
         }
 
         .zine-footlink:hover { color: ${RED} !important; }
+
+        /* ── The flyer row ───────────────────────────────────────── */
+        .zine-row {
+          display: grid;
+          /* The register column was 21rem, which squeezed the main measure
+             enough that the three longest stamps wrapped with an orphan
+             ("…WRITTEN / DOWN."). At 17rem the register wraps instead — it
+             is a stamped block and reads fine over three lines — and every
+             stamp sets on one line at 1280 and up. */
+          grid-template-columns: 7rem minmax(0, 1fr) minmax(0, 17rem);
+          column-gap: 2.5rem;
+          align-items: start;
+        }
+        /* Optical alignment: the year and the register both sit to the
+           cap-height of the stamp rather than its line box. */
+        .zine-year { padding-top: 0.55rem; }
+        .zine-regwrap { justify-self: end; padding-top: 0.35rem; }
+
+        /* ── Below the three-column sheet (≤ 1100px) ─────────────── */
+        /* The sheet needs ~630px of main measure for the longest stamp to
+           set on one line. Below 1100px the three columns squeeze it past
+           that, so the flyer falls back to the stack rather than breaking
+           every stamp across two lines. */
+        @media (max-width: 1100px) {
+          .zine-row {
+            grid-template-columns: 1fr;
+            row-gap: 0.9rem;
+          }
+          .zine-year { padding-top: 0; }
+          .zine-regwrap { justify-self: start; padding-top: 0; }
+        }
 
         /* ── Mobile (≤ 640px) ────────────────────────────────────── */
         @media (max-width: 640px) {
