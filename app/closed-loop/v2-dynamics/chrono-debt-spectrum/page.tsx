@@ -182,8 +182,7 @@ export default function ChronoDebtSpectrumPage() {
             >
               foreclosure clock
             </Link>{" "}
-            — the same sim engine, visualized as survival curves rather
-            than as the spectrum
+            — the same sim engine, visualized as survival curves
           </li>
           <li>
             Prior result:{" "}

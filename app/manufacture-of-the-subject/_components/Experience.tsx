@@ -140,7 +140,7 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
           <p className="prose mt24" style={{ color: "#222" }}>
             The materials are modest and mostly old: time that no one is metering, the right to be bored, a room with no
             feed running in it, work whose reward is the work and the people doing it beside you. Whether we keep enough
-            of it to matter is not something the map can tell us. It is the work the map is for.
+            of it to matter is a question the map hands back. It is the work the map is for.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ const Narrative = React.memo(function Narrative({ onFreeze }: { onFreeze?: () =>
         age="06"
         op="Habitualization"
         v={18000}
-        line="What looks like a settled toddler is a settling habit — the asset the next stage inherits."
+        line="The settled toddler is a settling habit taking hold — the asset the next stage inherits."
       />
       <Adolescence />
       <Interstitial

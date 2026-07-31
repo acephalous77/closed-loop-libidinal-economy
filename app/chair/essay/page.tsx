@@ -265,7 +265,7 @@ export default function OnTheChair() {
             apparatus eliminates is frequently the very friction in which
             non-apparatus-mediated life consists.
           </P>
-          <Pull>The smallness is the point.</Pull>
+          <Pull>Smallness is what keeps it defensible.</Pull>
           <P>
             What the moves preserve is the capacity to recognize the
             apparatus as an apparatus, and to act on the recognition. That

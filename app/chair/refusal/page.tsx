@@ -135,7 +135,7 @@ export default function RefusalPage() {
         </RP>
         <RP>
           No single one of these is adequate on its own. The interior they
-          collectively defend is small. But the smallness is the point.
+          collectively defend is small. Smallness is what keeps it defensible.
           What the moves preserve is the capacity to recognize the
           apparatus as an apparatus, and to act on the recognition.
           That recognition is what the rest of this project has been

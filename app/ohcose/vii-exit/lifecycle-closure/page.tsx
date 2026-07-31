@@ -57,8 +57,8 @@ export default function LifecycleClosure() {
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
               The subject's accumulated surplus — productive,
-              reproductive, affective, attentional — does not dissipate
-              with the subject. It has already been routed, across the
+              reproductive, affective, attentional — outlives the
+              subject. It has already been routed, across the
               full lifecycle, into the Office's apparatus. What returns
               at the closing is the demographic precision the subject's
               eighty years of measurement now afford the Office's

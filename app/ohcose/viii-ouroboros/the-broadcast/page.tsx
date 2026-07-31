@@ -37,7 +37,7 @@ export default function TheBroadcast() {
               the cohorts use. The Broadcast is the apparatus's own
               voice, addressed to the user-citizens in their daily
               register: warm, attentive, faintly congratulatory. The
-              Broadcast does not request a response. The Broadcast is
+              Broadcast speaks without inviting reply. The Broadcast is
               the apparatus reporting on itself, in its own register,
               to the population it administers.
             </p>
