@@ -8,10 +8,15 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </h1>
     ),
+    /* Section breaks were set at mt-xl (9rem / 144px) with mb-md under the
+       heading — a third of a laptop viewport of blank above every section,
+       which read as a gap rather than as a break. Stepped down one rung on
+       the same scale: the air still separates the sections, and the heading
+       now sits closer to the prose it governs than to the section it ends. */
     h2: ({ children, id }) => (
       <h2
         id={id}
-        className="font-mono font-medium text-xl text-ink-90 leading-snug mt-xl mb-md scroll-mt-md"
+        className="font-mono font-medium text-xl text-ink-90 leading-snug mt-lg mb-sm scroll-mt-md"
       >
         {children}
       </h2>
@@ -19,7 +24,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children, id }) => (
       <h3
         id={id}
-        className="font-mono font-medium text-md text-ink-90 leading-snug mt-lg mb-sm scroll-mt-md"
+        className="font-mono font-medium text-md text-ink-90 leading-snug mt-md mb-sm scroll-mt-md"
       >
         {children}
       </h3>
