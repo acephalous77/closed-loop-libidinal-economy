@@ -244,8 +244,42 @@ a.text-oxblood:hover {
 .argument-prose h2::before {
   content: "§" counter(argument-section) ".";
   color: var(--color-oxblood);
-  margin-right: 1em;
   font-weight: 500;
+  /* Hang the section number in the gutter so the heading text keeps a
+     flush left edge with the prose below it. The old `margin-right: 1em`
+     indented the title by the width of the number, which on a phone left
+     a long heading wrapping to four lines against a ragged left edge.
+     Fixed width + right-align keeps §1. and §12. on the same edge; the
+     smaller size reads as a marginal number rather than part of the
+     heading, and keeps it inside the col-3 gutter. */
+  position: absolute;
+  left: -4.25rem;
+  width: 3.5rem;
+  text-align: right;
+  font-size: 0.6em;
+  line-height: 1.9;
+}
+
+.argument-prose h2 {
+  position: relative;
+}
+
+/* Pieces whose MDX headings carry their own numerals ("## I. The Genre")
+   opt out — otherwise the counter stacks on top of the source numeral and
+   renders "§1. I. The Genre". Set by ArgumentLayout from the TOC scheme. */
+.argument-prose--self-numbered h2::before {
+  content: none;
+}
+
+/* Below the 12-col grid there is no margin to hang into; fall back to an
+   inline number with a single space. */
+@media (max-width: 1023px) {
+  .argument-prose h2::before {
+    position: static;
+    width: auto;
+    margin-right: 0.5em;
+    line-height: inherit;
+  }
 }
 
 /* Colophon: each paragraph is a single short line; tighten paragraph rhythm */

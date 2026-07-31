@@ -183,6 +183,28 @@ export default function ColophonPage() {
             </div>
           ))}
         </div>
+
+        {/* Names the satirical device. A reader arriving from
+            /closed-loop/the-colophon — which publishes "no sticky nav bars,
+            floating action buttons, persistent footer CTAs" under Prop 5' —
+            meets a sticky blurred nav and a pill CTA here, and has nothing
+            telling them the breach is the exhibit. */}
+        <div style={{ marginTop: 50 }}>
+          <ColHead>On the interface</ColHead>
+          <div style={{
+            fontFamily: FONT.serif, fontSize: 15, lineHeight: 1.62,
+            color: T.inkDim, maxWidth: "42rem",
+          }}>
+            This brochure reproduces the surfaces it is about. The nav bar
+            follows the scroll. The glass blurs behind it. The fitting call
+            sits in a black pill and asks for a body. The closed-loop
+            colophon lists each of these as refused under Proposition 5&apos;,
+            and its own pages hold to that. A chair that reads its occupant
+            is sold by a page that does the same. The refusal is kept where
+            the argument is made; here the pattern is left running so it can
+            be looked at.
+          </div>
+        </div>
       </div>
 
       <PlateFooter folio="XLII" total="XLII" section="Colophon · end matter" />

@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import OpenQuestions from "@/content/open-questions.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { PrintButton } from "@/components/ui/PrintButton";
-import { ReadingProgress } from "@/components/ui/ReadingProgress";
-import { BackToTop } from "@/components/ui/BackToTop";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 const PATH = "/closed-loop/open-questions";
@@ -74,8 +72,6 @@ export default function OpenQuestionsPage() {
           ]),
         ]}
       />
-      <ReadingProgress />
-      <BackToTop />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb

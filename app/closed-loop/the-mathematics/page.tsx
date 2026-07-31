@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import Mathematics from "@/content/mathematics.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
-import { MarginTOC } from "@/components/navigation/MarginTOC";
+import { MarginTOC, InlineTOC } from "@/components/navigation/MarginTOC";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { PrintButton } from "@/components/ui/PrintButton";
-import { ReadingProgress } from "@/components/ui/ReadingProgress";
-import { BackToTop } from "@/components/ui/BackToTop";
 import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 const PATH = "/closed-loop/the-mathematics";
@@ -103,8 +101,6 @@ export default function TheMathematicsPage() {
           ]),
         ]}
       />
-      <ReadingProgress />
-      <BackToTop />
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         <div className="mb-lg">
           <Breadcrumb
@@ -121,10 +117,13 @@ export default function TheMathematicsPage() {
           </aside>
 
           <article className="lg:col-span-8 lg:col-start-4 mathematics-prose">
-            <div className="flex items-baseline justify-between mb-lg gap-md">
-              <h1 className="font-serif text-2xl text-ink leading-tight">
-                the mathematics.
-              </h1>
+            <h1 className="font-serif text-2xl text-ink leading-tight mb-md">
+              the mathematics.
+            </h1>
+            {/* Contents inline on narrow viewports — the aside beside this
+                column is `hidden lg:block`, so phones had no index at all. */}
+            <InlineTOC entries={TOC} />
+            <div className="mb-md">
               <PrintButton />
             </div>
             <Mathematics />
