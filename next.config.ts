@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
       "colophon",
       "instrumentation",
     ];
-    const oldRootPaths = TOP_PATHS.flatMap((p) => [
+    return TOP_PATHS.flatMap((p) => [
       {
         source: `/${p}`,
         destination: `/closed-loop/${p}`,
@@ -38,24 +38,6 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
     ]);
-
-    return [
-      ...oldRootPaths,
-      /**
-       * Withdrawal: the Closed-Loop Libidinal Economy work is offline.
-       * Every /closed-loop/* deep-link lands on the withdrawal notice at
-       * /closed-loop instead of a 404 (citations, bookmarks, and the old
-       * root-path redirects above all chain through to it). ":path+" is
-       * one-or-more segments, so it never matches /closed-loop itself and
-       * the notice renders. Temporary (307) — the work is being prepared
-       * for publication and may return; remove this block to restore it.
-       */
-      {
-        source: "/closed-loop/:path+",
-        destination: "/closed-loop",
-        permanent: false,
-      },
-    ];
   },
 
   /**

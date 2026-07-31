@@ -173,7 +173,7 @@ export default function AtelierIndex() {
               "@type": "Person",
               name: "Adnan Selimović",
               alternateName: "A. Selimović",
-              url: SITE_URL,
+              url: `${SITE_URL}/closed-loop/the-colophon`,
               sameAs: [],
             },
           },
@@ -359,6 +359,15 @@ export default function AtelierIndex() {
           <div>
             <div style={{ color: INK_2 }}>SITE</div>
             <div style={{ marginTop: "0.5rem" }}>autostimulus.org</div>
+            <div style={{ marginTop: "0.5rem" }}>
+              <Link
+                href="/closed-loop/the-colophon"
+                className="zine-footlink"
+                style={{ color: INK, textDecoration: "none" }}
+              >
+                COLOPHON →
+              </Link>
+            </div>
           </div>
           <div>
             <div style={{ color: INK_2 }}>LICENSE</div>

@@ -139,10 +139,81 @@ const PATRIOTIC_ROUTES = [
   "/patriotic-times/plates/the-war-declaration",
 ];
 
-// The Closed-Loop Libidinal Economy work is offline — a withdrawal
-// notice at /closed-loop, with every sub-path redirected to it and the
-// whole section noindexed. It is deliberately absent from the sitemap
-// while down; restoring the work re-adds its routes here.
+const CLOSED_LOOP_ROUTES = [
+  "/closed-loop",
+  "/closed-loop/the-argument",
+  "/closed-loop/the-argument/the-loop",
+  "/closed-loop/the-argument/citizen-after-the-pause",
+  "/closed-loop/the-argument/adolescence-without-outside",
+  "/closed-loop/the-argument/sincere-captives",
+  "/closed-loop/the-argument/note",
+  "/closed-loop/the-mathematics",
+  "/closed-loop/the-dynamics",
+  "/closed-loop/the-dynamics/foreclosure-clock",
+  "/closed-loop/the-dynamics/reclamation-trajectories",
+  "/closed-loop/the-dynamics/closed-loop",
+  "/closed-loop/the-dynamics/libidinal-routing",
+  "/closed-loop/the-dynamics/chrono-debt",
+  "/closed-loop/the-dynamics/captured-resonance",
+  "/closed-loop/the-dynamics/somatic-optimization",
+  "/closed-loop/the-dynamics/surplus",
+  "/closed-loop/the-dynamics/metric-superego",
+  "/closed-loop/the-dynamics/causal-chain",
+  "/closed-loop/the-dynamics/intervention",
+  "/closed-loop/the-dynamics/cohort-gradient",
+  "/closed-loop/the-dynamics/mode-space",
+  "/closed-loop/the-dynamics/tiktok",
+  "/closed-loop/reading-list",
+  "/closed-loop/open-questions",
+  "/closed-loop/instrumentation",
+  "/closed-loop/colophon",
+];
+
+// v2 closed-loop rebuild surface. Made indexable when the per-page
+// noindex flags were removed; listed here so the sitemap matches the
+// crawlable set. The v1 routes above are preserved alongside.
+const CLOSED_LOOP_V2_ROUTES = [
+  // Navigation hubs
+  "/closed-loop/the-architecture",
+  "/closed-loop/the-apparatus",
+  "/closed-loop/the-instruments",
+  "/closed-loop/v2-argument",
+  "/closed-loop/v2-dynamics",
+  "/closed-loop/glossary",
+  "/closed-loop/the-colophon",
+  // The apparatus — §0 through §12 (results)
+  "/closed-loop/the-apparatus/section-0",
+  "/closed-loop/the-apparatus/section-1/lemma-1",
+  "/closed-loop/the-apparatus/section-1/1.4-chrono-debt",
+  "/closed-loop/the-apparatus/section-2/theorem-1-prime",
+  "/closed-loop/the-apparatus/section-3/prop-4-prime",
+  "/closed-loop/the-apparatus/section-3/prop-5-prime",
+  "/closed-loop/the-apparatus/section-3/prop-6",
+  "/closed-loop/the-apparatus/section-3/prop-7-prime",
+  "/closed-loop/the-apparatus/section-3/3.5-hawkes",
+  "/closed-loop/the-apparatus/section-4/lemma-2",
+  "/closed-loop/the-apparatus/section-5",
+  "/closed-loop/the-apparatus/section-6/prop-8",
+  "/closed-loop/the-apparatus/section-7/theorem-9",
+  "/closed-loop/the-apparatus/section-8",
+  "/closed-loop/the-apparatus/section-9/theorem-11",
+  "/closed-loop/the-apparatus/section-10/theorem-12",
+  "/closed-loop/the-apparatus/section-11",
+  "/closed-loop/the-apparatus/section-12",
+  // The dynamics — twelve interactive plates
+  "/closed-loop/v2-dynamics/foreclosure-clock",
+  "/closed-loop/v2-dynamics/chrono-debt-spectrum",
+  "/closed-loop/v2-dynamics/dividual-posterior",
+  "/closed-loop/v2-dynamics/metric-superego",
+  "/closed-loop/v2-dynamics/captured-resonance",
+  "/closed-loop/v2-dynamics/libidinal-routing",
+  "/closed-loop/v2-dynamics/somatic-hawkes",
+  "/closed-loop/v2-dynamics/cohort-gradient",
+  "/closed-loop/v2-dynamics/intervention-asymmetry",
+  "/closed-loop/v2-dynamics/reclamation-trajectories",
+  "/closed-loop/v2-dynamics/crisis-boundary",
+  "/closed-loop/v2-dynamics/network-coupling",
+];
 
 const OUROBORIC_ROUTES = ["/ouroboric-condition"];
 
@@ -152,6 +223,8 @@ const PSYCHOPOLITICS_ROUTES = ["/psychopolitics-atlas/index.html"];
 
 const ROUTES = [
   ...ATELIER_ROUTES,
+  ...CLOSED_LOOP_ROUTES,
+  ...CLOSED_LOOP_V2_ROUTES,
   ...OHCOSE_ROUTES,
   ...CHAIR_ROUTES,
   ...PATRIOTIC_ROUTES,
@@ -169,7 +242,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority:
       path === "/"
         ? 1.0
-        : path === "/ohcose" ||
+        : path === "/closed-loop" ||
+          path === "/ohcose" ||
           path === "/chair" ||
           path === "/patriotic-times" ||
           path === "/ouroboric-condition" ||
@@ -177,7 +251,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path === "/psychopolitics-atlas/index.html"
         ? 0.9
         : // Project-section landings + per-section pages — high
-        path.startsWith("/ohcose/i-") ||
+        path.startsWith("/closed-loop/the-") ||
+          path === "/closed-loop/v2-argument" ||
+          path === "/closed-loop/v2-dynamics" ||
+          path === "/closed-loop/glossary" ||
+          path.startsWith("/ohcose/i-") ||
           path.startsWith("/ohcose/ii-") ||
           path.startsWith("/ohcose/iii-") ||
           path.startsWith("/ohcose/iv-") ||
@@ -196,7 +274,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path === "/patriotic-times/plates"
         ? 0.8
         : // Per-plate / per-subsystem / per-lineage / etc. — lower
-        path.startsWith("/patriotic-times/plates/") ||
+        path.startsWith("/closed-loop/v2-dynamics/") ||
+          path.startsWith("/patriotic-times/plates/") ||
           path.startsWith("/chair/")
         ? 0.7
         : 0.5,
