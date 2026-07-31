@@ -43,11 +43,20 @@ const nextConfig: NextConfig = {
   /**
    * Baseline security response headers, applied to every route.
    *
-   * Deliberately NOT a Content-Security-Policy: the preserved simulator
-   * at /simulator/index.html loads React + Babel-standalone from unpkg
-   * and compiles JSX in the browser (needs script-src 'unsafe-eval' and
-   * the CDN origin), so an enforced CSP would break it. A report-only
-   * CSP can be layered on later to observe before enforcing.
+   * There is still no Content-Security-Policy here, but the reason has
+   * changed and the old one no longer applies. It used to be that the
+   * preserved simulator pulled React + Babel-standalone from unpkg and
+   * compiled its JSX in the browser, which needed script-src
+   * 'unsafe-eval' plus the CDN origin. As of 2026-07-31 that is gone:
+   * React is vendored locally and the JSX is compiled ahead of time by
+   * public/simulator/build.sh, so no route needs 'unsafe-eval' and no
+   * route loads script from a third-party origin.
+   *
+   * What remains before a CSP can be enforced is Next's own inline
+   * bootstrap and the inline <style> blocks the static instruments use —
+   * both want either a nonce or 'unsafe-inline', which is a per-route
+   * exercise across 205 routes rather than a header edit. Worth doing;
+   * start report-only and observe before enforcing.
    *
    * X-Frame-Options is SAMEORIGIN (not DENY) so same-origin embedding of
    * the simulator keeps working. The site sets no cookies for tracking
