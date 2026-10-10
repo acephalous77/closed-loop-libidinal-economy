@@ -68,22 +68,30 @@ export function ReclamationTrajectories() {
   const thetaRefRef = useRef(thetaRef);
   const policyRef = useRef(policy);
   const runningRef = useRef(running);
-  thetaRefRef.current = thetaRef;
-  policyRef.current = policy;
-  runningRef.current = running;
 
-  // Initialize / reset users on count change or explicit reset.
-  const reset = () => {
-    usersRef.current = Array.from({ length: nUsers }, () => makeUser());
+  // Keep the loop's refs in step with state — written in an effect,
+  // never during render.
+  useEffect(() => {
+    thetaRefRef.current = thetaRef;
+    policyRef.current = policy;
+    runningRef.current = running;
+  }, [thetaRef, policy, running]);
+
+  // Reset users and counters — called from event handlers (the picker,
+  // the reset button); the mount effect below seeds the initial set.
+  function reset(n: number = nUsers) {
+    usersRef.current = Array.from({ length: n }, () => makeUser());
     setTick(0);
     setWindowedCount(0);
     drawFrame();
-  };
+  }
 
+  // Initial user set + first draw. Count changes go through the picker.
   useEffect(() => {
-    reset();
+    usersRef.current = Array.from({ length: nUsers }, () => makeUser());
+    drawFrame();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nUsers]);
+  }, []);
 
   // Animation loop — interval-driven (more reliable than rAF in dev).
   useEffect(() => {
@@ -137,7 +145,7 @@ export function ReclamationTrajectories() {
     return () => clearInterval(interval);
   }, []);
 
-  const drawFrame = () => {
+  function drawFrame() {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -217,8 +225,9 @@ export function ReclamationTrajectories() {
     }
   };
 
-  const repState = usersRef.current[0]?.state;
-  const simSeconds = repState ? (repState.t * repState.deltaMin).toFixed(1) : "0.0";
+  // The interval mirrors the representative user's tick into state, so the
+  // readout derives from `tick` rather than reading the ref during render.
+  const simSeconds = (tick * 0.02).toFixed(1);
   const horizonSeconds = (HORIZON_TICKS * 0.02).toFixed(0);
 
   return (
@@ -236,7 +245,10 @@ export function ReclamationTrajectories() {
             label="users"
             options={N_USERS_OPTIONS}
             value={nUsers}
-            onChange={setNUsers}
+            onChange={(n) => {
+              setNUsers(n);
+              reset(n);
+            }}
           />
           <Picker
             label="policy"
@@ -254,7 +266,7 @@ export function ReclamationTrajectories() {
             {running ? "pause" : "run"}
           </button>
           <button
-            onClick={reset}
+            onClick={() => reset()}
             className="font-mono text-sm text-ink-70 hover:text-oxblood transition-colors duration-100 py-xs"
           >
             reset

@@ -235,7 +235,6 @@ function DailyStimulusTimeline() {
 
   const W = 720;
   const cellW = W / 24;
-  const cellH = 36;
 
   const fillForCat = (cat: string) => {
     switch (cat) {

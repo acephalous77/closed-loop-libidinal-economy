@@ -37,27 +37,29 @@ const K_OPTIONS: OptionT<number>[] = [
 export function CapturedResonance() {
   const [kBm, setKBm] = useState<number>(0.02);
 
-  // Phases live in refs so the animation loop reads the latest values
-  // without triggering React re-renders 60 times/second.
-  const phaseBRef = useRef<number>(0);
-  const phaseMRef = useRef<number>(Math.PI / 4); // slight initial offset
-  const [tick, setTick] = useState<number>(0);
+  // Phase state — updated in the interval below. K_bm is read through a
+  // ref so sweeping the control doesn't restart the interval.
+  const [phases, setPhases] = useState<{ b: number; m: number }>({
+    b: 0,
+    m: Math.PI / 4, // slight initial offset
+  });
   const kBmRef = useRef(kBm);
-  kBmRef.current = kBm;
+
+  useEffect(() => {
+    kBmRef.current = kBm;
+  }, [kBm]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       const k = kBmRef.current;
-      const phiB = phaseBRef.current;
-      const phiM = phaseMRef.current;
       // Symplectic-ish update: medium first (constant rate), body second.
-      const newPhiM = (phiM + OMEGA_M) % (2 * Math.PI);
-      const newPhiB =
-        (phiB + OMEGA_B + k * Math.sin(newPhiM - phiB) + 2 * Math.PI) %
-        (2 * Math.PI);
-      phaseMRef.current = newPhiM;
-      phaseBRef.current = newPhiB;
-      setTick((t) => t + 1);
+      setPhases(({ b, m }) => {
+        const newPhiM = (m + OMEGA_M) % (2 * Math.PI);
+        const newPhiB =
+          (b + OMEGA_B + k * Math.sin(newPhiM - b) + 2 * Math.PI) %
+          (2 * Math.PI);
+        return { b: newPhiB, m: newPhiM };
+      });
     }, DT_MS);
     return () => clearInterval(interval);
   }, []);
@@ -68,8 +70,8 @@ export function CapturedResonance() {
   const cy = h / 2;
   const r = 80;
 
-  const phiB = phaseBRef.current;
-  const phiM = phaseMRef.current;
+  const phiB = phases.b;
+  const phiM = phases.m;
   const bx = cx + r * Math.cos(phiB);
   const by = cy + r * Math.sin(phiB);
   const mx = cx + r * Math.cos(phiM);
@@ -77,9 +79,6 @@ export function CapturedResonance() {
   const dphi =
     (((phiM - phiB) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI);
   const locked = kBm > DETUNING;
-
-  // Suppress unused warning — tick is used implicitly to trigger re-render.
-  void tick;
 
   return (
     <figure className="my-md">

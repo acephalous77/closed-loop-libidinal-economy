@@ -593,7 +593,6 @@ export function PolaroidCard({
   tone?: "warm" | "cool";
 }) {
   const bg = tone === "warm" ? "#f5efe1" : "#e8eaf2";
-  const h = width + 60;
   return (
     <div
       style={{

@@ -69,15 +69,42 @@ const REGIMES: Regime[] = [
 
 const WINDOW = 600;
 
-function generateEvents(regime: Regime): SimEvent[] {
+/**
+ * Deterministic PRNG (mulberry32). Math.random() during render sampled
+ * differently on the server and the client, so the raster's HTML never
+ * matched its hydration. A seeded generator renders the same sample in
+ * both places; "regenerate sample" just advances the seed.
+ */
+function mulberry32(seed: number): () => number {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function hashSeed(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function generateEvents(regime: Regime, seedTick: number): SimEvent[] {
+  const rand = mulberry32(hashSeed(regime.key) + seedTick * 2654435761);
   const events: SimEvent[] = [];
   for (let t = 0; t < WINDOW; t++) {
-    if (Math.random() < regime.stimRate) {
+    if (rand() < regime.stimRate) {
       events.push({ kind: "s", t });
       // Hawkes-style cross-excited burst.
-      const burstSize = Math.max(0, Math.round(regime.burstMean + (Math.random() - 0.5)));
+      const burstSize = Math.max(0, Math.round(regime.burstMean + (rand() - 0.5)));
       for (let b = 0; b < burstSize; b++) {
-        const reg = REGISTERS[Math.floor(Math.random() * 4)].id;
+        const reg = REGISTERS[Math.floor(rand() * 4)].id;
         events.push({ kind: "y", t: Math.min(WINDOW - 1, t + b), reg });
       }
     }
@@ -93,10 +120,10 @@ export function SomaticOptimization() {
   const regime = REGIMES.find((r) => r.key === regimeKey) ?? REGIMES[0];
 
   const events = useMemo(
-    () => generateEvents(regime),
-    // Regenerate when regime or seedTick changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [regime.key, seedTick]
+    () => generateEvents(regime, seedTick),
+    // Regenerate when regime or seedTick changes (regime is a stable
+    // object from the module-level REGIMES array).
+    [regime, seedTick]
   );
 
   const stimEvents = events.filter((e) => e.kind === "s");

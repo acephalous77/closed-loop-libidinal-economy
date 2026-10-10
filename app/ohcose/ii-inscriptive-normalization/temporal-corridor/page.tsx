@@ -147,7 +147,6 @@ function CorridorPassage() {
   const strokeLight = "var(--color-ink-70)";
   const accent = "var(--color-oxblood)";
   const paper = "var(--color-paper)";
-  const paper95 = "var(--color-paper-95)";
 
   const wallTop = 110;
   const wallBottom = 230;

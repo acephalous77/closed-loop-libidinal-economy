@@ -96,10 +96,7 @@ const GLITCH_WORDS: Record<string, string[]> = {
 function GlitchText({ children, intensity = 0.5 }: { children: string; intensity?: number }) {
   const [t, setT] = useState(children);
   useEffect(() => {
-    if (intensity <= 0) {
-      setT(children);
-      return;
-    }
+    if (intensity <= 0) return;
     const id = window.setInterval(() => {
       if (Math.random() > intensity * 0.5) {
         setT(children);
@@ -115,7 +112,9 @@ function GlitchText({ children, intensity = 0.5 }: { children: string; intensity
     }, 2400 + Math.random() * 2200);
     return () => window.clearInterval(id);
   }, [children, intensity]);
-  return <>{t}</>;
+  // At zero intensity the rendered text is children directly — settling the
+  // glitch state through an effect would cascade a render for nothing.
+  return <>{intensity <= 0 ? children : t}</>;
 }
 
 // ─── Visitor harvest ──────────────────────────────────────────────────

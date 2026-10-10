@@ -83,12 +83,8 @@ export function MetricSuperego() {
   const [running, setRunning] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // When start changes, reset state.
-  useEffect(() => {
-    setState(initialState(start));
-    setRunning(false);
-  }, [start]);
-
+  // Start-distribution changes reset the run in the picker's handler
+  // (below) — no reset-via-effect.
   useEffect(() => {
     if (!running) return;
     intervalRef.current = setInterval(() => {
@@ -113,7 +109,6 @@ export function MetricSuperego() {
   const triSide = 280;
   const triH = (triSide * Math.sqrt(3)) / 2;
   const triCx = triPad + triSide / 2;
-  const triCy = 60 + triH / 2;
   const triCorners = [
     { x: triCx, y: 60 }, // top
     { x: triCx - triSide / 2, y: 60 + triH }, // bottom-left
@@ -279,7 +274,11 @@ export function MetricSuperego() {
         </label>
         <PresetButtonGroup
           label="ν_u(0) presets"
-          onSelect={(v) => setStart(v)}
+          onSelect={(v) => {
+            setStart(v);
+            setState(initialState(v));
+            setRunning(false);
+          }}
           options={[
             { label: "near a₁", value: [0.7, 0.2, 0.1] as Dist3 },
             { label: "near a₂", value: [0.1, 0.7, 0.2] as Dist3 },

@@ -125,9 +125,9 @@ function Intro({ onEnter, vw }: { onEnter: () => void; vw: number }) {
       <div className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: L.faint, marginTop: 20, position: "relative" }}>
         17 SPECIMENS · 14 CHAPTERS · ONE APPARATUS
         <span style={{ margin: "0 0.75em" }}>·</span>
-        <a href="/" style={{ color: "inherit", textDecoration: "none" }}>
+        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
           ↑ AUTOSTIMULUS
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -38,22 +38,22 @@ export function LedgerCard() {
     const el = ref.current;
     if (!el) return;
     const total = 2380000;
-    // Honor reduced-motion: settle on the final figure, skip the count-up.
-    if (prefersReducedMotion()) {
-      setBal(total);
-      return;
-    }
     const io = new IntersectionObserver(
       (ents) => {
         if (ents[0].isIntersecting) {
-          const t0 = performance.now(),
-            dur = 1700;
-          const step = (now: number) => {
-            const p = Math.min(1, (now - t0) / dur);
-            setBal(Math.round(total * (1 - Math.pow(1 - p, 3))));
-            if (p < 1) requestAnimationFrame(step);
-          };
-          requestAnimationFrame(step);
+          // Honor reduced-motion: settle on the final figure, skip the count-up.
+          if (prefersReducedMotion()) {
+            setBal(total);
+          } else {
+            const t0 = performance.now(),
+              dur = 1700;
+            const step = (now: number) => {
+              const p = Math.min(1, (now - t0) / dur);
+              setBal(Math.round(total * (1 - Math.pow(1 - p, 3))));
+              if (p < 1) requestAnimationFrame(step);
+            };
+            requestAnimationFrame(step);
+          }
           io.disconnect();
         }
       },

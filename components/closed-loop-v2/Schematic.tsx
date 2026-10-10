@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode, type KeyboardEvent } from "react";
+import { useState, type ReactNode, type MouseEvent, type FocusEvent, type KeyboardEvent } from "react";
 import { useRouter } from "next/navigation";
 import { SvgM } from "@/components/ui/Math";
 
@@ -11,14 +11,18 @@ import { SvgM } from "@/components/ui/Math";
  * reward, parameter update, and the closure operator Φ) plus two
  * annotations (θ_ref, contractivity boundary).
  *
- * INTERACTIVE — Phase 1 prototype:
+ * INTERACTIVE:
  *   - Hover or focus a part to see its plain-language caption in the
  *     panel below the figure.
  *   - Click (or Enter/Space when focused) to navigate to that part's
  *     apparatus section.
- *   - Tab cycles through parts in apparatus §0.1 enumeration order.
- *   - Routes target apparatus pages that don't exist yet (will be
- *     built in Phase 2); they 404 until then.
+ *   - Tab cycles through parts in DOM order.
+ *
+ * Interaction is handled by event delegation on the <svg> (hover,
+ * focus, click, keys bubble up from the part groups), so the Part
+ * presentational component keeps a stable identity across renders —
+ * defining it inside the component used to remount every group on
+ * each state change, which dropped keyboard focus mid-Tab.
  *
  * Specification: autostimulus-planning/07_schematic_design.md §2-3, §8.
  *
@@ -122,7 +126,7 @@ const PARTS: Record<PartId, PartMeta> = {
     label: "Reward functional F(θ)",
     caption:
       "The performative reward — the platform's optimization target. Engagement-monetization is the substantive economic claim that grounds this functional (axiom P-I, reward monotonicity in engagement).",
-    route: "/closed-loop/the-apparatus/section-0/0.3-axioms",
+    route: "/closed-loop/the-apparatus/section-0#axioms",
   },
   parameterUpdate: {
     label: "Parameter update",
@@ -134,7 +138,7 @@ const PARTS: Record<PartId, PartMeta> = {
     label: "The closure Φ",
     caption:
       "The closure — the platform's optimization runs against the distribution its own policy has produced. The framework's central architectural fact. Formally: the performative operator Φ : θ ↦ argmax E_D(θ)[R̂(θ')]. Definitions 0.1 and 0.2 name the closure's two distinguished points.",
-    route: "/closed-loop/the-apparatus/section-0/0.2-closure",
+    route: "/closed-loop/the-apparatus/section-0#closure",
   },
   reflectiveThreshold: {
     label: "Reflective threshold θ_ref",
@@ -150,6 +154,44 @@ const PARTS: Record<PartId, PartMeta> = {
   },
 };
 
+/**
+ * Presentational wrapper for an interactive SVG group. Interaction is
+ * delegated to the <svg> (see the handlers below); this is a module-level
+ * component so its identity is stable across re-renders — a nested
+ * definition used to remount the groups on every state change, which
+ * dropped keyboard focus mid-Tab.
+ */
+function Part({
+  id,
+  activeId,
+  children,
+}: {
+  id: PartId;
+  activeId: PartId | null;
+  children: ReactNode;
+}) {
+  const meta = PARTS[id];
+  return (
+    <g
+      role="button"
+      tabIndex={0}
+      data-part={id}
+      aria-label={`${meta.label}. ${meta.caption}`}
+      style={{ cursor: "pointer" }}
+      data-active={activeId === id || undefined}
+    >
+      {children}
+    </g>
+  );
+}
+
+/** Resolve the part a bubbled event target belongs to. */
+function partIdFrom(target: EventTarget | null): PartId | null {
+  if (!(target instanceof Element)) return null;
+  const id = target.closest("[data-part]")?.getAttribute("data-part");
+  return id && id in PARTS ? (id as PartId) : null;
+}
+
 export function ClosedLoopSchematic() {
   const router = useRouter();
   const [hoveredId, setHoveredId] = useState<PartId | null>(null);
@@ -163,44 +205,41 @@ export function ClosedLoopSchematic() {
     router.push(PARTS[id].route);
   }
 
-  function handleKeyDown(id: PartId, event: KeyboardEvent<SVGGElement>) {
-    if (event.key === "Enter" || event.key === " ") {
-      event.preventDefault();
-      handleActivate(id);
-    }
+  function handlePointerOver(event: MouseEvent<SVGSVGElement>) {
+    const id = partIdFrom(event.target);
+    if (id) setHoveredId(id);
   }
 
-  /**
-   * Wrapper for an interactive SVG group. Handles hover/focus state,
-   * click activation, keyboard activation (Enter/Space), and ARIA
-   * semantics for screen readers.
-   */
-  function Part({
-    id,
-    children,
-  }: {
-    id: PartId;
-    children: ReactNode;
-  }) {
-    const meta = PARTS[id];
-    const isActive = activeId === id;
-    return (
-      <g
-        role="button"
-        tabIndex={0}
-        aria-label={`${meta.label}. ${meta.caption}`}
-        onMouseEnter={() => setHoveredId(id)}
-        onMouseLeave={() => setHoveredId(null)}
-        onFocus={() => setFocusedId(id)}
-        onBlur={() => setFocusedId(null)}
-        onClick={() => handleActivate(id)}
-        onKeyDown={(e) => handleKeyDown(id, e)}
-        style={{ cursor: "pointer" }}
-        data-active={isActive || undefined}
-      >
-        {children}
-      </g>
-    );
+  function handlePointerOut(event: MouseEvent<SVGSVGElement>) {
+    const from = partIdFrom(event.target);
+    const to = partIdFrom(event.relatedTarget);
+    if (from && from !== to) setHoveredId(null);
+  }
+
+  function handleFocusIn(event: FocusEvent<SVGSVGElement>) {
+    const id = partIdFrom(event.target);
+    if (id) setFocusedId(id);
+  }
+
+  function handleFocusOut(event: FocusEvent<SVGSVGElement>) {
+    const from = partIdFrom(event.target);
+    const to = partIdFrom(event.relatedTarget);
+    if (from && from !== to) setFocusedId(null);
+  }
+
+  function handleClick(event: MouseEvent<SVGSVGElement>) {
+    const id = partIdFrom(event.target);
+    if (id) handleActivate(id);
+  }
+
+  function handleKeyDown(event: KeyboardEvent<SVGSVGElement>) {
+    if (event.key === "Enter" || event.key === " ") {
+      const id = partIdFrom(event.target);
+      if (id) {
+        event.preventDefault();
+        handleActivate(id);
+      }
+    }
   }
 
   return (
@@ -238,6 +277,12 @@ export function ClosedLoopSchematic() {
         role="img"
         aria-labelledby="schematic-title schematic-desc"
         className="schematic-svg w-full max-w-[960px] h-auto"
+        onMouseOver={handlePointerOver}
+        onMouseOut={handlePointerOut}
+        onFocus={handleFocusIn}
+        onBlur={handleFocusOut}
+        onClick={handleClick}
+        onKeyDown={handleKeyDown}
       >
         <title id="schematic-title">
           The closed-loop architecture — interactive schematic
@@ -282,7 +327,7 @@ export function ClosedLoopSchematic() {
         {/* ──────────────────────────────────────────────────────────── */}
         {/* THE CLOSURE Φ — drawn first so other parts overlay it.       */}
         {/* ──────────────────────────────────────────────────────────── */}
-        <Part id="closure">
+        <Part activeId={activeId} id="closure">
           <path
             d="M 800 110 C 920 180, 920 500, 720 580 C 580 640, 480 580, 480 320"
             fill="none"
@@ -306,7 +351,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === REWARD FUNCTIONAL F(θ) === */}
-        <Part id="reward">
+        <Part activeId={activeId} id="reward">
           <rect
             x="640"
             y="50"
@@ -334,7 +379,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === PERFORMATIVE DISTRIBUTION D(θ) === */}
-        <Part id="performativeDistribution">
+        <Part activeId={activeId} id="performativeDistribution">
           <rect
             x="640"
             y="140"
@@ -362,7 +407,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === PARAMETER UPDATE === */}
-        <Part id="parameterUpdate">
+        <Part activeId={activeId} id="parameterUpdate">
           <rect
             x="380"
             y="100"
@@ -406,7 +451,7 @@ export function ClosedLoopSchematic() {
         />
 
         {/* === PLATFORM POLICY π_θ === */}
-        <Part id="policy">
+        <Part activeId={activeId} id="policy">
           <rect
             x="380"
             y="240"
@@ -441,7 +486,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === STIMULUS s_t === */}
-        <Part id="stimulus">
+        <Part activeId={activeId} id="stimulus">
           <path
             d="M 540 320 L 540 460"
             fill="none"
@@ -456,7 +501,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === θ_ref annotation === */}
-        <Part id="reflectiveThreshold">
+        <Part activeId={activeId} id="reflectiveThreshold">
           <line
             x1="525"
             y1="420"
@@ -479,7 +524,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === USER STATE u_t — visual anchor === */}
-        <Part id="userState">
+        <Part activeId={activeId} id="userState">
           <rect
             x="380"
             y="460"
@@ -512,7 +557,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === USER DYNAMICS T === */}
-        <Part id="userDynamics">
+        <Part activeId={activeId} id="userDynamics">
           <path
             d="M 380 590 C 360 610, 360 640, 380 660"
             fill="none"
@@ -534,7 +579,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === OBSERVATION CHANNEL O === */}
-        <Part id="observationChannel">
+        <Part activeId={activeId} id="observationChannel">
           <path
             d="M 380 480 L 240 380 L 240 410 Z"
             fill="var(--color-paper-95)"
@@ -555,7 +600,7 @@ export function ClosedLoopSchematic() {
         </Part>
 
         {/* === OBSERVATION y_t === */}
-        <Part id="observation">
+        <Part activeId={activeId} id="observation">
           <circle cx="210" cy="380" r="12" fill="var(--color-ink)" />
           <text aria-hidden="true"
             x="195"
@@ -580,7 +625,7 @@ export function ClosedLoopSchematic() {
         />
 
         {/* === FILTERING POSTERIOR Π_t === */}
-        <Part id="filteringPosterior">
+        <Part activeId={activeId} id="filteringPosterior">
           <rect
             x="160"
             y="245"
@@ -617,7 +662,7 @@ export function ClosedLoopSchematic() {
         />
 
         {/* === Contractivity boundary annotation === */}
-        <Part id="contractivityBoundary">
+        <Part activeId={activeId} id="contractivityBoundary">
           <line
             x1="900"
             y1="295"

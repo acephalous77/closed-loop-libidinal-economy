@@ -26,6 +26,13 @@ const eslintConfig = defineConfig([
       // copy. Off site-wide rather than disabled per-line in 400+ places.
       "react/no-unescaped-entities": "off",
 
+      // Underscore-prefixed identifiers mark deliberate non-use (e.g. a
+      // scenario function that keeps a parameter for call-site symmetry).
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+
       // React Compiler rules (eslint-plugin-react-hooks v6, promoted to
       // errors by eslint-config-next 16). They fire heavily on this site's
       // imperative visualization layer — D3/canvas/Three.js draw code,

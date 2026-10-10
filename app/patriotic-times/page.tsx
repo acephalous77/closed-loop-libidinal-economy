@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 const INK = "#0a0a0a";
 const INK_70 = "#3d342a";
 const INK_50 = "#6b5e4d";
-const INK_30 = "#9a8d77";
-const PAPER = "#f4ecdc";
 const PAPER_DEEP = "#e8dcc0";
 const RED = "#b8222a";
 

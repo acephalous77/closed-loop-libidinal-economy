@@ -29,6 +29,36 @@ interface SimState {
 
 const HISTORY_LENGTH = 400;
 const DT = 0.05;
+const DIAL_R = 45;
+
+/** One phase dial (body or media) — module-level so its identity is stable. */
+function PhaseDial({
+  cx, cy, phi, label, color,
+}: { cx: number; cy: number; phi: number; label: string; color: string }) {
+  const handX = cx + Math.cos(phi) * DIAL_R;
+  const handY = cy + Math.sin(phi) * DIAL_R;
+  return (
+    <g>
+      <circle cx={cx} cy={cy} r={DIAL_R} fill="var(--color-paper)" stroke="var(--color-ink)" strokeWidth={1.5} />
+      {/* Tick marks at 0, 90, 180, 270 */}
+      {[0, 90, 180, 270].map((deg) => {
+        const a = (deg * Math.PI) / 180;
+        const tx1 = cx + Math.cos(a) * DIAL_R;
+        const ty1 = cy + Math.sin(a) * DIAL_R;
+        const tx2 = cx + Math.cos(a) * (DIAL_R - 4);
+        const ty2 = cy + Math.sin(a) * (DIAL_R - 4);
+        return <line key={deg} x1={tx1} y1={ty1} x2={tx2} y2={ty2} stroke="var(--color-ink-70)" strokeWidth={1} />;
+      })}
+      {/* Hand */}
+      <line x1={cx} y1={cy} x2={handX} y2={handY} stroke={color} strokeWidth={2.5} strokeLinecap="round" />
+      <circle cx={cx} cy={cy} r={3} fill={color} />
+      {/* Label */}
+      <text x={cx} y={cy + DIAL_R + 18} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" fill="var(--color-ink-70)">
+        {label}
+      </text>
+    </g>
+  );
+}
 
 function initialState(): SimState {
   return {
@@ -80,38 +110,9 @@ export function CapturedResonance() {
     setState(initialState());
   }
 
-  // Phase dials.
-  const dialR = 45;
+  // Phase-dial positions (each dial is a module-level component).
   const dialCenter1 = { x: 110, y: 100 };
   const dialCenter2 = { x: 280, y: 100 };
-
-  function PhaseDial({
-    cx, cy, phi, label, color,
-  }: { cx: number; cy: number; phi: number; label: string; color: string }) {
-    const handX = cx + Math.cos(phi) * dialR;
-    const handY = cy + Math.sin(phi) * dialR;
-    return (
-      <g>
-        <circle cx={cx} cy={cy} r={dialR} fill="var(--color-paper)" stroke="var(--color-ink)" strokeWidth={1.5} />
-        {/* Tick marks at 0, 90, 180, 270 */}
-        {[0, 90, 180, 270].map((deg) => {
-          const a = (deg * Math.PI) / 180;
-          const tx1 = cx + Math.cos(a) * dialR;
-          const ty1 = cy + Math.sin(a) * dialR;
-          const tx2 = cx + Math.cos(a) * (dialR - 4);
-          const ty2 = cy + Math.sin(a) * (dialR - 4);
-          return <line key={deg} x1={tx1} y1={ty1} x2={tx2} y2={ty2} stroke="var(--color-ink-70)" strokeWidth={1} />;
-        })}
-        {/* Hand */}
-        <line x1={cx} y1={cy} x2={handX} y2={handY} stroke={color} strokeWidth={2.5} strokeLinecap="round" />
-        <circle cx={cx} cy={cy} r={3} fill={color} />
-        {/* Label */}
-        <text x={cx} y={cy + dialR + 18} textAnchor="middle" fontFamily="var(--font-mono)" fontSize="11" letterSpacing="0.05em" fill="var(--color-ink-70)">
-          {label}
-        </text>
-      </g>
-    );
-  }
 
   // Phase-difference plot.
   const width = 900;

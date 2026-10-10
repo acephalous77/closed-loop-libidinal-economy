@@ -49,6 +49,10 @@ export function ColoringCanvas({ src, alt }: ColoringCanvasProps) {
   const [color, setColor] = useState<string>(PALETTE[0].hex);
   const [ready, setReady] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  // Natural pixel size of the loaded plate — drives the wrapper's
+  // aspect ratio (state, not a render-time ref read, so the box reserves
+  // the right height from the first paint after load).
+  const [natural, setNatural] = useState<{ w: number; h: number } | null>(null);
 
   /** Load the source image into the canvas. */
   const loadImage = useCallback(() => {
@@ -58,12 +62,12 @@ export function ColoringCanvas({ src, alt }: ColoringCanvasProps) {
     if (!ctx) return;
 
     const img = new Image();
-    img.crossOrigin = "anonymous";
     img.onload = () => {
       imgRef.current = img;
       canvas.width = img.naturalWidth;
       canvas.height = img.naturalHeight;
       ctx.drawImage(img, 0, 0);
+      setNatural({ w: img.naturalWidth, h: img.naturalHeight });
       setReady(true);
     };
     img.onerror = () => {
@@ -133,8 +137,8 @@ export function ColoringCanvas({ src, alt }: ColoringCanvasProps) {
           margin: "0 auto",
           background: "#fff",
           border: "1px solid #0a0a0a",
-          aspectRatio: imgRef.current
-            ? `${imgRef.current.naturalWidth} / ${imgRef.current.naturalHeight}`
+          aspectRatio: natural
+            ? `${natural.w} / ${natural.h}`
             : "3 / 2",
         }}
       >

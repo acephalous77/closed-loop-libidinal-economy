@@ -85,7 +85,6 @@ export default function SovereignInterface() {
 function ChannelMap() {
   const ink = "var(--color-ink)";
   const ink70 = "var(--color-ink-70)";
-  const ink50 = "var(--color-ink-50)";
   const accent = "var(--color-oxblood)";
   const rows = [
     { inst: "Family", channel: "Phase-I caregiver pathway · Phase-V household-formation feed" },

@@ -30,8 +30,7 @@ const W = 1320,
   H = 2940;
 const CODA_Y = 2560; // the coda surfaces back to the light below the bedrock
 const GAUGE = 132; // x of the depth-gauge rule
-const X0 = 196,
-  X1 = W - 56; // section content bounds
+const X1 = W - 56; // section content bounds (right)
 const REM = ["custodial", "holding", "held", "glitch", "face"];
 
 // the strata, top → bottom. `dark` = the band is dark sediment (light text).

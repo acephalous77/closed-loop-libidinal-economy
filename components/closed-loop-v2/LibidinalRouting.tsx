@@ -80,7 +80,7 @@ function miAt(t: number, a: Register, b: Register): number {
 export function LibidinalRouting() {
   const [t, setT] = useState(0);
   const [running, setRunning] = useState(false);
-  const [autoMaxT, setAutoMaxT] = useState(60);
+  const autoMaxT = 60;
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
@@ -111,7 +111,6 @@ export function LibidinalRouting() {
   const gridY = 60;
   const cellSize = 70;
   const gridW = cellSize * 4;
-  const gridH = cellSize * 4;
 
   // Color: cream (low MI) to oxblood (high MI). Use HSL interpolation
   // through the design palette. Implementation: opacity over oxblood.

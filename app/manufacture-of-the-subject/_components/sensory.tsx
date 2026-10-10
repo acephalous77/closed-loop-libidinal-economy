@@ -160,8 +160,10 @@ export function Receipt() {
     if (!data) return;
     const reduce = document.getElementById("mos-root")?.getAttribute("data-motion") === "low";
     if (reduce) {
-      setPrinted(data.lines.length);
-      return;
+      // Settle on the full receipt on the next frame (a synchronous
+      // setState in the effect body would cascade a render).
+      const raf = requestAnimationFrame(() => setPrinted(data.lines.length));
+      return () => cancelAnimationFrame(raf);
     }
     let i = 0;
     const iv = setInterval(() => {

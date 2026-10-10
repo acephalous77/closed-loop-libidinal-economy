@@ -6,36 +6,46 @@
 import React from "react";
 
 /* ---------- cold open: an account is opened at birth ---------- */
+const emptySubscribe = () => () => {};
+
+/** Client-mount flag without setState-in-effect (server snapshot: false). */
+function useIsMounted() {
+  return React.useSyncExternalStore(emptySubscribe, () => true, () => false);
+}
+
+/** sessionStorage["pss-born"] as an external store (server snapshot: false). */
+function useAlreadyBorn() {
+  return React.useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      try {
+        return sessionStorage.getItem("pss-born") === "1";
+      } catch {
+        return false;
+      }
+    },
+    () => false
+  );
+}
+
 export function BirthOverlay() {
   // Mount-gated so the server and first client render agree (no sessionStorage
   // on the server → no hydration mismatch); the cold-open decides on mount.
-  const [mounted, setMounted] = React.useState(false);
+  const mounted = useIsMounted();
+  const alreadyBorn = useAlreadyBorn();
   const [gone, setGone] = React.useState(false);
   const [fading, setFading] = React.useState(false);
   const [t, setT] = React.useState(0);
 
   React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  React.useEffect(() => {
-    if (!mounted) return;
-    let already = false;
-    try {
-      already = sessionStorage.getItem("pss-born") === "1";
-    } catch {}
-    if (already) {
-      setGone(true);
-      document.body.style.overflow = "";
-      return;
-    }
+    if (!mounted || alreadyBorn) return;
     document.body.style.overflow = "hidden";
     const iv = setInterval(() => setT((x) => x + 1), 90);
     return () => {
       document.body.style.overflow = "";
       clearInterval(iv);
     };
-  }, [mounted]);
+  }, [mounted, alreadyBorn]);
 
   const born = () => {
     setFading(true);
@@ -49,7 +59,7 @@ export function BirthOverlay() {
     }, 720);
   };
 
-  if (!mounted || gone) return null;
+  if (!mounted || gone || alreadyBorn) return null;
   const ms = t * 90;
   const clock = (ms / 1000).toFixed(2).padStart(5, "0");
   return (
@@ -109,7 +119,7 @@ export function Telemetry() {
     events: 0,
     depth: 0,
     log: [] as string[],
-    start: Date.now(),
+    start: 0,
     lastY: 0,
     lastMove: 0,
     taps: 0,
@@ -129,6 +139,9 @@ export function Telemetry() {
 
   React.useEffect(() => {
     const r = ref.current;
+    // The session clock starts at mount (Date.now() in the render body
+    // is an impure call; effects are the place for it).
+    r.start = Date.now();
     const onScroll = () => {
       const docH = document.body.scrollHeight - window.innerHeight;
       const d = docH > 0 ? Math.min(100, (window.scrollY / docH) * 100) : 0;

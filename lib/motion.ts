@@ -14,7 +14,7 @@
  * it sets out to avoid.
  */
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 const QUERY = "(prefers-reduced-motion: reduce)";
 
@@ -30,22 +30,32 @@ export function prefersReducedMotion(): boolean {
   return window.matchMedia(QUERY).matches;
 }
 
+function subscribeReducedMotion(onChange: () => void): () => void {
+  if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
+    return () => {};
+  }
+  const mq = window.matchMedia(QUERY);
+  mq.addEventListener("change", onChange);
+  return () => mq.removeEventListener("change", onChange);
+}
+
+function getReducedMotionSnapshot(): boolean {
+  return prefersReducedMotion();
+}
+
+function getReducedMotionServerSnapshot(): boolean {
+  return false;
+}
+
 /**
  * Reactive variant: re-renders when the preference changes (e.g. the reader
- * toggles it in the OS while the page is open). Starts false so server and
- * first client render agree, then settles on mount — no hydration mismatch.
+ * toggles it in the OS while the page is open). The server snapshot is false,
+ * so server and first client render agree — no hydration mismatch.
  */
 export function useReducedMotion(): boolean {
-  const [reduced, setReduced] = useState(false);
-  useEffect(() => {
-    if (typeof window === "undefined" || typeof window.matchMedia !== "function") {
-      return;
-    }
-    const mq = window.matchMedia(QUERY);
-    setReduced(mq.matches);
-    const onChange = () => setReduced(mq.matches);
-    mq.addEventListener("change", onChange);
-    return () => mq.removeEventListener("change", onChange);
-  }, []);
-  return reduced;
+  return useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotionSnapshot,
+    getReducedMotionServerSnapshot
+  );
 }
