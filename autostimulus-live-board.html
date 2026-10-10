@@ -204,11 +204,9 @@
     (q85: no pixel beyond 32/255 on 61 of 63 plates; two zine photos bumped to q90); built HTML
     verified: plate references all <code>.webp</code>, index tiles served through
     <code>/_next/image</code> srcsets, canvas loads the WebP directly; build green, 276 pages.</p>
-    <p><strong>Not checked:</strong> the deployed site (all verification is against this working
-    tree); Vercel/Cloudflare state; DNS; a browser click-through (canvas WebP decode, coloring
-    fill, print path) — worth one pass before deploy; and the re-encodes have not been seen by a
-    human eye (this session's can read pixels, not pictures) — two or three plates should be
-    eyeballed before deploy.</p>
+    <p><strong>Not checked:</strong> the deployed site was verified by Adnan's eye on 2026-10-10
+    ("looks good") after the push; a full browser click-through (coloring fill, print path) is the
+    remaining manual test; Vercel/Cloudflare state; DNS.</p>
     <p><strong>Weakest inference on this board:</strong> the asset-weight projections under "PhotoCraft
     pass next" are estimates until the re-encode runs and the plate sizes are re-measured.</p>
     <details><summary>Provenance + changelog</summary>
@@ -217,6 +215,7 @@
         <li>2026-10-10 — first creation. Seed: audit + four rulings. Works table, defects, ledger seeded; Phase 0 listed with gates.</li>
         <li>2026-10-10 — refresh after Phase 0: checklist closed (9/9), works/defects statuses updated, two ledger entries appended (one my own error, caught by the build gate), footer regenerated from the second-pass commands. Counts recomputed from the DOM.</li>
         <li>2026-10-10 — refresh after the artcraft re-encode: C7 closed, patriotic/chair rows updated, two ledger entries appended (LightCraft's inert quality knob; my own bulk-copy error), footer regenerated from the third-pass measurements (Pillow deltas + built-HTML greps).</li>
+        <li>2026-10-10 — push + eyeball absorbed: four commits pushed to origin/main (Vercel deploys); Adnan's eye passed the re-encode ("looks good"); footer's checked block updated to say so.</li>
       </ul>
     </details>
   </footer>
