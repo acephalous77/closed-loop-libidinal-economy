@@ -5,6 +5,7 @@ import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { SomaticOptimization } from "@/components/visualizations/SomaticOptimization";
 import { M } from "@/components/ui/Math";
+import { ArchiveStamp } from "@/components/closed-loop/ArchiveStamp";
 
 export const metadata: Metadata = {
   title: "somatic optimization",
@@ -27,6 +28,8 @@ export default function SomaticOptimizationPage() {
             ]}
           />
         </div>
+
+        <ArchiveStamp />
 
         <article className="mx-auto max-w-[50rem]">
           <header className="mb-md">

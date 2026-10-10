@@ -14,6 +14,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { M } from "@/components/ui/Math";
 import type { ReactNode } from "react";
+import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 
 const PATH = "/closed-loop/v2-argument";
 
@@ -22,7 +23,22 @@ export const metadata: Metadata = {
   description:
     "The prose entry point to the closed-loop libidinal economy framework. Eight load-bearing moves cross-linking to the formal apparatus.",
   alternates: { canonical: PATH },
+  other: {
+    "citation_title": "The Closed-Loop Libidinal Economy (v2)",
+    "citation_author": "Adnan Selimović",
+    "citation_publication_date": "2026/05/28",
+    "citation_online_date": "2026/05/28",
+    "citation_keywords": "libidinal economy; closed-loop dynamics; performative prediction; foreclosure lemma; reclamation theorem; Mode A intervention; metric superego; chrono-debt",
+    "DC.title": "The Closed-Loop Libidinal Economy (v2)",
+    "DC.creator": "Adnan Selimović",
+    "DC.date": "2026-05-28",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
+
 
 /** The eight moves read with a numbered margin rail — the apparatus's
  *  enumeration register (mono numeral, hairline, heading). */
@@ -55,7 +71,7 @@ export default function CuratedArgumentPage() {
         The argument
       </h1>
       <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-lg">
-        Eight moves · the framework in prose
+        Eight moves · the framework in prose · v2, 2026
       </p>
 
       <p className="text-base text-ink-90 mb-lg leading-snug">
@@ -535,6 +551,8 @@ export default function CuratedArgumentPage() {
           </li>
         </ul>
       </section>
+
+      <CitationBlock />
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
         v2 curated argument. v1 the-argument at{" "}

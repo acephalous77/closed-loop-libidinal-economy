@@ -14,6 +14,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PlateGlyph } from "@/components/closed-loop-v2/PlateGlyphs";
+import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 
 const PATH = "/closed-loop/v2-dynamics";
 
@@ -22,7 +23,22 @@ export const metadata: Metadata = {
   description:
     "Twelve interactive plates. Each operates an apparatus result against a parameter so the reader sees the mechanism behave. The Machine surface of the v2 closed-loop rebuild.",
   alternates: { canonical: PATH },
+  other: {
+    "citation_title": "The Closed-Loop Libidinal Economy (v2)",
+    "citation_author": "Adnan Selimović",
+    "citation_publication_date": "2026/05/28",
+    "citation_online_date": "2026/05/28",
+    "citation_keywords": "libidinal economy; closed-loop dynamics; performative prediction; foreclosure lemma; reclamation theorem; Mode A intervention; metric superego; chrono-debt",
+    "DC.title": "The Closed-Loop Libidinal Economy (v2)",
+    "DC.creator": "Adnan Selimović",
+    "DC.date": "2026-05-28",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
+
 
 interface Plate {
   name: string;
@@ -231,6 +247,8 @@ export default function DynamicsIndex() {
           </li>
         </ul>
       </section>
+
+      <CitationBlock />
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
         v2 dynamics — twelve plates. v1 dynamics surface at{" "}

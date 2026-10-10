@@ -8,6 +8,7 @@
  */
 import type { Metadata } from "next";
 import Link from "next/link";
+import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 
 const PATH = "/closed-loop/the-apparatus";
 
@@ -16,7 +17,22 @@ export const metadata: Metadata = {
   description:
     "The formal apparatus. 13 sections, 15 formal results, 6 measurable instruments, 3 intervention modes. The companion to the framework's prose.",
   alternates: { canonical: PATH },
+  other: {
+    "citation_title": "The Closed-Loop Libidinal Economy (v2)",
+    "citation_author": "Adnan Selimović",
+    "citation_publication_date": "2026/05/28",
+    "citation_online_date": "2026/05/28",
+    "citation_keywords": "libidinal economy; closed-loop dynamics; performative prediction; foreclosure lemma; reclamation theorem; Mode A intervention; metric superego; chrono-debt",
+    "DC.title": "The Closed-Loop Libidinal Economy (v2)",
+    "DC.creator": "Adnan Selimović",
+    "DC.date": "2026-05-28",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
+
 
 interface Section {
   no: string;
@@ -300,6 +316,8 @@ export default function ApparatusIndex() {
           </li>
         ))}
       </ol>
+
+      <CitationBlock />
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
         v2 apparatus rendering.

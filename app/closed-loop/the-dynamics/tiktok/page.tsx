@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { TikTokInstruments } from "@/components/visualizations/TikTokInstruments";
+import { ArchiveStamp } from "@/components/closed-loop/ArchiveStamp";
 
 export const metadata: Metadata = {
   title: "tiktok",
@@ -26,6 +27,8 @@ export default function TikTokPage() {
             ]}
           />
         </div>
+
+        <ArchiveStamp />
 
         <article className="mx-auto max-w-[50rem]">
           <header className="mb-md">

@@ -5,6 +5,7 @@ import { RelatedPlates } from "@/components/navigation/RelatedPlates";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { ReclamationTrajectories } from "@/components/visualizations/ReclamationTrajectories";
 import { M } from "@/components/ui/Math";
+import { ArchiveStamp } from "@/components/closed-loop/ArchiveStamp";
 
 export const metadata: Metadata = {
   title: "reclamation trajectories",
@@ -27,6 +28,8 @@ export default function ReclamationTrajectoriesPage() {
             ]}
           />
         </div>
+
+        <ArchiveStamp />
 
         <article className="mx-auto max-w-[50rem]">
           <header className="mb-md">

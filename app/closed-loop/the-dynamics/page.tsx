@@ -4,6 +4,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { M } from "@/components/ui/Math";
 import { InstrumentsConstellation } from "@/components/dynamics/InstrumentsConstellation";
 import { JsonLd, itemListJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
+import { ArchiveStamp } from "@/components/closed-loop/ArchiveStamp";
 
 const PATH = "/closed-loop/the-dynamics";
 const TITLE = "the dynamics";
@@ -191,6 +192,8 @@ export default function TheDynamicsPage() {
             ]}
           />
         </div>
+
+        <ArchiveStamp />
 
         <article className="mx-auto max-w-[44rem]">
           <h1 className="font-mono text-xl text-ink-90 mb-xl">

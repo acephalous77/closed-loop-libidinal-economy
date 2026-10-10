@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FrameworkOrientation } from "@/components/home/FrameworkOrientation";
 import { JsonLd, frameworkJsonLd, itemListJsonLd } from "@/lib/jsonld";
+import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 
 export const metadata: Metadata = {
   // Bypass the root atelier template ("%s — autostimulus") so the
@@ -9,7 +10,22 @@ export const metadata: Metadata = {
   // "The Closed-Loop Libidinal Economy — autostimulus".
   title: { absolute: "The Closed-Loop Libidinal Economy" },
   alternates: { canonical: "/closed-loop" },
+  other: {
+    "citation_title": "The Closed-Loop Libidinal Economy (v2)",
+    "citation_author": "Adnan Selimović",
+    "citation_publication_date": "2026/05/28",
+    "citation_online_date": "2026/05/28",
+    "citation_keywords": "libidinal economy; closed-loop dynamics; performative prediction; foreclosure lemma; reclamation theorem; Mode A intervention; metric superego; chrono-debt",
+    "DC.title": "The Closed-Loop Libidinal Economy (v2)",
+    "DC.creator": "Adnan Selimović",
+    "DC.date": "2026-05-28",
+    "DC.type": "Text",
+    "DC.format": "text/html",
+    "DC.language": "en",
+    "DC.rights": "CC BY-SA 4.0",
+  },
 };
+
 
 export default function Cover() {
   return (
@@ -94,6 +110,7 @@ export default function Cover() {
         <p className="font-mono text-xs text-ink-50 mt-xl text-center">
           A. Selimović, Ph.D. — Blacksburg, Virginia — 2026
         </p>
+        <CitationBlock compact />
       </div>
     </main>
   );
