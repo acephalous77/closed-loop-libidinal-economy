@@ -91,7 +91,7 @@ export const NODES = [
     rec:{ what:"Calhoun\u2019s withdrawn males who only ate, slept, and groomed \u2014 never mating or fighting. The one element that maps cleanly onto a human type, and so the hook on which all later ideological weight hangs.",
       src:["Will Wiles, \u2018The Behavioral Sink,\u2019 Cabinet 42 (2011)"] } },
   { id:"christian", label:"John J. Christian", sub:"endocrinologist", type:"person", cl:"density", ev:null, yr:1950, lens:["epistemic"],
-    rec:{ what:"Calhoun\u2019s Johns Hopkins colleague; advanced a rival adrenal-stress model of density-dependent population regulation. Unlike the behavioral-sink line, his stress-physiology thread has a robust modern successor.",
+    rec:{ what:"Calhoun\u2019s Johns Hopkins colleague; advanced a rival adrenal-stress model of density-dependent population regulation. Unlike the behavioral-sink line, his stress-physiology thread has a strong modern successor.",
       src:["drawing on Hans Selye\u2019s stress concept"] } },
   { id:"selye", label:"Hans Selye", sub:"stress physiology", type:"person", cl:"density", ev:null, yr:1946, lens:["epistemic"],
     rec:{ what:"Originator of the general adaptation syndrome; the headwater of the legitimate stress-physiology line (Selye \u2192 Christian \u2192 Sapolsky \u2192 Marmot) that did replicate in humans.", src:[] } },
@@ -364,7 +364,7 @@ export const NODES = [
     rec:{ what:"Harvested up to 87M profiles via the \u2018thisisyourdigitallife\u2019 app to build \u2018psychographic\u2019 voter models. Documented data-misuse; psychographic EFFICACY largely debunked \u2014 the UK ICO found capabilities exaggerated, and CA executives conceded they \u2018never used psychographics\u2019 in the Trump campaign. The precise intent-vs-efficacy case.",
       src:["UK ICO report (2018\u20132020)","UK DCMS Committee (Feb. 2019)"] } },
   { id:"darpa_smisc", label:"DARPA SMISC", sub:"social media in strategic comms, 2011", type:"program", cl:"platform", ev:"documented", yr:2011, lever:"data", co:0.6, lens:["polecon","mechanism"],
-    rec:{ what:"DARPA program (~$50M total) to detect/track the spread of ideas, recognize persuasion campaigns, and counter adversary influence operations \u2014 the state re-entering mass-persuasion science in the platform era. Critics note the offensive potential of Goal 4.",
+    rec:{ what:"DARPA program (~$50M total) to detect/track the spread of ideas, recognize persuasion campaigns, and counter adversary influence operations \u2014 the state re-entering mass-persuasion science in the platform era. Goal 4's offensive potential has drawn criticism.",
       src:["DARPA-BAA-11-64 (2011)"] } },
   { id:"social_credit", label:"China \u2018social credit\u2019", sub:"accurate assessment", type:"idea", cl:"platform", ev:"contested", yr:2014, lens:["epistemic"],
     rec:{ what:"NOT a single unified national score \u2014 a fragmented patchwork (court blacklists, financial scoring, local pilots). The \u2018single dystopian score\u2019 is a debunked Western myth that distracts from genuinely coercive surveillance documented elsewhere (e.g. Xinjiang).",
@@ -424,7 +424,7 @@ export const NODES = [
 
   // ===== IDEOLOGICAL AFTERLIFE / TRANSMISSION =====
   { id:"wiles", label:"Will Wiles", sub:"Cabinet essay, 2011", type:"person", cl:"transmission", ev:null, yr:2011, lens:["transmission"],
-    rec:{ what:"The pivotal re-vector text. A design writer who gave Universe 25 its lasting literary image (\u2018the beautiful ones\u2026 wrapped in narcissistic introspection\u2019) \u2014 free, linkable, beautifully written, cited by nearly every later retelling.",
+    rec:{ what:"The key re-vector text. A design writer who gave Universe 25 its lasting literary image (\u2018the beautiful ones\u2026 wrapped in narcissistic introspection\u2019) \u2014 free, linkable, beautifully written, cited by nearly every later retelling.",
       src:["Wiles, \u2018The Behavioral Sink,\u2019 Cabinet 42 (2011)"] } },
   { id:"musk", label:"Elon Musk", sub:"the exodus frame", type:"faction", cl:"transmission", ev:null, yr:2023, lens:["transmission"],
     rec:{ what:"\u2018Expanding to the stars avoids the risk of a mouse utopian behavioral sink.\u2019 Universe 25 underwrites escape velocity \u2014 space colonization as the way out of a closed, doomed enclosure \u2014 fused with natalism, in front of an audience of hundreds of millions. The cure is exit; the enemy is terrestrial limitation.",
@@ -685,7 +685,7 @@ export const NODES = [
     rec:{ what:"Social psychologist whose \u2018great rewiring\u2019 thesis blames the smartphone/social-media transition (c.2012) for a teen mental-health collapse \u2014 the most influential popular bridge from the loneliness/role-deprivation literature to the platform-harm litigation. The correlational-vs-causal dispute is itself a live epistemic battleground.",
       src:["Haidt, The Anxious Generation (2024)","Odgers, Nature critique (2024)"] } },
   { id:"twenge", label:"Jean Twenge", sub:"iGen, 2017", type:"person", cl:"density", ev:"contested", yr:2017, lens:["socio","epistemic"],
-    rec:{ what:"Generational psychologist whose smartphone-and-adolescence data supplied the empirical core Haidt popularized \u2014 sharp post-2012 declines in well-being. Critics note effect sizes are small and confounded; the data are real, the causal story contested.",
+    rec:{ what:"Generational psychologist whose smartphone-and-adolescence data supplied the empirical core Haidt popularized \u2014 sharp post-2012 declines in well-being. Effect sizes are small and confounded; the data are real, the causal story contested.",
       src:["Twenge, iGen (2017); Twenge et al. (2018)"] } },
   { id:"turkle", label:"Sherry Turkle", sub:"Alone Together, 2011", type:"person", cl:"platform", ev:"documented", yr:2011, lens:["socio","theory"],
     rec:{ what:"MIT ethnographer of the human\u2013machine bond; from early optimism to the warning that we are \u2018alone together\u2019 \u2014 expecting more from technology and less from each other. The reflective-humanist line from the cybernetic milieu into the platform critique.",
@@ -2308,7 +2308,7 @@ export const THREADS = [
       { node:"musk", note:"And the parable returns, laundered of its replication failure, as collapse folklore in front of hundreds of millions." }
     ] },
   { id:"money", title:"Follow the money", accent:"oklch(0.81 0.13 85)",
-    blurb:"Intelligence, military, foundation and eugenic patrons were never separate worlds \u2014 they were one continuous elite ecosystem.",
+    blurb:"Intelligence, military, foundation and eugenic patrons were never separate worlds \u2014 they were one continuous elite apparatus.",
     steps:[
       { node:"cia", note:"An architecture built for deniability: projects could start \u2018without the signing of the usual contracts.\u2019" },
       { node:"geschickter_fund", note:"Money routed through medical cut-outs so recipient scientists never knew the true source." },
@@ -2438,7 +2438,7 @@ export const THREADS = [
       { node:"mgx", note:"The ~$100B vehicle that co-leads the AI rounds." },
       { node:"openai", note:"Into OpenAI's compute (Stargate, the $122B round)." },
       { node:"neuralink", note:"And into captive neural data, beside the Qatar Investment Authority." },
-      { node:"hevolution", note:"While a separate Saudi fund pays US longevity academia — documented, but off the Thiel/FF component entirely." }
+      { node:"hevolution", note:"A separate Saudi fund pays US longevity academia — documented, and outside the Thiel/FF component entirely." }
     ] }
 ];
 

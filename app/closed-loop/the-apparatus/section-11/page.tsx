@@ -141,9 +141,7 @@ export default function Section11Page() {
               Marcuse, and Lacan named with words like the metric of
               inner damage, one-dimensional thought, and the subject
               of the unconscious persists at the user-state level;
-              what becomes inaccessible is the observational regime
-              in which their preservation could be empirically
-              demonstrated.{" "}
+              the observational regime in which their preservation could be empirically demonstrated becomes inaccessible.{" "}
               <em>Formal counterpart:</em>{" "}
               <Link href="/closed-loop/the-apparatus/section-2/theorem-1-prime" className="text-oxblood hover:underline">
                 Theorem 1&apos;

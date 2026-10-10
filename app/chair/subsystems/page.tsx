@@ -31,7 +31,7 @@ export const SUBSYSTEMS = [
     subtitle: "Where the apparatus stores what it has extracted.",
     inheritance: "Marx, transposed · Zuboff", key: "d" },
   { slug: "feedback-rituals",            num: "05", title: "Feedback Rituals",
-    subtitle: "Variable-ratio reinforcement, deployed across consumer life.",
+    subtitle: "Variable-ratio reinforcement runs across consumer life.",
     inheritance: "Klein · Winnicott · Skinner · casino industry", key: "e" },
   { slug: "affective-signal-translators", num: "06", title: "Affective Signal Translators",
     subtitle: "Every other subsystem's afferent nerve.",

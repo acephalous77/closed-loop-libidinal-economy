@@ -109,7 +109,7 @@ function Intro({ onEnter, vw }: { onEnter: () => void; vw: number }) {
         <circle cx={sx} cy={sy} r="3.4" fill={L.oxide} />
       </svg>
       <p className="serif" style={{ fontSize: Math.min(19, Math.max(16, vw / 25)), lineHeight: 1.6, maxWidth: 600, color: "#2c2820", position: "relative", textWrap: "pretty" }}>
-        After the requirements of survival have been met, an excess remains — of attention, of desire, of care. Late capitalism has succeeded in reaching it. What follows is a map of the apparatus that captures it, and of what survives the capture.
+        After the requirements of survival have been met, an excess remains — of attention, of desire, of care. Late capitalism has succeeded in reaching it. This is a map of the apparatus that captures it, and of what survives the capture.
       </p>
       <button
         onClick={onEnter}

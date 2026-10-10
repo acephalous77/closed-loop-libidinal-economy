@@ -198,8 +198,7 @@ export default function Theorem9Page() {
             between these two is a difference of kind — an{" "}
             <M>{String.raw`N`}</M>-fold structural gap baked into the
             closure&apos;s geometry. Individual practice has real
-            value for the person who practices it; what the framework
-            specifies is its reach at population scale.
+            value for the person who practices it; the framework specifies its reach at population scale.
           </p>
 
           <p className="mb-sm">

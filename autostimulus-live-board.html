@@ -183,6 +183,7 @@
       <tr><td>2026-10-10</td><td>Phase 0 verification</td><td>Manufacture's layout <code>openGraph</code> object had suppressed the inherited OG image — assumed fixed by the route card, so the prerender was grepped to prove it</td><td>og:image confirmed on all four works in the built HTML</td><td>Verify emitted tags in the prerender; source intent is not evidence.</td></tr>
       <tr><td>2026-10-10</td><td>Artcraft pass (measurement)</td><td>LightCraft's WebP export at quality 50, 70, and 85 wrote pixel-identical lossless files (~5.2&nbsp;MB); its quality parameter does nothing on that path</td><td>batch re-encode ran on the PhotoCraft-validated q85 recipe (Pillow, measured parity) instead</td><td>Verify a tool's output bytes against its parameters before trusting it with a batch.</td></tr>
       <tr><td>2026-10-10</td><td>Artcraft pass (my own error)</td><td>The first bulk copy swept every staged WebP — zine sheets, the seal — into <code>public/chair/ils/</code></td><td>extras removed after listing the directory; final dirs verified file-by-file</td><td>After a bulk copy, list the destination and diff it against the expected set before moving on.</td></tr>
+      <tr><td>2026-10-10</td><td>De-AI sweep (canonical <code>deai.py</code>)</td><td>The pivot/cleft/posture family still ran at 0.74/1k tells (105 across the routes) — concentration in the essays, chair lineages, the apparatus, and the client-only stores the build never renders</td><td>~74 recasts; 105 → 39 tells; zero regressions; 5 design-register items flagged for his ruling; full before/after in the review file</td><td>A de-AI sweep reports counts before and after, checks for regressions, and names what it left — or it did not run.</td></tr>
     </table>
   </section>
 
@@ -204,9 +205,14 @@
     (q85: no pixel beyond 32/255 on 61 of 63 plates; two zine photos bumped to q90); built HTML
     verified: plate references all <code>.webp</code>, index tiles served through
     <code>/_next/image</code> srcsets, canvas loads the WebP directly; build green, 276 pages.</p>
+    <p><strong>Fourth pass (de-AI):</strong> all 229 routes re-extracted and scanned
+    (<code>deai.py --style-scan</code>) plus the client-only stores; reliable tells 105 → 39
+    (0.74 → 0.28 per 1k words); ~74 recasts, zero regressions (automated before/after flag
+    diff); five design-register items held for his ruling, listed in the review file.</p>
     <p><strong>Not checked:</strong> the deployed site was verified by Adnan's eye on 2026-10-10
     ("looks good") after the push; a full browser click-through (coloring fill, print path) is the
-    remaining manual test; Vercel/Cloudflare state; DNS.</p>
+    remaining manual test; Vercel/Cloudflare state; DNS. The de-AI edits are drafts until his
+    ruling — committed locally, not pushed.</p>
     <p><strong>Weakest inference on this board:</strong> the asset-weight projections under "PhotoCraft
     pass next" are estimates until the re-encode runs and the plate sizes are re-measured.</p>
     <details><summary>Provenance + changelog</summary>
@@ -216,6 +222,7 @@
         <li>2026-10-10 — refresh after Phase 0: checklist closed (9/9), works/defects statuses updated, two ledger entries appended (one my own error, caught by the build gate), footer regenerated from the second-pass commands. Counts recomputed from the DOM.</li>
         <li>2026-10-10 — refresh after the artcraft re-encode: C7 closed, patriotic/chair rows updated, two ledger entries appended (LightCraft's inert quality knob; my own bulk-copy error), footer regenerated from the third-pass measurements (Pillow deltas + built-HTML greps).</li>
         <li>2026-10-10 — push + eyeball absorbed: four commits pushed to origin/main (Vercel deploys); Adnan's eye passed the re-encode ("looks good"); footer's checked block updated to say so.</li>
+        <li>2026-10-10 — de-AI pass recorded: ledger entry appended (the sweep rule), footer's fourth-pass block added, works not re-tabulated (prose-only change); review file and dated note written.</li>
       </ul>
     </details>
   </footer>

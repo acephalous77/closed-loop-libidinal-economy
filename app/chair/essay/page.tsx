@@ -267,7 +267,7 @@ export default function OnTheChair() {
           </P>
           <Pull>Smallness is what keeps it defensible.</Pull>
           <P>
-            What the moves preserve is the capacity to recognize the
+            The moves preserve the capacity to recognize the
             apparatus as an apparatus, and to act on the recognition. That
             recognition is what the rest of this project has been trying
             to make available.

@@ -121,8 +121,7 @@ export default function ChronoDebtPage() {
           </p>
 
           <p className="mb-sm">
-            The instrument&apos;s substantive content: what the
-            closure removes is a spectrum of foreclosed intervals,
+            The instrument&apos;s substantive content: the closure removes a spectrum of foreclosed intervals,
             foreclosed time resolved scale by scale. A foreclosed
             second is recoverable. A foreclosed adolescence is lost
             for good. The weighting function

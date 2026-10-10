@@ -76,7 +76,7 @@ const PLATES: Plate[] = [
     name: "Libidinal routing",
     href: "/closed-loop/v2-dynamics/libidinal-routing",
     gloss:
-      "Four registers, dependently distributed. Mutual information across registers under the platform's posterior. The reader raises off-diagonal coupling and watches I_{Π_t}(u^i; u^j) rise.",
+      "Dependence across the four registers. Mutual information across registers under the platform's posterior. The reader raises off-diagonal coupling and watches I_{Π_t}(u^i; u^j) rise.",
     apparatusName: "Proposition 7'",
     apparatusHref: "/closed-loop/the-apparatus/section-3/prop-7-prime",
   },

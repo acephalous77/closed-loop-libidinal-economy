@@ -231,9 +231,7 @@ export default function CuratedArgumentPage() {
         <p className="text-base text-ink-90 mb-sm">
           The foreclosure is uninstantiation. The user-state
           continues to exist; the user continues to register, to
-          feel, to choose, to refuse. What never gets installed is
-          the architectural condition for a
-          specific kind of internal motion: the reflective interval
+          feel, to choose, to refuse. The architectural condition for a specific kind of internal motion never gets installed: the reflective interval
           at which the older critical traditions situated their
           subject. The conditioning event under which a
           structural reclamation project could measure that subject
@@ -328,8 +326,7 @@ export default function CuratedArgumentPage() {
           The asymmetry has a single causal source. Closure
           amplification — the factor{" "}
           <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> — is the
-          same for every intervention; what differs is the
-          mechanism partial. Mode A&apos;s reward functional enters
+          same for every intervention; the mechanism partial differs. Mode A&apos;s reward functional enters
           the optimization for every user simultaneously. Individual
           practice on the user kernel or observation channel
           contributes one user&apos;s share to the population
@@ -440,8 +437,7 @@ export default function CuratedArgumentPage() {
           the research community.
         </p>
         <p className="text-base text-ink-90">
-          What the framework offers is the apparatus that makes its
-          claims refusable. A reader who rejects the framework can
+          The framework offers the apparatus that makes its claims refusable. A reader who rejects the framework can
           locate the rejection in one of three places: the axioms
           (regularity, user-side responsiveness, platform-side
           optimizing structure), the load-bearing results (Lemma 1,

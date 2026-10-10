@@ -91,7 +91,7 @@ export default function Section0Page() {
               about what the closure produces would become circular,
               with the conclusions smuggled into the premises. The
               closure has to arise out of the model&apos;s mechanics.
-              What the framework needs is the smallest mathematical
+              The framework needs the smallest mathematical
               setting in which a predictor&apos;s outputs change the
               distribution it is then evaluated against, and in which
               the resulting fixed-point structure becomes a formal
@@ -560,8 +560,7 @@ export default function Section0Page() {
               Mendler-Dünner & Hardt (2020): distribution-sensitivity
               times the reward&apos;s condition number. (The product{" "}
               <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M> bounds the{" "}
-              <em>objective-value</em> sensitivity, not the operator
-              modulus; the modulus{" "}
+              <em>objective-value</em> sensitivity alone; the modulus{" "}
               <M>{String.raw`\kappa_\Phi`}</M> carries the condition
               number <M>{String.raw`\beta/\alpha`}</M>, which{" "}
               <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M> omits.)
@@ -581,7 +580,7 @@ export default function Section0Page() {
               in <M>{String.raw`\theta`}</M> (so{" "}
               <M>{String.raw`\Phi`}</M> is single-valued and the
               comparative-statics bound of §1.2 holds globally on{" "}
-              <M>{String.raw`\Theta`}</M>, not merely locally).
+              <M>{String.raw`\Theta`}</M>).
               Performative stable points exist (by the Banach
               fixed-point theorem under the contractivity{" "}
               <M>{String.raw`\kappa_\Phi < 1`}</M> of (R1)); the

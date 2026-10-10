@@ -271,14 +271,14 @@ const ESSAY = "The Psychopolitics of Psychic Surplus";
 const DEEPEN: Record<string, { stage: string; add?: string; quote?: string; quoteSource?: string; cite?: string }> = {
   surplus: {
     stage: "the whole arc",
-    add: "The marketer's category for it is life-time value — the projected return on a person if every moment of a life, crib to deathbed, can be metabolized into a stream of transactions. Capital still wants the working day, but its frontier has moved inward, to attention, to affect, to desire. The data thrown off is the exhaust; what burns underneath is the capacity to feel, to imagine, to want, to play, to attach.",
+    add: "The marketer's category for it is life-time value — the projected return on a person if every moment of a life, crib to deathbed, can be metabolized into a stream of transactions. Capital still wants the working day, but its frontier has moved inward, to attention, to affect, to desire. The data thrown off is the exhaust; Underneath burns the capacity to feel, to imagine, to want, to play, to attach.",
     quote: "Behavioral surplus is what the meters read; psychic surplus is what the meters are clamped to.",
     quoteSource: ESSAY,
     cite: "Introduction",
   },
   ouroboros: {
     stage: "the whole arc",
-    add: "Lyotard's wager was that every political economy is already a libidinal economy — that there is no clean wall between the circulation of capital and the circulation of desire. Foucault tracked power as it passed from the sovereign's sword to the discipline of the institution to the management of populations; what runs now is a further passage, into the government of the inner life. The factory relocated behind the eyes.",
+    add: "Lyotard's wager was that every political economy is already a libidinal economy — that there is no clean wall between the circulation of capital and the circulation of desire. Foucault tracked power as it passed from the sovereign's sword to the discipline of the institution to the management of populations; the passage now runs further, into the government of the inner life. The factory relocated behind the eyes.",
   },
   triaxial: { stage: "the whole arc" },
   boredom: {

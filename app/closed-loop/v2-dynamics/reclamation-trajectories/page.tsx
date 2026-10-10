@@ -129,9 +129,7 @@ export default function ReclamationTrajectoriesPage() {
               The closure removes the conditioning event on which
               any sample-based recovery of the user&apos;s autocovariance
               could ground itself. The user-state continues to exist.
-              What is absent is the empirical accessibility of the
-              formal object that a structural reclamation project
-              would have to measure. Not destruction. Not erasure.
+              The empirical accessibility of the formal object that a structural reclamation project would have to measure is absent. Not destruction. Not erasure.
               Uninstantiation.
             </p>
           </Middle>

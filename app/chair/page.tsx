@@ -293,8 +293,7 @@ function Foreword() {
           maxWidth: 920, fontSize: 15, lineHeight: 1.6, color: B.inkDim,
         }} className="brochure-foreword-cols">
           <p style={{ margin: 0 }}>
-            What follows is the apparatus describing itself in the
-            terms by which it is critiqued. The vocabulary —
+            In what follows, the apparatus describes itself in the terms by which it is critiqued. The vocabulary —
             <em> psychic surplus, OHCOSE, Capture of Cadence,
             Tri-Axial Ouroboric Governance</em> — has, since 2024,
             been adopted as our operational lexicon.

@@ -127,7 +127,7 @@ function App() {
             <div className="card-title">Chrono-debt spectrum <span className="tag">§3.2 · D(t,τ) = Λ_◦(τ) − Λ(t,τ)</span></div>
             <ChronoSpectrum state={state}/>
             <div className="micro" style={{marginTop: 8, color:"var(--ink-3)", lineHeight:1.5}}>
-              D(t,τ) is a <em>spectrum</em>: the deficit in pause-time is non-zero across all scales simultaneously, not just at one preferred scale. A foreclosed second is recoverable; a foreclosed adolescence is not.
+              D(t,τ) is a <em>spectrum</em>: the deficit in pause-time is non-zero across all scales simultaneously, with no preferred scale. A foreclosed second is recoverable; a foreclosed adolescence is not.
             </div>
           </div>
           <div className="card">

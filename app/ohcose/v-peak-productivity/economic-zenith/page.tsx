@@ -44,8 +44,7 @@ export default function EconomicZenith() {
             </p>
             <p>
               The convergence is the deliverable. A Phase-V subject
-              who has not converged still performs the work but does
-              so at reduced surplus margin. The Office's Phase-V
+              who has not converged still performs the work, at a reduced surplus margin. The Office's Phase-V
               Affective Officer intervenes early in such cases with
               the published Mission Realignment Pathway.
             </p>

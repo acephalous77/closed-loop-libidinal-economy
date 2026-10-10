@@ -59,8 +59,7 @@ export default function LifecycleClosure() {
               The subject's accumulated surplus — productive,
               reproductive, affective, attentional — outlives the
               subject. It has already been routed, across the
-              full lifecycle, into the Office's apparatus. What returns
-              at the closing is the demographic precision the subject's
+              full lifecycle, into the Office's apparatus. The return at the closing is the demographic precision the subject's
               eighty years of measurement now afford the Office's
               modeling of the next cohort.
             </p>

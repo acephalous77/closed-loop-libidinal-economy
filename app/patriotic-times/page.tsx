@@ -335,7 +335,7 @@ export default function PatrioticTimesLanding() {
             is no neutral encounter with what it depicts.
           </p>
           <p style={{ marginTop: "1.25rem", marginBottom: 0 }}>
-            What follows is the contents. The plates themselves circulate
+            The contents follow. The plates themselves circulate
             separately — in print, in exhibition, in classroom — but the
             timeline is its own document. Read it that way.
           </p>

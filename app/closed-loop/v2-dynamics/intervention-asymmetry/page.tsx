@@ -100,8 +100,7 @@ export default function InterventionAsymmetryPage() {
               <M>{String.raw`(1 - \kappa_\Phi)^{-1}`}</M>{" "}
               under contractivity, where{" "}
               <M>{String.raw`\kappa_\Phi = (\beta/\alpha)\, L_{\mathcal{D}}`}</M>.
-              The same factor amplifies every intervention; what differs
-              across cells is the mechanism partial. As{" "}
+              The same factor amplifies every intervention; the mechanism partial differs across cells. As{" "}
               <M>{String.raw`\kappa_\Phi \to 1`}</M>, the amplification
               diverges — the regime{" "}
               <Link
@@ -116,7 +115,7 @@ export default function InterventionAsymmetryPage() {
 
             <p className="mb-sm">
               <em>The N-fold asymmetry.</em> Mode A&apos;s{" "}
-              <M>{String.raw`\hat R`}</M> is not user-indexed; it
+              <M>{String.raw`\hat R`}</M> is unindexed by user: it
               enters the optimization for every user simultaneously.
               The fourth-cell&apos;s observation regulation is
               similarly unindexed. Both scale{" "}

@@ -543,7 +543,7 @@ export function LateAdulthood() {
             </div>
           </div>
           <div className="cap mt8">
-            memory itself, sold back as merchandise. even the fear of death is a market.
+            memory itself comes back as merchandise. even the fear of death is a market.
           </div>
         </div>
       </div>

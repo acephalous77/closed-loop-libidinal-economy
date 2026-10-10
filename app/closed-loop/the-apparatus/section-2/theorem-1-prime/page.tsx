@@ -95,9 +95,7 @@ export default function Theorem1PrimePage() {
             could in principle be cognized, and no algorithm is the
             obstacle. The interior
             persists at the user-state level.
-            What collapses is the observational ground on which any
-            structural project of demonstrating its preservation could
-            stand.
+            The observational ground on which any structural project of demonstrating its preservation could stand collapses.
           </p>
 
           <p className="mb-sm">
@@ -145,9 +143,7 @@ export default function Theorem1PrimePage() {
             sample-based recovery of the user&apos;s autocovariance
             could ground itself. The user-state continues to exist.
             The user continues to register, to feel, to choose, to
-            refuse. What is absent is the <em>empirical accessibility</em>{" "}
-            of the formal object that a structural project of
-            reclaiming an autonomous interiority would have to measure.
+            refuse. The <em>empirical accessibility</em>{" "}of the formal object that a structural project of reclaiming an autonomous interiority would have to measure is absent.
             The object is uninstantiated in the data the closed loop
             generates. Not destruction. Not erasure. Uninstantiation.
           </p>

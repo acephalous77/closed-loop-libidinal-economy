@@ -73,8 +73,7 @@ export default function Theorem12Page() {
             the operator to contract:{" "}
             <M>{String.raw`\kappa := \kappa_\Phi < 1`}</M>, where{" "}
             <M>{String.raw`\kappa_\Phi \leq (\beta/\alpha) L_{\mathcal{D}}`}</M>{" "}
-            is the operator modulus of §0.3 — not the value-sensitivity
-            product <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M>.
+            is the operator modulus of §0.3 , distinct from the value-sensitivity product <M>{String.raw`L_{\hat R} L_{\mathcal{D}}`}</M>.
             As <M>{String.raw`\kappa \to 1^-`}</M>, the closure
             amplification factor{" "}
             <M>{String.raw`(I - D_\theta \Phi)^{-1}`}</M> from{" "}
@@ -124,9 +123,7 @@ export default function Theorem12Page() {
             </li>
             <li>
               <strong>Pitchfork</strong> (non-generic) — eigenvalue at{" "}
-              <M>{String.raw`+1`}</M>, cubic non-degeneracy. It is{" "}
-              <em>not</em> generic in a one-parameter family; it
-              replaces the saddle-node only when{" "}
+              <M>{String.raw`+1`}</M>, cubic non-degeneracy. It is{" "}<em>non-generic</em> in a one-parameter family: it replaces the saddle-node only when{" "}
               <M>{String.raw`\Phi`}</M> commutes with a{" "}
               <M>{String.raw`\mathbb{Z}_2`}</M> symmetry — which the
               framework&apos;s symmetric cohorts can supply. A single
@@ -271,8 +268,7 @@ export default function Theorem12Page() {
               <M>{String.raw`(\theta^*, \kappa = 1)`}</M> undergo one
               of three generic codimension-1 bifurcations — saddle-node
               (a), period-doubling (c), or Neimark–Sacker (d) below.
-              The pitchfork (b) is not generic in a one-parameter
-              family; it arises in place of the saddle-node when{" "}
+              The pitchfork (b) is non-generic in a one-parameter family: it arises in place of the saddle-node when{" "}
               <M>{String.raw`\Phi`}</M> commutes with a{" "}
               <M>{String.raw`\mathbb{Z}_2`}</M> symmetry, which the
               framework&apos;s symmetric cohorts can supply:
