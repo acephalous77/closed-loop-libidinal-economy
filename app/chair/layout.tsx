@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Anton, Spectral, IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
 import { MASTER } from "./_components/tokens";
 import { ChairGlyph } from "./_components/PlateChrome";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 /**
  * /chair project layout.
@@ -303,9 +304,7 @@ function ChairFoot() {
           textTransform: "uppercase",
         }}
       >
-        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
-          ↑ part of autostimulus.org
-        </Link>
+        <WorksDoor style={{ color: "inherit" }} />
       </div>
 
       <style>{`

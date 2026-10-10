@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/lib/jsonld";
+import { WORKS, type Work } from "@/lib/works";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -21,95 +22,6 @@ export const metadata: Metadata = {
     locale: "en_US",
   },
 };
-
-interface Work {
-  mark: string; // riso press-mark glyph — the work's cut-out symbol
-  stamp: string; // terse focus-hit — the work called by what it asks
-  title: string; // the work's real name, kept as the identifier
-  year: string;
-  register: string;
-  href: string;
-  status: "live" | "in production";
-}
-
-/**
- * Works hung as a cut-and-paste flyer. Each is called by a terse
- * stamped hit (what it focuses on), with its real title kept
- * underneath as the identifier — so the three ouroboros-named works
- * read apart at a glance. Ordered reverse-chronologically by year —
- * newest at the top, oldest at the foot (a 2025—2026 span sorts by
- * its close).
- *
- * The stamp lines are drafts in Adnan's terse register — flagged for
- * his vetting, anchored by the real titles so the page reads right
- * even before he tunes the wording.
- */
-const WORKS: Work[] = [
-  {
-    stamp: "FOLLOW THE WIRES.",
-    title: "The Psychopolitics of Socialization",
-    mark: "◉",
-    year: "2026",
-    register: "relational atlas · ~600 nodes · crowding science → the population present",
-    href: "/psychopolitics-atlas/index.html",
-    status: "live",
-  },
-  {
-    stamp: "THE LOOP, ON THE RECORD.",
-    title: "The Closed-Loop Libidinal Economy",
-    mark: "◆",
-    year: "2026",
-    register: "framework · essays · mathematics · interactive plates",
-    href: "/closed-loop",
-    status: "live",
-  },
-  {
-    stamp: "COLOR THE COLLAPSE.",
-    title: "Patriotic Times",
-    mark: "✱",
-    year: "2025—2026",
-    register: "coloring book · state failure · interactive plates",
-    href: "/patriotic-times",
-    status: "live",
-  },
-  {
-    stamp: "YOUR LIFE, ON FILE.",
-    title: "OHCOSE",
-    mark: "▣",
-    year: "2025",
-    register: "office of human continuity & social equilibrium",
-    href: "/ohcose",
-    status: "live",
-  },
-  {
-    stamp: "SIT. BE HELD. BE HARVESTED.",
-    title: "The Ouroboros Life System",
-    mark: "●",
-    year: "2021",
-    register: "essay · brochure · speculative-design artifact",
-    href: "/chair",
-    status: "live",
-  },
-  {
-    stamp: "WHAT SURVIVES CAPTURE?",
-    title: "The Ouroboric Condition",
-    mark: "○",
-    year: "2018",
-    register: "atlas · psychic surplus · interactive specimen plates",
-    href: "/ouroboric-condition",
-    status: "live",
-  },
-  {
-    // stamp is a draft in Adnan's terse register — flagged for his vetting.
-    stamp: "A LIFE, ON THE METER.",
-    title: "The Manufacture of the Subject",
-    mark: "■",
-    year: "2015",
-    register: "essay · interactive descent · crib → deathbed",
-    href: "/manufacture-of-the-subject",
-    status: "live",
-  },
-];
 
 /**
  * Atelier landing — xerox-zine / ransom-note register.
@@ -171,6 +83,12 @@ function entryBody(w: Work, inv: boolean) {
           style={{ fontFamily: SERIF, fontStyle: "italic", fontSize: "1.15rem", color: cIdent, marginTop: "0.9rem" }}
         >
           {w.title}
+        </div>
+        <div
+          className="zine-plain"
+          style={{ fontFamily: SERIF, fontSize: "1rem", color: cIdent, marginTop: "0.5rem", maxWidth: "44rem", lineHeight: 1.45 }}
+        >
+          {w.plain}
         </div>
       </div>
 
@@ -350,6 +268,25 @@ export default function AtelierIndex() {
               .
             </span>
           </h1>
+
+          {/* The atelier statement — critique P1; his word 2026-10-10:
+              de-AI the site texts, then approved. Scanned clean. */}
+          <p
+            style={{
+              fontFamily: MONO,
+              fontSize: "0.88rem",
+              lineHeight: 1.75,
+              color: INK_2,
+              maxWidth: "46rem",
+              marginTop: "2.4rem",
+            }}
+          >
+            autostimulus is the press of A. Selimović — one concern in seven
+            registers: a framework, an agency, a product line, a coloring
+            book, two atlases, a descent. each institution stages the same
+            loop in its own paper and ink. start where it catches, and{" "}
+            <span style={{ color: RED }}>read sideways</span>.
+          </p>
         </header>
 
         {/* ============ WORKS — cut flyer ============ */}

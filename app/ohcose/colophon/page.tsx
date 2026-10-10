@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PageFrame } from "../_components/PageFrame";
 import { SectionHead } from "../_components/SectionHead";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 export const metadata: Metadata = {
   title: "Colophon",
@@ -171,7 +172,7 @@ export default function OhcoseColophon() {
 
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ schedule of phases</Link>
-          <Link href="/" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ autostimulus</Link>
+          <WorksDoor className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }} />
         </nav>
       </article>
     </PageFrame>

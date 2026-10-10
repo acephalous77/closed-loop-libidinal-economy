@@ -18,6 +18,7 @@ import { ATLAS_SITES, ATLAS_WORLD } from "./data";
 import type { AtlasSite } from "./data";
 import { AtlasChart } from "./chart";
 import { AtlasPlate } from "./plate";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 const W = ATLAS_WORLD.w,
   H = ATLAS_WORLD.h;
@@ -125,9 +126,7 @@ function Intro({ onEnter, vw }: { onEnter: () => void; vw: number }) {
       <div className="mono" style={{ fontSize: 11, letterSpacing: "0.18em", color: L.faint, marginTop: 20, position: "relative" }}>
         17 SPECIMENS · 14 CHAPTERS · ONE APPARATUS
         <span style={{ margin: "0 0.75em" }}>·</span>
-        <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
-          ↑ AUTOSTIMULUS
-        </Link>
+        <WorksDoor style={{ color: "inherit", textTransform: "uppercase" }} />
       </div>
     </div>
   );

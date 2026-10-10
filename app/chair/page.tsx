@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FONT } from "./_components/tokens";
 import { PlateHeader, PlateFooter } from "./_components/PlateChrome";
 import { OccupantGallery } from "./_components/OccupantGallery";
+import { FailureButton } from "./_components/FailureButton";
 
 export const metadata: Metadata = {
   title: { absolute: "The Apparatus — Ouroboros Life System" },
@@ -123,11 +124,20 @@ function Nav() {
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
           color: B.inkMute, textTransform: "uppercase",
         }} className="brochure-cohort">Cohort · 2026.05</span>
-        <button style={{
-          background: B.ink, color: B.paper, border: 0,
-          padding: "10px 18px", borderRadius: 999, fontSize: 13,
-          fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
-        }}>Fit me →</button>
+        <FailureButton
+          label="Fit me →"
+          buttonStyle={{
+            background: B.ink, color: B.paper, border: 0,
+            padding: "10px 18px", borderRadius: 999, fontSize: 13,
+            fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
+          }}
+          stampStyle={{
+            marginTop: 10, fontFamily: FONT.mono, fontSize: 10,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: B.inkMute, border: "1px solid currentColor",
+            padding: "0.35rem 0.55rem",
+          }}
+        />
       </div>
       <style>{`
         @media (max-width: 800px) {
@@ -718,14 +728,25 @@ function Tiers() {
                 ))}
               </div>
             </div>
-            <button style={{
-              marginTop: 22, width: "100%",
-              background: t.highlight ? B.paper : B.ink,
-              color: t.highlight ? B.ink : B.paper,
-              border: 0, padding: "13px 18px", borderRadius: 999,
-              fontSize: 13, fontWeight: 600,
-              letterSpacing: "-0.005em", cursor: "pointer",
-            }}>Schedule a fitting</button>
+            <FailureButton
+              label="Schedule a fitting"
+              fullWidth
+              buttonStyle={{
+                marginTop: 22, width: "100%",
+                background: t.highlight ? B.paper : B.ink,
+                color: t.highlight ? B.ink : B.paper,
+                border: 0, padding: "13px 18px", borderRadius: 999,
+                fontSize: 13, fontWeight: 600,
+                letterSpacing: "-0.005em", cursor: "pointer",
+              }}
+              stampStyle={{
+                marginTop: 12, fontFamily: FONT.mono, fontSize: 10,
+                letterSpacing: "0.18em", textTransform: "uppercase",
+                color: t.highlight ? B.inkMute : "#a0a0a4",
+                border: "1px solid currentColor",
+                padding: "0.35rem 0.55rem",
+              }}
+            />
           </div>
         ))}
       </div>
@@ -769,11 +790,20 @@ function CTAandCostco() {
           The fitting takes 47 minutes. The first night is, for most
           occupants, the deepest sleep of their adult life.
         </p>
-        <button style={{
-          background: "#e9b94a", color: B.ink, border: 0,
-          padding: "16px 26px", borderRadius: 999, fontSize: 15,
-          fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
-        }}>Begin onboarding →</button>
+        <FailureButton
+          label="Begin onboarding →"
+          buttonStyle={{
+            background: "#e9b94a", color: B.ink, border: 0,
+            padding: "16px 26px", borderRadius: 999, fontSize: 15,
+            fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
+          }}
+          stampStyle={{
+            marginTop: 12, fontFamily: FONT.mono, fontSize: 10,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: "#cfcfd6", border: "1px solid currentColor",
+            padding: "0.35rem 0.55rem",
+          }}
+        />
         <div style={{
           marginTop: 32,
           fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",

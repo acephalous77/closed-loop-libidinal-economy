@@ -23,6 +23,7 @@ import {
   Void,
 } from "./sections";
 import { SurplusResist } from "./setpieces";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 const fmtMoney = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 const STAGE_NAMES: Record<string, string> = {
@@ -159,9 +160,7 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
             <Link href="#top" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
               ↑ return to birth
             </Link>
-            <Link href="/" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
-              ↑ autostimulus
-            </Link>
+            <WorksDoor className="src" style={{ color: "#777", borderBottom: "1px solid #999" }} />
           </span>
         </div>
       </div>

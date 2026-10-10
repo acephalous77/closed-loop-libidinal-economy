@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Anton, Source_Serif_4 } from "next/font/google";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 /**
  * Patriotic Times project layout — samizdat zine register.
@@ -83,9 +84,7 @@ export default function PatrioticTimesLayout({
           borderTop: "1px solid #d8caa3",
         }}
       >
-        <Link href="/" style={{ color: "#736a5d", textDecoration: "none" }}>
-          ↑ autostimulus
-        </Link>
+        <WorksDoor style={{ color: "#736a5d" }} />
         <span style={{ margin: "0 1rem", color: "#c5b694" }}>·</span>
         <Link href="/patriotic-times/colophon" style={{ color: "#736a5d", textDecoration: "none" }}>
           colophon

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 /**
  * Closed-loop project footer — mounted via app/closed-loop/layout.tsx,
@@ -70,12 +71,7 @@ export function SiteFooter() {
         </p>
       </div>
       <div className="mx-auto max-w-[var(--container-page)] px-sm mt-sm text-center sm:text-left">
-        <Link
-          href="/"
-          className="font-mono text-xs text-ink-50 hover:text-oxblood transition-colors duration-100"
-        >
-          ↑ autostimulus
-        </Link>
+        <WorksDoor className="font-mono text-xs text-ink-50 hover:text-oxblood transition-colors duration-100" />
       </div>
     </footer>
   );

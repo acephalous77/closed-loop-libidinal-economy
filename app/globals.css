@@ -960,3 +960,15 @@ input[type="checkbox"].accent-oxblood {
   width: 1.05rem;
   height: 1.05rem;
 }
+
+/* The atelier door (components/navigation/WorksDoor): hover/focus
+   affordances the inline register styles cannot express. */
+.worksdoor-btn:hover,
+.worksdoor-btn:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.worksdoor-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
