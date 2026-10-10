@@ -53,7 +53,24 @@ export default function PhaseVIConsolidation() {
       </section>
       <section className="mt-2xl max-w-[var(--container-prose)] mx-auto">
         <div className="font-mono uppercase mb-md text-center" style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>Schedule of Sub-Protocols</div>
-        <ol>
+
+        <div
+          className="font-mono uppercase"
+          style={{
+            display: "flex", alignItems: "baseline", gap: "var(--spacing-md)",
+            fontSize: "0.7rem", letterSpacing: "0.18em",
+            color: "var(--color-ink-50)",
+            borderBottom: "1px solid var(--color-ink)",
+            paddingBottom: "0.4rem", marginBottom: "0.2rem",
+          }}
+          aria-hidden
+        >
+          <span style={{ width: "3.5rem", flexShrink: 0 }}>code</span>
+          <span style={{ flex: 1 }}>sub-protocol</span>
+          <span>filing</span>
+        </div>
+
+<ol>
           {SUB_PROTOCOLS.map((s) => (
             <li key={s.slug} className="py-sm flex items-baseline gap-md" style={{ borderBottom: "1px solid var(--color-paper-85)" }}>
               <Link href={`/ohcose/vi-consolidation/${s.slug}`} className="contents group">

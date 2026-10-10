@@ -167,7 +167,12 @@ export default function PlatesIndex() {
           <section
             key={dec.label}
             id={`decade-${dec.label}`}
-            style={{ marginBottom: "5rem", scrollMarginTop: "1.5rem" }}
+            style={{
+              marginBottom: "5rem",
+              scrollMarginTop: "1.5rem",
+              borderTop: `3px solid ${DECADE_INKS[si % 3]}`,
+              paddingTop: "2rem",
+            }}
           >
             <div
               style={{

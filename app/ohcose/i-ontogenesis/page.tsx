@@ -80,7 +80,23 @@ export default function PhaseIOntogenesis() {
           Schedule of Sub-Protocols
         </div>
 
-        <ol>
+        <div
+          className="font-mono uppercase"
+          style={{
+            display: "flex", alignItems: "baseline", gap: "var(--spacing-md)",
+            fontSize: "0.7rem", letterSpacing: "0.18em",
+            color: "var(--color-ink-50)",
+            borderBottom: "1px solid var(--color-ink)",
+            paddingBottom: "0.4rem", marginBottom: "0.2rem",
+          }}
+          aria-hidden
+        >
+          <span style={{ width: "3rem", flexShrink: 0 }}>code</span>
+          <span style={{ flex: 1 }}>sub-protocol</span>
+          <span>filing</span>
+        </div>
+
+<ol>
           {SUB_PROTOCOLS.map((s) => {
             const isLive = s.status === "live";
             const Row = (

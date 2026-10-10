@@ -276,7 +276,7 @@ export default function GlossaryIndex() {
   const letters = Array.from(groups.keys());
 
   return (
-    <main className="min-h-screen px-sm py-md max-w-[42rem] mx-auto">
+    <main className="min-h-screen px-sm py-md max-w-[40rem] mx-auto">
       <nav
         aria-label="Breadcrumb"
         className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-md"
@@ -318,12 +318,22 @@ export default function GlossaryIndex() {
       <div className="mt-lg space-y-lg">
         {letters.map((letter) => (
           <section key={letter} id={`letter-${letter}`}>
-            <h2 className="font-mono text-md uppercase tracking-wider text-ink-70 mb-sm">
-              {letter}
+            <h2 className="flex items-baseline gap-sm mb-sm">
+              <span
+                className="font-mono text-md uppercase tracking-wider"
+                style={{ color: "var(--color-oxblood)", fontWeight: 700 }}
+              >
+                {letter}
+              </span>
+              <span
+                aria-hidden
+                className="flex-1"
+                style={{ borderBottom: "1px solid var(--color-paper-85)" }}
+              />
             </h2>
             <dl className="space-y-md">
               {groups.get(letter)!.map((term) => (
-                <div key={term.name} className="border-l-2 border-paper-85 pl-sm">
+                <div key={term.name} style={{ borderTop: "1px solid var(--color-paper-85)", paddingTop: "0.85rem" }}>
                   <dt className="font-serif italic text-md text-ink mb-xs">
                     {term.name}
                   </dt>
