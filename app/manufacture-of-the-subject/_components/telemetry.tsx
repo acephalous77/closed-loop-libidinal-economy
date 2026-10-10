@@ -86,11 +86,11 @@ export function BirthOverlay() {
             strokeWidth="2"
           />
         </svg>
-        <h1 className="anton birth-title">
+        <h2 className="anton birth-title">
           A new account
           <br />
           in your name
-        </h1>
+        </h2>
         <p className="mono birth-sub">Opened at birth. Without your asking. The meter starts the moment you do.</p>
         <button className="btn birth-btn" onClick={born}>
           ▶ &nbsp;Be born

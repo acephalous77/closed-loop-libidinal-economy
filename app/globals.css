@@ -1,5 +1,64 @@
 @import "tailwindcss";
 
+/* Hand-rolled faces instead of next/font: only Regular + Italic preload
+   (via <link rel=preload> in the root layout); the 500/700 faces load on
+   first use. One family, so weight resolution stays correct. */
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Regular.woff2") format("woff2"), url("/fonts/EBGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Italic.woff2") format("woff2"), url("/fonts/EBGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Medium.woff2") format("woff2"), url("/fonts/EBGaramond-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Bold.woff2") format("woff2"), url("/fonts/EBGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Regular.woff2") format("woff2"), url("/fonts/JetBrainsMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Medium.woff2") format("woff2"), url("/fonts/JetBrainsMono-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Bold.woff2") format("woff2"), url("/fonts/JetBrainsMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-eb-garamond: "EB Garamond";
+  --font-eb-garamond-full: "EB Garamond";
+  --font-jetbrains-mono: "JetBrains Mono";
+}
+
 @theme {
   /* Strip Tailwind defaults we won't use */
   --color-*: initial;
@@ -32,9 +91,9 @@
   --color-formal-bg: #ede6d7;
 
   /* Fonts — variables populated by next/font/local on <html> */
-  --font-serif: var(--font-eb-garamond), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-eb-garamond-full), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace;
-  --font-math: var(--font-garamond-math), var(--font-eb-garamond), serif;
+  --font-math: var(--font-garamond-math), var(--font-eb-garamond-full), serif;
 
   /* Type scale — 1.2 modular, 18px base */
   --text-xs: 0.781rem;

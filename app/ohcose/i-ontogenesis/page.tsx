@@ -24,6 +24,7 @@ const SUB_PROTOCOLS = [
 export default function PhaseIOntogenesis() {
   return (
     <PageFrame pageNum="I" secCode="OHCOSE / LR / Phase I">
+      <h1 className="sr-only">Phase I — Ontogenesis</h1>
       {/* Breadcrumb back to portal */}
       <nav className="mb-md">
         <Link

@@ -31,6 +31,7 @@ const anton = Anton({
   variable: "--font-anton",
   display: "swap",
   weight: ["400"],
+  preload: false,
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -38,6 +39,7 @@ const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
+  preload: false,
 });
 
 const manrope = Manrope({
@@ -53,6 +55,7 @@ const sourceSerif = Source_Serif_4({
   display: "swap",
   weight: ["400", "600"],
   style: ["normal", "italic"],
+  preload: false,
 });
 
 export const metadata: Metadata = {

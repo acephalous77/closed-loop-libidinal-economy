@@ -66,6 +66,7 @@ const SUB_PROTOCOLS = [
 export default function PhaseIIIAdolescentCalibration() {
   return (
     <PageFrame pageNum="III" secCode="OHCOSE / LR / Phase III">
+      <h1 className="sr-only">Phase III — Adolescent Calibration</h1>
       <nav className="mb-md">
         <Link
           href="/ohcose"

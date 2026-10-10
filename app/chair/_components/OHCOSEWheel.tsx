@@ -178,6 +178,7 @@ export function OHCOSEWheel() {
               </span>
             </div>
             <input type="range" min={0} max={1} step={0.001} value={scrub}
+                   aria-label="scrub through the six phases"
                    onChange={(e) => {
                      const v = parseFloat(e.target.value);
                      setScrub(v);

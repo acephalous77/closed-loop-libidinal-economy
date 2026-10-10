@@ -4,31 +4,12 @@ import localFont from "next/font/local";
 import "./globals.css";
 import "katex/dist/katex.min.css";
 
-const ebGaramond = localFont({
-  src: [
-    { path: "../public/fonts/EBGaramond-Regular.ttf", weight: "400", style: "normal" },
-    { path: "../public/fonts/EBGaramond-Italic.ttf", weight: "400", style: "italic" },
-    { path: "../public/fonts/EBGaramond-Medium.ttf", weight: "500", style: "normal" },
-    { path: "../public/fonts/EBGaramond-Bold.ttf", weight: "700", style: "normal" },
-  ],
-  variable: "--font-eb-garamond",
-  display: "swap",
-});
-
-const jetBrainsMono = localFont({
-  src: [
-    { path: "../public/fonts/JetBrainsMono-Regular.ttf", weight: "400", style: "normal" },
-    { path: "../public/fonts/JetBrainsMono-Medium.ttf", weight: "500", style: "normal" },
-    { path: "../public/fonts/JetBrainsMono-Bold.ttf", weight: "700", style: "normal" },
-  ],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-});
-
 const garamondMath = localFont({
   src: "../public/fonts/Garamond-Math.otf",
   variable: "--font-garamond-math",
   display: "swap",
+  // 536 KB, used only where KaTeX renders math — never preload it site-wide.
+  preload: false,
 });
 
 const DEFAULT_SITE_URL = "https://www.autostimulus.org";
@@ -144,9 +125,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${ebGaramond.variable} ${jetBrainsMono.variable} ${garamondMath.variable}`}
+      className={`${garamondMath.variable}`}
     >
       <body>
+      {/* Font preloads — Regular + Italic only; 500/700 load on first use. */}
+        <link rel="preload" href="/fonts/EBGaramond-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/EBGaramond-Italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      
         <Link href="#main-content" className="skip-to-content">
           skip to content
         </Link>

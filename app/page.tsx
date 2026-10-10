@@ -127,7 +127,7 @@ const INK_2 = "#3a3733"; // secondary
 const RED = "#c71e1e"; // rubber-stamp red
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const SERIF = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
+const SERIF = `var(--font-eb-garamond-full), Georgia, "Times New Roman", serif`;
 
 // Photocopy grain — fractal-noise SVG multiplied over the page.
 const GRAIN =

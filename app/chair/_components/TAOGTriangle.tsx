@@ -151,6 +151,7 @@ export function TAOGTriangle() {
                   }}>{Math.round(intensity[i] * 100)}%</span>
                 </div>
                 <input type="range" min={0} max={1} step={0.01}
+                       aria-label={(["time", "body", "bond"] as const)[i] + " intensity"}
                        value={intensity[i]}
                        onChange={(e) => {
                          const v = parseFloat(e.target.value);

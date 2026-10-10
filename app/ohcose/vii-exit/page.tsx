@@ -23,6 +23,7 @@ const SUB_PROTOCOLS = [
 export default function PhaseVIIExit() {
   return (
     <PageFrame pageNum="VII" secCode="OHCOSE / LR / Phase VII">
+      <h1 className="sr-only">Phase VII — Exit</h1>
       <nav className="mb-md">
         <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>← schedule of phases</Link>
       </nav>

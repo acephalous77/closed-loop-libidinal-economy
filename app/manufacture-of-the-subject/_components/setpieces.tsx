@@ -258,6 +258,7 @@ export function DesireTags() {
         </div>
         <div className="flex gap8" style={{ alignItems: "stretch" }}>
           <input
+            aria-label="Type a longing"
             value={text}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && run()}

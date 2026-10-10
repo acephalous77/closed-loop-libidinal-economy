@@ -66,6 +66,7 @@ const SUB_PROTOCOLS = [
 export default function PhaseIIInscriptiveNormalization() {
   return (
     <PageFrame pageNum="II" secCode="OHCOSE / LR / Phase II">
+      <h1 className="sr-only">Phase II — Inscriptive Normalization</h1>
       <nav className="mb-md">
         <Link
           href="/ohcose"

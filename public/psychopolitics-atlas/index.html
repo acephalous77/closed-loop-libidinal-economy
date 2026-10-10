@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,8 +94,8 @@ input[data-role=search]::placeholder{color:#8a90a8}
       font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; color: #111;
     }
   }
-@font-face{font-family:"JetBrains Mono";src:url("./fonts/JetBrainsMono-Regular.ttf") format("truetype");font-weight:400;font-display:swap;font-style:normal}
-@font-face{font-family:"JetBrains Mono";src:url("./fonts/JetBrainsMono-Bold.ttf") format("truetype");font-weight:700;font-display:swap;font-style:normal}
+@font-face{font-family:"JetBrains Mono";src:url("./fonts/JetBrainsMono-Regular.woff2") format("woff2"), url("./fonts/JetBrainsMono-Regular.ttf") format("truetype");font-weight:400;font-display:swap;font-style:normal}
+@font-face{font-family:"JetBrains Mono";src:url("./fonts/JetBrainsMono-Bold.woff2") format("woff2"), url("./fonts/JetBrainsMono-Bold.ttf") format("truetype");font-weight:700;font-display:swap;font-style:normal}
 </style>
 </helmet>
 <div ref="{{ rootRef }}" data-atlas-root style="position:fixed;inset:0;display:flex;flex-direction:column;color:#e7eaf2;background:radial-gradient(120% 90% at 50% -10%, #14182300 0%, #0a0c12 70%), #0a0c12;overflow:hidden">
@@ -112,7 +112,7 @@ input[data-role=search]::placeholder{color:#8a90a8}
     </div>
     <div data-role="tabs" style="margin-left:auto;display:flex;align-items:center;gap:6px"></div>
     <div style="display:flex;align-items:center;gap:8px">
-      <input data-role="search" placeholder="search the field…" spellcheck="false" style="font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:12px;background:#0c0f18;border:1px solid #232b3c;color:#cdd4e4;border-radius:5px;padding:7px 10px;width:160px;outline:none;caret-color:#8b93ab">
+      <input data-role="search" aria-label="Search the field" placeholder="search the field…" spellcheck="false" style="font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:12px;background:#0c0f18;border:1px solid #232b3c;color:#cdd4e4;border-radius:5px;padding:7px 10px;width:160px;outline:none;caret-color:#8b93ab">
       <button data-role="regions" title="Toggle cluster regions" style="font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:11px;background:#141925;border:1px solid #232b3c;color:#9aa3bd;border-radius:5px;padding:7px 9px;cursor:pointer">◆ regions</button>
       <button data-role="share" title="Copy a link to this exact view" style="font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:11px;background:#141925;border:1px solid #232b3c;color:#8b93ab;border-radius:5px;padding:7px 9px;cursor:pointer">⧉ link</button>
       <button data-role="export" title="Download the current frame as an SVG" style="font-family:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;font-size:11px;background:#141925;border:1px solid #232b3c;color:#8b93ab;border-radius:5px;padding:7px 9px;cursor:pointer">↓ svg</button>

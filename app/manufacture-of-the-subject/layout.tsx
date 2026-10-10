@@ -25,6 +25,7 @@ const anton = Anton({
   variable: "--font-anton",
   display: "swap",
   weight: ["400"],
+  preload: false,
 });
 
 const newsreader = Newsreader({

@@ -87,7 +87,7 @@ export default function OuroboricConditionLayout({
     <div
       className={`${plexMono.variable}`}
       style={{
-      ["--atlas-serif" as string]: "var(--font-eb-garamond), Georgia, serif",
+      ["--atlas-serif" as string]: "var(--font-eb-garamond-full), Georgia, serif",
       minHeight: "100vh",
       background: "#cdc7b8",
       colorScheme: "light",

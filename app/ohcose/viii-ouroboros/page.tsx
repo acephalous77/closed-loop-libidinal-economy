@@ -41,6 +41,7 @@ const SUB_PROTOCOLS = [
 export default function PhaseVIIIOuroboros() {
   return (
     <PageFrame pageNum="VIII" secCode="OHCOSE / LR / Phase VIII">
+      <h1 className="sr-only">Phase VIII — The Ouroboros Machine</h1>
       <nav className="mb-md">
         <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>← schedule of phases</Link>
       </nav>
