@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PLATES, DECADES, getPlatesByDecade } from "./_data";
 
@@ -250,13 +251,12 @@ export default function PlatesIndex() {
                       }}
                     >
                       {isReady ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
+                        <Image
                           src={p.src!}
                           alt={p.title}
+                          fill
+                          sizes="(max-width: 700px) 46vw, (max-width: 1100px) 30vw, 400px"
                           style={{
-                            width: "100%",
-                            height: "100%",
                             objectFit: "cover",
                             display: "block",
                             background: "#fff",

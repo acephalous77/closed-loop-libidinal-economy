@@ -57,7 +57,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2009", title: "Portsmouth Town Hall", note: "Armed intimidation enters mainstream politics.", plateSlug: "the-portsmouth-town-hall" },
     ],
     plate: {
-      src: "/patriotic-times/plate-01-the-brooks-brothers-riot.png",
+      src: "/patriotic-times/plate-01-the-brooks-brothers-riot.webp",
       caption: "The Brooks Brothers Riot",
       sub: "Fig. I.i — Miami-Dade canvassing board, November 2000. Corporate intimidation halts the count.",
     },
@@ -83,7 +83,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2016", title: "Standing Rock", note: "Water cannons in the freezing cold for corporate oil.", plateSlug: "standing-rock" },
     ],
     plate: {
-      src: "/patriotic-times/plate-18-ferguson-missouri.png",
+      src: "/patriotic-times/plate-18-ferguson-missouri.webp",
       caption: "MRAP on a residential street",
       sub: "Fig. II.iv — A military vehicle deploys against the citizens it was sold to as protection.",
     },
@@ -104,7 +104,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2020", title: "The Plot to Kidnap Governor Whitmer", note: "Escalation to domestic terror plots.", plateSlug: "plot-to-kidnap-whitmer" },
     ],
     plate: {
-      src: "/patriotic-times/plate-28-the-lafayette-square-photo-op.png",
+      src: "/patriotic-times/plate-28-the-lafayette-square-photo-op.webp",
       caption: "Lafayette Square, June 1, 2020",
       sub: "Fig. III.v — Tear-gassed protesters cleared from a park for the Bible photo-op at St. John's.",
     },
@@ -125,7 +125,7 @@ const CHAPTERS: Chapter[] = [
       { year: "2025", title: "Army Parade & 'No Kings' Protests", note: "Dictatorial aesthetics met with millions in the streets.", plateSlug: "dc-army-parade" },
     ],
     plate: {
-      src: "/patriotic-times/plate-33-the-january-6th-insurrection.png",
+      src: "/patriotic-times/plate-33-the-january-6th-insurrection.webp",
       caption: "January 6, 2021 — the breach of the Capitol",
       sub: "Fig. IV.i — Plate 33: The Insurrection. Rioters meet riot police at the arched entrance.",
     },
@@ -250,7 +250,7 @@ export default function PatrioticTimesLanding() {
             style={{ display: "block" }}
           >
             <Image
-              src="/patriotic-times/plate-34-the-gallows.png"
+              src="/patriotic-times/plate-34-the-gallows.webp"
               alt="A line-art plate depicting the gallows erected on the National Mall on January 6, 2021"
               width={1100}
               height={733}

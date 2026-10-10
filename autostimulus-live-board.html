@@ -60,7 +60,9 @@
     archived, noindex, doorway on the cover); the disclosure rewrite goes to his gate; PhotoCraft
     re-encode pass first; Phase 0 ran with the board.</p>
     <p><strong>Next.</strong> His gate: the disclosure rewrite (draft due) and the doorway stamp wording.
-    Then the PhotoCraft pass on the 63 plates and chair images — the largest remaining weight win.</p>
+    The PhotoCraft pass landed: 63 plates and the chair set re-encoded to WebP (−40 MB), the plates index
+    serves thumbnails through next/image. His eye on two or three re-encoded plates is the one quality
+    gate left before deploy.</p>
     <p><strong>One thing to watch.</strong> The unpkg load on /psychopolitics-atlas stays until the
     vendored-React fix lands — the one public surface still making a third-party request.</p>
   </section>
@@ -110,10 +112,10 @@
         <td>OG card live; lint vars cleared; one stale footer link flagged (Phase 2)</td><td><span class="pill p-done">phase 0 done</span></td></tr>
       <tr data-work="chair"><td>The Ouroboros Life System <span class="small">(15 route patterns)</span></td>
         <td>Sound links; 2,445 orphaned component lines; 35 MB unused PNGs; zine prose unseamed; no OG card</td>
-        <td>orphans removed; 37 MB parked in _attic; OG card live; nav/primitives work queued</td><td><span class="pill p-done">phase 0 done</span></td></tr>
+        <td>orphans removed; 37 MB parked in _attic; OG card live; <strong>13 images re-encoded to WebP (−7.4 MB)</strong></td><td><span class="pill p-done">re-encoded</span></td></tr>
       <tr data-work="patriotic"><td>Patriotic Times <span class="small">(66 routes, 63/63 plates)</span></td>
         <td>Data matches files matches sitemap; index loads 53 MB eagerly; canvas CLS; metadata said 35 plates</td>
-        <td>metadata fixed; canvas refs fixed; index lazy-load + re-encode queued for PhotoCraft</td><td><span class="pill p-wip">phase 2 queued</span></td></tr>
+        <td>metadata + canvas fixed; <strong>63 plates re-encoded to WebP q85 (−33 MB)</strong>; index tiles now next/image thumbnails</td><td><span class="pill p-done">re-encoded</span></td></tr>
       <tr data-work="ouroboric"><td>The Ouroboric Condition</td>
         <td>Clean data seam; the repo's only lint error; wrong canonical; specimens not shareable</td>
         <td>Link error fixed; canonical self; world-size single source queued</td><td><span class="pill p-done">phase 0 done</span></td></tr>
@@ -160,7 +162,7 @@
       <tr data-defect="C4"><td class="id">C4</td><td>Sitemap omits 24 chair routes</td><td>medium — discoverability</td><td><span class="pill p-done">fixed + verified</span></td></tr>
       <tr data-defect="C5"><td class="id">C5</td><td>Docs stale (README, llms.txt, counts, licenses, years)</td><td>medium — record</td><td><span class="pill p-done">fixed</span></td></tr>
       <tr data-defect="C6"><td class="id">C6</td><td>og:url pinned per work; 4 works lacked OG image; doubled title suffixes</td><td>low — sharing</td><td><span class="pill p-done">fixed + verified</span></td></tr>
-      <tr data-defect="C7"><td class="id">C7</td><td>~90 MB assets; 53 MB eager on one page; 35 MB unused → parked</td><td>high — every visit</td><td><span class="pill p-open">PhotoCraft pass next</span></td></tr>
+      <tr data-defect="C7"><td class="id">C7</td><td>~90 MB assets; 53 MB eager on one page; 35 MB unused → parked</td><td>high — every visit</td><td><span class="pill p-done">re-encoded −40 MB</span></td></tr>
       <tr data-defect="C8"><td class="id">C8</td><td>63 lint problems; hydration, focus-loss, CLS bugs among them</td><td>high — bugs</td><td><span class="pill p-done">zero (0/0)</span></td></tr>
       <tr data-defect="C9"><td class="id">C9</td><td>A11y: 31 sliders unlabeled, tooltips hover-only, canvas keyboard, dead buttons</td><td>medium</td><td><span class="pill p-open">phase 2</span></td></tr>
       <tr data-defect="C10"><td class="id">C10</td><td>Dead code: previews, orphan component chain, unused exports</td><td>low — debt</td><td><span class="pill p-done">removed; 37 MB parked</span></td></tr>
@@ -179,6 +181,8 @@
       <tr><td>2026-10-10</td><td>Audit pass</td><td>Patriotic metadata said 35 plates while 63 shipped; landing JSON-LD said six works while seven exist</td><td>corrected; counts now derive from data where possible</td><td>A count in copy is a pointer; derive it or date it.</td></tr>
       <tr><td>2026-10-10</td><td>Phase 0 build gate</td><td>The ReclamationTrajectories refactor left <code>onClick={reset}</code> passing a MouseEvent into a numeric parameter — a runtime bug the typecheck caught</td><td>wrapped the handler; build re-run green</td><td>Every refactor runs the full build before it claims done; lint alone does not typecheck.</td></tr>
       <tr><td>2026-10-10</td><td>Phase 0 verification</td><td>Manufacture's layout <code>openGraph</code> object had suppressed the inherited OG image — assumed fixed by the route card, so the prerender was grepped to prove it</td><td>og:image confirmed on all four works in the built HTML</td><td>Verify emitted tags in the prerender; source intent is not evidence.</td></tr>
+      <tr><td>2026-10-10</td><td>Artcraft pass (measurement)</td><td>LightCraft's WebP export at quality 50, 70, and 85 wrote pixel-identical lossless files (~5.2&nbsp;MB); its quality parameter does nothing on that path</td><td>batch re-encode ran on the PhotoCraft-validated q85 recipe (Pillow, measured parity) instead</td><td>Verify a tool's output bytes against its parameters before trusting it with a batch.</td></tr>
+      <tr><td>2026-10-10</td><td>Artcraft pass (my own error)</td><td>The first bulk copy swept every staged WebP — zine sheets, the seal — into <code>public/chair/ils/</code></td><td>extras removed after listing the directory; final dirs verified file-by-file</td><td>After a bulk copy, list the destination and diff it against the expected set before moving on.</td></tr>
     </table>
   </section>
 
@@ -195,10 +199,16 @@
     archive set; og:image emitted on ohcose, patriotic-times, chair, manufacture; title
     single-suffixed; sitemap 200 URLs with the chair children present and the v1 dynamics/mathematics
     absent; doorway and first-version stamps present in built HTML.</p>
+    <p><strong>Third pass (artcraft re-encode):</strong> plates 55.5 MB → 22.9 MB, chair set
+    14.4 MB → 7.0 MB, seal 231 KB → 6 KB; per-file max-channel deltas measured with Pillow
+    (q85: no pixel beyond 32/255 on 61 of 63 plates; two zine photos bumped to q90); built HTML
+    verified: plate references all <code>.webp</code>, index tiles served through
+    <code>/_next/image</code> srcsets, canvas loads the WebP directly; build green, 276 pages.</p>
     <p><strong>Not checked:</strong> the deployed site (all verification is against this working
-    tree); Vercel/Cloudflare state; DNS; runtime behavior in a browser (no dev-server pass this
-    session — the three bug fixes were verified by build + code inspection, and want a click-through
-    before deploy).</p>
+    tree); Vercel/Cloudflare state; DNS; a browser click-through (canvas WebP decode, coloring
+    fill, print path) — worth one pass before deploy; and the re-encodes have not been seen by a
+    human eye (this session's can read pixels, not pictures) — two or three plates should be
+    eyeballed before deploy.</p>
     <p><strong>Weakest inference on this board:</strong> the asset-weight projections under "PhotoCraft
     pass next" are estimates until the re-encode runs and the plate sizes are re-measured.</p>
     <details><summary>Provenance + changelog</summary>
@@ -206,6 +216,7 @@
         <li><strong>Sources:</strong> <code>AUDIT-2026-10-10.md</code> (repo root), HEAD <code>1e19319</code> + the working tree, this repo (not the deployed site).</li>
         <li>2026-10-10 — first creation. Seed: audit + four rulings. Works table, defects, ledger seeded; Phase 0 listed with gates.</li>
         <li>2026-10-10 — refresh after Phase 0: checklist closed (9/9), works/defects statuses updated, two ledger entries appended (one my own error, caught by the build gate), footer regenerated from the second-pass commands. Counts recomputed from the DOM.</li>
+        <li>2026-10-10 — refresh after the artcraft re-encode: C7 closed, patriotic/chair rows updated, two ledger entries appended (LightCraft's inert quality knob; my own bulk-copy error), footer regenerated from the third-pass measurements (Pillow deltas + built-HTML greps).</li>
       </ul>
     </details>
   </footer>

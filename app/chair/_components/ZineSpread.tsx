@@ -538,7 +538,7 @@ export default function ZineSpread() {
       <section style={{ position: "relative", minHeight: "100vh", overflow: "hidden", background: BLACK }}>
         <div aria-hidden style={{ position: "absolute", inset: 0, zIndex: 1 }}>
           <Image
-            src="/chair/zine/cover-recliner.jpg"
+            src="/chair/zine/cover-recliner.webp"
             alt=""
             fill
             priority
@@ -985,7 +985,7 @@ export default function ZineSpread() {
               }}
             >
               <Image
-                src="/chair/zine/01-punk-tech.jpg"
+                src="/chair/zine/01-punk-tech.webp"
                 alt=""
                 fill
                 priority
@@ -1084,7 +1084,7 @@ export default function ZineSpread() {
             }}
           >
             <Image
-              src="/chair/artifacts/03-megasave-rollback.jpg"
+              src="/chair/artifacts/03-megasave-rollback.webp"
               alt="Found marketing flyer — defaced"
               fill
               priority
@@ -1287,7 +1287,7 @@ export default function ZineSpread() {
               }}
             >
               <Image
-                src="/chair/zine/03-neon-chaos.jpg"
+                src="/chair/zine/03-neon-chaos.webp"
                 alt="Punk-zine illustration: green serpent encircling a courtroom, factories, drones"
                 fill
                 priority
@@ -1528,7 +1528,7 @@ export default function ZineSpread() {
                 }}
               >
                 <Image
-                  src="/chair/zine/04-mask.jpg"
+                  src="/chair/zine/04-mask.webp"
                   alt="Punk-zine illustration: green aztec mask 'steps' watching a phone-locked figure"
                   fill
                   priority
@@ -1600,7 +1600,7 @@ export default function ZineSpread() {
               }}
             >
               <Image
-                src="/chair/zine/05-clock.jpg"
+                src="/chair/zine/05-clock.webp"
                 alt="Punk-zine illustration: snake encircling a melting clock and a vortex of papers"
                 fill
                 priority
@@ -1733,7 +1733,7 @@ export default function ZineSpread() {
               }}
             >
               <Image
-                src="/chair/zine/06-waiting-room.jpg"
+                src="/chair/zine/06-waiting-room.webp"
                 alt="Cohort waiting room. Rows of seated youths phones-down under surveillance, numbered B-17, C-20, D-20. One occupant outside the rows holds a sign reading BORED. Ceiling rig of cameras and intake monitors."
                 fill
                 priority

@@ -28,7 +28,7 @@ export function SealWatermark({ prominent = false }: SealWatermarkProps) {
       }}
     >
       <Image
-        src="/ohcose/seal.png"
+        src="/ohcose/seal.webp"
         alt=""
         width={size}
         height={size}

@@ -167,7 +167,7 @@ function Hero() {
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/chair/ils/render-ring.jpg"
+          src="/chair/ils/render-ring.webp"
           alt="The Ring · OLS v 4.2 · standard configuration, ringed"
           style={{
             width: "100%", maxWidth: 1280, height: "auto",
@@ -370,7 +370,7 @@ function RingDetail() {
               background: B.panel, border: `0.5px solid ${B.rule}`,
               position: "relative", aspectRatio: "4 / 3", overflow: "hidden",
             }}>
-              <Image src="/chair/ils/render-side.jpg" alt="The Ring, side view"
+              <Image src="/chair/ils/render-side.webp" alt="The Ring, side view"
                      fill sizes="(max-width: 900px) 100vw, 600px"
                      style={{ objectFit: "contain", background: B.panel }} />
               <div style={{
@@ -556,7 +556,7 @@ function Schematic() {
         <div className="brochure-blueprint-wrap">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/chair/ils/blueprint.jpg"
+            src="/chair/ils/blueprint.webp"
             alt="ILS Closed-Loop Resource Cycle · cross-section + side perspective · Aeternum Biometrics technical schematic v 4.1"
             className="brochure-blueprint"
             style={{
@@ -749,7 +749,7 @@ function CTAandCostco() {
         }}>● Cohort 2026.05 opens next month</div>
       </div>
       <div style={{ position: "relative", overflow: "hidden", background: "#0a0a0a" }}>
-        <Image src="/chair/ils/costco.jpg" alt="Available at Costco"
+        <Image src="/chair/ils/costco.webp" alt="Available at Costco"
                width={2816} height={1536} sizes="100vw"
                style={{ width: "100%", height: "auto", objectFit: "contain", display: "block" }} />
         <div style={{

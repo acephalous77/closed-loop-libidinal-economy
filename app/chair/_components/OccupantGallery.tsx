@@ -7,7 +7,7 @@ import { FONT } from "./tokens";
 // each card: image with corner stamps preserved, name + tier + verified
 // badge, italic quote.
 //
-// Expects two images at public/chair/ils/occupant-{sophia|research}.jpg.
+// Expects two images at public/chair/ils/occupant-{sophia|research}.webp.
 // ──────────────────────────────────────────────────────────────────
 
 interface Tokens {
@@ -27,14 +27,14 @@ interface OccupantGalleryProps {
 export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
   const occupants = [
     {
-      src: "/chair/ils/occupant-sophia.jpg",
+      src: "/chair/ils/occupant-sophia.webp",
       name: "Sophia",
       tier: "Pro · Cohort 2026.04",
       phase: "OCCUPANCY · month 7",
       quote: '"I had been afraid the chair would close me in. It opened the day. The plants have done better since I stopped getting up to water them — the apparatus does the watering."',
     },
     {
-      src: "/chair/ils/occupant-research.jpg",
+      src: "/chair/ils/occupant-research.webp",
       name: "M.K.",
       tier: "Pro · Research-tier · Cohort 2026.03",
       phase: "CALIBRATION · month 14",
