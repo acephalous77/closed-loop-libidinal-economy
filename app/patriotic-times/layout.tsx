@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Anton } from "next/font/google";
+import { Anton, Source_Serif_4 } from "next/font/google";
 
 /**
  * Patriotic Times project layout — samizdat zine register.
@@ -15,6 +15,14 @@ import { Anton } from "next/font/google";
  * Coe, Eric Drooker, World War 3 Illustrated. The plates do the
  * affective work; the typography stays out of their way.
  */
+
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-source-serif",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+});
 
 const anton = Anton({
   subsets: ["latin"],
@@ -51,7 +59,7 @@ export default function PatrioticTimesLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div
-      className={`patriotic-theme ${anton.variable}`}
+      className={`patriotic-theme ${anton.variable} ${sourceSerif.variable}`}
       style={{
         minHeight: "100vh",
         background: "#f4ecdc",

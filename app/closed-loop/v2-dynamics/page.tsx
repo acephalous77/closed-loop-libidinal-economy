@@ -13,6 +13,7 @@
  */
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PlateGlyph } from "@/components/closed-loop-v2/PlateGlyphs";
 
 const PATH = "/closed-loop/v2-dynamics";
 
@@ -161,21 +162,27 @@ export default function DynamicsIndex() {
         they illustrate without standing in for.
       </p>
 
-      <ol className="space-y-md">
+      <ol className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md">
         {PLATES.map((plate, i) => (
-          <li key={plate.href} className="border-l-2 border-paper-85 pl-sm">
-            <div className="flex items-baseline gap-sm mb-xs flex-wrap">
-              <span className="font-mono text-sm text-ink-70">
+          <li
+            key={plate.href}
+            className="border border-paper-85 p-sm flex flex-col"
+          >
+            <div className="flex items-center justify-between mb-xs">
+              <span className="text-ink-70" aria-hidden>
+                <PlateGlyph slug={plate.href.split("/").pop() ?? ""} />
+              </span>
+              <span className="font-mono text-xs text-ink-50 tabular-nums">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h2 className="font-serif text-md text-ink m-0">
-                <Link href={plate.href} className="text-oxblood hover:underline">
-                  {plate.name}
-                </Link>
-              </h2>
             </div>
-            <p className="text-base text-ink-90 mb-xs">{plate.gloss}</p>
-            <div className="font-mono text-xs uppercase tracking-wider text-ink-70">
+            <h2 className="font-serif text-md text-ink m-0">
+              <Link href={plate.href} className="text-oxblood hover:underline">
+                {plate.name}
+              </Link>
+            </h2>
+            <p className="text-base text-ink-90 mb-xs mt-xs">{plate.gloss}</p>
+            <div className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-auto pt-xs">
               <Link
                 href={plate.apparatusHref}
                 className="text-oxblood hover:underline"

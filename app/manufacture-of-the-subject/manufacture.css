@@ -450,7 +450,9 @@
   .receipt-row{padding:9px 0;border-bottom:1px dotted #00000022;}
   .receipt-row-top{display:flex;align-items:baseline;font-size:12.5px;letter-spacing:.02em;text-transform:uppercase;}
   .dotfill{flex:1;border-bottom:1px dotted #00000044;margin:0 7px;transform:translateY(-3px);}
-  .receipt-amt{color:#c21e00;font-weight:700;white-space:nowrap;}
+  .receipt-amt{color:var(--ink);font-weight:700;white-space:nowrap;}
+  .receipt-total{font-size:14px;letter-spacing:.08em;}
+  .receipt-total .receipt-amt{color:#c21e00;font-size:16px;}
   .receipt-note{font-size:11px;letter-spacing:.04em;color:#6e6e6e;margin-top:4px;text-transform:none;font-style:italic;}
   .receipt-foot{padding-top:14px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;padding-bottom:24px;}
   .receipt-total{border-top:2px dashed #00000033;padding-top:14px;font-weight:700;}

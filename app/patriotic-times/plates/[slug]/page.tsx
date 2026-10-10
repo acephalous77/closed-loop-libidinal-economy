@@ -38,7 +38,7 @@ const CHAPTER_INKS = ["#b8222a", "#1e4f8f", "#1d7a45", "#8a6000"]; // riso spot 
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
-const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
+const SERIF = `var(--font-source-serif), Georgia, "Times New Roman", serif`;
 
 export default async function PlateColorPage({ params }: PageProps) {
   const { slug } = await params;

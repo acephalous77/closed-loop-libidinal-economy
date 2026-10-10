@@ -76,7 +76,7 @@ export default function PhaseIVEconomicSubjectification() {
 
 <ol>
           {SUB_PROTOCOLS.map((s) => (
-            <li key={s.slug} className="py-sm flex items-baseline gap-md" style={{ borderBottom: "1px solid var(--color-paper-85)" }}>
+            <li key={s.slug} className="ohcose-row py-sm flex items-baseline gap-md" style={{ borderBottom: "1px solid var(--color-paper-85)" }}>
               <Link href={`/ohcose/iv-economic-subjectification/${s.slug}`} className="contents group">
                 <span className="font-mono font-bold tabular-nums" style={{ color: "var(--color-ink)", fontSize: "1rem", width: "3.5rem" }}>{s.code}</span>
                 <span className="flex-1">

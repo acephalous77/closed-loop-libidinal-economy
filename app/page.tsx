@@ -186,6 +186,23 @@ function entryBody(w: Work, inv: boolean) {
   );
 }
 
+/** The flyer's temporal spine — works positioned on a 2015–2026 rule.
+ *  Marks and years come from the works themselves. */
+const SPINE_YEARS: Record<string, number> = {
+  "/manufacture-of-the-subject": 2015,
+  "/ouroboric-condition": 2018,
+  "/chair": 2021,
+  "/ohcose": 2025,
+  "/patriotic-times": 2025.5,
+  "/closed-loop": 2026,
+  "/psychopolitics-atlas/index.html": 2026,
+};
+
+const SPINE = WORKS.map((w) => ({
+  ...w,
+  y: SPINE_YEARS[w.href] ?? 2026,
+})).sort((a, b) => a.y - b.y);
+
 export default function AtelierIndex() {
   return (
     <>
@@ -363,6 +380,53 @@ export default function AtelierIndex() {
             })}
           </ol>
         </section>
+
+        {/* ============ YEAR SPINE — the catalogue's temporal rule ============ */}
+        <nav
+          aria-label="Works by year"
+          style={{ marginTop: "7rem", position: "relative", height: "5.25rem" }}
+        >
+          <div style={{ position: "absolute", left: 0, right: 0, top: 0, borderTop: `2px solid ${INK}` }} aria-hidden />
+          {SPINE.map((w) => {
+            const pct = ((w.y - 2015) / 11) * 100;
+            const shift = pct <= 1 ? "0" : pct >= 92 ? "-100%" : "-50%";
+            return (
+              <Link
+                key={w.href}
+                href={w.href}
+                title={w.title}
+                aria-label={`${w.title} — ${w.year}`}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: `${pct}%`,
+                  transform: `translateX(${shift})`,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textDecoration: "none",
+                }}
+              >
+                <span aria-hidden style={{ width: 1, height: "1rem", background: INK }} />
+                <span aria-hidden style={{ marginTop: "0.5rem", color: RED, fontSize: "0.72rem", lineHeight: 1 }}>
+                  {w.mark}
+                </span>
+                <span
+                  style={{
+                    marginTop: "0.4rem",
+                    fontFamily: MONO,
+                    fontSize: "0.7rem",
+                    letterSpacing: "0.08em",
+                    color: INK_2,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {w.year}
+                </span>
+              </Link>
+            );
+          })}
+        </nav>
 
         {/* ============ COLOPHON FOOTER ============ */}
         <footer

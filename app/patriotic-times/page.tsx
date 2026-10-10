@@ -18,7 +18,7 @@ const RED = "#b8222a";
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
 const CHAPTER_INKS = ["#b8222a", "#1e4f8f", "#1d7a45", "#8a6000"]; // riso spot inks I–IV
-const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
+const SERIF = `var(--font-source-serif), Georgia, "Times New Roman", serif`;
 
 interface Event {
   year: string;
@@ -413,7 +413,7 @@ export default function PatrioticTimesLanding() {
                 {ch.thesis}
               </p>
               {ch.plate && (
-                <figure style={{ margin: "2rem 0 0" }}>
+                <figure style={{ margin: "2rem 0 0", borderTop: `2px solid ${CHAPTER_INKS[ci % 4]}`, paddingTop: "1.25rem" }}>
                   <Image
                     src={ch.plate.src}
                     alt={ch.plate.caption}

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { EB_Garamond, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import { JsonLd } from "@/lib/jsonld";
 
 /**
@@ -13,14 +13,6 @@ import { JsonLd } from "@/lib/jsonld";
  * variables: EB Garamond (the lived) and IBM Plex Mono (the rendered), both
  * self-hosted by next/font at build (no runtime font CDN request).
  */
-
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  variable: "--atlas-serif",
-  display: "swap",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
 
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
@@ -93,8 +85,13 @@ export default function OuroboricConditionLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div
-      className={`${ebGaramond.variable} ${plexMono.variable}`}
-      style={{ minHeight: "100vh", background: "#cdc7b8", colorScheme: "light" }}
+      className={`${plexMono.variable}`}
+      style={{
+      ["--atlas-serif" as string]: "var(--font-eb-garamond), Georgia, serif",
+      minHeight: "100vh",
+      background: "#cdc7b8",
+      colorScheme: "light",
+    } as React.CSSProperties}
     >
       <JsonLd
         data={[

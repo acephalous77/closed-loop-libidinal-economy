@@ -106,6 +106,29 @@ export default function OhcosePortal() {
         </div>
       </section>
 
+      {/* ============== CLASSIFICATION BAND — the letterhead's field strip ============== */}
+      <section className="mx-auto max-w-[var(--container-prose)] mt-lg" aria-label="Intake status">
+        <div
+          className="font-mono uppercase"
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "space-between",
+            gap: "0.5rem 1.5rem",
+            borderTop: "2px solid var(--color-oxblood)",
+            borderBottom: "1px solid var(--color-ink)",
+            padding: "0.55rem 0.25rem",
+            fontSize: "0.7rem",
+            letterSpacing: "0.2em",
+            color: "var(--color-ink-70)",
+          }}
+        >
+          <span>Intake open</span>
+          <span style={{ color: "var(--color-ink)" }}>Cohort 2031 · Gen-C</span>
+          <span>Jurisdiction · all residents</span>
+        </div>
+      </section>
+
       {/* ============== WELCOME STATEMENT ============== */}
       <section
         className="mx-auto max-w-[var(--measure)] py-lg"

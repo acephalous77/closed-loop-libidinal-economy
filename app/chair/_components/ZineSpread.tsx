@@ -957,6 +957,42 @@ export default function ZineSpread() {
         </p>
       </section>
 
+      {/* ─── REGISTER — the pamphlet indexes itself ──────────────── */}
+      <nav
+        aria-label="Spread register"
+        style={{
+          maxWidth: 720,
+          margin: "40px auto 0",
+          padding: "14px 18px",
+          border: `1px solid ${MUTED}`,
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "8px 26px",
+          fontFamily: MONO,
+          fontSize: 11,
+          letterSpacing: "0.14em",
+          textTransform: "uppercase",
+        }}
+      >
+        {[
+          ["01", "ontogenesis"],
+          ["02", "habitualization"],
+          ["03", "consumption"],
+          ["04", "obsolescence"],
+          ["05", "stagnation"],
+          ["06", "exit"],
+        ].map(([num, id]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            style={{ textDecoration: "none", display: "inline-flex", gap: 8 }}
+          >
+            <span style={{ color: STAMP_RED, fontWeight: 700 }}>{num}</span>
+            <span style={{ color: PAPER }}>{id}</span>
+          </a>
+        ))}
+      </nav>
+
       {/* ─── PHASE 01 ─────────────────────────────────────────────── */}
       <PhaseSection id="ontogenesis" num="01" name="ontogenesis" sub="before they assemble it in your room">
         <div

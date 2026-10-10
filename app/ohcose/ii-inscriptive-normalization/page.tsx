@@ -179,7 +179,7 @@ export default function PhaseIIInscriptiveNormalization() {
             return (
               <li
                 key={s.slug}
-                className="py-sm flex items-baseline gap-md"
+                className="ohcose-row py-sm flex items-baseline gap-md"
                 style={{ borderBottom: "1px solid var(--color-paper-85)" }}
               >
                 <Link
