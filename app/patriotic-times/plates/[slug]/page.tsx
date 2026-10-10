@@ -34,6 +34,7 @@ const INK = "#0a0a0a";
 const INK_70 = "#3d342a";
 const INK_50 = "#6b5e4d";
 const RED = "#b8222a";
+const CHAPTER_INKS = ["#b8222a", "#1e4f8f", "#1d7a45", "#8a6000"]; // riso spot inks I–IV
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
@@ -124,7 +125,7 @@ export default async function PlateColorPage({ params }: PageProps) {
               maxWidth: "36rem",
             }}
           >
-            <span style={{ color: RED, fontStyle: "normal", fontWeight: 700, marginRight: "0.5rem" }}>✱</span>
+            <span style={{ color: plate.chapter ? CHAPTER_INKS[plate.chapter - 1] : RED, fontStyle: "normal", fontWeight: 700, marginRight: "0.5rem" }}>✱</span>
             {plate.note}
           </p>
         )}

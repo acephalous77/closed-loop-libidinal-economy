@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
+import { LifecycleStrip } from "../_components/LifecycleStrip";
 
 export const metadata: Metadata = {
   title: "Phase III — Adolescent Calibration",
@@ -75,6 +76,9 @@ export default function PhaseIIIAdolescentCalibration() {
       </nav>
 
       <PhaseBanner code="Phase III" title="Adolescent Calibration" qualifier="13–18 yrs" />
+
+      {/* Lifecycle strip — position in the eight-phase arc */}
+      <LifecycleStrip current={3} />
 
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div

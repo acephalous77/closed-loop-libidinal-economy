@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
+import { LifecycleStrip } from "../_components/LifecycleStrip";
 
 export const metadata: Metadata = {
   title: "Phase II — Inscriptive Normalization",
@@ -75,6 +76,9 @@ export default function PhaseIIInscriptiveNormalization() {
       </nav>
 
       <PhaseBanner code="Phase II" title="Inscriptive Normalization" qualifier="4–12 yrs" />
+
+      {/* Lifecycle strip — position in the eight-phase arc */}
+      <LifecycleStrip current={2} />
 
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div

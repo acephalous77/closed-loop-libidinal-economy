@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 interface Work {
+  mark: string; // riso press-mark glyph — the work's cut-out symbol
   stamp: string; // terse focus-hit — the work called by what it asks
   title: string; // the work's real name, kept as the identifier
   year: string;
@@ -47,6 +48,7 @@ const WORKS: Work[] = [
   {
     stamp: "FOLLOW THE WIRES.",
     title: "The Psychopolitics of Socialization",
+    mark: "◉",
     year: "2026",
     register: "relational atlas · ~600 nodes · crowding science → the population present",
     href: "/psychopolitics-atlas/index.html",
@@ -55,6 +57,7 @@ const WORKS: Work[] = [
   {
     stamp: "THE LOOP, ON THE RECORD.",
     title: "The Closed-Loop Libidinal Economy",
+    mark: "◆",
     year: "2026",
     register: "framework · essays · mathematics · interactive plates",
     href: "/closed-loop",
@@ -63,6 +66,7 @@ const WORKS: Work[] = [
   {
     stamp: "COLOR THE COLLAPSE.",
     title: "Patriotic Times",
+    mark: "✱",
     year: "2025—2026",
     register: "coloring book · state failure · interactive plates",
     href: "/patriotic-times",
@@ -71,6 +75,7 @@ const WORKS: Work[] = [
   {
     stamp: "YOUR LIFE, ON FILE.",
     title: "OHCOSE",
+    mark: "▣",
     year: "2025",
     register: "office of human continuity & social equilibrium",
     href: "/ohcose",
@@ -79,6 +84,7 @@ const WORKS: Work[] = [
   {
     stamp: "SIT. BE HELD. BE HARVESTED.",
     title: "The Ouroboros Life System",
+    mark: "●",
     year: "2021",
     register: "essay · brochure · speculative-design artifact",
     href: "/chair",
@@ -87,6 +93,7 @@ const WORKS: Work[] = [
   {
     stamp: "WHAT SURVIVES CAPTURE?",
     title: "The Ouroboric Condition",
+    mark: "○",
     year: "2018",
     register: "atlas · psychic surplus · interactive specimen plates",
     href: "/ouroboric-condition",
@@ -96,6 +103,7 @@ const WORKS: Work[] = [
     // stamp is a draft in Adnan's terse register — flagged for his vetting.
     stamp: "A LIFE, ON THE METER.",
     title: "The Manufacture of the Subject",
+    mark: "■",
     year: "2015",
     register: "essay · interactive descent · crib → deathbed",
     href: "/manufacture-of-the-subject",
@@ -146,6 +154,7 @@ function entryBody(w: Work, inv: boolean) {
         className="zine-year"
         style={{ fontFamily: MONO, fontSize: "0.74rem", fontWeight: 700, letterSpacing: "0.16em", color: cYear }}
       >
+        <span style={{ color: RED }}>{w.mark}</span>{" "}
         {live ? w.year : `${w.year} · IN PRODUCTION`}
       </div>
 

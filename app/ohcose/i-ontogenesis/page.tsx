@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
+import { LifecycleStrip } from "../_components/LifecycleStrip";
 
 export const metadata: Metadata = {
   title: "Phase I — Ontogenesis",
@@ -35,6 +36,9 @@ export default function PhaseIOntogenesis() {
 
       {/* Phase banner */}
       <PhaseBanner code="Phase I" title="Ontogenesis" qualifier="0–3 yrs" />
+
+      {/* Lifecycle strip — position in the eight-phase arc */}
+      <LifecycleStrip current={1} />
 
       {/* Phase Statement */}
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
@@ -104,7 +108,7 @@ export default function PhaseIOntogenesis() {
                     color: isLive ? "var(--color-oxblood)" : "var(--color-ink-50)",
                     background: isLive ? "transparent" : "var(--color-paper-95)",
                     border: isLive ? "1px solid var(--color-oxblood)" : "1px solid var(--color-paper-85)",
-                    fontSize: "0.55rem",
+                    fontSize: "0.7rem",
                     fontWeight: 700,
                     letterSpacing: "0.15em",
                     padding: "0.15rem 0.4rem",

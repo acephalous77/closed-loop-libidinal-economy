@@ -15,6 +15,8 @@ import { ATLAS_SITES } from "./data";
 import type { AtlasSite } from "./data";
 import { DIAGRAMS } from "./diagrams";
 
+const ROMAN_MOVEMENT = ["", "I", "II", "III", "IV"];
+
 const SITES: Record<string, AtlasSite> = {};
 ATLAS_SITES.forEach((s) => {
   SITES[s.id] = s;
@@ -235,7 +237,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
               <Diagram size={dsize} tone={site.tone} />
             </div>
             <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", color: c.dim, marginTop: 12, textAlign: "center" }}>
-              FIG. {site.fig} — {site.title.toUpperCase()}
+              MOVEMENT {ROMAN_MOVEMENT[site.movement] ?? ""} · FIG. {site.fig} — {site.title.toUpperCase()}
             </div>
             {dark && <Readout />}
           </div>

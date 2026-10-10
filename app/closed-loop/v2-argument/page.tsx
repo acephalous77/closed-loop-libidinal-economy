@@ -13,6 +13,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { M } from "@/components/ui/Math";
+import type { ReactNode } from "react";
 
 const PATH = "/closed-loop/v2-argument";
 
@@ -22,6 +23,19 @@ export const metadata: Metadata = {
     "The prose entry point to the closed-loop libidinal economy framework. Eight load-bearing moves cross-linking to the formal apparatus.",
   alternates: { canonical: PATH },
 };
+
+/** The eight moves read with a numbered margin rail — the apparatus's
+ *  enumeration register (mono numeral, hairline, heading). */
+function MoveHeading({ n, children }: { n: string; children: ReactNode }) {
+  return (
+    <h2 className="mb-md flex items-baseline gap-sm">
+      <span aria-hidden className="w-[1.8em] shrink-0 font-mono text-sm text-ink-50 tabular-nums">
+        {n}.
+      </span>
+      <span className="border-l border-paper-85 pl-sm font-serif text-lg text-ink">{children}</span>
+    </h2>
+  );
+}
 
 export default function CuratedArgumentPage() {
   return (
@@ -75,7 +89,7 @@ export default function CuratedArgumentPage() {
       </nav>
 
       <section id="architecture" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">1. The architecture</h2>
+        <MoveHeading n="1">The architecture</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           A platform optimizes its policy parameter against a
           population of users. The policy determines which stimuli
@@ -121,7 +135,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="registers" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">2. The fusion of the four registers</h2>
+        <MoveHeading n="2">The fusion of the four registers</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The user state decomposes into four registers — somatic,
           cognitive, political, kinaesthetic. Bodies, thoughts,
@@ -167,7 +181,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="capture" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">3. Capture without coercion</h2>
+        <MoveHeading n="3">Capture without coercion</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           Under closed-loop convergence, the user&apos;s behavioral
           distribution drifts toward the platform-induced target.
@@ -206,7 +220,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="pause" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">4. The foreclosure of the pause</h2>
+        <MoveHeading n="4">The foreclosure of the pause</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework&apos;s first load-bearing result. Under the
           closure&apos;s convergence to its stable point, the
@@ -266,7 +280,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="clocks" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">5. The capture of the body&apos;s clocks</h2>
+        <MoveHeading n="5">The capture of the body&apos;s clocks</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           Somatic rhythms — circadian, ultradian, cardiovascular,
           attentional — are exposed to media coupling like any other
@@ -300,7 +314,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="asymmetry" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">6. The asymmetry of the intervention modes</h2>
+        <MoveHeading n="6">The asymmetry of the intervention modes</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework specifies three intervention sites: the
           reward functional <M>{String.raw`\hat R`}</M> (Mode A),
@@ -354,7 +368,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="cohort" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">7. The cohort gradient</h2>
+        <MoveHeading n="7">The cohort gradient</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework&apos;s first refutable empirical commitment.
           Developmental exposure to the converged platform regime
@@ -407,7 +421,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="recursive" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">8. The recursive limit</h2>
+        <MoveHeading n="8">The recursive limit</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework writes about its own conditions of
           production. The author is within the cohort the framework

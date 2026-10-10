@@ -16,6 +16,7 @@ const INK_50 = "#6b5e4d";
 const INK_30 = "#9a8d77";
 const PAPER_DEEP = "#e8dcc0";
 const RED = "#b8222a";
+const DECADE_INKS = ["#b8222a", "#1e4f8f", "#1d7a45"]; // riso spot inks, by decade
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
@@ -140,7 +141,7 @@ export default function PlatesIndex() {
         >
           Jump to:
         </span>
-        {DECADES.map((dec) => (
+        {DECADES.map((dec, di) => (
           <Link
             key={dec.label}
             href={`#decade-${dec.label}`}
@@ -149,7 +150,7 @@ export default function PlatesIndex() {
               fontSize: "0.85rem",
               textTransform: "uppercase",
               letterSpacing: "0.18em",
-              color: RED,
+              color: DECADE_INKS[di % 3],
               textDecoration: "none",
               fontWeight: 700,
             }}
@@ -160,7 +161,7 @@ export default function PlatesIndex() {
       </nav>
 
       {/* Sections by decade */}
-      {DECADES.map((dec) => {
+      {DECADES.map((dec, si) => {
         const decPlates = getPlatesByDecade(dec.label);
         return (
           <section
@@ -187,7 +188,7 @@ export default function PlatesIndex() {
                     fontSize: "0.78rem",
                     textTransform: "uppercase",
                     letterSpacing: "0.25em",
-                    color: RED,
+                    color: DECADE_INKS[si % 3],
                     fontWeight: 700,
                   }}
                 >

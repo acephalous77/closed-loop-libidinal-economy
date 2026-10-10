@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
+import { LifecycleStrip } from "../_components/LifecycleStrip";
 
 export const metadata: Metadata = {
   title: "Phase VII — Exit",
@@ -25,6 +26,9 @@ export default function PhaseVIIExit() {
         <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-50)" }}>← schedule of phases</Link>
       </nav>
       <PhaseBanner code="Phase VII" title="Exit" qualifier="65+ yrs" />
+
+      {/* Lifecycle strip — position in the eight-phase arc */}
+      <LifecycleStrip current={7} />
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div className="font-mono uppercase mb-md" style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>Phase Statement</div>
         <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>

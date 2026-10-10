@@ -17,6 +17,7 @@ const RED = "#b8222a";
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
+const CHAPTER_INKS = ["#b8222a", "#1e4f8f", "#1d7a45", "#8a6000"]; // riso spot inks I–IV
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 
 interface Event {
@@ -356,7 +357,7 @@ export default function PatrioticTimesLanding() {
           margin: "0 auto",
         }}
       >
-        {CHAPTERS.map((ch) => (
+        {CHAPTERS.map((ch, ci) => (
           <article
             key={ch.no}
             style={{
@@ -377,7 +378,7 @@ export default function PatrioticTimesLanding() {
                   fontSize: "0.78rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.25em",
-                  color: RED,
+                  color: CHAPTER_INKS[ci % 4],
                   fontWeight: 700,
                 }}
               >

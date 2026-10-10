@@ -594,19 +594,21 @@ function Schematic() {
 interface Tier {
   name: string; code: string; price: string; tag: string;
   feats: string[]; highlight?: boolean;
+  subsystems: number;
+  phases: number;
 }
 
 const TIERS: Tier[] = [
-  { name: "Standard", code: "STD · 7 yr", price: "$18 / day",
+  { name: "Standard", code: "STD · 7 yr", price: "$18 / day", subsystems: 5, phases: 4, 
     tag: "Onboarding · Habituation · Occupancy",
     feats: ["Five subsystems, abridged", "OHCOSE phases 1 – 4",
             "Ledger retention 7 yr", "Service Agreement renewable"] },
-  { name: "Pro", code: "PRO · 25 yr · most adopted", price: "$44 / day",
+  { name: "Pro", code: "PRO · 25 yr · most adopted", price: "$44 / day", subsystems: 7, phases: 5, 
     tag: "Full OHCOSE  ·  Stewardship engaged",
     feats: ["All seven subsystems", "OHCOSE phases 1 – 5",
             "Ledger retention 25 yr", "Pharmacological adjuncts",
             "TAOG portfolio enrolment"], highlight: true },
-  { name: "Eternal", code: "ETN · 99 yr", price: "$84 / day",
+  { name: "Eternal", code: "ETN · 99 yr", price: "$84 / day", subsystems: 7, phases: 6, 
     tag: "Estate protocol  ·  post-occupancy",
     feats: ["All seven subsystems", "OHCOSE phases 1 – 6",
             "Ledger retention 99 yr", "Estate protocol included",
@@ -685,6 +687,36 @@ function Tiers() {
                 </li>
               ))}
             </ul>
+            <div style={{ marginTop: 20 }} aria-hidden>
+              <div style={{
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 8,
+              }}>Subsystem coverage · {t.subsystems} of 7</div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 12px)", gap: 5 }}>
+                {Array.from({ length: 7 }).map((_, k) => (
+                  <span key={k} style={{
+                    width: 12, height: 12,
+                    background: k < t.subsystems ? (t.highlight ? "#e9b94a" : B.accent) : "transparent",
+                    border: `1px solid ${t.highlight ? "rgba(255,255,255,0.35)" : B.rule}`,
+                  }} />
+                ))}
+              </div>
+              <div style={{
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+                textTransform: "uppercase",
+                color: t.highlight ? "#a0a0a4" : B.inkMute, margin: "14px 0 8px",
+              }}>Lifecycle coverage · {t.phases} of 8 phases</div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(8, 12px)", gap: 5 }}>
+                {Array.from({ length: 8 }).map((_, k) => (
+                  <span key={k} style={{
+                    width: 12, height: 12,
+                    background: k < t.phases ? (t.highlight ? "#e9b94a" : B.accent) : "transparent",
+                    border: `1px solid ${t.highlight ? "rgba(255,255,255,0.35)" : B.rule}`,
+                  }} />
+                ))}
+              </div>
+            </div>
             <button style={{
               marginTop: 22, width: "100%",
               background: t.highlight ? B.paper : B.ink,
