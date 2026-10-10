@@ -14,7 +14,7 @@
 
 import { NextResponse, type NextRequest } from "next/server";
 
-const COOKIE_NAME = "tr_pass";
+const COOKIE_NAME = "__Host-tr_pass";
 
 // Web Crypto SHA-256 (Edge-runtime compatible — Node `crypto` is not).
 async function sha256Hex(input: string): Promise<string> {
@@ -23,6 +23,14 @@ async function sha256Hex(input: string): Promise<string> {
   return Array.from(new Uint8Array(digest))
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
+}
+
+/** Constant-time comparison for equal-length hex strings (Edge-safe). */
+function timingSafeEqualHex(a: string | undefined, b: string): boolean {
+  if (!a || a.length !== b.length) return false;
+  let diff = 0;
+  for (let i = 0; i < a.length; i++) diff |= a.charCodeAt(i) ^ b.charCodeAt(i);
+  return diff === 0;
 }
 
 export async function proxy(req: NextRequest) {
@@ -47,7 +55,7 @@ export async function proxy(req: NextRequest) {
 
   const expected = await sha256Hex(password + ":" + secret);
   const got = req.cookies.get(COOKIE_NAME)?.value;
-  if (got !== expected) {
+  if (!timingSafeEqualHex(got, expected)) {
     const url = req.nextUrl.clone();
     url.pathname = "/thinkroom/enter";
     url.searchParams.set("next", pathname);

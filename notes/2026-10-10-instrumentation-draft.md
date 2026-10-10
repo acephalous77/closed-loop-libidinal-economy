@@ -1,0 +1,56 @@
+# Draft — /closed-loop/instrumentation rewrite (to Adnan's gate, 2026-10-10)
+
+*Prompt from the ruling: whole-site truth, the thinkroom cookie and the four
+storage keys named, the third-party load fixed at source (done — the atlas
+vendors React locally now). Applied to `content/instrumentation.mdx` only on
+his word. The "7 days" server-log figure is his original claim — Vercel's
+current retention should be confirmed before publishing.*
+
+---
+
+This site does not track you.
+
+There is no analytics software running on this site. No Google Analytics, no
+Plausible, no Fathom, no self-hosted analytics. No tracking pixels, no
+behavioral inference, no cohort analysis, no event logging beyond what your
+browser tells the web server (the IP address making the request, the user-agent
+string, the page requested — the minimum required for HTTP to work). These
+server logs are kept for 7 days and then deleted.
+
+No request leaves this site's own domain. Every font, every script, every
+image is served from here.
+
+There is exactly one cookie on the site, and it belongs to one page: the
+passphrase gate on the thinkroom, a members-only seminar tool. It holds a hash
+of the gate's passphrase, it is HttpOnly and Secure, and it expires in thirty
+days. No other page sets a cookie.
+
+Four pages remember things in your own browser, each for its own use, each
+cleared by clearing site data:
+
+- the ouroboric-condition atlas remembers that you have entered
+  (localStorage `ouroboric-atlas-v5`)
+- the manufacture-of-the-subject descent remembers, for the session, that the
+  cold open has run (sessionStorage `pss-born`)
+- the chair's zine remembers, for the session, that it has already introduced
+  itself (sessionStorage `chair-zine-fitting-notif-shown`)
+- the psychopolitics atlas remembers that you have seen its opening
+  (localStorage `atlas_intro_seen`)
+
+None of these leave your machine. The site reads them back to itself and to
+nobody else.
+
+The prose pages are static and the same for every reader. The interactive
+pieces — the coloring canvas, the atlases, the instrument simulators, the
+thinkroom — run entirely in your browser (the thinkroom, on its own subdomain,
+with the cookie above).
+
+There is no mailing list. There is nothing to unsubscribe from.
+
+The framework's politics, applied to its own hosting.
+
+---
+
+**Metadata description (draft):** "What this site does and does not log. One
+cookie, four storage keys, nothing else." (current: "What this site does and
+does not track. (Nothing.)")

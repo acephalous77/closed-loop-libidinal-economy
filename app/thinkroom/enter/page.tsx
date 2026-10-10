@@ -14,6 +14,7 @@ export default async function ThinkroomEnter({ searchParams }: PageProps) {
   const params = await searchParams;
   const hasError = params.error === "1";
   const isConfigError = params.error === "config";
+  const isRateLimited = params.error === "rate";
   const next = params.next ?? "/thinkroom";
 
   return (
@@ -51,6 +52,14 @@ export default async function ThinkroomEnter({ searchParams }: PageProps) {
           >
             this deploy is not yet configured. THINKROOM_PASSWORD and
             THINKROOM_COOKIE_SECRET must be set on the host.
+          </p>
+        )}
+        {isRateLimited && (
+          <p
+            className="font-mono text-xs mb-sm"
+            style={{ color: "var(--color-oxblood)" }}
+          >
+            too many attempts — wait a few minutes, then try again.
           </p>
         )}
         {hasError && (

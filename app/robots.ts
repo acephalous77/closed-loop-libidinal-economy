@@ -38,12 +38,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/simulator/*.jsx", "/simulator/*.css"],
+        disallow: ["/simulator/*.jsx", "/simulator/*.css", "/thinkroom"],
       },
       {
         userAgent: AI_USER_AGENTS,
         allow: "/",
-        disallow: ["/simulator/*.jsx", "/simulator/*.css"],
+        disallow: ["/simulator/*.jsx", "/simulator/*.css", "/thinkroom"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
