@@ -1040,7 +1040,7 @@ export default function ZineSpread() {
               </div>
             </Callout>
             <div style={{ position: "absolute", top: 360, right: 24, width: 160, transform: "rotate(-12deg)" }}>
-              <span style={{ fontFamily: MARKER, fontSize: 17, color: NEON_PINK, display: "block" }}>this is the point.</span>
+              <span style={{ fontFamily: MARKER, fontSize: 17, color: NEON_PINK, display: "block" }}>the meter runs on you.</span>
               <HandArrow length={100} curve={0.5} color={NEON_PINK} rotate={-25} thickness={3} />
             </div>
           </div>

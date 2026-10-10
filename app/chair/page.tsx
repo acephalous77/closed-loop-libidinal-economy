@@ -156,7 +156,7 @@ function Hero() {
         alignItems: "baseline", flexWrap: "wrap", gap: 12,
       }}>
         <span style={{ color: B.accent, fontWeight: 600 }}>● OLS · v 4.2 · fig. 1</span>
-        <span style={{ color: B.inkMute }}>Standard configuration, ringed</span>
+        <span style={{ color: B.inkMute }}>Standard configuration with ring</span>
       </div>
 
       {/* The render at full natural aspect. Container is letterboxed
@@ -187,7 +187,7 @@ function Hero() {
           <div style={{
             fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
             textTransform: "uppercase", color: B.inkMute, marginBottom: 16,
-          }}>The apparatus, configured for residence</div>
+          }}>The apparatus in residence configuration</div>
           <h1 style={{
             fontFamily: FONT.manrope, fontSize: "clamp(44px, 13vw, 144px)",
             lineHeight: 0.9, letterSpacing: "-0.04em", fontWeight: 300,

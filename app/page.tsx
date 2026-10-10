@@ -53,7 +53,7 @@ const WORKS: Work[] = [
     status: "live",
   },
   {
-    stamp: "THE LOOP, WRITTEN DOWN.",
+    stamp: "THE LOOP, ON THE RECORD.",
     title: "The Closed-Loop Libidinal Economy",
     year: "2026",
     register: "framework · essays · mathematics · interactive plates",
@@ -94,7 +94,7 @@ const WORKS: Work[] = [
   },
   {
     // stamp is a draft in Adnan's terse register — flagged for his vetting.
-    stamp: "A LIFE, METERED.",
+    stamp: "A LIFE, ON THE METER.",
     title: "The Manufacture of the Subject",
     year: "2015",
     register: "essay · interactive descent · crib → deathbed",

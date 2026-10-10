@@ -64,10 +64,10 @@ export default function CuratedArgumentPage() {
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">Eight moves</p>
         <ol className="space-y-xs text-ink-90">
           <li><Link href="#architecture" className="hover:text-oxblood">1. The architecture</Link></li>
-          <li><Link href="#registers" className="hover:text-oxblood">2. The four registers, fused</Link></li>
+          <li><Link href="#registers" className="hover:text-oxblood">2. The fusion of the four registers</Link></li>
           <li><Link href="#capture" className="hover:text-oxblood">3. Capture without coercion</Link></li>
-          <li><Link href="#pause" className="hover:text-oxblood">4. The pause foreclosed</Link></li>
-          <li><Link href="#clocks" className="hover:text-oxblood">5. The body&apos;s clocks captured</Link></li>
+          <li><Link href="#pause" className="hover:text-oxblood">4. The foreclosure of the pause</Link></li>
+          <li><Link href="#clocks" className="hover:text-oxblood">5. The capture of the body&apos;s clocks</Link></li>
           <li><Link href="#asymmetry" className="hover:text-oxblood">6. The asymmetry of the intervention modes</Link></li>
           <li><Link href="#cohort" className="hover:text-oxblood">7. The cohort gradient</Link></li>
           <li><Link href="#recursive" className="hover:text-oxblood">8. The recursive limit</Link></li>
@@ -121,7 +121,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="registers" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">2. The four registers, fused</h2>
+        <h2 className="font-serif text-lg text-ink mb-md">2. The fusion of the four registers</h2>
         <p className="text-base text-ink-90 mb-sm">
           The user state decomposes into four registers — somatic,
           cognitive, political, kinaesthetic. Bodies, thoughts,
@@ -206,7 +206,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="pause" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">4. The pause foreclosed</h2>
+        <h2 className="font-serif text-lg text-ink mb-md">4. The foreclosure of the pause</h2>
         <p className="text-base text-ink-90 mb-sm">
           The framework&apos;s first load-bearing result. Under the
           closure&apos;s convergence to its stable point, the
@@ -266,7 +266,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="clocks" className="mb-xl">
-        <h2 className="font-serif text-lg text-ink mb-md">5. The body&apos;s clocks captured</h2>
+        <h2 className="font-serif text-lg text-ink mb-md">5. The capture of the body&apos;s clocks</h2>
         <p className="text-base text-ink-90 mb-sm">
           Somatic rhythms — circadian, ultradian, cardiovascular,
           attentional — are exposed to media coupling like any other
