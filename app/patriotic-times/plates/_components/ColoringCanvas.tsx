@@ -189,8 +189,8 @@ export function ColoringCanvas({ src, alt }: ColoringCanvasProps) {
               aria-label={c.name}
               onClick={() => setColor(c.hex)}
               style={{
-                width: "2.4rem",
-                height: "2.4rem",
+                width: "2.75rem",
+                height: "2.75rem",
                 background: c.hex,
                 border: color === c.hex ? "3px solid #0a0a0a" : "1px solid #0a0a0a",
                 cursor: "pointer",
@@ -205,8 +205,8 @@ export function ColoringCanvas({ src, alt }: ColoringCanvasProps) {
             aria-label="eraser"
             onClick={() => setColor(ERASER)}
             style={{
-              width: "2.4rem",
-              height: "2.4rem",
+              width: "2.75rem",
+              height: "2.75rem",
               background: ERASER,
               border: color === ERASER ? "3px solid #0a0a0a" : "1px solid #0a0a0a",
               cursor: "pointer",

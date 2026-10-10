@@ -98,7 +98,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
         </div>
 
         {/* ============== BODY (caller content) ============== */}
-        <div className="pt-md">{children}</div>
+        <main className="pt-md">{children}</main>
 
         {/* ============== BOTTOM CHROME ============== */}
         <div

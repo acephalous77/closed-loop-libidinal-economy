@@ -150,7 +150,7 @@ export default function ChairLayout({
         }
       `}</style>
 
-      {children}
+      <main>{children}</main>
 
       <ChairFoot />
     </div>

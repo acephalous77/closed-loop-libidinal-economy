@@ -69,7 +69,7 @@ export default function PatrioticTimesLayout({
         colorScheme: "light",
       }}
     >
-      {children}
+      <main>{children}</main>
       {/* Tiny atelier-back link */}
       <div
         style={{

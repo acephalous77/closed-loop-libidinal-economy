@@ -127,7 +127,7 @@ export default function OuroboricConditionLayout({
           },
         ]}
       />
-      {children}
+      <main>{children}</main>
     </div>
   );
 }
