@@ -45,3 +45,6 @@ next-env.d.ts
 
 # internal working artifacts (de-AI / voice review scratch, not site content)
 autostimulus-deai-xy-review.md
+
+# parked assets — moved out of public/ during audits, not deleted (see _attic/README.md)
+_attic/
