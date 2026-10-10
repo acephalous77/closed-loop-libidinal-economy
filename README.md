@@ -36,8 +36,8 @@ Semiotext(e) / *October* / Zone Books — gravity and strangeness applied to
 the web. Each work may override the register inside its own subroute.
 
 For what the site logs and does not log, see
-`/closed-loop/instrumentation` — the disclosure is being revised (2026-10-10)
-to describe the whole site precisely, including the thinkroom cookie.
+`/closed-loop/instrumentation` — the disclosure covers the whole site precisely,
+including the thinkroom cookie and the four storage keys.
 
 ## Stack
 

@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 export const metadata: Metadata = {
   title: "instrumentation",
   description:
-    "What this site does and does not track. (Nothing.) The framework's politics, applied to its own hosting.",
+    "What this site does and does not log. One cookie, four storage keys, nothing else.",
   alternates: { canonical: "/closed-loop/instrumentation" },
 };
 
@@ -27,7 +27,7 @@ export default function InstrumentationPage() {
             instrumentation.
           </h1>
 
-          <div className="prose-narrow">
+          <div className="prose-narrow [&_ul]:list-disc [&_ul]:pl-6 [&_li]:mt-2 [&_li]:leading-relaxed">
             <Instrumentation />
           </div>
         </article>
