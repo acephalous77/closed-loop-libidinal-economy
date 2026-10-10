@@ -91,7 +91,7 @@ export function LineageScrubber() {
             }}>160 years of seated extraction.</h2>
           </div>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: T.inkMute, textTransform: "uppercase",
             textAlign: "right", lineHeight: 1.7,
           }}>
@@ -119,7 +119,7 @@ export function LineageScrubber() {
                   color: sel === i ? T.paper : T.ink,
                   border: `1px solid ${sel === i ? T.accent : T.rule}`,
                   padding: "10px 4px",
-                  fontFamily: FONT.mono, fontSize: 9.5,
+                  fontFamily: FONT.mono, fontSize: 11,
                   letterSpacing: "0.06em", cursor: "pointer",
                   display: "flex", flexDirection: "column", gap: 3,
                   alignItems: "center",
@@ -156,7 +156,7 @@ export function LineageScrubber() {
             <div key={y} style={{
               position: "absolute", top: 100, left: `${pct(y)}%`,
               transform: "translateX(-50%)",
-              fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.06em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.06em",
               color: T.inkDim,
             }}>{y}</div>
           ))}
@@ -171,7 +171,7 @@ export function LineageScrubber() {
                 cursor: "pointer", width: 78, textAlign: "center",
               }}>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
                   color: isSel ? T.accent : T.inkMute,
                   fontWeight: isSel ? 700 : 400, marginBottom: 4,
                   textTransform: "uppercase",
@@ -214,7 +214,7 @@ export function LineageScrubber() {
               }}>ITER {item.num}  ·  {item.year}</span>
               <span style={{
                 padding: "2px 10px", background: verdictColor, color: T.paper,
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
                 textTransform: "uppercase", fontWeight: 600, borderRadius: 2,
               }}>
                 {item.color === "real" ? "● verified" :
@@ -236,7 +236,7 @@ export function LineageScrubber() {
               background: "rgba(255,253,245,0.7)",
             }}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: verdictColor, fontWeight: 700,
                 textTransform: "uppercase", marginBottom: 6,
               }}>Brochure claim · vs. historical record</div>
@@ -282,7 +282,7 @@ function Field({ k, children }: { k: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 14 }}>
       <div style={{
-        fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
         color: T.inkMute, textTransform: "uppercase",
         fontWeight: 600, marginBottom: 5,
       }}>{k}</div>
@@ -299,7 +299,7 @@ function navBtn(disabled: boolean): React.CSSProperties {
     border: `0.5px solid ${T.ink}`,
     background: disabled ? "transparent" : T.ink,
     color: disabled ? T.inkFaint : T.paper,
-    padding: "4px 10px", fontFamily: FONT.mono, fontSize: 10,
+    padding: "4px 10px", fontFamily: FONT.mono, fontSize: 11,
     cursor: disabled ? "default" : "pointer", fontWeight: 700,
     opacity: disabled ? 0.4 : 1,
   };

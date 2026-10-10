@@ -51,8 +51,8 @@ const PAPER_DIM = "#bdb8ae";
 const NEON_GREEN = "#39ff14";
 const NEON_PINK = "#ff2a8a";
 const NEON_CYAN = "#3fbfd6";
-const STAMP_RED = "#e63a2c";
-const MUTED = "#6b6760";
+const STAMP_RED = "#ef4433";
+const MUTED = "#827d74";
 
 const SANS = `var(--font-geist), system-ui, sans-serif`;
 const MONO = `var(--font-geist-mono), ui-monospace, monospace`;
@@ -258,7 +258,7 @@ function TelexStrip({ m, psiRef }: { m: Harvest; psiRef: React.Ref<HTMLSpanEleme
         alignItems: "center",
         padding: "8px 18px",
         fontFamily: MONO,
-        fontSize: 10,
+        fontSize: 11,
         letterSpacing: "0.24em",
         color: PAPER,
         textTransform: "uppercase",
@@ -383,7 +383,7 @@ function Leakage({ quote, cite }: { quote: ReactNode; cite: string }) {
       <div
         style={{
           fontFamily: MONO,
-          fontSize: 10,
+          fontSize: 11,
           color: NEON_PINK,
           letterSpacing: "0.3em",
           marginBottom: 12,
@@ -449,7 +449,7 @@ function Callout({
           background: BLACK,
           padding: "0 8px",
           fontFamily: MONO,
-          fontSize: 10,
+          fontSize: 11,
           letterSpacing: "0.28em",
           color,
           textTransform: "uppercase",
@@ -493,7 +493,7 @@ function SurvivorQuote({ quote, attrib }: { quote: ReactNode; attrib: string }) 
           display: "block",
           marginTop: 8,
           fontFamily: MONO,
-          fontSize: 10,
+          fontSize: 11,
           color: NEON_GREEN,
           letterSpacing: "0.2em",
           fontStyle: "normal",
@@ -571,7 +571,7 @@ export default function ZineSpread() {
             alignItems: "center",
             gap: 14,
             fontFamily: MONO,
-            fontSize: 10.5,
+            fontSize: 11,
             letterSpacing: "0.18em",
             color: PAPER,
             textTransform: "uppercase",
@@ -743,7 +743,7 @@ export default function ZineSpread() {
             fontFamily: MONO,
           }}
         >
-          <div style={{ fontSize: 10, color: STAMP_RED, letterSpacing: "0.3em", marginBottom: 8, textTransform: "uppercase" }}>
+          <div style={{ fontSize: 11, color: STAMP_RED, letterSpacing: "0.3em", marginBottom: 8, textTransform: "uppercase" }}>
             ◆ cohort 2025 census
           </div>
           <div style={{ display: "flex", gap: 28, alignItems: "baseline" }}>
@@ -751,17 +751,17 @@ export default function ZineSpread() {
               <div style={{ fontFamily: ANTON, fontSize: 38, color: PAPER, lineHeight: 1, fontVariantNumeric: "tabular-nums" as const }}>
                 {(247891 + Math.floor(m.dwellSec * 1.4)).toLocaleString()}
               </div>
-              <div style={{ fontSize: 9, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>fitted</div>
+              <div style={{ fontSize: 11, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>fitted</div>
             </div>
             <div>
               <div style={{ fontFamily: ANTON, fontSize: 38, color: STAMP_RED, lineHeight: 1 }}>0</div>
-              <div style={{ fontSize: 9, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>released</div>
+              <div style={{ fontSize: 11, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>released</div>
             </div>
             <div>
               <div style={{ fontFamily: ANTON, fontSize: 38, color: NEON_GREEN, lineHeight: 1, fontVariantNumeric: "tabular-nums" as const }}>
                 {Math.floor(m.dwellSec * 1.4)}
               </div>
-              <div style={{ fontSize: 9, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>in queue</div>
+              <div style={{ fontSize: 11, color: MUTED, letterSpacing: "0.2em", marginTop: 4, textTransform: "uppercase" }}>in queue</div>
             </div>
           </div>
         </div>
@@ -946,7 +946,7 @@ export default function ZineSpread() {
             zIndex: 2,
             marginTop: "1.6rem",
             fontFamily: MONO,
-            fontSize: 10,
+            fontSize: 11,
             letterSpacing: "0.22em",
             color: MUTED,
             textTransform: "uppercase",
@@ -1164,7 +1164,7 @@ export default function ZineSpread() {
                 fontSize: 22,
                 color: NEON_PINK,
                 transform: "rotate(-1.5deg)",
-                lineHeight: 1.2,
+                lineHeight: 1.3,
                 background: "rgba(10,9,8,0.6)",
                 padding: "12px 16px",
                 border: `1px dashed ${NEON_PINK}`,
@@ -1216,7 +1216,7 @@ export default function ZineSpread() {
                 backdropFilter: "blur(2px)",
               }}
             >
-              <div style={{ fontFamily: MONO, fontSize: 10, color: MUTED, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 14 }}>
+              <div style={{ fontFamily: MONO, fontSize: 11, color: MUTED, letterSpacing: "0.3em", textTransform: "uppercase", marginBottom: 14 }}>
                 ◆ what they charge · what you lose
               </div>
               {[
@@ -1337,8 +1337,8 @@ export default function ZineSpread() {
                 <div key={p.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 12px", border: `1px solid ${p.c}`, background: "rgba(10,9,8,0.6)" }}>
                   <span style={{ display: "inline-block", width: 10, height: 10, borderRadius: "50%", background: p.c, boxShadow: `0 0 8px ${p.c}80` }} />
                   <div style={{ flex: 1 }}>
-                    <div style={{ fontFamily: MONO, fontSize: 10.5, color: PAPER, letterSpacing: "0.18em", fontWeight: 600 }}>{p.n}</div>
-                    <div style={{ fontFamily: MONO, fontSize: 9, color: MUTED, letterSpacing: "0.12em" }}>{p.flow}</div>
+                    <div style={{ fontFamily: MONO, fontSize: 11, color: PAPER, letterSpacing: "0.18em", fontWeight: 600 }}>{p.n}</div>
+                    <div style={{ fontFamily: MONO, fontSize: 11, color: MUTED, letterSpacing: "0.12em" }}>{p.flow}</div>
                   </div>
                 </div>
               ))}
@@ -1480,7 +1480,7 @@ export default function ZineSpread() {
                   >
                     {x.v}
                   </div>
-                  <div style={{ fontFamily: MONO, fontSize: 10, color: MUTED, letterSpacing: "0.18em", marginTop: 10, textTransform: "uppercase" }}>{x.sub}</div>
+                  <div style={{ fontFamily: MONO, fontSize: 11, color: MUTED, letterSpacing: "0.18em", marginTop: 10, textTransform: "uppercase" }}>{x.sub}</div>
                 </div>
               ))}
             </div>
@@ -1554,7 +1554,7 @@ export default function ZineSpread() {
                 background: "rgba(10,9,8,0.6)",
               }}
             >
-              <div style={{ fontFamily: MONO, fontSize: 10, color: NEON_CYAN, letterSpacing: "0.28em", textTransform: "uppercase", marginBottom: 12, fontWeight: 700 }}>
+              <div style={{ fontFamily: MONO, fontSize: 11, color: NEON_CYAN, letterSpacing: "0.28em", textTransform: "uppercase", marginBottom: 12, fontWeight: 700 }}>
                 ◆ what your reading buys them
               </div>
               <div style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.5, color: PAPER }}>
@@ -1647,7 +1647,7 @@ export default function ZineSpread() {
                 color: PAPER_DIM,
               }}
             >
-              <div style={{ color: MUTED, fontSize: 10, letterSpacing: "0.16em", marginBottom: 16 }}>
+              <div style={{ color: MUTED, fontSize: 11, letterSpacing: "0.16em", marginBottom: 16 }}>
                 OUROBOROS INDUSTRIES LLC · OCCUPANT SERVICES<br />
                 FORM §6 — WITHDRAWAL OF CONSENT
               </div>
@@ -1656,7 +1656,7 @@ export default function ZineSpread() {
                 Pursuant to clause §6.0 of the Terms of Occupancy, I hereby withdraw my consent to indefinite occupancy and request to stand.
               </div>
               <div style={{ color: MUTED, marginBottom: 18 }}>[signature pending — standing not currently supported]</div>
-              <div style={{ color: MUTED, fontSize: 10, letterSpacing: "0.12em" }}>
+              <div style={{ color: MUTED, fontSize: 11, letterSpacing: "0.12em" }}>
                 ATTEMPTS THIS CYCLE: 7 ·{" "}
                 <span style={{ color: STAMP_RED }}>RETURNS THIS CYCLE: 7</span>
               </div>
@@ -1753,7 +1753,7 @@ export default function ZineSpread() {
                   top: 18,
                   left: 18,
                   fontFamily: MONO,
-                  fontSize: 9,
+                  fontSize: 11,
                   letterSpacing: "0.22em",
                   color: NEON_PINK,
                   textTransform: "uppercase",
@@ -1773,7 +1773,7 @@ export default function ZineSpread() {
                   bottom: 18,
                   right: 18,
                   fontFamily: MONO,
-                  fontSize: 9,
+                  fontSize: 11,
                   letterSpacing: "0.18em",
                   color: NEON_GREEN,
                   textTransform: "uppercase",
@@ -1824,7 +1824,7 @@ export default function ZineSpread() {
                 fontFamily: MARKER,
                 fontSize: 17,
                 color: NEON_PINK,
-                lineHeight: 1.2,
+                lineHeight: 1.3,
                 maxWidth: 180,
                 pointerEvents: "none",
               }}
@@ -1904,7 +1904,7 @@ export default function ZineSpread() {
             style={{
               marginTop: 28,
               fontFamily: MONO,
-              fontSize: 10,
+              fontSize: 11,
               color: MUTED,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
@@ -2194,7 +2194,7 @@ function CasualtyWall() {
                 }}
               >
                 <div style={{ fontWeight: 600 }}>{entry.name}</div>
-                <div style={{ fontFamily: MONO, fontSize: 10.5, color: MUTED, letterSpacing: "0.14em" }}>
+                <div style={{ fontFamily: MONO, fontSize: 11, color: MUTED, letterSpacing: "0.14em" }}>
                   {entry.date.slice(5).replace("-", ".")} · {entry.cohort.replace("cohort ", "")}
                 </div>
               </div>
@@ -2284,7 +2284,7 @@ function LetterFromOccupancy() {
             <div
               style={{
                 fontFamily: MONO,
-                fontSize: 9,
+                fontSize: 11,
                 letterSpacing: "0.26em",
                 color: "#5a554a",
                 textTransform: "uppercase",
@@ -2297,7 +2297,7 @@ function LetterFromOccupancy() {
             <div
               style={{
                 fontFamily: MONO,
-                fontSize: 9,
+                fontSize: 11,
                 letterSpacing: "0.18em",
                 color: "#5a554a",
                 textTransform: "uppercase",
@@ -2309,7 +2309,7 @@ function LetterFromOccupancy() {
           <div
             style={{
               fontFamily: MONO,
-              fontSize: 9,
+              fontSize: 11,
               letterSpacing: "0.18em",
               color: "#5a554a",
               textTransform: "uppercase",
@@ -2409,7 +2409,7 @@ function LetterFromOccupancy() {
             fontFamily: MONO,
             fontSize: 56,
             letterSpacing: "0.22em",
-            color: "rgba(26,24,20,0.05)",
+            color: "rgba(26,24,20,0.07)",
             textTransform: "uppercase",
             fontWeight: 700,
             pointerEvents: "none",
@@ -2535,7 +2535,7 @@ function ConsultantTranscript() {
           <div
             style={{
               fontFamily: MONO,
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: "0.24em",
               color: NEON_GREEN,
               textTransform: "uppercase",
@@ -2547,7 +2547,7 @@ function ConsultantTranscript() {
           <div
             style={{
               fontFamily: MONO,
-              fontSize: 10,
+              fontSize: 11,
               letterSpacing: "0.18em",
               color: MUTED,
               textTransform: "uppercase",
@@ -2627,7 +2627,7 @@ function ConsultantTranscript() {
             paddingTop: "1rem",
             borderTop: `1px solid rgba(57,255,20,0.2)`,
             fontFamily: MONO,
-            fontSize: 10,
+            fontSize: 11,
             letterSpacing: "0.18em",
             color: MUTED,
             textTransform: "uppercase",
@@ -2750,7 +2750,7 @@ function FittingConsultantBlacklist() {
                   {c.badge}
                 </div>
               </div>
-              <div style={{ fontFamily: MONO, fontSize: 10.5, color: NEON_PINK, letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 12 }}>
+              <div style={{ fontFamily: MONO, fontSize: 11, color: NEON_PINK, letterSpacing: "0.18em", textTransform: "uppercase", marginBottom: 12 }}>
                 ◆ {c.region}
               </div>
               <div style={{ fontFamily: SANS, fontSize: 14, lineHeight: 1.5, color: PAPER_DIM }}>
@@ -3163,7 +3163,7 @@ function FieldGuideCard() {
               background: "#f0ebe2",
               padding: "2px 10px",
               fontFamily: MONO,
-              fontSize: 9.5,
+              fontSize: 11,
               color: BLACK,
               letterSpacing: "0.24em",
               textTransform: "uppercase",
@@ -3228,7 +3228,7 @@ function FieldGuideCard() {
               flexWrap: "wrap",
               gap: 16,
               fontFamily: MONO,
-              fontSize: 10,
+              fontSize: 11,
               color: "#5a5346",
               letterSpacing: "0.18em",
               textTransform: "uppercase",

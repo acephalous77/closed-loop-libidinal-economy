@@ -116,7 +116,7 @@ const WORKS: Work[] = [
 const PAPER = "#e9e3d3"; // bone / photocopy stock
 const INK = "#0b0b0b"; // toner black
 const INK_2 = "#3a3733"; // secondary
-const RED = "#cc1f1f"; // rubber-stamp red
+const RED = "#c71e1e"; // rubber-stamp red
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
 const SERIF = `var(--font-eb-garamond), Georgia, "Times New Roman", serif`;
@@ -168,7 +168,7 @@ function entryBody(w: Work, inv: boolean) {
       <div className="zine-regwrap">
         <div
           className="zine-reg"
-          style={{ display: "inline-block", fontFamily: MONO, fontSize: "0.68rem", lineHeight: 1.5, textTransform: "uppercase", letterSpacing: "0.13em", color: cReg, border: `1px solid ${cReg}`, padding: "0.35rem 0.55rem", textAlign: "left" }}
+          style={{ display: "inline-block", fontFamily: MONO, fontSize: "0.7rem", lineHeight: 1.5, textTransform: "uppercase", letterSpacing: "0.13em", color: cReg, border: `1px solid ${cReg}`, padding: "0.35rem 0.55rem", textAlign: "left" }}
         >
           {w.register}
         </div>

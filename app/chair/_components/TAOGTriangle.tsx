@@ -117,7 +117,7 @@ export function TAOGTriangle() {
             margin: "0 0 6px", color: T.ink,
           }}>Axis {sel + 1} · <em>{focused.name}</em></h2>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: T.inkMute, textTransform: "uppercase", marginBottom: 22,
           }}>Capture · {focused.capture}  ·  inheritance · {focused.inh}</div>
           <p style={{
@@ -130,7 +130,7 @@ export function TAOGTriangle() {
             border: `0.5px solid ${T.rule}`,
           }}>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
               color: T.inkMute, textTransform: "uppercase",
               fontWeight: 700, marginBottom: 14,
             }}>Adjust apparatus emphasis</div>
@@ -146,7 +146,7 @@ export function TAOGTriangle() {
                     fontWeight: sel === i ? 600 : 400,
                   }}>{a.name}</span>
                   <span style={{
-                    fontFamily: FONT.mono, fontSize: 10, color: T.accent,
+                    fontFamily: FONT.mono, fontSize: 11, color: T.accent,
                     fontWeight: 700, letterSpacing: "0.1em",
                   }}>{Math.round(intensity[i] * 100)}%</span>
                 </div>
@@ -171,7 +171,7 @@ export function TAOGTriangle() {
                         style={{
                           flex: 1, padding: "7px 4px", background: "transparent",
                           color: T.inkDim, border: `0.5px solid ${T.rule}`,
-                          fontFamily: FONT.mono, fontSize: 8.5,
+                          fontFamily: FONT.mono, fontSize: 11,
                           letterSpacing: "0.16em", textTransform: "uppercase",
                           cursor: "pointer", fontWeight: 600,
                         }}>{label}</button>

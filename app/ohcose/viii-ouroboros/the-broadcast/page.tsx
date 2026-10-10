@@ -88,7 +88,7 @@ function Broadcast() {
   return (
     <div className="my-md" style={{ border: "3px double var(--color-ink)", background: "var(--color-paper)", padding: "2rem 1.75rem", fontFamily: "var(--font-mono)" }}>
       <div className="text-center pb-md mb-md" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", letterSpacing: "0.2em", color: ink50 }}>OHCOSE</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>OHCOSE</div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.2rem", color: ink, letterSpacing: "0.04em" }}>Cycle-Closing Transmission</div>
         <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>standing text · all cohorts</div>
       </div>

@@ -77,7 +77,7 @@ function BrochureSpecimen() {
   return (
     <div className="my-md" style={{ border: "1.5px solid var(--color-ink)", background: "var(--color-paper)", padding: "1.5rem 1.25rem", fontFamily: "var(--font-mono)" }}>
       <div className="text-center pb-sm" style={{ borderBottom: "1.5px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", letterSpacing: "0.18em", color: ink50 }}>OHCOSE-Certified Partner Mailer</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.18em", color: ink50 }}>OHCOSE-Certified Partner Mailer</div>
         <div className="font-serif font-bold mt-sm" style={{ fontSize: "1.4rem", color: ink, letterSpacing: "0.02em" }}>The Years You've Earned</div>
         <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: accent, fontWeight: 700 }}>Sandpiper Reserve · Coastal Living</div>
       </div>

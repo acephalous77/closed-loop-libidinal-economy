@@ -178,7 +178,7 @@ function SubjectivityCatalogue() {
         {subjects.map((s) => (
           <div key={s.code} style={{ border: "1px solid var(--color-paper-85)", padding: "0.85rem" }}>
             <div className="flex justify-between items-baseline mb-xs">
-              <span className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: accent, fontWeight: 700 }}>{s.code}</span>
+              <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: accent, fontWeight: 700 }}>{s.code}</span>
               <span className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>model</span>
             </div>
             <div className="font-serif font-bold" style={{ fontSize: "0.95rem", color: ink, lineHeight: 1.2 }}>

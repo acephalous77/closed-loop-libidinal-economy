@@ -64,21 +64,21 @@ export default function ColophonPage() {
             <ColLine k="Display + body">
               <span style={{ fontStyle: "italic" }}>Spectral</span>
               <br /><span style={{
-                fontFamily: FONT.mono, fontSize: 9.5,
+                fontFamily: FONT.mono, fontSize: 11,
                 color: T.inkMute, letterSpacing: "0.1em",
               }}>Production Type · OFL</span>
             </ColLine>
             <ColLine k="Codes + labels">
               IBM Plex Mono
               <br /><span style={{
-                fontFamily: FONT.mono, fontSize: 9.5,
+                fontFamily: FONT.mono, fontSize: 11,
                 color: T.inkMute, letterSpacing: "0.1em",
               }}>IBM · OFL</span>
             </ColLine>
             <ColLine k="Brochure">
               Manrope · grotesk
               <br /><span style={{
-                fontFamily: FONT.mono, fontSize: 9.5,
+                fontFamily: FONT.mono, fontSize: 11,
                 color: T.inkMute, letterSpacing: "0.1em",
               }}>Mikhail Sharanda · OFL</span>
             </ColLine>
@@ -108,7 +108,7 @@ export default function ColophonPage() {
             <button style={{
               marginTop: 14, padding: "9px 14px",
               border: `0.5px solid ${T.ink}`, background: "transparent",
-              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
               textTransform: "uppercase", color: T.ink, cursor: "pointer",
               fontWeight: 600, width: "100%",
             }}>Copy BibTeX →</button>
@@ -168,7 +168,7 @@ export default function ColophonPage() {
           ].map(([k, v, body]) => (
             <div key={k}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, fontWeight: 600,
                 textTransform: "uppercase", marginBottom: 8,
               }}>{k}</div>
@@ -222,7 +222,7 @@ export default function ColophonPage() {
 function ColHead({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
-      fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+      fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
       color: T.accent, textTransform: "uppercase", fontWeight: 600,
       marginBottom: 16, paddingBottom: 10,
       borderBottom: `0.5px solid ${T.rule}`,
@@ -238,7 +238,7 @@ function ColLine({ k, children }: { k: string; children: React.ReactNode }) {
       alignItems: "baseline",
     }}>
       <span style={{
-        fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.16em",
+        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.16em",
         textTransform: "uppercase", color: T.inkMute,
       }}>{k}</span>
       <span style={{
@@ -249,7 +249,7 @@ function ColLine({ k, children }: { k: string; children: React.ReactNode }) {
 }
 
 const th: React.CSSProperties = {
-  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
   color: T.inkMute, textTransform: "uppercase", textAlign: "left",
   fontWeight: 600, padding: "8px 14px 10px 0",
 };

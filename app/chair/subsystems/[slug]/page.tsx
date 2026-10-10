@@ -117,7 +117,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
       <div className="chair-pad" style={{ padding: "50px 100px 0", maxWidth: 1200, margin: "0 auto" }}>
         {/* breadcrumb */}
         <div style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 36,
         }}>
           <Link href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</Link>
@@ -153,7 +153,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
             }}>{s.subtitle}</p>
             <div style={{
               display: "flex", gap: 24, flexWrap: "wrap",
-              fontFamily: FONT.mono, fontSize: 10,
+              fontFamily: FONT.mono, fontSize: 11,
               letterSpacing: "0.18em", textTransform: "uppercase",
               color: T.inkMute,
             }}>
@@ -202,7 +202,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
           {prev ? (
             <Link href={`/chair/subsystems/${prev.slug}`} style={navStyle()}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase", marginBottom: 6,
               }}>← Subsystem {prev.num}</div>
               <div style={{
@@ -215,7 +215,7 @@ export default async function SubsystemDetailPage({ params }: PageProps) {
             <Link href={`/chair/subsystems/${next.slug}`}
                style={{ ...navStyle(), textAlign: "right" }}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase", marginBottom: 6,
               }}>Subsystem {next.num} →</div>
               <div style={{

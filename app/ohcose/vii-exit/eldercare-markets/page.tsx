@@ -79,7 +79,7 @@ function CareTiers() {
           <div key={t.tier} style={{ borderLeft: `3px solid ${accent}`, background: "var(--color-paper)", padding: "0.75rem" }}>
             <div className="flex justify-between items-baseline">
               <div>
-                <span className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: accent, fontWeight: 700 }}>Tier {t.tier}</span>
+                <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: accent, fontWeight: 700 }}>Tier {t.tier}</span>
                 <span style={{ marginLeft: "0.5rem", fontSize: "0.95rem", color: ink, fontWeight: 700 }}>{t.name}</span>
               </div>
               <div className="text-right">

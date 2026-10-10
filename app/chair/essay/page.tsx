@@ -347,7 +347,7 @@ function Epigraph() {
       &ldquo;I am not, on the whole, less happy. I am less sure what I
       would do with the chair turned off.&rdquo;
       <footer style={{
-        marginTop: "1rem", fontFamily: FONT.mono, fontSize: "0.66rem",
+        marginTop: "1rem", fontFamily: FONT.mono, fontSize: "0.7rem",
         letterSpacing: "0.22em", color: T.inkMute, textTransform: "uppercase",
         fontStyle: "normal",
       }}>— M.K., Pro · Cohort 2026.04</footer>
@@ -367,7 +367,7 @@ function TOC() {
       borderTop: `1px solid ${T.rule}`, borderBottom: `1px solid ${T.rule}`,
     }}>
       <p style={{
-        fontFamily: FONT.mono, fontSize: "0.66rem", letterSpacing: "0.28em",
+        fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
         color: T.accent, textTransform: "uppercase",
         margin: "0 0 1rem", fontWeight: 600,
       }}>◆ Contents</p>
@@ -411,7 +411,7 @@ function TOC() {
 function Body({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
-      maxWidth: "44rem", marginInline: "auto", marginBlock: "2rem",
+      maxWidth: "40rem", marginInline: "auto", marginBlock: "2rem",
     }}>{children}</div>
   );
 }
@@ -540,7 +540,7 @@ function SubsystemsList() {
                 color: T.inkDim, lineHeight: 1.55, marginBottom: 6,
               }}>{body}</div>
               <div style={{
-                fontFamily: FONT.mono, fontSize: "0.66rem",
+                fontFamily: FONT.mono, fontSize: "0.7rem",
                 color: T.inkMute, letterSpacing: "0.16em",
                 textTransform: "uppercase",
               }}>Inheritance: {lineage}</div>
@@ -622,7 +622,7 @@ function Notes() {
   return (
     <section aria-label="Notes" style={{
       marginTop: "4rem", paddingTop: "2rem",
-      borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
+      borderTop: `1px solid ${T.rule}`, maxWidth: "40rem", marginInline: "auto",
     }}>
       <h3 style={{
         fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
@@ -668,7 +668,7 @@ function Companions() {
   return (
     <section aria-label="Companion essays" style={{
       marginTop: "4rem", paddingTop: "2rem",
-      borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
+      borderTop: `1px solid ${T.rule}`, maxWidth: "40rem", marginInline: "auto",
     }}>
       <h3 style={{
         fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.28em",
@@ -683,7 +683,7 @@ function Companions() {
               gap: "0.6rem", textDecoration: "none", color: T.ink,
             }}>
               <span style={{
-                fontFamily: FONT.mono, fontSize: "0.66rem",
+                fontFamily: FONT.mono, fontSize: "0.7rem",
                 color: T.accent, letterSpacing: "0.18em",
                 textTransform: "uppercase", fontWeight: 700,
               }}>{it.section}</span>
@@ -742,7 +742,7 @@ function Artifacts() {
       aria-label="Route map"
       style={{
         marginTop: "4rem", paddingTop: "2rem",
-        borderTop: `1px solid ${T.rule}`, maxWidth: "44rem", marginInline: "auto",
+        borderTop: `1px solid ${T.rule}`, maxWidth: "40rem", marginInline: "auto",
       }}
     >
       <h3 style={{
@@ -763,7 +763,7 @@ function Artifacts() {
       {groups.map((g) => (
         <div key={g.heading} style={{ marginBottom: "2.2rem" }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: "0.66rem", letterSpacing: "0.24em",
+            fontFamily: FONT.mono, fontSize: "0.7rem", letterSpacing: "0.24em",
             color: T.inkMute, textTransform: "uppercase",
             fontWeight: 600, margin: "0 0 0.8rem",
             paddingBottom: "0.4rem",

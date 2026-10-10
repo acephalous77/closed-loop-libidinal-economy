@@ -192,9 +192,9 @@ function WellnessDashboard() {
           <text x="60" y="80" fontSize="14" fontFamily="ui-monospace, monospace" textAnchor="middle" fill={ink70}>/ 100</text>
         </svg>
         <div className="flex-1">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>Composite Wellness</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>Composite Wellness</div>
           <div style={{ fontSize: "1.1rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>STRONG · cohort 78th percentile</div>
-          <div className="uppercase tracking-wider mt-sm" style={{ fontSize: "0.65rem", color: ink50 }}>7-day trajectory</div>
+          <div className="uppercase tracking-wider mt-sm" style={{ fontSize: "0.7rem", color: ink50 }}>7-day trajectory</div>
           <div style={{ fontSize: "0.85rem", color: ink70, marginTop: "0.15rem" }}>↑ 4 points · steady improvement</div>
         </div>
       </div>
@@ -206,7 +206,7 @@ function WellnessDashboard() {
             <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>{m.name}</div>
             <div className="flex items-baseline gap-xs mt-xs">
               <span className="tabular-nums" style={{ fontSize: "1.1rem", color: ink, fontWeight: 700, lineHeight: 1 }}>{m.value}</span>
-              <span style={{ fontSize: "0.65rem", color: ink50 }}>{m.unit}</span>
+              <span style={{ fontSize: "0.7rem", color: ink50 }}>{m.unit}</span>
             </div>
           </div>
         ))}

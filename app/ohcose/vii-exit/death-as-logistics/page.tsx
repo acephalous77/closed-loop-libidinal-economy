@@ -83,10 +83,10 @@ function DeathForms() {
       <table className="w-full border-collapse">
         <thead>
           <tr style={{ borderBottom: "1.5px solid var(--color-ink)", background: "var(--color-paper)" }}>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>code</th>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>form</th>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>filed by</th>
-            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>window</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>code</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>form</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>filed by</th>
+            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>window</th>
           </tr>
         </thead>
         <tbody>

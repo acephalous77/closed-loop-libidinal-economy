@@ -235,7 +235,7 @@ function ChairFoot() {
             <div
               style={{
                 fontFamily: mono,
-                fontSize: "0.62rem",
+                fontSize: "0.7rem",
                 letterSpacing: "0.26em",
                 color: T.accent,
                 textTransform: "uppercase",
@@ -286,7 +286,7 @@ function ChairFoot() {
         style={{
           marginTop: "0.6rem",
           fontFamily: mono,
-          fontSize: "0.62rem",
+          fontSize: "0.7rem",
           letterSpacing: "0.24em",
           color: T.inkFaint,
           textAlign: "center",

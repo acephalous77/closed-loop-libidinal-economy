@@ -30,20 +30,20 @@ export const L = {
   paper: "#e9e3d6",
   ink: "#211d18",
   rule: "#c3bba7",
-  oxide: "#a8543c",
+  oxide: "#9e4f39",
   gloss: "#4f4a40",
-  faint: "#b3ab98",
+  faint: "#6e6551",
 };
 
 // DARK — Apparatus
 export const D = {
   bg: "#12141a",
   ink: "#d9d6cd",
-  dim: "#727987",
+  dim: "#767e8c",
   glow: "#f0a64e",
   oxide: "#e0894a",
   rule: "#2a2e39",
-  faint: "#4a505e",
+  faint: "#757e92",
 };
 
 export const SERIF = "var(--atlas-serif), Georgia, serif";

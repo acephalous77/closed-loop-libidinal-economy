@@ -113,9 +113,9 @@ function YieldStatement() {
       <table className="w-full border-collapse">
         <thead>
           <tr style={{ borderBottom: "1px solid var(--color-ink)" }}>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>channel</th>
-            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>yield</th>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>note</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>channel</th>
+            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>yield</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>note</th>
           </tr>
         </thead>
         <tbody>

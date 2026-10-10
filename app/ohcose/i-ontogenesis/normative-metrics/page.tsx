@@ -228,7 +228,7 @@ function GrowthComplianceReport() {
           const pct = (s.value / 100) * 100;
           return (
             <div key={s.name}>
-              <div className="flex justify-between items-baseline" style={{ fontSize: "0.65rem" }}>
+              <div className="flex justify-between items-baseline" style={{ fontSize: "0.7rem" }}>
                 <span style={{ color: ink, textTransform: "uppercase", letterSpacing: "0.04em" }}>{s.name}</span>
                 <span className="tabular-nums" style={{ color: ink70, fontWeight: 700 }}>{s.value}</span>
               </div>

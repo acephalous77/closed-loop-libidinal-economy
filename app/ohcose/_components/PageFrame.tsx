@@ -134,7 +134,7 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
               <div
                 className="font-mono uppercase"
                 style={{
-                  fontSize: "0.62rem",
+                  fontSize: "0.7rem",
                   letterSpacing: "0.16em",
                   color: "var(--color-ink-50)",
                   marginTop: "0.15rem",

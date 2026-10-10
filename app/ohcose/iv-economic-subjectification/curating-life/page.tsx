@@ -104,7 +104,7 @@ function LifestyleCard() {
         {sectors.map((s) => (
           <div key={s.name} style={{ border: "1px solid var(--color-paper-85)", padding: "0.6rem" }}>
             <div className="flex justify-between items-baseline">
-              <span className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>{s.name}</span>
+              <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>{s.name}</span>
               <span className="tabular-nums" style={{ fontSize: "1.05rem", color: ink, fontWeight: 700 }}>{s.score}</span>
             </div>
             <div style={{ fontSize: "0.7rem", color: ink70, marginTop: "0.2rem" }}>{s.position}</div>

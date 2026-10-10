@@ -276,7 +276,7 @@ export default function PatrioticTimesLanding() {
             style={{
               marginTop: "0.5rem",
               fontFamily: MONO,
-              fontSize: "0.72rem",
+              fontSize: "0.75rem",
               textTransform: "uppercase",
               letterSpacing: "0.2em",
               color: RED,
@@ -424,7 +424,7 @@ export default function PatrioticTimesLanding() {
                     style={{
                       marginTop: "0.8rem",
                       fontFamily: MONO,
-                      fontSize: "0.72rem",
+                      fontSize: "0.75rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.18em",
                       color: INK_50,
@@ -528,7 +528,7 @@ export default function PatrioticTimesLanding() {
                       aria-label={`Color the ${ev.title} plate`}
                       style={{
                         fontFamily: MONO,
-                        fontSize: "0.65rem",
+                        fontSize: "0.7rem",
                         textTransform: "uppercase",
                         letterSpacing: "0.2em",
                         color: RED,

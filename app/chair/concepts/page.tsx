@@ -56,7 +56,7 @@ export default function ConceptsPage() {
 
       <div className="chair-pad" style={{ padding: "60px 80px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <Link href="/chair/essay" style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 28,
         }}>← On the Chair · index</Link>
@@ -98,7 +98,7 @@ export default function ConceptsPage() {
               display: "flex", flexDirection: "column", minHeight: 360,
             }}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase",
                 fontWeight: 700, marginBottom: 10,
               }}>{it.id}</div>
@@ -108,7 +108,7 @@ export default function ConceptsPage() {
                 margin: "0 0 8px", lineHeight: 1.1,
               }}>{it.title}</h3>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.16em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.16em",
                 color: T.inkMute, textTransform: "uppercase", marginBottom: 14,
               }}>{it.tag}</div>
               <p style={{
@@ -118,7 +118,7 @@ export default function ConceptsPage() {
               <div style={{
                 marginTop: 16, paddingTop: 12,
                 borderTop: `0.5px solid ${T.rule}`,
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.16em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.16em",
                 textTransform: "uppercase", color: T.inkMute, lineHeight: 1.5,
               }}>
                 <div style={{ color: T.inkMute, marginBottom: 4 }}>Inheritance</div>

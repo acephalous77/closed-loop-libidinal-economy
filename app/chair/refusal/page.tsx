@@ -145,7 +145,7 @@ export default function RefusalPage() {
         <div style={{ margin: "52px auto 0", textAlign: "center" }}>
           <ChairGlyph size={40} stroke={T.accent} />
           <p style={{
-            marginTop: 16, fontFamily: FONT.mono, fontSize: 10,
+            marginTop: 16, fontFamily: FONT.mono, fontSize: 11,
             letterSpacing: "0.28em", textTransform: "uppercase",
             color: T.inkMute,
           }}>— end of § IX —</p>

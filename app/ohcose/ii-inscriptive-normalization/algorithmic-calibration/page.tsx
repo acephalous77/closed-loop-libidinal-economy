@@ -184,15 +184,15 @@ function PTFRRubric() {
       {/* Subject info */}
       <div className="grid grid-cols-3 gap-md mt-md mb-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>student</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>student</div>
           <div style={{ fontSize: "0.95rem", color: ink, marginTop: "0.15rem" }}>A____ B____</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>age</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>age</div>
           <div style={{ fontSize: "0.95rem", color: ink, marginTop: "0.15rem" }}>7 yrs</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>quarter</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>quarter</div>
           <div style={{ fontSize: "0.95rem", color: ink, marginTop: "0.15rem" }}>Q3</div>
         </div>
       </div>
@@ -207,7 +207,7 @@ function PTFRRubric() {
               </div>
               <div className="flex items-baseline gap-sm">
                 <span className="tabular-nums" style={{ fontSize: "1.15rem", color: accent, fontWeight: 700 }}>{r.value}</span>
-                <span className="uppercase" style={{ fontSize: "0.65rem", color: ink70, fontWeight: 700, letterSpacing: "0.08em" }}>{r.label}</span>
+                <span className="uppercase" style={{ fontSize: "0.7rem", color: ink70, fontWeight: 700, letterSpacing: "0.08em" }}>{r.label}</span>
               </div>
             </div>
             <div style={{ fontSize: "0.75rem", color: ink70, marginTop: "0.25rem", lineHeight: 1.4 }}>{r.note}</div>
@@ -217,7 +217,7 @@ function PTFRRubric() {
 
       {/* Trajectory */}
       <div className="mt-md pt-sm" style={{ borderTop: "1.5px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>overall Phase-II trajectory</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>overall Phase-II trajectory</div>
         <div style={{ fontSize: "0.9rem", color: ink, fontWeight: 700, marginTop: "0.2rem" }}>ON COURSE · benchmark-aligned</div>
         <div style={{ fontSize: "0.75rem", color: ink70, marginTop: "0.4rem", lineHeight: 1.4 }}>
           Profile aligns with Standard Consumer-Citizen development benchmarks. Caregivers encouraged to reinforce routines at home and reward positive compliance.

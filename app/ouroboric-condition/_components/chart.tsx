@@ -240,7 +240,7 @@ function SmallNode({
         <div style={{ position: "absolute", inset: term ? "24%" : "16%", color: dark ? D.glow : L.ink }}>{GLYPHS[s.id]}</div>
       </div>
       <div style={{ position: "absolute", top: "100%", left: "50%", transform: "translateX(-50%)", marginTop: 8, width: 168, textAlign: "center" }}>
-        <div className="mono" style={{ fontSize: 10, letterSpacing: "0.16em", color: figColor }}>
+        <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", color: figColor }}>
           FIG. {s.fig}
           {s.loop ? <span style={{ color: onDark ? D.dim : L.gloss }}> · {s.loop.scale}</span> : null}
         </div>
@@ -410,7 +410,7 @@ export function AtlasChart({ onOpen, hovered, setHovered, narrow = false }: Char
           <p className="serif ital" style={{ fontSize: 24, lineHeight: 1.4, color: L.ink, margin: "1.55em 0 0", paddingLeft: 22, borderLeft: `2px solid ${L.oxide}` }}>
             Whether we keep enough of it to matter, the map cannot tell us. It is the work the map is for.
           </p>
-          <div className="mono" style={{ fontSize: 10.5, letterSpacing: "0.18em", color: L.gloss, marginTop: 24 }}>
+          <div className="mono" style={{ fontSize: 11, letterSpacing: "0.18em", color: L.gloss, marginTop: 24 }}>
             THE PSYCHOPOLITICS OF PSYCHIC SURPLUS · A. SELIMOVIĆ
           </div>
         </div>

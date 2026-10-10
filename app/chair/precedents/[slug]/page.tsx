@@ -142,7 +142,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
 
       <div className="chair-pad" style={{ padding: "52px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 30,
         }}>
           <Link href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</Link>
@@ -183,7 +183,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
           ].map(([k, v]) => (
             <div key={k}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, fontWeight: 600,
                 textTransform: "uppercase", marginBottom: 8,
               }}>{k}</div>
@@ -215,7 +215,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
                 background: "rgba(255,253,245,0.5)", marginBottom: 24,
               }}>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                   color: T.accent, fontWeight: 600,
                   textTransform: "uppercase", marginBottom: 14,
                 }}>Source chain</div>
@@ -224,7 +224,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
                     padding: "10px 0", borderTop: `0.5px solid ${T.rule}`,
                   }}>
                     <div style={{
-                      fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.16em",
+                      fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.16em",
                       color: T.inkMute, marginBottom: 3, fontWeight: 600,
                       textTransform: "uppercase",
                     }}>{code}</div>
@@ -240,7 +240,7 @@ export default async function PrecedentDetailPage({ params }: PageProps) {
                 background: "rgba(255,253,245,0.5)",
               }}>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                   color: T.accent, fontWeight: 600,
                   textTransform: "uppercase", marginBottom: 14,
                 }}>Related precedents</div>

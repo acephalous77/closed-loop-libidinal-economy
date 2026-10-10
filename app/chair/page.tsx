@@ -32,8 +32,8 @@ const B = {
   panelSoft:"#f1f1ee",
   ink:      "#0d0d10",
   inkDim:   "#3a3a3e",
-  inkMute:  "#6e6e74",
-  inkFaint: "#a8a8ae",
+  inkMute:  "#68686f",
+  inkFaint: "#6d6d75",
   rule:     "rgba(13,13,16,0.10)",
   ruleSoft: "rgba(13,13,16,0.05)",
   accent:   "#15356c",
@@ -97,7 +97,7 @@ function Nav() {
           Ouroboros Life System
         </div>
         <span style={{
-          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
           color: B.inkMute, marginLeft: 8, textTransform: "uppercase",
         }}>v 4.2</span>
       </div>
@@ -120,7 +120,7 @@ function Nav() {
       </nav>
       <div style={{ display: "flex", justifyContent: "flex-end", gap: 14, alignItems: "center" }}>
         <span style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.18em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
           color: B.inkMute, textTransform: "uppercase",
         }} className="brochure-cohort">Cohort · 2026.05</span>
         <button style={{
@@ -150,7 +150,7 @@ function Hero() {
           cropping needed. */}
       <div style={{
         padding: "20px 32px 8px",
-        fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
         textTransform: "uppercase", color: B.inkDim,
         display: "flex", justifyContent: "space-between",
         alignItems: "baseline", flexWrap: "wrap", gap: 12,
@@ -185,7 +185,7 @@ function Hero() {
       }} className="brochure-hero-foot">
         <div>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             textTransform: "uppercase", color: B.inkMute, marginBottom: 16,
           }}>The apparatus in residence configuration</div>
           <h1 style={{
@@ -208,7 +208,7 @@ function Hero() {
             adopted your vocabulary as our own.&rdquo;
           </p>
           <div style={{
-            marginTop: 14, fontFamily: FONT.mono, fontSize: 9.5,
+            marginTop: 14, fontFamily: FONT.mono, fontSize: 11,
             letterSpacing: "0.22em", textTransform: "uppercase", color: B.inkMute,
           }}>
             — Aeternum Biometrics<br />foreword to the 2026 brochure
@@ -248,7 +248,7 @@ function Specs() {
       ].map(([k, v]) => (
         <div key={k}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             textTransform: "uppercase", color: "#a0a0a4", marginBottom: 8,
             fontWeight: 600,
           }}>{k}</div>
@@ -374,7 +374,7 @@ function RingDetail() {
                      style={{ objectFit: "contain", background: B.panel }} />
               <div style={{
                 position: "absolute", top: 14, left: 14,
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: B.paper, background: "rgba(13,13,16,0.78)",
                 padding: "5px 9px", textTransform: "uppercase",
               }}>● Fig. 2 · side · ringed</div>
@@ -396,7 +396,7 @@ function RingDetail() {
                       letterSpacing: "-0.005em", marginBottom: 4,
                     }}>{label}</div>
                     <div style={{
-                      fontFamily: FONT.mono, fontSize: 10.5,
+                      fontFamily: FONT.mono, fontSize: 11,
                       letterSpacing: "0.04em", color: B.inkMute, lineHeight: 1.55,
                     }}>{body}</div>
                   </div>
@@ -479,7 +479,7 @@ function OHCOSE() {
               marginBottom: 4,
             }}>{name}</div>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
               textTransform: "uppercase", color: B.inkMute, marginBottom: 18,
             }}>{win}</div>
             <p style={{
@@ -520,7 +520,7 @@ function Schematic() {
       }} className="brochure-schematic-head">
         <div style={{ color: "#ecead8", maxWidth: 620 }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: "#e9b94a", marginBottom: 14, textTransform: "uppercase",
             fontWeight: 600,
           }}>● 03 · Technical schematic</div>
@@ -542,7 +542,7 @@ function Schematic() {
         <div style={{
           padding: "10px 16px", background: "rgba(13,13,16,0.55)",
           border: "0.5px solid rgba(236,234,216,0.18)",
-          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           color: "#ecead8", textTransform: "uppercase", whiteSpace: "nowrap",
         }}>
           Drawing 04 · v 4.1 · Aeternum Biometrics
@@ -647,7 +647,7 @@ function Tiers() {
             border: t.highlight ? "none" : `0.5px solid ${B.rule}`,
           }}>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
               textTransform: "uppercase",
               color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 12,
             }}>● {t.code}</div>
@@ -665,7 +665,7 @@ function Tiers() {
               letterSpacing: "-0.018em", marginBottom: 8,
             }}>{t.price}</div>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 24,
             }}>per occupant · billed monthly</div>
@@ -679,7 +679,7 @@ function Tiers() {
                 }}>
                   <span style={{
                     color: t.highlight ? "#e9b94a" : B.accent,
-                    fontFamily: FONT.mono, fontSize: 10,
+                    fontFamily: FONT.mono, fontSize: 11,
                   }}>+</span>
                   {f}
                 </li>
@@ -743,7 +743,7 @@ function CTAandCostco() {
         }}>Begin onboarding →</button>
         <div style={{
           marginTop: 32,
-          fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           color: "rgba(236,234,216,0.5)", textTransform: "uppercase",
         }}>● Cohort 2026.05 opens next month</div>
       </div>
@@ -758,7 +758,7 @@ function CTAandCostco() {
           color: B.paper,
         }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             textTransform: "uppercase", marginBottom: 12, color: "#e9b94a",
           }}>● Or, on the way home</div>
           <div style={{
@@ -866,7 +866,7 @@ function SectionLabel({ n, k, color }: { n: string; k: string; color?: string })
     }}>
       <span style={{ width: 24, height: 1, background: c, display: "inline-block" }} />
       <span style={{
-        fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
         textTransform: "uppercase", color: c, fontWeight: 600,
       }}>{n} · {k}</span>
     </div>

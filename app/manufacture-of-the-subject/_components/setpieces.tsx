@@ -23,7 +23,7 @@ export function Meter({
         <span
           className="mono"
           style={{
-            fontSize: 10,
+            fontSize: 11,
             letterSpacing: ".18em",
             textTransform: "uppercase",
             color: "var(--bone-dim)",
@@ -31,7 +31,7 @@ export function Meter({
         >
           {label}
         </span>
-        <span className="mono" style={{ fontSize: 10, color: color || "var(--bone)" }}>
+        <span className="mono" style={{ fontSize: 11, color: color || "var(--bone)" }}>
           {Math.round(pct)}%
         </span>
       </div>
@@ -146,7 +146,7 @@ export function LoopDemo() {
           />
           <div className="flex between" style={{ gap: 12 }}>
             <div>
-              <div className="mono dim" style={{ fontSize: 10, letterSpacing: ".15em" }}>
+              <div className="mono dim" style={{ fontSize: 11, letterSpacing: ".15em" }}>
                 PULLS
               </div>
               <div className="bignum" style={{ fontSize: 34 }}>
@@ -154,7 +154,7 @@ export function LoopDemo() {
               </div>
             </div>
             <div>
-              <div className="mono dim" style={{ fontSize: 10, letterSpacing: ".15em" }}>
+              <div className="mono dim" style={{ fontSize: 11, letterSpacing: ".15em" }}>
                 SECONDS
               </div>
               <div className="bignum" style={{ fontSize: 34 }}>
@@ -162,7 +162,7 @@ export function LoopDemo() {
               </div>
             </div>
             <div>
-              <div className="mono dim" style={{ fontSize: 10, letterSpacing: ".15em" }}>
+              <div className="mono dim" style={{ fontSize: 11, letterSpacing: ".15em" }}>
                 JACKPOTS
               </div>
               <div className="bignum" style={{ fontSize: 34, color: "var(--acc)" }}>
@@ -304,7 +304,7 @@ export function DesireTags() {
                   <div
                     className="mono"
                     style={{
-                      fontSize: 9,
+                      fontSize: 11,
                       color: "var(--bone-faint)",
                       letterSpacing: ".1em",
                       textTransform: "uppercase",
@@ -376,7 +376,7 @@ export function AvatarSubject() {
               <div
                 className="mono"
                 style={{
-                  fontSize: 9,
+                  fontSize: 11,
                   letterSpacing: ".2em",
                   color: "var(--bone-faint)",
                   textTransform: "uppercase",
@@ -436,7 +436,7 @@ export function AvatarSubject() {
           </div>
           <div
             className="mono dim"
-            style={{ fontSize: 9, letterSpacing: ".15em", textTransform: "uppercase" }}
+            style={{ fontSize: 11, letterSpacing: ".15em", textTransform: "uppercase" }}
           >
             the profile, regularized
           </div>

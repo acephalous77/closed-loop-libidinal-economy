@@ -124,7 +124,7 @@ function MatchReport() {
       </div>
       <div className="flex justify-between items-center mt-md pt-sm" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
         <div style={{ fontSize: "0.75rem", color: ink70 }}>recommended next step: <span style={{ color: ink, fontWeight: 700 }}>in-person meeting · within 14 days</span></div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.45rem" }}>MCR-4-3</div>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.45rem" }}>MCR-4-3</div>
       </div>
     </div>
   );

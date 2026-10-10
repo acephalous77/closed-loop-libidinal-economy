@@ -63,15 +63,15 @@ export default function PatrioticTimesLayout({
           fontFamily: `var(--font-jetbrains-mono), ui-monospace, monospace`,
           textTransform: "uppercase",
           letterSpacing: "0.2em",
-          color: "#7a7163",
+          color: "#736a5d",
           borderTop: "1px solid #d8caa3",
         }}
       >
-        <Link href="/" style={{ color: "#7a7163", textDecoration: "none" }}>
+        <Link href="/" style={{ color: "#736a5d", textDecoration: "none" }}>
           ↑ autostimulus
         </Link>
         <span style={{ margin: "0 1rem", color: "#c5b694" }}>·</span>
-        <Link href="/patriotic-times/colophon" style={{ color: "#7a7163", textDecoration: "none" }}>
+        <Link href="/patriotic-times/colophon" style={{ color: "#736a5d", textDecoration: "none" }}>
           colophon
         </Link>
       </div>

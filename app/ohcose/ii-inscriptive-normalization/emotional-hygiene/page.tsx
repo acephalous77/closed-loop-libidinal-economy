@@ -183,9 +183,9 @@ function EmotionalHygieneReport() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Emotional Hygiene Compliance Report</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>subject ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject ID</div>
           <div style={{ fontSize: "0.95rem", color: ink, fontWeight: 700 }}>5217-CL</div>
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.65rem", color: ink50 }}>age 10 · Q3</div>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>age 10 · Q3</div>
         </div>
       </div>
 
@@ -194,12 +194,12 @@ function EmotionalHygieneReport() {
           const advisory = idx.status === "advisory";
           return (
             <div key={idx.name} style={{ border: "1px solid var(--color-paper-85)", padding: "0.7rem" }}>
-              <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>{idx.name}</div>
+              <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>{idx.name}</div>
               <div className="flex items-baseline gap-sm mt-xs">
                 <span className="tabular-nums" style={{ fontSize: "1.6rem", fontWeight: 700, color: advisory ? accent : ink, lineHeight: 1 }}>{idx.value}</span>
                 <span style={{ fontSize: "0.75rem", color: ink70 }}>/ {idx.max}</span>
               </div>
-              <div className="uppercase tracking-wider mt-xs tabular-nums" style={{ fontSize: "0.65rem", color: ink70 }}>
+              <div className="uppercase tracking-wider mt-xs tabular-nums" style={{ fontSize: "0.7rem", color: ink70 }}>
                 target {idx.target}
               </div>
             </div>
@@ -208,7 +208,7 @@ function EmotionalHygieneReport() {
       </div>
 
       <div className="mt-md">
-        <div className="uppercase tracking-wider mb-sm" style={{ fontSize: "0.65rem", color: ink50 }}>quarter events log</div>
+        <div className="uppercase tracking-wider mb-sm" style={{ fontSize: "0.7rem", color: ink50 }}>quarter events log</div>
         <ul style={{ listStyle: "none", padding: 0 }}>
           {events.map((e, i) => (
             <li key={i} style={{ borderTop: "1px solid var(--color-paper-85)", padding: "0.4rem 0", display: "grid", gridTemplateColumns: "4rem 1fr", gap: "0.6rem" }}>
@@ -221,7 +221,7 @@ function EmotionalHygieneReport() {
 
       <div className="flex justify-between items-center mt-md pt-sm" style={{ borderTop: "1.5px solid var(--color-ink)" }}>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink50 }}>overall</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>overall</div>
           <div style={{ fontSize: "0.95rem", color: ink, fontWeight: 700 }}>COMPLIANT · advisory (attentional)</div>
         </div>
         <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.25rem 0.5rem" }}>

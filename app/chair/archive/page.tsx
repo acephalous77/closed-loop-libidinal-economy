@@ -99,17 +99,17 @@ export default function ArchiveIndex() {
           marginBottom: 12, alignItems: "baseline",
         }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: A.inkMute, textTransform: "uppercase",
           }}>Sort</div>
           <span style={{
-            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             textTransform: "uppercase", color: A.accent, fontWeight: 700,
             borderBottom: `1px solid ${A.accent}`, paddingBottom: 2,
           }}>By code</span>
           <div style={{
             marginLeft: "auto",
-            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: A.inkMute, textTransform: "uppercase",
           }}>{ENTRIES.length} entries · further filings in compilation</div>
         </div>
@@ -156,7 +156,7 @@ export default function ArchiveIndex() {
                 </td>
                 <td style={{
                   ...td,
-                  fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
                   textTransform: "uppercase", color: A.inkMute,
                 }}>{e.topic}</td>
                 <td style={{ ...td, textAlign: "right",
@@ -195,7 +195,7 @@ export default function ArchiveIndex() {
 }
 
 const th: React.CSSProperties = {
-  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
   textTransform: "uppercase", color: A.inkMute, textAlign: "left",
   padding: "12px 16px 14px 0", fontWeight: 600,
 };

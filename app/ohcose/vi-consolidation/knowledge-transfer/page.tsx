@@ -88,9 +88,9 @@ function KTPlan() {
       <table className="w-full border-collapse">
         <thead>
           <tr style={{ borderBottom: "1.5px solid var(--color-ink)" }}>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>quarter</th>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>milestone</th>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>deliverable</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>quarter</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>milestone</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>deliverable</th>
           </tr>
         </thead>
         <tbody>

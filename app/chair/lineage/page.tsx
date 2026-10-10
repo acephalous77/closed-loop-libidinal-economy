@@ -47,7 +47,7 @@ export default function LineageIndex() {
 
       <div className="chair-pad" style={{ padding: "60px 80px 0", maxWidth: 1200, margin: "0 auto" }}>
         <Link href="/chair/essay" style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 36,
         }}>← On the Chair · § VII</Link>
@@ -93,7 +93,7 @@ export default function LineageIndex() {
                 transform: "translateX(-50%)", textAlign: "center", width: 100,
               }}>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.06em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.06em",
                   color: T.inkDim, marginBottom: 4,
                 }}>{d.year}</div>
                 <div style={{
@@ -143,7 +143,7 @@ export default function LineageIndex() {
                   </div>
                   <span style={{
                     padding: "2px 9px", background: c, color: T.paper,
-                    fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+                    fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
                     textTransform: "uppercase", fontWeight: 600, borderRadius: 2,
                     width: "fit-content",
                   }}>

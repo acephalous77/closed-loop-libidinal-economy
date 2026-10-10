@@ -226,7 +226,7 @@ export default async function ArchiveEntryPage({ params }: PageProps) {
         {/* left rail */}
         <div style={{ borderRight: `0.5px solid ${A.rule}`, paddingRight: 36 }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: A.inkMute, textTransform: "uppercase", lineHeight: 1.7,
           }}>
             <div style={{ color: A.accent, fontWeight: 600 }}>Entry {e.num}</div>
@@ -255,7 +255,7 @@ export default async function ArchiveEntryPage({ params }: PageProps) {
         {/* main */}
         <div>
           <Link href="/chair/archive" style={{
-            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: A.inkMute, textTransform: "uppercase",
             textDecoration: "none",
             display: "inline-block", marginBottom: 28,
@@ -295,7 +295,7 @@ export default async function ArchiveEntryPage({ params }: PageProps) {
                 background: "rgba(255,253,245,0.4)", alignSelf: "start",
               }}>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                   color: A.accent, textTransform: "uppercase",
                   fontWeight: 600, marginBottom: 10,
                 }}>Cross-refs · this entry</div>

@@ -135,7 +135,7 @@ export function OHCOSEWheel() {
             margin: "0 0 6px", color: T.ink,
           }}>Phase {sel + 1} · <em>{phase.name}</em></h2>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
             color: T.inkMute, textTransform: "uppercase", marginBottom: 22,
           }}>{phase.window} · extraction yield {Math.round(phase.yield * 100)}%</div>
 
@@ -157,7 +157,7 @@ export function OHCOSEWheel() {
             borderLeft: `2px solid ${T.accent}`,
           }}>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 8.5, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
               color: T.accent, textTransform: "uppercase", fontWeight: 700, marginBottom: 6,
             }}>Analytical note</div>
             <p style={{
@@ -168,7 +168,7 @@ export function OHCOSEWheel() {
 
           <div style={{ marginTop: 36 }}>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
               color: T.inkMute, textTransform: "uppercase", marginBottom: 12,
               display: "flex", justifyContent: "space-between",
             }}>
@@ -185,7 +185,7 @@ export function OHCOSEWheel() {
                    }}
                    style={{ width: "100%", accentColor: T.accent, cursor: "pointer" }} />
             <div style={{
-              fontFamily: FONT.mono, fontSize: 8.5, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
               color: T.inkFaint, textTransform: "uppercase", marginTop: 6,
               display: "flex", justifyContent: "space-between",
             }}>

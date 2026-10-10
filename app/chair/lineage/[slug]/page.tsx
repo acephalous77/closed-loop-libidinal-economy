@@ -163,7 +163,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
 
       <div className="chair-pad" style={{ padding: "60px 100px 0", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           textTransform: "uppercase", color: T.inkMute, marginBottom: 36,
         }}>
           <Link href="/chair/essay" style={{ color: "inherit", textDecoration: "none" }}>← On the Chair</Link>
@@ -181,7 +181,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
           }}>ITER {l.num}  ·  {l.year}</span>
           <span style={{
             padding: "2px 10px", background: verdictColor, color: T.paper,
-            fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.18em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
             textTransform: "uppercase", fontWeight: 600, borderRadius: 2,
           }}>
             {l.tag === "real" ? "● verified" :
@@ -211,7 +211,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
               {body.blocks.map((b, i) => (
                 <section key={i} style={{ marginBottom: 24 }}>
                   <div style={{
-                    fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+                    fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                     color: T.accent, textTransform: "uppercase", fontWeight: 600,
                     marginBottom: 10,
                   }}>{String(i + 1).padStart(2, "0")} · {b.title}</div>
@@ -227,7 +227,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
                 background: "rgba(255,253,245,0.7)",
               }}>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                   color: verdictColor, fontWeight: 700,
                   textTransform: "uppercase", marginBottom: 6,
                 }}>Brochure claim · vs. historical record</div>
@@ -269,7 +269,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
           {prev ? (
             <Link href={`/chair/lineage/${prev.slug}`} style={navStyle()}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase", marginBottom: 6,
               }}>← Iter {prev.num} · {prev.year}</div>
               <div style={{
@@ -282,7 +282,7 @@ export default async function LineageDetailPage({ params }: PageProps) {
             <Link href={`/chair/lineage/${next.slug}`}
                style={{ ...navStyle(), textAlign: "right" }}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: T.accent, textTransform: "uppercase", marginBottom: 6,
               }}>Iter {next.num} · {next.year} →</div>
               <div style={{
@@ -312,7 +312,7 @@ function Field({ k, children }: { k: string; children: React.ReactNode }) {
   return (
     <div style={{ marginBottom: 14 }}>
       <div style={{
-        fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
         color: T.inkMute, textTransform: "uppercase",
         fontWeight: 600, marginBottom: 5,
       }}>{k}</div>

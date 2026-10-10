@@ -56,7 +56,7 @@ export default function OhcoseLayout({
           href="/ohcose/colophon"
           className="font-mono uppercase hover:underline"
           style={{
-            fontSize: "0.65rem",
+            fontSize: "0.7rem",
             letterSpacing: "0.2em",
             color: "var(--color-ink-50)",
           }}
@@ -68,7 +68,7 @@ export default function OhcoseLayout({
           href="/"
           className="font-mono uppercase hover:underline"
           style={{
-            fontSize: "0.65rem",
+            fontSize: "0.7rem",
             letterSpacing: "0.2em",
             color: "var(--color-ink-50)",
           }}

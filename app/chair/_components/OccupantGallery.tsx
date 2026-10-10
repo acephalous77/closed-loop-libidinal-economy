@@ -90,13 +90,13 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
                      style={{ objectFit: "cover" }} />
               <div style={{
                 position: "absolute", top: 12, left: 12,
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: "#fff", background: "rgba(13,13,16,0.78)",
                 padding: "5px 9px", textTransform: "uppercase",
               }}>● Cohort {2026 - (i % 2)}.0{4 - i}</div>
               <div style={{
                 position: "absolute", top: 12, right: 12,
-                fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                 color: "#fff", background: "rgba(21,53,108,0.85)",
                 padding: "5px 9px", textTransform: "uppercase",
               }}>{o.phase}</div>
@@ -112,13 +112,13 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
                     letterSpacing: "-0.018em", lineHeight: 1, color: B.ink,
                   }}>{o.name}</div>
                   <div style={{
-                    marginTop: 6, fontFamily: FONT.mono, fontSize: 9.5,
+                    marginTop: 6, fontFamily: FONT.mono, fontSize: 11,
                     letterSpacing: "0.22em", textTransform: "uppercase",
                     color: B.inkMute,
                   }}>{o.tier}</div>
                 </div>
                 <span style={{
-                  fontFamily: FONT.mono, fontSize: 9, letterSpacing: "0.22em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
                   textTransform: "uppercase", color: B.accent, fontWeight: 600,
                   padding: "4px 9px", border: `0.5px solid ${B.accent}`,
                 }}>verified</span>
@@ -147,7 +147,7 @@ export function OccupantGallery({ tokens: B }: OccupantGalleryProps) {
           would do with the chair turned off.&rdquo;
         </p>
         <div style={{
-          marginTop: 22, fontFamily: FONT.mono, fontSize: 10,
+          marginTop: 22, fontFamily: FONT.mono, fontSize: 11,
           letterSpacing: "0.22em", textTransform: "uppercase",
           color: B.inkMute,
         }}>
@@ -178,7 +178,7 @@ function SectionLabel({ n, k, tokens: B, color }: {
     <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
       <span style={{ width: 24, height: 1, background: c, display: "inline-block" }} />
       <span style={{
-        fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
         textTransform: "uppercase", color: c, fontWeight: 600,
       }}>{n} · {k}</span>
     </div>

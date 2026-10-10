@@ -249,7 +249,7 @@ export function Intro() {
   return (
     <Stage id="intro" label="01 — Life-Time Value" a0="0" a1="0" v0="0" v1="0">
       <Opener n="01" op="Life-Time Value" age="the account opens" sub="i / vi" />
-      <h2 className="pull rev mt24">
+      <h2 className="pull rev mt64">
         Life-time
         <br />
         value
@@ -330,7 +330,7 @@ export function Ontogenesis() {
         </div>
         <div className="rev d2" style={{ flex: "1 1 300px", minWidth: 280 }}>
           <div style={{ border: "2px solid var(--bone)", padding: 20 }}>
-            <div className="mono dim" style={{ fontSize: 10, letterSpacing: ".2em", textTransform: "uppercase" }}>
+            <div className="mono dim" style={{ fontSize: 11, letterSpacing: ".2em", textTransform: "uppercase" }}>
               the short equation
             </div>
             <div className="anton mt16" style={{ fontSize: "clamp(28px,4vw,46px)", lineHeight: 0.9 }}>
@@ -507,7 +507,7 @@ export function LateAdulthood() {
             <div
               className="mono"
               style={{
-                fontSize: 10,
+                fontSize: 11,
                 letterSpacing: ".2em",
                 textTransform: "uppercase",
                 padding: "10px 14px",

@@ -48,7 +48,7 @@ export default function SubsystemsIndex() {
 
       <div className="chair-pad" style={{ padding: "60px 80px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <Link href="/chair/essay" style={{
-          fontFamily: FONT.mono, fontSize: 10, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           color: T.inkMute, textTransform: "uppercase",
           textDecoration: "none", display: "inline-block", marginBottom: 36,
         }}>← On the Chair · § V</Link>
@@ -109,7 +109,7 @@ export default function SubsystemsIndex() {
                   }}>{row.subtitle}</div>
                 </div>
                 <div style={{
-                  fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.16em",
+                  fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.16em",
                   textTransform: "uppercase", color: T.inkMute, lineHeight: 1.55,
                 }}>{row.inheritance}</div>
                 <span style={{

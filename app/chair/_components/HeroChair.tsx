@@ -74,7 +74,7 @@ export function HeroChair({
         )}
       </svg>
       <figcaption style={{
-        marginTop: 12, fontFamily: FONT.mono, fontSize: 10, color: mute,
+        marginTop: 12, fontFamily: FONT.mono, fontSize: 11, color: mute,
         letterSpacing: "0.22em", textTransform: "uppercase", textAlign: "center",
       }}>
         Fig. 0  ·  The apparatus  ·  side elevation, ringed

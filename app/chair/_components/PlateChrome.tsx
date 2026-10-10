@@ -104,7 +104,7 @@ export function PlateHeader({
           {NAV_GROUPS.map((group) => (
             <div key={group.label} style={{ marginBottom: 18 }}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.24em",
+                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.24em",
                 color: tokens.accent, textTransform: "uppercase",
                 fontWeight: 700, marginBottom: 8,
                 paddingBottom: 6, borderBottom: `0.5px solid ${tokens.rule}`,
@@ -140,7 +140,7 @@ export function PlateHeader({
         <div style={{
           display: "flex", justifyContent: "space-between", alignItems: "center",
           padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
-          fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
           textTransform: "uppercase", color: tokens.inkMute,
           gap: 14, flexWrap: "wrap",
         }}>
@@ -171,7 +171,7 @@ export function PlateHeader({
             gap: "0.9rem", flexWrap: "wrap",
             padding: "10px 24px",
             borderBottom: `0.75px solid ${tokens.rule}`,
-            fontFamily: FONT.mono, fontSize: 9.5, letterSpacing: "0.18em",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
             textTransform: "uppercase", color: tokens.inkMute,
           }}
         >
@@ -243,7 +243,7 @@ export function PlateFooter({
     <div className="plate-foot" style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
       padding: "14px 24px", borderTop: `0.75px solid ${tokens.rule}`,
-      fontFamily: FONT.mono, fontSize: 10.5, letterSpacing: "0.22em",
+      fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
       textTransform: "uppercase", color: tokens.inkMute,
       gap: 12, flexWrap: "wrap",
     }}>
@@ -354,7 +354,7 @@ export function Marginalia({
     [isLeft ? "right" : "left"]: "calc(100% + 18px)",
     width: 150,
     fontFamily: FONT.mono,
-    fontSize: 9.5,
+    fontSize: 11,
     lineHeight: 1.5,
     letterSpacing: "0.04em",
     textTransform: "uppercase",

@@ -186,6 +186,15 @@ summary:focus-visible,
   color: var(--color-paper);
 }
 
+/* Per-work selection — each world's ink over each world's paper.
+   (chair, manufacture, ouroboric, psychopolitics theme their own;
+   these are the remaining surfaces.) */
+.ohcose-theme ::selection { background: #9c1818; color: #ecebe5; }
+.patriotic-theme ::selection { background: #b8222a; color: #f4ecdc; }
+.zine-main ::selection { background: #0b0b0b; color: #e9e3d3; }
+.zine-main ::-moz-selection { background: #0b0b0b; color: #e9e3d3; }
+
+
 /* Display equations: contain long formulas so they scroll within their
    own block on narrow screens instead of stretching the page sideways.
    Without this, a wide MBlock (e.g. the Theorem 1' variance bound) forces
@@ -731,7 +740,7 @@ a.text-oxblood:hover {
   --color-ink: #0e0d0a;
   --color-ink-90: #1f1d18;
   --color-ink-70: #4a463e;
-  --color-ink-50: #7c766b;
+  --color-ink-50: #6f6a60;
   --color-paper: #ecebe5;        /* eggshell, less warm than atelier */
   --color-paper-95: #e0ddd4;
   --color-paper-85: #cdc8bd;

@@ -122,7 +122,7 @@ function Intro({ onEnter, vw }: { onEnter: () => void; vw: number }) {
           a reader landing here could enter the work but not leave it. The
           card is exactly viewport-height and must not scroll, so the link
           rides the existing footer line rather than a strip appended below. */}
-      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.18em", color: L.faint, marginTop: 20, position: "relative" }}>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.18em", color: L.faint, marginTop: 20, position: "relative" }}>
         17 SPECIMENS · 14 CHAPTERS · ONE APPARATUS
         <span style={{ margin: "0 0.75em" }}>·</span>
         <Link href="/" style={{ color: "inherit", textDecoration: "none" }}>
@@ -152,7 +152,7 @@ function IndexDrawer({ onOpen, onClose }: { onOpen: OpenFn; onClose: () => void 
         </div>
         {GROUPS.map((g) => (
           <div key={g.label} style={{ marginTop: 18 }}>
-            <div className="mono" style={{ fontSize: 9.5, letterSpacing: "0.18em", color: L.gloss, marginBottom: 8 }}>
+            <div className="mono" style={{ fontSize: 11, letterSpacing: "0.18em", color: L.gloss, marginBottom: 8 }}>
               {g.label.toUpperCase()}
             </div>
             {g.ids.map((id) => {
@@ -168,7 +168,7 @@ function IndexDrawer({ onOpen, onClose }: { onOpen: OpenFn; onClose: () => void 
                   style={{ display: "flex", alignItems: "center", gap: 12, width: "100%", textAlign: "left", background: "none", border: "none", borderBottom: `1px solid ${L.rule}`, padding: "10px 2px", cursor: "pointer" }}
                 >
                   <span style={{ flex: "0 0 auto", width: 13, height: 13, background: dark ? "#15171e" : "transparent", border: `1px solid ${dark ? "#3a3326" : L.ink}`, boxShadow: dark ? `inset 0 0 6px ${D.glow}66` : "none" }} />
-                  <span className="mono" style={{ flex: "0 0 auto", fontSize: 10, letterSpacing: "0.1em", color: L.oxide, width: 30 }}>
+                  <span className="mono" style={{ flex: "0 0 auto", fontSize: 11, letterSpacing: "0.1em", color: L.oxide, width: 30 }}>
                     {s.fig}
                   </span>
                   <span style={{ flex: 1 }}>
@@ -201,7 +201,7 @@ function Key({ onClose, narrow }: { onClose: () => void; narrow: boolean }) {
   return (
     <div className="atlas-root" style={{ position: "fixed", right: "max(14px, env(safe-area-inset-right))", bottom: "calc(max(14px, env(safe-area-inset-bottom)) + 52px)", width: "min(300px,90vw)", background: L.paper, border: `1px solid ${L.ink}`, padding: "16px 18px", zIndex: 30, boxShadow: "0 10px 40px rgba(0,0,0,.18)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-        <span className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: L.oxide }}>
+        <span className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: L.oxide }}>
           KEY
         </span>
         <button onClick={onClose} className="mono" style={{ fontSize: 14, color: L.gloss, background: "none", border: "none", cursor: "pointer" }}>
@@ -481,7 +481,7 @@ export default function AtlasApp() {
 
   const site = openId ? SITE[openId] : null;
   const ctrlStyle = (lbl: string): CSSProperties => ({
-    fontSize: lbl.length > 2 ? 10 : 16,
+    fontSize: lbl.length > 2 ? 11 : 16,
     letterSpacing: lbl.length > 2 ? "0.14em" : 0,
     minWidth: 38,
     height: 38,
@@ -514,14 +514,14 @@ export default function AtlasApp() {
         <Link
           href="/"
           className="mono"
-          style={{ fontSize: 10, letterSpacing: "0.18em", color: L.ink, textDecoration: "none", whiteSpace: "nowrap", background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 12px", pointerEvents: "auto", boxShadow: "0 2px 10px rgba(0,0,0,.08)" }}
+          style={{ fontSize: 11, letterSpacing: "0.18em", color: L.ink, textDecoration: "none", whiteSpace: "nowrap", background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 12px", pointerEvents: "auto", boxShadow: "0 2px 10px rgba(0,0,0,.08)" }}
         >
           ↑ AUTOSTIMULUS
         </Link>
         <button
           onClick={() => setIndexOpen(true)}
           className="mono"
-          style={{ fontSize: 10.5, letterSpacing: "0.14em", color: L.ink, background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 13px", cursor: "pointer", pointerEvents: "auto", boxShadow: "0 2px 10px rgba(0,0,0,.08)" }}
+          style={{ fontSize: 11, letterSpacing: "0.14em", color: L.ink, background: L.paper, border: `1px solid ${L.ink}`, padding: "8px 13px", cursor: "pointer", pointerEvents: "auto", boxShadow: "0 2px 10px rgba(0,0,0,.08)" }}
         >
           ☰ INDEX
         </button>
@@ -530,7 +530,7 @@ export default function AtlasApp() {
       {/* controls */}
       <div style={{ position: "fixed", right: "max(14px, env(safe-area-inset-right))", bottom: "max(14px, env(safe-area-inset-bottom))", display: "flex", gap: 6, alignItems: "center" }}>
         {!narrow && (
-          <div className="mono" style={{ fontSize: 10, color: L.gloss, marginRight: 4, width: 38, textAlign: "right" }}>
+          <div className="mono" style={{ fontSize: 11, color: L.gloss, marginRight: 4, width: 38, textAlign: "right" }}>
             {Math.round(scaleDisp * 100)}%
           </div>
         )}
@@ -568,7 +568,7 @@ export default function AtlasApp() {
             <div className="serif" style={{ flex: 1, padding: "8px 13px", fontSize: 17, color: L.ink, borderRight: `1px solid ${hovered ? L.oxide : L.ink}` }}>
               {hovered && SITE[hovered] ? SITE[hovered].title : "The Ouroboric Apparatus"}
             </div>
-            <div className="mono" style={{ padding: "8px 11px", fontSize: 10.5, color: hovered ? L.oxide : L.gloss, display: "flex", alignItems: "center" }}>
+            <div className="mono" style={{ padding: "8px 11px", fontSize: 11, color: hovered ? L.oxide : L.gloss, display: "flex", alignItems: "center" }}>
               FIG. {hovered && SITE[hovered] ? SITE[hovered].fig : "00"}
             </div>
           </div>
@@ -596,7 +596,7 @@ export default function AtlasApp() {
             onClick={(e) => open(hovered, e)}
             style={{ display: "block", width: "100%", textAlign: "left", background: "none", border: "none", cursor: "pointer", padding: "12px 36px 13px 14px" }}
           >
-            <div className="mono" style={{ fontSize: 9.5, letterSpacing: "0.16em", color: L.oxide }}>
+            <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", color: L.oxide }}>
               FIG. {SITE[hovered].fig}
             </div>
             <div className="serif" style={{ fontSize: 18, color: L.ink, marginTop: 4 }}>
@@ -605,7 +605,7 @@ export default function AtlasApp() {
             <div className="serif ital" style={{ fontSize: 13.5, lineHeight: 1.34, color: L.gloss, marginTop: 3 }}>
               {SITE[hovered].gloss}
             </div>
-            <div className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: L.oxide, marginTop: 9 }}>
+            <div className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: L.oxide, marginTop: 9 }}>
               TAP AGAIN TO DESCEND →
             </div>
           </button>

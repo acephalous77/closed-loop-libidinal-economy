@@ -132,7 +132,7 @@ export default function PlatesIndex() {
         <span
           style={{
             fontFamily: MONO,
-            fontSize: "0.72rem",
+            fontSize: "0.75rem",
             textTransform: "uppercase",
             letterSpacing: "0.2em",
             color: INK_50,
@@ -292,7 +292,7 @@ export default function PlatesIndex() {
                       <div
                         style={{
                           fontFamily: MONO,
-                          fontSize: "0.68rem",
+                          fontSize: "0.7rem",
                           textTransform: "uppercase",
                           letterSpacing: "0.18em",
                           color: RED,
@@ -332,7 +332,7 @@ export default function PlatesIndex() {
                           style={{
                             marginTop: "0.8rem",
                             fontFamily: MONO,
-                            fontSize: "0.65rem",
+                            fontSize: "0.7rem",
                             textTransform: "uppercase",
                             letterSpacing: "0.2em",
                             color: RED,

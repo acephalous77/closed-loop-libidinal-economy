@@ -160,7 +160,7 @@ export function FittingNotification({ delayMs = 45000 }: { delayMs?: number }) {
               animation: phase === "incoming" ? "fitting-pulse 1.6s ease-out infinite" : undefined,
             }}
           />
-          <span style={{ fontFamily: MONO, fontSize: 10, letterSpacing: "0.22em", color: tone, textTransform: "uppercase", fontWeight: 600 }}>
+          <span style={{ fontFamily: MONO, fontSize: 11, letterSpacing: "0.22em", color: tone, textTransform: "uppercase", fontWeight: 600 }}>
             {phase === "incoming" && "Ouroboros Industries · OS-Push"}
             {phase === "confirmed" && "◆ CONSENT REGISTERED · WAIT"}
             {phase === "refused" && "§6 FILED · ROUTING"}
@@ -339,7 +339,7 @@ export function FittingNotification({ delayMs = 45000 }: { delayMs?: number }) {
             style={{
               marginTop: 8,
               fontFamily: MONO,
-              fontSize: 9,
+              fontSize: 11,
               color: MUTED,
               letterSpacing: "0.16em",
               textTransform: "uppercase",

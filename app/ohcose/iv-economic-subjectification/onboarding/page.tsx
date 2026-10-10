@@ -112,11 +112,11 @@ function CareerTrajectoryPlan() {
       <table className="w-full border-collapse">
         <thead>
           <tr style={{ borderBottom: "1px solid var(--color-ink)" }}>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>year</th>
-            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>earnings</th>
-            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>debt servicing</th>
-            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>consumption</th>
-            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.65rem", color: ink70 }}>milestone</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>year</th>
+            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>earnings</th>
+            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>debt servicing</th>
+            <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>consumption</th>
+            <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>milestone</th>
           </tr>
         </thead>
         <tbody>

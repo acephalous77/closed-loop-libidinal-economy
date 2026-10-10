@@ -29,7 +29,7 @@ function Readout() {
   const ap = 5 - Math.floor((t / 1000) % 5);
   const row = (k: string, v: string, glow?: boolean) => (
     <div style={{ display: "flex", justifyContent: "space-between", gap: 16, padding: "6px 0", borderBottom: `1px solid ${D.rule}` }}>
-      <span className="mono" style={{ fontSize: 9.5, letterSpacing: "0.16em", color: D.dim }}>
+      <span className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", color: D.dim }}>
         {k}
       </span>
       <span className="mono" style={{ fontSize: 12, color: glow ? D.glow : D.ink }}>
@@ -39,7 +39,7 @@ function Readout() {
   );
   return (
     <div style={{ marginTop: 18, width: 220 }}>
-      <div className="mono" style={{ fontSize: 9, letterSpacing: "0.2em", color: D.glow, marginBottom: 4 }}>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: D.glow, marginBottom: 4 }}>
         ● CAPTURE · LIVE
       </div>
       {row("SESSION", session)}
@@ -131,7 +131,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
             ← THE ATLAS
           </button>
           {!narrow && (
-            <div className="mono" style={{ fontSize: 10, letterSpacing: "0.22em", color: c.accent }}>
+            <div className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: c.accent }}>
               {tag}
             </div>
           )}
@@ -146,7 +146,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
           </div>
         </div>
         {narrow && (
-          <div className="mono" style={{ fontSize: 9.5, letterSpacing: "0.22em", color: c.accent, textAlign: "center", marginTop: 12 }}>
+          <div className="mono" style={{ fontSize: 11, letterSpacing: "0.22em", color: c.accent, textAlign: "center", marginTop: 12 }}>
             {tag}
           </div>
         )}
@@ -187,13 +187,13 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
               <div className="serif ital" style={{ fontSize: narrow ? 21 : 25, lineHeight: 1.32, color: c.ink }}>
                 “{site.quote}”
               </div>
-              <div className="mono" style={{ fontSize: 10.5, letterSpacing: "0.16em", color: c.dim, marginTop: 10 }}>
+              <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", color: c.dim, marginTop: 10 }}>
                 {(site.quoteSource || "The Ouroboric Condition").toUpperCase()} · {site.cite.toUpperCase()}
               </div>
             </div>
             {/* genealogy */}
             <div style={{ marginTop: 30 }}>
-              <div className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: c.dim, marginBottom: 10 }}>
+              <div className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: c.dim, marginBottom: 10 }}>
                 READ THROUGH
               </div>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -234,7 +234,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
               ))}
               <Diagram size={dsize} tone={site.tone} />
             </div>
-            <div className="mono" style={{ fontSize: 9.5, letterSpacing: "0.16em", color: c.dim, marginTop: 12, textAlign: "center" }}>
+            <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", color: c.dim, marginTop: 12, textAlign: "center" }}>
               FIG. {site.fig} — {site.title.toUpperCase()}
             </div>
             {dark && <Readout />}
@@ -243,7 +243,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
 
         {/* interconnections */}
         <div style={{ marginTop: narrow ? 36 : 52, borderTop: `1px solid ${c.rule}`, paddingTop: 22 }}>
-          <div className="mono" style={{ fontSize: 10, letterSpacing: "0.2em", color: c.dim, marginBottom: 14 }}>
+          <div className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: c.dim, marginBottom: 14 }}>
             INTERCONNECTIONS · SEE ALSO
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
