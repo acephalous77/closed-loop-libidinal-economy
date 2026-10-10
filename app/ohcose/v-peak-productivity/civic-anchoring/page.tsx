@@ -57,7 +57,21 @@ export default function CivicAnchoring() {
             yields the subject's Civic Anchoring Index.
           </p>
           <AnchoringInventory />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 5.4.A — Phase-V Civic Anchoring Inventory (rev. 11.2)</p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 5.4.A</span> — Phase-V Civic Anchoring Inventory (rev. 11.2)
+            </p>
         </section>
         <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/v-peak-productivity/family-formation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.3 family formation</Link>

@@ -95,9 +95,21 @@ export default function AlgorithmicCalibration() {
               ))}
             </tbody>
           </table>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Tbl. 2.2.A — Phase-II classroom-instrument sampling spec
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 2.2.A</span> — Phase-II classroom-instrument sampling spec
+            </p>
         </section>
 
         <section>
@@ -112,9 +124,21 @@ export default function AlgorithmicCalibration() {
 
           <PTFRRubric />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 2.2.A — Specimen Form OHCOSE-PTFR/GenC, age 7
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 2.2.A</span> — Specimen Form OHCOSE-PTFR/GenC, age 7
+            </p>
         </section>
 
         <section>

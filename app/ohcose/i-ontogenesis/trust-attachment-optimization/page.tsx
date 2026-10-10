@@ -117,9 +117,21 @@ export default function TrustAttachmentOptimization() {
 
           <TransferCertificate />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 1.6.A — Specimen Phase I → Phase II Transfer Certificate
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.6.A</span> — Specimen Phase I → Phase II Transfer Certificate
+            </p>
         </section>
 
         {/* 1.6.4 — Hand-off */}
@@ -216,13 +228,13 @@ function TransferCertificate() {
     >
       {/* Header */}
       <div className="text-center mb-md pb-sm" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", letterSpacing: "0.2em", color: ink50 }}>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>
           Office of Human Continuity &amp; Social Equilibrium
         </div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.1rem", color: ink, letterSpacing: "0.05em" }}>
           Certificate of Transfer
         </div>
-        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.55rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
+        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
           Phase I → Phase II
         </div>
       </div>
@@ -231,19 +243,19 @@ function TransferCertificate() {
       <div className="mb-md">
         <div className="grid grid-cols-2 gap-x-md gap-y-sm">
           <div>
-            <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>subject C-ID</div>
+            <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject C-ID</div>
             <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>C-2031-4A7Q-9X02-1A</div>
           </div>
           <div>
-            <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>cohort</div>
+            <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>cohort</div>
             <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.15rem" }}>2031 · region 4A</div>
           </div>
           <div>
-            <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>phase I duration</div>
+            <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>phase I duration</div>
             <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.15rem" }}>156 weeks</div>
           </div>
           <div>
-            <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>exit TAI / BR-A</div>
+            <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>exit TAI / BR-A</div>
             <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.15rem" }}>83 / 88</div>
           </div>
         </div>

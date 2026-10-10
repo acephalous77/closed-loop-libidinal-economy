@@ -53,7 +53,21 @@ export default function SovereignInterface() {
             operates. Each row records a metabolization.
           </p>
           <ChannelMap />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 8.2.A — Institutional channels and the Office channels that absorbed them</p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 8.2.A</span> — Institutional channels and the Office channels that absorbed them
+            </p>
         </section>
         <section>
           <SectionHead code="8.2.3" title="On the Indistinguishability" />

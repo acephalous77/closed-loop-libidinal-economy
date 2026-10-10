@@ -39,7 +39,21 @@ export default function ClosureOfTheCycle() {
             calibration parameters that meet the next cohort at Phase I.
           </p>
           <OuroborosDiagram />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 8.1.A — The Ouroboros Machine (closed-loop schematic)</p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 8.1.A</span> — The Ouroboros Machine (closed-loop schematic)
+            </p>
         </section>
         <section>
           <SectionHead code="8.1.2" title="Why the Cycle is Closed" />

@@ -77,9 +77,21 @@ export default function AlgorithmicNurseries() {
 
           <DailyStimulusTimeline />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 1.2.A — Sample 24-hr stimulus rotation for a subject at month 9
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.2.A</span> — Sample 24-hr stimulus rotation for a subject at month 9
+            </p>
         </section>
 
         {/* 1.2.3 — Brand-Primer Catalog */}
@@ -97,10 +109,10 @@ export default function AlgorithmicNurseries() {
           <table className="w-full font-mono text-sm border-collapse my-md">
             <thead>
               <tr style={{ borderBottom: "1.5px solid var(--color-ink)", background: "var(--color-paper-95)" }}>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>family</th>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>channel</th>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>onset</th>
-                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>cycles / day</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>family</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>channel</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>onset</th>
+                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>cycles / day</th>
               </tr>
             </thead>
             <tbody>
@@ -121,9 +133,21 @@ export default function AlgorithmicNurseries() {
               ))}
             </tbody>
           </table>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Tbl. 1.2.A — High-frequency Phase-I primer families (extract)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 1.2.A</span> — High-frequency Phase-I primer families (extract)
+            </p>
         </section>
 
         {/* 1.2.4 — Adaptive Response */}

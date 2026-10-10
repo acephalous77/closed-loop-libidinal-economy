@@ -204,6 +204,16 @@ const SECTIONS: Section[] = [
   },
 ];
 
+/** The fifteen results, in order — the scan-line index above the sections.
+ *  Short labels: the parenthetical scopes drop away. */
+const RESULTS = SECTIONS.flatMap((sec) =>
+  (sec.results ?? []).map((r) => ({
+    short: r.name.split(" (")[0],
+    href: r.href,
+    section: sec.no,
+  }))
+);
+
 export default function ApparatusIndex() {
   return (
     <main className="min-h-screen px-sm py-md max-w-[42rem] mx-auto">
@@ -229,6 +239,24 @@ export default function ApparatusIndex() {
         apparatus is the spine the prose mirrors at every load-bearing
         claim.
       </p>
+      <nav aria-label="Results index" className="mt-lg mb-xl border-y border-paper-85 py-sm">
+        <ol className="flex flex-wrap items-baseline gap-x-md gap-y-xs font-mono text-xs text-ink-70">
+          {RESULTS.map((r, i) => (
+            <li
+              key={r.href}
+              className={i > 0 ? "border-l border-paper-85 pl-md" : ""}
+            >
+              <Link
+                href={r.href}
+                className="hover:text-oxblood transition-colors duration-100"
+              >
+                {r.short}
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </nav>
+
       <ol className="space-y-md">
         {SECTIONS.map((section) => (
           <li key={section.no} className="border-l-2 border-paper-85 pl-sm">

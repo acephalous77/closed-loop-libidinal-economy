@@ -57,7 +57,21 @@ export default function AlgorithmicMentorship() {
             recommendation to logged outcome.
           </p>
           <MentorshipLoop />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 4.2.A — Mentor decision loop (steady state)</p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 4.2.A</span> — Mentor decision loop (steady state)
+            </p>
         </section>
         <section>
           <SectionHead code="4.2.3" title="The Ambition Index" />

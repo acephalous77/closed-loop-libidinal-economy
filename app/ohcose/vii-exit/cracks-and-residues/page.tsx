@@ -52,7 +52,21 @@ export default function CracksAndResidues() {
             classifications.
           </p>
           <AnomalyRegister />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Tbl. 7.5.A — Phase-VII Anomaly Register (extract, rev. 27.4)</p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 7.5.A</span> — Phase-VII Anomaly Register (extract, rev. 27.4)
+            </p>
         </section>
         <section>
           <SectionHead code="7.5.3" title="On Residues" />

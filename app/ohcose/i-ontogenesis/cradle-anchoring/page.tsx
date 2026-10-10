@@ -84,9 +84,9 @@ export default function CradleAnchoring() {
           <table className="w-full font-mono text-sm border-collapse my-md">
             <thead>
               <tr style={{ borderBottom: "1.5px solid var(--color-ink)", background: "var(--color-paper-95)" }}>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>ref.</th>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>measurement</th>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>instrument</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>ref.</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>measurement</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>instrument</th>
               </tr>
             </thead>
             <tbody>
@@ -108,11 +108,20 @@ export default function CradleAnchoring() {
           </table>
 
           <p
-            className="font-mono uppercase text-center"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}
-          >
-            Tbl. 1.1.A — Baseline capture sequence · acquisition time ≈ 14 min
-          </p>
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 1.1.A</span> — Baseline capture sequence · acquisition time ≈ 14 min
+            </p>
         </section>
 
         {/* ============= 1.1.3 — DATA FLOW VISUALIZATION ============= */}
@@ -137,11 +146,20 @@ export default function CradleAnchoring() {
             <CradleAnchoringSchematic />
           </div>
           <p
-            className="font-mono uppercase text-center"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}
-          >
-            Fig. 1.1.A — Cradle Anchoring data flow (simplified)
-          </p>
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.1.A</span> — Cradle Anchoring data flow (simplified)
+            </p>
         </section>
 
         {/* ============= 1.1.4 — C-ID FORMAT ============= */}
@@ -160,11 +178,20 @@ export default function CradleAnchoring() {
           </p>
           <SampleCIDCard />
           <p
-            className="font-mono uppercase text-center"
-            style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}
-          >
-            Fig. 1.1.B — Sample Consumer Identity card
-          </p>
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.1.B</span> — Sample Consumer Identity card
+            </p>
         </section>
 
         {/* ============= 1.1.5 — CAREGIVER NOTE ============= */}
@@ -206,7 +233,7 @@ export default function CradleAnchoring() {
           <div
             className="font-mono uppercase"
             style={{
-              fontSize: "0.55rem",
+              fontSize: "0.7rem",
               letterSpacing: "0.15em",
               color: "var(--color-ink-50)",
               border: "1px solid var(--color-paper-85)",
@@ -347,15 +374,15 @@ function SampleCIDCard() {
     >
       <div className="flex items-start justify-between mb-sm">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>OHCOSE</div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>Consumer Identity</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>OHCOSE</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>Consumer Identity</div>
         </div>
         <div
           className="font-mono uppercase"
           style={{
             background: "var(--color-oxblood)",
             color: "var(--color-paper)",
-            fontSize: "0.55rem",
+            fontSize: "0.7rem",
             fontWeight: 700,
             letterSpacing: "0.1em",
             padding: "0.15rem 0.35rem",
@@ -374,19 +401,19 @@ function SampleCIDCard() {
 
       <div className="grid grid-cols-2 gap-x-md gap-y-xs mt-md" style={{ color: "var(--color-ink-70)" }}>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem" }}>cohort</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem" }}>cohort</div>
           <div style={{ color: "var(--color-ink)", fontSize: "0.8rem" }}>2031</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem" }}>region</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem" }}>region</div>
           <div style={{ color: "var(--color-ink)", fontSize: "0.8rem" }}>4A</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem" }}>sequence</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem" }}>sequence</div>
           <div style={{ color: "var(--color-ink)", fontSize: "0.8rem" }}>7Q-9X02</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem" }}>posture</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem" }}>posture</div>
           <div style={{ color: "var(--color-ink)", fontSize: "0.8rem" }}>1A · compliant</div>
         </div>
       </div>

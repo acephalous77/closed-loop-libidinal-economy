@@ -119,9 +119,21 @@ export default function NormativeMetrics() {
 
           <GrowthComplianceReport />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 1.5.A — Sample Phase-I Growth &amp; Compliance Report (week 134)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.5.A</span> — Sample Phase-I Growth &amp; Compliance Report (week 134)
+            </p>
         </section>
 
         {/* 1.5.5 — Note */}
@@ -195,13 +207,13 @@ function GrowthComplianceReport() {
       {/* Header */}
       <div className="flex items-start justify-between mb-md pb-sm" style={{ borderBottom: "1.5px solid var(--color-ink)" }}>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink70 }}>OHCOSE / Phase I</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>OHCOSE / Phase I</div>
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.75rem", color: ink, marginTop: "0.15rem" }}>Growth &amp; Compliance Report</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>subject C-ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject C-ID</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>C-2031-4A7Q-9X02-1A</div>
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.55rem", color: ink50 }}>week 134 · age 2y 6mo</div>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>week 134 · age 2y 6mo</div>
         </div>
       </div>
 
@@ -209,12 +221,12 @@ function GrowthComplianceReport() {
       <div className="grid grid-cols-2 gap-md mb-md">
         {scores.map((s) => (
           <div key={s.name} style={{ border: "1px solid var(--color-paper-85)", padding: "0.75rem" }}>
-            <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>{s.name}</div>
+            <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>{s.name}</div>
             <div className="flex items-baseline gap-sm mt-xs">
               <span className="tabular-nums" style={{ fontSize: "1.6rem", fontWeight: 700, color: accent, lineHeight: 1 }}>{s.value}</span>
               <span className="tabular-nums" style={{ fontSize: "0.75rem", color: ink70 }}>/ {s.max}</span>
             </div>
-            <div className="uppercase tracking-wider mt-xs tabular-nums" style={{ fontSize: "0.55rem", color: ink70 }}>
+            <div className="uppercase tracking-wider mt-xs tabular-nums" style={{ fontSize: "0.7rem", color: ink70 }}>
               cohort percentile · {s.pct}
             </div>
           </div>
@@ -222,7 +234,7 @@ function GrowthComplianceReport() {
       </div>
 
       {/* Subscore bars */}
-      <div className="uppercase tracking-wider mb-sm" style={{ fontSize: "0.55rem", color: ink50 }}>sub-indicators</div>
+      <div className="uppercase tracking-wider mb-sm" style={{ fontSize: "0.7rem", color: ink50 }}>sub-indicators</div>
       <div className="space-y-xs">
         {subscores.map((s) => {
           const pct = (s.value / 100) * 100;
@@ -243,10 +255,10 @@ function GrowthComplianceReport() {
       {/* Footer verdict */}
       <div className="flex justify-between items-center mt-md pt-sm" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>phase II readiness</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>phase II readiness</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>ON-TRACK · target 2031.Q4</div>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.5rem" }}>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.5rem" }}>
           REPORT 5-G
         </div>
       </div>

@@ -71,6 +71,29 @@
   [data-role="panel"]::-webkit-scrollbar-track,[data-role="rail"]::-webkit-scrollbar-track{background:transparent}
   ::selection{background:oklch(0.55 0.13 250 / .35)}
 input[data-role=search]::placeholder{color:#8a90a8}
+
+  /* ── Field-guide print ────────────────────────────────────────────
+     Print reads as a plate + register: interactive chrome leaves the
+     page; the field prints full-width with its colors; the region
+     lists run as a two-column register; a provenance line closes. */
+  @media print {
+    @page { margin: 12mm; }
+    html, body { background: #fff !important; height: auto !important; overflow: visible !important; }
+    [data-atlas-root] { position: static !important; height: auto !important; min-height: 0 !important; display: block !important; background: #fff !important; overflow: visible !important; }
+    [data-role="tooltip"], [data-role="railtoggle"], [data-role="search"], [data-role="share"],
+    [data-role="export"], [data-role="reset"], [data-role="regions"], [data-role="tabs"],
+    [data-role="intro"], [data-role="intro-go"], [data-role="intro-threads"], [data-role="loading"],
+    [data-role="viewnote"], [data-role="thread"], [data-role="status"] { display: none !important; }
+    [data-role="stage"] { position: static !important; width: 100% !important; height: auto !important; min-height: 0 !important; margin: 0 0 8mm !important; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    [data-role="stage"] svg { width: 100% !important; height: auto !important; max-height: 235mm; }
+    [data-role="rail"], [data-role="panel"] { position: static !important; width: auto !important; max-width: 100% !important; height: auto !important; overflow: visible !important; background: transparent !important; border: none !important; box-shadow: none !important; page-break-inside: avoid; }
+    [data-role="rail"] { columns: 2; column-gap: 10mm; }
+    [data-atlas-root]::after {
+      content: "autostimulus.org · The Psychopolitics of Socialization · relational atlas · 2026";
+      display: block; margin-top: 6mm; padding-top: 2mm; border-top: 1px solid #999;
+      font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; color: #111;
+    }
+  }
 </style>
 </helmet>
 <div ref="{{ rootRef }}" data-atlas-root style="position:fixed;inset:0;display:flex;flex-direction:column;color:#e7eaf2;background:radial-gradient(120% 90% at 50% -10%, #14182300 0%, #0a0c12 70%), #0a0c12;overflow:hidden">

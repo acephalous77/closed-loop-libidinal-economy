@@ -77,9 +77,21 @@ export default function CaregiverAsInfrastructure() {
 
           <CompliancePostureCard />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 1.3.A — Sample Caregiver Compliance Posture (month 14)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.3.A</span> — Sample Caregiver Compliance Posture (month 14)
+            </p>
         </section>
 
         {/* 1.3.3 — Affective Parameters */}
@@ -99,9 +111,9 @@ export default function CaregiverAsInfrastructure() {
           <table className="w-full font-mono text-sm border-collapse my-md">
             <thead>
               <tr style={{ borderBottom: "1.5px solid var(--color-ink)", background: "var(--color-paper-95)" }}>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>parameter</th>
-                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>target</th>
-                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>tolerance</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>parameter</th>
+                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>target</th>
+                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>tolerance</th>
               </tr>
             </thead>
             <tbody>
@@ -121,9 +133,21 @@ export default function CaregiverAsInfrastructure() {
               ))}
             </tbody>
           </table>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Tbl. 1.3.A — Caregiver affective parameters (rev. 14.3)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 1.3.A</span> — Caregiver affective parameters (rev. 14.3)
+            </p>
         </section>
 
         {/* 1.3.4 — Advisory */}
@@ -202,11 +226,11 @@ function CompliancePostureCard() {
     >
       <div className="flex items-start justify-between mb-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink70 }}>OHCOSE / Phase I</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>OHCOSE / Phase I</div>
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.75rem", color: ink, marginTop: "0.15rem" }}>Caregiver Compliance Posture</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>caregiver ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>caregiver ID</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>K-2031-0F42</div>
         </div>
       </div>
@@ -243,7 +267,7 @@ function CompliancePostureCard() {
 
       <div className="flex justify-between items-center mt-md pt-sm" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>overall</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>overall</div>
           <div style={{ fontSize: "0.95rem", color: ink, fontWeight: 700 }}>COMPLIANT — advisory issued</div>
         </div>
         <div
@@ -251,7 +275,7 @@ function CompliancePostureCard() {
           style={{
             background: accent,
             color: "var(--color-paper)",
-            fontSize: "0.55rem",
+            fontSize: "0.7rem",
             fontWeight: 700,
             letterSpacing: "0.1em",
             padding: "0.2rem 0.5rem",

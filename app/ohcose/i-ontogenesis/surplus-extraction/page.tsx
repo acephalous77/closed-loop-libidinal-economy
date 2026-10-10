@@ -78,9 +78,21 @@ export default function SurplusExtraction() {
           <div style={{ border: "1px solid var(--color-paper-85)", background: "var(--color-paper-95)", padding: "1.5rem 1rem", margin: "1.5rem 0" }}>
             <ExtractionLoop />
           </div>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 1.4.A — Phase-I extraction loop (steady state)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 1.4.A</span> — Phase-I extraction loop (steady state)
+            </p>
         </section>
 
         {/* 1.4.3 — Smart-Companion */}
@@ -128,10 +140,10 @@ export default function SurplusExtraction() {
           <table className="w-full font-mono text-sm border-collapse my-md">
             <thead>
               <tr style={{ borderBottom: "1.5px solid var(--color-ink)", background: "var(--color-paper-95)" }}>
-                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>channel</th>
-                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>events / day</th>
-                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>capture rate</th>
-                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.6rem", color: "var(--color-ink-70)" }}>archive bytes</th>
+                <th className="text-left p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>channel</th>
+                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>events / day</th>
+                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>capture rate</th>
+                <th className="text-right p-xs uppercase tracking-wider" style={{ fontSize: "0.7rem", color: "var(--color-ink-70)" }}>archive bytes</th>
               </tr>
             </thead>
             <tbody>
@@ -150,9 +162,21 @@ export default function SurplusExtraction() {
               ))}
             </tbody>
           </table>
-          <p className="font-mono uppercase text-center" style={{ fontSize: "0.6rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Tbl. 1.4.A — Steady-state Phase-I extraction yields (month 30)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.7rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 1.4.A</span> — Steady-state Phase-I extraction yields (month 30)
+            </p>
         </section>
 
         {/* 1.4.5 — Caregiver Note */}

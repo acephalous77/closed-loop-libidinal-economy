@@ -60,7 +60,21 @@ export default function Onboarding() {
             schedule. A specimen is shown below.
           </p>
           <CareerTrajectoryPlan />
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>Fig. 4.1.A — Specimen Career Trajectory Plan (5-year horizon)</p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 4.1.A</span> — Specimen Career Trajectory Plan (5-year horizon)
+            </p>
         </section>
         <section>
           <SectionHead code="4.1.3" title="Note to the Subject" />

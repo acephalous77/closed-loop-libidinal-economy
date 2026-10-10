@@ -74,9 +74,21 @@ export default function TemporalCorridor() {
 
           <CorridorPassage />
 
-          <p className="font-mono uppercase text-center mt-sm" style={{ fontSize: "0.85rem", letterSpacing: "0.15em", color: "var(--color-ink-50)" }}>
-            Fig. 2.6.A — Phase-II passage diagram (subject path + surplus current)
-          </p>
+          <p
+              className="font-mono uppercase text-center mt-sm"
+              style={{
+                fontSize: "0.85rem",
+                letterSpacing: "0.15em",
+                color: "var(--color-ink-50)",
+                borderTop: "1px solid var(--color-paper-85)",
+                paddingTop: "0.45rem",
+                maxWidth: "var(--measure)",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
+            >
+              <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 2.6.A</span> — Phase-II passage diagram (subject path + surplus current)
+            </p>
         </section>
 
         <section>
