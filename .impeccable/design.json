@@ -1,0 +1,350 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T13:30:21",
+  "title": "Design System: autostimulus",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Warm Ink",
+        "canonical": "#1a1612",
+        "tonalRamp": [
+          "#2d261f",
+          "#4b4034",
+          "#695949",
+          "#88735e",
+          "#ac9986",
+          "#cbbfb4",
+          "#e6e0db",
+          "#f5f2f0"
+        ]
+      },
+      "ink-90": {
+        "role": "neutral",
+        "displayName": "Ink 90",
+        "canonical": "#2b2520",
+        "tonalRamp": [
+          "#2c2621",
+          "#493f36",
+          "#66584c",
+          "#847162",
+          "#a8988a",
+          "#c9beb6",
+          "#e5e0dc",
+          "#f4f2f0"
+        ]
+      },
+      "ink-70": {
+        "role": "neutral",
+        "displayName": "Ink 70",
+        "canonical": "#5a514a",
+        "tonalRamp": [
+          "#2a2623",
+          "#463f3a",
+          "#625851",
+          "#7e7168",
+          "#a3988f",
+          "#c5beb9",
+          "#e3e0dd",
+          "#f3f2f1"
+        ]
+      },
+      "ink-50": {
+        "role": "neutral",
+        "displayName": "Ink 50",
+        "canonical": "#6f665b",
+        "tonalRamp": [
+          "#2a2722",
+          "#464039",
+          "#625a50",
+          "#7e7467",
+          "#a39a8f",
+          "#c6c0b9",
+          "#e3e1dd",
+          "#f4f2f1"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cream Paper",
+        "canonical": "#f4ede0",
+        "tonalRamp": [
+          "#382c14",
+          "#5e4921",
+          "#84662f",
+          "#a9833c",
+          "#caa868",
+          "#dec8a1",
+          "#efe5d2",
+          "#f8f4ec"
+        ]
+      },
+      "paper-95": {
+        "role": "neutral",
+        "displayName": "Paper 95",
+        "canonical": "#ebe3d3",
+        "tonalRamp": [
+          "#352b18",
+          "#584828",
+          "#7b6438",
+          "#9e8148",
+          "#bfa673",
+          "#d7c7a7",
+          "#ece4d5",
+          "#f7f4ed"
+        ]
+      },
+      "paper-85": {
+        "role": "neutral",
+        "displayName": "Paper 85",
+        "canonical": "#ddd2bd",
+        "tonalRamp": [
+          "#322a1a",
+          "#54462b",
+          "#76623d",
+          "#977e4e",
+          "#baa378",
+          "#d4c6ab",
+          "#eae3d7",
+          "#f6f4ee"
+        ]
+      },
+      "oxblood": {
+        "role": "primary",
+        "displayName": "Oxblood",
+        "canonical": "#7a1f1f",
+        "tonalRamp": [
+          "#3d0f0f",
+          "#661a1a",
+          "#8e2424",
+          "#b72e2e",
+          "#d65c5c",
+          "#e59999",
+          "#f3cece",
+          "#faebeb"
+        ]
+      },
+      "oxblood-dark": {
+        "role": "neutral",
+        "displayName": "Oxblood Deep",
+        "canonical": "#5e1818",
+        "tonalRamp": [
+          "#3d1010",
+          "#661a1a",
+          "#8e2424",
+          "#b72f2f",
+          "#d65c5c",
+          "#e59999",
+          "#f3cece",
+          "#faebeb"
+        ]
+      },
+      "fog": {
+        "role": "neutral",
+        "displayName": "Fog",
+        "canonical": "#b8aea0",
+        "tonalRamp": [
+          "#2c2721",
+          "#494137",
+          "#665b4c",
+          "#837662",
+          "#a89b8a",
+          "#c8c1b6",
+          "#e5e1dc",
+          "#f4f3f0"
+        ]
+      },
+      "slate": {
+        "role": "neutral",
+        "displayName": "Slate",
+        "canonical": "#3c4a52",
+        "tonalRamp": [
+          "#20282c",
+          "#36424a",
+          "#4b5d67",
+          "#617885",
+          "#899da9",
+          "#b5c2c9",
+          "#dce2e5",
+          "#f0f3f4"
+        ]
+      },
+      "moss": {
+        "role": "neutral",
+        "displayName": "Moss",
+        "canonical": "#5a6b3c",
+        "tonalRamp": [
+          "#29311b",
+          "#45522e",
+          "#607240",
+          "#7c9352",
+          "#a1b67c",
+          "#c4d1ad",
+          "#e3e9d8",
+          "#f3f6ef"
+        ]
+      },
+      "formal-bg": {
+        "role": "neutral",
+        "displayName": "Formal Ground",
+        "canonical": "#ede6d7",
+        "tonalRamp": [
+          "#352c18",
+          "#584928",
+          "#7b6637",
+          "#9e8347",
+          "#c0a772",
+          "#d7c8a7",
+          "#ece5d5",
+          "#f7f4ed"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Work covers and mastheads; EB Garamond, italic by register."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose; 65-75ch measure."
+      },
+      "label": {
+        "displayName": "Label / Mono",
+        "purpose": "Registers, codes, counts, form fields; the rendered voice."
+      }
+    },
+    "shadows": [
+      {
+        "name": "zine-spread",
+        "value": "0 24px 60px rgba(0,0,0,0.75), 0 4px 10px rgba(0,0,0,0.5)",
+        "purpose": "The chair zine's letterhead card only; print logic, authored direction."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-press",
+        "value": "cubic-bezier(.72, 0, .24, 1)",
+        "purpose": "The landing flyer's ink-press wipe; the house's one authored transition."
+      },
+      {
+        "name": "duration-press",
+        "value": "340ms",
+        "purpose": "Ink-press wipe duration."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "instant",
+        "purpose": "globals collapses all animation/transition and smooth scroll under prefers-reduced-motion."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "phone",
+        "value": "640px"
+      },
+      {
+        "name": "sheet",
+        "value": "1100px"
+      },
+      {
+        "name": "gutter",
+        "value": "1300px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Quiet Nav Link",
+      "kind": "nav",
+      "refersTo": "breadcrumb",
+      "description": "The house's default nav/breadcrumb link: mono, uppercase, letterspaced.",
+      "html": "<a class=\"ds-navlink\" href=\"#\">the argument</a>",
+      "css": ".ds-navlink { font-family: var(--font-jetbrains-mono, ui-monospace, Menlo, monospace); font-size: 0.781rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--color-ink-70, #5a514a); text-decoration: none; transition: color 100ms; } .ds-navlink:hover, .ds-navlink:focus-visible { color: var(--color-oxblood, #7a1f1f); outline: none; } .ds-navlink:focus-visible { outline: 2px solid var(--color-oxblood, #7a1f1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Register Chip",
+      "kind": "chip",
+      "refersTo": "register-chip",
+      "description": "The signature stamped block: bordered, letterspaced mono for codes, states and editions.",
+      "html": "<span class=\"ds-register\">OHCOSE-P1/S</span>",
+      "css": ".ds-register { display: inline-block; font-family: var(--font-jetbrains-mono, ui-monospace, Menlo, monospace); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-ink-70, #5a514a); border: 1px solid var(--color-paper-85, #ddd2bd); padding: 0.35rem 0.55rem; }"
+    },
+    {
+      "name": "Rule Heading",
+      "kind": "custom",
+      "refersTo": "rule-heading",
+      "description": "Index heading: accent letter/number with a hairline to the margin.",
+      "html": "<h2 class=\"ds-rulehead\"><span class=\"ds-rulehead-mark\">A</span><span class=\"ds-rulehead-rule\"></span></h2>",
+      "css": ".ds-rulehead { display: flex; align-items: baseline; gap: 1.5rem; margin: 0 0 1.5rem; } .ds-rulehead-mark { font-family: var(--font-jetbrains-mono, ui-monospace, Menlo, monospace); font-size: 1.35rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--color-oxblood, #7a1f1f); } .ds-rulehead-rule { flex: 1; border-bottom: 1px solid var(--color-paper-85, #ddd2bd); }"
+    },
+    {
+      "name": "Footnote Line",
+      "kind": "custom",
+      "refersTo": "footnote-asterisk",
+      "description": "Serif italic note with a leading accent asterisk; mounts under artifacts.",
+      "html": "<p class=\"ds-footnote\"><span class=\"ds-footnote-mark\">✱</span>Corporate intimidation disrupts the vote.</p>",
+      "css": ".ds-footnote { font-family: var(--font-eb-garamond-full, Georgia, serif); font-style: italic; font-size: 1rem; line-height: 1.45; color: var(--color-ink-70, #5a514a); max-width: 38rem; margin: 0.75rem 0 0; } .ds-footnote-mark { color: var(--color-oxblood, #7a1f1f); font-style: normal; font-weight: 700; margin-right: 0.5rem; }"
+    },
+    {
+      "name": "Primary Action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The house's ink-on-paper action button (print/run controls).",
+      "html": "<button class=\"ds-btn\">print / save as pdf</button>",
+      "css": ".ds-btn { font-family: var(--font-jetbrains-mono, ui-monospace, Menlo, monospace); font-size: 0.875rem; background: var(--color-ink, #1a1612); color: var(--color-paper, #f4ede0); border: none; padding: 0.6rem 1.1rem; cursor: pointer; letter-spacing: 0.04em; transition: background 100ms; } .ds-btn:hover { background: var(--color-oxblood, #7a1f1f); } .ds-btn:focus-visible { outline: 2px solid var(--color-oxblood, #7a1f1f); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Atelier of Registers",
+    "overview": "One press, seven registers. autostimulus is built like a small print shop: a shared substrate of cream paper, warm off-black ink, and one oxblood accent — and then each work pulls from its own drawer of papers, inks and faces, and speaks in it without apology. The shell is austere because the works are not. The system's discipline is in what it refuses: no third-party requests, no analytics, no tracking, no engagement loops, no SaaS-aesthetic chrome.",
+    "keyCharacteristics": [
+      "One shell palette (cream/ink/oxblood) + per-work register token files as the only sanctioned overrides.",
+      "Two faces carry the house: EB Garamond (the lived) and JetBrains Mono (the rendered).",
+      "Structural device: the hairline rule. Squares, rules, registers - no rounded SaaS chrome.",
+      "Legibility is a floor: functional text >= 11px, contrast >= 4.5:1 in every register, light or dark."
+    ],
+    "rules": [
+      {
+        "name": "The Register Rule",
+        "body": "A work never edits the shell palette; it imports its own token record and overrides inside its own subtree.",
+        "section": "colors"
+      },
+      {
+        "name": "The AA Floor Rule",
+        "body": "Muted tiers are contrast-audited per register on their own paper, light and dark.",
+        "section": "colors"
+      },
+      {
+        "name": "The Floor Rule",
+        "body": "Functional text never falls below 11px; body prose runs 1.125rem.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Voices Rule",
+        "body": "Serif is the lived, mono is the rendered: machine-filed strings speak in mono, person-voiced strings in serif.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. A shell component that needs a drop shadow is a component in the wrong register.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep each work's token file as its single color source; override in the register, never in the shell.",
+      "Do hold the Floor Rule and the AA Floor Rule on every register's own paper, light and dark.",
+      "Do draw structure with rules and registers before reaching for cards, shadows or radii.",
+      "Do serve every asset from the house; a third-party request is a design failure on this site.",
+      "Do theme the browser's surfaces in a work's register: selection, focus rings, print.",
+      "Do verify interactive pages with a console capture, not only visuals."
+    ],
+    "donts": [
+      "Don't introduce rounded, shadowed, or gradient SaaS chrome; the radius inventory is 1px and the floor is flat.",
+      "Don't use system faces as a work's display voice; self-host or don't ship it.",
+      "Don't let functional text live below 11px or muted tiers drift from their register's paper.",
+      "Don't preload what the route doesn't paint: Garamond Math stays off every preload.",
+      "Don't edit a work's published look by touching the shell's tokens."
+    ]
+  }
+}
