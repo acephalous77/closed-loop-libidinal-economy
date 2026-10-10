@@ -198,9 +198,20 @@ const SPINE_YEARS: Record<string, number> = {
   "/psychopolitics-atlas/index.html": 2026,
 };
 
+const SPINE_SHORT: Record<string, string> = {
+  "/manufacture-of-the-subject": "manufacture of the subject",
+  "/ouroboric-condition": "ouroboric condition",
+  "/chair": "the chair",
+  "/ohcose": "OHCOSE",
+  "/patriotic-times": "patriotic times",
+  "/closed-loop": "closed-loop",
+  "/psychopolitics-atlas/index.html": "psychopolitics atlas",
+};
+
 const SPINE = WORKS.map((w) => ({
   ...w,
   y: SPINE_YEARS[w.href] ?? 2026,
+  short: SPINE_SHORT[w.href] ?? w.title.toLowerCase(),
 })).sort((a, b) => a.y - b.y);
 
 export default function AtelierIndex() {
@@ -381,51 +392,46 @@ export default function AtelierIndex() {
           </ol>
         </section>
 
-        {/* ============ YEAR SPINE — the catalogue's temporal rule ============ */}
+        {/* ============ YEAR SPINE — the catalogue's chronology ============ */}
         <nav
           aria-label="Works by year"
-          style={{ marginTop: "7rem", position: "relative", height: "5.25rem" }}
+          style={{
+            marginTop: "7rem",
+            borderTop: `2px solid ${INK}`,
+            paddingTop: "1.2rem",
+            display: "flex",
+            flexWrap: "wrap",
+            columnGap: "1.6rem",
+            rowGap: "0.6rem",
+            alignItems: "baseline",
+            fontFamily: MONO,
+            fontSize: "0.7rem",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+          }}
         >
-          <div style={{ position: "absolute", left: 0, right: 0, top: 0, borderTop: `2px solid ${INK}` }} aria-hidden />
-          {SPINE.map((w) => {
-            const pct = ((w.y - 2015) / 11) * 100;
-            const shift = pct <= 1 ? "0" : pct >= 92 ? "-100%" : "-50%";
-            return (
-              <Link
-                key={w.href}
-                href={w.href}
-                title={w.title}
-                aria-label={`${w.title} — ${w.year}`}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: `${pct}%`,
-                  transform: `translateX(${shift})`,
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  textDecoration: "none",
-                }}
-              >
-                <span aria-hidden style={{ width: 1, height: "1rem", background: INK }} />
-                <span aria-hidden style={{ marginTop: "0.5rem", color: RED, fontSize: "0.72rem", lineHeight: 1 }}>
-                  {w.mark}
-                </span>
-                <span
-                  style={{
-                    marginTop: "0.4rem",
-                    fontFamily: MONO,
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.08em",
-                    color: INK_2,
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {w.year}
-                </span>
-              </Link>
-            );
-          })}
+          <span style={{ color: INK_2, fontWeight: 700 }}>Works · 2015—2026</span>
+          {SPINE.map((w) => (
+            <Link
+              key={w.href}
+              href={w.href}
+              title={w.title}
+              className="zine-footlink"
+              style={{
+                display: "inline-flex",
+                gap: "0.45rem",
+                alignItems: "baseline",
+                textDecoration: "none",
+                color: INK_2,
+              }}
+            >
+              <span aria-hidden style={{ color: RED }}>
+                {w.mark}
+              </span>
+              <span style={{ color: INK }}>{w.year}</span>
+              <span style={{ color: INK_2 }}>{w.short}</span>
+            </Link>
+          ))}
         </nav>
 
         {/* ============ COLOPHON FOOTER ============ */}

@@ -571,6 +571,7 @@ function Schematic() {
         .brochure-blueprint-hint { display: none; }
         @media (max-width: 700px) {
           .brochure-schematic-head { grid-template-columns: 1fr !important; padding: 40px 16px 18px !important; gap: 18px !important; }
+          .brochure-schematic-head > div:last-child { white-space: normal !important; max-width: 100% !important; }
           /* Fit-to-width, this front+side schematic is illegible on a phone.
              Show it at a readable height inside a horizontal scroller so the
              reader can pan across the detail the brochure wants studied. */

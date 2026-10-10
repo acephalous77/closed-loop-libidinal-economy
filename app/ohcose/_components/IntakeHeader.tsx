@@ -21,6 +21,13 @@ export function IntakeHeader({ phase, roman, name, span, protocols }: IntakeHead
     textTransform: "uppercase",
     color: "var(--color-ink-50)",
   };
+  const pair: React.CSSProperties = {
+    display: "inline-flex",
+    alignItems: "baseline",
+    gap: "0.5rem",
+    minWidth: 0,
+    flexWrap: "wrap",
+  };
   const value: React.CSSProperties = {
     fontFamily: mono,
     fontSize: "0.78rem",
@@ -34,36 +41,48 @@ export function IntakeHeader({ phase, roman, name, span, protocols }: IntakeHead
     >
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "auto 1fr auto 1fr auto 1fr",
-          gap: "0.4rem 1rem",
-          alignItems: "baseline",
+          display: "flex",
+          flexWrap: "wrap",
+          columnGap: "1.5rem",
+          rowGap: "0.5rem",
           paddingBottom: "0.65rem",
           borderBottom: "1px solid var(--color-paper-85)",
         }}
       >
-        <span style={label}>Form</span>
-        <span style={value}>OHCOSE-P{phase}/S</span>
-        <span style={label}>Edition</span>
-        <span style={value}>2025 · rev. 11</span>
-        <span style={label}>Status</span>
-        <span style={{ ...value, color: "var(--color-oxblood)" }}>open · filing mandatory</span>
+        <span style={pair}>
+          <span style={label}>Form</span>
+          <span style={value}>OHCOSE-P{phase}/S</span>
+        </span>
+        <span style={pair}>
+          <span style={label}>Edition</span>
+          <span style={value}>2025 · rev. 11</span>
+        </span>
+        <span style={pair}>
+          <span style={label}>Status</span>
+          <span style={{ ...value, color: "var(--color-oxblood)" }}>open · filing mandatory</span>
+        </span>
       </div>
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "auto 1fr auto 1fr",
-          gap: "0.4rem 1rem",
-          alignItems: "baseline",
+          display: "flex",
+          flexWrap: "wrap",
+          columnGap: "1.5rem",
+          rowGap: "0.5rem",
           paddingTop: "0.65rem",
         }}
       >
-        <span style={label}>Subject</span>
-        <span style={value}>Phase {roman} — {name}</span>
-        <span style={label}>Span</span>
-        <span style={value}>{span}</span>
-        <span style={label}>Schedule</span>
-        <span style={value}>{protocols} sub-protocols · series {phase}.1–{phase}.{protocols}</span>
+        <span style={pair}>
+          <span style={label}>Subject</span>
+          <span style={value}>Phase {roman} — {name}</span>
+        </span>
+        <span style={pair}>
+          <span style={label}>Span</span>
+          <span style={value}>{span}</span>
+        </span>
+        <span style={pair}>
+          <span style={label}>Schedule</span>
+          <span style={value}>{protocols} sub-protocols · series {phase}.1–{phase}.{protocols}</span>
+        </span>
       </div>
     </div>
   );
