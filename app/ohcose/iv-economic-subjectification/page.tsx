@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
 import { LifecycleStrip } from "../_components/LifecycleStrip";
+import { IntakeHeader } from "../_components/IntakeHeader";
 
 export const metadata: Metadata = {
   title: "Phase IV — Economic Subjectification",
@@ -30,6 +31,8 @@ export default function PhaseIVEconomicSubjectification() {
 
       {/* Lifecycle strip — position in the eight-phase arc */}
       <LifecycleStrip current={4} />
+
+      <IntakeHeader phase={4} roman="IV" name="Economic Subjectification" span="19–30 yrs" protocols={6} />
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div className="font-mono uppercase mb-md" style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>Phase Statement</div>
         <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>

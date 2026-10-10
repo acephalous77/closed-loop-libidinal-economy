@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
 import { LifecycleStrip } from "../_components/LifecycleStrip";
+import { IntakeHeader } from "../_components/IntakeHeader";
 
 export const metadata: Metadata = {
   title: "Phase III — Adolescent Calibration",
@@ -79,6 +80,8 @@ export default function PhaseIIIAdolescentCalibration() {
 
       {/* Lifecycle strip — position in the eight-phase arc */}
       <LifecycleStrip current={3} />
+
+      <IntakeHeader phase={3} roman="III" name="Adolescent Calibration" span="13–18 yrs" protocols={6} />
 
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div

@@ -112,6 +112,39 @@ export default async function PlateColorPage({ params }: PageProps) {
         >
           {plate.location}, {plate.year}.
         </p>
+      </header>
+
+      {/* Canvas */}
+      <ColoringCanvas src={plate.src!} alt={`${plate.title} — line art for coloring`} />
+
+      {/* Mounting caption — the plate presented as a home-print edition:
+          edition line, title block, curatorial note (chapter-inked). */}
+      <div style={{ marginTop: "2.25rem", paddingTop: "1.25rem", borderTop: `1px solid ${INK}`, maxWidth: "44rem" }}>
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.72rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.2em",
+            color: INK_50,
+            marginBottom: "0.6rem",
+          }}
+        >
+          Patriotic Times · Plate № {plate.no.toString().padStart(2, "0")} of 63 · Edition 2025—2026 · home-print
+        </div>
+        <p
+          style={{
+            fontFamily: SERIF,
+            fontSize: "1.05rem",
+            fontStyle: "italic",
+            lineHeight: 1.45,
+            color: INK_70,
+            margin: 0,
+            maxWidth: "38rem",
+          }}
+        >
+          {plate.title}, {plate.year} — {plate.location}.
+        </p>
         {plate.note && (
           <p
             style={{
@@ -122,17 +155,14 @@ export default async function PlateColorPage({ params }: PageProps) {
               color: INK_70,
               marginTop: "0.75rem",
               marginBottom: 0,
-              maxWidth: "36rem",
+              maxWidth: "38rem",
             }}
           >
             <span style={{ color: plate.chapter ? CHAPTER_INKS[plate.chapter - 1] : RED, fontStyle: "normal", fontWeight: 700, marginRight: "0.5rem" }}>✱</span>
             {plate.note}
           </p>
         )}
-      </header>
-
-      {/* Canvas */}
-      <ColoringCanvas src={plate.src!} alt={`${plate.title} — line art for coloring`} />
+      </div>
 
       {(prev || next) && (
         <nav

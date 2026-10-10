@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
 import { LifecycleStrip } from "../_components/LifecycleStrip";
+import { IntakeHeader } from "../_components/IntakeHeader";
 
 export const metadata: Metadata = {
   title: "Phase VII — Exit",
@@ -29,6 +30,8 @@ export default function PhaseVIIExit() {
 
       {/* Lifecycle strip — position in the eight-phase arc */}
       <LifecycleStrip current={7} />
+
+      <IntakeHeader phase={7} roman="VII" name="Exit" span="65+ yrs" protocols={6} />
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">
         <div className="font-mono uppercase mb-md" style={{ fontSize: "1rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>Phase Statement</div>
         <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>

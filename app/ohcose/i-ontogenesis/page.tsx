@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PageFrame } from "../_components/PageFrame";
 import { PhaseBanner } from "../_components/PhaseBanner";
 import { LifecycleStrip } from "../_components/LifecycleStrip";
+import { IntakeHeader } from "../_components/IntakeHeader";
 
 export const metadata: Metadata = {
   title: "Phase I — Ontogenesis",
@@ -39,6 +40,8 @@ export default function PhaseIOntogenesis() {
 
       {/* Lifecycle strip — position in the eight-phase arc */}
       <LifecycleStrip current={1} />
+
+      <IntakeHeader phase={1} roman="I" name="Ontogenesis" span="0–3 yrs" protocols={6} />
 
       {/* Phase Statement */}
       <section className="mt-2xl max-w-[var(--measure)] mx-auto">

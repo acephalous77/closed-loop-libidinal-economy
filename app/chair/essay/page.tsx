@@ -393,6 +393,27 @@ function TOC() {
         ))}
       </ol>
       <style>{`
+        /* Side-margin notes — the endnote text rides the right gutter
+           beside its reference; ≤1300px it falls inline; print keeps
+           the collected Notes section only. */
+        .chair-sidenote {
+          float: right; clear: right;
+          width: 12rem;
+          margin: 0.35rem -13.5rem 1.1rem 1.35rem;
+          padding-top: 0.45rem;
+          border-top: 1px solid ${T.rule};
+          font-family: ${FONT.italic}, Georgia, serif;
+          font-size: 0.82rem; line-height: 1.5;
+          color: ${T.inkMute}; text-align: left;
+        }
+        @media (max-width: 1300px) {
+          .chair-sidenote {
+            float: none; width: auto;
+            margin: 0.9rem 0; padding: 0.6rem 0 0;
+          }
+        }
+        @media print { .chair-sidenote { display: none; } }
+
         @media (max-width: 900px) {
           .essay-toc-cols { column-count: 2 !important; }
         }
@@ -457,13 +478,25 @@ function Link({ href, children }: { href: string; children: React.ReactNode }) {
 }
 
 function Fn({ n }: { n: string }) {
+  const note = NOTES.find((x) => x.n === n);
   return (
-    <sup>
-      <a href={`#note-${n}`} id={`ref-${n}`} style={{
-        fontFamily: FONT.mono, color: T.accent, textDecoration: "none",
-        fontSize: "0.7em", padding: "0 0.15em", fontWeight: 600,
-      }}>[{n}]</a>
-    </sup>
+    <>
+      <sup>
+        <a href={`#note-${n}`} id={`ref-${n}`} style={{
+          fontFamily: FONT.mono, color: T.accent, textDecoration: "none",
+          fontSize: "0.7em", padding: "0 0.15em", fontWeight: 600,
+        }}>[{n}]</a>
+      </sup>
+      {note && (
+        <span aria-hidden className="chair-sidenote">
+          <span style={{
+            fontFamily: FONT.mono, fontSize: "0.72em", color: T.accent,
+            fontWeight: 600, marginRight: "0.35em",
+          }}>[{n}]</span>
+          {note.body}
+        </span>
+      )}
+    </>
   );
 }
 
