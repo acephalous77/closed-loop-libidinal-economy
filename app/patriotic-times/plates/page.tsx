@@ -18,7 +18,7 @@ const PAPER_DEEP = "#e8dcc0";
 const RED = "#b8222a";
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
+const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 
 const livePlateCount = PLATES.filter((p) => p.src !== null).length;

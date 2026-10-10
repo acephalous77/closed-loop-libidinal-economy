@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Anton } from "next/font/google";
 
 /**
  * Patriotic Times project layout — samizdat zine register.
@@ -14,6 +15,13 @@ import Link from "next/link";
  * Coe, Eric Drooker, World War 3 Illustrated. The plates do the
  * affective work; the typography stays out of their way.
  */
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  display: "swap",
+  weight: ["400"],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -43,12 +51,12 @@ export default function PatrioticTimesLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <div
-      className="patriotic-theme"
+      className={`patriotic-theme ${anton.variable}`}
       style={{
         minHeight: "100vh",
         background: "#f4ecdc",
         color: "#0a0a0a",
-        fontFamily: `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`,
+        fontFamily: `-apple-system, "Inter", "Helvetica Neue", system-ui, sans-serif`,
         letterSpacing: "-0.005em",
         colorScheme: "light",
       }}

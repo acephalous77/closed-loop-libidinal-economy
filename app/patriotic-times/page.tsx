@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { PLATES } from "./plates/_data";
 
 export const metadata: Metadata = {
   title: { absolute: "Patriotic Times — A Coloring Book" },
@@ -15,7 +16,7 @@ const PAPER_DEEP = "#e8dcc0";
 const RED = "#b8222a";
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", "Impact", system-ui, sans-serif`;
+const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 
 interface Event {
@@ -28,6 +29,11 @@ interface Event {
    *  legal decisions like Trump v. United States that aren't depicted). */
   plateSlug?: string;
 }
+
+/** Plate notes live in the plates' own data module (single source);
+ *  the two events without a plate keep their note inline here. */
+const noteFor = (slug?: string) =>
+  slug ? PLATES.find((p) => p.slug === slug)?.note : undefined;
 
 interface Chapter {
   no: string;
@@ -46,15 +52,15 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "The rapid, post-9/11 expansion of the security state; the loss of civil liberties; the early privatization of force.",
     events: [
-      { year: "2000", title: "The Brooks Brothers Riot", note: "Corporate intimidation disrupts the vote.", plateSlug: "the-brooks-brothers-riot" },
-      { year: "2001", title: "The USA PATRIOT Act", note: "The death of privacy.", plateSlug: "the-usa-patriot-act" },
-      { year: "2002", title: "Creation of DHS & ICE", note: "The domestic security apparatus is born.", plateSlug: "the-creation-of-dhs-and-ice" },
-      { year: "2004", title: "Guantanamo on the Hudson", note: "Preemptive mass arrests at the RNC.", plateSlug: "guantanamo-on-the-hudson" },
-      { year: "2004", title: "The Abu Ghraib Photographs", note: "Unchecked executive cruelty.", plateSlug: "the-abu-ghraib-photographs" },
-      { year: "2005", title: "Blackwater in New Orleans", note: "Private mercenaries patrol American streets.", plateSlug: "blackwater-in-new-orleans" },
-      { year: "2006", title: "The Military Commissions Act", note: "The stripping of habeas corpus.", plateSlug: "the-military-commissions-act" },
+      { year: "2000", title: "The Brooks Brothers Riot", plateSlug: "the-brooks-brothers-riot" },
+      { year: "2001", title: "The USA PATRIOT Act", plateSlug: "the-usa-patriot-act" },
+      { year: "2002", title: "Creation of DHS & ICE", plateSlug: "the-creation-of-dhs-and-ice" },
+      { year: "2004", title: "Guantanamo on the Hudson", plateSlug: "guantanamo-on-the-hudson" },
+      { year: "2004", title: "The Abu Ghraib Photographs", plateSlug: "the-abu-ghraib-photographs" },
+      { year: "2005", title: "Blackwater in New Orleans", plateSlug: "blackwater-in-new-orleans" },
+      { year: "2006", title: "The Military Commissions Act", plateSlug: "the-military-commissions-act" },
       { year: "2008", title: "St. Paul RNC Preemptive Raids", note: "Domestic activists as terror threats." },
-      { year: "2009", title: "Portsmouth Town Hall", note: "Armed intimidation enters mainstream politics.", plateSlug: "the-portsmouth-town-hall" },
+      { year: "2009", title: "Portsmouth Town Hall", plateSlug: "the-portsmouth-town-hall" },
     ],
     plate: {
       src: "/patriotic-times/plate-01-the-brooks-brothers-riot.webp",
@@ -69,18 +75,18 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "The state protecting corporate power, the militarization of local police, the asymmetric response to grassroots protests versus right-wing militias.",
     events: [
-      { year: "2010", title: "Citizens United v. FEC", note: "Dark money floods the system.", plateSlug: "citizens-united-v-fec" },
-      { year: "2011", title: "Eviction of Zuccotti Park / UC Davis Pepper Spray", note: "Crushing Occupy Wall Street.", plateSlug: "midnight-eviction-of-zuccotti" },
-      { year: "2011", title: "NDAA Indefinite Detention Clause", note: "Military jurisdiction expands.", plateSlug: "ndaa-indefinite-detention" },
-      { year: "2012", title: "H.R. 347", note: "Criminalization of protest near political figures.", plateSlug: "hr-347" },
-      { year: "2013", title: "The Snowden Revelations", note: "The physical footprint of the Panopticon.", plateSlug: "the-snowden-revelations" },
-      { year: "2013", title: "Shelby County v. Holder", note: "Gutting the Voting Rights Act.", plateSlug: "shelby-county-v-holder" },
-      { year: "2013", title: "The Watertown Siege", note: "A suburb under military lockdown.", plateSlug: "the-watertown-siege" },
-      { year: "2014", title: "The Bundy Ranch Standoff", note: "Paramilitaries face down the feds.", plateSlug: "the-bundy-ranch-standoff" },
-      { year: "2014", title: "Ferguson, Missouri", note: "Main Street becomes a war zone.", plateSlug: "ferguson-missouri" },
-      { year: "2015", title: "Baltimore, Maryland", note: "The National Guard locks down a city.", plateSlug: "baltimore-maryland" },
-      { year: "2016", title: "Malheur Wildlife Refuge", note: "An armed right-wing occupation goes unchecked.", plateSlug: "the-malheur-wildlife-refuge" },
-      { year: "2016", title: "Standing Rock", note: "Water cannons in the freezing cold for corporate oil.", plateSlug: "standing-rock" },
+      { year: "2010", title: "Citizens United v. FEC", plateSlug: "citizens-united-v-fec" },
+      { year: "2011", title: "Eviction of Zuccotti Park / UC Davis Pepper Spray", plateSlug: "midnight-eviction-of-zuccotti" },
+      { year: "2011", title: "NDAA Indefinite Detention Clause", plateSlug: "ndaa-indefinite-detention" },
+      { year: "2012", title: "H.R. 347", plateSlug: "hr-347" },
+      { year: "2013", title: "The Snowden Revelations", plateSlug: "the-snowden-revelations" },
+      { year: "2013", title: "Shelby County v. Holder", plateSlug: "shelby-county-v-holder" },
+      { year: "2013", title: "The Watertown Siege", plateSlug: "the-watertown-siege" },
+      { year: "2014", title: "The Bundy Ranch Standoff", plateSlug: "the-bundy-ranch-standoff" },
+      { year: "2014", title: "Ferguson, Missouri", plateSlug: "ferguson-missouri" },
+      { year: "2015", title: "Baltimore, Maryland", plateSlug: "baltimore-maryland" },
+      { year: "2016", title: "Malheur Wildlife Refuge", plateSlug: "the-malheur-wildlife-refuge" },
+      { year: "2016", title: "Standing Rock", plateSlug: "standing-rock" },
     ],
     plate: {
       src: "/patriotic-times/plate-18-ferguson-missouri.webp",
@@ -95,13 +101,13 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "Federal forces deployed against citizens; state-sponsored cruelty as policy; right-wing mobilization into the streets.",
     events: [
-      { year: "2017", title: "J20 Mass Arrests", note: "Felony riot charges to chill public dissent.", plateSlug: "the-j20-mass-arrests" },
-      { year: "2017", title: "Charlottesville Unite the Right", note: "The torchlit march of ethno-nationalism.", plateSlug: "the-tiki-torch-march" },
-      { year: "2018", title: "Zero Tolerance at the Border", note: "Family separation as a weapon.", plateSlug: "zero-tolerance-border-policy" },
-      { year: "2020", title: "Michigan State Capitol", note: "Armed militias scream at state police.", plateSlug: "the-michigan-state-capitol" },
-      { year: "2020", title: "Lafayette Square", note: "Violently clearing a park for a Bible photo-op.", plateSlug: "the-lafayette-square-photo-op" },
-      { year: "2020", title: "Operation Diligent Valor in Portland", note: "Unidentified federal agents in unmarked vans.", plateSlug: "operation-diligent-valor" },
-      { year: "2020", title: "The Plot to Kidnap Governor Whitmer", note: "Escalation to domestic terror plots.", plateSlug: "plot-to-kidnap-whitmer" },
+      { year: "2017", title: "J20 Mass Arrests", plateSlug: "the-j20-mass-arrests" },
+      { year: "2017", title: "Charlottesville Unite the Right", plateSlug: "the-tiki-torch-march" },
+      { year: "2018", title: "Zero Tolerance at the Border", plateSlug: "zero-tolerance-border-policy" },
+      { year: "2020", title: "Michigan State Capitol", plateSlug: "the-michigan-state-capitol" },
+      { year: "2020", title: "Lafayette Square", plateSlug: "the-lafayette-square-photo-op" },
+      { year: "2020", title: "Operation Diligent Valor in Portland", plateSlug: "operation-diligent-valor" },
+      { year: "2020", title: "The Plot to Kidnap Governor Whitmer", plateSlug: "plot-to-kidnap-whitmer" },
     ],
     plate: {
       src: "/patriotic-times/plate-28-the-lafayette-square-photo-op.webp",
@@ -116,13 +122,13 @@ const CHAPTERS: Chapter[] = [
     thesis:
       "The breaking of democratic institutions; the consolidation of absolute executive power; the dawn of mass domestic enforcement.",
     events: [
-      { year: "2021", title: "The January 6th Insurrection", note: "The violent breach of the transfer of power.", plateSlug: "the-january-6th-insurrection" },
-      { year: "2023", title: "Expulsion of the Tennessee Three", note: "Partisan purges of elected officials.", plateSlug: "the-expulsion" },
-      { year: "2024", title: "Columbia University Hamilton Hall Raid", note: "Militarized crackdowns on student speech.", plateSlug: "the-columbia-university-raid" },
+      { year: "2021", title: "The January 6th Insurrection", plateSlug: "the-january-6th-insurrection" },
+      { year: "2023", title: "Expulsion of the Tennessee Three", plateSlug: "the-expulsion" },
+      { year: "2024", title: "Columbia University Hamilton Hall Raid", plateSlug: "the-columbia-university-raid" },
       { year: "2024", title: "Trump v. United States", note: "The Supreme Court grants presidential immunity." },
-      { year: "2025", title: "Blanket Clemency for January 6th", note: "Pardoning political violence.", plateSlug: "the-blanket-clemency" },
-      { year: "2025", title: "Mass Deportation Apparatus", note: "The explosion of ICE detention camps.", plateSlug: "mass-deportation-apparatus" },
-      { year: "2025", title: "Army Parade & 'No Kings' Protests", note: "Dictatorial aesthetics met with millions in the streets.", plateSlug: "dc-army-parade" },
+      { year: "2025", title: "Blanket Clemency for January 6th", plateSlug: "the-blanket-clemency" },
+      { year: "2025", title: "Mass Deportation Apparatus", plateSlug: "mass-deportation-apparatus" },
+      { year: "2025", title: "Army Parade & 'No Kings' Protests", plateSlug: "dc-army-parade" },
     ],
     plate: {
       src: "/patriotic-times/plate-33-the-january-6th-insurrection.webp",
@@ -507,7 +513,7 @@ export default function PatrioticTimesLanding() {
                         {ev.title}
                       </div>
                     )}
-                    {ev.note && (
+                    {(ev.note || noteFor(ev.plateSlug)) && (
                       <div
                         style={{
                           fontFamily: SERIF,
@@ -518,7 +524,7 @@ export default function PatrioticTimesLanding() {
                           lineHeight: 1.4,
                         }}
                       >
-                        {ev.note}
+                        {ev.note ?? noteFor(ev.plateSlug)}
                       </div>
                     )}
                   </div>

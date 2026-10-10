@@ -14,7 +14,7 @@ const INK_50 = "#6b5e4d";
 const RED = "#b8222a";
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
+const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 
 export default function PatrioticColophon() {

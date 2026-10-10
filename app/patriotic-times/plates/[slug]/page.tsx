@@ -36,7 +36,7 @@ const INK_50 = "#6b5e4d";
 const RED = "#b8222a";
 
 const MONO = `var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace`;
-const DISPLAY = `-apple-system, "Inter", "Helvetica Neue", "Arial Black", system-ui, sans-serif`;
+const DISPLAY = `var(--font-anton), "Arial Narrow", Impact, sans-serif`
 const SERIF = `"Iowan Old Style", "Charter", Georgia, "Times New Roman", serif`;
 
 export default async function PlateColorPage({ params }: PageProps) {
@@ -111,6 +111,23 @@ export default async function PlateColorPage({ params }: PageProps) {
         >
           {plate.location}, {plate.year}.
         </p>
+        {plate.note && (
+          <p
+            style={{
+              fontFamily: SERIF,
+              fontSize: "1rem",
+              fontStyle: "italic",
+              lineHeight: 1.45,
+              color: INK_70,
+              marginTop: "0.75rem",
+              marginBottom: 0,
+              maxWidth: "36rem",
+            }}
+          >
+            <span style={{ color: RED, fontStyle: "normal", fontWeight: 700, marginRight: "0.5rem" }}>✱</span>
+            {plate.note}
+          </p>
+        )}
       </header>
 
       {/* Canvas */}

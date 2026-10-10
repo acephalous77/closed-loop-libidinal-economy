@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Spectral, IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
+import { Anton, Spectral, IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
 import { MASTER } from "./_components/tokens";
 import { ChairGlyph } from "./_components/PlateChrome";
 
@@ -24,6 +24,13 @@ const spectral = Spectral({
   display: "swap",
   weight: ["300", "400", "500", "600", "700"],
   style: ["normal", "italic"],
+});
+
+const anton = Anton({
+  subsets: ["latin"],
+  variable: "--font-anton",
+  display: "swap",
+  weight: ["400"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -75,7 +82,7 @@ export default function ChairLayout({
   const T = MASTER;
   return (
     <div
-      className={`chair-theme ${spectral.variable} ${plexMono.variable} ${manrope.variable} ${sourceSerif.variable}`}
+      className={`chair-theme ${spectral.variable} ${plexMono.variable} ${manrope.variable} ${sourceSerif.variable} ${anton.variable}`}
       style={{
         minHeight: "100vh",
         background: T.paper,
