@@ -50,7 +50,7 @@
   --f-prose:var(--font-newsreader),Georgia,"Times New Roman",serif;          /* the argument */
   --f-ui:var(--font-space-grotesk),"Helvetica Neue",Arial,sans-serif;
   --f-mono:var(--font-space-mono),"SFMono-Regular",ui-monospace,Menlo,monospace; /* the apparatus */
-  --f-anton:var(--font-anton),Impact,sans-serif;                             /* poster display */
+  --f-anton:var(--font-anton-mos),Impact,sans-serif;                             /* poster display */
   --dw:700;               /* display weight */
   --dt:none;              /* display text-transform */
   --dtr:-0.025em;         /* display tracking */
@@ -74,7 +74,7 @@
   /* BRUTALIST — everything grotesk, all caps */
   &[data-type="brutalist"]{--f-display:var(--font-space-grotesk),sans-serif;--f-prose:var(--font-space-grotesk),sans-serif;--f-ui:var(--font-space-grotesk),sans-serif;--dw:700;--dt:uppercase;--dtr:-0.02em;--dl:0.9;--prose-style:normal;}
   /* ZINE — condensed poster display, serif body, ransom tilt */
-  &[data-type="zine"]{--f-display:var(--font-anton),Impact,sans-serif;--f-prose:var(--font-newsreader),Georgia,serif;--f-ui:var(--font-space-mono),monospace;--dw:400;--dt:uppercase;--dtr:0.004em;--dl:0.84;--prose-style:normal;}
+  &[data-type="zine"]{--f-display:var(--font-anton-mos),Impact,sans-serif;--f-prose:var(--font-newsreader),Georgia,serif;--f-ui:var(--font-space-mono),monospace;--dw:400;--dt:uppercase;--dtr:0.004em;--dl:0.84;--prose-style:normal;}
   /* TERMINAL — all monospace, data-exhaust */
   &[data-type="terminal"]{--f-display:var(--font-space-mono),monospace;--f-prose:var(--font-space-mono),monospace;--f-ui:var(--font-space-mono),monospace;--dw:700;--dt:uppercase;--dtr:-0.03em;--dl:1.04;--prose-style:normal;}
 

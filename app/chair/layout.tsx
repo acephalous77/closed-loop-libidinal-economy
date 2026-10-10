@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Anton, Spectral, IBM_Plex_Mono, Manrope, Source_Serif_4 } from "next/font/google";
+import { Anton, Spectral, IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
 import { MASTER } from "./_components/tokens";
 import { ChairGlyph } from "./_components/PlateChrome";
 import { WorksDoor } from "@/components/navigation/WorksDoor";
@@ -43,13 +43,6 @@ const plexMono = IBM_Plex_Mono({
   preload: false,
 });
 
-const manrope = Manrope({
-  subsets: ["latin"],
-  variable: "--font-manrope",
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-});
-
 const sourceSerif = Source_Serif_4({
   subsets: ["latin"],
   variable: "--font-source-serif",
@@ -86,7 +79,7 @@ export default function ChairLayout({
   const T = MASTER;
   return (
     <div
-      className={`chair-theme ${spectral.variable} ${plexMono.variable} ${manrope.variable} ${sourceSerif.variable} ${anton.variable}`}
+      className={`chair-theme ${spectral.variable} ${plexMono.variable} ${sourceSerif.variable} ${anton.variable}`}
       style={{
         minHeight: "100vh",
         background: T.paper,

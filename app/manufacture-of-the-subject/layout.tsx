@@ -22,10 +22,9 @@ import "./manufacture.css";
 
 const anton = Anton({
   subsets: ["latin"],
-  variable: "--font-anton",
+  variable: "--font-anton-mos",
   display: "swap",
   weight: ["400"],
-  preload: false,
 });
 
 const newsreader = Newsreader({

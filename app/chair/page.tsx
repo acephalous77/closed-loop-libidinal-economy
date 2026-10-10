@@ -5,6 +5,7 @@ import { FONT } from "./_components/tokens";
 import { PlateHeader, PlateFooter } from "./_components/PlateChrome";
 import { OccupantGallery } from "./_components/OccupantGallery";
 import { FailureButton } from "./_components/FailureButton";
+import { manrope } from "./_components/fonts";
 
 export const metadata: Metadata = {
   title: { absolute: "The Apparatus — Ouroboros Life System" },
@@ -49,7 +50,7 @@ const BROCHURE_TOKENS = {
 
 export default function BrochurePage() {
   return (
-    <div style={{
+    <div className={manrope.variable} style={{
       background: B.paper, color: B.ink,
       fontFamily: FONT.manrope, fontWeight: 400,
       letterSpacing: "-0.005em", position: "relative",
