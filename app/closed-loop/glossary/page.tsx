@@ -98,9 +98,9 @@ const TERMS: Term[] = [
     name: "Engagement cascade",
     gloss:
       "The networked multi-mark Hawkes process across the platform's user population. Amplification factor A grows with the spectral radius of the coupling matrix.",
-    apparatus: "§8.4 (not yet built)",
-    href: "/closed-loop/the-apparatus/section-8",
-    hrefLive: false,
+    apparatus: "§8.4",
+    href: "/closed-loop/the-apparatus/section-8#cascade",
+    hrefLive: true,
   },
   {
     name: "Foreclosure",
@@ -170,9 +170,9 @@ const TERMS: Term[] = [
     name: "Percolation threshold",
     gloss:
       "Critical connection density ρ_c separating local cascades from platform-wide cascades on the engagement graph. The phase transition Mode A-on-graph-structure interventions can target.",
-    apparatus: "§8.5 (not yet built)",
-    href: "/closed-loop/the-apparatus/section-8",
-    hrefLive: false,
+    apparatus: "§8.5",
+    href: "/closed-loop/the-apparatus/section-8#percolation",
+    hrefLive: true,
   },
   {
     name: "Performative distribution",
@@ -234,16 +234,16 @@ const TERMS: Term[] = [
     name: "Reflexive measurement problem",
     gloss:
       "The cohort whose interiority has been foreclosed cannot reliably self-report its foreclosure. The methodological obstacle the framework names without resolving.",
-    apparatus: "§12 (not yet built)",
-    href: "/closed-loop/the-apparatus/section-12",
-    hrefLive: false,
+    apparatus: "§12",
+    href: "/closed-loop/the-apparatus/section-12#reflexive",
+    hrefLive: true,
   },
   {
     name: "Somatic optimization (Hawkes intensity)",
     gloss:
       "The engagement-event process modeled as a multi-mark Hawkes process with cross-register coupling. Off-diagonal α_kl generates the dynamical libidinal routing.",
-    apparatus: "§3.5 (not yet built)",
-    href: "/closed-loop/the-apparatus/section-3",
+    apparatus: "§3.5",
+    href: "/closed-loop/the-apparatus/section-3/3.5-hawkes",
     hrefLive: true,
   },
   {

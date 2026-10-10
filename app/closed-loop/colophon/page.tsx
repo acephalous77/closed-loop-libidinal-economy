@@ -3,9 +3,10 @@ import Colophon from "@/content/colophon.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "colophon — The Closed-Loop Libidinal Economy",
+  title: "colophon",
   description:
     "Typography, design, engineering, hosting, license.",
+  alternates: { canonical: "/closed-loop/colophon" },
 };
 
 export default function ColophonPage() {

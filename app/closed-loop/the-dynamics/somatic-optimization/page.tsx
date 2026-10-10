@@ -7,9 +7,11 @@ import { SomaticOptimization } from "@/components/visualizations/SomaticOptimiza
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "somatic optimization — The Closed-Loop Libidinal Economy",
+  title: "somatic optimization",
   description:
     "Mechanism §3.5. The body as the differential of the marked point process. Hawkes-style intensities, raster of stimuli and per-register engagement events.",
+  alternates: { canonical: "/closed-loop/the-dynamics/somatic-optimization" },
+  robots: { index: false, follow: true },
 };
 
 export default function SomaticOptimizationPage() {

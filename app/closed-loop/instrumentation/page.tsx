@@ -3,9 +3,10 @@ import Instrumentation from "@/content/instrumentation.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 
 export const metadata: Metadata = {
-  title: "instrumentation — The Closed-Loop Libidinal Economy",
+  title: "instrumentation",
   description:
     "What this site does and does not track. (Nothing.) The framework's politics, applied to its own hosting.",
+  alternates: { canonical: "/closed-loop/instrumentation" },
 };
 
 export default function InstrumentationPage() {

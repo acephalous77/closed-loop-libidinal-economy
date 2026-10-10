@@ -6,9 +6,11 @@ import { RelatedReading } from "@/components/navigation/RelatedReading";
 import { TikTokInstruments } from "@/components/visualizations/TikTokInstruments";
 
 export const metadata: Metadata = {
-  title: "tiktok — The Closed-Loop Libidinal Economy",
+  title: "tiktok",
   description:
     "Visualization V. A worked example: how each of the six instruments operates on a specific platform.",
+  alternates: { canonical: "/closed-loop/the-dynamics/tiktok" },
+  robots: { index: false, follow: true },
 };
 
 export default function TikTokPage() {

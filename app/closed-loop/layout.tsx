@@ -14,10 +14,6 @@ import { JsonLd, websiteJsonLd } from "@/lib/jsonld";
  * leaking to the atelier root or sibling projects.
  */
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.autostimulus.org";
-
 export const metadata: Metadata = {
   title: {
     default: "The Closed-Loop Libidinal Economy",
@@ -54,8 +50,7 @@ export const metadata: Metadata = {
     title: "The Closed-Loop Libidinal Economy",
     description:
       "A framework for the dynamics of attention under platform capture. Prose, mathematics, dynamics.",
-    url: `${SITE_URL}/closed-loop`,
-    locale: "en_US",
+        locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

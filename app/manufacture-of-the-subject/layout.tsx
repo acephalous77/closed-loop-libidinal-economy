@@ -61,6 +61,7 @@ export const metadata: Metadata = {
   },
   description:
     "The industrialization of socialization — how a human subject is produced, station by station, on a line that runs from crib to deathbed. An interactive descent through a life metered for profit: desire, attention and affect harvested at every life stage. By Adnan Selimović.",
+  alternates: { canonical: "/manufacture-of-the-subject" },
   keywords: [
     "the manufacture of the subject",
     "psychic surplus",

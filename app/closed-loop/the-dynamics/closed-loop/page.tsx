@@ -7,9 +7,11 @@ import { LoopDiagram } from "@/components/visualizations/LoopDiagram";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "the closed loop — The Closed-Loop Libidinal Economy",
+  title: "the closed loop",
   description:
     "The foundational mechanism. Equations (1)–(6) wired together as a directed graph; the loop is closed by construction, and the exogenous channel stands outside it.",
+  alternates: { canonical: "/closed-loop/the-dynamics/closed-loop" },
+  robots: { index: false, follow: true },
 };
 
 export default function ClosedLoopPage() {

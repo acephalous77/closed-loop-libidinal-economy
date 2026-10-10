@@ -7,9 +7,11 @@ import { LibidinalRouting } from "@/components/visualizations/LibidinalRouting";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "libidinal routing — The Closed-Loop Libidinal Economy",
+  title: "libidinal routing",
   description:
     "Mechanism §3.3. The four registers — Subject, Citizen, Person, Consumer — collapse onto a single delivery surface. Off-diagonal mutual information fills in; the dividual condition H(b_t) → 0 follows.",
+  alternates: { canonical: "/closed-loop/the-dynamics/libidinal-routing" },
+  robots: { index: false, follow: true },
 };
 
 export default function LibidinalRoutingPage() {

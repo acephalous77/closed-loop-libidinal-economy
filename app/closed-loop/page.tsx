@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { FrameworkOrientation } from "@/components/home/FrameworkOrientation";
 import { JsonLd, frameworkJsonLd, itemListJsonLd } from "@/lib/jsonld";
 
@@ -37,6 +38,47 @@ export default function Cover() {
 
         {/* Orientation block — what this is + the central image + 3 paths */}
         <FrameworkOrientation />
+
+        {/* First-version doorway — per the 2026-10-10 ruling: the v2 rebuild
+            is the presented surface; the essays stay first-class and indexed;
+            the v1 mathematics and dynamics live on as the archive (noindexed).
+            Wording is a draft in his terse register, flagged for his vetting. */}
+        <section className="mt-lg max-w-[36rem] text-center">
+          <h2 className="font-mono text-xs text-ink-50 uppercase tracking-[0.25em]">
+            the first version
+          </h2>
+          <p className="mt-sm font-serif italic text-sm text-ink-50 leading-snug">
+            The essays read on as written —{" "}
+            <Link
+              href="/closed-loop/the-argument"
+              className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              the pieces
+            </Link>{" "}
+            and the note, with the first{" "}
+            <Link
+              href="/closed-loop/the-mathematics"
+              className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              mathematics
+            </Link>{" "}
+            and first{" "}
+            <Link
+              href="/closed-loop/the-dynamics"
+              className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              dynamics
+            </Link>{" "}
+            kept as the 2026 archive, and{" "}
+            <Link
+              href="/closed-loop/instrumentation"
+              className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              instrumentation
+            </Link>{" "}
+            for how the site is built.
+          </p>
+        </section>
 
         {/* Epigraph — tightened spacing */}
         <figure className="mt-lg max-w-[34rem] text-center">

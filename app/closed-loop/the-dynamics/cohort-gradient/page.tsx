@@ -7,9 +7,11 @@ import { CohortGradient } from "@/components/visualizations/CohortGradient";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "cohort gradient — The Closed-Loop Libidinal Economy",
+  title: "cohort gradient",
   description:
     "Visualization IV. The framework's most direct empirical prediction: conditional autocovariance at reflective lags moderated by age-of-first-exposure. With falsification threshold.",
+  alternates: { canonical: "/closed-loop/the-dynamics/cohort-gradient" },
+  robots: { index: false, follow: true },
 };
 
 export default function CohortGradientPage() {

@@ -19,7 +19,7 @@
  *      itself: "DO YOU SERIOUSLY THINK THAT WILL WORK?" before
  *      auto-dismissing.
  *
- * Only fires once per session (localStorage). Can be reset by clearing
+ * Only fires once per session (sessionStorage). Can be reset by clearing
  * site data.
  */
 

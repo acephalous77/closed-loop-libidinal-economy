@@ -7,9 +7,11 @@ import { SurplusBreakdown } from "@/components/visualizations/SurplusBreakdown";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "surplus — The Closed-Loop Libidinal Economy",
+  title: "surplus",
   description:
     "Mechanism §3.1. The platform's accumulated yield over horizon T, decomposed across the four registers. The asymmetry is the policy's signature.",
+  alternates: { canonical: "/closed-loop/the-dynamics/surplus" },
+  robots: { index: false, follow: true },
 };
 
 export default function SurplusPage() {

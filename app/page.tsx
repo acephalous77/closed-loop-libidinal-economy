@@ -9,7 +9,17 @@ const SITE_URL =
 export const metadata: Metadata = {
   title: { absolute: "autostimulus" },
   description:
-    "Works by A. Selimović. Critical theory, media psychology, political economy. The ouroboros chair, the OHCOSE manual, the ouroboric-condition atlas, the closed-loop libidinal economy, the patriotic-times coloring book, and the manufacture-of-the-subject lifecycle descent.",
+    "Works by A. Selimović. Critical theory, media psychology, political economy. The ouroboros chair, the OHCOSE manual, the ouroboric-condition atlas, the closed-loop libidinal economy, the patriotic-times coloring book, the manufacture of the subject, and the psychopolitics atlas.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "autostimulus",
+    title: "autostimulus",
+    description:
+      "Works by A. Selimović. Critical theory, media psychology, political economy.",
+    url: "/",
+    locale: "en_US",
+  },
 };
 
 interface Work {
@@ -194,7 +204,7 @@ export default function AtelierIndex() {
             name: "autostimulus — works",
             url: SITE_URL,
             description:
-              "Catalog of works by A. Selimović. Six live projects: a speculative-design artifact, a bureaucratic manual, an explorable atlas of capture, a critical-theory framework, an interactive coloring book, and an interactive descent through a life metered for profit.",
+              "Catalog of works by A. Selimović. Seven live projects: a relational atlas of the socialization apparatus, a critical-theory framework, an interactive coloring book, a bureaucratic manual, a speculative-design artifact, an explorable atlas of capture, and an interactive descent through a life metered for profit.",
             inLanguage: "en",
             hasPart: WORKS.map((w, idx) => ({
               "@type": "CreativeWork",

@@ -5,11 +5,12 @@
 ## Works
 
 - **The Closed-Loop Libidinal Economy** (2026, live) — A formal framework for the dynamics of attention under platform capture. Mathematics, prose, and operable instruments. Project root: https://www.autostimulus.org/closed-loop
-- **OHCOSE — Office of Human Continuity and Social Equilibrium** (2026, live) — Performance-piece manual of a fictional federal agency administering the human lifecycle in seven phases. Three phases (Ontogenesis, Inscriptive Normalization, Adolescent Calibration) fully published with twenty-one sub-protocols, original visualizations, in-character voice throughout. Project root: https://www.autostimulus.org/ohcose
-- **The Ouroboros Life System** (2025, live) — Dystopian art project: a fully-enclosed integrated life-support chair. Essay, subsystems index, lineage, precedents, archive, refusal, and zine. Project root: https://www.autostimulus.org/chair
+- **OHCOSE — Office of Human Continuity and Social Equilibrium** (2025, live) — Performance-piece manual of a fictional federal agency administering the human lifecycle in eight phases. All eight phases published, forty-six sub-protocols, original visualizations, in-character voice throughout. Project root: https://www.autostimulus.org/ohcose
+- **The Ouroboros Life System** (2021, live) — Dystopian art project: a fully-enclosed integrated life-support chair. Essay, subsystems index, lineage, precedents, archive, refusal, and zine. Project root: https://www.autostimulus.org/chair
 - **Patriotic Times — A Coloring Book** (2025–2026, live) — Sixty-three plates of US democratic state failures and the emergence of fascism, 2000–2026. Each plate is interactive: color it in the browser with a paint-bucket flood-fill, print your colored version. Project root: https://www.autostimulus.org/patriotic-times
-- **The Ouroboric Condition — An Atlas of Capture** (2026, live) — An explorable atlas of the apparatus that captures psychic surplus. Seventeen specimens across four movements, drawn as a measured specimen chart; opening a site of capture descends into a dark "apparatus" plate with a live capture readout, and the remainder — holding, the face, the custodial labor that holds — surfaces back to paper. A visual companion to the manuscript. Project root: https://www.autostimulus.org/ouroboric-condition
+- **The Ouroboric Condition — An Atlas of Capture** (2018, live) — An explorable atlas of the apparatus that captures psychic surplus. Seventeen specimens across four movements, drawn as a measured specimen chart; opening a site of capture descends into a dark "apparatus" plate with a live capture readout, and the remainder — holding, the face, the custodial labor that holds — surfaces back to paper. A visual companion to the manuscript. Project root: https://www.autostimulus.org/ouroboric-condition
 - **The Psychopolitics of Socialization — a relational atlas** (2026, live) — An interrogable relational field of ~600 nodes and ~1,050 ties mapping the genealogy of crowding science, Cold-War behavior-engineering, and the contemporary population-control apparatus (venture capital, embryo selection, the data-state, sovereign money), 1938–2026. Network, matrix and timeline views; analytic lenses; documented/contested/speculative evidence tiers; a region navigator; guided narrative threads. Project root: https://www.autostimulus.org/psychopolitics-atlas/index.html
+- **The Manufacture of the Subject** (2015, live) — An interactive descent through a life metered for profit: desire, attention and affect harvested at every life stage, crib to deathbed. A political economy of the human lifecycle in seven stages. Project root: https://www.autostimulus.org/manufacture-of-the-subject
 
 ---
 
@@ -38,35 +39,36 @@ The framework names a class of architectures — closed-loop libidinal economies
 
 The framework reads through and against Adorno, Marcuse, Stiegler, Han, Crary, Lyotard, Deleuze, Mannheim, Sloterdijk, and Burroughs on the prose side, and uses formal apparatus from Hawkes processes (excitation), Kuramoto coupling (synchronization), Asmussen (mixing-time theory), and Kallenberg (point processes).
 
-## Canonical reading order
+## Canonical reading order (the 2026 rebuild)
 
-1. [The Mathematics](https://www.autostimulus.org/closed-loop/the-mathematics) — the formal apparatus, lemmas, theorems, propositions, and the eight open questions of §8. ~11,000 words, 55 min.
-2. [The Argument](https://www.autostimulus.org/closed-loop/the-argument) — four prose pieces and a coda, traversing cohort time
-3. [The Dynamics](https://www.autostimulus.org/closed-loop/the-dynamics) — fourteen interactive plates that visualize the formal claims
-4. [Open Questions](https://www.autostimulus.org/closed-loop/open-questions) — ten named research targets
-5. [Reading List](https://www.autostimulus.org/closed-loop/reading-list)
-6. [Colophon](https://www.autostimulus.org/closed-loop/colophon)
+1. [The Argument](https://www.autostimulus.org/closed-loop/v2-argument) — eight load-bearing moves; the framework in prose, each cross-linked to the result that authorizes it
+2. [The Apparatus](https://www.autostimulus.org/closed-loop/the-apparatus) — the formal companion: thirteen sections, fifteen results
+3. [The Dynamics](https://www.autostimulus.org/closed-loop/v2-dynamics) — twelve interactive plates that make the mechanisms operable
+4. [The Instruments](https://www.autostimulus.org/closed-loop/the-instruments) — the six measurable instruments and their calibration hooks
+5. [The Architecture](https://www.autostimulus.org/closed-loop/the-architecture) — the interactive schematic of the closed loop
+6. [Glossary](https://www.autostimulus.org/closed-loop/glossary) — twenty-six terms
+7. [The Colophon](https://www.autostimulus.org/closed-loop/the-colophon)
+
+First-version surfaces, kept and indexed: the essays at [The Argument (first version)](https://www.autostimulus.org/closed-loop/the-argument) (four prose pieces and a note), [Open Questions](https://www.autostimulus.org/closed-loop/open-questions) (ten research targets), and the [Reading List](https://www.autostimulus.org/closed-loop/reading-list). The first-version [mathematics](https://www.autostimulus.org/closed-loop/the-mathematics) and [dynamics](https://www.autostimulus.org/closed-loop/the-dynamics) remain reachable as the archived build.
 
 ---
 
 # OHCOSE — Office of Human Continuity and Social Equilibrium
 
-> A performance-piece manual of a fictional federal agency administering the human lifecycle. Published 2026 at https://www.autostimulus.org/ohcose. Out-of-character disclosure: https://www.autostimulus.org/ohcose/colophon.
+> A performance-piece manual of a fictional federal agency administering the human lifecycle. Published 2025 at https://www.autostimulus.org/ohcose. Out-of-character disclosure: https://www.autostimulus.org/ohcose/colophon.
 
-OHCOSE is a critical-fiction work that takes the form of a real federal-style agency's public-intake portal. It describes a seven-phase Standard Consumer-Citizen Lifecycle covering 0–65+ years of age, with each phase broken into six sub-protocols. The voice is warm-deadpan-bureaucratic throughout — the Office speaks; the author does not surface inside the work itself.
+OHCOSE is a critical-fiction work that takes the form of a real federal-style agency's public-intake portal. It describes an eight-phase Standard Consumer-Citizen Lifecycle covering 0–65+ years of age; phases I–VII carry six sub-protocols each, Phase VIII carries four. The voice is warm-deadpan-bureaucratic throughout — the Office speaks; the author does not surface inside the work itself.
 
-## Phases published
+## Phases (all published)
 
 - **Phase I — Ontogenesis** (0–3 yrs) — six sub-protocols: Biometric Registration & Cradle Anchoring; Algorithmic Nurseries & Early Brand Entrainment; Caregiver Behavior as Outsourced Affective Infrastructure; Infant Desire, Distress & the Extraction of Psychic Surplus; Metrics of Normative Development; Trust-Attachment Optimization
 - **Phase II — Inscriptive Normalization** (4–12 yrs) — six sub-protocols: The Desk as Altar; Algorithmic Calibration; Emotional Hygiene & the Care of Deviance; Recess as Libidinal Release Valve; Playing at Consumption; The Temporal Corridor
 - **Phase III — Adolescent Calibration** (13–18 yrs) — six sub-protocols: Calibrating Desire for the Market; Rebellion Packaged & Sold; Digital Architectures of Adolescent Life; The Pharmacopornographic Order; Quantified Selfhood & Neurochemical Authority; The Initiate — Debt & Hustle
-
-## Phases forthcoming
-
-- Phase IV — Economic Subjectification (19–30 yrs)
-- Phase V — Peak Productivity & Reproductive Transfer (31–45 yrs)
-- Phase VI — Consolidation & Role Reversal (46–65 yrs)
-- Phase VII — Exit (65+ yrs)
+- **Phase IV — Economic Subjectification** (19–30 yrs) — six sub-protocols: Onboarding; Algorithmic Mentorship; Romantic Markets; Curating Life; The Happiness Mandate; Entrenchment
+- **Phase V — Peak Productivity & Reproductive Transfer** (31–45 yrs) — six sub-protocols: Consolidation; Economic Zenith; Family Formation; Civic Anchoring; Midlife Affect; Decline Foreshadowing
+- **Phase VI — Consolidation & Role Reversal** (46–65 yrs) — six sub-protocols: High-Water Mark; Managing Decline; Intergenerational Obligations; Golden Years; Knowledge Transfer; Phase Closure
+- **Phase VII — Exit** (65+ yrs) — six sub-protocols: Liminal Retirement; Death as Logistics; Memorial Capitalism; Eldercare Markets; Cracks and Residues; Lifecycle Closure
+- **Phase VIII — Ouroboros** — four sub-protocols: Closure of the Cycle; Sovereign Interface; Post-Human Harvest; The Broadcast
 
 Each sub-protocol page includes a fresh visualization built in SVG: schematics, data-capture tables, mock compliance reports, transfer certificates, dashboards, subjectivity catalogues. The work is the contrast between bureaucratic deadpan delivery and what the deadpan describes.
 
@@ -92,7 +94,7 @@ Every plate is interactive on the site. The reader opens a plate, colors regions
 
 # The Ouroboros Life System
 
-> Dystopian art project: a fully-enclosed integrated life-support chair. By Adnan Selimović. Published 2025 at https://www.autostimulus.org/chair.
+> Dystopian art project: a fully-enclosed integrated life-support chair. By Adnan Selimović. Published 2021 at https://www.autostimulus.org/chair.
 
 The Ouroboros Life System is a speculative-design artifact in essay, schematic, and gallery form. The chair is a fully-enclosed life-support apparatus that integrates work, feeding, entertainment, and biological maintenance into one continuous form-factor. The project descends from the broader libidinal-ouroboros body of work and shares its lineage with The Closed-Loop Libidinal Economy (which provides the theoretical infrastructure that the chair literalizes).
 
@@ -113,7 +115,7 @@ The Ouroboros Life System is a speculative-design artifact in essay, schematic, 
 
 # The Ouroboric Condition — An Atlas of Capture
 
-> An explorable atlas of the apparatus that captures psychic surplus — and of what survives the capture. By Adnan Selimović. Published 2026 at https://www.autostimulus.org/ouroboric-condition.
+> An explorable atlas of the apparatus that captures psychic surplus — and of what survives the capture. By Adnan Selimović. Published 2018 at https://www.autostimulus.org/ouroboric-condition.
 
 A self-running, pannable conceptual map — a visual companion to the manuscript *The Ouroboric Condition* (on psychic surplus and the capture of desire). It renders the whole apparatus as a measured specimen chart of seventeen specimens across four movements, joined by an interconnection web. The piece performs the book's central duality through two registers: the map and the remainder are paper-and-ink "Anatomy" (the analyst's distance); opening any site of capture drops into a dark "Apparatus" plate — sodium glow, the mechanism performing, a live capture readout ticking — and surfacing to the remainder returns to the light. Serif is the lived; monospace is the rendered.
 
@@ -134,10 +136,18 @@ Drag or pinch the paper to move and zoom; an index drawer lists every specimen b
 
 ---
 
+# The Manufacture of the Subject
+
+> An interactive descent through a life metered for profit. By Adnan Selimović. Published 2015 at https://www.autostimulus.org/manufacture-of-the-subject.
+
+A vertical-scroll piece staging the industrialization of socialization as one continuous descent, crib to deathbed, on a fixed station rail. A live HUD ledger tracks stage, age, and life-time value as the reader moves; a behavioral-surplus telemetry panel openly harvests the reader's own scroll, dwell, and tap events while presenting them back; each station shows the apparatus at work. The reader can stop the meter at the end; the receipt prints the session's extracted surplus.
+
+---
+
 ## Author
 
 Adnan Selimović. Critical theory, media psychology, political economy. See each project's colophon for project-specific attribution and citation.
 
 ## License
 
-Textual content under CC BY-SA 4.0 (Closed-Loop), CC BY-SA 4.0 (OHCOSE), CC BY-NC-SA 4.0 (Patriotic Times — non-commercial), CC BY-SA 4.0 (The Ouroboric Condition). Code under MIT. Citation welcome.
+Textual content under CC BY-SA 4.0 (Closed-Loop, OHCOSE, The Ouroboros Life System, The Ouroboric Condition, The Psychopolitics of Socialization, The Manufacture of the Subject), CC BY-NC-SA 4.0 (Patriotic Times — non-commercial). Code under MIT. Citation welcome.

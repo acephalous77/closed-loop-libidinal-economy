@@ -7,9 +7,11 @@ import { MetricSuperego } from "@/components/visualizations/MetricSuperego";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "metric superego — The Closed-Loop Libidinal Economy",
+  title: "metric superego",
   description:
     "Mechanism §3.4. The user's self-evaluative distribution drifts toward the platform's reward-induced distribution under prolonged exposure; Mode B holds a positive gap when maintenance labor crosses the threshold.",
+  alternates: { canonical: "/closed-loop/the-dynamics/metric-superego" },
+  robots: { index: false, follow: true },
 };
 
 export default function MetricSuperegoPage() {

@@ -7,9 +7,11 @@ import { ChronoDebt } from "@/components/visualizations/ChronoDebt";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "chrono-debt — The Closed-Loop Libidinal Economy",
+  title: "chrono-debt",
   description:
     "Mechanism §3.2. The deficit in pause-time at every scale simultaneously: realized-vs-baseline survival of the inter-stimulus interval.",
+  alternates: { canonical: "/closed-loop/the-dynamics/chrono-debt" },
+  robots: { index: false, follow: true },
 };
 
 export default function ChronoDebtPage() {

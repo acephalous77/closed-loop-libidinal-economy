@@ -308,7 +308,7 @@ export default function TheColophonPage() {
           >
             github.com/acephalous77/closed-loop-libidinal-economy
           </a>
-          . The v2 rebuild lives on the <code className="font-mono text-sm">v2/closed-loop-rebuild</code> branch.
+          . The v2 rebuild merged to <code className="font-mono text-sm">main</code> on 2026-07-31; the branch is history.
         </p>
         <p className="text-base text-ink-90">
           The apparatus content is rendered from a canonical manuscript

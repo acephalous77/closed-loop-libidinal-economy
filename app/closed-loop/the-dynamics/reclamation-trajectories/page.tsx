@@ -7,9 +7,11 @@ import { ReclamationTrajectories } from "@/components/visualizations/Reclamation
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "reclamation trajectories — The Closed-Loop Libidinal Economy",
+  title: "reclamation trajectories",
   description:
     "Visualization II. The reclamation theorem rendered as a set that fails to grow. Switch the policy to Mode A and watch the highlighted set appear.",
+  alternates: { canonical: "/closed-loop/the-dynamics/reclamation-trajectories" },
+  robots: { index: false, follow: true },
 };
 
 export default function ReclamationTrajectoriesPage() {

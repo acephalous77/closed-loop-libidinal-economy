@@ -7,9 +7,11 @@ import { CapturedResonance } from "@/components/visualizations/CapturedResonance
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "captured resonance — The Closed-Loop Libidinal Economy",
+  title: "captured resonance",
   description:
     "Mechanism §3.6. Kuramoto phase coupling between body and medium; the lock-condition threshold made experiential.",
+  alternates: { canonical: "/closed-loop/the-dynamics/captured-resonance" },
+  robots: { index: false, follow: true },
 };
 
 export default function CapturedResonancePage() {

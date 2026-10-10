@@ -7,9 +7,11 @@ import { ModeSpace } from "@/components/visualizations/ModeSpace";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "mode-space — The Closed-Loop Libidinal Economy",
+  title: "mode-space",
   description:
     "Visualization III. The three modes of intervention as non-substitutable directions in parameter space — engagement reward, bonus achievement, and divergence as orthogonal axes.",
+  alternates: { canonical: "/closed-loop/the-dynamics/mode-space" },
+  robots: { index: false, follow: true },
 };
 
 export default function ModeSpacePage() {

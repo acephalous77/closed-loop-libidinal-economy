@@ -7,9 +7,11 @@ import { ForeclosureClock } from "@/components/visualizations/ForeclosureClock";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "foreclosure clock — The Closed-Loop Libidinal Economy",
+  title: "foreclosure clock",
   description:
     "Visualization I. The survival probability bound from Lemma 1, made physically legible by comparison to reference lengths.",
+  alternates: { canonical: "/closed-loop/the-dynamics/foreclosure-clock" },
+  robots: { index: false, follow: true },
 };
 
 export default function ForeclosureClockPage() {

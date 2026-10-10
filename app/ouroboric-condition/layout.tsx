@@ -60,6 +60,7 @@ export const metadata: Metadata = {
     "Levinas",
     "Adnan Selimović",
   ],
+  alternates: { canonical: "/ouroboric-condition" },
   openGraph: {
     type: "article",
     siteName: "autostimulus",

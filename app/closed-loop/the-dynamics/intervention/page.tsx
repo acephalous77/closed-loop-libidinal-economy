@@ -7,9 +7,11 @@ import { M } from "@/components/ui/Math";
 import { RelatedReading } from "@/components/navigation/RelatedReading";
 
 export const metadata: Metadata = {
-  title: "the three modes — The Closed-Loop Libidinal Economy",
+  title: "the three modes",
   description:
     "Mechanism §5. The three modes of intervention as a controls panel. Only Mode A breaks Lemma 1; Modes B and C preserve parallel structures the proof chain does not depend on.",
+  alternates: { canonical: "/closed-loop/the-dynamics/intervention" },
+  robots: { index: false, follow: true },
 };
 
 export default function InterventionPage() {

@@ -15,10 +15,6 @@ import Link from "next/link";
  * atelier-back link.
  */
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.autostimulus.org";
-
 export const metadata: Metadata = {
   title: {
     default: "OHCOSE — Public Intake Portal",
@@ -32,8 +28,7 @@ export const metadata: Metadata = {
     title: "OHCOSE — Public Intake Portal",
     description:
       "Office of Human Continuity and Social Equilibrium. Public Intake Portal.",
-    url: `${SITE_URL}/ohcose`,
-    locale: "en_US",
+        locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

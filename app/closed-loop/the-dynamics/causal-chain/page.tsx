@@ -7,9 +7,11 @@ import { CausalChain } from "@/components/visualizations/CausalChain";
 import { M } from "@/components/ui/Math";
 
 export const metadata: Metadata = {
-  title: "the causal chain — The Closed-Loop Libidinal Economy",
+  title: "the causal chain",
   description:
     "Mechanism §4. The proof chain from the assumptions to Theorem 1, with mode interception points visible. Mode A cuts the chain; Modes B and C do not.",
+  alternates: { canonical: "/closed-loop/the-dynamics/causal-chain" },
+  robots: { index: false, follow: true },
 };
 
 export default function CausalChainPage() {

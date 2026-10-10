@@ -277,9 +277,15 @@ export default function HawkesPage() {
             produces
           </li>
           <li>
-            Networked extension: §8 (engagement cascade theorem) —
-            the same Hawkes framework with cross-user coupling{" "}
-            <M>{String.raw`W`}</M> (not yet built)
+            Networked extension:{" "}
+            <Link
+              href="/closed-loop/the-apparatus/section-8"
+              className="text-oxblood hover:underline"
+            >
+              §8 (engagement cascade theorem)
+            </Link>{" "}
+            — the same Hawkes framework with cross-user coupling{" "}
+            <M>{String.raw`W`}</M>
           </li>
           <li>
             Dynamics plate:{" "}

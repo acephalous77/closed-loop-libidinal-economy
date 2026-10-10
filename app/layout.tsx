@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     template: "%s — autostimulus",
   },
   description:
-    "Works by A. Selimović. Critical theory, media psychology, political economy. The closed-loop libidinal economy, the OHCOSE manual, the ouroboros chair, the patriotic-times coloring book, and the work to come.",
+    "Works by A. Selimović. Critical theory, media psychology, political economy. The closed-loop libidinal economy, the OHCOSE manual, the ouroboros chair, the patriotic-times coloring book, the ouroboric-condition atlas, the manufacture of the subject, and the psychopolitics atlas.",
   keywords: [
     "Adnan Selimović",
     "A. Selimović",
@@ -97,14 +97,18 @@ export const metadata: Metadata = {
   authors: [{ name: "Adnan Selimović" }],
   creator: "Adnan Selimović",
   publisher: "Adnan Selimović",
-  alternates: { canonical: "/" },
+  /**
+   * No `alternates.canonical` here. A canonical set at the root is
+   * inherited by every route that doesn't override it, which told
+   * Google that 18 pages were duplicates of the homepage. Each route
+   * sets its own canonical; the landing page sets "/".
+   */
   openGraph: {
     type: "website",
     siteName: "autostimulus",
     title: "autostimulus",
     description:
       "Works by A. Selimović.",
-    url: SITE_URL,
     locale: "en_US",
   },
   twitter: {

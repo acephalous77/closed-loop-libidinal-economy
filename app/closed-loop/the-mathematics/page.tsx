@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Mathematics from "@/content/mathematics.mdx";
 import { Breadcrumb } from "@/components/navigation/Breadcrumb";
 import { MarginTOC, InlineTOC } from "@/components/navigation/MarginTOC";
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "article",
     title: TITLE,
@@ -120,6 +122,18 @@ export default function TheMathematicsPage() {
             <h1 className="font-serif text-2xl text-ink leading-tight mb-md">
               the mathematics.
             </h1>
+            {/* First-version stamp — this exposition is the 2026 archive;
+                the rebuilt formal companion lives at /closed-loop/the-apparatus.
+                Wording is a draft in his terse register, flagged for his vetting. */}
+            <p className="font-mono text-xs text-ink-50 mb-md">
+              first version ·{" "}
+              <Link
+                href="/closed-loop/the-apparatus"
+                className="underline decoration-ink-30 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+              >
+                the current apparatus →
+              </Link>
+            </p>
             {/* Contents inline on narrow viewports — the aside beside this
                 column is `hidden lg:block`, so phones had no index at all. */}
             <InlineTOC entries={TOC} />

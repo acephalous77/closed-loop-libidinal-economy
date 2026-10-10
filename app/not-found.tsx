@@ -31,6 +31,8 @@ const LINKS = [
   { href: "/ouroboric-condition", label: "the ouroboric condition" },
   { href: "/closed-loop", label: "the closed-loop libidinal economy" },
   { href: "/patriotic-times", label: "patriotic times" },
+  { href: "/manufacture-of-the-subject", label: "the manufacture of the subject" },
+  { href: "/psychopolitics-atlas/index.html", label: "the psychopolitics of socialization" },
 ];
 
 export default function NotFound() {

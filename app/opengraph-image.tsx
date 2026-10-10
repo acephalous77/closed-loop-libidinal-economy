@@ -52,7 +52,7 @@ export default async function Image() {
           }}
         >
           <div>A. SELIMOVIĆ</div>
-          <div style={{ color: INK_2 }}>WORKS 2025—2026</div>
+          <div style={{ color: INK_2 }}>WORKS 2015—2026</div>
         </div>
 
         {/* cut-up wordmark */}

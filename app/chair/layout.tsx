@@ -48,10 +48,6 @@ const sourceSerif = Source_Serif_4({
   style: ["normal", "italic"],
 });
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.autostimulus.org";
-
 export const metadata: Metadata = {
   title: {
     default: "On the Chair — Notes Toward a Theory of the Closed-Loop Libidinal Economy",
@@ -64,8 +60,7 @@ export const metadata: Metadata = {
     siteName: "Closed-Loop Libidinal Economy",
     title: "On the Chair",
     description: "Notes toward a theory of the closed-loop libidinal economy.",
-    url: `${SITE_URL}/chair`,
-    locale: "en_US",
+        locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",

@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: PATH },
+  robots: { index: false, follow: true },
   openGraph: {
     type: "website",
     title: TITLE,
@@ -195,6 +196,19 @@ export default function TheDynamicsPage() {
           <h1 className="font-mono text-xl text-ink-90 mb-xl">
             the dynamics.
           </h1>
+
+          {/* First-version stamp — this branch is the 2026 archive of the
+              plates; the rebuilt set lives at /closed-loop/v2-dynamics.
+              Wording is a draft in his terse register, flagged for his vetting. */}
+          <p className="font-mono text-xs text-ink-50 mb-md">
+            first version ·{" "}
+            <Link
+              href="/closed-loop/v2-dynamics"
+              className="underline decoration-ink-30 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+            >
+              the twelve current plates →
+            </Link>
+          </p>
 
           <p className="font-mono text-xs text-ink-50 mb-md">five plates · each carries one structural claim</p>
 
