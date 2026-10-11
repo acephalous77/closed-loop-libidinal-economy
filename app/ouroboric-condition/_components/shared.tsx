@@ -27,12 +27,14 @@ export type OpenFn = (id: string, e?: MouseEvent) => void;
 
 // LIGHT — Anatomy / paper
 export const L = {
-  paper: "#e9e3d6",
-  ink: "#211d18",
-  rule: "#c3bba7",
+  /* Cooled 2026-10-10 (his word): neutrals off the cream/amber cluster;
+     the oxide accent stays — it is the register's own. */
+  paper: "#e6e9e7",
+  ink: "#1c1f20",
+  rule: "#c0c5c3",
   oxide: "#9e4f39",
-  gloss: "#4f4a40",
-  faint: "#6e6551",
+  gloss: "#4a5052",
+  faint: "#646b6e",
 };
 
 // DARK — Apparatus

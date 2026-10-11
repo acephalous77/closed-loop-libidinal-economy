@@ -58,7 +58,7 @@ interface WorkRef {
 }
 
 /** The press + the seven works, longest prefix first. */
-const HOUSE: RegisterTokens = { bg: "#f4ede0", ink: "#2b2520", accent: "#7a1f1f" };
+const HOUSE: RegisterTokens = { bg: "#f1f2ef", ink: "#24272b", accent: "#174a77" };
 
 const REFS: WorkRef[] = [
   ...WORKS.map((w) => ({

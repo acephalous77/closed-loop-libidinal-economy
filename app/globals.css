@@ -65,18 +65,23 @@
   --font-*: initial;
   --text-*: initial;
 
-  /* Colors — light mode (cream paper, warm off-black ink) */
-  --color-ink: #1a1612;
-  --color-ink-90: #2b2520;
-  --color-ink-70: #5a514a;
-  /* ink-50 darkened from #8a7f74 (3.36:1 on cream — failed WCAG AA) to
-     #6f665b (4.84:1) so muted text clears the 4.5:1 small-text minimum. */
-  --color-ink-50: #6f665b;
-  --color-paper: #f4ede0;
-  --color-paper-95: #ebe3d3;
-  --color-paper-85: #ddd2bd;
-  --color-oxblood: #7a1f1f;
-  --color-oxblood-dark: #5e1818;
+  /* Colors — light mode (porcelain ground, graphite ink, prussian accent).
+     2026-10-10 (his word): re-tuned from the cream/oxblood register — the
+     warm paper + serif + red cluster read as the standard AI-interface
+     theme; the house now runs cool and instrument-toned. Token names are
+     historic; the values are the register. */
+  --color-ink: #191b1e;
+  --color-ink-90: #24272b;
+  --color-ink-70: #4b5258;
+  /* ink-50 kept at the AA boundary: #5c646b clears 4.5:1 on the porcelain
+     ground (the cream-era value #6f665b is struck 2026-10-10 with the
+     palette re-tune). */
+  --color-ink-50: #5c646b;
+  --color-paper: #f1f2ef;
+  --color-paper-95: #e8eae4;
+  --color-paper-85: #d4d8d1;
+  --color-oxblood: #174a77;
+  --color-oxblood-dark: #10365a;
 
   /* v2 closed-loop rebuild — additional semantic colors per
      Design System §3.1 (autostimulus-planning/06_design_system.md).
@@ -85,10 +90,10 @@
      fog / slate / moss / formal-bg are net-new. */
   --color-cream: var(--color-paper);
   --color-warm-ink: var(--color-ink);
-  --color-fog: #b8aea0;
+  --color-fog: #a9adb0;
   --color-slate: #3c4a52;
   --color-moss: #5a6b3c;
-  --color-formal-bg: #ede6d7;
+  --color-formal-bg: #e7eae5;
 
   /* Fonts — variables populated by next/font/local on <html> */
   --font-serif: var(--font-eb-garamond-full), Georgia, "Times New Roman", serif;
@@ -130,31 +135,31 @@
 /* Edge-shadow tint for horizontally scrollable blocks (wide equations).
    Dark ink on light paper; flipped to a light glow in dark mode below. */
 :root {
-  --scroll-shadow-color: rgba(26, 22, 18, 0.16);
+  --scroll-shadow-color: rgba(20, 23, 26, 0.16);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-ink: #e8e0d0;
-    --color-ink-90: #d4ccbe;
-    --color-ink-70: #9a907f;
-    /* ink-50 lightened from #6d6357 (3.06:1 on dark paper — failed WCAG
-       AA) to #8d8474 (4.87:1) for the same small-text minimum. */
-    --color-ink-50: #8d8474;
-    --color-paper: #1a1612;
-    --color-paper-95: #221d18;
-    --color-paper-85: #2f2820;
-    --color-oxblood: #b04a4a;
-    --color-oxblood-dark: #c25555;
+    --color-ink: #e8ebe7;
+    --color-ink-90: #d3d7d2;
+    --color-ink-70: #9ba1a3;
+    /* ink-50 reinspected for the porcelain/graphite re-tune (2026-10-10):
+       #8b9296 clears 4.5:1 on the graphite ground. */
+    --color-ink-50: #8b9296;
+    --color-paper: #17191b;
+    --color-paper-95: #1f2225;
+    --color-paper-85: #2c3034;
+    --color-oxblood: #6ea6d4;
+    --color-oxblood-dark: #8bb9de;
 
     /* v2 closed-loop rebuild — dark-mode counterparts for the
        semantic colors added to @theme. Aliases (cream, warm-ink)
        inherit from paper/ink automatically. */
-    --color-fog: #5a5247;
+    --color-fog: #5a5f63;
     --color-slate: #a0b2bc;
     --color-moss: #aabd86;
-    --color-formal-bg: #22201c;
-    --scroll-shadow-color: rgba(232, 224, 208, 0.13);
+    --color-formal-bg: #1f2225;
+    --scroll-shadow-color: rgba(230, 233, 229, 0.13);
   }
 }
 
@@ -266,7 +271,7 @@ summary:focus-visible,
 /* Per-work selection — each world's ink over each world's paper.
    (chair, manufacture, ouroboric, psychopolitics theme their own;
    these are the remaining surfaces.) */
-.ohcose-theme ::selection { background: #9c1818; color: #ecebe5; }
+.ohcose-theme ::selection { background: #9c1818; color: #eceeed; }
 .patriotic-theme ::selection { background: #b8222a; color: #f4ecdc; }
 .zine-main ::selection { background: #0b0b0b; color: #e9e3d3; }
 .zine-main ::-moz-selection { background: #0b0b0b; color: #e9e3d3; }
@@ -814,13 +819,13 @@ a.text-oxblood:hover {
 
 .ohcose-theme {
   /* Palette — institutional grayscale, single accent red */
-  --color-ink: #0e0d0a;
-  --color-ink-90: #1f1d18;
-  --color-ink-70: #4a463e;
-  --color-ink-50: #666158;
-  --color-paper: #ecebe5;        /* eggshell, less warm than atelier */
-  --color-paper-95: #e0ddd4;
-  --color-paper-85: #cdc8bd;
+  --color-ink: #0d0e0e;
+  --color-ink-90: #1d1f20;
+  --color-ink-70: #464a4c;
+  --color-ink-50: #5f6366;
+  --color-paper: #eceeed;        /* cool institutional white (2026-10-10) */
+  --color-paper-95: #e0e2e1;
+  --color-paper-85: #cccfce;
   --color-oxblood: #9c1818;      /* form-rejection red, deeper than oxblood */
   --color-oxblood-dark: #7a1313;
 

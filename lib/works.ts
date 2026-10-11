@@ -39,7 +39,7 @@ export const WORKS: Work[] = [
     plain: "a framework for attention under platform capture — prose, mathematics, operable plates",
     title: "The Closed-Loop Libidinal Economy",
     coverNote: "framework",
-    cover: { bg: "#f4ede0", ink: "#1a1612", accent: "#7a1f1f" },
+    cover: { bg: "#f1f2ef", ink: "#191b1e", accent: "#174a77" },
     mark: "◆",
     year: "2026",
     register: "framework · essays · mathematics · interactive plates",

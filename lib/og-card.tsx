@@ -47,7 +47,7 @@ export async function ogCard({
           flexDirection: "column",
           width: "100%",
           height: "100%",
-          background: "#f4ede0",
+          background: "#f1f2ef",
           padding: "84px 92px",
           justifyContent: "space-between",
           fontFamily: "EB Garamond",
@@ -58,7 +58,7 @@ export async function ogCard({
             style={{
               fontFamily: "JetBrains Mono",
               fontSize: 22,
-              color: "#8a7f74",
+              color: "#6b7277",
               letterSpacing: "0.04em",
               marginBottom: 36,
             }}
@@ -69,7 +69,7 @@ export async function ogCard({
             style={{
               fontFamily: "EB Garamond",
               fontSize: titleSize,
-              color: "#1a1612",
+              color: "#191b1e",
               lineHeight: 1,
               letterSpacing: "-0.02em",
             }}
@@ -82,7 +82,7 @@ export async function ogCard({
                 fontFamily: "EB Garamond",
                 fontStyle: "italic",
                 fontSize: titleSize,
-                color: "#1a1612",
+                color: "#191b1e",
                 lineHeight: 1,
                 letterSpacing: "-0.02em",
               }}
@@ -95,7 +95,7 @@ export async function ogCard({
               fontFamily: "EB Garamond",
               fontStyle: "italic",
               fontSize: 42,
-              color: "#5a514a",
+              color: "#4b5258",
               marginTop: 44,
               lineHeight: 1.2,
               maxWidth: 920,
@@ -111,7 +111,7 @@ export async function ogCard({
             alignItems: "baseline",
             fontFamily: "JetBrains Mono",
             fontSize: 20,
-            color: "#8a7f74",
+            color: "#6b7277",
             letterSpacing: "0.02em",
           }}
         >

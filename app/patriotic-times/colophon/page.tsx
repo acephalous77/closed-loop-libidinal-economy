@@ -221,7 +221,7 @@ function Section({ n, title, children }: { n: string; title: string; children: R
           fontFamily: SERIF,
           fontSize: "1.1rem",
           lineHeight: 1.65,
-          color: "#1a1612",
+          color: "#221d16",
         }}
       >
         {children}

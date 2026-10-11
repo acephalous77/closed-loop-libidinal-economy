@@ -64,6 +64,8 @@ speaks in it without apology. The shell is austere because the works are not:
 the atelier index is a xerox flyer, the framework is an academic octavo, the
 agency manual is a federal form, the coloring book is a riso pamphlet, the
 chair is a clinical brochure and a protest zine in the same envelope.
+The frontpage is the press's console: a graphite channel register, one row
+per work, session-aware — the machine's own face.
 
 The system's discipline is in what it refuses: no third-party requests, no
 analytics, no tracking, no engagement loops, no SaaS-aesthetic chrome. Every
@@ -95,19 +97,22 @@ semantic colors reserved for the closed-loop rebuild's formal surfaces.
 
 ### Primary
 
-- **Oxblood** (#7a1f1f): the house accent — links, active states, the
-  rubber-stamp moments. Dark-mode variant #b04a4a. Used sparingly; its rarity
-  is the emphasis.
+- **Prussian** (#174a77, token name `oxblood`, historic): the house accent —
+  links, active states, the stamped moments. Dark-mode variant #6ea6d4. Used
+  sparingly; its rarity is the emphasis. *(2026-10-10, his word: the palette
+  re-tuned — the cream ground + serif + red accent cluster read as the
+  standard AI-interface theme; the house now runs porcelain/graphite/prussian.
+  Token names are historic; the values are the register.)*
 
 ### Neutral
 
-- **Ink** (#1a1612): display text and rules.
-- **Ink-90 / Ink-70 / Ink-50** (#2b2520 / #5a514a / #6f665b): the text
+- **Ink** (#191b1e): display text and rules.
+- **Ink-90 / Ink-70 / Ink-50** (#24272b / #4b5258 / #5c646b): the text
   hierarchy. Ink-50 is the AA floor for small muted text; do not ship values
   lighter than it for functional copy.
-- **Paper / Paper-95 / Paper-85** (#f4ede0 / #ebe3d3 / #ddd2bd): page,
+- **Paper / Paper-95 / Paper-85** (#f1f2ef / #e8eae4 / #d4d8d1): page,
   inset blocks, and hairline rules respectively.
-- **Fog / Slate / Moss / Formal-bg** (#b8aea0 / #3c4a52 / #5a6b3c / #ede6d7):
+- **Fog / Slate / Moss / Formal-bg** (#a9adb0 / #3c4a52 / #5a6b3c / #e7eae5):
   semantic colors for the closed-loop v2 surfaces, each carrying theoretical
   meaning across the apparatus and prose.
 
@@ -117,10 +122,10 @@ semantic colors reserved for the closed-loop rebuild's formal surfaces.
 own token record (the chair's `_components/tokens.ts` is the model) and
 overrides inside its own subtree. The registers on the shelf: chair —
 MASTER sepia, BROCHURE clinical white/blueprint, ZINE riso black/cream,
-ARCHIVE slate; OHCOSE — institutional grayscale + form red (#9c1818);
+ARCHIVE slate; OHCOSE — cool institutional white + form red (#9c1818);
 Patriotic Times — ivory/ink + four chapter inks (red #b8222a, blue #1e4f8f,
 green #1d7a45, ochre #8a6000); Manufacture — near-black + bone + arterial
-(#ff2e00, reserved for the balance); Ouroboric — paper Anatomy / sodium
+(#ff2e00, reserved for the balance); Ouroboric — cool paper Anatomy / sodium
 Apparatus; Psychopolitics — slate field guide.
 
 **The AA Floor Rule.** Muted tiers are contrast-audited per register on their
@@ -238,8 +243,9 @@ inside the register; the shell itself stays square.
 ### Press sheet (signature, the machine layer)
 - **Style:** each work's tiny cover composed from its own register tokens
   (`lib/works.ts` `cover`: ground, ink, accent): year · riso mark · italic
-  title · register kind. 64×84 in the shelf; 72×96 pasted at the flyer
-  row's bottom-left in the ink-press layer, rotated 1.5°.
+  title · register kind. 64×84 in the shelf; 56×76 in the console's sheet
+  column (the frontpage, rebuilt 2026-10-10 as the press's channel
+  register on a graphite ground).
 
 ### Plate mark (signature, the machine layer)
 - **Style:** the twelve mechanism glyphs one stroke weight on a 28-grid,

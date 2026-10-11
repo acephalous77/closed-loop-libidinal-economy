@@ -167,8 +167,8 @@ export function ReclamationTrajectories() {
     const RASTER_BAND_TOP = TRAIL_BAND_H + 4;
     const RASTER_BAND_H = H - RASTER_BAND_TOP - 2;
 
-    // Clear with paper-95 (#ebe3d3).
-    ctx.fillStyle = "#ebe3d3";
+    // Clear with paper-95 (#e8eae4).
+    ctx.fillStyle = "#e8eae4";
     ctx.fillRect(0, 0, W, H);
 
     const users = usersRef.current;

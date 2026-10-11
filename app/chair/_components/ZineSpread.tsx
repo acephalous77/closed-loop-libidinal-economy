@@ -803,13 +803,13 @@ export default function ZineSpread() {
             position: "relative",
             maxWidth: 540,
             margin: "0 auto",
-            background: "#f4ede0",
+            background: "#f1f2ef",
             color: "#0a0908",
             padding: "56px 48px 64px",
             transform: "rotate(-0.6deg)",
             boxShadow: "0 24px 60px rgba(0,0,0,0.7), 0 4px 12px rgba(0,0,0,0.5)",
             // Subtle paper texture
-            backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0.04 0'/></filter><rect width='160' height='160' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f4ede0 0%, #ede5d2 100%)`,
+            backgroundImage: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='p'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.5  0 0 0 0 0.4  0 0 0 0.04 0'/></filter><rect width='160' height='160' filter='url(%23p)'/></svg>"), linear-gradient(180deg, #f1f2ef 0%, #e2e4e0 100%)`,
           }}
         >
           {/* No headline. No rubber stamp. Just the address. */}

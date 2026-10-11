@@ -112,7 +112,7 @@ export function Offprint() {
               y1="78"
               x2="696"
               y2="78"
-              stroke="var(--color-paper-85, #ddd2bd)"
+              stroke="var(--color-paper-85, #d4d8d1)"
               strokeWidth="1"
             />
             {SLOTS.map((s) => (
@@ -125,8 +125,8 @@ export function Offprint() {
                 fontSize="15"
                 fill={
                   last && last.key === s.key
-                    ? "var(--color-oxblood, #7a1f1f)"
-                    : "var(--color-ink-70, #5a514a)"
+                    ? "var(--color-oxblood, #174a77)"
+                    : "var(--color-ink-70, #4b5258)"
                 }
               >
                 {s.mark}
@@ -136,7 +136,7 @@ export function Offprint() {
               <polyline
                 points={pathPoints}
                 fill="none"
-                stroke="var(--color-ink-50, #6f665b)"
+                stroke="var(--color-ink-50, #5c646b)"
                 strokeWidth="1.1"
                 opacity="0.75"
               />
@@ -146,7 +146,7 @@ export function Offprint() {
                 cx={slotX(last.key)}
                 cy="78"
                 r="3.4"
-                fill="var(--color-oxblood, #7a1f1f)"
+                fill="var(--color-oxblood, #174a77)"
               />
             )}
           </svg>

@@ -21,13 +21,13 @@ import { M } from "@/components/ui/Math";
 // Color palette from CSS custom properties — read directly so the scene
 // inherits the design system tokens.
 const COLORS = {
-  ink: "#1a1612",
-  ink90: "#2b2520",
-  ink70: "#5a514a",
+  ink: "#191b1e",
+  ink90: "#24272b",
+  ink70: "#4b5258",
   ink50: "#8a7f74",
-  paper95: "#ebe3d3",
-  paper85: "#ddd2bd",
-  oxblood: "#7a1f1f",
+  paper95: "#e8eae4",
+  paper85: "#d4d8d1",
+  oxblood: "#174a77",
 };
 
 const AXIS_LENGTH = 1.2;

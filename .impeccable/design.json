@@ -1,157 +1,157 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-11T12:06:27",
+  "generatedAt": "2026-10-11T12:31:17",
   "title": "Design System: autostimulus",
   "extensions": {
     "colorMeta": {
       "ink": {
         "role": "neutral",
         "displayName": "Warm Ink",
-        "canonical": "#1a1612",
+        "canonical": "#191b1e",
         "tonalRamp": [
-          "#2d261f",
-          "#4b4034",
-          "#695949",
-          "#88735e",
-          "#ac9986",
-          "#cbbfb4",
-          "#e6e0db",
-          "#f5f2f0"
+          "#23262a",
+          "#3a3f46",
+          "#515861",
+          "#68717d",
+          "#9097a2",
+          "#b9bec5",
+          "#dee0e3",
+          "#f1f2f3"
         ]
       },
       "ink-90": {
         "role": "neutral",
         "displayName": "Ink 90",
-        "canonical": "#2b2520",
+        "canonical": "#24272b",
         "tonalRamp": [
-          "#2c2621",
-          "#493f36",
-          "#66584c",
-          "#847162",
-          "#a8988a",
-          "#c9beb6",
-          "#e5e0dc",
-          "#f4f2f0"
+          "#23262a",
+          "#3a3f45",
+          "#515861",
+          "#69717d",
+          "#9098a2",
+          "#babec5",
+          "#dee0e3",
+          "#f1f2f3"
         ]
       },
       "ink-70": {
         "role": "neutral",
         "displayName": "Ink 70",
-        "canonical": "#5a514a",
+        "canonical": "#4b5258",
         "tonalRamp": [
-          "#2a2623",
-          "#463f3a",
-          "#625851",
-          "#7e7168",
-          "#a3988f",
-          "#c5beb9",
-          "#e3e0dd",
-          "#f3f2f1"
+          "#232629",
+          "#3b4045",
+          "#525a60",
+          "#6a737c",
+          "#919aa1",
+          "#bac0c4",
+          "#dee1e3",
+          "#f1f2f3"
         ]
       },
       "ink-50": {
         "role": "neutral",
         "displayName": "Ink 50",
-        "canonical": "#6f665b",
+        "canonical": "#5c646b",
         "tonalRamp": [
-          "#2a2722",
-          "#464039",
-          "#625a50",
-          "#7e7467",
-          "#a39a8f",
-          "#c6c0b9",
-          "#e3e1dd",
-          "#f4f2f1"
+          "#232629",
+          "#3b4045",
+          "#535a60",
+          "#6a737b",
+          "#919aa1",
+          "#bac0c4",
+          "#dee1e3",
+          "#f1f2f3"
         ]
       },
       "paper": {
         "role": "neutral",
         "displayName": "Cream Paper",
-        "canonical": "#f4ede0",
+        "canonical": "#f1f2ef",
         "tonalRamp": [
-          "#382c14",
-          "#5e4921",
-          "#84662f",
-          "#a9833c",
-          "#caa868",
-          "#dec8a1",
-          "#efe5d2",
-          "#f8f4ec"
+          "#282a22",
+          "#424639",
+          "#5c6250",
+          "#777f67",
+          "#9da48e",
+          "#c1c6b9",
+          "#e1e4dd",
+          "#f3f4f1"
         ]
       },
       "paper-95": {
         "role": "neutral",
         "displayName": "Paper 95",
-        "canonical": "#ebe3d3",
+        "canonical": "#e8eae4",
         "tonalRamp": [
-          "#352b18",
-          "#584828",
-          "#7b6438",
-          "#9e8148",
-          "#bfa673",
-          "#d7c7a7",
-          "#ece4d5",
-          "#f7f4ed"
+          "#282b21",
+          "#424838",
+          "#5d644e",
+          "#788164",
+          "#9da68c",
+          "#c2c7b7",
+          "#e2e4dd",
+          "#f3f4f1"
         ]
       },
       "paper-85": {
         "role": "neutral",
         "displayName": "Paper 85",
-        "canonical": "#ddd2bd",
+        "canonical": "#d4d8d1",
         "tonalRamp": [
-          "#322a1a",
-          "#54462b",
-          "#76623d",
-          "#977e4e",
-          "#baa378",
-          "#d4c6ab",
-          "#eae3d7",
-          "#f6f4ee"
+          "#262923",
+          "#3f453a",
+          "#586152",
+          "#717c69",
+          "#98a191",
+          "#bfc4ba",
+          "#e0e3de",
+          "#f2f3f1"
         ]
       },
       "oxblood": {
         "role": "primary",
         "displayName": "Oxblood",
-        "canonical": "#7a1f1f",
+        "canonical": "#174a77",
         "tonalRamp": [
-          "#3d0f0f",
-          "#661a1a",
-          "#8e2424",
-          "#b72e2e",
-          "#d65c5c",
-          "#e59999",
-          "#f3cece",
-          "#faebeb"
+          "#0c2840",
+          "#15426b",
+          "#1d5d96",
+          "#2578c0",
+          "#549dde",
+          "#94c2ea",
+          "#cce2f5",
+          "#eaf3fb"
         ]
       },
       "oxblood-dark": {
         "role": "neutral",
         "displayName": "Oxblood Deep",
-        "canonical": "#5e1818",
+        "canonical": "#10365a",
         "tonalRamp": [
-          "#3d1010",
-          "#661a1a",
-          "#8e2424",
-          "#b72f2f",
-          "#d65c5c",
-          "#e59999",
-          "#f3cece",
-          "#faebeb"
+          "#0c2741",
+          "#13416c",
+          "#1b5b98",
+          "#2375c3",
+          "#529be0",
+          "#93c0ec",
+          "#cbe1f6",
+          "#e9f2fb"
         ]
       },
       "fog": {
         "role": "neutral",
         "displayName": "Fog",
-        "canonical": "#b8aea0",
+        "canonical": "#a9adb0",
         "tonalRamp": [
-          "#2c2721",
-          "#494137",
-          "#665b4c",
-          "#837662",
-          "#a89b8a",
-          "#c8c1b6",
-          "#e5e1dc",
-          "#f4f3f0"
+          "#252628",
+          "#3d4042",
+          "#555a5d",
+          "#6e7378",
+          "#959a9d",
+          "#bdc0c2",
+          "#dfe1e2",
+          "#f2f2f3"
         ]
       },
       "slate": {
@@ -187,16 +187,16 @@
       "formal-bg": {
         "role": "neutral",
         "displayName": "Formal Ground",
-        "canonical": "#ede6d7",
+        "canonical": "#e7eae5",
         "tonalRamp": [
-          "#352c18",
-          "#584928",
-          "#7b6637",
-          "#9e8347",
-          "#c0a772",
-          "#d7c8a7",
-          "#ece5d5",
-          "#f7f4ed"
+          "#252a22",
+          "#3e4739",
+          "#576350",
+          "#707f67",
+          "#97a48e",
+          "#bec6b8",
+          "#e0e4dd",
+          "#f2f4f1"
         ]
       }
     },

@@ -112,13 +112,13 @@ export function WorksDoor({
             aria-label="the seven works"
             onClick={(e) => e.stopPropagation()}
             style={{
-              background: "#f4ede0",
-              color: "#1a1612",
+              background: "#f1f2ef",
+              color: "#191b1e",
               width: "100%",
               maxWidth: "46rem",
               maxHeight: "85vh",
               overflowY: "auto",
-              border: "1px solid #ddd2bd",
+              border: "1px solid #d4d8d1",
               padding: "2rem 2rem 1.4rem",
             }}
           >
@@ -136,7 +136,7 @@ export function WorksDoor({
                   fontSize: "0.78rem",
                   letterSpacing: "0.24em",
                   textTransform: "uppercase",
-                  color: "#5a514a",
+                  color: "#4b5258",
                   margin: 0,
                 }}
               >
@@ -153,7 +153,7 @@ export function WorksDoor({
                   lineHeight: 1,
                   background: "none",
                   border: 0,
-                  color: "#5a514a",
+                  color: "#4b5258",
                   cursor: "pointer",
                   padding: "0.2rem 0.4rem",
                 }}
@@ -163,7 +163,7 @@ export function WorksDoor({
             </div>
             <ol style={{ listStyle: "none", padding: 0, margin: "1.2rem 0 0" }}>
               {WORKS.map((w) => (
-                <li key={w.href} style={{ borderTop: "1px solid #ddd2bd" }}>
+                <li key={w.href} style={{ borderTop: "1px solid #d4d8d1" }}>
                   <Link
                     href={w.href}
                     onClick={close}
@@ -187,7 +187,7 @@ export function WorksDoor({
                         style={{
                           display: "block",
                           fontSize: "0.98rem",
-                          color: "#5a514a",
+                          color: "#4b5258",
                           marginTop: "0.15rem",
                           lineHeight: 1.45,
                         }}
@@ -204,7 +204,7 @@ export function WorksDoor({
                           fontSize: "0.7rem",
                           letterSpacing: "0.14em",
                           textTransform: "uppercase",
-                          color: "#7a1f1f",
+                          color: "#174a77",
                         }}
                       >
                         arrived ×{arrivals.get(w.href)}
