@@ -82,6 +82,11 @@ print — are themed as part of the design, not left at defaults.
   SaaS chrome anywhere in the shell.
 - Legibility is a floor, not a style choice: functional text ≥ 11px, body
   contrast ≥ 4.5:1 in every register, light or dark.
+- **The machine layer** (2026-10-10, his lock): the atelier carries the
+  Observering Machine — press sheets, plate marks, the door, and the
+  reader's apparatus — the site as a declared instance of the loop it
+  theorizes. Control remains the house's; each work's register owns how the
+  machine looks inside it.
 
 ## Colors
 
@@ -181,6 +186,11 @@ lives in the shell: the laboratory grid behind the apparatus's formal blocks
 **The Flat-By-Default Rule.** Surfaces are flat at rest. A shell component
 that "needs" a drop shadow is a component in the wrong register.
 
+**The Session Rule.** The machine measures a session in memory only —
+no storage, no cookie, no network — and every readout ships with its
+plain definition beside it. A quantity the instrument cannot honestly
+measure does not ship; the disclosure names what it does.
+
 ## Shapes
 
 Square. The radius inventory is one token: 1px on the keyboard focus ring.
@@ -225,6 +235,38 @@ inside the register; the shell itself stays square.
   isolation (print only the artifact — the receipt, the plate, the atlas
   plate) on white with the interactive chrome suppressed.
 
+### Press sheet (signature, the machine layer)
+- **Style:** each work's tiny cover composed from its own register tokens
+  (`lib/works.ts` `cover`: ground, ink, accent): year · riso mark · italic
+  title · register kind. 64×84 in the shelf; 72×96 pasted at the flyer
+  row's bottom-left in the ink-press layer, rotated 1.5°.
+
+### Plate mark (signature, the machine layer)
+- **Style:** the twelve mechanism glyphs one stroke weight on a 28-grid,
+  at figure scale (56px in the index cards, 80px over a hairline on each
+  plate page), drawn in on entry (DrawOnView, `pathLength={1}`), collapsed
+  under reduced-motion.
+
+### The closure figure
+- **Style:** the argument's opening plate, 760×360, loop arc in oxblood,
+  the stable point marked, the barred no-exogenous-channel stub; widened
+  past the prose column at lg; drawn in on entry.
+
+### The door & the shelf (signature, the machine layer)
+- **Style:** "↑ autostimulus · the seven works" in each work's exit line,
+  inheriting the register; the shelf overlay (shell palette: paper/ink/
+  mono) opens with a scrim fade + sheet rise, carries press sheets, and
+  tags visited works "arrived ×N" in oxblood.
+
+### The reader's apparatus (signature, the machine layer)
+- **Style:** the corner instrument, worn in the room's register via
+  `registerFor(pathname)` (a work's cover tokens; house on the press,
+  /reader, /thinkroom). Collapsed: one mono line. Expanded: five readouts,
+  each with its plain definition, the honesty note, "file the offprint".
+  Session-only by construction: in memory, no storage, no cookie, no
+  network; the disclosure at /instrumentation names it, and the offprint
+  at /reader (noindex) draws the reading path over the eight marks.
+
 ## Do's and Don'ts
 
 ### Do:
@@ -241,6 +283,10 @@ inside the register; the shell itself stays square.
   focus rings, scrollbars where authored, print.
 - **Do** verify interactive pages with a console capture, not only visuals:
   a silent script error is invisible in a screenshot.
+- **Do** let the machine wear the room: `registerFor` resolves the work's
+  cover tokens for the instrument, the sheets, and the door.
+- **Do** keep the record honest and mortal: in-memory, tab-scoped, and
+  stated where it ends (the panel, the offprint, the atlas footer).
 
 ### Don't:
 
@@ -254,3 +300,7 @@ inside the register; the shell itself stays square.
   every preload; secondary faces load on first use.
 - **Don't** edit any work's published handle on the shell's tokens — the
   registers exist so the works stay themselves.
+- **Don't** give the machine storage, a cookie, or a network call; it dies
+  with the tab, and the disclosure says so.
+- **Don't** show a readout without its definition, or a lit state without
+  its count.

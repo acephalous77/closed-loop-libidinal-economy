@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-10T13:30:21",
+  "generatedAt": "2026-10-11T12:06:27",
   "title": "Design System: autostimulus",
   "extensions": {
     "colorMeta": {
@@ -293,6 +293,14 @@
       "description": "The house's ink-on-paper action button (print/run controls).",
       "html": "<button class=\"ds-btn\">print / save as pdf</button>",
       "css": ".ds-btn { font-family: var(--font-jetbrains-mono, ui-monospace, Menlo, monospace); font-size: 0.875rem; background: var(--color-ink, #1a1612); color: var(--color-paper, #f4ede0); border: none; padding: 0.6rem 1.1rem; cursor: pointer; letter-spacing: 0.04em; transition: background 100ms; } .ds-btn:hover { background: var(--color-oxblood, #7a1f1f); } .ds-btn:focus-visible { outline: 2px solid var(--color-oxblood, #7a1f1f); outline-offset: 3px; }"
+    },
+    {
+      "name": "Reader's Apparatus",
+      "kind": "custom",
+      "refersTo": "register-chip",
+      "description": "The corner instrument (2026-10-10 machine layer): one mono line, expanding to five readouts with plain definitions. Worn in the room's register via registerFor; in-memory only.",
+      "html": "<button class=\"ds-instrument\" aria-expanded=\"false\">reader’s apparatus · 04:12 · 3 pauses · 2 works</button>",
+      "css": ".ds-instrument { font-family: var(--font-jetbrains-mono, ui-monospace, Menlo, monospace); font-size: 0.7rem; letter-spacing: 0.1em; background: var(--color-paper, #f4ede0); color: var(--color-ink-90, #2b2520); border: 1px solid color-mix(in srgb, var(--color-oxblood, #7a1f1f) 32%, var(--color-paper, #f4ede0)); padding: 0.42rem 0.7rem; cursor: pointer; }"
     }
   ],
   "narrative": {
@@ -329,6 +337,11 @@
         "name": "The Flat-By-Default Rule",
         "body": "Surfaces are flat at rest. A shell component that needs a drop shadow is a component in the wrong register.",
         "section": "elevation"
+      },
+      {
+        "name": "The Session Rule",
+        "body": "The machine measures a session in memory only — no storage, no cookie, no network — and every readout ships with its plain definition beside it.",
+        "section": "elevation"
       }
     ],
     "dos": [
@@ -337,14 +350,16 @@
       "Do draw structure with rules and registers before reaching for cards, shadows or radii.",
       "Do serve every asset from the house; a third-party request is a design failure on this site.",
       "Do theme the browser's surfaces in a work's register: selection, focus rings, print.",
-      "Do verify interactive pages with a console capture, not only visuals."
+      "Do verify interactive pages with a console capture, not only visuals.",
+      "Do let the machine wear the room: registerFor resolves the work's cover tokens for the instrument, the sheets, and the door."
     ],
     "donts": [
       "Don't introduce rounded, shadowed, or gradient SaaS chrome; the radius inventory is 1px and the floor is flat.",
       "Don't use system faces as a work's display voice; self-host or don't ship it.",
       "Don't let functional text live below 11px or muted tiers drift from their register's paper.",
       "Don't preload what the route doesn't paint: Garamond Math stays off every preload.",
-      "Don't edit a work's published look by touching the shell's tokens."
+      "Don't edit a work's published look by touching the shell's tokens.",
+      "Don't give the machine storage, a cookie, or a network call; it dies with the tab, and the disclosure says so."
     ]
   }
 }
