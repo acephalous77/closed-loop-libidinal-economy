@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { ApparatusProvider } from "@/components/reader-apparatus/ApparatusProvider";
+import { ApparatusInstrument } from "@/components/reader-apparatus/ApparatusInstrument";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -141,6 +143,8 @@ export default function RootLayout({
             {children}
           </div>
         </div>
+        <ApparatusProvider />
+        <ApparatusInstrument />
       </body>
     </html>
   );
