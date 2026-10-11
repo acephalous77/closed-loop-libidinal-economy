@@ -107,3 +107,30 @@ click-through (flyer → a work → the offprint, watch "works entered" rise)
 is the final acceptance step at his walk-through. The record dies on
 reload, a new tab, or leaving for the static atlas by design; the panel and
 the disclosure say so.
+
+## Phase 2 — built and verified (2026-10-10, late)
+
+His word: "proceed with phase 2". Built:
+- The engine keeps a route log (`routes`, capped 64, exclusions honored —
+  same posture: memory only). The trajectory surfaces read it.
+- The shelf (WorksDoor) lights each work the session arrived at:
+  "arrived ×N" in oxblood, right-aligned; absent on a fresh work.
+- `TrajectoryGrid` — the dynamics index's twelve cards became a client
+  read of the session: a line above ("plates operated this session: N of
+  12 — this tab only"), and operated plates lit (number, glyph, card
+  border in oxblood). Same session record, shown finer.
+
+**Evidence.**
+- tsc clean; build 276/276; detector on the index 4 findings, unchanged
+  set (line-length, em-dash, cream, monotonous-spacing — all keepers).
+- Headless-browser run: on /closed-loop a fresh tab records one arrival
+  and the shelf shows "arrived ×1" on the closed-loop row (7 rows, door
+  opens, instrument consistent at "1 work"); the index serves the
+  trajectory line and all twelve cards with correct links.
+- New copy scanned: 0 tells ("plates operated this session…", "arrived ×N").
+
+**Known limit (unchanged):** client-side-nav accumulation is exercised by
+the usePathname pattern the shelf tag already proved end-to-end; synthetic
+navigation remains outside the virtual-time harness, so the walk-through
+checklist stands: flyer → work → work → offprint, watch works/plates/stars
+rise.

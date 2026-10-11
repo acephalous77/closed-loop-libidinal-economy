@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
 import Link from "next/link";
 import { WORKS } from "@/lib/works";
 import { WorkCover } from "@/components/navigation/WorkCover";
+import { apparatus } from "@/components/reader-apparatus/engine";
 
 const SERIF =
   'var(--font-eb-garamond-full), Georgia, "Times New Roman", serif';
@@ -28,6 +29,15 @@ export function WorksDoor({
   const [open, setOpen] = useState(false);
   const openerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const snap = useSyncExternalStore(
+    apparatus.subscribe,
+    apparatus.getSnapshot,
+    apparatus.getSnapshot
+  );
+  const arrivals = new Map<string, number>();
+  for (const a of snap.arrivals) {
+    arrivals.set(a.key, (arrivals.get(a.key) ?? 0) + 1);
+  }
 
   useEffect(() => {
     if (!open) return;
@@ -185,6 +195,21 @@ export function WorksDoor({
                         {w.plain}
                       </span>
                     </span>
+                    {arrivals.get(w.href) ? (
+                      <span
+                        style={{
+                          marginLeft: "auto",
+                          flexShrink: 0,
+                          fontFamily: MONO,
+                          fontSize: "0.7rem",
+                          letterSpacing: "0.14em",
+                          textTransform: "uppercase",
+                          color: "#7a1f1f",
+                        }}
+                      >
+                        arrived ×{arrivals.get(w.href)}
+                      </span>
+                    ) : null}
                   </Link>
                 </li>
               ))}

@@ -34,6 +34,10 @@ export interface ApparatusSnapshot {
   pauses: number;
   longestPauseMs: number;
   arrivals: Arrival[];
+  /** Every route entered this session (capped) — the trajectory
+   *  surfaces (the dynamics grid, the shelf) read it. Same posture:
+   *  in memory only, excluded routes never logged. */
+  routes: string[];
 }
 
 const PAUSE_MS = 4000;
@@ -75,6 +79,7 @@ let snapshot: ApparatusSnapshot = Object.freeze({
   pauses: 0,
   longestPauseMs: 0,
   arrivals: [],
+  routes: [],
 });
 
 let lastActivity = 0;
@@ -147,14 +152,20 @@ export const apparatus = {
   noteArrival(pathname: string) {
     if (pathname === lastPath) return;
     lastPath = pathname;
+    for (const x of EXCLUDED) {
+      if (pathname === x || pathname.startsWith(x + "/")) return;
+    }
     const ref = resolveWork(pathname);
-    if (!ref) return;
-    commit({
-      arrivals: [
+    const patch: Partial<ApparatusSnapshot> = {
+      routes: [...snapshot.routes, pathname].slice(-64),
+    };
+    if (ref) {
+      patch.arrivals = [
         ...snapshot.arrivals,
         { key: ref.key, label: ref.label, mark: ref.mark, t: Date.now() },
-      ],
-    });
+      ];
+    }
+    commit(patch);
   },
 
   worksEntered(): number {
