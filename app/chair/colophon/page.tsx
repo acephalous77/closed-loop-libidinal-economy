@@ -193,7 +193,7 @@ export default function ColophonPage() {
           <ColHead>On the interface</ColHead>
           <div style={{
             fontFamily: FONT.serif, fontSize: 15, lineHeight: 1.62,
-            color: T.inkDim, maxWidth: "42rem",
+            color: T.inkDim, maxWidth: "500px",
           }}>
             This brochure reproduces the surfaces it is about. The nav bar
             follows the scroll. The glass blurs behind it. The fitting call

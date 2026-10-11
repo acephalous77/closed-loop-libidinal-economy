@@ -1014,3 +1014,19 @@ input[type="checkbox"].accent-oxblood {
     transition: none;
   }
 }
+
+/* Browser scrollbars — themed from the palette (craft floor: the parts
+   you did not draw still carry the design). Register tokens re-tint them
+   per work automatically via the CSS variables. */
+html {
+  scrollbar-color: var(--color-paper-85) transparent;
+}
+@supports selector(::-webkit-scrollbar) {
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-paper-85);
+    border: 3px solid var(--color-paper);
+  }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-ink-50); }
+}

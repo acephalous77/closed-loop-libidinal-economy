@@ -255,23 +255,22 @@ export default async function ArchiveEntryPage({ params }: PageProps) {
         {/* main */}
         <div>
           <Link href="/chair/archive" style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
-            color: A.inkMute, textTransform: "uppercase",
-            textDecoration: "none",
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.06em",
+            color: A.inkMute,
+            textDecoration: "underline", textUnderlineOffset: 3,
             display: "inline-block", marginBottom: 28,
           }}>← Imperial Archive · index</Link>
-
-          <div style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
-            color: A.accent, textTransform: "uppercase", fontWeight: 600,
-            marginBottom: 14,
-          }}>● Archive · {e.code}</div>
 
           <h1 style={{
             fontFamily: FONT.serif, fontSize: "clamp(40px, 6vw, 56px)",
             lineHeight: 1, letterSpacing: "-0.018em",
-            fontStyle: "italic", fontWeight: 400, margin: "0 0 16px", color: A.ink,
+            fontStyle: "italic", fontWeight: 400, margin: "0 0 10px", color: A.ink,
           }}>{e.title}</h1>
+          <div style={{
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
+            color: A.accent, textTransform: "uppercase", fontWeight: 600,
+            marginBottom: 16,
+          }}>● Archive · {e.code}</div>
           <p style={{
             fontFamily: FONT.serif, fontSize: 17, lineHeight: 1.5,
             fontStyle: "italic", color: A.inkDim,

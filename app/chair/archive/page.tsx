@@ -67,20 +67,21 @@ export default function ArchiveIndex() {
 
       <div className="chair-pad" style={{ padding: "60px 100px 80px", maxWidth: 1200, margin: "0 auto" }}>
         <div style={{
-          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
-          color: A.accent, textTransform: "uppercase", fontWeight: 600,
-          marginBottom: 14,
-        }}>● Imperial Archive · Dossier 2197</div>
-
-        <div style={{
           display: "grid", gridTemplateColumns: "1fr 360px",
           gap: 64, alignItems: "end", marginBottom: 36,
         }} className="arc-head">
-          <h1 style={{
-            fontFamily: FONT.serif, fontSize: "clamp(56px, 9vw, 80px)",
-            lineHeight: 0.94, letterSpacing: "-0.022em",
-            fontStyle: "italic", fontWeight: 400, margin: 0, color: A.ink,
-          }}>Catalog.</h1>
+          <div>
+            <h1 style={{
+              fontFamily: FONT.serif, fontSize: "clamp(56px, 9vw, 80px)",
+              lineHeight: 0.94, letterSpacing: "-0.022em",
+              fontStyle: "italic", fontWeight: 400, margin: 0, color: A.ink,
+            }}>Catalog.</h1>
+            <div style={{
+              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.28em",
+              color: A.accent, textTransform: "uppercase", fontWeight: 600,
+              marginTop: 14,
+            }}>● Imperial Archive · Dossier 2197</div>
+          </div>
           <p style={{
             margin: 0, fontFamily: FONT.serif, fontSize: 15, lineHeight: 1.55,
             color: A.inkDim, fontStyle: "italic",

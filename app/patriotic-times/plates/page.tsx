@@ -59,19 +59,6 @@ export default function PlatesIndex() {
 
       {/* Masthead */}
       <header style={{ marginBottom: "4rem", maxWidth: "48rem" }}>
-        <div
-          style={{
-            fontFamily: MONO,
-            fontSize: "0.8rem",
-            textTransform: "uppercase",
-            letterSpacing: "0.25em",
-            color: RED,
-            fontWeight: 700,
-            marginBottom: "0.8rem",
-          }}
-        >
-          The Plates · 63 Postcards · 2000–2026
-        </div>
         <h1
           style={{
             fontFamily: DISPLAY,
@@ -86,6 +73,19 @@ export default function PlatesIndex() {
         >
           The Plates<span style={{ color: RED }}>.</span>
         </h1>
+        <div
+          style={{
+            fontFamily: MONO,
+            fontSize: "0.8rem",
+            textTransform: "uppercase",
+            letterSpacing: "0.25em",
+            color: RED,
+            fontWeight: 700,
+            marginTop: "1rem",
+          }}
+        >
+          63 Postcards · 2000–2026
+        </div>
         <p
           style={{
             fontFamily: SERIF,
@@ -187,6 +187,19 @@ export default function PlatesIndex() {
               }}
             >
               <div>
+                <h2
+                  style={{
+                    fontFamily: DISPLAY,
+                    fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
+                    fontWeight: 900,
+                    letterSpacing: "-0.025em",
+                    textTransform: "uppercase",
+                    margin: 0,
+                    color: INK,
+                  }}
+                >
+                  {dec.label}
+                </h2>
                 <div
                   style={{
                     fontFamily: MONO,
@@ -195,23 +208,11 @@ export default function PlatesIndex() {
                     letterSpacing: "0.25em",
                     color: DECADE_INKS[si % 3],
                     fontWeight: 700,
+                    marginTop: "0.35rem",
                   }}
                 >
                   Plates {decPlates[0]?.no.toString().padStart(2, "0")}–{decPlates[decPlates.length - 1]?.no.toString().padStart(2, "0")}
                 </div>
-                <h2
-                  style={{
-                    fontFamily: DISPLAY,
-                    fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)",
-                    fontWeight: 900,
-                    letterSpacing: "-0.025em",
-                    textTransform: "uppercase",
-                    margin: "0.4rem 0 0",
-                    color: INK,
-                  }}
-                >
-                  {dec.label}
-                </h2>
               </div>
               <div
                 style={{

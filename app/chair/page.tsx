@@ -195,10 +195,6 @@ function Hero() {
         maxWidth: 1280, margin: "0 auto",
       }} className="brochure-hero-foot">
         <div>
-          <div style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
-            textTransform: "uppercase", color: B.inkMute, marginBottom: 16,
-          }}>The apparatus in residence configuration</div>
           <h1 style={{
             fontFamily: FONT.manrope, fontSize: "clamp(44px, 13vw, 144px)",
             lineHeight: 0.9, letterSpacing: "-0.04em", fontWeight: 300,
@@ -206,6 +202,11 @@ function Hero() {
           }}>
             The<br />apparatus.
           </h1>
+          {/* Label under the heading, not above it (craft-floor ban). */}
+          <div style={{
+            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+            textTransform: "uppercase", color: B.inkMute, marginTop: 18,
+          }}>The apparatus in residence configuration</div>
         </div>
         <div style={{
           paddingLeft: 24, borderLeft: `0.5px solid ${B.rule}`,
@@ -363,7 +364,7 @@ function RingDetail() {
           </h2>
           <p style={{
             fontSize: 16, lineHeight: 1.55, color: B.inkDim,
-            maxWidth: 720, margin: "0 0 56px",
+            maxWidth: 600, margin: "0 0 56px",
           }}>
             A single circumferential structure at chest height. Every
             input the occupant requires and every output the occupant
@@ -461,7 +462,7 @@ function OHCOSE() {
           </h2>
           <p style={{
             fontSize: 16, lineHeight: 1.55, color: B.inkDim,
-            maxWidth: 720, margin: "0 0 48px",
+            maxWidth: 600, margin: "0 0 48px",
           }}>
             The apparatus relates to its occupant differently across the
             six phases. The first three are calibration-heavy; Occupancy

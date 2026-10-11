@@ -75,8 +75,8 @@ export const ARCHIVE: Tokens = {
   paper2:    "#ddd6c5",
   ink:       "#1c1e26",
   inkDim:    "#3e4250",
-  inkMute:   "#6e7280",
-  inkFaint:  "#a8acb8",
+  inkMute:   "#5f626e",
+  inkFaint:  "#5e6067",  // raised to AA on #e7e0d0 (2026-10-10 program)
   rule:      "rgba(28,30,38,0.18)",
   ruleSoft:  "rgba(28,30,38,0.10)",
   accent:    "#3a4a5e",

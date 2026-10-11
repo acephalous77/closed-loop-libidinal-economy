@@ -441,7 +441,7 @@ function P({ children }: { children: React.ReactNode }) {
   return (
     <p style={{
       fontFamily: FONT.serif, fontSize: "1.075rem", lineHeight: 1.72,
-      color: T.ink, margin: "0 0 1.2rem", textWrap: "pretty",
+      color: T.ink, margin: "0 0 1.2rem", maxWidth: "30rem", textWrap: "pretty",
     }}>{children}</p>
   );
 }
@@ -450,7 +450,7 @@ function DropCapP({ children }: { children: React.ReactNode }) {
   return (
     <p className="chair-dropcap" style={{
       fontFamily: FONT.serif, fontSize: "1.075rem", lineHeight: 1.72,
-      color: T.ink, margin: "0 0 1.4rem",
+      color: T.ink, margin: "0 0 1.4rem", maxWidth: "30rem",
     }}>{children}</p>
   );
 }
@@ -786,7 +786,7 @@ function Artifacts() {
       <p style={{
         fontFamily: FONT.serif, fontStyle: "italic",
         fontSize: "0.98rem", lineHeight: 1.55, color: T.inkDim,
-        margin: "0 0 2rem",
+        margin: "0 0 2rem", maxWidth: "30rem",
       }}>
         Every surface in the volume. The essay is the spine. The
         companions extend its sections. The three artifacts are
