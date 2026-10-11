@@ -14,6 +14,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PlateGlyph } from "@/components/closed-loop-v2/PlateGlyphs";
+import { DrawOnView } from "@/components/ui/DrawOnView";
 import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 
 const PATH = "/closed-loop/v2-dynamics";
@@ -186,7 +187,13 @@ export default function DynamicsIndex() {
           >
             <div className="flex items-center justify-between mb-xs">
               <span className="text-ink-70" aria-hidden>
-                <PlateGlyph slug={plate.href.split("/").pop() ?? ""} />
+                <DrawOnView style={{ display: "inline-block", "--d": i } as React.CSSProperties}>
+                  <PlateGlyph
+                    slug={plate.href.split("/").pop() ?? ""}
+                    size={56}
+                    strokeWidth={1.15}
+                  />
+                </DrawOnView>
               </span>
               <span className="font-mono text-xs text-ink-50 tabular-nums">
                 {String(i + 1).padStart(2, "0")}

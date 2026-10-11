@@ -15,6 +15,7 @@ import {
   Formal,
 } from "@/components/ui/DepthLayers";
 import { M } from "@/components/ui/Math";
+import { PlateGlyph } from "@/components/closed-loop-v2/PlateGlyphs";
 
 const PATH = "/closed-loop/v2-dynamics/chrono-debt-spectrum";
 
@@ -54,6 +55,13 @@ export default function ChronoDebtSpectrumPage() {
         </Link>
         {" · "}the framework&apos;s signature instrument
       </p>
+
+      <div className="flex items-center gap-sm mb-sm" aria-hidden>
+        <span className="text-ink-70 shrink-0">
+          <PlateGlyph slug="chrono-debt-spectrum" size={80} strokeWidth={1.05} />
+        </span>
+        <span className="h-px flex-1 bg-paper-85" />
+      </div>
 
       <div className="my-lg">
         <ChronoDebtSpectrum />

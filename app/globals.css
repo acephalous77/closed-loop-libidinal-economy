@@ -988,3 +988,24 @@ input[type="checkbox"].accent-oxblood {
 @media (prefers-reduced-motion: reduce) {
   .worksdoor-scrim, .worksdoor-scrim > div { animation: none; }
 }
+
+/* The drawn mark (DrawOnView): SVG strokes ink themselves in when the
+   block enters view. pathLength={1} on every shape makes dasharray 1. */
+.draw-on-view :is(path, circle, line, rect, polyline, polygon) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+}
+.draw-on-view.is-drawn :is(path, circle, line, rect, polyline, polygon) {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.3s cubic-bezier(.72, 0, .24, 1);
+  transition-delay: calc(var(--d, 0) * 55ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .draw-on-view :is(path, circle, line, rect, polyline, polygon) {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+  .draw-on-view.is-drawn :is(path, circle, line, rect, polyline, polygon) {
+    transition: none;
+  }
+}

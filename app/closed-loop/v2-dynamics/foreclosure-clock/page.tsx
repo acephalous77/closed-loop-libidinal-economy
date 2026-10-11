@@ -20,6 +20,7 @@ import {
   Formal,
 } from "@/components/ui/DepthLayers";
 import { M } from "@/components/ui/Math";
+import { PlateGlyph } from "@/components/closed-loop-v2/PlateGlyphs";
 
 const PATH = "/closed-loop/v2-dynamics/foreclosure-clock";
 
@@ -59,6 +60,13 @@ export default function ForeclosureClockPage() {
         </Link>
         {" · "}new sim engine derived from (P1)–(P5)
       </p>
+
+      <div className="flex items-center gap-sm mb-sm" aria-hidden>
+        <span className="text-ink-70 shrink-0">
+          <PlateGlyph slug="foreclosure-clock" size={80} strokeWidth={1.05} />
+        </span>
+        <span className="h-px flex-1 bg-paper-85" />
+      </div>
 
       <div className="my-lg">
         <ForeclosureClock />
