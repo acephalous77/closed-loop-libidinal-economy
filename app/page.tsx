@@ -196,10 +196,12 @@ export default function Console() {
 
             <p
               style={{
-                fontSize: "0.88rem",
-                lineHeight: 1.75,
-                color: DIM,
-                maxWidth: "46rem",
+                fontFamily: SERIF,
+                fontSize: "1.08rem",
+                lineHeight: 1.65,
+                color: TEXT,
+                opacity: 0.92,
+                maxWidth: "44rem",
                 marginTop: "2rem",
               }}
             >

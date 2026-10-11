@@ -60,6 +60,9 @@ interface WorkRef {
 /** The press + the seven works, longest prefix first. */
 const HOUSE: RegisterTokens = { bg: "#f1f2ef", ink: "#24272b", accent: "#174a77" };
 
+/** The press wears the console (its own room is the graphite frontpage). */
+const PRESS: RegisterTokens = { bg: "#17191b", ink: "#e8ebe7", accent: "#6ea6d4" };
+
 const REFS: WorkRef[] = [
   ...WORKS.map((w) => ({
     key: w.href,
@@ -68,7 +71,7 @@ const REFS: WorkRef[] = [
     prefix: w.href.replace(/\/index\.html$/, ""),
     reg: w.cover,
   })),
-  { key: "/", label: "the press", mark: "◈", prefix: "/", reg: HOUSE },
+  { key: "/", label: "the press", mark: "◈", prefix: "/", reg: PRESS },
 ].sort((a, b) => b.prefix.length - a.prefix.length);
 
 /** The register the instrument wears on this route: the work's own
@@ -186,7 +189,10 @@ export const apparatus = {
   },
 
   worksEntered(): number {
-    return new Set(snapshot.arrivals.map((a) => a.key)).size;
+    // The seven only — the press is the shelf, not an entry on it.
+    return new Set(
+      snapshot.arrivals.filter((a) => a.key !== "/").map((a) => a.key)
+    ).size;
   },
 
   stablePoint(): { label: string; mark: string; count: number } | null {

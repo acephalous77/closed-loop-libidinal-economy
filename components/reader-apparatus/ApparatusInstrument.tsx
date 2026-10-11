@@ -36,6 +36,10 @@ const mix = (a: string, b: string, pct: number) =>
 export function ApparatusInstrument() {
   const pathname = usePathname() || "/";
   const reg = registerFor(pathname);
+  // Ouroboric's only instruction line lives bottom-left; the chip moves right.
+  const cornerRight =
+    pathname === "/ouroboric-condition" ||
+    pathname.startsWith("/ouroboric-condition/");
   const snap = useSyncExternalStore(
     apparatus.subscribe,
     apparatus.getSnapshot,
@@ -76,7 +80,8 @@ export function ApparatusInstrument() {
       className="print-hide"
       style={{
         position: "fixed",
-        left: "0.9rem",
+        left: cornerRight ? "auto" : "0.9rem",
+        right: cornerRight ? "0.9rem" : "auto",
         bottom: "0.9rem",
         zIndex: 90,
         fontFamily: MONO,

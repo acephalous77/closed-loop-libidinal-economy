@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 /**
  * OHCOSE project layout. Sets the institutional grayscale register
@@ -64,17 +65,14 @@ export default function OhcoseLayout({
           colophon
         </Link>
         <span style={{ color: "var(--color-ink-50)", fontSize: "0.55rem" }}>·</span>
-        <Link
-          href="/"
-          className="font-mono uppercase hover:underline"
-          style={{
-            fontSize: "0.7rem",
-            letterSpacing: "0.2em",
-            color: "var(--color-ink-50)",
-          }}
-        >
-          ↑ exit portal
-        </Link>
+        <WorksDoor
+            className="font-mono uppercase hover:underline"
+            style={{
+              fontSize: "0.7rem",
+              letterSpacing: "0.2em",
+              color: "var(--color-ink-50)",
+            }}
+          />
       </div>
     </div>
   );

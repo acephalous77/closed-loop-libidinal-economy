@@ -263,6 +263,11 @@ inside the register; the shell itself stays square.
   inheriting the register; the shelf overlay (shell palette: paper/ink/
   mono) opens with a scrim fade + sheet rise, carries press sheets, and
   tags visited works "arrived ×N" in oxblood.
+- **Coverage:** every work's exit — closed-loop, chair, patriotic,
+  manufacture, ouroboric, and OHCOSE (layout + colophon); the static atlas
+  footer carries the plain line instead (no overlay machinery there).
+  Manufacture's birth curtain covers all chrome until the reader is born;
+  the interlude is authored, and the instrument emerges with the page.
 
 ### The reader's apparatus (signature, the machine layer)
 - **Style:** the corner instrument, worn in the room's register via

@@ -51,6 +51,9 @@ export default function Cover() {
         <p className="font-serif italic text-lg text-ink-70 mt-md max-w-[34rem] text-center leading-snug">
           a framework for the dynamics of attention under platform capture
         </p>
+        <p className="font-mono text-xs text-ink-50 uppercase tracking-[0.2em] mt-xs">
+          v2 · 2026
+        </p>
 
         {/* Orientation block — what this is + the central image + 3 paths */}
         <FrameworkOrientation />
