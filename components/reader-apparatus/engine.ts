@@ -43,23 +43,40 @@ export interface ApparatusSnapshot {
 const PAUSE_MS = 4000;
 const EXCLUDED = ["/reader", "/thinkroom"];
 
+export interface RegisterTokens {
+  bg: string;
+  ink: string;
+  accent: string;
+}
+
 interface WorkRef {
   key: string;
   label: string;
   mark: string;
   prefix: string;
+  reg: RegisterTokens;
 }
 
 /** The press + the seven works, longest prefix first. */
+const HOUSE: RegisterTokens = { bg: "#f4ede0", ink: "#2b2520", accent: "#7a1f1f" };
+
 const REFS: WorkRef[] = [
   ...WORKS.map((w) => ({
     key: w.href,
     label: w.title,
     mark: w.mark,
     prefix: w.href.replace(/\/index\.html$/, ""),
+    reg: w.cover,
   })),
-  { key: "/", label: "the press", mark: "◈", prefix: "/" },
+  { key: "/", label: "the press", mark: "◈", prefix: "/", reg: HOUSE },
 ].sort((a, b) => b.prefix.length - a.prefix.length);
+
+/** The register the instrument wears on this route: the work's own
+ *  cover tokens, or the house's for the press, /reader and /thinkroom. */
+export function registerFor(pathname: string): RegisterTokens {
+  const ref = resolveWork(pathname);
+  return ref ? ref.reg : HOUSE;
+}
 
 function resolveWork(pathname: string): WorkRef | null {
   for (const x of EXCLUDED) {

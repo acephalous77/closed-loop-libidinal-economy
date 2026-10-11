@@ -2,7 +2,8 @@
 
 import { useEffect, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { apparatus } from "./engine";
+import { usePathname } from "next/navigation";
+import { apparatus, registerFor } from "./engine";
 
 const DEFINITIONS = [
   { n: "01", label: "session time", def: "seconds this tab has had the site open" },
@@ -12,17 +13,29 @@ const DEFINITIONS = [
   { n: "05", label: "the stable point", def: "the work this session arrived at most; ties go to the most recent" },
 ];
 
+const SERIF =
+  'var(--font-eb-garamond-full), Georgia, "Times New Roman", serif';
+const MONO =
+  'var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace';
+
 function clock(ms: number): string {
   const s = Math.max(0, Math.floor(ms / 1000));
   return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
 }
 
+const mix = (a: string, b: string, pct: number) =>
+  `color-mix(in srgb, ${a} ${pct}%, ${b})`;
+
 /**
- * The reader's apparatus — the corner instrument. Collapsed: one quiet
- * line. Expanded: the five readouts with their plain definitions, the
- * honesty note, and the way to the offprint.
+ * The reader's apparatus — the corner instrument, worn in the register
+ * of whatever room it stands in: a work's own cover tokens inside that
+ * work, the house's on the press, /reader and /thinkroom. Collapsed:
+ * one quiet line. Expanded: five readouts with their plain definitions,
+ * the honesty note, and the way to the offprint.
  */
 export function ApparatusInstrument() {
+  const pathname = usePathname() || "/";
+  const reg = registerFor(pathname);
   const snap = useSyncExternalStore(
     apparatus.subscribe,
     apparatus.getSnapshot,
@@ -54,6 +67,10 @@ export function ApparatusInstrument() {
   const works = apparatus.worksEntered();
   const stable = apparatus.stablePoint();
 
+  const rule = mix(reg.accent, reg.bg, 32);
+  const rowRule = mix(reg.accent, reg.bg, 24);
+  const muted = { color: reg.ink, opacity: 0.68 } as const;
+
   return (
     <div
       className="print-hide"
@@ -62,8 +79,7 @@ export function ApparatusInstrument() {
         left: "0.9rem",
         bottom: "0.9rem",
         zIndex: 90,
-        fontFamily:
-          'var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace',
+        fontFamily: MONO,
       }}
     >
       {open ? (
@@ -72,11 +88,11 @@ export function ApparatusInstrument() {
           aria-label="the reader's apparatus"
           style={{
             width: "min(21rem, calc(100vw - 1.8rem))",
-            background: "var(--color-paper, #f4ede0)",
-            color: "var(--color-ink-90, #2b2520)",
-            border: "1px solid var(--color-paper-85, #ddd2bd)",
+            background: reg.bg,
+            color: reg.ink,
+            border: `1px solid ${rule}`,
             padding: "0.85rem 0.95rem 0.95rem",
-            boxShadow: "0 12px 40px rgba(26, 22, 18, 0.18)",
+            boxShadow: "0 12px 40px rgba(0, 0, 0, 0.28)",
           }}
         >
           <div
@@ -93,7 +109,7 @@ export function ApparatusInstrument() {
                 fontSize: "0.7rem",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "var(--color-ink-50, #6f665b)",
+                ...muted,
               }}
             >
               reader&rsquo;s apparatus
@@ -105,7 +121,8 @@ export function ApparatusInstrument() {
               style={{
                 background: "none",
                 border: 0,
-                color: "var(--color-ink-50, #6f665b)",
+                color: reg.ink,
+                opacity: 0.7,
                 cursor: "pointer",
                 fontSize: "1rem",
                 lineHeight: 1,
@@ -121,7 +138,7 @@ export function ApparatusInstrument() {
               <li
                 key={d.n}
                 style={{
-                  borderTop: "1px solid var(--color-paper-85, #ddd2bd)",
+                  borderTop: `1px solid ${rowRule}`,
                   padding: "0.45rem 0",
                 }}
               >
@@ -138,7 +155,7 @@ export function ApparatusInstrument() {
                       fontSize: "0.72rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
-                      color: "var(--color-ink-70, #5a514a)",
+                      ...muted,
                     }}
                   >
                     {d.n} · {d.label}
@@ -146,7 +163,7 @@ export function ApparatusInstrument() {
                   <span
                     style={{
                       fontSize: "0.82rem",
-                      color: "var(--color-ink, #1a1612)",
+                      color: reg.ink,
                       fontVariantNumeric: "tabular-nums",
                     }}
                   >
@@ -168,7 +185,7 @@ export function ApparatusInstrument() {
                     margin: "0.15rem 0 0",
                     fontSize: "0.7rem",
                     lineHeight: 1.5,
-                    color: "var(--color-ink-50, #6f665b)",
+                    ...muted,
                   }}
                 >
                   {d.def}
@@ -178,7 +195,7 @@ export function ApparatusInstrument() {
                     style={{
                       margin: "0.2rem 0 0",
                       fontSize: "0.7rem",
-                      color: "var(--color-oxblood, #7a1f1f)",
+                      color: reg.accent,
                     }}
                   >
                     {stable.mark} {stable.label}
@@ -191,12 +208,12 @@ export function ApparatusInstrument() {
           <p
             style={{
               margin: "0.7rem 0 0",
-              fontFamily:
-                'var(--font-eb-garamond-full), Georgia, "Times New Roman", serif',
+              fontFamily: SERIF,
               fontStyle: "italic",
               fontSize: "0.92rem",
               lineHeight: 1.45,
-              color: "var(--color-ink-70, #5a514a)",
+              color: reg.ink,
+              opacity: 0.85,
             }}
           >
             The framework calls the foreclosed pause chrono-debt (§1.4). This
@@ -205,10 +222,7 @@ export function ApparatusInstrument() {
           </p>
 
           <p style={{ margin: "0.7rem 0 0", fontSize: "0.75rem" }}>
-            <Link
-              href="/reader"
-              style={{ color: "var(--color-oxblood, #7a1f1f)" }}
-            >
+            <Link href="/reader" style={{ color: reg.accent }}>
               file the offprint →
             </Link>
           </p>
@@ -220,9 +234,10 @@ export function ApparatusInstrument() {
           aria-controls="apparatus-panel"
           onClick={() => setOpen(true)}
           style={{
-            background: "var(--color-paper, #f4ede0)",
-            color: "var(--color-ink-50, #6f665b)",
-            border: "1px solid var(--color-paper-85, #ddd2bd)",
+            background: reg.bg,
+            color: reg.ink,
+            opacity: 0.9,
+            border: `1px solid ${rule}`,
             padding: "0.42rem 0.7rem",
             cursor: "pointer",
             fontSize: "0.7rem",

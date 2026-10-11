@@ -134,3 +134,31 @@ the usePathname pattern the shelf tag already proved end-to-end; synthetic
 navigation remains outside the virtual-time harness, so the walk-through
 checklist stands: flyer → work → work → offprint, watch works/plates/stars
 rise.
+
+## Phase 3 — built and verified (2026-10-10, night)
+
+His word: "proceed". Built:
+- The instrument wears the register of the room it stands in —
+  `registerFor(pathname)` resolves the work's own cover tokens (the same
+  ground/ink/accent as its press sheet); the press, /reader and /thinkroom
+  keep the house tokens. Borders and row rules derive from the accent via
+  color-mix; the stable point and the offprint link carry the accent.
+- The atlas bridge, no-storage variant: the static psychopolitics page
+  carries one line in its own footer — "the reader's apparatus stays
+  behind — this page keeps no session" — so the session's death at the
+  static boundary is stated where it happens, not discovered later.
+
+**Evidence.**
+- Computed colors, headless-browser run: /chair instrument rgb(236,225,205)
+  with brick link rgb(140,74,50); /manufacture rgb(21,20,18) with arterial
+  rgb(255,46,0); /closed-loop and v2-dynamics house paper rgb(244,237,224)
+  with oxblood rgb(122,31,31).
+- tsc clean; build 276/276; detector: chair 20, manufacture 24, / 13 — all
+  unchanged sets, no new flags from the tint.
+- Atlas note renders live; copy scanned clean.
+
+**Standing:** the machine is complete across its three phases. The
+walk-through checklist remains the acceptance: flyer → work → work → plate
+→ index → shelf → offprint — watch the counters, the lit shelf, the lit
+plates, and the register shifting under the instrument as you cross into
+each room.
