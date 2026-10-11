@@ -972,3 +972,19 @@ input[type="checkbox"].accent-oxblood {
   outline: 2px solid currentColor;
   outline-offset: 3px;
 }
+
+/* The shelf's opening moment (WorksDoor): scrim fades, the sheet rises.
+   Reduced-motion collapses both to an instant appearance. */
+@keyframes worksdoor-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes worksdoor-rise-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.worksdoor-scrim { animation: worksdoor-fade-in 160ms ease-out both; }
+.worksdoor-scrim > div { animation: worksdoor-rise-in 220ms cubic-bezier(.72, 0, .24, 1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .worksdoor-scrim, .worksdoor-scrim > div { animation: none; }
+}

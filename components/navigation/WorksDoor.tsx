@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { WORKS } from "@/lib/works";
+import { WorkCover } from "@/components/navigation/WorkCover";
 
 const SERIF =
   'var(--font-eb-garamond-full), Georgia, "Times New Roman", serif';
@@ -157,38 +158,32 @@ export function WorksDoor({
                     href={w.href}
                     onClick={close}
                     style={{
-                      display: "block",
+                      display: "flex",
+                      gap: "1.1rem",
+                      alignItems: "center",
                       padding: "0.9rem 0",
                       textDecoration: "none",
                       color: "inherit",
                     }}
                   >
-                    <span style={{ fontStyle: "italic", fontSize: "1.15rem" }}>
-                      {w.title}
-                    </span>
-                    <span
-                      style={{
-                        display: "block",
-                        fontSize: "0.98rem",
-                        color: "#5a514a",
-                        marginTop: "0.15rem",
-                        lineHeight: 1.45,
-                      }}
-                    >
-                      {w.plain}
-                    </span>
-                    <span
-                      style={{
-                        display: "block",
-                        fontFamily: MONO,
-                        fontSize: "0.7rem",
-                        letterSpacing: "0.16em",
-                        textTransform: "uppercase",
-                        color: "#6f665b",
-                        marginTop: "0.4rem",
-                      }}
-                    >
-                      {w.year}
+                    <WorkCover work={w} w={64} h={84} />
+                    <span style={{ display: "block" }}>
+                      <span
+                        style={{ fontStyle: "italic", fontSize: "1.15rem" }}
+                      >
+                        {w.title}
+                      </span>
+                      <span
+                        style={{
+                          display: "block",
+                          fontSize: "0.98rem",
+                          color: "#5a514a",
+                          marginTop: "0.15rem",
+                          lineHeight: 1.45,
+                        }}
+                      >
+                        {w.plain}
+                      </span>
                     </span>
                   </Link>
                 </li>

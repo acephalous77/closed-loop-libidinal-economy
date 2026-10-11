@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/lib/jsonld";
 import { WORKS, type Work } from "@/lib/works";
+import { WorkCover } from "@/components/navigation/WorkCover";
 
 const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -100,6 +101,12 @@ function entryBody(w: Work, inv: boolean) {
           {w.register}
         </div>
       </div>
+
+      {inv && (
+        <div className="zine-cover">
+          <WorkCover work={w} w={72} h={96} />
+        </div>
+      )}
     </div>
   );
 }
@@ -448,6 +455,22 @@ export default function AtelierIndex() {
         }
 
         .zine-footlink:hover { color: ${RED} !important; }
+
+        /* The work's press sheet, pasted onto the inverted (hover/focus)
+           layer at the row's right margin. Below 1101px the register
+           column collapses to the stack and the sheet would overlap it,
+           so it lives only on the three-column sheet. */
+        .zine-cover { display: none; }
+        @media (min-width: 1101px) {
+          .zine-cover {
+            display: block;
+            position: absolute;
+            left: 1rem;
+            bottom: 0.7rem;
+            transform: rotate(-1.5deg);
+            z-index: 2;
+          }
+        }
 
         /* ── The flyer row ───────────────────────────────────────── */
         .zine-row {
