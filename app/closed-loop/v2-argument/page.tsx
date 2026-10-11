@@ -14,6 +14,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { M } from "@/components/ui/Math";
 import type { ReactNode } from "react";
+import { ClosureFigure } from "@/components/closed-loop-v2/ClosureFigure";
+import { DrawOnView } from "@/components/ui/DrawOnView";
 import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 
 const PATH = "/closed-loop/v2-argument";
@@ -42,13 +44,29 @@ export const metadata: Metadata = {
 
 /** The eight moves read with a numbered margin rail — the apparatus's
  *  enumeration register (mono numeral, hairline, heading). */
-function MoveHeading({ n, children }: { n: string; children: ReactNode }) {
+function MoveHeading({
+  n,
+  at,
+  children,
+}: {
+  n: string;
+  at?: { label: string; href: string };
+  children: ReactNode;
+}) {
   return (
-    <h2 className="mb-md flex items-baseline gap-sm">
+    <h2 className="mb-md flex flex-wrap items-baseline gap-sm">
       <span aria-hidden className="w-[1.8em] shrink-0 font-mono text-sm text-ink-50 tabular-nums">
         {n}.
       </span>
       <span className="border-l border-paper-85 pl-sm font-serif text-lg text-ink">{children}</span>
+      {at && (
+        <Link
+          href={at.href}
+          className="ml-auto whitespace-nowrap font-mono text-xs text-ink-50 hover:text-oxblood"
+        >
+          {at.label}
+        </Link>
+      )}
     </h2>
   );
 }
@@ -90,6 +108,19 @@ export default function CuratedArgumentPage() {
         authorizes the claims.
       </p>
 
+      {/* The closure figure — the argument's opening plate (facelift,
+          ruled 2026-10-10): drawn in on scroll; widened past the prose
+          column on large screens. */}
+      <figure className="my-lg lg:relative lg:left-1/2 lg:w-[52rem] lg:max-w-none lg:-translate-x-1/2">
+        <DrawOnView>
+          <ClosureFigure />
+        </DrawOnView>
+        <figcaption className="mt-sm text-center font-mono text-xs text-ink-50">
+          The closure: the policy is updated against the distribution it has
+          itself produced. There is no exogenous channel into the loop.
+        </figcaption>
+      </figure>
+
       <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
         <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">Eight moves</p>
         <ol className="space-y-xs text-ink-90">
@@ -105,7 +136,7 @@ export default function CuratedArgumentPage() {
       </nav>
 
       <section id="architecture" className="mb-xl">
-        <MoveHeading n="1">The architecture</MoveHeading>
+        <MoveHeading n="1" at={{ label: "§0", href: "/closed-loop/the-apparatus/section-0" }}>The architecture</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           A platform optimizes its policy parameter against a
           population of users. The policy determines which stimuli
@@ -151,7 +182,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="registers" className="mb-xl">
-        <MoveHeading n="2">The fusion of the four registers</MoveHeading>
+        <MoveHeading n="2" at={{ label: "§3 · Prop 7′", href: "/closed-loop/the-apparatus/section-3/prop-7-prime" }}>The fusion of the four registers</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The user state decomposes into four registers — somatic,
           cognitive, political, kinaesthetic. Bodies, thoughts,
@@ -197,7 +228,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="capture" className="mb-xl">
-        <MoveHeading n="3">Capture without coercion</MoveHeading>
+        <MoveHeading n="3" at={{ label: "§3 · Prop 5′", href: "/closed-loop/the-apparatus/section-3/prop-5-prime" }}>Capture without coercion</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           Under closed-loop convergence, the user&apos;s behavioral
           distribution drifts toward the platform-induced target.
@@ -236,7 +267,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="pause" className="mb-xl">
-        <MoveHeading n="4">The foreclosure of the pause</MoveHeading>
+        <MoveHeading n="4" at={{ label: "§1 · Lemma 1", href: "/closed-loop/the-apparatus/section-1/lemma-1" }}>The foreclosure of the pause</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework&apos;s first load-bearing result. Under the
           closure&apos;s convergence to its stable point, the
@@ -296,7 +327,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="clocks" className="mb-xl">
-        <MoveHeading n="5">The capture of the body&apos;s clocks</MoveHeading>
+        <MoveHeading n="5" at={{ label: "§3 · Prop 6", href: "/closed-loop/the-apparatus/section-3/prop-6" }}>The capture of the body&apos;s clocks</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           Somatic rhythms — circadian, ultradian, cardiovascular,
           attentional — are exposed to media coupling like any other
@@ -330,7 +361,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="asymmetry" className="mb-xl">
-        <MoveHeading n="6">The asymmetry of the intervention modes</MoveHeading>
+        <MoveHeading n="6" at={{ label: "§7 · Theorem 9", href: "/closed-loop/the-apparatus/section-7/theorem-9" }}>The asymmetry of the intervention modes</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework specifies three intervention sites: the
           reward functional <M>{String.raw`\hat R`}</M> (Mode A),
@@ -384,7 +415,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="cohort" className="mb-xl">
-        <MoveHeading n="7">The cohort gradient</MoveHeading>
+        <MoveHeading n="7" at={{ label: "§6 · Prop 8", href: "/closed-loop/the-apparatus/section-6/prop-8" }}>The cohort gradient</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework&apos;s first refutable empirical commitment.
           Developmental exposure to the converged platform regime
@@ -437,7 +468,7 @@ export default function CuratedArgumentPage() {
       </section>
 
       <section id="recursive" className="mb-xl">
-        <MoveHeading n="8">The recursive limit</MoveHeading>
+        <MoveHeading n="8" at={{ label: "§12", href: "/closed-loop/the-apparatus/section-12#reflexive" }}>The recursive limit</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           The framework writes about its own conditions of
           production. The author is within the cohort the framework
