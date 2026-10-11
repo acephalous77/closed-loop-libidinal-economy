@@ -83,7 +83,7 @@ print — are themed as part of the design, not left at defaults.
 - Legibility is a floor, not a style choice: functional text ≥ 11px, body
   contrast ≥ 4.5:1 in every register, light or dark.
 - **The machine layer** (2026-10-10, his lock): the atelier carries the
-  Observering Machine — press sheets, plate marks, the door, and the
+  Observing Machine — press sheets, plate marks, the door, and the
   reader's apparatus — the site as a declared instance of the loop it
   theorizes. Control remains the house's; each work's register owns how the
   machine looks inside it.
