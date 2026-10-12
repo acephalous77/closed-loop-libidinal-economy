@@ -52,6 +52,9 @@ const NEON_GREEN = "#39ff14";
 const NEON_PINK = "#ff2a8a";
 const NEON_CYAN = "#3fbfd6";
 const STAMP_RED = "#ef4433";
+// small-text red: #ef4433 fails 4.5:1 on the paper stocks (3.2/2.9), so text
+// under ~24px uses the deeper mix; graphic stamps keep the bright red
+const STAMP_RED_TEXT = "#b8321f";
 const MUTED = "#827d74";
 
 const SANS = `var(--font-geist), system-ui, sans-serif`;
@@ -2601,6 +2604,7 @@ function ConsultantTranscript() {
             lineHeight: 1.6,
             color: PAPER_DIM,
             margin: "0 0 1.6rem",
+            maxWidth: "62ch",
           }}
         >
           Below: a phone call between a bonded fitting consultant
@@ -2881,7 +2885,7 @@ function ManifestoPoster() {
           style={{
             fontFamily: MONO,
             fontSize: 11,
-            color: STAMP_RED,
+            color: STAMP_RED_TEXT,
             letterSpacing: "0.32em",
             textTransform: "uppercase",
             marginBottom: 12,
@@ -2946,7 +2950,7 @@ function ManifestoPoster() {
             the Ouroboros Life System
           </s>
           .{" "}
-          <strong style={{ color: STAMP_RED, fontWeight: 700 }}>
+          <strong style={{ color: STAMP_RED_TEXT, fontWeight: 700 }}>
             They have always called it something noble. It has always been the same chair.
           </strong>
         </div>
@@ -3071,7 +3075,7 @@ function ManifestoPoster() {
         >
           <div style={{ fontFamily: MARKER, fontSize: 22, color: BLACK, transform: "rotate(-0.6deg)" }}>
             signed: cohort 2026 · pin this to your fridge ·{" "}
-            <span style={{ color: STAMP_RED }}>burn after reading</span>
+            <span style={{ color: STAMP_RED_TEXT }}>burn after reading</span>
           </div>
           <RubberStamp text="PHOTOCOPY · TAPE · REPEAT" rotate={4} color={STAMP_RED} size={0.7} />
         </div>

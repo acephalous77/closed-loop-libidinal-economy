@@ -182,7 +182,8 @@
   .paper .cap{color:#555;}
   .paper .opener-n{-webkit-text-stroke-color:#b9b6ad;}
   .paper .opener-age{color:#666;}
-  .paper .opener-sub{color:#777;}
+  .paper .opener-sub{color:#6b665e;}
+  .paper .opener-op{color:#c21e00;}
   .paper .rule{background:var(--ink);}
   .paper ::selection{background:var(--ink);color:var(--paper);}
 
@@ -204,7 +205,7 @@
 
   /* prose blocks */
   .lede{font-family:var(--f-prose);font-style:var(--prose-style);font-size:clamp(20px,2.4vw,29px);line-height:1.34;max-width:26ch;}
-  .prose{font-family:var(--f-prose);font-size:clamp(18px,1.4vw,22px);line-height:1.66;max-width:64ch;}
+  .prose{font-family:var(--f-prose);font-size:clamp(18px,1.4vw,22px);line-height:1.66;max-width:52ch;}
   .prose p{margin:0 0 1.2em;}
   .prose .drop{float:left;font-family:var(--f-display);font-weight:var(--dw);font-size:88px;line-height:.66;padding:8px 14px 0 0;color:var(--acc);}
   .pull{font-family:var(--f-display);font-weight:var(--dw);text-transform:var(--dt);line-height:var(--dl);font-size:clamp(34px,6vw,84px);letter-spacing:var(--dtr);}
@@ -509,10 +510,10 @@
   /* red interstitial — visceral color punch */
   .inter.red{background:var(--acc);border-top-color:#0a0a0a;border-bottom:2px solid #0a0a0a;}
   .inter.red .inter-age{-webkit-text-stroke-color:#0a0a0a;color:transparent;opacity:.16;}
-  .inter.red .inter-kick{color:#0a0a0a;opacity:.7;}
+  .inter.red .inter-kick{color:#0a0a0a;}
   .inter.red .inter-op{color:#0a0a0a;}
   .inter.red .inter-line{color:#0a0a0a;}
-  .inter.red .inter-meta{color:#0a0a0a;opacity:.65;}
+  .inter.red .inter-meta{color:#0a0a0a;}
   .inter.red ::selection{background:#0a0a0a;color:#c21e00;}
 
   /* the breath — a near-empty void for contrast */
@@ -541,6 +542,13 @@
   .upper{text-transform:uppercase;}
   .dim{color:var(--bone-dim);}
   .faint{color:var(--bone-faint);}
-  .red{color:#c21e00;}
+  .red{color:var(--acc);}
   .nowrap{white-space:nowrap;}
+}
+
+/* the data-motion dial already quiets things when asked; this honors the OS
+   preference without JS — the drift band stops, the reveals go still */
+@media (prefers-reduced-motion: reduce){
+  .mos .marquee-inner{animation-play-state:paused;}
+  .mos .rev{transition-duration:.35s;transform:translateY(10px);}
 }

@@ -123,10 +123,10 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
 
         <div className="rev mt64">
           <div className="flex between center wrapf gap16" style={{ marginBottom: 22 }}>
-            <span className="src" style={{ color: "#777" }}>
+            <span className="src" style={{ color: "#6b665e" }}>
               fig.06 — before you go, your itemized visit
             </span>
-            <span className="src" style={{ color: "#777" }}>
+            <span className="src" style={{ color: "#6b665e" }}>
               generated live, from you
             </span>
           </div>
@@ -149,7 +149,7 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
           className="flex between wrapf gap16"
           style={{ marginTop: 64, borderTop: "1px solid #00000033", paddingTop: 16 }}
         >
-          <span className="src" style={{ color: "#777" }}>
+          <span className="src" style={{ color: "#6b665e" }}>
             After Adnan Selimović, “The Manufacture of the Subject.” Stiegler · Zuboff · Marcuse · Lyotard · Preciado ·
             Rifkin · Han.
           </span>
@@ -157,10 +157,10 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
               way out of the descent was the browser's back button. It rides
               the closing row beside the internal return, in the same register. */}
           <span className="flex gap16" style={{ alignItems: "baseline" }}>
-            <Link href="#top" className="src" style={{ color: "#777", textDecoration: "none", borderBottom: "1px solid #999" }}>
+            <Link href="#top" className="src" style={{ color: "#6b665e", textDecoration: "none", borderBottom: "1px solid #999" }}>
               ↑ return to birth
             </Link>
-            <WorksDoor className="src" style={{ color: "#777", borderBottom: "1px solid #999" }} />
+            <WorksDoor className="src" style={{ color: "#6b665e", borderBottom: "1px solid #999" }} />
           </span>
         </div>
       </div>
