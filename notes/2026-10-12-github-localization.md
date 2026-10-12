@@ -119,12 +119,29 @@ stamp read **71bf490** — the latest commit, notes included. Production
 carries the full Q3 + typeset + animate + delight batch. No redeploy
 needed; the failure emails correspond to the incident window only.
 
+## Rulings of 2026-10-12 (his word) — release · DOI · print spec
+
+> release notes approved. add the site and errata links to the body, then
+> publish it — after the zenodo toggle is on.
+> zenodo toggle is on. wire the doi into the citation unit and CITATION.cff
+> when it lands, and add it to the release body.
+> print spec: the closed-loop book carries it first — paged.js, done
+> properly. the zine can follow later.
+
+- Release body edited (site + errata links added) — draft still **held at the
+  publish step**.
+- **The toggle has not registered**: the repo's webhook list is empty (checked
+  with admin auth) and Zenodo's API holds no record for the repo. Zenodo's own
+  docs require profile → GitHub → **Sync now** before a newly created repo
+  appears in the list to toggle; this repo dates from 2026-10-11. Fix:
+  sync, then flip the repo's slider on. Publish and DOI wiring fire the moment
+  the webhook exists.
+- Print spec ruled: the closed-loop book, Paged.js — queued as the next build
+  after the current command phases.
+
 ## Open
 
-- NEEDS ADNAN: approve (or edit) the release notes → publish; Zenodo
-  GitHub toggle → release archives with a DOI → DOI lands in the
-  citation unit + CITATION.cff.
-- Then: Q3 design queue (manufacture contrast/lines, atlas tiny-text ×55,
-  chair/zine triage, keepers registry), Batch 3 print spec (Paged.js —
-  which artifact carries it), then typeset → animate → delight → harden →
-  onboard → optimize.
+- Zenodo re-toggle (Sync now → flip slider) → then the publish + DOI sequence
+  runs as ruled: publish release → wait for archive → wire the DOI into the
+  citation unit, CITATION.cff, and the release body.
+- Batch 3 print spec: authorized, starts after harden → onboard → optimize.

@@ -164,6 +164,8 @@ was upgraded rather than adding manufactured celebration:
 - Considered and rejected: echoing the requested path on the 404, extra
   celebration on gate actions. Costume, not character.
 
-Remaining in the program: **harden → onboard → optimize** — resume from this
-note; typeset/animate/delight are landed (94d3b3b/62a6d90 · f82c7f6/0b718b9 ·
+Remaining in the program: **harden → onboard → optimize**, then the ruled
+Batch 3 print spec (the closed-loop book, Paged.js — his ruling of 2026-10-12;
+see the github-localization note) — resume from this note;
+typeset/animate/delight are landed (94d3b3b/62a6d90 · f82c7f6/0b718b9 ·
 a393727), CI green on each.
