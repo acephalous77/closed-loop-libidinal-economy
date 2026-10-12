@@ -149,12 +149,20 @@ posters, Manrope for the clinical chrome) but the shell holds the two.
 
 ### Hierarchy
 
-- **Display** (500, italic as the register allows, clamp to 4.7rem): work covers and mastheads.
+- **Display** (500, italic as the register allows; clamps run 2rem to
+  4.7rem; works' poster registers extend to 11.25rem): work covers and
+  mastheads.
 - **Headline** (500, 1.94–2.81rem, lh 1.1–1.2): page titles.
-- **Title** (500–700, 1.35–1.62rem, lh 1.35): section heads, serif.
+- **Title** (500–700, 1.35–1.85rem, lh 1.35): section heads, serif.
 - **Body** (400, 1.125rem, lh 1.55; measure 32rem ≈ 65–75ch): prose.
-- **Label** (400–700, ≥0.7rem (11.2px), letter-spacing 0.13–0.25em,
+- **Meta** (400–500, 0.7–1.08rem): chrome metadata — table headers,
+  captions, chips, console readouts; sentence case in serif or mono.
+- **Label** (400–700, 0.7rem floor, letter-spacing 0.13–0.25em,
   uppercase): nav, registers, footnotes, form fields.
+
+Works that measure in pixels (chair zine chrome, plate captions,
+readouts) carry the same tiers as px hardware values from 11px up; the
+11px and up px values are the same tiers, not a parallel system.
 
 ### Named Rules
 
@@ -352,3 +360,9 @@ pass; scores then stood at manufacture 14, chair/zine 48, atlas 1.
 - **content-hidden-at-rest** (atlas): collision-staged map labels and
   closed drawers are the atlas's interaction model; labels release on zoom,
   drawers on selection, and the disclosure line names the behavior.
+- **design-system-font-size (file scope, ≈789 advisories)**: the check's
+  allowed set is the shell's five legacy values read from this file; the
+  house's real system is the Hierarchy above — Meta 0.7–1.08rem, Title to
+  1.85, display clamps 2–4.7rem with poster registers to 11.25rem, and the
+  works' px hardware tiers from 11px up. The residual advisories are
+  register space with documented steps, not drift.

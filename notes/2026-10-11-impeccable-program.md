@@ -94,3 +94,29 @@ a fresh build and serve; keepers registered in DESIGN.md.
   screenshots sit in `_artifacts/` for Adnan's eye.
 - The Q3 queue above is discharged; next are the per-command phases
   (typeset → animate → delight → harden → onboard → optimize).
+
+## Typeset — the Floor Rule at depth (2026-10-12)
+
+The file-scope type scan (`detect --scope type app/`, 795 advisories) read
+against the site: mostly register-space ramp noise, but it surfaced the real
+drift — the Floor Rule violation mass on ohcose's chapter interiors, which no
+URL scan had ever covered.
+
+- **90 sub-floor sites fixed.** ohcose's micro-labels ran 0.5–0.6rem
+  (8–9.6px) across ~80 sites — form labels, readouts, subject rows, stamps —
+  swept to 0.7rem, the floor (the Floor Rule's own text predicted exactly
+  this: "the house's micro-labels are the place this drifts"). Strays raised:
+  the ohcose stamp class (0.65rem), chair's mobile plate-foot (9px→0.7rem),
+  the chair brochure hint (10px→0.7rem), the console table headers
+  (0.68→0.7rem), CohortGradient's chart labels (10→11px), LoopDiagram's edge
+  numbers (9→11px), the zine's redaction stamp (8→11px).
+- **47 chapters' prev/next nav** (`justify-between`, no wrap) overflowed at
+  390px on long titles — pre-existing (0.9rem + 0.2em tracking), exposed by a
+  new chapter-interior probe; all wrapped. 46 chapters × 2 viewports clean.
+- **The system statement updated** in DESIGN.md: Hierarchy gained the Meta
+  tier (0.7–1.08rem), Title extended to 1.85rem, display clamps documented
+  2–4.7rem with poster registers to 11.25rem, and the px hardware tiers
+  declared. The checker's ramp parse honors only the shell's legacy five
+  values — the residual ≈789 advisories are registered as register space.
+- Verified: build 278 pages, font-preload invariant holds, walkthrough
+  clean, chapter overflow sweep clean.
