@@ -1,8 +1,32 @@
 import type { NextConfig } from "next";
+import { execSync } from "node:child_process";
 import createMDX from "@next/mdx";
+
+/**
+ * Build provenance — the short commit hash rendered in the citation unit.
+ * Vercel sets VERCEL_GIT_COMMIT_SHA; local and CI builds read it from git.
+ * Empty when neither is available; the citation line then omits the stamp.
+ */
+const BUILD_SHA = (() => {
+  const fromEnv = process.env.VERCEL_GIT_COMMIT_SHA;
+  if (fromEnv) return fromEnv.slice(0, 7);
+  try {
+    return execSync("git rev-parse --short HEAD", {
+      stdio: ["ignore", "pipe", "ignore"],
+    })
+      .toString()
+      .trim();
+  } catch {
+    return "";
+  }
+})();
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "md", "mdx"],
+
+  env: {
+    BUILD_SHA,
+  },
 
   /**
    * 301 redirects for the closed-loop project URL migration. The

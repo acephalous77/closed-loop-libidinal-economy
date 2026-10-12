@@ -68,6 +68,10 @@ export function SiteFooter() {
           <Link href="/closed-loop/the-colophon" className={linkClass(isActive("/closed-loop/the-colophon"))}>
             the colophon
           </Link>
+          <span aria-hidden="true" className="mx-xs">·</span>
+          <Link href="/closed-loop/errata" className={linkClass(isActive("/closed-loop/errata"))}>
+            errata
+          </Link>
         </p>
       </div>
       <div className="mx-auto max-w-[var(--container-page)] px-sm mt-sm text-center sm:text-left">

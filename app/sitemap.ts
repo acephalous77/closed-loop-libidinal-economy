@@ -191,6 +191,7 @@ const CLOSED_LOOP_V2_ROUTES = [
   "/closed-loop/v2-dynamics",
   "/closed-loop/glossary",
   "/closed-loop/the-colophon",
+  "/closed-loop/errata",
   // The apparatus — §0 through §12 (results)
   "/closed-loop/the-apparatus/section-0",
   "/closed-loop/the-apparatus/section-1/lemma-1",

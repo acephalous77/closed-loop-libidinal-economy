@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you cite this framework, cite the repository by version."
+title: "The Closed-Loop Libidinal Economy"
+version: 2.0.0
+date-released: "2026-10-12"
+authors:
+  - family-names: "Selimović"
+    given-names: "Adnan"
+url: "https://www.autostimulus.org/closed-loop"
+repository-code: "https://github.com/acephalous77/closed-loop-libidinal-economy"
+license: CC-BY-SA-4.0
+type: software
+abstract: "The framework on the closed-loop libidinal economy — argument, apparatus, dynamics, instruments — published as a web work, with the site that presents it."
+keywords:
+  - critical theory
+  - libidinal economy
+  - attention economy
+  - media psychology

@@ -1,0 +1,40 @@
+name: Errata
+description: File a correction — a claim, citation, number, or result that does not hold.
+title: "[errata] "
+labels: ["errata"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Corrections are rendered at
+        https://www.autostimulus.org/closed-loop/errata — each entry keeps
+        its filing number, state, and dates.
+  - type: input
+    id: where
+    attributes:
+      label: Where
+      description: Section, result number, or URL — e.g. "§7 · Theorem 9", or a route.
+      placeholder: §7 · Theorem 9
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What does not hold
+      description: State the claim as the framework makes it, then where it fails.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Text, computation, or source. Enough for a reader to check the correction.
+    validations:
+      required: false
+  - type: textarea
+    id: correction
+    attributes:
+      label: Proposed correction
+      description: What the record should say instead. Optional — a demonstration of the failure is enough.
+    validations:
+      required: false

@@ -1,0 +1,3 @@
+# Filings arrive through the errata template — the structured shape keeps
+# them renderable on the site's errata page without editing.
+blank_issues_enabled: false

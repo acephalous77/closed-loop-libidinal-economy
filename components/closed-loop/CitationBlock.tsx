@@ -20,6 +20,7 @@ export function CitationBlock({ compact = false }: { compact?: boolean }) {
       </p>
     );
   }
+  const buildSha = process.env.BUILD_SHA;
   return (
     <section
       aria-label="Cite this work"
@@ -40,6 +41,15 @@ export function CitationBlock({ compact = false }: { compact?: boolean }) {
       </p>
       <p className="mt-sm leading-relaxed">
         Numbered results cite by section and number — e.g. §7 · Theorem 9.
+      </p>
+      <p className="mt-sm leading-relaxed">
+        {buildSha ? `build ${buildSha} · ` : ""}
+        <Link
+          href="/closed-loop/errata"
+          className="underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+        >
+          errata →
+        </Link>
       </p>
     </section>
   );
