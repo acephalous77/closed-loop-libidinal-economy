@@ -113,6 +113,12 @@ no deployments created at all. Production itself never went down
 Action: none in-repo; after Vercel resolves, confirm the queue drains to
 d02570d (redeploy from the dashboard if a build was skipped).
 
+**Resolved the same afternoon.** The queue drained on its own: 0b718b9
+and a393727 deployed green (17:16Z, 17:23Z), and the live site's build
+stamp read **71bf490** — the latest commit, notes included. Production
+carries the full Q3 + typeset + animate + delight batch. No redeploy
+needed; the failure emails correspond to the incident window only.
+
 ## Open
 
 - NEEDS ADNAN: approve (or edit) the release notes → publish; Zenodo
