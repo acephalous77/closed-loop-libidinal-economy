@@ -5,7 +5,8 @@ export const metadata: Metadata = {
   // Bypass the root layout's "%s — autostimulus" template so the
   // title stays singular.
   title: { absolute: "Not Found — autostimulus" },
-  description: "The page you requested does not exist.",
+  description:
+    "The page you requested does not exist, or has not been written yet.",
 };
 
 /**

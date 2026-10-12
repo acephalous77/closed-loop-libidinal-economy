@@ -143,3 +143,23 @@ autoplay choreography.
   sim's effect now gates and dep-keys on it. rAF diagrams pause themselves
   when hidden, so they need no gate.
 - Verified: build green, font-preload invariant holds, walkthrough clean.
+
+## Delight — the authored moments, verified (2026-10-12)
+
+Delight here is character, not confetti. The playbook's audit ran against the
+site's real emotional moments; they are already authored, and one flat string
+was upgraded rather than adding manufactured celebration:
+
+- The 404 is its own object — xerox-zine register, cut-up headline, stamped
+  routes back, `steps()` hover, themed focus. Its meta description was the one
+  flat string in the composition; it now matches the on-page line ("…or has
+  not been written yet.").
+- The errata register carries honest empty and unreachable states.
+- The machine is the site's discovery surface: `noteArrival` logs even wrong
+  turns (no unknown-route filter, engine.ts), and closed-loop v2's
+  TrajectoryGrid consumes the log with an off-book filter — a 404 path can't
+  corrupt the plates grid (read at TrajectoryGrid.tsx:30).
+- The sim plates give feedback as motion — opt-in, visibility-gated,
+  reduced-motion safe after the animate pass.
+- Considered and rejected: echoing the requested path on the 404, extra
+  celebration on gate actions. Costume, not character.
