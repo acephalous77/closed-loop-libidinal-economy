@@ -73,7 +73,7 @@ export function CohortGradient() {
         }
         .cohort-gradient-container .cohort-label {
           font-family: var(--font-mono);
-          font-size: 10px;
+          font-size: 11px;
           letter-spacing: 0.05em;
           fill: var(--color-ink);
         }

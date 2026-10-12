@@ -68,7 +68,7 @@ export default function DeathAsLogistics() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 7.2.A</span> — Standard end-of-cycle form portfolio
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vii-exit/liminal-retirement" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.1 liminal retirement</Link>
           <Link href="/ohcose/vii-exit/memorial-capitalism" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.3 memorial capitalism →</Link>
         </nav>
@@ -115,7 +115,7 @@ function DeathForms() {
         </tbody>
       </table>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           Office concierge available · Form DC-0 (pre-plan) recommended at age 70+
         </span>
       </div>

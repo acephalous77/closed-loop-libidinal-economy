@@ -163,7 +163,7 @@ export default function AlgorithmicCalibration() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/ii-inscriptive-normalization/desk-as-altar" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.1 desk as altar</Link>
           <Link href="/ohcose/ii-inscriptive-normalization/emotional-hygiene" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.3 emotional hygiene →</Link>
         </nav>

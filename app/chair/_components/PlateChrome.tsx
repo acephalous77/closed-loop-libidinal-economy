@@ -255,7 +255,7 @@ export function PlateFooter({
       <span style={{ color: tokens.inkFaint }} className="plate-foot-right">autostimulus · /chair</span>
       <style>{`
         @media (max-width: 700px) {
-          .plate-foot { font-size: 9px !important; padding: 10px 14px !important; gap: 8px !important; }
+          .plate-foot { font-size: 0.7rem !important; padding: 10px 14px !important; gap: 8px !important; }
           .plate-foot-right { display: none !important; }
         }
       `}</style>

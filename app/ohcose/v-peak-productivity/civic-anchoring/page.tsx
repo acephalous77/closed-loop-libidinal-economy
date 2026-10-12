@@ -73,7 +73,7 @@ export default function CivicAnchoring() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 5.4.A</span> — Phase-V Civic Anchoring Inventory (rev. 11.2)
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/v-peak-productivity/family-formation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.3 family formation</Link>
           <Link href="/ohcose/v-peak-productivity/midlife-affect" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.5 midlife affect →</Link>
         </nav>
@@ -101,7 +101,7 @@ function AnchoringInventory() {
     <div className="my-md" style={{ border: "1.5px solid var(--color-ink)", background: "var(--color-paper-95)", padding: "1.25rem", fontFamily: "var(--font-mono)" }}>
       <div className="flex justify-between items-baseline mb-md pb-sm" style={{ borderBottom: "1.5px solid var(--color-ink)" }}>
         <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink }}>Civic Anchoring Inventory</div>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>rev. 11.2 · weighted</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>rev. 11.2 · weighted</div>
       </div>
       <table className="w-full border-collapse">
         <thead>

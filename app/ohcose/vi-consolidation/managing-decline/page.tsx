@@ -67,7 +67,7 @@ export default function ManagingDecline() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 6.2.A</span> — Specimen Phase-VI Wellness Profile
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vi-consolidation/high-water-mark" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.1 high-water mark</Link>
           <Link href="/ohcose/vi-consolidation/intergenerational-obligations" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.3 intergenerational →</Link>
         </nav>
@@ -97,9 +97,9 @@ function WellnessProfile() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Quarterly Wellness Profile</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>subject</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>C-2031-4A7Q-9X02-1A</div>
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", color: ink50 }}>age 55 · Q2</div>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>age 55 · Q2</div>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-sm">
@@ -114,7 +114,7 @@ function WellnessProfile() {
         ))}
       </div>
       <div className="mt-md pt-sm" style={{ borderTop: "1.5px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>recommendation</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>recommendation</div>
         <div style={{ fontSize: "0.8rem", color: ink70, marginTop: "0.2rem" }}>
           Add metabolic-watch supplement stack (Form WP-22). Continue exercise protocol at current intensity. Re-test fasting glucose in 90 days.
         </div>

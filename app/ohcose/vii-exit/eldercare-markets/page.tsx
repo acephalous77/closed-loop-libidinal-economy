@@ -66,7 +66,7 @@ export default function EldercareMarkets() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 7.4.A</span> — Phase-VII care-tier pricing
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vii-exit/memorial-capitalism" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.3 memorial capitalism</Link>
           <Link href="/ohcose/vii-exit/cracks-and-residues" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.5 cracks & residues →</Link>
         </nav>
@@ -98,7 +98,7 @@ function CareTiers() {
               </div>
               <div className="text-right">
                 <div className="tabular-nums" style={{ fontSize: "0.95rem", color: ink, fontWeight: 700 }}>{t.monthly}</div>
-                <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>per month</div>
+                <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>per month</div>
               </div>
             </div>
             <div className="flex justify-between items-baseline mt-xs">
@@ -109,7 +109,7 @@ function CareTiers() {
         ))}
       </div>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           CCRC contract: lifetime guarantee · entrance fee 380,000–620,000 SU · 80% refundable
         </span>
       </div>

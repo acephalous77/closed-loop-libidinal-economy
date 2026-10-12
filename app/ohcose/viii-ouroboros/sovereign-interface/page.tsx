@@ -87,7 +87,7 @@ export default function SovereignInterface() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/viii-ouroboros/closure-of-the-cycle" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 8.1 closure of the cycle</Link>
           <Link href="/ohcose/viii-ouroboros/post-human-harvest" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>8.3 post-human harvest →</Link>
         </nav>
@@ -133,7 +133,7 @@ function ChannelMap() {
         </tbody>
       </table>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1.5px solid var(--color-ink)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: accent, fontWeight: 700 }}>completion rate: 100% across cohort 2031+</span>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: accent, fontWeight: 700 }}>completion rate: 100% across cohort 2031+</span>
       </div>
     </div>
   );

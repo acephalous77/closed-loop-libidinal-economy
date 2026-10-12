@@ -89,7 +89,7 @@ export default function HappinessMandate() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 4.5.A</span> — Workplace Affect trace (typical Tuesday)
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iv-economic-subjectification/curating-life" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.4 curating life</Link>
           <Link href="/ohcose/iv-economic-subjectification/entrenchment" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.6 entrenchment →</Link>
         </nav>

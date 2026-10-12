@@ -126,7 +126,7 @@ export default function RecessAsReleaseValve() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/ii-inscriptive-normalization/emotional-hygiene" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 2.3 emotional hygiene</Link>
           <Link href="/ohcose/ii-inscriptive-normalization/playing-at-consumption" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>2.5 playing at consumption →</Link>
         </nav>

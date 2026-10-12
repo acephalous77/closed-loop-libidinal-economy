@@ -75,7 +75,7 @@ export default function EconomicZenith() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 5.2.A</span> — Specimen Annual Performance Review
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/v-peak-productivity/consolidation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.1 consolidation</Link>
           <Link href="/ohcose/v-peak-productivity/family-formation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.3 family formation →</Link>
         </nav>
@@ -105,9 +105,9 @@ function PerformanceReview() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Annual Performance Review</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>composite</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>composite</div>
           <div style={{ fontSize: "1.6rem", color: accent, fontWeight: 700, lineHeight: 1 }}>4.3</div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink70 }}>/ 5.0 · EXCEEDS</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>/ 5.0 · EXCEEDS</div>
         </div>
       </div>
       <table className="w-full border-collapse">
@@ -122,7 +122,7 @@ function PerformanceReview() {
         </tbody>
       </table>
       <div className="mt-md pt-sm" style={{ borderTop: "1.5px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>manager note</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>manager note</div>
         <div style={{ fontSize: "0.85rem", color: ink70, marginTop: "0.25rem", lineHeight: 1.4 }}>
           A strong year. Continued mission alignment exemplary. Stretch
           assignment recommended for FY+1 to support growth into Senior

@@ -144,7 +144,7 @@ export default function TheInitiate() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iii-adolescent-calibration/quantified-selfhood" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.5 quantified selfhood</Link>
           <Link href="/ohcose/iii-adolescent-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase III</Link>
         </nav>
@@ -167,13 +167,13 @@ function InitiationCertificate() {
     <div className="my-md mx-auto" style={{ maxWidth: "30rem", border: "3px double var(--color-ink)", background: "var(--color-paper)", padding: "1.75rem 1.5rem", fontFamily: "var(--font-mono)" }}>
       {/* Header */}
       <div className="text-center pb-sm" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: ink50 }}>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>
           Office of Human Continuity &amp; Social Equilibrium
         </div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.15rem", color: ink, letterSpacing: "0.04em" }}>
           Initiation Certificate
         </div>
-        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
+        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
           Phase III → Phase IV
         </div>
       </div>
@@ -181,19 +181,19 @@ function InitiationCertificate() {
       {/* Subject info */}
       <div className="grid grid-cols-2 gap-md gap-y-sm mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>subject C-ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject C-ID</div>
           <div style={{ fontSize: "0.9rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>C-2031-4A7Q-9X02-1A</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>cohort year</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>cohort year</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>2049</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>onboarding instrument</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>onboarding instrument</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Std-EOI · cohort tier</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>principal accepted</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>principal accepted</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>106,400 SU</div>
         </div>
       </div>
@@ -213,21 +213,21 @@ function InitiationCertificate() {
       <div className="grid grid-cols-2 gap-md">
         <div>
           <div style={{ borderBottom: "1px solid var(--color-ink)", height: "1.6rem" }} />
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.55rem", color: ink50 }}>subject signature</div>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>subject signature</div>
         </div>
         <div>
           <div style={{ borderBottom: "1px solid var(--color-ink)", height: "1.6rem" }} />
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.55rem", color: ink50 }}>Phase IV Receiving Officer</div>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>Phase IV Receiving Officer</div>
         </div>
       </div>
 
       {/* Footer */}
       <div className="flex items-end justify-between mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>effective</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>effective</div>
           <div style={{ fontSize: "0.78rem", color: ink, marginTop: "0.1rem" }}>2049.08.30</div>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.45rem", transform: "rotate(-3deg)" }}>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.45rem", transform: "rotate(-3deg)" }}>
           initiated
         </div>
       </div>

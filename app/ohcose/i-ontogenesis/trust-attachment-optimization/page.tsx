@@ -186,7 +186,7 @@ export default function TrustAttachmentOptimization() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/i-ontogenesis/normative-metrics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 1.5 normative metrics</Link>
           <Link href="/ohcose/i-ontogenesis" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase I</Link>
         </nav>
@@ -275,13 +275,13 @@ function TransferCertificate() {
       <div className="grid grid-cols-2 gap-md mb-md">
         <div>
           <div style={{ borderBottom: "1px solid var(--color-ink)", height: "1.5rem" }} />
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.5rem", color: ink50 }}>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>
             Phase I Closing Officer
           </div>
         </div>
         <div>
           <div style={{ borderBottom: "1px solid var(--color-ink)", height: "1.5rem" }} />
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.5rem", color: ink50 }}>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>
             Phase II Receiving Officer
           </div>
         </div>
@@ -290,10 +290,10 @@ function TransferCertificate() {
       {/* Date + stamp */}
       <div className="flex items-end justify-between mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.5rem", color: ink50 }}>effective date</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>effective date</div>
           <div style={{ fontSize: "0.75rem", color: ink, marginTop: "0.1rem" }}>2034.03.14</div>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.5rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.4rem", transform: "rotate(-4deg)" }}>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.4rem", transform: "rotate(-4deg)" }}>
           certified
         </div>
       </div>

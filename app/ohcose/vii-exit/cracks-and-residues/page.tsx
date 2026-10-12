@@ -88,7 +88,7 @@ export default function CracksAndResidues() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vii-exit/eldercare-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.4 eldercare markets</Link>
           <Link href="/ohcose/vii-exit/lifecycle-closure" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.6 lifecycle closure →</Link>
         </nav>
@@ -118,7 +118,7 @@ function AnomalyRegister() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Anomaly Register (extract)</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>cohort rate</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>cohort rate</div>
           <div style={{ fontSize: "1.2rem", color: accent, fontWeight: 700 }}>3.7 %</div>
         </div>
       </div>

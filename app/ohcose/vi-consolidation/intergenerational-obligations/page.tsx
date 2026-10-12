@@ -74,7 +74,7 @@ export default function IntergenerationalObligations() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 6.3.A</span> — Phase-VI weekly time allocation (cohort median, hours)
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vi-consolidation/managing-decline" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.2 managing decline</Link>
           <Link href="/ohcose/vi-consolidation/golden-years" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.4 golden years →</Link>
         </nav>

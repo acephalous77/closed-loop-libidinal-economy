@@ -76,7 +76,7 @@ export default function FamilyFormation() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 5.3.A</span> — Specimen Natal Registration Confirmation
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/v-peak-productivity/economic-zenith" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.2 economic zenith</Link>
           <Link href="/ohcose/v-peak-productivity/civic-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.4 civic anchoring →</Link>
         </nav>
@@ -93,31 +93,31 @@ function NatalRegistration() {
   return (
     <div className="my-md mx-auto" style={{ maxWidth: "30rem", border: "3px double var(--color-ink)", background: "var(--color-paper)", padding: "1.5rem 1.25rem", fontFamily: "var(--font-mono)" }}>
       <div className="text-center pb-sm" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: ink50 }}>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>
           Office of Human Continuity &amp; Social Equilibrium
         </div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.1rem", color: ink, letterSpacing: "0.04em" }}>
           Natal Registration Confirmation
         </div>
-        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
+        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
           Form NRC-1
         </div>
       </div>
       <div className="grid grid-cols-2 gap-md mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>household tax ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>household tax ID</div>
           <div style={{ fontSize: "0.9rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>H-4A-7Q-2049</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>natal date</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>natal date</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>2052.06.14</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>infant C-ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>infant C-ID</div>
           <div style={{ fontSize: "0.9rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>C-2052-4A7Q-0001-1A</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>natal benefit tier</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>natal benefit tier</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Tier 2 · standard</div>
         </div>
       </div>
@@ -131,10 +131,10 @@ function NatalRegistration() {
       </div>
       <div className="flex items-end justify-between mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>filed</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>filed</div>
           <div style={{ fontSize: "0.78rem", color: ink, marginTop: "0.1rem" }}>2052.06.14</div>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.45rem", transform: "rotate(-3deg)" }}>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.45rem", transform: "rotate(-3deg)" }}>
           registered
         </div>
       </div>

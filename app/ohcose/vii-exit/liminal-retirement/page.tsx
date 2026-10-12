@@ -69,7 +69,7 @@ export default function LiminalRetirement() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 7.1.A</span> — Phase-VII weekly time allocation (cohort median, age 70)
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vii-exit" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VII</Link>
           <Link href="/ohcose/vii-exit/death-as-logistics" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>7.2 death as logistics →</Link>
         </nav>

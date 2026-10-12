@@ -546,7 +546,7 @@ export function ApparatusRedaction({ enabled = true }: { enabled?: boolean }) {
         // Skip words that contain HTML tag chars
         if (word.length < 5) continue;
         // Replace first occurrence with a redaction span
-        const span = `<span style="display:inline-block;background:#0a0908;color:#0a0908;border:1px solid rgba(255,42,138,0.4);padding:0 4px;letter-spacing:0.04em;position:relative;">${word}<span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#ff2a8a;font-family:var(--font-geist-mono),monospace;font-size:8px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;">redacted</span></span>`;
+        const span = `<span style="display:inline-block;background:#0a0908;color:#0a0908;border:1px solid rgba(255,42,138,0.4);padding:0 4px;letter-spacing:0.04em;position:relative;">${word}<span style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#ff2a8a;font-family:var(--font-geist-mono),monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;white-space:nowrap;">redacted</span></span>`;
         const next = html.replace(word, span);
         if (next === html) continue;
         restore.set(el, html);

@@ -64,7 +64,7 @@ export default function OhcoseLayout({
         >
           colophon
         </Link>
-        <span style={{ color: "var(--color-ink-50)", fontSize: "0.55rem" }}>·</span>
+        <span style={{ color: "var(--color-ink-50)", fontSize: "0.7rem" }}>·</span>
         <WorksDoor
             className="font-mono uppercase hover:underline"
             style={{

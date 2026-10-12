@@ -68,7 +68,7 @@ export default function PhaseClosure() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 6.6.A</span> — Phase VI → Phase VII Transfer Certificate
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vi-consolidation/knowledge-transfer" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.5 knowledge transfer</Link>
           <Link href="/ohcose/vi-consolidation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VI</Link>
         </nav>
@@ -85,31 +85,31 @@ function TransferDoc() {
   return (
     <div className="my-md mx-auto" style={{ maxWidth: "30rem", border: "3px double var(--color-ink)", background: "var(--color-paper)", padding: "1.5rem 1.25rem", fontFamily: "var(--font-mono)" }}>
       <div className="text-center pb-sm" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: ink50 }}>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>
           Office of Human Continuity &amp; Social Equilibrium
         </div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.1rem", color: ink, letterSpacing: "0.04em" }}>
           Statutory Retirement Certificate
         </div>
-        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
+        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>
           Phase VI → Phase VII
         </div>
       </div>
       <div className="grid grid-cols-2 gap-md mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>subject C-ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject C-ID</div>
           <div style={{ fontSize: "0.9rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>C-2031-4A7Q-9X02-1A</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>career duration</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>career duration</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>46 yrs · 11 mos</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>lifetime gross</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>lifetime gross</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>3.18M SU</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>drawdown plan</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>drawdown plan</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Standard 30-yr</div>
         </div>
       </div>
@@ -123,10 +123,10 @@ function TransferDoc() {
       </div>
       <div className="flex items-end justify-between mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>effective</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>effective</div>
           <div style={{ fontSize: "0.78rem", color: ink, marginTop: "0.1rem" }}>2096.05.30</div>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.45rem", transform: "rotate(-3deg)" }}>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.45rem", transform: "rotate(-3deg)" }}>
           retired
         </div>
       </div>

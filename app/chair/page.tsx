@@ -592,7 +592,7 @@ function Schematic() {
           .brochure-blueprint-hint {
             display: block;
             padding: 16px 16px 0;
-            font-family: ${FONT.mono}; font-size: 10px; letter-spacing: 0.18em;
+            font-family: ${FONT.mono}; font-size: 0.7rem; letter-spacing: 0.18em;
             text-transform: uppercase; color: rgba(236, 234, 216, 0.55);
           }
         }

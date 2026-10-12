@@ -220,7 +220,7 @@ export default function CradleAnchoring() {
 
         {/* Navigation footer */}
         <nav
-          className="pt-md flex items-center justify-between gap-md mt-2xl"
+          className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl"
           style={{ borderTop: "1px solid var(--color-paper-85)" }}
         >
           <Link

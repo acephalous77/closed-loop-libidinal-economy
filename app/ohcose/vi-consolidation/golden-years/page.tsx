@@ -74,7 +74,7 @@ export default function GoldenYears() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 6.4.A</span> — Specimen Phase-VII partner mailer
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vi-consolidation/intergenerational-obligations" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 6.3 intergenerational</Link>
           <Link href="/ohcose/vi-consolidation/knowledge-transfer" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.5 knowledge transfer →</Link>
         </nav>
@@ -104,19 +104,19 @@ function BrochureSpecimen() {
       </div>
       <div className="grid grid-cols-2 gap-md mt-md">
         <div style={{ border: "1px solid var(--color-paper-85)", padding: "0.75rem", background: "var(--color-paper-95)" }}>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>continuum of care</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>continuum of care</div>
           <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.25rem" }}>Independent → Assisted → Memory — without ever changing address.</div>
         </div>
         <div style={{ border: "1px solid var(--color-paper-85)", padding: "0.75rem", background: "var(--color-paper-95)" }}>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>your equity, your legacy</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>your equity, your legacy</div>
           <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.25rem" }}>Lifetime entrance fee secures the residence; refundable 80% on departure.</div>
         </div>
         <div style={{ border: "1px solid var(--color-paper-85)", padding: "0.75rem", background: "var(--color-paper-95)" }}>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>community</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>community</div>
           <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.25rem" }}>340 like-minded neighbors. Bridge, pickleball, lectures, choir.</div>
         </div>
         <div style={{ border: "1px solid var(--color-paper-85)", padding: "0.75rem", background: "var(--color-paper-95)" }}>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>tour</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>tour</div>
           <div style={{ fontSize: "0.85rem", color: ink, marginTop: "0.25rem" }}>Schedule your complimentary 2-night visit. We arrange the flight.</div>
         </div>
       </div>

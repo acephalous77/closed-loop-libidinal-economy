@@ -142,7 +142,7 @@ export default function CalibratingDesire() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iii-adolescent-calibration" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase III</Link>
           <Link href="/ohcose/iii-adolescent-calibration/rebellion-packaged" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.2 rebellion packaged →</Link>
         </nav>
@@ -191,17 +191,17 @@ function SubjectivityCatalogue() {
           <div key={s.code} style={{ border: "1px solid var(--color-paper-85)", padding: "0.85rem" }}>
             <div className="flex justify-between items-baseline mb-xs">
               <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: accent, fontWeight: 700 }}>{s.code}</span>
-              <span className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>model</span>
+              <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>model</span>
             </div>
             <div className="font-serif font-bold" style={{ fontSize: "0.95rem", color: ink, lineHeight: 1.2 }}>
               {s.name}
             </div>
             <div className="mt-sm">
-              <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>affect register</div>
+              <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>affect register</div>
               <div style={{ fontSize: "0.8rem", color: ink70, marginTop: "0.1rem" }}>{s.affect}</div>
             </div>
             <div className="mt-xs">
-              <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>routed to</div>
+              <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>routed to</div>
               <div style={{ fontSize: "0.8rem", color: ink70, marginTop: "0.1rem" }}>{s.channel}</div>
             </div>
           </div>
@@ -209,7 +209,7 @@ function SubjectivityCatalogue() {
       </div>
 
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           new models released quarterly · obsolete models phased out within 18 mo
         </span>
       </div>

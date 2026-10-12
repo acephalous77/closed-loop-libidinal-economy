@@ -68,7 +68,7 @@ export default function MidlifeAffect() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Tbl. 5.5.A</span> — Phase-V Affect Regulation Catalog (extract)
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/v-peak-productivity/civic-anchoring" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 5.4 civic anchoring</Link>
           <Link href="/ohcose/v-peak-productivity/decline-foreshadowing" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>5.6 decline foreshadowing →</Link>
         </nav>
@@ -113,7 +113,7 @@ function CrisisCatalogue() {
         </tbody>
       </table>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           full catalog: Annex 22 · partner-channel revenue share: standard
         </span>
       </div>

@@ -90,7 +90,7 @@ export default function Onboarding() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iv-economic-subjectification" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase IV</Link>
           <Link href="/ohcose/iv-economic-subjectification/algorithmic-mentorship" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.2 algorithmic mentorship →</Link>
         </nav>
@@ -119,7 +119,7 @@ function CareerTrajectoryPlan() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Career Trajectory Plan</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>subject C-ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject C-ID</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>C-2031-4A7Q-9X02-1A</div>
         </div>
       </div>
@@ -146,7 +146,7 @@ function CareerTrajectoryPlan() {
         </tbody>
       </table>
       <div className="mt-md text-center">
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           deviation tolerance ± 12% · Y3 review · full Plan: Form 4-Z
         </span>
       </div>

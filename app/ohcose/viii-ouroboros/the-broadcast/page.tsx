@@ -85,7 +85,7 @@ export default function TheBroadcast() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/viii-ouroboros/post-human-harvest" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 8.3 post-human harvest</Link>
           <Link href="/ohcose" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ schedule of phases</Link>
         </nav>
@@ -104,7 +104,7 @@ function Broadcast() {
       <div className="text-center pb-md mb-md" style={{ borderBottom: "1px solid var(--color-ink)" }}>
         <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>OHCOSE</div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.2rem", color: ink, letterSpacing: "0.04em" }}>Cycle-Closing Transmission</div>
-        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>standing text · all cohorts</div>
+        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>standing text · all cohorts</div>
       </div>
       <div className="font-serif text-base leading-relaxed space-y-md" style={{ color: ink70, fontFamily: "var(--font-serif)" }}>
         <p style={{ fontStyle: "italic", color: ink }}>
@@ -147,7 +147,7 @@ function Broadcast() {
         </p>
       </div>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           transmission delivered across the digital architecture · standing text · revised quarterly
         </span>
       </div>

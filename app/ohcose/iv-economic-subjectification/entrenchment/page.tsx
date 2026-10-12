@@ -80,7 +80,7 @@ export default function Entrenchment() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iv-economic-subjectification/happiness-mandate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.5 happiness mandate</Link>
           <Link href="/ohcose/iv-economic-subjectification" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase IV</Link>
         </nav>
@@ -117,7 +117,7 @@ function TransferSchedule() {
         ))}
       </ul>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1.5px solid var(--color-ink)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>complete schedule: Annex 14 · escalations: Form 14-X</span>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>complete schedule: Annex 14 · escalations: Form 14-X</span>
       </div>
     </div>
   );

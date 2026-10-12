@@ -145,7 +145,7 @@ export default function QuantifiedSelfhood() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iii-adolescent-calibration/pharmacopornographic-order" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.4 pharmacopornographic</Link>
           <Link href="/ohcose/iii-adolescent-calibration/the-initiate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.6 the initiate →</Link>
         </nav>
@@ -189,9 +189,9 @@ function WellnessDashboard() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Today's Dashboard</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>subject</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>C-2031-4A7Q-9X02</div>
-          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", color: ink50 }}>age 16 · evening</div>
+          <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", color: ink50 }}>age 16 · evening</div>
         </div>
       </div>
 
@@ -215,7 +215,7 @@ function WellnessDashboard() {
       <div className="grid grid-cols-3 gap-sm">
         {metrics.map((m) => (
           <div key={m.name} style={{ border: "1px solid var(--color-paper-85)", padding: "0.5rem 0.7rem" }}>
-            <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>{m.name}</div>
+            <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>{m.name}</div>
             <div className="flex items-baseline gap-xs mt-xs">
               <span className="tabular-nums" style={{ fontSize: "1.1rem", color: ink, fontWeight: 700, lineHeight: 1 }}>{m.value}</span>
               <span style={{ fontSize: "0.7rem", color: ink50 }}>{m.unit}</span>
@@ -229,7 +229,7 @@ function WellnessDashboard() {
         <div style={{ fontSize: "0.7rem", color: ink70 }}>
           opened 32× today · share to cohort? <span style={{ color: accent, fontWeight: 700 }}>[share]</span>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.45rem" }}>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.2rem 0.45rem" }}>
           live
         </div>
       </div>

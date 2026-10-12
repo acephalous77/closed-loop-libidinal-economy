@@ -83,7 +83,7 @@ export default function LifecycleClosure() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vii-exit/cracks-and-residues" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 7.5 cracks & residues</Link>
           <Link href="/ohcose/viii-ouroboros" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VIII ouroboros →</Link>
         </nav>
@@ -100,33 +100,33 @@ function LifecycleClosingStatement() {
   return (
     <div className="my-md mx-auto" style={{ maxWidth: "32rem", border: "3px double var(--color-ink)", background: "var(--color-paper)", padding: "1.75rem 1.5rem", fontFamily: "var(--font-mono)" }}>
       <div className="text-center pb-sm" style={{ borderBottom: "1px solid var(--color-ink)" }}>
-        <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: ink50 }}>Office of Human Continuity &amp; Social Equilibrium</div>
+        <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: ink50 }}>Office of Human Continuity &amp; Social Equilibrium</div>
         <div className="font-serif font-bold mt-xs" style={{ fontSize: "1.15rem", color: ink, letterSpacing: "0.04em" }}>Lifecycle Closing Statement</div>
-        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>cycle complete</div>
+        <div className="uppercase tracking-wider mt-xs" style={{ fontSize: "0.7rem", letterSpacing: "0.2em", color: accent, fontWeight: 700 }}>cycle complete</div>
       </div>
       <div className="grid grid-cols-2 gap-md gap-y-sm mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>subject C-ID</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>subject C-ID</div>
           <div style={{ fontSize: "0.9rem", color: ink, fontWeight: 700, marginTop: "0.15rem" }}>C-2031-4A7Q-9X02-1A</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>cohort</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>cohort</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>2031 · region 4A</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>lifecycle span</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>lifecycle span</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>78.4 yrs · phases I–VII</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>compliance composite</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>compliance composite</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>84 / 100 · cohort 71st pct</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>archive route</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>archive route</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Node 1.1 · ledger persistence + 99 yrs</div>
         </div>
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>onward pointer</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>onward pointer</div>
           <div style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Phase VIII Ouroboros Machine</div>
         </div>
       </div>
@@ -139,10 +139,10 @@ function LifecycleClosingStatement() {
       </div>
       <div className="flex items-end justify-between mt-md">
         <div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink50 }}>closing date</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>closing date</div>
           <div style={{ fontSize: "0.78rem", color: ink, marginTop: "0.1rem" }}>2109.07.22</div>
         </div>
-        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.5rem", transform: "rotate(-3deg)" }}>cycle closed</div>
+        <div className="uppercase" style={{ background: accent, color: "var(--color-paper)", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.1em", padding: "0.22rem 0.5rem", transform: "rotate(-3deg)" }}>cycle closed</div>
       </div>
     </div>
   );

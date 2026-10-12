@@ -147,7 +147,7 @@ export default function PharmacopornographicOrder() {
           </div>
         </section>
 
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iii-adolescent-calibration/digital-architectures" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 3.3 digital architectures</Link>
           <Link href="/ohcose/iii-adolescent-calibration/quantified-selfhood" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>3.5 quantified selfhood →</Link>
         </nav>
@@ -182,7 +182,7 @@ function SubstanceSchedule() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Substance Schedule (extract)</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>schedule rev.</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>schedule rev.</div>
           <div style={{ fontSize: "0.85rem", color: ink, fontWeight: 700 }}>33.7</div>
         </div>
       </div>
@@ -209,7 +209,7 @@ function SubstanceSchedule() {
       </table>
 
       <div className="mt-md text-center">
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>
           full schedule: Annex 9 · off-schedule substances: see Form 9-Z (Voluntary Disclosure)
         </span>
       </div>

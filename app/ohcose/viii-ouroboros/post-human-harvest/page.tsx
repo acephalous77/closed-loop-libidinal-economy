@@ -90,7 +90,7 @@ export default function PostHumanHarvest() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/viii-ouroboros/sovereign-interface" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 8.2 sovereign interface</Link>
           <Link href="/ohcose/viii-ouroboros/the-broadcast" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>8.4 the broadcast →</Link>
         </nav>
@@ -119,9 +119,9 @@ function YieldStatement() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Yield Statement — Cohort 2031</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>aggregate yield index</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>aggregate yield index</div>
           <div style={{ fontSize: "1.4rem", color: accent, fontWeight: 700 }}>1.084</div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink70 }}>vs. cohort 2020 baseline</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>vs. cohort 2020 baseline</div>
         </div>
       </div>
       <table className="w-full border-collapse">
@@ -143,7 +143,7 @@ function YieldStatement() {
         </tbody>
       </table>
       <div className="mt-md pt-sm text-center" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
-        <span className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>SU = Standard Unit · PB = petabyte · cohort yields aggregate across all subjects</span>
+        <span className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>SU = Standard Unit · PB = petabyte · cohort yields aggregate across all subjects</span>
       </div>
     </div>
   );

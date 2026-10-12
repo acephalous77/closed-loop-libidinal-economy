@@ -252,7 +252,7 @@ export default function Console() {
                   <span
                     key={i}
                     style={{
-                      fontSize: "0.68rem",
+                      fontSize: "0.7rem",
                       textTransform: "uppercase",
                       letterSpacing: "0.18em",
                       color: FAINT,
@@ -327,7 +327,7 @@ export default function Console() {
                           <p
                             className="m-0"
                             style={{
-                              fontSize: "0.68rem",
+                              fontSize: "0.7rem",
                               textTransform: "uppercase",
                               letterSpacing: "0.16em",
                               color: FAINT,

@@ -80,7 +80,7 @@ export default function CuratingLife() {
             </p>
           </div>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/iv-economic-subjectification/romantic-markets" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>← 4.3 romantic markets</Link>
           <Link href="/ohcose/iv-economic-subjectification/happiness-mandate" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>4.5 happiness mandate →</Link>
         </nav>
@@ -109,9 +109,9 @@ function LifestyleCard() {
           <div className="uppercase tracking-wider font-bold" style={{ fontSize: "0.9rem", color: ink, marginTop: "0.15rem" }}>Lifestyle Compliance Card</div>
         </div>
         <div className="text-right">
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.6rem", color: ink50 }}>composite</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink50 }}>composite</div>
           <div style={{ fontSize: "1.4rem", color: accent, fontWeight: 700, lineHeight: 1 }}>81</div>
-          <div className="uppercase tracking-wider" style={{ fontSize: "0.55rem", color: ink70 }}>/ 100</div>
+          <div className="uppercase tracking-wider" style={{ fontSize: "0.7rem", color: ink70 }}>/ 100</div>
         </div>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-sm">

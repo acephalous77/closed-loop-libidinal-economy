@@ -72,7 +72,7 @@ export default function HighWaterMark() {
               <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>Fig. 6.1.A</span> — Standard Phase-VI capital allocation (cohort median, age 55)
             </p>
         </section>
-        <nav className="pt-md flex items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
+        <nav className="pt-md flex flex-wrap items-center justify-between gap-md mt-2xl" style={{ borderTop: "1px solid var(--color-paper-85)" }}>
           <Link href="/ohcose/vi-consolidation" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>↑ phase VI</Link>
           <Link href="/ohcose/vi-consolidation/managing-decline" className="font-mono uppercase hover:underline" style={{ fontSize: "0.9rem", letterSpacing: "0.2em", color: "var(--color-ink-70)" }}>6.2 managing decline →</Link>
         </nav>

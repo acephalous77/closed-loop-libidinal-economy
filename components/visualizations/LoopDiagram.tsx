@@ -155,7 +155,7 @@ export function LoopDiagram() {
                   size="11px"
                 >
                   <span style={{ display: "inline-flex", alignItems: "baseline", gap: "4px" }}>
-                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "9px" }}>{e.n}</span>
+                    <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px" }}>{e.n}</span>
                     <M>{e.tex}</M>
                   </span>
                 </SvgM>
