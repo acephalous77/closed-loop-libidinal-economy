@@ -9,27 +9,20 @@
  * config was deduped again or a route deliberately gained/lost a face —
  * update EXPECTED in that case, together with the commit that says why.
  *
- * Runs `next start` itself (port 3777 by default) so CI and local runs are
- * identical. Requires a prior `npm run build`.
+ * Faces were vendored into app/_fonts on 2026-10-12 (no build-time Google
+ * fetch); the counts below held unchanged across that swap.
+ *
+ * Runs `next start` itself via the shared helper (port 3777 by default) so
+ * CI and local runs are identical. Requires a prior `npm run build`.
  *
  *   node scripts/verify/font-preloads.mjs
  *
  * Counts <link rel="preload" as="font"> occurrences in the served HTML.
  */
 
-import { spawn } from "node:child_process";
-import { fileURLToPath } from "node:url";
-import { setTimeout as sleep } from "node:timers/promises";
+import { startNextServer, stopNextServer } from "./_server.mjs";
 
 const PORT = process.env.PRELOAD_CHECK_PORT || "3777";
-const BASE = `http://127.0.0.1:${PORT}`;
-
-// next's bin, spawned directly: an `npx` wrapper was the first CI run's
-// hang — SIGTERM killed the wrapper, the grandchild kept the stdio pipes
-// open, and the step never exited. Direct spawn + awaited shutdown.
-const NEXT_BIN = fileURLToPath(
-  new URL("../../node_modules/next/dist/bin/next", import.meta.url),
-);
 
 // Recorded 2026-10-12 against the first public build. Counts include
 // duplicated weights as served. The psychopolitics atlas is a standalone
@@ -53,49 +46,14 @@ function countFontPreloads(html) {
   return (html.match(/as="font"/g) || []).length;
 }
 
-async function waitForServer(tries = 60) {
-  for (let i = 0; i < tries; i++) {
-    try {
-      const res = await fetch(BASE, { redirect: "manual" });
-      if (res.status >= 200 && res.status < 500) return true;
-    } catch {
-      // not up yet
-    }
-    await sleep(500);
-  }
-  return false;
-}
-
-const server = spawn(process.execPath, [NEXT_BIN, "start", "-p", PORT], {
-  stdio: ["ignore", "pipe", "pipe"],
-});
-
-let serverErr = "";
-server.stderr.on("data", (d) => {
-  serverErr += d.toString();
-});
-
-async function shutdown() {
-  if (server.exitCode !== null) return;
-  const exited = new Promise((resolve) => server.once("exit", resolve));
-  server.kill("SIGTERM");
-  const escalate = setTimeout(() => server.kill("SIGKILL"), 2500);
-  await Promise.race([exited, sleep(4000)]);
-  clearTimeout(escalate);
-}
-
+let server;
 let failed = 0;
 try {
-  const up = await waitForServer();
-  if (!up) {
-    console.error("server did not come up — did you run `npm run build`?");
-    if (serverErr.trim()) console.error(serverErr.trim().split("\n").slice(-5).join("\n"));
-    await shutdown();
-    process.exit(1);
-  }
+  const started = await startNextServer(PORT);
+  server = started.server;
 
   for (const [route, expected] of EXPECTED) {
-    const res = await fetch(BASE + route);
+    const res = await fetch(started.base + route);
     if (!res.ok) {
       console.log(`FAIL  ${route} — HTTP ${res.status}`);
       failed++;
@@ -110,8 +68,11 @@ try {
       failed++;
     }
   }
+} catch (e) {
+  console.error(e.message);
+  failed++;
 } finally {
-  await shutdown();
+  await stopNextServer(server);
 }
 
 if (failed > 0) {

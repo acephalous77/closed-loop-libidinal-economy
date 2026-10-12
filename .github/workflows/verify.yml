@@ -1,6 +1,6 @@
 # The house's verification, on every push — the manual session checks
-# (build, lint, font-preload invariant) made a standing gate.
-# Local equivalents: npm run lint && npm run build && node scripts/verify/font-preloads.mjs
+# (build, lint, font-preload invariant, browser walkthrough) made a
+# standing gate. Local equivalent: npm run lint && npm run build && npm run verify
 
 name: verify
 
@@ -31,3 +31,9 @@ jobs:
 
       - name: Font-preload invariant
         run: node scripts/verify/font-preloads.mjs
+
+      - name: Install browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Walkthrough
+        run: node scripts/verify/walkthrough.mjs
