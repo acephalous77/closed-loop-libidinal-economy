@@ -1,4 +1,4 @@
-import { Manrope } from "next/font/google";
+import localFont from "next/font/local";
 
 /**
  * Brochure-scoped face. Manrope paints only on the brochure route
@@ -9,9 +9,9 @@ import { Manrope } from "next/font/google";
  * addressed 2026-10-10). The variable name is unchanged, so
  * FONT.manrope (tokens.ts) resolves identically inside the wrapper.
  */
-export const manrope = Manrope({
-  subsets: ["latin"],
+export const manrope = localFont({
+  src: "../../_fonts/Manrope-normal.woff2",
   variable: "--font-manrope",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: "300 700",
 });

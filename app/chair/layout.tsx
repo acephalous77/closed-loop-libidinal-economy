@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Anton, Spectral, IBM_Plex_Mono, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import { MASTER } from "./_components/tokens";
 import { ChairGlyph } from "./_components/PlateChrome";
 import { WorksDoor } from "@/components/navigation/WorksDoor";
@@ -19,36 +19,59 @@ import { WorksDoor } from "@/components/navigation/WorksDoor";
  * the BROCHURE / ZINE / ARCHIVE token records from _components/tokens.ts.
  */
 
-const spectral = Spectral({
-  subsets: ["latin"],
+/**
+ * Vendored faces, 2026-10-12: the build no longer fetches Google Fonts
+ * (a throttled CI runner failed the build on the external fetch once; the
+ * woff2 files now live in app/_fonts, latin subset, downloaded from the
+ * same API next/font/google used). Variable families carry a weight range
+ * over a single file; preload flags mirror the previous configs exactly.
+ */
+
+const spectral = localFont({
+  src: [
+    { path: "../_fonts/Spectral-300.woff2", weight: "300", style: "normal" },
+    { path: "../_fonts/Spectral-400.woff2", weight: "400", style: "normal" },
+    { path: "../_fonts/Spectral-500.woff2", weight: "500", style: "normal" },
+    { path: "../_fonts/Spectral-600.woff2", weight: "600", style: "normal" },
+    { path: "../_fonts/Spectral-700.woff2", weight: "700", style: "normal" },
+    { path: "../_fonts/Spectral-300i.woff2", weight: "300", style: "italic" },
+    { path: "../_fonts/Spectral-400i.woff2", weight: "400", style: "italic" },
+    { path: "../_fonts/Spectral-500i.woff2", weight: "500", style: "italic" },
+    { path: "../_fonts/Spectral-600i.woff2", weight: "600", style: "italic" },
+    { path: "../_fonts/Spectral-700i.woff2", weight: "700", style: "italic" },
+  ],
   variable: "--font-spectral",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
-const anton = Anton({
-  subsets: ["latin"],
+const anton = localFont({
+  src: "../_fonts/Anton-400.woff2",
   variable: "--font-anton",
   display: "swap",
-  weight: ["400"],
+  weight: "400",
   preload: false,
 });
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const plexMono = localFont({
+  src: [
+    { path: "../_fonts/IBMPlexMono-300.woff2", weight: "300", style: "normal" },
+    { path: "../_fonts/IBMPlexMono-400.woff2", weight: "400", style: "normal" },
+    { path: "../_fonts/IBMPlexMono-500.woff2", weight: "500", style: "normal" },
+    { path: "../_fonts/IBMPlexMono-600.woff2", weight: "600", style: "normal" },
+    { path: "../_fonts/IBMPlexMono-700.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-plex-mono",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
   preload: false,
 });
 
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
+const sourceSerif = localFont({
+  src: [
+    { path: "../_fonts/SourceSerif4-normal.woff2", weight: "300 700", style: "normal" },
+    { path: "../_fonts/SourceSerif4-italic.woff2", weight: "300 700", style: "italic" },
+  ],
   variable: "--font-source-serif",
   display: "swap",
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
   preload: false,
 });
 

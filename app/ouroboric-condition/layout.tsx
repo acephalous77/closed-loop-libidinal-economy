@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { JsonLd } from "@/lib/jsonld";
 
 /**
@@ -14,11 +14,13 @@ import { JsonLd } from "@/lib/jsonld";
  * self-hosted by next/font at build (no runtime font CDN request).
  */
 
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
+const plexMono = localFont({
+  src: [
+    { path: "../_fonts/IBMPlexMono-400.woff2", weight: "400", style: "normal" },
+    { path: "../_fonts/IBMPlexMono-500.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--atlas-mono",
   display: "swap",
-  weight: ["400", "500"],
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.autostimulus.org";

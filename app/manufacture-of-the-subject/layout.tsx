@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Newsreader, Space_Grotesk, Space_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { JsonLd } from "@/lib/jsonld";
 import "./manufacture.css";
 
@@ -20,34 +20,38 @@ import "./manufacture.css";
  * split is the thesis.
  */
 
-const anton = Anton({
-  subsets: ["latin"],
+const anton = localFont({
+  src: "../_fonts/Anton-400.woff2",
   variable: "--font-anton-mos",
   display: "swap",
-  weight: ["400"],
+  weight: "400",
 });
 
-const newsreader = Newsreader({
-  subsets: ["latin"],
+const newsreader = localFont({
+  src: [
+    { path: "../_fonts/Newsreader-normal.woff2", weight: "400 600", style: "normal" },
+    { path: "../_fonts/Newsreader-italic.woff2", weight: "400 600", style: "italic" },
+  ],
   variable: "--font-newsreader",
   display: "swap",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
+const spaceGrotesk = localFont({
+  src: "../_fonts/SpaceGrotesk-normal.woff2",
   variable: "--font-space-grotesk",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: "400 700",
 });
 
-const spaceMono = Space_Mono({
-  subsets: ["latin"],
+const spaceMono = localFont({
+  src: [
+    { path: "../_fonts/SpaceMono-400.woff2", weight: "400", style: "normal" },
+    { path: "../_fonts/SpaceMono-400i.woff2", weight: "400", style: "italic" },
+    { path: "../_fonts/SpaceMono-700.woff2", weight: "700", style: "normal" },
+    { path: "../_fonts/SpaceMono-700i.woff2", weight: "700", style: "italic" },
+  ],
   variable: "--font-space-mono",
   display: "swap",
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
 });
 
 const SITE_URL =

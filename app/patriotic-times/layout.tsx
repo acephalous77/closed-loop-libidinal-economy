@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Anton, Source_Serif_4 } from "next/font/google";
+import localFont from "next/font/local";
 import { WorksDoor } from "@/components/navigation/WorksDoor";
 
 /**
@@ -17,19 +17,20 @@ import { WorksDoor } from "@/components/navigation/WorksDoor";
  * affective work; the typography stays out of their way.
  */
 
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
+const sourceSerif = localFont({
+  src: [
+    { path: "../_fonts/SourceSerif4-normal.woff2", weight: "300 700", style: "normal" },
+    { path: "../_fonts/SourceSerif4-italic.woff2", weight: "300 700", style: "italic" },
+  ],
   variable: "--font-source-serif",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
 });
 
-const anton = Anton({
-  subsets: ["latin"],
+const anton = localFont({
+  src: "../_fonts/Anton-400.woff2",
   variable: "--font-anton",
   display: "swap",
-  weight: ["400"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
