@@ -18,10 +18,18 @@
  */
 
 import { spawn } from "node:child_process";
+import { fileURLToPath } from "node:url";
 import { setTimeout as sleep } from "node:timers/promises";
 
 const PORT = process.env.PRELOAD_CHECK_PORT || "3777";
 const BASE = `http://127.0.0.1:${PORT}`;
+
+// next's bin, spawned directly: an `npx` wrapper was the first CI run's
+// hang — SIGTERM killed the wrapper, the grandchild kept the stdio pipes
+// open, and the step never exited. Direct spawn + awaited shutdown.
+const NEXT_BIN = fileURLToPath(
+  new URL("../../node_modules/next/dist/bin/next", import.meta.url),
+);
 
 // Recorded 2026-10-12 against the first public build. Counts include
 // duplicated weights as served. The psychopolitics atlas is a standalone
@@ -58,7 +66,7 @@ async function waitForServer(tries = 60) {
   return false;
 }
 
-const server = spawn("npx", ["next", "start", "-p", PORT], {
+const server = spawn(process.execPath, [NEXT_BIN, "start", "-p", PORT], {
   stdio: ["ignore", "pipe", "pipe"],
 });
 
@@ -67,12 +75,22 @@ server.stderr.on("data", (d) => {
   serverErr += d.toString();
 });
 
+async function shutdown() {
+  if (server.exitCode !== null) return;
+  const exited = new Promise((resolve) => server.once("exit", resolve));
+  server.kill("SIGTERM");
+  const escalate = setTimeout(() => server.kill("SIGKILL"), 2500);
+  await Promise.race([exited, sleep(4000)]);
+  clearTimeout(escalate);
+}
+
 let failed = 0;
 try {
   const up = await waitForServer();
   if (!up) {
     console.error("server did not come up — did you run `npm run build`?");
     if (serverErr.trim()) console.error(serverErr.trim().split("\n").slice(-5).join("\n"));
+    await shutdown();
     process.exit(1);
   }
 
@@ -93,7 +111,7 @@ try {
     }
   }
 } finally {
-  server.kill("SIGTERM");
+  await shutdown();
 }
 
 if (failed > 0) {
@@ -101,3 +119,4 @@ if (failed > 0) {
   process.exit(1);
 }
 console.log("\nfont-preload invariant holds.");
+process.exit(0);
