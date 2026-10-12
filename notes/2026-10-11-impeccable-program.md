@@ -120,3 +120,26 @@ URL scan had ever covered.
   values — the residual ≈789 advisories are registered as register space.
 - Verified: build 278 pages, font-preload invariant holds, walkthrough
   clean, chapter overflow sweep clean.
+
+## Animate — the motion language, audited (2026-10-12)
+
+Motion inventory across 30+ files against the playbook's tests. The thesis
+already existed and holds: the machine's cadence is the focal moment, the
+draws/drifts/marquees are its supporting states, and the eight v2 sim
+plates are user-started (`running=false` default) — motion on request, not
+autoplay choreography.
+
+- **Reduced-motion gaps closed.** chair's FittingNotification (slide,
+  pulse, shake) and the zine's two inline loops (`zine-blink`, the 90s
+  `ols-marquee`) had no guard — both now carry one (`.fitting-notification`
+  animations off, the marquee pauses, the descend prompt holds steady).
+  Verified live with Playwright: no-preference → `zine-blink`/`running`;
+  reduce → `none`/`paused`. CursorTrail already skipped under reduce
+  (spawn gate); ouroboric's atlas guard and manufacture's CSS guard were
+  already in place.
+- **Hidden-tab loop gate.** The eight v2 interval sims stepped state at
+  33 ms even in a hidden tab (browsers throttle timers, never stop them).
+  New `components/closed-loop-v2/useAnimating.ts`: playing ∧ visible; each
+  sim's effect now gates and dep-keys on it. rAF diagrams pause themselves
+  when hidden, so they need no gate.
+- Verified: build green, font-preload invariant holds, walkthrough clean.

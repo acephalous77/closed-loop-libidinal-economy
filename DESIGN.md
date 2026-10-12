@@ -306,6 +306,10 @@ inside the register; the shell itself stays square.
   cover tokens for the instrument, the sheets, and the door.
 - **Do** keep the record honest and mortal: in-memory, tab-scoped, and
   stated where it ends (the panel, the offprint, the atlas footer).
+- **Do** give every authored motion a `prefers-reduced-motion` path — the
+  drift band, marquees and blinks stop or go still, notifications arrive
+  without their shake, and the sim plates yield a static first frame; gate
+  interval-driven loops on tab visibility (`useAnimating`).
 
 ### Don't:
 
