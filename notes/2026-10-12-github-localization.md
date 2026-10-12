@@ -62,15 +62,44 @@
   at the Build step on a transient Google Fonts fetch (all 12 `next/font`
   modules at once; run 1's build was green minutes earlier on the same
   tree); rerun attempt 2: **green** — Install, Lint, Build, invariant.
-- Flake recorded: the build fetches Google Fonts at build time, and a
-  throttled runner fails it. Durable fix (candidate card, not done):
-  vendor the remaining `next/font/google` faces as local woff2 to match
-  the root fonts — kills the build-time external fetch.
+- Flake recorded: the build fetched Google Fonts at build time, and a
+  throttled runner failed it. Durable fix landed the same day — see
+  Batch 2 below.
+
+## Batch 2 (515d2d9 · c1894b9 · 1f4fccc) — the flake class killed, the walkthrough lands
+
+- **Fonts vendored** into `app/_fonts` (26 files): the build no longer
+  fetches Google Fonts, so that CI flake class is gone. Variable families
+  dedupe to one file per style with weight ranges; the 10-route preload
+  invariant held unchanged across the swap.
+- **Diacritic finding, same afternoon**: every Google face missed
+  ć č š ž đ (the `latin` subset — pre-existing; the vendoring preserved it
+  faithfully, which is how it surfaced). Fixed mechanically: static faces
+  merged latin+latin-ext via fontTools; variable faces re-subset from the
+  full google/fonts VF with `opsz` pinned at the API's own defaults
+  (Source Serif 4 → 20, Newsreader → 18) — parity with the wght-only files
+  the API had served. All 26 files verified: A–Z, é, ć č š ž đ, em-dash,
+  curly quotes, weight axes intact. Sizes accepted: SS4/Newsreader ~80–89K
+  vs the API's ~50–64K (API strips more tables; features kept as `*`).
+- **The walkthrough** (`scripts/verify/walkthrough.mjs`, Playwright):
+  15 routes × 390/1440 — horizontal-overflow and pageerror gates, console
+  errors reported (first runs: zero anywhere, local and CI), screenshots
+  to `_artifacts/` (gitignored), 404 surface asserted. Known-authored
+  bleed would live in `walkthrough-baseline.json` (empty so far).
+  `_server.mjs` is shared with the font script; `npm run verify` runs the
+  pair. The ad-hoc iframe harness retires.
+- First local runs: 30 pairs + 404 — clean. CI: the walkthrough job green
+  on the runner.
+- Two transient `git push` "remote rejected (failure)" events resolved on
+  a bare retry (GitHub-side, ~13:00 and ~13:31) — recorded, not a repo
+  problem.
 
 ## Open
 
 - NEEDS ADNAN: approve (or edit) the release notes → publish; Zenodo
   GitHub toggle → release archives with a DOI → DOI lands in the
   citation unit + CITATION.cff.
-- Then: Batch 2 (Playwright instruments → CI), Q3 design queue, Batch 3
-  print spec.
+- Then: Q3 design queue (manufacture contrast/lines, atlas tiny-text ×55,
+  chair/zine triage, keepers registry), Batch 3 print spec (Paged.js —
+  which artifact carries it), then typeset → animate → delight → harden →
+  onboard → optimize.
