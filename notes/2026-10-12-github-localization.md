@@ -94,6 +94,25 @@
   a bare retry (GitHub-side, ~13:00 and ~13:31) — recorded, not a repo
   problem.
 
+## Deploy incident (2026-10-12, afternoon)
+
+Vercel failure emails traced to a **major platform incident**, not this
+repo: "Increased build and deployment failures" (started 13:35Z, status
+identified at last check), caused by an upstream GitHub incident
+(githubstatus.com/incidents/93njd414rpbx) — GitHub-connected projects'
+builds and deployments failed or failed to start.
+
+Evidence this was platform-side: failures hit trivial commits (4d18147
+LICENSE-only, 878c0f2 notes-only) and interleaved with successes on
+near-identical trees; local builds and GitHub CI were green on every one
+of those commits; the deployment queue ran ~50 min behind and the six
+newest commits (94d3b3b…d02570d, the typeset/animate/delight batch) had
+no deployments created at all. Production itself never went down
+(autostimulus.org → www 307 → 200; errata rendering correctly).
+
+Action: none in-repo; after Vercel resolves, confirm the queue drains to
+d02570d (redeploy from the dashboard if a build was skipped).
+
 ## Open
 
 - NEEDS ADNAN: approve (or edit) the release notes → publish; Zenodo
