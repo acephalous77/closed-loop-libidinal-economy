@@ -31,6 +31,7 @@ const PORT = process.env.PRELOAD_CHECK_PORT || "3777";
 // Its zero is pinned so an accidental conversion into a Next route flags.
 const EXPECTED = [
   ["/", 6],
+  ["/colophon", 6],
   ["/closed-loop", 6],
   ["/closed-loop/v2-argument", 6],
   ["/chair", 17],

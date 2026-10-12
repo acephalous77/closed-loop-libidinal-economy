@@ -247,7 +247,7 @@ export default function Console() {
               className={`hidden ${COLS} pt-sm pb-xs`}
               aria-hidden="true"
             >
-              {["Ch", "Mark", "The work", "What it asks", "Sheet", ""].map(
+              {["Nº", "Mark", "The work", "What it asks", "Sheet", ""].map(
                 (h, i) => (
                   <span
                     key={i}
@@ -412,7 +412,7 @@ export default function Console() {
           >
             <span>
               <Link
-                href="/closed-loop/the-colophon"
+                href="/colophon"
                 style={{ color: DIM, textDecoration: "none" }}
               >
                 colophon →

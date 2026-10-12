@@ -4,7 +4,7 @@ const BASE =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://www.autostimulus.org";
 
-const ATELIER_ROUTES = ["/"];
+const ATELIER_ROUTES = ["/", "/colophon"];
 
 const OHCOSE_ROUTES = [
   "/ohcose",
