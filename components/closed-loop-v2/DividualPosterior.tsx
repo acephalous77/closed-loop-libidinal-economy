@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 
 /**
  * The dividual-posterior plate -- v2.
@@ -48,17 +49,18 @@ export function DividualPosterior() {
   const [effSample, setEffSample] = useState(1.0); // effective-sample multiplier (related to U1 p_0)
   const [state, setState] = useState<SimState>(() => initialState());
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setState((s) => step(s, d, effSample));
     }, 33);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, d, effSample]);
+  }, [animating, d, effSample]);
 
   function reset() {
     setRunning(false);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 
 /**
  * The network-coupling plate -- v2.
@@ -88,6 +89,7 @@ export function NetworkCoupling() {
   const [edgeSeed, setEdgeSeed] = useState(123);
   const [state, setState] = useState<SimState>(() => initialState());
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const edges = useMemo(() => generateEdges(rho, edgeSeed), [rho, edgeSeed]);
@@ -112,7 +114,7 @@ export function NetworkCoupling() {
 
   // Sim loop.
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     let rngState = state.t + 1;
     function rng() {
       rngState = (rngState * 1664525 + 1013904223) % 4294967296;
@@ -125,7 +127,7 @@ export function NetworkCoupling() {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [running, edges, alpha, decay]);
+  }, [animating, edges, alpha, decay]);
 
   function reset() {
     setRunning(false);

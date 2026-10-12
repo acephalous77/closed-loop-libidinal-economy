@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 
 /**
  * The captured-resonance plate — v2.
@@ -90,20 +91,21 @@ export function CapturedResonance() {
   const [K_bm, setK_bm] = useState(0.6);
   const [state, setState] = useState<SimState>(() => initialState());
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const deltaOmega = Math.abs(omega_b - omega_m);
   const isLocked = K_bm > deltaOmega;
 
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setState((s) => step(s, omega_b, omega_m, K_bm));
     }, 33);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, omega_b, omega_m, K_bm]);
+  }, [animating, omega_b, omega_m, K_bm]);
 
   function reset() {
     setRunning(false);

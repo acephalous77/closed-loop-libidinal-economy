@@ -96,6 +96,7 @@ export function FittingNotification({ delayMs = 45000 }: { delayMs?: number }) {
     <div
       role="dialog"
       aria-label="Ouroboros Industries fitting notification"
+      className="fitting-notification"
       style={{
         position: "fixed",
         bottom: 24,
@@ -133,6 +134,9 @@ export function FittingNotification({ delayMs = 45000 }: { delayMs?: number }) {
           40% { transform: translateX(4px); }
           60% { transform: translateX(-3px); }
           80% { transform: translateX(2px); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .fitting-notification, .fitting-notification * { animation: none !important; }
         }
       `}</style>
 

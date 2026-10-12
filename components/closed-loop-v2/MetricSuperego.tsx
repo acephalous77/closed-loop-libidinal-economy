@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 
 /**
  * The metric-superego plate — v2.
@@ -81,19 +82,20 @@ export function MetricSuperego() {
   const [start, setStart] = useState<Dist3>([0.1, 0.6, 0.3]);
   const [state, setState] = useState<SimState>(() => initialState([0.1, 0.6, 0.3]));
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Start-distribution changes reset the run in the picker's handler
   // (below) — no reset-via-effect.
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setState((s) => step(s, target, beta));
     }, 50);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, target, beta]);
+  }, [animating, target, beta]);
 
   function reset() {
     setRunning(false);

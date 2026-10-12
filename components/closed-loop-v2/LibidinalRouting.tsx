@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 
 /**
  * The libidinal-routing plate -- v2.
@@ -80,11 +81,12 @@ function miAt(t: number, a: Register, b: Register): number {
 export function LibidinalRouting() {
   const [t, setT] = useState(0);
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const autoMaxT = 60;
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setT((prev) => {
         if (prev >= autoMaxT) {
@@ -97,7 +99,7 @@ export function LibidinalRouting() {
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, autoMaxT]);
+  }, [animating, autoMaxT]);
 
   function reset() {
     setRunning(false);

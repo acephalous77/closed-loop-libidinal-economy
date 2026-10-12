@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 import {
   DEFAULT_PARAMS,
   generateLogSpacedTaus,
@@ -29,6 +30,7 @@ export function ForeclosureClock() {
   const [params, setParams] = useState<SimParams>(DEFAULT_PARAMS);
   const [state, setState] = useState<SimState>(() => initialState(DEFAULT_PARAMS));
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const taus = generateLogSpacedTaus(params);
@@ -90,14 +92,14 @@ export function ForeclosureClock() {
 
   // Sim loop — setInterval at ~30 FPS.
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setState((s) => step(s, params));
     }, 33);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, params]);
+  }, [animating, params]);
 
   // Reset state when params change in a way that would invalidate the run.
   function reset() {

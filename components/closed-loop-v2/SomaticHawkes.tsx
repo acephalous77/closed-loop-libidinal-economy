@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 
 /**
  * The somatic-Hawkes plate -- v2.
@@ -96,6 +97,7 @@ export function SomaticHawkes() {
   const [tauKernel, setTauKernel] = useState(1.0);
   const [state, setState] = useState<SimState>(() => initialState());
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // Build alpha matrix from the two scalar parameters.
@@ -114,14 +116,14 @@ export function SomaticHawkes() {
   })();
 
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setState((s) => step(s, baseline, alpha, tauKernel));
     }, 33);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, baseline, alpha, tauKernel]);
+  }, [animating, baseline, alpha, tauKernel]);
 
   function reset() {
     setRunning(false);

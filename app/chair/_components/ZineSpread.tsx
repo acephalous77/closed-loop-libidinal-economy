@@ -771,6 +771,7 @@ export default function ZineSpread() {
 
         {/* Descend prompt */}
         <div
+          className="zine-descend"
           style={{
             position: "absolute",
             bottom: 28,
@@ -1969,6 +1970,7 @@ export default function ZineSpread() {
         }}
       >
         <div
+          className="ols-marquee-inner"
           style={{
             display: "flex",
             gap: 36,
@@ -2021,6 +2023,10 @@ export default function ZineSpread() {
         @keyframes ols-marquee {
           from { transform: translateX(0); }
           to   { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .zine-descend { animation: none !important; }
+          .ols-marquee-inner { animation-play-state: paused !important; }
         }
         [data-ols-root] ::selection { background: ${NEON_PINK}; color: ${BLACK}; }
         @media (max-width: 900px) {

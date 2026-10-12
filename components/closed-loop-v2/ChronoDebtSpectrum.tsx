@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useAnimating } from "./useAnimating";
 import {
   DEFAULT_PARAMS,
   generateLogSpacedTaus,
@@ -26,6 +27,7 @@ export function ChronoDebtSpectrum() {
   const [params, setParams] = useState<SimParams>(DEFAULT_PARAMS);
   const [state, setState] = useState<SimState>(() => initialState(DEFAULT_PARAMS));
   const [running, setRunning] = useState(false);
+  const animating = useAnimating(running);
   const [weighted, setWeighted] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
@@ -77,14 +79,14 @@ export function ChronoDebtSpectrum() {
   const yOf = (d: number) => padY + (1 - Math.max(0, Math.min(1, d))) * plotH;
 
   useEffect(() => {
-    if (!running) return;
+    if (!animating) return;
     intervalRef.current = setInterval(() => {
       setState((s) => step(s, params));
     }, 33);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [running, params]);
+  }, [animating, params]);
 
   function reset() {
     setRunning(false);
