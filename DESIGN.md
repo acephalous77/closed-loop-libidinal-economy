@@ -315,3 +315,40 @@ inside the register; the shell itself stays square.
   with the tab, and the disclosure says so.
 - **Don't** show a readout without its definition, or a lit state without
   its count.
+
+## Keepers registry
+
+Detector findings deliberately kept, with the reason. A finding leaves this
+list only when a fix lands — an entry here is a ruling, not a backlog.
+Established across the 2026-10-11 program (Q1/Q2) and the 2026-10-12 Q3
+pass; scores then stood at manufacture 14, chair/zine 48, atlas 1.
+
+- **Authored overlap geometry** (chair/zine): the doubled cover title and
+  heading word-marks (text-occlusion ×4, oversized h1, the ~19 box-overflow
+  spans) are the print-plate offset effect; the walkthrough verifies there
+  is no page-level horizontal overflow at 390/1440.
+- **Torn edges and cuts** (chair/zine ×7): clip-path polygons, repeating
+  gradient stripes — the xerox-collage register.
+- **Xerox caps blocks** (chair/zine ×7): uppercase runs of 99–266 chars are
+  the pamphlet's typographic texture.
+- **11px microcopy** (chair/zine ×3; manufacture instrument labels): the
+  Floor Rule admits 11px functional text; these are stamps and chips, not
+  reading text.
+- **The Photocopied ghost** (chair/zine): the 1.1:1 watermark is
+  show-through texture, the medium's artifact, not content.
+- **Marker scrawl leading** (chair/zine ×2): 1.2 on 18–22px Caveat margin
+  notes is the hand-scrawl register.
+- **Em-dash density** (site-wide advisories, 42–57): native voice, judged
+  by density across a passage, never by count alone.
+- **Numbered section labels** (manufacture ×4): the descent is a lifecycle
+  sequence 01→05; the numbers carry it.
+- **The drifting band** (manufacture): an authored motion moment;
+  `prefers-reduced-motion` stops it in CSS, no JS.
+- **Decorative field backgrounds** (manufacture codex grid, stripes): the
+  instrument-panel register.
+- **Line-length residuals on Newsreader** (manufacture ×3): the detector
+  overcounts this face's narrow average glyph — the 52ch cap renders ≈ 62
+  real characters, verified live at 577px.
+- **content-hidden-at-rest** (atlas): collision-staged map labels and
+  closed drawers are the atlas's interaction model; labels release on zoom,
+  drawers on selection, and the disclosure line names the behavior.

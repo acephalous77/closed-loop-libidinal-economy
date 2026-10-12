@@ -61,3 +61,36 @@ manufacture low-contrast ×7 + line-length; psychopolitics tiny-text ×55
 (top interior job); chair/zine triage (overflow ×19 vs authored
 keepers); the keepers registry into DESIGN.md; then the per-command
 phases (typeset → animate → delight → harden → onboard → optimize).
+
+## Q3 — the triage pass (9776f2a, 2026-10-12)
+
+Worked down with the detector as the instrument; every fix verified against
+a fresh build and serve; keepers registered in DESIGN.md.
+
+- **manufacture 26→14.** The interlude red panels lose their opacity (ink
+  on arterial red, 5.32:1); `.red` flips to the bright register for the
+  dark root, `.paper` guards keep 5.29:1 on paper; opener sub/op on paper
+  deepened (#6b665e / #c21e00); the five inline `#777` sources in
+  Experience.tsx deepened; prose measure 64ch→52ch (Newsreader's zero is
+  wide — 64ch rendered 94–129 "chars"); `prefers-reduced-motion` honored
+  in CSS (the drift band stops, reveals go still). Remainder: 3
+  line-lengths = detector overcount (52ch ≈ 62 real chars, live-verified)
+  + 11 registered keepers.
+- **psychopolitics-atlas 60→1.** Node-label floor 11→12 (the adaptive
+  formula 12+sz·16 keeps zoom growth; rail sections 12; sources 12.5;
+  legend 12); viewnote 540→380px; intro paragraph capped; the "How to
+  read" chip moved under its h2 (craft floor); the reader's-apparatus
+  line 3.2→5.6:1. Survivor: content-hidden-at-rest — the atlas's staged
+  interaction model (collision-hidden labels, closed drawers), registered.
+- **chair/zine 51→48.** `STAMP_RED_TEXT` #b8321f for small red on paper
+  stock (≈5:1) while receipt/panel reds stay bright on dark — one revert
+  along the way ("RETURNS THIS CYCLE" sits on a dark panel; the first pass
+  darkened it and the detector caught the 3.1:1 flip); transcript measure
+  62ch. The 48 are registered keepers: authored overlap geometry, xerox
+  caps, torn edges, the Photocopied ghost, marker leading.
+- **Totals** (fresh build, served): manufacture 14 · zine 48 · atlas 1.
+  Font-preload invariant holds; walkthrough clean (30 pairs + 404). The
+  session's model cannot view images — the refreshed walkthrough
+  screenshots sit in `_artifacts/` for Adnan's eye.
+- The Q3 queue above is discharged; next are the per-command phases
+  (typeset → animate → delight → harden → onboard → optimize).
