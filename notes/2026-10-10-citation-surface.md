@@ -38,6 +38,12 @@ superseded archive holds the metadata" (snapshot:
 
 ## Open (NEEDS ADNAN — P1a)
 
-The atelier statement (critique P1, the other half) is drafted and scans clean
+*Struck 2026-10-12:* resolved the same day it was written — his word of
+2026-10-10 ("de-ai the texts that go on the site and then the rest is
+approved") carried P1a; the statement was built that hour and is live on
+`/` under the masthead (verified in the served HTML 2026-10-12). See
+`notes/2026-10-10-queue-close.md`.
+
+~~The atelier statement (critique P1, the other half) is drafted and scans clean
 (0 tells); it is NOT wired pending his ruling — text lives in the session
-report of 2026-10-10, and on his word it mounts on `/` in the flyer register.
+report of 2026-10-10, and on his word it mounts on `/` in the flyer register.~~
