@@ -2527,7 +2527,7 @@ function ConsultantTranscript() {
     { who: "P", text: "Um. Yeah, sure. I have like fifteen minutes." },
     { who: "C", text: "Perfect, fifteen is plenty. So I just wanted to check in — you completed the assessment about three weeks ago, you're in cohort 2026.05, and I see you flagged the financing question. Are you free to talk about that?" },
     { who: "P", text: "Yeah. So my concern is — I read the contract, and the seven-year retention on the Service Ledger, after — after cessation, that's a long time. And I wasn't sure if that's negotiable." },
-    { who: "C", text: "Mm. That's a great question, ▮▮▮▮▮. So the seven years is the Essential floor, that's regulatory. But what most people in your position actually do — and I want to be honest with you here — they upgrade to Pro, which extends to twenty-five years but also gives you the eight-percent revenue share on productivity output. So in practice you actually come out ahead, financially, on Pro versus Essential, if you're working at all during occupancy. Which you would be." },
+    { who: "C", text: "Mm. That's a standard concern, ▮▮▮▮▮. So the seven years is the Essential floor, that's regulatory. But what most people in your position actually do — and I want to be honest with you here — they upgrade to Pro, which extends to twenty-five years but also gives you the eight-percent revenue share on productivity output. So in practice you actually come out ahead, financially, on Pro versus Essential, if you're working at all during occupancy. Which you would be." },
     { who: "P", text: "...okay. But the retention period is still locked in?" },
     { who: "C", text: "The retention is locked, yes. That's regulatory across all tiers. What's not locked is what brand partners can do with the data during the retention window, and at Pro you do get notification of any new partner licensing. Which Essential occupants don't get. So you have visibility you wouldn't otherwise have." },
     { who: "P", text: "Hm. Okay." },
@@ -2998,7 +2998,7 @@ function ManifestoPoster() {
                 "the cousin who got fitted.",
                 "the eight-percent revenue share.",
                 "the loop.",
-                "the apparatus, even at this price.",
+                "the apparatus. even at this price.",
               ].map((s, i) => (
                 <li key={i} style={{ display: "flex", gap: 12, paddingBottom: 10, alignItems: "baseline" }}>
                   <span

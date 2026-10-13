@@ -7,7 +7,7 @@ import { SectionHead } from "../../_components/SectionHead";
 export const metadata: Metadata = {
   title: "2.5 — Playing at Consumption",
   description:
-    "OHCOSE Phase II, Sub-Protocol 2.5. The toy as ambassador of an ecosystem. Branded play. Gamified collection. The pre-figuration of adult consumer behavior.",
+    "OHCOSE Phase II, Sub-Protocol 2.5. The toy as ambassador of a commercial apparatus. Branded play. Gamified collection. The pre-figuration of adult consumer behavior.",
   alternates: {
     canonical: "/ohcose/ii-inscriptive-normalization/playing-at-consumption",
   },
@@ -31,7 +31,7 @@ export default function PlayingAtConsumption() {
           Playing at Consumption
         </h1>
         <p className="mt-md text-base leading-snug" style={{ color: "var(--color-ink-70)" }}>
-          The toy as ambassador of an ecosystem. The character as the
+          The toy as ambassador of a commercial apparatus. The character as the
           face of a lifelong product line. Branded play, gamified
           collection, and the channeling of libidinal energy toward
           ownership.
@@ -44,18 +44,18 @@ export default function PlayingAtConsumption() {
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
               In the Phase-II environment, a toy is an ambassador. Each Office-approved Phase-II toy
-              comes embedded in an ecosystem: the toy itself, the
+              comes embedded in a system: the toy itself, the
               accessory line, the supplementary characters sold
               separately, the affiliated bedding, breakfast cereal,
               backpack, and seasonal television production. The subject
-              who plays with one element of the ecosystem is invited
+              who plays with one element of the system is invited
               continuously into the others.
             </p>
             <p>
               The Office observes the subject's engagement with the
-              ecosystem, not with the individual toy. The metric
+              system as a whole. The metric
               of interest is the subject's lateral expansion across the
-              ecosystem's surfaces over the Phase-II span. A subject who
+              system's surfaces over the Phase-II span. A subject who
               completes their lateral expansion before age twelve is
               recorded as having achieved Phase-II Brand Maturity, which
               accrues to the subject's Phase-IV onboarding profile.
@@ -96,13 +96,13 @@ export default function PlayingAtConsumption() {
           <SectionHead code="2.5.3" title="Digital Play Extension" />
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
-              The Phase-II digital environment extends the toy ecosystem
+              The Phase-II digital environment extends the toy system
               into the subject's interior life. Office-approved
               children's platforms deliver gamified turn-taking,
               compulsion-loop reward schedules, and in-app purchase
               opportunities calibrated to the subject's caregiver
               budget. The subject's lateral expansion across the
-              ecosystem is materially accelerated by digital exposure;
+              system is materially accelerated by digital exposure;
               the Office's longitudinal series shows a 2.6× gain in
               Brand Maturity by age twelve for digitally-immersed
               subjects relative to physical-toy-only subjects.
@@ -160,7 +160,7 @@ function ConsumptionPipeline() {
   const stages = [
     { label: "cradle toy", age: "age 4", width: 95 },
     { label: "+ accessory line", age: "age 5–6", width: 130 },
-    { label: "+ character ecosystem", age: "age 6–8", width: 160 },
+    { label: "+ character franchise", age: "age 6–8", width: 160 },
     { label: "+ digital extension", age: "age 8–10", width: 140 },
     { label: "+ social status", age: "age 10–12", width: 130 },
   ];

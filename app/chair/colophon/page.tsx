@@ -40,9 +40,8 @@ export default function ColophonPage() {
             margin: 0, fontFamily: FONT.serif, fontSize: 16, lineHeight: 1.55,
             color: T.inkDim, fontStyle: "italic",
           }}>
-            The book the apparatus would not let me write, written
-            instead about the apparatus that would not let me write
-            the book.
+            The book the apparatus would not let me write. I wrote
+            about the apparatus that would not let me write it.
           </p>
         </div>
 

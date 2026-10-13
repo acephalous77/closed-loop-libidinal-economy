@@ -127,10 +127,10 @@ export const NODES = [
     rec:{ what:"Theorized Calhoun\u2019s exact triad \u2014 size, density, heterogeneity \u2014 for humans decades before the rat work. The opening of the loop: racialized urban sociology first, animal \u2018proof\u2019 second.",
       src:["Wirth, AJS (1938)","Park & Burgess, The City (1925)"] } },
   { id:"sapolsky", label:"Robert Sapolsky", sub:"primate hierarchy", type:"person", cl:"density", ev:"documented", yr:1985, lens:["epistemic"],
-    rec:{ what:"Olive-baboon work showing rank/control \u2014 not density \u2014 drives stress physiology: low cortisol marks dominant males with social skill, predictability, and control. The variable the density literature missed.",
+    rec:{ what:"Olive-baboon work showing rank/control drives stress physiology: low cortisol marks dominant males with social skill, predictability, and control. The variable the density literature missed.",
       src:["Sapolsky & Ray, Am. J. Primatol. 18(1) (1985)"] } },
   { id:"marmot", label:"Michael Marmot", sub:"Whitehall studies", type:"person", cl:"density", ev:"documented", yr:1984, lens:["epistemic","socio"],
-    rec:{ what:"Whitehall: lowest-grade men had 3.6\u00d7 the CHD mortality of the highest; classic risk factors explained under a third of the gradient. The human \u2018status syndrome\u2019 \u2014 hierarchy/control, not density, is the operative variable.",
+    rec:{ what:"Whitehall: lowest-grade men had 3.6\u00d7 the CHD mortality of the highest; classic risk factors explained under a third of the gradient. The human \u2018status syndrome\u2019 \u2014 hierarchy/control is the operative variable.",
       src:["Marmot et al. (1984); The Status Syndrome (2004)"] } },
 
   // ===== CHAOS / THE HAIGHT =====
@@ -445,7 +445,7 @@ export const NODES = [
     rec:{ what:"Elizabeth Kolbert\u2019s New Yorker review reframes the behavioral sink as the internet \u2014 \u2018behavioral sink\u2019 as a fair description of X. Same parable, attention-economy referent, no gender-war payload: the pivot from spatial density to temporal/attentional saturation (control deprivation, not crowding).",
       src:["Kolbert, \u2018Rat Pack,\u2019 The New Yorker (Oct. 7, 2024)"] } },
   { id:"replication_failure", label:"The replication failure", sub:"the load-bearing fact", type:"idea", cl:"density", ev:"documented", yr:1975, lens:["epistemic","socio"],
-    rec:{ what:"The single most important and most suppressed fact in the lineage: human crowding studies did not confirm the density\u2192pathology thesis (even Calhoun\u2019s rodent results were never replicated). The variable that does predict pathology in humans is hierarchy/control, not density. That suppression is itself part of the genealogy\u2019s politics.",
+    rec:{ what:"The single most important and most suppressed fact in the lineage: human crowding studies did not confirm the density\u2192pathology thesis (even Calhoun\u2019s rodent results were never replicated). The variable that does predict pathology in humans is hierarchy/control. That suppression is itself part of the genealogy\u2019s politics.",
       src:["Freedman (1975); Stokols (1972); Galle et al. (1972)"] } },
   // ===== ADDED FOR FULL COVERAGE =====
   { id:"wolfe", label:"Tom Wolfe", sub:"\u2018O Rotten Gotham,\u2019 1966", type:"person", cl:"transmission", ev:null, yr:1966, lens:["transmission"],

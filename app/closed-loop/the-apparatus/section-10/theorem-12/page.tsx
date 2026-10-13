@@ -237,7 +237,7 @@ export default function Theorem12Page() {
             read as period-doubling responses to overshooting
             engagement targets. The framework does not claim that
             these specific events are these specific bifurcations —
-            empirical work would have to demonstrate that — but
+            empirical work would have to demonstrate that. It
             supplies the formal vocabulary against which those events
             could be classified.
           </p>

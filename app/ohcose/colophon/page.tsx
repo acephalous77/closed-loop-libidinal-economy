@@ -44,8 +44,8 @@ export default function OhcoseColophon() {
           <div className="text-base leading-snug space-y-md" style={{ color: "var(--color-ink-90)" }}>
             <p>
               <strong>OHCOSE</strong> is a critical-fiction performance piece
-              authored by <strong>Adnan Selimović</strong>. It is not a real
-              federal agency. It is not a real document. The Standard
+              authored by <strong>Adnan Selimović</strong>. The federal agency
+              is fictional. The document is fictional. The Standard
               Consumer-Citizen and the Gen-C Model do not exist. The forms
               cited throughout (Form 1-A, Form 6-A, Form 9-Q, and the rest)
               do not exist. The C-ID format does not exist. The Compliance

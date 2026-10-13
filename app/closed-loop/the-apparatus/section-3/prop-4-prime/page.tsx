@@ -83,10 +83,10 @@ export default function Prop4PrimePage() {
             &ldquo;Postscript on the Societies of Control.&rdquo;
             Deleuze argued that the disciplinary regime Foucault
             analyzed — schools, prisons, hospitals, the factory — had
-            been superseded by a regime of continuous modulation: not
+            been superseded by a regime of continuous modulation:
             the individual constituted in enclosure and subject to
-            discrete tests, but the dividual carried across modulating
-            environments by data. Where the disciplinary subject was
+            discrete tests gives way to the dividual carried across
+            modulating environments by data. Where the disciplinary subject was
             individuated through institutional architectures that
             produced and required interiority, the dividual is the
             user-state as jointly observable, the subject as readable

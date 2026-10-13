@@ -283,8 +283,7 @@ export default function Theorem1PrimePage() {
             cannot push the mean-squared error below the fixed floor{" "}
             <M>{String.raw`\sigma_u^4/64`}</M>. The floor does not
             shrink as data accumulate, and no estimator evades it: the
-            impossibility is a property of the foreclosed regime, not
-            of any one method.
+            impossibility is a property of the foreclosed regime.
           </Reads>
 
           <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mt-md mb-sm">

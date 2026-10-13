@@ -50,7 +50,7 @@ const SUB_PROTOCOLS = [
     code: "2.5",
     name: "Playing at Consumption",
     summary:
-      "Branded toys, digital companions, gamified collection. The toy as ambassador of an ecosystem.",
+      "Branded toys, digital companions, gamified collection. The toy as ambassador of a commercial apparatus.",
     status: "live",
   },
   {
