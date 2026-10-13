@@ -71,6 +71,34 @@ the work's own double-stamp idiom).
    observes engagement" (semicolon form) and the lemma-1 em-dash form — guard
    pairs, surfaced for the boundary ruling.
 
+## Ruled and landed (2026-10-13, his word)
+
+> chair: recast all three wh-clefts to direct statements… your drafts work.
+> ohcose: fix the classroom opener… the colophon couplet stays.
+> manufacture: cut the mid-sentence point-aside on the tablet passage.
+> ouroboric: keep it. the negation guards; the claim rides the second clause.
+> closed-loop: recast the engagement guard… the lemma stands.
+
+- chair ×3 (lineage + precedents): recast direct — "The archive entry does
+  not mention that the patent is real." / "The chair has improved on the
+  configuration's ambition; the mechanism is unchanged." / "The recommendation
+  engine itself has received less regulatory attention…"
+- ohcose desk-as-altar: "The classroom presents itself as a benevolent
+  setting… It is an institution." (colophon couplet kept as the fiction's
+  wink).
+- manufacture sections.tsx:314: the point-aside cut — "…the crying stops, and
+  the autoplay queue advances…"
+- closed-loop argument.mdx: "The platform observes the user only through
+  engagement — …"; lemma-1 em-dash form kept (formal precision).
+- ouroboric `data.ts:136` kept as guard-class.
+- One same-family line seen while landing and NOT touched (out of the ruling):
+  precedents note-field "The engine does not, primarily, capture content; it
+  captures the rhythm of the user's attention." — for the next boundary pass
+  if he wants the absolute applied.
+
+Verified after: changed passages 0 reliable tells; build 279; font-preload
+invariant; walkthrough clean.
+
 ## Verification
 
 `npm run build` ✓ 279 pages · font-preload invariant holds · walkthrough

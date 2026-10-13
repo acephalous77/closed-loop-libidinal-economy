@@ -311,7 +311,7 @@ export function Ontogenesis() {
           </Margin>
           <p>
             A two-year-old who cannot manage a spoon can manage a touchscreen. The gesture comes before the grammar, the
-            swipe before the sentence. Hand the child the tablet and the crying stops — which is the whole point — and
+            swipe before the sentence. Hand the child the tablet and the crying stops, and
             the autoplay queue advances on its own so the stopping never has to end.
           </p>
           <p>

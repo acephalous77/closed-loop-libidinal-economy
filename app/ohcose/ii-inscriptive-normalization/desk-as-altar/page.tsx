@@ -52,9 +52,9 @@ export default function DeskAsAltar() {
               alphabet, the Pledge, and the class motto.
             </p>
             <p>
-              The classroom does not present itself as an institution. It
-              presents itself as a benevolent setting in which the subject
-              is held, attended to, and made to feel at home. The genius
+              The classroom presents itself as a benevolent setting in which
+              the subject is held, attended to, and made to feel at home.
+              It is an institution. The genius
               of the Phase-II design is that order arrives in the form of
               care. The teacher's smile accompanies the requirement that
               the subject sit still. The decorations are warm.
