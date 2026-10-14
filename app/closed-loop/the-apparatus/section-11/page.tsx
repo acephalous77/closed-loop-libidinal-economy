@@ -220,7 +220,7 @@ export default function Section11Page() {
               </li>
               <li>
                 <strong>Multi-platform networks</strong> — the
-                apparatus has one platform; real internet ecosystems
+                apparatus has one platform; real internet environments
                 have competing platforms with overlapping users.
                 Multi-platform extensions would have competing
                 performative stable points and distinguish

@@ -23,7 +23,7 @@
 
 | work | high before | high after | edit count |
 |---|---|---|---|
-| closed-loop | 14 | **2** (both registered keepers) | 15 strings / 9 files |
+| closed-loop | 14 | **2** (both registered keepers) | ~~15 strings / 9 files~~ → 14 strings / 9 files for the pass batch; 15 / 10 with the ruled recast — see audit corrections |
 | chair | 3 | **0** | 3 strings / 2 files |
 | ohcose | 2 | **0** (verdict: clean) | 9 strings / 3 files |
 | atlas | 1 (+3 escalated) | **0** | 4 strings / 2 files |
@@ -224,3 +224,12 @@ text present, 0 high, 1 med = the proper noun "Comprehensive Soldier Fitness"
 5. Per the battery's iff condition, **"audit clean" is not stated**: one
    check (manufacture, full bundle) deviates from its expected result and is
    marked DISCREPANCY. Every other check matches its expected result.
+
+## Audit corrections (2026-10-13, from the independent record check)
+
+- Closed-loop accounting: the batch table's 15/9 is strictly 14 strings / 9 files for the pass batch (the open-questions "studies have tracked" line was planned and never landed — source keeps "studies show"; the false-positive revert), and 15 / 10 with the ruled engagement recast (content/argument.mdx, a 10th file, landed in the rulings batch after the table was written).
+- Verification wording: the "final bundles" artifacts (scan-*-final) predate the same-day ruled landings; the Final audit section's fresh extracts supersede them.
+- The manufacture "1 high" in the Final audit is a capture artifact: the scanner glued two adjacent telemetry labels ("your curiosity, indexed" / "CURSOR DISTANCE …") across a line break; the server-rendered corpus is clean; no source change warranted.
+- Banned-lexicon residue, found outside the claimed set by the auditor: section-11 "real internet ecosystems" — fixed this commit ("ecosystems" replaced context-fit), rescanned clean.
+- Same-family atlas-data.js tails newly surfaced, NOT touched (boundary calls, like the precedents note-field line): "…structure, not numbers…" (line ~120), "control deprivation, not crowding" (~445), "— not headcount" (~2306).
+- Independent auditor verdict, recorded: all 19 claimed strings present verbatim (20 instances), keepers and reverts confirmed, 0 old-string survivors across 24 old forms; by-eye voice check: no recast introduced a new tell or altered a number, name, §-ref or date.
