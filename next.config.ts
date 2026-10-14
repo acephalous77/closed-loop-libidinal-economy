@@ -65,6 +65,22 @@ const nextConfig: NextConfig = {
   },
 
   /**
+   * The standalone atlas is a self-contained static page under /public.
+   * Vercel resolves the bare path /psychopolitics-atlas to its
+   * index.html; `next start` does not. This rewrite makes the local
+   * server match production so the verify scripts and local checks see
+   * the same routes.
+   */
+  async rewrites() {
+    return [
+      {
+        source: "/psychopolitics-atlas",
+        destination: "/psychopolitics-atlas/index.html",
+      },
+    ];
+  },
+
+  /**
    * Baseline security response headers, applied to every route.
    *
    * There is still no Content-Security-Policy here, but the reason has

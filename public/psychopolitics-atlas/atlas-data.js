@@ -76,7 +76,7 @@ export const LENSES = {
 export const NODES = [
   // ===== DENSITY / CROWDING SCIENCE =====
   { id:"calhoun", label:"John B. Calhoun", sub:"ethologist, 1917\u20131995", type:"person", cl:"density", ev:null, yr:1962, lens:["socio","epistemic","temporal"],
-    rec:{ what:"NIMH ethologist whose rodent-crowding work supplied the master metaphor \u2014 the \u2018behavioral sink\u2019 \u2014 for postwar anxieties about overpopulation and collapse. His actual mechanism was role-scarcity, not headcount; his fuller program was optimistic and design-oriented.",
+    rec:{ what:"NIMH ethologist whose rodent-crowding work supplied the master metaphor \u2014 the \u2018behavioral sink\u2019 \u2014 for postwar anxieties about overpopulation and collapse. His actual mechanism was role-scarcity; his fuller program was optimistic and design-oriented.",
       fund:"NIMH (Laboratory of Psychology, ~33 yrs); earlier Walter Reed / Johns Hopkins",
       did:"Built outdoor rat pens (Towson, 1947) and the closed mouse \u2018universes\u2019; identified phases A\u2013D and \u2018the beautiful ones.\u2019 Framed collapse in quasi-theological language (\u2018first/second death\u2019).",
       src:["Calhoun, \u2018Population Density and Social Pathology,\u2019 Scientific American (1962)","Calhoun, \u2018Death Squared,\u2019 Proc. Royal Soc. Medicine 66 (1973)","John B. Calhoun Papers, NLM MS C 586"] } },
@@ -117,7 +117,7 @@ export const NODES = [
   { id:"ehrlich", label:"Paul Ehrlich", sub:"The Population Bomb, 1968", type:"person", cl:"density", ev:null, yr:1968, lens:["transmission","temporal"],
     rec:{ what:"Popularized the rodent-to-human extrapolation in the neo-Malthusian bestseller \u2014 though with an explicit caveat that the extrapolation was \u2018much more risky.\u2019 Also a co-author on key null-finding crowding experiments.", src:["The Population Bomb (1968)"] } },
   { id:"newman", label:"Oscar Newman", sub:"Defensible Space, 1972", type:"person", cl:"density", ev:null, yr:1972, lens:["socio"],
-    rec:{ what:"Architect/planner who found high-rise public housing with anonymous shared space produced more crime than low-rise with \u2018ownable\u2019 space \u2014 a human echo of Calhoun\u2019s claim that spatial-social structure, not numbers, drives breakdown.", src:["Newman, Defensible Space (1972)"] } },
+    rec:{ what:"Architect/planner who found high-rise public housing with anonymous shared space produced more crime than low-rise with \u2018ownable\u2019 space \u2014 a human echo of Calhoun\u2019s claim that spatial-social structure drives breakdown.", src:["Newman, Defensible Space (1972)"] } },
   { id:"broken_windows", label:"Broken Windows", sub:"Wilson & Kelling, 1982", type:"idea", cl:"density", ev:null, yr:1982, lens:["socio"],
     rec:{ what:"Visible disorder signals lack of control and invites crime; linked in policy lineage to defensible space but emphasizing enforcement over design \u2014 a vector from the density literature into policing.", src:["Wilson & Kelling, The Atlantic (1982)"] } },
   { id:"moynihan", label:"Moynihan Report", sub:"\u2018tangle of pathology,\u2019 1965", type:"idea", cl:"density", ev:null, yr:1965, lens:["socio","temporal"],
@@ -442,7 +442,7 @@ export const NODES = [
     rec:{ what:"A near-identical interpretive paragraph about \u2018the beautiful ones\u2019 propagates verbatim across forums. The acute irony: a body of work ABOUT maladaptive, role-less repetition transmitted through mindless, role-less copy-paste repetition. The warning about the sink, circulating as the sink.",
       src:[] } },
   { id:"kolbert", label:"The \u2018respectable\u2019 reading", sub:"Kolbert, 2024", type:"faction", cl:"transmission", ev:null, yr:2024, lens:["transmission","theory"],
-    rec:{ what:"Elizabeth Kolbert\u2019s New Yorker review reframes the behavioral sink as the internet \u2014 \u2018behavioral sink\u2019 as a fair description of X. Same parable, attention-economy referent, no gender-war payload: the pivot from spatial density to temporal/attentional saturation (control deprivation, not crowding).",
+    rec:{ what:"Elizabeth Kolbert\u2019s New Yorker review reframes the behavioral sink as the internet \u2014 \u2018behavioral sink\u2019 as a fair description of X. Same parable, attention-economy referent, no gender-war payload: the pivot from spatial density to temporal/attentional saturation (control deprivation).",
       src:["Kolbert, \u2018Rat Pack,\u2019 The New Yorker (Oct. 7, 2024)"] } },
   { id:"replication_failure", label:"The replication failure", sub:"the load-bearing fact", type:"idea", cl:"density", ev:"documented", yr:1975, lens:["epistemic","socio"],
     rec:{ what:"The single most important and most suppressed fact in the lineage: human crowding studies did not confirm the density\u2192pathology thesis (even Calhoun\u2019s rodent results were never replicated). The variable that does predict pathology in humans is hierarchy/control. That suppression is itself part of the genealogy\u2019s politics.",
@@ -2303,7 +2303,7 @@ export const THREADS = [
       { node:"wirth", note:"1938 \u2014 urban sociology already theorizes Calhoun\u2019s exact triad (size, density, heterogeneity) for humans. The loop opens here, racialized from the start." },
       { node:"behavioral_sink", note:"Calhoun\u2019s crowded rodents supply the master metaphor the sociology was waiting for \u2014 a result stated in the register of myth." },
       { node:"universe25", note:"The 25th closed \u2018universe,\u2019 cleaned only every 6\u20138 weeks, with no possibility of escape \u2014 a confound-ridden artifact." },
-      { node:"replication_failure", note:"Tested on humans, density\u2192pathology fails to replicate. What predicts pathology is hierarchy and control \u2014 not headcount." },
+      { node:"replication_failure", note:"Tested on humans, density\u2192pathology fails to replicate. What predicts pathology is hierarchy and control." },
       { node:"moynihan", note:"But \u2018pathology\u2019 had already done its political work, locating dysfunction in the Black family, with unemployment and racism left out of frame." },
       { node:"musk", note:"And the parable returns, laundered of its replication failure, as collapse folklore in front of hundreds of millions." }
     ] },
@@ -2356,7 +2356,7 @@ export const THREADS = [
       { node:"copypasta", note:"A discourse about role-less, maladaptive repetition \u2014 transmitted as role-less, mindless copy-paste repetition." },
       { node:"manosphere", note:"Recoded into a gender-war script smuggling in a normative claim the data never contained." },
       { node:"blackpill", note:"Or hardened into a fatalist verdict: the beautiful ones are us, already past recovery." },
-      { node:"kolbert", note:"The \u2018respectable\u2019 pivot: the behavioral sink as a fair description of the feed \u2014 control deprivation, not crowding." }
+      { node:"kolbert", note:"The \u2018respectable\u2019 pivot: the behavioral sink as a fair description of the feed \u2014 control deprivation." }
     ] },
   { id:"consent", title:"The manufacture of consent", accent:"oklch(0.70 0.15 282)",
     blurb:"Psychopolitics\u2019 other half \u2014 the engineering of desire. A century-long craft from propaganda theory to the dark pattern, and its slow collision with the courts.",

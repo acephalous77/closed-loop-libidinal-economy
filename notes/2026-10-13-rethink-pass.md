@@ -232,4 +232,25 @@ text present, 0 high, 1 med = the proper noun "Comprehensive Soldier Fitness"
 - The manufacture "1 high" in the Final audit is a capture artifact: the scanner glued two adjacent telemetry labels ("your curiosity, indexed" / "CURSOR DISTANCE …") across a line break; the server-rendered corpus is clean; no source change warranted.
 - Banned-lexicon residue, found outside the claimed set by the auditor: section-11 "real internet ecosystems" — fixed this commit ("ecosystems" replaced context-fit), rescanned clean.
 - Same-family atlas-data.js tails newly surfaced, NOT touched (boundary calls, like the precedents note-field line): "…structure, not numbers…" (line ~120), "control deprivation, not crowding" (~445), "— not headcount" (~2306).
+
+## Boundary folds ruled and landed (2026-10-14)
+
+> boundary lines: fold all six — … same treatment as the density family.
+> atlas parity: add the rewrite so the bare path works locally like it does
+> on vercel.
+
+- precedents note-field: "The engine captures the rhythm of the user's
+  attention." (the contrast clause dropped; the paragraph's next sentences
+  carry the content/carrier reading).
+- atlas-data.js: Calhoun "role-scarcity, not headcount" → "role-scarcity";
+  Newman ", not numbers" dropped; Kolbert ×2 ", not crowding" dropped (the
+  term "control deprivation" kept in both); the replication note's
+  "— not headcount" dropped. Grep: zero "not crowding / not headcount / not
+  numbers" survivors.
+- next.config.ts: rewrite `/psychopolitics-atlas` →
+  `/psychopolitics-atlas/index.html`; the local bare path now serves 200
+  (was a 404 under `next start`), matching Vercel. The prior "NOT touched"
+  line above is superseded by this ruled landing.
+- Verified: folds scan 0.0 reliable tells; build 279; rewritten path 200
+  locally; font-preload invariant holds; walkthrough clean.
 - Independent auditor verdict, recorded: all 19 claimed strings present verbatim (20 instances), keepers and reverts confirmed, 0 old-string survivors across 24 old forms; by-eye voice check: no recast introduced a new tell or altered a number, name, §-ref or date.
