@@ -9,6 +9,7 @@ authors:
 url: "https://www.autostimulus.org/closed-loop"
 repository-code: "https://github.com/acephalous77/closed-loop-libidinal-economy"
 license: CC-BY-SA-4.0
+doi: 10.5281/zenodo.23371083
 type: software
 abstract: "The framework on the closed-loop libidinal economy — argument, apparatus, dynamics, instruments — published as a web work, with the site that presents it."
 keywords:

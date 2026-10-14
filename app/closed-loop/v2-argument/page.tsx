@@ -30,6 +30,7 @@ export const metadata: Metadata = {
     "citation_author": "Adnan Selimović",
     "citation_publication_date": "2026/05/28",
     "citation_online_date": "2026/05/28",
+    "citation_doi": "10.5281/zenodo.23371083",
     "citation_keywords": "libidinal economy; closed-loop dynamics; performative prediction; foreclosure lemma; reclamation theorem; Mode A intervention; metric superego; chrono-debt",
     "DC.title": "The Closed-Loop Libidinal Economy (v2)",
     "DC.creator": "Adnan Selimović",

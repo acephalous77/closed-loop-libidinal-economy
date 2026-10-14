@@ -16,7 +16,7 @@ export function CitationBlock({ compact = false }: { compact?: boolean }) {
     return (
       <p className="font-mono text-xs text-ink-50 mt-xs text-center max-w-[36rem]">
         cite this work — Selimović, A., the closed-loop libidinal economy, v2
-        (autostimulus, 2026) · autostimulus.org/closed-loop
+        (autostimulus, 2026) · autostimulus.org/closed-loop · doi:10.5281/zenodo.23371083
       </p>
     );
   }
@@ -37,7 +37,16 @@ export function CitationBlock({ compact = false }: { compact?: boolean }) {
           className="not-italic underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
         >
           autostimulus.org/closed-loop
-        </Link>
+        </Link>{" "}
+        ·{" "}
+        <a
+          href="https://doi.org/10.5281/zenodo.23371083"
+          target="_blank"
+          rel="noopener"
+          className="not-italic underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+        >
+          doi:10.5281/zenodo.23371083
+        </a>
       </p>
       <p className="mt-sm leading-relaxed">
         Numbered results cite by section and number — e.g. §7 · Theorem 9.

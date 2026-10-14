@@ -139,9 +139,31 @@ needed; the failure emails correspond to the incident window only.
 - Print spec ruled: the closed-loop book, Paged.js — queued as the next build
   after the current command phases.
 
+## Released (2026-10-14)
+
+- The release is **published** and the DOI is live: **10.5281/zenodo.23371083**
+  (zenodo.org/records/23371083). The Zenodo connection was fixed at the
+  account level (GitHub relink); the repo now carries Zenodo's webhook
+  (`release` events, active), so future releases archive automatically.
+- **Tag re-point, recorded:** the published release initially carried
+  GitHub's draft placeholder ref (`untagged-93b…`, target main@5f7e726)
+  while the original `closed-loop-v2.0` tag still pinned batch-1 (12a581b)
+  — the draft had been born before the tag existed. The placeholder ref was
+  deleted; `closed-loop-v2.0` now pins **5f7e726, the audited text**, and
+  the release is attached to it (`releases/tag/closed-loop-v2.0`).
+- Zenodo's worker read the release before the tag fix: the archived **files
+  are the correct 5f7e726 tree**, but the record's *version label* and
+  *related URL* still show the placeholder tag. One-minute metadata edit on
+  his side: record → Edit → Version `2.0.0`; replace the related URL with
+  `https://github.com/acephalous77/closed-loop-libidinal-economy/tree/closed-loop-v2.0`.
+- DOI wired as ruled: `CITATION.cff` (`doi:`), the citation unit — both
+  CitationBlock variants and `citation_doi` highwire meta on v2-argument
+  and v2-dynamics — and the release body (promise sentence replaced with
+  the link). Live-verified on the served page.
+- Verified: build 279, font-preload invariant holds, walkthrough clean.
+
 ## Open
 
-- Zenodo re-toggle (Sync now → flip slider) → then the publish + DOI sequence
-  runs as ruled: publish release → wait for archive → wire the DOI into the
-  citation unit, CITATION.cff, and the release body.
+- The Zenodo record's version label + related URL (see Released above) —
+  his one-minute metadata edit.
 - Batch 3 print spec: authorized, starts after harden → onboard → optimize.
