@@ -41,6 +41,11 @@
 </style>
 </head>
 <body>
+<div id="retired-2026-10-29" style="margin:0;padding:10px 16px;background:#2b1d17;color:#f5e7d8;font:13px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;border-bottom:2px solid #b0532e">
+  <b>RETIRED 2026-10-29.</b> This board is a frozen archive, not the live surface.
+  The live desk is <a href="http://127.0.0.1:8788/" style="color:#ffd9b3;font-weight:600">Overseer Start</a>.
+  No further updates.
+</div>
 <div class="wrap">
 
   <header>
@@ -50,52 +55,52 @@
 
   <!-- ═══════════ PLAIN READ ═══════════ -->
   <section class="read" id="plain-read">
-    <p><strong>Where things stand.</strong> The audit (8 read-only passes + build/lint baseline, 2026-10-10)
-    found two versions of closed-loop indexed, 18 pages claiming the homepage as their canonical, a
-    disclosure page whose promises the site stopped keeping, and asset weight that pays for nothing. None
-    of it touched the works' deliberate design. Phase 0 is now executed and verified on this tree:
-    <span data-date="2026-10-10">2026-10-10</span>, build green at 276 static pages, lint at zero (was 63
-    problems, three hiding real bugs).</p>
+    <p><strong>Where things stand.</strong> The audit (8 read-only passes + build/lint baseline,
+    <span data-date="2026-10-10">2026-10-10</span>) found two versions of closed-loop indexed, 18 pages
+    claiming the homepage as their canonical, a disclosure page whose promises the site stopped keeping,
+    and asset weight that pays for nothing. None of it touched the works' deliberate design. Phase 0 is
+    executed and verified on this tree: build green at <s>276</s> 279 static pages <i>(struck 2026-10-15; build 279 per <code>notes/2026-10-12-github-localization.md:163</code> — chain 274→276→278→279)</i>, lint at zero (was 63 problems,
+    three hiding real bugs). Every pass since is landed: the Observing Machine (phases 1–3), the
+    frontpage press console, the Impeccable program's phases; fonts and the atlas's React vendored — no
+    third-party request; the repo public with CI; the de-AI rethink pass; the boundary folds. The deploy
+    is live and public; the release is published, DOI <code>10.5281/zenodo.23371083</code> wired — as of
+    <span data-date="2026-10-14">2026-10-14</span>.</p>
     <p><strong>Ruled, then applied.</strong> v2 primary with the v1 essays indexed (dynamics/mathematics
-    archived, noindex, doorway on the cover); the disclosure rewrite goes to his gate; PhotoCraft
-    re-encode pass first; Phase 0 ran with the board.</p>
-    <p><strong>Next.</strong> His gate: the disclosure rewrite (draft due) and the doorway stamp wording.
-    The PhotoCraft pass landed: 63 plates and the chair set re-encoded to WebP (−40 MB), the plates index
-    serves thumbnails through next/image. His eye on two or three re-encoded plates is the one quality
-    gate left before deploy.</p>
-    <p><strong>One thing to watch.</strong> The unpkg load on /psychopolitics-atlas stays until the
-    vendored-React fix lands — the one public surface still making a third-party request.</p>
+    archived, noindex, doorway on the cover); PhotoCraft re-encode pass first (landed; his eye passed
+    the plates); Phase 0 ran with the board; the disclosure rewrite was ruled + published 2026-10-10
+    12:35 — the rewrite lives in <code>content/instrumentation.mdx</code>. The later rulings landed
+    too: the rethink pass's five flags (2026-10-13); the boundary folds (2026-10-14). His 2026-10-14
+    rulings are recorded (<code>notes/2026-10-14-rulings.md</code>): the doorway stamp wording (D3)
+    stands as drafted; the v2 record's metadata edit is approved — version label <code>2.0.0</code>,
+    the related-works URL pointed at the v2.0 tag tree.</p>
+    <p><strong>Next.</strong> No open cards — D3 closed by his ruling of 2026-10-14. The program's
+    remaining phases (harden → onboard → optimize), then batch 3, the ruled print spec for the
+    closed-loop book, which waits until the current phases close. <s>Owed alongside: the WP-2026-02
+    after-publish chain — papers page entry + PDF + ORCID add, the same chain WP-2026-03 ran on this
+    site — riding the next site pass.</s> Shipped 2026-10-14: the papers page live (site <code>caf6220</code>, run 38600401446), the PDF live on Zenodo, ORCID done (rows <code>deposit-wp-2026-02-published-2026-10-14</code> + <code>orcid-wp-2026-02-added-2026-10-14</code>). <i>struck 2026-10-15</i>.</p>
+    <p><strong>One thing to watch.</strong> <s>Zenodo does not auto-register releases (no webhook; recorded
+    2026-10-12)</s> — this release needed a manual re-toggle before it registered. It is wired now: DOI
+    <code>10.5281/zenodo.23371083</code>, release published, tag re-pointed to the audited text;
+    <s>the next release repeats the toggle</s>. The record supersedes that prediction: the Zenodo
+    connection is fixed at the account level (GitHub relink), the repo carries the webhook
+    (<code>release</code> events, active), so future releases archive automatically
+    (<code>notes/2026-10-12-github-localization.md</code> §Released). <i>struck 2026-10-15</i>. The
+    approved v2 metadata edit waits on the next deposit pass.</p>
   </section>
 
   <!-- ═══════════ DECISION SURFACE ═══════════ -->
   <section id="decisions">
     <h2>Decision surface <span class="pill p-info" id="dec-open-count">open</span></h2>
     <div class="cards" id="decision-cards">
-      <div class="card" data-dec="D2" data-state="open">
-        <div class="q">D2 · The instrumental disclosure rewrite — approve the draft at the gate.</div>
-        <div class="meta">The page promised no cookies, no storage, one static page for every reader.
-        Thinkroom sets a cookie; four works write storage keys; psychopolitics loads React from a CDN.
-        The rewrite travels to his gate next, in his voice, with its scan.</div>
-        <div class="rec"><strong>Recommend:</strong> scope it to the whole site, name the storage keys, note the third-party fix.</div>
-        <div class="cost"><strong>Cost of late:</strong> a false privacy promise stays quotable in public.</div>
-      </div>
-      <div class="card" data-dec="D3" data-state="open">
-        <div class="q">D3 · The first-version doorway stamp — vet the wording, in place on /closed-loop.</div>
-        <div class="meta">The doorway is live in draft wording: “the first version — the pieces and the
-        note, with the first mathematics and first dynamics kept as the 2026 archive, and instrumentation
-        for how the site is built.” His edits any time; the archive stamps on the two hubs read “first
-        version · the current …” with a link to the rebuild.</div>
-        <div class="rec"><strong>Recommend:</strong> edit three lines of copy to taste; the mechanism holds.</div>
-        <div class="cost"><strong>Cost of late:</strong> none — the essays are reachable now.</div>
-      </div>
     </div>
     <h3>Ruled recently</h3>
     <table id="ruled-table">
       <tr><th>ID</th><th>Question</th><th>Ruling</th><th>Date</th></tr>
       <tr data-dec="D1"><td class="id">D1</td><td>v1/v2 canon for closed-loop</td><td>v2 primary; v1 essays indexed; v1 dynamics + mathematics archived (noindex, linked doorway)</td><td>2026-10-10</td></tr>
-      <tr><td class="id">—</td><td>Disclosure handling</td><td>full rewrite drafted to his gate</td><td>2026-10-10</td></tr>
+      <tr><td class="id">—</td><td>Disclosure handling</td><td><s>full rewrite drafted to his gate</s> rewrite ruled + published (<code>content/instrumentation.mdx</code>) <i>struck 2026-10-14</i></td><td>2026-10-10</td></tr>
       <tr><td class="id">—</td><td>ArtCraft first target</td><td>PhotoCraft optimize pass on plates + chair images, then new work</td><td>2026-10-10</td></tr>
       <tr><td class="id">—</td><td>Phase 0 execution</td><td>go, with board; commits gated on his word</td><td>2026-10-10</td></tr>
+      <tr data-dec="D3"><td class="id">D3</td><td>First-version doorway stamp wording</td><td>wording stands as drafted — no revision; the doorway stays live on /closed-loop, the first-version stamps on the two archive hubs</td><td>2026-10-14</td></tr>
     </table>
   </section>
 
@@ -157,7 +162,7 @@
     <table id="defect-table">
       <tr><th>ID</th><th>Defect</th><th>Severity</th><th>Status</th></tr>
       <tr data-defect="C1"><td class="id">C1</td><td>Wrong canonical (→ homepage) on 18 indexable pages</td><td>high — index damage, live</td><td><span class="pill p-done">fixed + verified</span></td></tr>
-      <tr data-defect="C2"><td class="id">C2</td><td>Disclosure page false site-wide (cookies, storage, third-party)</td><td>high — public promise</td><td><span class="pill p-wip">draft to gate</span></td></tr>
+      <tr data-defect="C2"><td class="id">C2</td><td>Disclosure page false site-wide (cookies, storage, third-party)</td><td>high — public promise</td><td><span class="pill p-done">rewrite published 2026-10-10</span></td></tr>
       <tr data-defect="C3"><td class="id">C3</td><td>Two closed-loop versions indexed; v1 essays stranded</td><td>high — duplication</td><td><span class="pill p-done">ruled + applied</span></td></tr>
       <tr data-defect="C4"><td class="id">C4</td><td>Sitemap omits 24 chair routes</td><td>medium — discoverability</td><td><span class="pill p-done">fixed + verified</span></td></tr>
       <tr data-defect="C5"><td class="id">C5</td><td>Docs stale (README, llms.txt, counts, licenses, years)</td><td>medium — record</td><td><span class="pill p-done">fixed</span></td></tr>
@@ -184,17 +189,18 @@
       <tr><td>2026-10-10</td><td>Artcraft pass (measurement)</td><td>LightCraft's WebP export at quality 50, 70, and 85 wrote pixel-identical lossless files (~5.2&nbsp;MB); its quality parameter does nothing on that path</td><td>batch re-encode ran on the PhotoCraft-validated q85 recipe (Pillow, measured parity) instead</td><td>Verify a tool's output bytes against its parameters before trusting it with a batch.</td></tr>
       <tr><td>2026-10-10</td><td>Artcraft pass (my own error)</td><td>The first bulk copy swept every staged WebP — zine sheets, the seal — into <code>public/chair/ils/</code></td><td>extras removed after listing the directory; final dirs verified file-by-file</td><td>After a bulk copy, list the destination and diff it against the expected set before moving on.</td></tr>
       <tr><td>2026-10-10</td><td>De-AI sweep (canonical <code>deai.py</code>)</td><td>The pivot/cleft/posture family still ran at 0.74/1k tells (105 across the routes) — concentration in the essays, chair lineages, the apparatus, and the client-only stores the build never renders</td><td>~74 recasts; 105 → 39 tells; zero regressions; 5 design-register items flagged for his ruling; full before/after in the review file</td><td>A de-AI sweep reports counts before and after, checks for regressions, and names what it left — or it did not run.</td></tr>
+      <tr><td>2026-10-14</td><td>All-boards sweep (cross-check against the record)</td><td>The ruled-recently table and the C2 defect pill still read "full rewrite drafted to his gate" after the rewrite was ruled + published 2026-10-10 12:35 (<code>content/instrumentation.mdx</code>, commit <code>451c8eb</code>)</td><td>the ruled-recently row was struck; the C2 pill was updated (not struck)</td><td>A status change on the record updates every surface that repeats it — this board's own rows included.</td></tr>
     </table>
   </section>
 
   <!-- ═══════════ CHECKED ═══════════ -->
   <footer id="checked">
-    <h2>What was checked — 2026-10-10 (two passes)</h2>
+    <h2>What was checked — 2026-10-10 (five passes)</h2>
     <p><strong>First pass (audit):</strong> <code>npm run build</code> → green, 274 pages.
     <code>npm run lint</code> → 63 problems (1 error, 62 warnings). Eight read-only audits,
     file-level evidence. Verified first-hand: canonical inherited on manufacture.html; unpkg ×3 in
     psychopolitics support.js; zero importers of OuroborosPortal; chair wheel hydration fix holds.</p>
-    <p><strong>Second pass (Phase 0 done):</strong> <code>npm run build</code> → green, 276 pages.
+    <p><strong>Second pass (Phase 0 done):</strong> <code>npm run build</code> → green, <s>276</s> 279 pages <i>(struck 2026-10-15; per <code>notes/2026-10-12-github-localization.md:163</code>)</i>.
     <code>npm run lint</code> → zero, exit 0. Prerender greps: canonicals self on manufacture,
     ouroboric, tiktok, colophon, instrumentation, mathematics; <code>noindex, follow</code> on the
     archive set; og:image emitted on ohcose, patriotic-times, chair, manufacture; title
@@ -204,7 +210,7 @@
     14.4 MB → 7.0 MB, seal 231 KB → 6 KB; per-file max-channel deltas measured with Pillow
     (q85: no pixel beyond 32/255 on 61 of 63 plates; two zine photos bumped to q90); built HTML
     verified: plate references all <code>.webp</code>, index tiles served through
-    <code>/_next/image</code> srcsets, canvas loads the WebP directly; build green, 276 pages.</p>
+    <code>/_next/image</code> srcsets, canvas loads the WebP directly; build green, <s>276</s> 279 pages <i>(struck 2026-10-15; per <code>notes/2026-10-12-github-localization.md:163</code>)</i>.</p>
     <p><strong>Fourth pass (de-AI):</strong> all 229 routes re-extracted and scanned
     (<code>deai.py --style-scan</code>) plus the client-only stores; reliable tells 105 → 39
     (0.74 → 0.28 per 1k words); ~74 recasts, zero regressions (automated before/after flag
@@ -232,6 +238,7 @@
         <li>2026-10-10 — de-AI pass recorded: ledger entry appended (the sweep rule), footer's fourth-pass block added, works not re-tabulated (prose-only change); review file and dated note written.</li>
         <li>2026-10-10 — five flags ruled + applied: stamps to the ON THE — family, chair overline + ring sibling, zine fragment (second wording, first kept the stamp shape), move titles to the noun family; chiasmus kept; touched routes re-scanned to zero + the kept satire. Committed and pushed.</li>
         <li>2026-10-10 — Impeccable pass: detector batteries before/after per work; 1,051 → 224 with every residual itemized as register or designed-mechanic; note written; the vendored payload disappearance flagged for the overseer tree.</li>
+        <li>2026-10-14 — all-boards sweep refresh: reconciled to <code>5f7e726</code> (boundary folds landed), <code>055f1e0</code> (DOI <code>10.5281/zenodo.23371083</code> wired — CITATION.cff, the citation unit, the release body; release published; tag re-pointed to the audited text) and <code>4d26cfc</code> with <code>notes/2026-10-14-rulings.md</code>. D3 closed — wording stands as drafted; card removed from the open list, row added to Ruled recently. Plain read / Next / watch updated: the v2 metadata edit approved (<code>2.0.0</code> + v2.0 tag related URL; waits on the next deposit pass); batch 3 waits for the current phases; <s>the WP-2026-02 papers-page chain owed</s> shipped 2026-10-14 — papers page live (<code>caf6220</code>, run 38600401446), PDF live on Zenodo, ORCID done (<code>deposit-wp-2026-02-published-2026-10-14</code> · <code>orcid-wp-2026-02-added-2026-10-14</code>); struck 2026-10-15. Carries the day's earlier in-flight refresh (plain read rewrite; D2's card removed as done, the disclosure rewrite ruled + published 2026-10-10). Open-card count 0, computed from the DOM.</li>
       </ul>
     </details>
   </footer>
