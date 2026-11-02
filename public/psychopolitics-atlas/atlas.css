@@ -187,6 +187,21 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper-3); }
     radial-gradient(circle at 50% 45%, #121826 0%, #0a0d13 68%);
 }
 .stage:active { cursor: grabbing; }
+.stage::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 47%, transparent 36%, #05070b 100%);
+  opacity: .58;
+}
+.field-cartouche {
+  position: absolute; left: 18px; top: 14px; z-index: 2; pointer-events: none;
+  display: flex; flex-direction: column; gap: 3px; max-width: 286px;
+  padding: 8px 14px 9px 11px; border-left: 1px solid #c9a45c88;
+  background: linear-gradient(90deg, #0a0d13e6 0%, #0a0d1300 100%);
+}
+.fc-kicker { font-family: var(--mono); font-size: 8.5px; letter-spacing: .16em; color: var(--ochre); }
+.fc-title { font-family: var(--serif); font-size: 20px; line-height: 1; color: var(--paper); }
+.fc-meta { font-family: var(--mono); font-size: 9px; letter-spacing: .04em; color: var(--paper-2); }
+.fc-key { margin-top: 3px; font-family: var(--mono); font-size: 8px; letter-spacing: .1em; color: var(--paper-4); }
 .stage svg { display: block; width: 100%; height: 100%; touch-action: none; }
 .stage .field-note {
   position: absolute; left: 16px; bottom: 14px; max-width: 420px;
@@ -819,7 +834,7 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper-3); }
   }
   .path-reader[data-open="1"] { transform: none; }
   .minimap { display: none; }
-  .stage .field-note { display: none; }
+  .stage .field-note, .field-cartouche { display: none; }
   .index-head { padding: 12px 14px 10px; }
   .index-head h2 { font-size: 21px; }
   .intro-plate { grid-template-columns: 1fr; margin: 4vh auto; gap: 24px; }

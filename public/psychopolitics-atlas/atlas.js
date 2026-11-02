@@ -234,6 +234,7 @@ const ui = {
   stage: $("#stage"),
   svg: $("#field-svg"),
   world: $("#world"),
+  grid: $("#layer-grid"),
   hulls: $("#layer-hulls"),
   edges: $("#layer-edges"),
   pathLayer: $("#layer-path"),
@@ -392,6 +393,7 @@ function buildField() {
   defs.appendChild(marker);
   ui.svg.insertBefore(defs, ui.world);
 
+  buildGrid();
   buildHulls();
   buildEdges();
   buildNodes();
@@ -440,6 +442,7 @@ function buildNodes() {
     const [tag, attrs] = shapeSpec(n.type, n.r);
     const shape = S(tag, attrs);
     shape.setAttribute("stroke-width", "1.2");
+    const core = S("circle", { r: Math.max(1.1, n.r * .24), "stroke-width": "0.8" });
     const ring = S("circle", { r: n.r + 3.4, fill: "none", "stroke-width": "1" });
     const hit = S("circle", { r: Math.max(n.r + 7, 12), fill: "#000", "fill-opacity": "0" });
     const label = textEl(n.label, {
@@ -451,9 +454,9 @@ function buildNodes() {
     });
     label.style.pointerEvents = "none";
     const title = S("title"); title.textContent = n.label + (n.sub ? " — " + n.sub : "");
-    g.appendChild(title); g.appendChild(halo); g.appendChild(shape); g.appendChild(ring); g.appendChild(hit); g.appendChild(label);
+    g.appendChild(title); g.appendChild(halo); g.appendChild(shape); g.appendChild(core); g.appendChild(ring); g.appendChild(hit); g.appendChild(label);
     ui.nodesLayer.appendChild(g);
-    n._g = g; n._shape = shape; n._ring = ring; n._halo = halo; n._label = label; n._hit = hit;
+    n._g = g; n._shape = shape; n._core = core; n._ring = ring; n._halo = halo; n._label = label; n._hit = hit;
     g.addEventListener("mouseenter", () => onHover(n));
     g.addEventListener("mouseleave", () => onHover(null));
     g.addEventListener("pointerdown", (e) => onNodeDown(e, n));
@@ -463,9 +466,38 @@ function buildNodes() {
 
 function buildEdges() {
   for (const l of DATA.links) {
-    const el = S("line", { "stroke-linecap": "round" });
+    const el = S("path", { fill: "none", "stroke-linecap": "round" });
     ui.edges.appendChild(el);
     l._el = el;
+  }
+}
+
+function buildGrid() {
+  while (ui.grid.firstChild) ui.grid.removeChild(ui.grid.firstChild);
+  const step = 220;
+  const x0 = Math.floor(worldBounds.x / step) * step;
+  const y0 = Math.floor(worldBounds.y / step) * step;
+  const x1 = worldBounds.x + worldBounds.w;
+  const y1 = worldBounds.y + worldBounds.h;
+  let i = 0;
+  for (let x = x0; x <= x1; x += step, i++) {
+    ui.grid.appendChild(S("line", {
+      x1: x, y1: y0, x2: x, y2: y1,
+      stroke: i % 4 === 0 ? C.rule2 : C.rule,
+      "stroke-width": i % 4 === 0 ? "0.9" : "0.55",
+      "stroke-opacity": i % 4 === 0 ? "0.42" : "0.28",
+      "stroke-dasharray": i % 4 === 0 ? "1 7" : "0.5 9",
+    }));
+  }
+  i = 0;
+  for (let y = y0; y <= y1; y += step, i++) {
+    ui.grid.appendChild(S("line", {
+      x1: x0, y1: y, x2: x1, y2: y,
+      stroke: i % 4 === 0 ? C.rule2 : C.rule,
+      "stroke-width": i % 4 === 0 ? "0.9" : "0.55",
+      "stroke-opacity": i % 4 === 0 ? "0.42" : "0.28",
+      "stroke-dasharray": i % 4 === 0 ? "1 7" : "0.5 9",
+    }));
   }
 }
 
@@ -475,42 +507,55 @@ function buildHulls() {
   for (const [cl, arr] of groups) {
     if (!arr.length) continue;
     const pts = arr.map((n) => [n.x, n.y]);
-    let d, cx, top;
+    let d, cx, cy, top;
     if (pts.length >= 3) {
       const hull = expandHull(convexHull(pts), 36);
       d = splinePath(hull);
       cx = hull.reduce((s, p) => s + p[0], 0) / hull.length;
+      cy = hull.reduce((s, p) => s + p[1], 0) / hull.length;
       top = Math.min(...hull.map((p) => p[1]));
     } else {
       const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
       cx = (Math.min(...xs) + Math.max(...xs)) / 2;
-      const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+      cy = (Math.min(...ys) + Math.max(...ys)) / 2;
       const rx = (Math.max(...xs) - Math.min(...xs)) / 2 + 44;
       const ry = (Math.max(...ys) - Math.min(...ys)) / 2 + 38;
       top = cy - ry;
       d = `M ${cx - rx} ${cy} a ${rx} ${ry} 0 1 0 ${2 * rx} 0 a ${rx} ${ry} 0 1 0 ${-2 * rx} 0 Z`;
     }
     const hue = DATA.clusters[cl] ? DATA.clusters[cl].hue : 250;
-    const path = S("path", {
-      d, fill: `oklch(0.65 0.1 ${hue} / 0.035)`,
-      stroke: `oklch(0.72 0.09 ${hue} / 0.22)`, "stroke-width": "1.1",
-      "stroke-dasharray": "4 7", "stroke-linejoin": "round",
+    const clusterNo = String(Object.keys(DATA.clusters).indexOf(cl) + 1).padStart(2, "0");
+    const plate = S("path", {
+      d, fill: `oklch(0.65 0.1 ${hue} / 0.062)`, stroke: "none",
     });
-    path.style.cursor = "pointer";
-    path.addEventListener("click", (e) => { e.stopPropagation(); focusRegion(cl); });
-    ui.hulls.appendChild(path);
-    const label = textEl((DATA.clusters[cl] ? DATA.clusters[cl].label : cl).toUpperCase(), {
+    const inner = S("path", {
+      d, fill: "none", stroke: `oklch(0.72 0.09 ${hue} / 0.20)`,
+      "stroke-width": "0.75", "stroke-dasharray": "0.7 9", "stroke-linejoin": "round",
+      transform: `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(.945) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`,
+    });
+    const path = S("path", {
+      d, fill: "none",
+      stroke: `oklch(0.72 0.09 ${hue} / 0.46)`, "stroke-width": "1.15",
+      "stroke-dasharray": "1.6 6.4", "stroke-linejoin": "round",
+    });
+    const activate = (e) => { e.stopPropagation(); focusRegion(cl); };
+    for (const el of [plate, inner, path]) {
+      el.style.cursor = "pointer";
+      el.addEventListener("click", activate);
+      ui.hulls.appendChild(el);
+    }
+    const label = textEl(`${clusterNo} · ${(DATA.clusters[cl] ? DATA.clusters[cl].label : cl).toUpperCase()}`, {
       x: cx, y: top - 12, "text-anchor": "middle",
       "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
-      "font-size": "10", "font-weight": "600", "letter-spacing": "0.8",
-      fill: `oklch(0.8 0.09 ${hue} / 0.85)`,
+      "font-size": "9.5", "font-weight": "600", "letter-spacing": "1.2",
+      fill: `oklch(0.82 0.09 ${hue} / 0.9)`,
       "paint-order": "stroke", stroke: C.field, "stroke-width": "3",
       "stroke-linejoin": "round",
     });
     label.style.cursor = "pointer";
-    label.addEventListener("click", (e) => { e.stopPropagation(); focusRegion(cl); });
+    label.addEventListener("click", activate);
     ui.hulls.appendChild(label);
-    DATA._hulls[cl] = { path, label };
+    DATA._hulls[cl] = { path, plate, inner, label };
   }
 }
 
@@ -553,15 +598,21 @@ function renderPositions() {
     const a = l.source, b = l.target;
     const dx = b.x - a.x, dy = b.y - a.y;
     const d = Math.hypot(dx, dy) || 1;
-    l._el.setAttribute("x1", (a.x + (dx / d) * a.r).toFixed(2));
-    l._el.setAttribute("y1", (a.y + (dy / d) * a.r).toFixed(2));
-    l._el.setAttribute("x2", (b.x - (dx / d) * (b.r + 2.5)).toFixed(2));
-    l._el.setAttribute("y2", (b.y - (dy / d) * (b.r + 2.5)).toFixed(2));
+    const ax = a.x + (dx / d) * a.r, ay = a.y + (dy / d) * a.r;
+    const bx = b.x - (dx / d) * (b.r + 2.5), by = b.y - (dy / d) * (b.r + 2.5);
+    const nx = -dy / d, ny = dx / d;
+    const fam = REL_FAMILY[l.r] || "power";
+    const sign = fam === "money" || fam === "knowledge" || fam === "transfer" ? 1 : -1;
+    const bend = sign * Math.min(86, d * (0.14 + hash(l.s + "|" + l.t) * 0.16));
+    const cx = (ax + bx) / 2 + nx * bend;
+    const cy = (ay + by) / 2 + ny * bend;
+    l._el.setAttribute("d", `M ${ax.toFixed(2)} ${ay.toFixed(2)} Q ${cx.toFixed(2)} ${cy.toFixed(2)} ${bx.toFixed(2)} ${by.toFixed(2)}`);
   }
   if (state.thread || state.path) renderPathLayer();
 }
 
 function applyTransform() {
+  if (!Number.isFinite(view.k) || view.k <= 0) view.k = 1;
   ui.world.setAttribute("transform", `translate(${view.x.toFixed(2)} ${view.y.toFixed(2)}) scale(${view.k.toFixed(4)})`);
   scheduleLabels();
   updateMinimapViewport();
@@ -686,6 +737,8 @@ function updateLabels() {
     h.label.setAttribute("font-size", (10 / k).toFixed(1));
     h.label.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.35" : "0.9");
     h.path.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.4" : "1");
+    h.plate.style.opacity = hiddenByFocus ? "0.16" : (dim ? "0.24" : "1");
+    h.inner.style.opacity = hiddenByFocus ? "0.12" : (dim ? "0.18" : "1");
     if (k < 0.06) { h.label.style.display = "none"; continue; }
     h.label.style.display = "";
     const r = h.label.getBoundingClientRect();
@@ -703,7 +756,7 @@ function updateLabels() {
 function updateMinimapViewport() {
   const rect = ui.minimapSvg.querySelector(".viewrect");
   if (!rect) return;
-  const w = stageW / view.k, h = stageH / view.k;
+  const w = Math.max(0, stageW / view.k), h = Math.max(0, stageH / view.k);
   const x = -view.x / view.k, y = -view.y / view.k;
   rect.setAttribute("x", x.toFixed(1)); rect.setAttribute("y", y.toFixed(1));
   rect.setAttribute("width", w.toFixed(1)); rect.setAttribute("height", h.toFixed(1));
@@ -717,6 +770,9 @@ function paintNode(n) {
   n._shape.setAttribute("fill", n.type === "idea" ? "none" : fill);
   n._shape.setAttribute("stroke", n.type === "idea" ? fill : C.field);
   n._shape.setAttribute("stroke-width", n.type === "idea" ? "1.8" : "1.2");
+  n._core.setAttribute("fill", n.type === "idea" ? fill : C.field);
+  n._core.setAttribute("stroke", n.type === "idea" ? fill : "none");
+  n._core.style.opacity = n.type === "idea" ? "0.9" : "0.78";
   n._ring.setAttribute("stroke", EV_COLOR[ev]);
   n._ring.setAttribute("stroke-dasharray",
     ev === "contested" ? "2 2" : ev === "speculative" ? "0.6 3" : ev === "untriaged" ? "1 4" : "none");
@@ -753,7 +809,7 @@ function refresh() {
   for (const l of DATA.links) {
     const a = l.source, b = l.target;
     const vis = nodeVisible(a) && nodeVisible(b);
-    let op = 0.14;
+    let op = 0.55;
     if (!vis) op = 0;
     else if (tIds) op = (tIds.has(a.id) && tIds.has(b.id)) ? 0.18 : 0;
     else if (pIds) op = state.path.edgeSet.has(l.s + "|" + l.t) ? 0.9 : 0;
@@ -764,7 +820,7 @@ function refresh() {
     else if (aSet) op = (aSet.has(a.id) || aSet.has(b.id)) ? 0.42 : 0.035;
     l._el.style.opacity = op.toFixed(3);
     l._el.setAttribute("stroke", FAMILY_COLOR[REL_FAMILY[l.r] || "power"]);
-    const baseW = 0.8 + Math.min(1.1, Math.min(a.deg, b.deg) / 18);
+    const baseW = 1.55 + Math.min(1.2, Math.min(a.deg, b.deg) / 16);
     l._el.setAttribute("stroke-width", (op > 0.5 ? baseW + 0.5 : baseW).toFixed(2));
     if (l.q === "C") l._el.setAttribute("stroke-dasharray", "3 4");
     else if (l.q === "S") l._el.setAttribute("stroke-dasharray", "1 4");
@@ -776,12 +832,16 @@ function refresh() {
   if (state.region) {
     for (const cl in (DATA._hulls || {})) {
       const dim = cl !== state.region;
-      DATA._hulls[cl].path.style.opacity = dim ? "0.35" : "1";
+      DATA._hulls[cl].path.style.opacity = dim ? "0.28" : "1";
+      DATA._hulls[cl].plate.style.opacity = dim ? "0.22" : "1";
+      DATA._hulls[cl].inner.style.opacity = dim ? "0.18" : "1";
       DATA._hulls[cl].label.style.opacity = dim ? "0.3" : "0.9";
     }
   } else if (!state.thread && !state.path && !state.focusSet) {
     for (const cl in (DATA._hulls || {})) {
       DATA._hulls[cl].path.style.opacity = "1";
+      DATA._hulls[cl].plate.style.opacity = "1";
+      DATA._hulls[cl].inner.style.opacity = "1";
       DATA._hulls[cl].label.style.opacity = "0.9";
     }
   }
@@ -2293,6 +2353,11 @@ function init() {
   stageW = ui.stage.getBoundingClientRect().width || 1000;
   stageH = ui.stage.getBoundingClientRect().height || 700;
   ui.statusLegend.innerHTML = ["documented", "contested", "speculative", "untriaged"].map((e) => `<span style="color:${EV_COLOR[e]}"><i style="background:${EV_COLOR[e]};border-color:${EV_COLOR[e]}"></i>${esc(DATA.evidence[e] ? DATA.evidence[e].label : e)}</span>`).join("");
+  const fcMeta = $("#fc-meta");
+  if (fcMeta) {
+    const years = DATA.nodes.map((n) => n.yr).filter(Boolean);
+    fcMeta.textContent = `${DATA.stats.nodes} nodes · ${DATA.stats.links.toLocaleString("en-US")} relations · ${Math.min(...years)}–${Math.max(...years)}`;
+  }
   buildField();
   buildRail();
   syncRailState();
