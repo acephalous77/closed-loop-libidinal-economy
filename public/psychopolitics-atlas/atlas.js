@@ -603,6 +603,7 @@ function updateLabels() {
   const k = view.k;
   const mx = pointer ? pointer.x : null;
   const my = pointer ? pointer.y : null;
+  const sr = ui.stage.getBoundingClientRect();
   const tIds = state.thread ? threadIds() : null;
   const pIds = state.path ? pathIds() : null;
   const th = state.thread ? DATA.threads.find((x) => x.id === state.thread.id) : null;
@@ -634,6 +635,10 @@ function updateLabels() {
   for (const c of candidates) {
     const r = c.lbl.getBoundingClientRect();
     if (r.width < 1 || r.height < 1) { c.lbl.style.display = "none"; continue; }
+    if (r.left < sr.left + 2 || r.right > sr.right - 2 || r.top < sr.top + 2 || r.bottom > sr.bottom - 2) {
+      c.lbl.style.display = "none";
+      continue;
+    }
     const box = { x: r.x - 2, y: r.y - 1, w: r.width + 4, h: r.height + 2 };
     const clash = placed.some((p) => box.x < p.x + p.w && box.x + box.w > p.x && box.y < p.y + p.h && box.y + box.h > p.y);
     if (clash && !c.forced) { c.lbl.style.display = "none"; continue; }
@@ -649,6 +654,10 @@ function updateLabels() {
     if (k < 0.06) { h.label.style.display = "none"; continue; }
     h.label.style.display = "";
     const r = h.label.getBoundingClientRect();
+    if (r.left < sr.left + 2 || r.right > sr.right - 2 || r.top < sr.top + 2 || r.bottom > sr.bottom - 2) {
+      h.label.style.display = "none";
+      continue;
+    }
     const box = { x: r.x - 3, y: r.y - 2, w: r.width + 6, h: r.height + 4 };
     const clash = placed.some((p) => box.x < p.x + p.w && box.x + box.w > p.x && box.y < p.y + p.h && box.y + box.h > p.y);
     if (clash) { h.label.style.display = "none"; continue; }
@@ -1511,6 +1520,13 @@ function renderDomains() {
     const k = [a, b].sort().join("|");
     w[k] = (w[k] || 0) + 1;
   }
+  const unit = Math.max(
+    (maxX - minX) / (svg.clientWidth || 1154),
+    (maxY - minY) / (svg.clientHeight || 764),
+  );
+  const labelFs = unit * 10.5;
+  const countFs = unit * 8.5;
+  const gap = unit * 6;
   const gEdges = S("g"), gNodes = S("g");
   for (const k in w) {
     const [a, b] = k.split("|");
@@ -1523,9 +1539,15 @@ function renderDomains() {
       "stroke-width": Math.min(5, 0.5 + cnt * 0.18),
     }));
   }
-  for (const cl of Object.keys(DATA.clusters)) {
+  const items = Object.keys(DATA.clusters).map((cl) => {
     const p = centers[cl], c = DATA.clusters[cl], n = counts[cl] || 0;
-    const r = 16 + Math.sqrt(n) * 8;
+    return { cl, p, c, n, r: 16 + Math.sqrt(n) * 8 };
+  });
+  const blocked = items.map(({ p, r }) => ({
+    x: p[0] - r - gap, y: p[1] - r - gap, w: 2 * r + gap * 2, h: 2 * r + gap * 2,
+  }));
+  for (const it of items) {
+    const { cl, p, c, n, r } = it;
     const g = S("g", { "data-domain": cl, role: "button", "aria-label": `${c.label}: ${n} nodes` });
     g.style.cursor = "pointer";
     g.appendChild(S("circle", {
@@ -1533,24 +1555,49 @@ function renderDomains() {
       fill: `oklch(0.65 0.1 ${c.hue} / 0.16)`,
       stroke: `oklch(0.74 0.11 ${c.hue} / 0.8)`, "stroke-width": "1.2",
     }));
-    g.appendChild(textEl(c.label, {
-      x: p[0], y: p[1] - 2, "text-anchor": "middle",
-      "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
-      "font-size": Math.max(10, r * 0.28), fill: C.paper,
-    }));
     g.appendChild(textEl(String(n), {
-      x: p[0], y: p[1] + Math.max(12, r * 0.42), "text-anchor": "middle",
+      x: p[0], y: p[1] + countFs * 0.35, "text-anchor": "middle",
       "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
-      "font-size": "9", fill: C.paper3,
+      "font-size": countFs, fill: C.paper3,
     }));
     const title = S("title"); title.textContent = `${c.label} — ${n} nodes`;
     g.appendChild(title);
     g.addEventListener("click", () => focusRegion(cl));
     gNodes.appendChild(g);
+    it.g = g;
   }
   svg.appendChild(gEdges); svg.appendChild(gNodes);
+  const placed = [];
+  const hit = (box) => blocked.some((q) => box.x < q.x + q.w && box.x + box.w > q.x && box.y < q.y + q.h && box.y + box.h > q.y)
+    || placed.some((q) => box.x < q.x + q.w && box.x + box.w > q.x && box.y < q.y + q.h && box.y + box.h > q.y);
+  const labelOrder = [...items].sort((a, b) => b.n - a.n || a.c.label.localeCompare(b.c.label));
+  for (const it of labelOrder) {
+    const { p, c, r, g } = it;
+    const t = textEl(c.label, {
+      x: 0, y: 0, "text-anchor": "start",
+      "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
+      "font-size": labelFs, fill: C.paper, "fill-opacity": "0.92",
+    });
+    g.appendChild(t);
+    const bb = t.getBBox();
+    const w = bb.width, h = bb.height, asc = -bb.y;
+    const candidates = [
+      { a: "middle", x: p[0] - w / 2, y: p[1] + r + gap, tx: p[0] },
+      { a: "middle", x: p[0] - w / 2, y: p[1] - r - gap - h, tx: p[0] },
+      { a: "start", x: p[0] + r + gap, y: p[1] - h / 2, tx: p[0] + r + gap },
+      { a: "end", x: p[0] - r - gap - w, y: p[1] - h / 2, tx: p[0] - r - gap },
+      { a: "start", x: p[0] + r * 0.55, y: p[1] + r * 0.55 + gap, tx: p[0] + r * 0.55 },
+      { a: "start", x: p[0] + r * 0.55, y: p[1] - r * 0.55 - gap - h, tx: p[0] + r * 0.55 },
+      { a: "end", x: p[0] - r * 0.55 - w, y: p[1] + r * 0.55 + gap, tx: p[0] - r * 0.55 },
+      { a: "end", x: p[0] - r * 0.55 - w, y: p[1] - r * 0.55 - gap - h, tx: p[0] - r * 0.55 },
+    ];
+    const pick = candidates.find((q) => !hit({ x: q.x, y: q.y, w, h })) || candidates[0];
+    t.setAttribute("text-anchor", pick.a);
+    t.setAttribute("x", pick.tx.toFixed(1));
+    t.setAttribute("y", (pick.y + asc).toFixed(1));
+    placed.push({ x: pick.x, y: pick.y, w, h });
+  }
 }
-
 function renderTimeline() {
   const svg = $("#timeline-svg");
   while (svg.firstChild) svg.removeChild(svg.firstChild);
