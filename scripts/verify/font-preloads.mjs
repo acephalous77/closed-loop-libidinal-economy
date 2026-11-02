@@ -28,9 +28,9 @@ const PORT = process.env.PRELOAD_CHECK_PORT || "3777";
 // duplicated weights as served. The psychopolitics atlas is a standalone
 // static page under public/ — Vercel resolves the bare directory path, but
 // `next start` (local and CI) only serves /psychopolitics-atlas/index.html.
-// The legacy atlas is a single static file with inline @font-face rules and
-// no preloads; its zero is pinned so an accidental conversion into a Next
-// route flags. The 2026-11-02 atlas rewrite is still uncommitted.
+// The rebuilt atlas self-hosts its two faces and preloads both; the count is
+// pinned so an accidental conversion into a Next route (or a lost preload)
+// flags.
 const EXPECTED = [
   ["/", 6],
   ["/author", 6],
@@ -41,7 +41,7 @@ const EXPECTED = [
   ["/chair/essay", 16],
   ["/manufacture-of-the-subject", 14],
   ["/patriotic-times/plates", 9],
-  ["/psychopolitics-atlas/index.html", 0],
+  ["/psychopolitics-atlas/index.html", 2],
   ["/ohcose", 6],
   ["/ouroboric-condition", 8],
 ];
