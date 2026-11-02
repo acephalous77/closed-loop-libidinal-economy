@@ -466,7 +466,7 @@ function buildNodes() {
 
 function buildEdges() {
   for (const l of DATA.links) {
-    const el = S("path", { fill: "none", "stroke-linecap": "round" });
+    const el = S("path", { fill: "none", "stroke-linecap": "round", "vector-effect": "non-scaling-stroke" });
     ui.edges.appendChild(el);
     l._el = el;
   }
@@ -487,6 +487,7 @@ function buildGrid() {
       "stroke-width": i % 4 === 0 ? "0.9" : "0.55",
       "stroke-opacity": i % 4 === 0 ? "0.42" : "0.28",
       "stroke-dasharray": i % 4 === 0 ? "1 7" : "0.5 9",
+      "vector-effect": "non-scaling-stroke",
     }));
   }
   i = 0;
@@ -497,6 +498,7 @@ function buildGrid() {
       "stroke-width": i % 4 === 0 ? "0.9" : "0.55",
       "stroke-opacity": i % 4 === 0 ? "0.42" : "0.28",
       "stroke-dasharray": i % 4 === 0 ? "1 7" : "0.5 9",
+      "vector-effect": "non-scaling-stroke",
     }));
   }
 }
@@ -526,17 +528,19 @@ function buildHulls() {
     const hue = DATA.clusters[cl] ? DATA.clusters[cl].hue : 250;
     const clusterNo = String(Object.keys(DATA.clusters).indexOf(cl) + 1).padStart(2, "0");
     const plate = S("path", {
-      d, fill: `oklch(0.65 0.1 ${hue} / 0.062)`, stroke: "none",
+      d, fill: `oklch(0.65 0.1 ${hue} / 0.052)`, stroke: "none",
     });
     const inner = S("path", {
-      d, fill: "none", stroke: `oklch(0.72 0.09 ${hue} / 0.20)`,
+      d, fill: "none", stroke: `oklch(0.72 0.09 ${hue} / 0.16)`,
       "stroke-width": "0.75", "stroke-dasharray": "0.7 9", "stroke-linejoin": "round",
+      "vector-effect": "non-scaling-stroke",
       transform: `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(.945) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`,
     });
     const path = S("path", {
       d, fill: "none",
-      stroke: `oklch(0.72 0.09 ${hue} / 0.46)`, "stroke-width": "1.15",
+      stroke: `oklch(0.74 0.08 ${hue} / 0.42)`, "stroke-width": "1.1",
       "stroke-dasharray": "1.6 6.4", "stroke-linejoin": "round",
+      "vector-effect": "non-scaling-stroke",
     });
     const activate = (e) => { e.stopPropagation(); focusRegion(cl); };
     for (const el of [plate, inner, path]) {
@@ -548,7 +552,7 @@ function buildHulls() {
       x: cx, y: top - 12, "text-anchor": "middle",
       "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
       "font-size": "9.5", "font-weight": "600", "letter-spacing": "1.2",
-      fill: `oklch(0.82 0.09 ${hue} / 0.9)`,
+      fill: `oklch(0.88 0.07 ${hue} / 0.95)`,
       "paint-order": "stroke", stroke: C.field, "stroke-width": "3",
       "stroke-linejoin": "round",
     });
@@ -694,6 +698,23 @@ function updateLabels() {
   const pIds = state.path ? pathIds() : null;
   const th = state.thread ? DATA.threads.find((x) => x.id === state.thread.id) : null;
   const currentId = th ? th.steps[state.thread.step].node : null;
+  const overlayRects = [".field-cartouche", ".minimap", ".zoom-controls"]
+    .map((sel) => document.querySelector(sel))
+    .map((el) => {
+      if (!el) return null;
+      const style = getComputedStyle(el);
+      const r = el.getBoundingClientRect();
+      return style.display === "none" || r.width < 1 || r.height < 1 ? null : r;
+    })
+    .filter(Boolean);
+  const underOverlay = (r) => overlayRects.some((a) =>
+    r.left < a.right && r.right > a.left && r.top < a.bottom && r.bottom > a.top);
+  const nodeBoxes = k < 0.45 ? [] : DATA.nodes.filter(nodeVisible).map((n) => {
+    const x = n.x * k + view.x, y = n.y * k + view.y, r = Math.max(3, (n.r + 2) * k);
+    return { id: n.id, x, y, r };
+  }).filter((b) => b.r >= 5);
+  const underNode = (r, id) => nodeBoxes.some((b) =>
+    b.id !== id && r.left < b.x + b.r && r.right > b.x - b.r && r.top < b.y + b.r && r.bottom > b.y - b.r);
   const candidates = [];
   for (const n of DATA.nodes) {
     const base = labelBase(n);
@@ -712,16 +733,17 @@ function updateLabels() {
     lbl.style.opacity = Math.min(1, op).toFixed(2);
     const size = (10.5 + boost * 2.8) / k;
     lbl.setAttribute("font-size", size.toFixed(1));
+    lbl.setAttribute("stroke-width", (2.4 / k).toFixed(2));
     lbl.setAttribute("fill", forced ? C.paper : C.paper2);
     lbl.setAttribute("font-weight", boost > 0.35 ? "600" : "400");
-    candidates.push({ lbl, forced, score: (forced ? 1e6 : 0) + (onRoute ? 1e5 : 0) + (n.deg || 0) * 100 + op * 100 + boost * 1000 });
+    candidates.push({ lbl, id: n.id, forced, score: (forced ? 1e6 : 0) + (onRoute ? 1e5 : 0) + (n.deg || 0) * 100 + op * 100 + boost * 1000 });
   }
   candidates.sort((a, b) => b.score - a.score);
   const placed = [];
   for (const c of candidates) {
     const r = c.lbl.getBoundingClientRect();
     if (r.width < 1 || r.height < 1) { c.lbl.style.display = "none"; continue; }
-    if (r.left < sr.left + 2 || r.right > sr.right - 2 || r.top < sr.top + 2 || r.bottom > sr.bottom - 2) {
+    if (r.left < sr.left + 2 || r.right > sr.right - 2 || r.top < sr.top + 2 || r.bottom > sr.bottom - 2 || underOverlay(r) || underNode(r, c.id)) {
       c.lbl.style.display = "none";
       continue;
     }
@@ -735,6 +757,7 @@ function updateLabels() {
     const dim = state.region && state.region !== cl;
     const hiddenByFocus = (state.thread || state.path || state.focusSet) && !dim;
     h.label.setAttribute("font-size", (10 / k).toFixed(1));
+    h.label.setAttribute("stroke-width", (3 / k).toFixed(2));
     h.label.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.35" : "0.9");
     h.path.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.4" : "1");
     h.plate.style.opacity = hiddenByFocus ? "0.16" : (dim ? "0.24" : "1");
@@ -742,7 +765,7 @@ function updateLabels() {
     if (k < 0.06) { h.label.style.display = "none"; continue; }
     h.label.style.display = "";
     const r = h.label.getBoundingClientRect();
-    if (r.left < sr.left + 2 || r.right > sr.right - 2 || r.top < sr.top + 2 || r.bottom > sr.bottom - 2) {
+    if (r.left < sr.left + 2 || r.right > sr.right - 2 || r.top < sr.top + 2 || r.bottom > sr.bottom - 2 || underOverlay(r) || underNode(r, null)) {
       h.label.style.display = "none";
       continue;
     }
@@ -809,7 +832,8 @@ function refresh() {
   for (const l of DATA.links) {
     const a = l.source, b = l.target;
     const vis = nodeVisible(a) && nodeVisible(b);
-    let op = 0.55;
+    const hub = Math.min(a.deg, b.deg) >= 9;
+    let op = hub ? 0.52 : 0.38;
     if (!vis) op = 0;
     else if (tIds) op = (tIds.has(a.id) && tIds.has(b.id)) ? 0.18 : 0;
     else if (pIds) op = state.path.edgeSet.has(l.s + "|" + l.t) ? 0.9 : 0;
@@ -820,12 +844,13 @@ function refresh() {
     else if (aSet) op = (aSet.has(a.id) || aSet.has(b.id)) ? 0.42 : 0.035;
     l._el.style.opacity = op.toFixed(3);
     l._el.setAttribute("stroke", FAMILY_COLOR[REL_FAMILY[l.r] || "power"]);
-    const baseW = 1.55 + Math.min(1.2, Math.min(a.deg, b.deg) / 16);
-    l._el.setAttribute("stroke-width", (op > 0.5 ? baseW + 0.5 : baseW).toFixed(2));
+    const baseW = 1.35 + Math.min(1.1, Math.min(a.deg, b.deg) / 16);
+    l._el.setAttribute("stroke-width", (op > 0.7 ? baseW + 0.5 : baseW).toFixed(2));
     if (l.q === "C") l._el.setAttribute("stroke-dasharray", "3 4");
     else if (l.q === "S") l._el.setAttribute("stroke-dasharray", "1 4");
     else l._el.removeAttribute("stroke-dasharray");
-    if (op > 0.45) l._el.setAttribute("marker-end", "url(#atlas-arrow)");
+    const showArrow = (op > 0.75 || (state.focusSet && op >= 0.5)) && view.k > 0.2;
+    if (showArrow) l._el.setAttribute("marker-end", "url(#atlas-arrow)");
     else l._el.removeAttribute("marker-end");
   }
 
@@ -883,6 +908,7 @@ function renderPathLayer() {
         "stroke-width": done ? 2.2 : 1.2,
         "stroke-opacity": done ? 0.9 : 0.35,
         "stroke-dasharray": "2 6", "stroke-linecap": "round",
+        "vector-effect": "non-scaling-stroke",
       }));
     }
     return;
@@ -895,7 +921,7 @@ function renderPathLayer() {
       g.appendChild(S("line", {
         x1: a.x, y1: a.y, x2: b.x, y2: b.y,
         stroke: C.prussian, "stroke-width": "2", "stroke-opacity": "0.85",
-        "marker-end": "url(#atlas-arrow)",
+        "marker-end": "url(#atlas-arrow)", "vector-effect": "non-scaling-stroke",
       }));
     }
   }
@@ -1906,6 +1932,17 @@ function buildMinimap() {
   while (svg.firstChild) svg.removeChild(svg.firstChild);
   svg.setAttribute("viewBox", `${worldBounds.x} ${worldBounds.y} ${worldBounds.w} ${worldBounds.h}`);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  const hullg = S("g");
+  for (const [cl, h] of Object.entries(DATA._hulls || {})) {
+    const hue = DATA.clusters[cl] ? DATA.clusters[cl].hue : 250;
+    hullg.appendChild(S("path", {
+      d: h.path.getAttribute("d"),
+      fill: `oklch(0.65 0.1 ${hue} / 0.13)`,
+      stroke: `oklch(0.74 0.08 ${hue} / 0.50)`,
+      "stroke-width": "0.7",
+    }));
+  }
+  svg.appendChild(hullg);
   const g = S("g");
   const dot = Math.max(8, Math.max(worldBounds.w, worldBounds.h) / 130);
   for (const n of DATA.nodes) {
@@ -2358,6 +2395,8 @@ function init() {
     const years = DATA.nodes.map((n) => n.yr).filter(Boolean);
     fcMeta.textContent = `${DATA.stats.nodes} nodes · ${DATA.stats.links.toLocaleString("en-US")} relations · ${Math.min(...years)}–${Math.max(...years)}`;
   }
+  const fcKey = $("#fc-key");
+  if (fcKey) fcKey.textContent = `TERRITORIES T01–T${String(Object.keys(DATA.clusters).length).padStart(2, "0")} · TIES BY FAMILY`;
   buildField();
   buildRail();
   syncRailState();

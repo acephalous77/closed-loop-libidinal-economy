@@ -53,3 +53,28 @@ authorship-restoration workstream remains proposed only.
 `41526572765` passed. Production `verify:atlas-prod` PASS; the production
 browser sees 84 territory paths, 1,139 relation paths, the cartouche with
 654 / 1,139 / 1903–2026, no external requests, and no console errors.
+
+## Follow-up defect pass
+
+A second visual pass fixed four defects that only surfaced away from the
+initial 1440px frame:
+
+- **Zoomed stroke growth** — edge, grid, hull, and path-reader strokes now use
+  `vector-effect: non-scaling-stroke`; the field stays hairline at high zoom
+  instead of thickening into bands.
+- **Label halos** — node and territory label halos now scale with the inverse
+  of the viewport transform, so they stay a constant screen weight instead of
+  becoming heavy blobs when zoomed.
+- **Overlay occlusion** — labels that would sit under the cartouche, minimap,
+  or zoom controls are hidden rather than clipped.
+- **Node collisions** — at zoom levels above `0.45`, labels that would run into
+  a neighbouring node mark are hidden.
+- **Edge hierarchy** — hub-adjacent edges retain more weight and opacity than
+  peripheral edges; overview edges drop from `0.55` to `0.38` (`0.52` for hubs),
+  and arrowheads render only on focused/zoomed routes.
+- **Minimap** — enlarged to `196×126`, given territory hulls beneath the node
+  dots, and a visible viewport tint/stroke.
+
+Checks after the pass: `verify:atlas-mobile` PASS, `atlas-consistency` PASS,
+`npm run build` 282 pages, `npm run verify` PASS (248 links), 1440/zoom vision
+PASS after the final label/minimap changes.
