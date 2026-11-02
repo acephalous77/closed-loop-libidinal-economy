@@ -64,9 +64,11 @@ speaks in it without apology. The shell is austere because the works are not:
 the atelier index is a press prospectus, the framework is an academic octavo, the
 agency manual is a federal form, the coloring book is a riso pamphlet, the
 chair is a clinical brochure and a protest zine in the same envelope.
-The frontpage is the press's prospectus: a graphite masthead, a paper field,
-one featured work, and the seven-work shelf. The console survives as the
-session-aware shelf, not as the whole first screen.
+The frontpage is a press essay: a graphite masthead, a paper field, one
+opening claim, a margin quotation, and continuous prose that carries the works
+as links. The shelf, the numbered index, and the cover thumbnails are retired
+from the shell (2026-11-02, his ruling: no listings, no named-list kickers,
+one serif voice). The console remains available inside the works and the door.
 
 The system's discipline is in what it refuses: no third-party requests, no
 analytics, no tracking, no engagement loops, no SaaS-aesthetic chrome. Every
@@ -268,16 +270,15 @@ inside the register; the shell itself stays square.
   the stable point marked, the barred no-exogenous-channel stub; widened
   past the prose column at lg; drawn in on entry.
 
-### The door & the shelf (signature, the machine layer)
-- **Style:** "↑ autostimulus · the seven works" in each work's exit line,
-  inheriting the register; the shelf overlay (shell palette: paper/ink/
-  mono) opens with a scrim fade + sheet rise, carries press sheets, and
-  tags visited works "arrived ×N" in oxblood.
+### The door (signature, the machine layer)
+- **Style:** "↑ autostimulus · works" in each work's exit line, inheriting
+  the register; the shelf overlay and its press sheets are retired. The
+  link returns to the prose index at `/#works`.
 - **Coverage:** every work's exit — closed-loop, chair, patriotic,
   manufacture, ouroboric, and OHCOSE (layout + colophon); the static atlas
-  footer carries the plain line instead (no overlay machinery there).
-  Manufacture's birth curtain covers all chrome until the reader is born;
-  the interlude is authored, and the instrument emerges with the page.
+  footer carries the plain line instead. Manufacture's birth curtain covers
+  all chrome until the reader is born; the interlude is authored, and the
+  instrument emerges with the page.
 
 ### The reader's apparatus (signature, the machine layer)
 - **Style:** the corner instrument, worn in the room's register via
@@ -372,3 +373,23 @@ pass; scores then stood at manufacture 14, chair/zine 48, atlas 1.
   1.85, display clamps 2–4.7rem with poster registers to 11.25rem, and the
   works' px hardware tiers from 11px up. The residual advisories are
   register space with documented steps, not drift.
+
+## 2026-11-02 — the press essay (his ruling)
+
+The shell is prose, not a catalog. The homepage and author page carry no
+shelf, no numbered index, no cover thumbnails, no at-a-glance definition
+list, and no named-list kicker. Works and facts arrive inside sentences.
+
+Source Serif 4 carries the shell's prose and display, and IBM Plex Mono is
+reserved for DOI strings, codes, and instrument readouts. The press front
+opens on one claim, a standfirst, a margin quotation, and continuous prose
+that links the works. Its graphite masthead is a plain serif wordmark and
+three sentence-case links. The author page is an essay in the same voice, on
+graphite; the name is the only display, and the citation record closes the
+piece in prose.
+
+No listings in prose is now a canonical de-AI write rule. It governs titles,
+standfirsts, author pages, and bios; bibliographies, data tables, navigation,
+and code stay outside it. Graphics are the hairline rule, the margin
+quotation, and the work's own cover inside its cover surface. The shell no
+longer manufactures miniature book covers for navigation.

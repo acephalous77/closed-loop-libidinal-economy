@@ -254,21 +254,21 @@ export function ApparatusInstrument() {
           aria-label={`reader's apparatus — session time ${t}; ${snap.pauses} pauses; ${works} works`}
           onClick={() => setOpen(true)}
           style={{
-            background: reg.bg,
+            background: "transparent",
             color: reg.ink,
-            opacity: 0.9,
-            border: `1px solid ${rule}`,
-            padding: "0.42rem 0.7rem",
+            opacity: 0.72,
+            border: 0,
+            borderBottom: `1px solid ${rule}`,
+            padding: "0.2rem 0",
             cursor: "pointer",
-            fontSize: "0.8125rem",
-            letterSpacing: "0.1em",
+            fontFamily: SERIF,
+            fontSize: "0.875rem",
+            letterSpacing: "0.01em",
             lineHeight: 1.4,
+            whiteSpace: "nowrap",
           }}
         >
-          <span aria-hidden="true" style={{ color: reg.accent }}>
-            ◉
-          </span>
-          <span className="hidden sm:inline"> {t}</span>
+          reader&rsquo;s apparatus <span style={{ color: reg.accent }}>{t}</span>
         </button>
       )}
     </div>

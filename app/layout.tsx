@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     template: "%s — autostimulus",
   },
   description:
-    "autostimulus is the press of A. Selimović: seven works on attention, capture, and the institutions that produce a subject. Start with The Closed-Loop Libidinal Economy.",
+    "autostimulus publishes A. Selimović's work on attention, capture, and the institutions that produce a subject.",
   keywords: [
     "Adnan Selimović",
     "A. Selimović",
@@ -91,14 +91,14 @@ export const metadata: Metadata = {
     siteName: "autostimulus",
     title: "autostimulus",
     description:
-      "Seven works on attention, capture, and the institutions that produce a subject.",
+      "A press on attention, capture, and the institutions that produce a subject.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "autostimulus",
     description:
-      "Seven works on attention, capture, and the institutions that produce a subject.",
+      "A press on attention, capture, and the institutions that produce a subject.",
   },
   robots: {
     index: true,

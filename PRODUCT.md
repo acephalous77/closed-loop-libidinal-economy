@@ -67,6 +67,9 @@ instrument dies with the tab, and the disclosure names it.
   use them as set.
 - The register system: works keep their own papers, inks and voices; the
   shell serves them (the Register Rule).
+- The press front is an essay, not a catalog. No shelf, no numbered index,
+  no named-list kicker, no inventory of fields in a title or bio. Names,
+  works, and facts belong inside sentences. *(2026-11-02, his ruling.)*
 - Licensing facts: texts CC BY-SA 4.0, code MIT.
 - The house aesthetic runs counter to the standard AI-interface look —
   confirmed as a durable commitment (the cream/broadsheet clusters are

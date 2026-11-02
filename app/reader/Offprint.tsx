@@ -105,7 +105,7 @@ export function Offprint() {
             viewBox="0 0 740 120"
             width="100%"
             role="img"
-            aria-label="The reading path: arrivals across the press and the seven works, in order."
+            aria-label="The reading path: arrivals across the press and its works, in order."
           >
             <line
               x1="52"
@@ -230,7 +230,7 @@ export function Offprint() {
           href="/"
           className="font-mono text-xs text-ink-50 hover:text-oxblood"
         >
-          ← the shelf
+          ← the press
         </Link>
       </div>
     </main>

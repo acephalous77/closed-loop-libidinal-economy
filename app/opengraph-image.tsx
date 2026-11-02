@@ -2,28 +2,22 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "autostimulus — works by A. Selimović";
+export const alt = "autostimulus — A. Selimović";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-/**
- * Atelier-level OG card — xerox-zine register matching the landing:
- * bone stock, toner-black ink, a cut-up wordmark with the inverted
- * "stimulus" block and a rubber-stamp red period.
- *
- * IBM Plex Mono Bold only: the cut-up wordmark is the whole composition,
- * and the inverted block plus the red period carry it. The serif is not
- * needed here, so the card stays a single subsetted face.
- */
 export default async function Image() {
-  const mono = await readFile(
-    join(process.cwd(), "public/fonts/og/IBMPlexMono-Bold.ttf")
+  const serif = await readFile(
+    join(process.cwd(), "public/fonts/og/SourceSerif4-Regular.ttf")
+  );
+  const italic = await readFile(
+    join(process.cwd(), "public/fonts/og/SourceSerif4-Italic.ttf")
   );
 
-  const PAPER = "#e9e3d3";
-  const INK = "#0b0b0b";
-  const INK_2 = "#3a3733";
-  const RED = "#cc1f1f";
+  const PAPER = "#f1f2ef";
+  const INK = "#191b1e";
+  const MUTED = "#4b5258";
+  const ACCENT = "#174a77";
 
   return new ImageResponse(
     (
@@ -32,81 +26,73 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           background: PAPER,
+          color: INK,
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "70px 80px",
-          fontFamily: "IBM Plex Mono",
-          color: INK,
+          padding: "72px 84px",
+          fontFamily: "Source Serif 4",
         }}
       >
-        {/* top strip */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            fontSize: 21,
-            textTransform: "uppercase",
-            letterSpacing: "0.22em",
-            fontWeight: 700,
+            alignItems: "baseline",
+            fontSize: 24,
+            borderBottom: `1px solid #d4d8d1`,
+            paddingBottom: 24,
           }}
         >
-          <div>A. SELIMOVIĆ</div>
-          <div style={{ color: INK_2 }}>WORKS 2015—2026</div>
+          <div>autostimulus</div>
+          <div style={{ color: MUTED }}>A. Selimović</div>
         </div>
 
-        {/* cut-up wordmark */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            marginTop: "auto",
-            lineHeight: 1,
-          }}
-        >
-          <div style={{ fontSize: 120, fontWeight: 700 }}>auto</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div
             style={{
-              fontSize: 120,
-              fontWeight: 700,
-              background: INK,
-              color: PAPER,
-              padding: "0 16px",
+              fontSize: 96,
+              lineHeight: 0.98,
+              letterSpacing: "-0.02em",
+              maxWidth: 900,
             }}
           >
-            stimulus
+            The loop is closed.
           </div>
-          <div style={{ fontSize: 120, fontWeight: 700, color: RED }}>.</div>
+          <div
+            style={{
+              fontSize: 32,
+              lineHeight: 1.35,
+              color: MUTED,
+              maxWidth: 760,
+            }}
+          >
+            A press on attention, capture, and the institutions that produce a
+            subject.
+          </div>
         </div>
 
-        {/* bottom strip */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "flex-end",
+            alignItems: "baseline",
             fontSize: 22,
-            fontWeight: 700,
-            textTransform: "uppercase",
-            letterSpacing: "0.08em",
-            marginTop: 40,
-            paddingTop: 20,
-            borderTop: `3px solid ${INK}`,
+            color: MUTED,
+            borderTop: `1px solid #d4d8d1`,
+            paddingTop: 22,
           }}
         >
-          <div style={{ maxWidth: 820 }}>
-            Critical theory · media psychology · political economy
-          </div>
-          <div style={{ fontSize: 17, color: INK_2, letterSpacing: "0.16em" }}>
-            autostimulus.org
-          </div>
+          <div style={{ color: ACCENT }}>autostimulus.org</div>
+          <div style={{ fontStyle: "italic" }}>2015—2026</div>
         </div>
       </div>
     ),
     {
       ...size,
       fonts: [
-        { name: "IBM Plex Mono", data: mono, weight: 700, style: "normal" },
+        { name: "Source Serif 4", data: serif, weight: 400, style: "normal" },
+        { name: "Source Serif 4", data: italic, weight: 400, style: "italic" },
       ],
     }
   );

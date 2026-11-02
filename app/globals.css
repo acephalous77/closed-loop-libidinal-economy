@@ -1065,3 +1065,258 @@ html {
     min-height: 44px;
   }
 }
+
+/* ── The press essay ───────────────────────────────────────────────
+   The shell is one serif voice. Mono survives for codes and DOI
+   strings, never for reading prose or chrome. Scoped so every work's
+   register keeps its own type, color, and measure. */
+.press-masthead {
+  background: #17191b;
+  color: #e8ebe7;
+  border-bottom: 1px solid #2c3034;
+}
+.press-masthead-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.15rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+}
+.press-wordmark {
+  font-family: var(--font-source-serif);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: inherit;
+  text-decoration: none;
+}
+.press-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-family: var(--font-source-serif);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.press-nav a {
+  color: #d3d7d2;
+  text-decoration: none;
+}
+.press-nav a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.press-nav a[aria-current="page"] {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.press-shell {
+  min-height: 100vh;
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+.press-article {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 4.5rem 1.5rem 2.5rem;
+}
+.press-hero {
+  margin-bottom: 3rem;
+}
+.press-display {
+  margin: 0;
+  max-width: 12ch;
+  font-family: var(--font-source-serif);
+  font-size: clamp(2.75rem, 6vw, 4.5rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--color-ink);
+  text-wrap: balance;
+}
+.press-standfirst {
+  margin: 1.5rem 0 0;
+  max-width: 34rem;
+  font-family: var(--font-source-serif);
+  font-size: 1.5rem;
+  line-height: 1.5;
+  color: var(--color-ink-90);
+  text-wrap: pretty;
+}
+.press-body {
+  margin: 0;
+  max-width: 36rem;
+  font-family: var(--font-source-serif);
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: var(--color-ink-90);
+  font-variant-numeric: proportional-nums;
+  text-wrap: pretty;
+}
+.press-body + .press-body {
+  margin-top: 1.35rem;
+}
+.press-body a,
+.press-note a,
+.press-margin-quote a,
+.press-footer a {
+  color: var(--color-oxblood);
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+.press-note {
+  margin: 2rem 0 0;
+  max-width: 36rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--color-paper-85);
+  font-family: var(--font-source-serif);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-ink-70);
+  text-wrap: pretty;
+}
+.press-italic {
+  font-style: italic;
+}
+.press-margin-quote {
+  margin: 2rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-paper-85);
+}
+.press-margin-quote blockquote {
+  margin: 0;
+  font-family: var(--font-source-serif);
+  font-size: 1.5rem;
+  line-height: 1.42;
+  color: var(--color-ink-90);
+  text-wrap: pretty;
+}
+.press-margin-quote blockquote::before {
+  content: "“";
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family: var(--font-source-serif);
+  font-size: 3.25rem;
+  line-height: 0.55;
+  color: var(--color-oxblood);
+}
+.press-quote-attrib {
+  margin: 1rem 0 0;
+  font-family: var(--font-source-serif);
+  font-size: 0.9375rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--color-ink-70);
+}
+.press-author-head {
+  margin-bottom: 2rem;
+}
+.press-shell--graphite {
+  background: #17191b;
+  color: #e8ebe7;
+  color-scheme: dark;
+}
+.press-shell--graphite .press-display {
+  color: #e8ebe7;
+}
+.press-shell--graphite .press-standfirst {
+  color: #d3d7d2;
+}
+.press-shell--graphite .press-body {
+  color: #d3d7d2;
+}
+.press-shell--graphite .press-body a,
+.press-shell--graphite .press-note a,
+.press-shell--graphite .press-footer a {
+  color: #6ea6d4;
+}
+.press-shell--graphite .press-note {
+  border-top-color: #2c3034;
+  color: #8b9296;
+}
+.press-footer {
+  margin-top: 4.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-paper-85);
+  font-family: var(--font-source-serif);
+}
+.press-footer-line {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-ink-70);
+}
+.press-footer-note {
+  margin: 0.4rem 0 0;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--color-ink-50);
+}
+.press-shell--graphite .press-footer {
+  border-top-color: #2c3034;
+}
+.press-shell--graphite .press-footer-line {
+  color: #8b9296;
+}
+.press-shell--graphite .press-footer-note {
+  color: #8b9296;
+}
+@media (max-width: 640px) {
+  .press-display {
+    max-width: 14ch;
+  }
+}
+@media (min-width: 1024px) {
+  .press-article {
+    padding: 6rem 3rem 3rem;
+  }
+  .press-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 18rem;
+    align-items: start;
+    gap: 4rem;
+  }
+  .press-margin-quote {
+    margin-top: 0.35rem;
+    padding-top: 0;
+    border-top: 0;
+  }
+}
+@media (min-width: 1280px) {
+  .press-article {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media print {
+  .press-masthead {
+    display: none;
+  }
+  .press-shell,
+  .press-shell--graphite {
+    background: #ffffff;
+    color: #000000;
+  }
+  .press-shell--graphite .press-display,
+  .press-shell--graphite .press-standfirst,
+  .press-shell--graphite .press-body,
+  .press-shell--graphite .press-note,
+  .press-shell--graphite .press-footer-line,
+  .press-shell--graphite .press-footer-note {
+    color: #000000;
+  }
+  .press-body a::after,
+  .press-note a::after,
+  .press-footer a::after {
+    content: "";
+  }
+}

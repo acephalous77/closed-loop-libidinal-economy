@@ -6,11 +6,11 @@ export const contentType = OG_CONTENT_TYPE;
 
 export default async function Image() {
   return ogCard({
-    eyebrow: "autostimulus · author",
+    eyebrow: "autostimulus",
     title: "Adnan Selimović",
     subtitle:
-      "critical theory · media psychology · political economy — the citation record for the corpus",
-    footerLeft: "A. Selimović, Ph.D.",
+      "A critical theorist and writer on attention, capture, and the institutions that produce a subject.",
+    footerLeft: "autostimulus.org",
     footerRight: "2026",
   });
 }
