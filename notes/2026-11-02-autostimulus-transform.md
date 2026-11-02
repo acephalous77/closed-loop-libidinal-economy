@@ -45,6 +45,13 @@ very title of the author page.” The press front is an essay, not a catalog.
 - `prose_check.py` — PASS (29 pass, 1 warn, 0 fail); the WARN is the known
   absent Cowork mirror.
 
+## Deployed
+
+`6b59899` is live. Production checks at 390 and 1440: `/`, `/author`, and
+`/colophon` hold without horizontal overflow; each main has zero `ol`, `ul`,
+and `dl`. The atlas production check also passes (CSP, counts, no beacon,
+current assets). CI `41532846598` passed.
+
 ## Not touched
 
 The atlas `atlas.js`/`index.html` changes in the worktree belong to the atlas

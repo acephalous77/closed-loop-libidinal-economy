@@ -90,8 +90,8 @@ export default function AuthorPage() {
 
           <p className="press-body">
             The instruments he describes are specific. A recommendation model
-            learns the reader&apos;s next minute; a school record outlasts the
-            classroom; a chair measures the body it holds. He writes about them
+            learns the reader&apos;s next minute. A school record outlasts the
+            classroom. A chair measures the body it holds. He writes about them
             in the registers they already use, and his press, autostimulus,
             publishes the works.
           </p>
