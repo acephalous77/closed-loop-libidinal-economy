@@ -78,3 +78,7 @@ initial 1440px frame:
 Checks after the pass: `verify:atlas-mobile` PASS, `atlas-consistency` PASS,
 `npm run build` 282 pages, `npm run verify` PASS (248 links), 1440/zoom vision
 PASS after the final label/minimap changes.
+
+Deployed as `070d43c`; GitHub Actions `41537001853` passed. Production
+`verify:atlas-prod` PASS; live 1440px zoom has no external requests, no console
+errors, 59 visible labels after collision filtering, and the enlarged minimap.
