@@ -74,9 +74,18 @@ had stopped; the output was verified here and committed. The earlier
 - H1 pilot: `deai.py --style-scan` — 1,502 words, 0 reliable tells.
 - F12: local vision at full size — no sparkle, no obvious patch.
 
+## Deployed
+
+- Autostimulus `1feca94` deployed. `npm run verify:atlas-prod` — PASS: CSP,
+  654 nodes/1,139 relations/1903–2026, no Cloudflare beacon, current assets.
+- Author page in production carries the ORCID link.
+- `render-ring.webp` in production hashes identically to the local cleaned file
+  (`31a384b9…`).
+- Dividual `72c3df0` deployed by GitHub Actions `41500715382`; the archive
+  cleanup record is `5fcaf1f`.
+
 ## Remaining
 
-- Deploy/push the atlas and non-atlas autostimulus changes.
 - H1/H2 drafts are committed in
   `/Users/thenetos/Projects/gamification-paper/submission/` as separate pilot
   files; no manuscript edit, no gate.
