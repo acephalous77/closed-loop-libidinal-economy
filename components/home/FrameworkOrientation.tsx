@@ -38,7 +38,7 @@ export function FrameworkOrientation() {
         <ClosedLoopGlyph />
       </div>
 
-      <DocumentMap />
+      <WhereToBegin />
     </section>
   );
 }
@@ -189,62 +189,44 @@ function ClosedLoopGlyph() {
   );
 }
 
-/* ── Document map: three paths through the material ──────────────────── */
+/* ── Where to begin: the three paths as prose ──────────────────────── */
 
-function DocumentMap() {
-  const paths: { href: string; label: string; sub: string }[] = [
-    {
-      href: "/closed-loop/v2-argument",
-      label: "the argument",
-      sub: "eight load-bearing moves — the framework in prose, each cross-linked to the result that authorizes it",
-    },
-    {
-      href: "/closed-loop/the-apparatus",
-      label: "the apparatus",
-      sub: "the formal companion — thirteen sections, fifteen results, what makes the prose refusable",
-    },
-    {
-      href: "/closed-loop/v2-dynamics",
-      label: "the dynamics",
-      sub: "twelve interactive plates — the mechanisms made operable",
-    },
-  ];
-
+function WhereToBegin() {
   return (
-    <div className="mt-lg">
+    <div className="mt-lg max-w-[36rem] mx-auto text-left">
       <h2 className="font-serif italic text-lg text-ink-70 text-center">
-        three paths through the material
+        where to begin
       </h2>
-      <p className="mt-sm font-serif italic text-base text-ink-70 leading-snug text-center max-w-[36rem] mx-auto">
-        First-time reader: start with{" "}
+      <p className="mt-sm font-serif text-base text-ink-90 leading-[1.55]">
+        The{" "}
         <Link
           href="/closed-loop/v2-argument"
           className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
         >
-          the argument
+          argument
         </Link>{" "}
-        — the framework laid out in prose. The apparatus is for readers who
-        want the proofs; the dynamics for those who want the mechanisms
-        running.
+        lays out the framework in prose, each move cross-linked to the formal
+        result that authorizes it. The{" "}
+        <Link
+          href="/closed-loop/the-apparatus"
+          className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+        >
+          apparatus
+        </Link>{" "}
+        is the formal companion, the proofs that make the prose refusable. The{" "}
+        <Link
+          href="/closed-loop/v2-dynamics"
+          className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
+        >
+          dynamics
+        </Link>{" "}
+        runs the mechanisms as interactive plates.
       </p>
-      <ol className="mt-md grid grid-cols-1 sm:grid-cols-3 gap-sm text-left">
-        {paths.map((p, i) => (
-          <li key={p.href} className="border-t border-paper-85 pt-sm">
-            <span className="font-mono text-xs text-ink-50">
-              0{i + 1}.
-            </span>
-            <Link
-              href={p.href}
-              className="block mt-xs font-serif italic text-md text-ink-90 hover:text-oxblood transition-colors duration-100"
-            >
-              {p.label}
-            </Link>
-            <p className="mt-xs font-serif italic text-sm text-ink-70 leading-snug">
-              {p.sub}
-            </p>
-          </li>
-        ))}
-      </ol>
+      <p className="mt-sm font-serif italic text-sm text-ink-70 leading-snug">
+        A first-time reader should start with the argument. The apparatus is
+        for readers who want the proofs; the dynamics for those who want the
+        mechanisms running.
+      </p>
     </div>
   );
 }

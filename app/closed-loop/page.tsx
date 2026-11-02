@@ -67,10 +67,10 @@ export default function Cover() {
             the v1 mathematics and dynamics live on as the archive (noindexed).
             Wording is a draft in his terse register, flagged for his vetting. */}
         <section className="mt-lg max-w-[36rem] text-center">
-          <h2 className="font-mono text-xs text-ink-50 uppercase tracking-[0.25em]">
+          <h2 className="font-serif italic text-lg text-ink-70">
             the first version
           </h2>
-          <p className="mt-sm font-serif italic text-sm text-ink-50 leading-snug">
+          <p className="mt-sm font-serif text-sm text-ink-70 leading-snug text-left">
             The essays read on as written —{" "}
             <Link
               href="/closed-loop/the-argument"
@@ -113,9 +113,9 @@ export default function Cover() {
           </figcaption>
         </figure>
 
-        {/* Author / place / year — lives above the global SiteFooter */}
-        <p className="font-mono text-xs text-ink-50 mt-xl text-center">
-          A. Selimović, Ph.D. — Blacksburg, Virginia — 2026
+        {/* Author — place and year live above in the imprint and in the footer */}
+        <p className="font-serif text-base text-ink-70 mt-xl text-center">
+          Adnan Selimović
         </p>
         <CitationBlock compact />
       </div>
