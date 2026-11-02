@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     template: "%s — autostimulus",
   },
   description:
-    "Works by A. Selimović. Critical theory, media psychology, political economy. The closed-loop libidinal economy, the OHCOSE manual, the ouroboros chair, the patriotic-times coloring book, the ouroboric-condition atlas, the manufacture of the subject, and the psychopolitics atlas.",
+    "autostimulus is the press of A. Selimović: seven works on attention, capture, and the institutions that produce a subject. Start with The Closed-Loop Libidinal Economy.",
   keywords: [
     "Adnan Selimović",
     "A. Selimović",
@@ -91,14 +91,14 @@ export const metadata: Metadata = {
     siteName: "autostimulus",
     title: "autostimulus",
     description:
-      "Works by A. Selimović.",
+      "Seven works on attention, capture, and the institutions that produce a subject.",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "autostimulus",
     description:
-      "Works by A. Selimović.",
+      "Seven works on attention, capture, and the institutions that produce a subject.",
   },
   robots: {
     index: true,
@@ -130,16 +130,16 @@ export default function RootLayout({
       className={`${garamondMath.variable}`}
     >
       <body>
-      {/* Font preloads — Regular + Italic only; 500/700 load on first use. */}
-        <link rel="preload" href="/fonts/EBGaramond-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/EBGaramond-Italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-        <link rel="preload" href="/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      {/* Font preloads — the three faces every route needs. */}
+        <link rel="preload" href="/fonts/SourceSerif4-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/SourceSerif4-Italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       
         <Link href="#main-content" className="skip-to-content">
           skip to content
         </Link>
         <div className="min-h-screen flex flex-col">
-          <div id="main-content" className="flex-1">
+          <div id="main-content" tabIndex={-1} className="flex-1 outline-none">
             {children}
           </div>
         </div>

@@ -19,7 +19,7 @@ import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 const PATH = "/closed-loop/v2-dynamics";
 
 export const metadata: Metadata = {
-  title: "the dynamics — closed-loop",
+  title: "the dynamics",
   description:
     "Twelve interactive plates. Each operates an apparatus result against a parameter so the reader sees the mechanism behave. The Machine surface of the v2 closed-loop rebuild.",
   alternates: { canonical: PATH },

@@ -146,7 +146,7 @@ export default function OhcoseColophon() {
             </p>
             <p>
               Typography: system institutional sans
-              (Helvetica Neue / Inter / Arial). JetBrains Mono for
+              (Helvetica Neue / Inter / Arial). IBM Plex Mono for
               document numbers and codes (open-source under SIL OFL).
               Accent red <span style={{ color: "var(--color-oxblood)", fontWeight: 700 }}>#9c1818</span> —
               form-rejection register.

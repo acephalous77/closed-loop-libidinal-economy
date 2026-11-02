@@ -11,7 +11,7 @@ import Link from "next/link";
 const PATH = "/closed-loop/glossary";
 
 export const metadata: Metadata = {
-  title: "glossary — closed-loop",
+  title: "glossary",
   description:
     "The framework's defined terms. Each entry links to the apparatus section that defines it.",
   alternates: { canonical: PATH },

@@ -95,6 +95,6 @@ instrument dies with the tab, and the disclosure names it.
 
 ## Accessibility & Inclusion
 
-House floor (audited): functional text ≥ 11px, WCAG AA contrast in every
-register (light and dark), landmarks and keyboard focus on every surface,
-reduced-motion respected by every authored moment.
+House floor (audited): shell functional text ≥ 13px, work stamps ≥ 11px,
+WCAG AA contrast in every register (light and dark), landmarks and keyboard
+focus on every surface, reduced-motion respected by every authored moment.

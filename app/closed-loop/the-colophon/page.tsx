@@ -21,7 +21,7 @@ import Link from "next/link";
 const PATH = "/closed-loop/the-colophon";
 
 export const metadata: Metadata = {
-  title: "the colophon — closed-loop",
+  title: "the colophon",
   description:
     "Credits, typography, color, the framework as design instruction, the refusals with their apparatus citations, reproducibility.",
   alternates: { canonical: PATH },
@@ -169,11 +169,12 @@ export default function TheColophonPage() {
           Typography
         </h2>
         <p className="text-base text-ink-90">
-          EB Garamond for body prose. JetBrains Mono for operational
+          Source Serif 4 for body prose. IBM Plex Mono for operational
           and labeling work — section breadcrumbs, formal-block
           labels, plate controls, axis labels in figures. Both
           self-hosted under <code className="font-mono text-sm">/fonts/</code>;
-          no external font-CDN call.
+          no external font-CDN call. Garamond Math loads only where
+          KaTeX renders.
         </p>
       </section>
 

@@ -11,13 +11,13 @@ export const contentType = "image/png";
  * bone stock, toner-black ink, a cut-up wordmark with the inverted
  * "stimulus" block and a rubber-stamp red period.
  *
- * JetBrains Mono only: Satori (next/og) caps the bundle at 500KB and
- * each EB Garamond file is ~590KB, so the serif can't ride along here.
- * The inverted block and the red period carry the cut-up instead.
+ * IBM Plex Mono Bold only: the cut-up wordmark is the whole composition,
+ * and the inverted block plus the red period carry it. The serif is not
+ * needed here, so the card stays a single subsetted face.
  */
 export default async function Image() {
   const mono = await readFile(
-    join(process.cwd(), "public/fonts/JetBrainsMono-Bold.ttf")
+    join(process.cwd(), "public/fonts/og/IBMPlexMono-Bold.ttf")
   );
 
   const PAPER = "#e9e3d3";
@@ -36,7 +36,7 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "70px 80px",
-          fontFamily: "JetBrains Mono",
+          fontFamily: "IBM Plex Mono",
           color: INK,
         }}
       >
@@ -106,7 +106,7 @@ export default async function Image() {
     {
       ...size,
       fonts: [
-        { name: "JetBrains Mono", data: mono, weight: 700, style: "normal" },
+        { name: "IBM Plex Mono", data: mono, weight: 700, style: "normal" },
       ],
     }
   );

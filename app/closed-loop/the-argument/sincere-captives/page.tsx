@@ -8,7 +8,7 @@ import { JsonLd, articleJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 const piece = getPieceBySlug("sincere-captives")!;
 const { prev, next } = getNeighbors("sincere-captives");
 const PATH = "/closed-loop/the-argument/sincere-captives";
-const DESCRIPTION = 'The LinkedIn fanatic and the post-cynical professional. The structural threshold where the platform-grammar replaces older affect-grammars; the figure for whom Mode C is structurally foreclosed at the limit.';
+const DESCRIPTION = "The LinkedIn fanatic and the post-cynical professional: what happens when the platform's grammar replaces the older grammar of feeling, and the figure for whom refusal has no ground left to stand on.";
 
 export const metadata: Metadata = {
   title: piece.title,

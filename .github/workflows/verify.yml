@@ -37,3 +37,6 @@ jobs:
 
       - name: Walkthrough
         run: node scripts/verify/walkthrough.mjs
+
+      - name: Internal links
+        run: node scripts/verify/internal-links.mjs

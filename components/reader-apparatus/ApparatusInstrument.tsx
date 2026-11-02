@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { apparatus, registerFor } from "./engine";
@@ -48,13 +48,26 @@ export function ApparatusInstrument() {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
   const [now, setNow] = useState(0);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const wasOpen = useRef(false);
+
+  // Opening unmounts the trigger; closing unmounts the panel. Move focus with
+  // the control so keyboard readers are not dropped back onto the document.
+  useEffect(() => {
+    if (open) closeRef.current?.focus();
+    else if (wasOpen.current) triggerRef.current?.focus();
+    wasOpen.current = open;
+  }, [open]);
 
   useEffect(() => {
     setMounted(true);
     setNow(Date.now());
-    const id = setInterval(() => setNow(Date.now()), 1000);
+    // The expanded panel reports seconds; the collapsed chip reports at a
+    // coarser cadence so it does not tick in peripheral vision.
+    const id = setInterval(() => setNow(Date.now()), open ? 1000 : 15000);
     return () => clearInterval(id);
-  }, []);
+  }, [open]);
 
   useEffect(() => {
     if (!open) return;
@@ -65,7 +78,7 @@ export function ApparatusInstrument() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  if (!mounted || !snap.started) return null;
+  if (!mounted || !snap.started || pathname === "/") return null;
 
   const t = clock(now - snap.startedAt);
   const works = apparatus.worksEntered();
@@ -73,11 +86,11 @@ export function ApparatusInstrument() {
 
   const rule = mix(reg.accent, reg.bg, 32);
   const rowRule = mix(reg.accent, reg.bg, 24);
-  const muted = { color: reg.ink, opacity: 0.68 } as const;
+  const muted = { color: reg.ink, opacity: 0.74 } as const;
 
   return (
     <div
-      className="print-hide"
+      className="apparatus-instrument print-hide"
       style={{
         position: "fixed",
         left: cornerRight ? "auto" : "0.9rem",
@@ -111,7 +124,7 @@ export function ApparatusInstrument() {
             <p
               style={{
                 margin: 0,
-                fontSize: "0.7rem",
+                fontSize: "0.8125rem",
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 ...muted,
@@ -120,6 +133,7 @@ export function ApparatusInstrument() {
               reader&rsquo;s apparatus
             </p>
             <button
+              ref={closeRef}
               type="button"
               aria-label="close"
               onClick={() => setOpen(false)}
@@ -157,7 +171,7 @@ export function ApparatusInstrument() {
                 >
                   <span
                     style={{
-                      fontSize: "0.72rem",
+                      fontSize: "0.8125rem",
                       letterSpacing: "0.12em",
                       textTransform: "uppercase",
                       ...muted,
@@ -167,7 +181,7 @@ export function ApparatusInstrument() {
                   </span>
                   <span
                     style={{
-                      fontSize: "0.82rem",
+                      fontSize: "0.8125rem",
                       color: reg.ink,
                       fontVariantNumeric: "tabular-nums",
                     }}
@@ -188,7 +202,7 @@ export function ApparatusInstrument() {
                 <p
                   style={{
                     margin: "0.15rem 0 0",
-                    fontSize: "0.7rem",
+                    fontSize: "0.8125rem",
                     lineHeight: 1.5,
                     ...muted,
                   }}
@@ -199,7 +213,7 @@ export function ApparatusInstrument() {
                   <p
                     style={{
                       margin: "0.2rem 0 0",
-                      fontSize: "0.7rem",
+                      fontSize: "0.8125rem",
                       color: reg.accent,
                     }}
                   >
@@ -226,7 +240,7 @@ export function ApparatusInstrument() {
             cannot be measured from inside the loop.
           </p>
 
-          <p style={{ margin: "0.7rem 0 0", fontSize: "0.75rem" }}>
+          <p style={{ margin: "0.7rem 0 0", fontSize: "0.8125rem" }}>
             <Link href="/reader" style={{ color: reg.accent }}>
               file the offprint →
             </Link>
@@ -234,9 +248,10 @@ export function ApparatusInstrument() {
         </section>
       ) : (
         <button
+          ref={triggerRef}
           type="button"
           aria-expanded={open}
-          aria-controls="apparatus-panel"
+          aria-label={`reader's apparatus — session time ${t}; ${snap.pauses} pauses; ${works} works`}
           onClick={() => setOpen(true)}
           style={{
             background: reg.bg,
@@ -245,17 +260,15 @@ export function ApparatusInstrument() {
             border: `1px solid ${rule}`,
             padding: "0.42rem 0.7rem",
             cursor: "pointer",
-            fontSize: "0.7rem",
+            fontSize: "0.8125rem",
             letterSpacing: "0.1em",
             lineHeight: 1.4,
           }}
         >
-          reader&rsquo;s apparatus · {t}
-          <span className="hidden sm:inline">
-            {" "}
-            · {snap.pauses} {snap.pauses === 1 ? "pause" : "pauses"} · {works}{" "}
-            {works === 1 ? "work" : "works"}
+          <span aria-hidden="true" style={{ color: reg.accent }}>
+            ◉
           </span>
+          <span className="hidden sm:inline"> {t}</span>
         </button>
       )}
     </div>

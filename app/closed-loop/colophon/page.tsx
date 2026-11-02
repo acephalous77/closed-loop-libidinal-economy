@@ -13,6 +13,7 @@ export default function ColophonPage() {
   return (
     <main className="min-h-screen">
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
+        <h1 className="sr-only">Colophon</h1>
         <div className="mb-lg">
           <Breadcrumb
             path={[

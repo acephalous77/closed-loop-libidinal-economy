@@ -6,9 +6,9 @@ import { PiecesArc } from "@/components/argument/PiecesArc";
 import { JsonLd, itemListJsonLd, breadcrumbJsonLd } from "@/lib/jsonld";
 
 const PATH = "/closed-loop/the-argument";
-const TITLE = "the argument";
+const TITLE = "the pieces — first version";
 const DESCRIPTION =
-  "Four prose pieces and a coda. The framework laid out in prose: what the loop forecloses, what democratic substrate it removes, the cohort it forms, the captive it produces — and the closing note on what this document is.";
+  "The first version of the argument: four prose pieces and a coda. What the loop forecloses, what democratic substrate it removes, the cohort it forms, the captive it produces — and the closing note on what this document is.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -32,14 +32,14 @@ export default function TheArgumentIndexPage() {
     <main className="min-h-screen">
       <JsonLd
         data={[
-          itemListJsonLd("The Argument — five pieces", PIECES.map((p) => ({
+          itemListJsonLd("The Pieces — first version", PIECES.map((p) => ({
             name: p.title,
             url: `/closed-loop/the-argument/${p.slug}`,
             description: p.teaser,
           }))),
           breadcrumbJsonLd([
             { label: "the closed-loop libidinal economy", href: "/" },
-            { label: "the argument", href: PATH },
+            { label: "the pieces", href: PATH },
           ]),
         ]}
       />
@@ -48,16 +48,16 @@ export default function TheArgumentIndexPage() {
           <Breadcrumb
             path={[
               { label: "the closed-loop libidinal economy", href: "/" },
-              { label: "the argument" },
+              { label: "the pieces" },
             ]}
           />
         </div>
 
         <article className="mx-auto max-w-[44rem]">
-          <h1 className="font-mono text-xl text-ink-90 mb-xl">the argument.</h1>
+          <h1 className="font-mono text-xl text-ink-90 mb-xl">the pieces.</h1>
 
           <p className="font-mono text-xs text-ink-50 mb-md">
-            four prose pieces · one coda · read in order
+            first version · four prose pieces · one coda · read in order
           </p>
 
           {/* Framing — the prose's own self-description, in epigraph register. */}

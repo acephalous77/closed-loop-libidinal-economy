@@ -38,7 +38,7 @@ const AUTHOR = {
   "@type": "Person",
   name: "Adnan Selimović",
   alternateName: "A. Selimović",
-  url: `${SITE_URL}/closed-loop/the-colophon`,
+  url: `${SITE_URL}/author`,
   ...(AUTHOR_SAME_AS.length ? { sameAs: AUTHOR_SAME_AS } : {}),
 };
 

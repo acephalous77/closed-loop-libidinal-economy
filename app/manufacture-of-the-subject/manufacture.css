@@ -356,7 +356,7 @@
   .spine{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:6000;
     display:flex;flex-direction:column;gap:1px;mix-blend-mode:difference;}
   .spine-i{display:flex;align-items:center;justify-content:flex-end;gap:9px;background:none;border:none;cursor:pointer;
-    padding:5px 0;color:#fff;opacity:.45;transition:opacity .2s;font-family:var(--f-mono);}
+    padding:5px 0;color:#fff;opacity:.55;transition:opacity .2s;font-family:var(--f-mono);}
   .spine-i:hover,.spine-i.on{opacity:1;}
   .spine-n{font-size:11px;letter-spacing:.08em;width:18px;text-align:right;}
   .spine-l{font-size:11px;letter-spacing:.13em;text-transform:uppercase;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;

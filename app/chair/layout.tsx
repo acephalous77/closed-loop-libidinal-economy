@@ -54,7 +54,6 @@ const anton = localFont({
 
 const plexMono = localFont({
   src: [
-    { path: "../_fonts/IBMPlexMono-300.woff2", weight: "300", style: "normal" },
     { path: "../_fonts/IBMPlexMono-400.woff2", weight: "400", style: "normal" },
     { path: "../_fonts/IBMPlexMono-500.woff2", weight: "500", style: "normal" },
     { path: "../_fonts/IBMPlexMono-600.woff2", weight: "600", style: "normal" },
@@ -67,7 +66,6 @@ const plexMono = localFont({
 
 const sourceSerif = localFont({
   src: [
-    { path: "../_fonts/SourceSerif4-normal.woff2", weight: "300 700", style: "normal" },
     { path: "../_fonts/SourceSerif4-italic.woff2", weight: "300 700", style: "italic" },
   ],
   variable: "--font-source-serif",
@@ -307,7 +305,7 @@ function ChairFoot() {
           textAlign: "center",
         }}
       >
-        Adnan Selimović · Brooklyn · MMXXVI
+        Adnan Selimović · Blacksburg · MMXXVI
       </div>
       <div
         style={{

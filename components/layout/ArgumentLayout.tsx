@@ -53,7 +53,7 @@ export function ArgumentLayout({
     <main className="min-h-screen">
       <div className="mx-auto max-w-[var(--container-page)] px-sm pt-md pb-2xl">
         {/* Breadcrumb */}
-        <div className="mb-lg">
+        <div className="mb-md">
           <Breadcrumb path={path} />
         </div>
 
@@ -72,7 +72,7 @@ export function ArgumentLayout({
           {/* Center: prose */}
           <article
             className={
-              "lg:col-span-6 lg:col-start-4 argument-prose" +
+              "lg:col-span-7 lg:col-start-4 argument-prose" +
               (selfNumbered ? " argument-prose--self-numbered" : "")
             }
           >
@@ -94,7 +94,7 @@ export function ArgumentLayout({
           </article>
 
           {/* Right margin: offprint rail */}
-          <aside className="hidden lg:block lg:col-span-3 lg:col-start-10">
+          <aside className="hidden lg:block lg:col-span-2 lg:col-start-11">
             <PrintButton />
           </aside>
         </div>
@@ -102,12 +102,12 @@ export function ArgumentLayout({
         {/* Footer slot (e.g. inter-essay navigation) */}
         {footer && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-sm">
-            <div className="lg:col-span-6 lg:col-start-4">{footer}</div>
+            <div className="lg:col-span-7 lg:col-start-4">{footer}</div>
           </div>
         )}
 
         {/* Signature */}
-        <div className="lg:col-span-6 lg:col-start-4 mt-2xl">
+        <div className="lg:col-span-7 lg:col-start-4 mt-2xl">
           <hr className="border-0 border-t border-paper-85 max-w-[var(--measure)] mx-auto" />
           <p className="font-serif italic text-sm text-ink-70 text-right max-w-[var(--measure)] mx-auto mt-sm">
             A. Selimović

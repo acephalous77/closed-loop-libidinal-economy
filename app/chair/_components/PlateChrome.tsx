@@ -56,14 +56,15 @@ export function PlateHeader({
           JS needed; the disclosure widget is keyboard-accessible. */}
       <details className="plate-mobile" style={{ display: "none" }}>
         <summary
-          aria-label="Open menu"
+          aria-label={`On the Chair — open route menu (plate ${plate})`}
           style={{
             listStyle: "none", cursor: "pointer",
             display: "flex", justifyContent: "space-between", alignItems: "center",
+            minHeight: 44, boxSizing: "border-box",
             padding: "12px 16px",
             background: tokens.paper,
             borderBottom: `0.75px solid ${tokens.rule}`,
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+            fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
             textTransform: "uppercase", color: tokens.ink,
           }}
         >
@@ -104,7 +105,7 @@ export function PlateHeader({
           {NAV_GROUPS.map((group) => (
             <div key={group.label} style={{ marginBottom: 18 }}>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.24em",
+                fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.24em",
                 color: tokens.accent, textTransform: "uppercase",
                 fontWeight: 700, marginBottom: 8,
                 paddingBottom: 6, borderBottom: `0.5px solid ${tokens.rule}`,
@@ -140,7 +141,7 @@ export function PlateHeader({
         <div style={{
           display: "flex", justifyContent: "space-between", alignItems: "center",
           padding: "14px 24px", borderBottom: `0.75px solid ${tokens.rule}`,
-          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
           textTransform: "uppercase", color: tokens.inkMute,
           gap: 14, flexWrap: "wrap",
         }}>
@@ -171,7 +172,7 @@ export function PlateHeader({
             gap: "0.9rem", flexWrap: "wrap",
             padding: "10px 24px",
             borderBottom: `0.75px solid ${tokens.rule}`,
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+            fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
             textTransform: "uppercase", color: tokens.inkMute,
           }}
         >
@@ -243,7 +244,7 @@ export function PlateFooter({
     <div className="plate-foot" style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
       padding: "14px 24px", borderTop: `0.75px solid ${tokens.rule}`,
-      fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+      fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
       textTransform: "uppercase", color: tokens.inkMute,
       gap: 12, flexWrap: "wrap",
     }}>
@@ -320,7 +321,7 @@ export function SectionMark({ n, title, tokens = MASTER }: SectionMarkProps) {
       }}
     >
       <span style={{
-        fontFamily: FONT.mono, fontSize: 11, color: tokens.accent,
+        fontFamily: FONT.mono, fontSize: 12.5, color: tokens.accent,
         fontWeight: 600, letterSpacing: "0.22em", textTransform: "uppercase",
       }}>§ {n}</span>
       <span style={{
@@ -354,7 +355,7 @@ export function Marginalia({
     [isLeft ? "right" : "left"]: "calc(100% + 18px)",
     width: 150,
     fontFamily: FONT.mono,
-    fontSize: 11,
+    fontSize: 12.5,
     lineHeight: 1.5,
     letterSpacing: "0.04em",
     textTransform: "uppercase",

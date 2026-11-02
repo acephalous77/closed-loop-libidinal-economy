@@ -2,35 +2,35 @@
 name: autostimulus
 description: The atelier of A. Selimović — one press, seven registers.
 colors:
-  ink: "#1a1612"
-  ink-90: "#2b2520"
-  ink-70: "#5a514a"
-  ink-50: "#6f665b"
-  paper: "#f4ede0"
-  paper-95: "#ebe3d3"
-  paper-85: "#ddd2bd"
-  oxblood: "#7a1f1f"
-  oxblood-dark: "#5e1818"
-  fog: "#b8aea0"
+  ink: "#191b1e"
+  ink-90: "#24272b"
+  ink-70: "#4b5258"
+  ink-50: "#5c646b"
+  paper: "#f1f2ef"
+  paper-95: "#e8eae4"
+  paper-85: "#d4d8d1"
+  oxblood: "#174a77"
+  oxblood-dark: "#10365a"
+  fog: "#a9adb0"
   slate: "#3c4a52"
   moss: "#5a6b3c"
-  formal-bg: "#ede6d7"
+  formal-bg: "#e7eae5"
 typography:
   display:
-    fontFamily: "EB Garamond, Georgia, serif"
+    fontFamily: "Source Serif 4, Georgia, serif"
     fontWeight: 500
-    lineHeight: 1
-    letterSpacing: "-0.02em"
+    lineHeight: 0.95
+    letterSpacing: "-0.03em"
   body:
-    fontFamily: "EB Garamond, Georgia, serif"
+    fontFamily: "Source Serif 4, Georgia, serif"
     fontWeight: 400
-    fontSize: "1.125rem"
-    lineHeight: 1.55
+    fontSize: "1.25rem"
+    lineHeight: 1.58
   label:
-    fontFamily: "JetBrains Mono, ui-monospace, Menlo, monospace"
+    fontFamily: "IBM Plex Mono, ui-monospace, Menlo, monospace"
     fontWeight: 400
-    fontSize: "0.781rem"
-    letterSpacing: "0.2em"
+    fontSize: "0.8125rem"
+    letterSpacing: "0.1em"
 spacing:
   xs: "0.75rem"
   sm: "1.5rem"
@@ -58,14 +58,15 @@ components:
 **Creative North Star: "The Atelier of Registers"**
 
 One press, seven registers. autostimulus is built like a small print shop: a
-shared substrate of cream paper, warm off-black ink, and one oxblood accent —
+shared substrate of porcelain paper, graphite ink, and one prussian accent —
 and then each work pulls from its own drawer of papers, inks and faces, and
 speaks in it without apology. The shell is austere because the works are not:
-the atelier index is a xerox flyer, the framework is an academic octavo, the
+the atelier index is a press prospectus, the framework is an academic octavo, the
 agency manual is a federal form, the coloring book is a riso pamphlet, the
 chair is a clinical brochure and a protest zine in the same envelope.
-The frontpage is the press's console: a graphite channel register, one row
-per work, session-aware — the machine's own face.
+The frontpage is the press's prospectus: a graphite masthead, a paper field,
+one featured work, and the seven-work shelf. The console survives as the
+session-aware shelf, not as the whole first screen.
 
 The system's discipline is in what it refuses: no third-party requests, no
 analytics, no tracking, no engagement loops, no SaaS-aesthetic chrome. Every
@@ -75,15 +76,15 @@ print — are themed as part of the design, not left at defaults.
 
 **Key Characteristics:**
 
-- One shell palette (cream/ink/oxblood) + per-work register token files as the
+- One shell palette (porcelain/graphite/prussian) + per-work register token files as the
   only sanctioned overrides.
-- Two faces carry the whole house: EB Garamond (the lived) and JetBrains Mono
+- Two faces carry the whole house: Source Serif 4 (the lived) and IBM Plex Mono
   (the rendered). Works may add their own; the shell never uses a system face
   for display.
 - Structural device: the hairline rule. Squares, rules, registers — no rounded
   SaaS chrome anywhere in the shell.
-- Legibility is a floor, not a style choice: functional text ≥ 11px, body
-  contrast ≥ 4.5:1 in every register, light or dark.
+- Legibility is a floor, not a style choice: shell functional text ≥ 13px,
+  work stamps ≥ 11px, body contrast ≥ 4.5:1 in every register, light or dark.
 - **The machine layer** (2026-10-10, his lock): the atelier carries the
   Observing Machine — press sheets, plate marks, the door, and the
   reader's apparatus — the site as a declared instance of the loop it
@@ -135,40 +136,41 @@ its faint tiers, ohcose darkened ink-50 to #6f6a60 for panel tones).
 
 ## Typography
 
-**Display Font:** EB Garamond (with Georgia, serif) — self-hosted; Regular +
-Italic preload, 500/700 load on first use.
-**Body Font:** EB Garamond.
-**Label/Mono Font:** JetBrains Mono (with ui-monospace, Menlo) — the
+**Display Font:** Source Serif 4 (with Georgia, serif) — self-hosted variable
+face; Regular + Italic preload.
+**Body Font:** Source Serif 4 at 1.25rem.
+**Label/Mono Font:** IBM Plex Mono (with ui-monospace, Menlo) — the
 apparatus/measurement voice; self-hosted, Regular preload.
 **Math Font:** Garamond Math — never preloaded; loads only where KaTeX runs.
 
-**Character:** Garamond for everything the reader lives in; mono for
+**Character:** Source Serif 4 for everything the reader lives in; mono for
 everything the machine says — numbers, codes, form fields, registers. Works
 add display faces in their own registers (Anton for the zine/brochure
 posters, Manrope for the clinical chrome) but the shell holds the two.
 
 ### Hierarchy
 
-- **Display** (500, italic as the register allows; clamps run 2rem to
-  4.7rem; works' poster registers extend to 11.25rem): work covers and
+- **Display** (500, italic as the register allows; clamps run 3.25rem to
+  7rem; works' poster registers extend to 11.25rem): work covers and
   mastheads.
-- **Headline** (500, 1.94–2.81rem, lh 1.1–1.2): page titles.
-- **Title** (500–700, 1.35–1.85rem, lh 1.35): section heads, serif.
-- **Body** (400, 1.125rem, lh 1.55; measure 32rem ≈ 65–75ch): prose.
-- **Meta** (400–500, 0.7–1.08rem): chrome metadata — table headers,
+- **Headline** (500, 2.125–3rem, lh 1.05–1.15): page titles.
+- **Title** (500–700, 1.5–1.75rem, lh 1.2–1.35): section heads, serif.
+- **Body** (400, 1.25rem, lh 1.58; measure 36rem ≈ 65–75ch): prose.
+- **Meta** (400–500, 0.8125–1.125rem): chrome metadata — table headers,
   captions, chips, console readouts; sentence case in serif or mono.
-- **Label** (400–700, 0.7rem floor, letter-spacing 0.13–0.25em,
+- **Label** (400–700, 0.8125rem floor, letter-spacing 0.08–0.16em,
   uppercase): nav, registers, footnotes, form fields.
 
 Works that measure in pixels (chair zine chrome, plate captions,
 readouts) carry the same tiers as px hardware values from 11px up; the
-11px and up px values are the same tiers, not a parallel system.
+11px and up px values are the same tiers, not a parallel system. Work
+stamps stay at 11–12.5px; shell reading text does not.
 
 ### Named Rules
 
-**The Floor Rule.** Functional text never falls below 11px (0.7rem);
-body prose runs 1.125rem. Audit-tested: the house's micro-labels are the
-place this drifts.
+**The Floor Rule.** Shell functional text never falls below 13px; work
+stamps never below 11px; body prose runs 1.25rem. Audit-tested: the
+house's micro-labels are the place this drifts.
 
 **The Two Voices Rule.** Serif is the lived, mono is the rendered. A string
 speaks in mono when a machine filed it — codes, counts, keys, registers —
@@ -176,8 +178,8 @@ and in serif when a person did.
 
 ## Layout
 
-A 1280px page container with two standing measures: 38rem (container-prose)
-for centered prose, 32rem (measure) for the tightest column. The spacing
+A 1280px page container with two standing measures: 42rem (container-prose)
+for centered prose, 36rem (measure) for the tightest column. The spacing
 rhythm is 24px-based: 0.75 / 1.5 / 3 / 6 / 9 / 15rem. Works set their own
 breakpoints but the observed practice is 640 / 700 / 1100 / 1300px — the
 latter two for the flyer's three-column sheet and the essay's margin-note
@@ -252,7 +254,7 @@ inside the register; the shell itself stays square.
 - **Style:** each work's tiny cover composed from its own register tokens
   (`lib/works.ts` `cover`: ground, ink, accent): year · riso mark · italic
   title · register kind. 64×84 in the shelf; 56×76 in the console's sheet
-  column (the frontpage, rebuilt 2026-10-10 as the press's channel
+  column (the shelf, rebuilt 2026-11-01 as the press's prospectus
   register on a graphite ground).
 
 ### Plate mark (signature, the machine layer)
@@ -292,7 +294,7 @@ inside the register; the shell itself stays square.
 
 - **Do** keep each work's token file as its single color source; override
   in the register, never in the shell.
-- **Do** hold the Floor Rule (11px functional, 1.125rem body) and the AA
+- **Do** hold the Floor Rule (13px functional, 1.25rem body) and the AA
   Floor Rule on every register's own paper, light and dark.
 - **Do** draw structure with rules and registers before reaching for cards,
   shadows or radii.

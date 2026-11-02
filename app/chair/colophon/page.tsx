@@ -51,7 +51,7 @@ export default function ColophonPage() {
           <div>
             <ColHead>Production</ColHead>
             <ColLine k="Author">Adnan Selimović</ColLine>
-            <ColLine k="Place">Brooklyn, NY</ColLine>
+            <ColLine k="Place">Blacksburg, Virginia</ColLine>
             <ColLine k="Period">2024 — 2026</ColLine>
             <ColLine k="Words">≈ 14 200 across 11 surfaces</ColLine>
             <ColLine k="Plates">42, this volume</ColLine>

@@ -21,9 +21,9 @@ import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 const PATH = "/closed-loop/v2-argument";
 
 export const metadata: Metadata = {
-  title: "the argument — closed-loop",
+  title: "the argument",
   description:
-    "The prose entry point to the closed-loop libidinal economy framework. Eight load-bearing moves cross-linking to the formal apparatus.",
+    "The argument in prose: eight moves through the closed loop, from the architecture to the recursive limit, each linked to the formal result behind it.",
   alternates: { canonical: PATH },
   other: {
     "citation_title": "The Closed-Loop Libidinal Economy (v2)",

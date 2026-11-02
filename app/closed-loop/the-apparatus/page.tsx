@@ -13,7 +13,7 @@ import { CitationBlock } from "@/components/closed-loop/CitationBlock";
 const PATH = "/closed-loop/the-apparatus";
 
 export const metadata: Metadata = {
-  title: "the apparatus — closed-loop",
+  title: "the apparatus",
   description:
     "The formal apparatus. 13 sections, 15 formal results, 6 measurable instruments, 3 intervention modes. The companion to the framework's prose.",
   alternates: { canonical: PATH },

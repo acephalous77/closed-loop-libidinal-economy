@@ -24,6 +24,7 @@ const ARTIFACTS = "_artifacts/walkthrough";
 
 const ROUTES = [
   "/",
+  "/author",
   "/colophon",
   "/closed-loop",
   "/closed-loop/v2-argument",

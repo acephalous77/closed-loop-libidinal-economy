@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore, type CSSProperties } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { WORKS } from "@/lib/works";
 import { WorkCover } from "@/components/navigation/WorkCover";
@@ -29,6 +30,8 @@ export function WorksDoor({
   const [open, setOpen] = useState(false);
   const openerRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
+  const scrimRef = useRef<HTMLDivElement>(null);
+  const wasOpen = useRef(false);
   const snap = useSyncExternalStore(
     apparatus.subscribe,
     apparatus.getSnapshot,
@@ -41,18 +44,68 @@ export function WorksDoor({
 
   useEffect(() => {
     if (!open) return;
+
+    const scrim = scrimRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    // The dialog is portalled to <body>, so every other body child can be
+    // made inert while it is open. This removes the background from the
+    // tab order and from the accessibility tree, not just visually.
+    const siblings = Array.from(document.body.children).filter(
+      (el): el is HTMLElement => el instanceof HTMLElement && el !== scrim
+    );
+    const previousInert = siblings.map((el) => el.inert);
+    siblings.forEach((el) => {
+      el.inert = true;
+    });
+
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpen(false);
+      if (e.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+      if (e.key !== "Tab" || !scrim) return;
+
+      const focusables = Array.from(
+        scrim.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      ).filter((el) => el.getClientRects().length > 0);
+
+      if (focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     };
-    window.addEventListener("keydown", onKey);
+
+    document.addEventListener("keydown", onKey);
     closeRef.current?.focus();
-    return () => window.removeEventListener("keydown", onKey);
+
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = previousOverflow;
+      siblings.forEach((el, i) => {
+        el.inert = previousInert[i];
+      });
+    };
   }, [open]);
 
-  const close = () => {
-    setOpen(false);
-    openerRef.current?.focus();
-  };
+  useEffect(() => {
+    if (!open && wasOpen.current) {
+      openerRef.current?.focus();
+    }
+    wasOpen.current = open;
+  }, [open]);
+
+  const close = () => setOpen(false);
 
   return (
     <span style={{ display: "inline" }}>
@@ -86,8 +139,9 @@ export function WorksDoor({
         the seven works
       </button>
 
-      {open && (
+      {open && typeof document !== "undefined" && createPortal(
         <div
+          ref={scrimRef}
           className="worksdoor-scrim"
           onClick={close}
           style={{
@@ -133,7 +187,7 @@ export function WorksDoor({
               <p
                 style={{
                   fontFamily: MONO,
-                  fontSize: "0.78rem",
+                  fontSize: "0.8125rem",
                   letterSpacing: "0.24em",
                   textTransform: "uppercase",
                   color: "#4b5258",
@@ -201,7 +255,7 @@ export function WorksDoor({
                           marginLeft: "auto",
                           flexShrink: 0,
                           fontFamily: MONO,
-                          fontSize: "0.7rem",
+                          fontSize: "0.8125rem",
                           letterSpacing: "0.14em",
                           textTransform: "uppercase",
                           color: "#174a77",
@@ -215,7 +269,8 @@ export function WorksDoor({
               ))}
             </ol>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </span>
   );

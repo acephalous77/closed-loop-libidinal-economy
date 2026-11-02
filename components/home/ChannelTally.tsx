@@ -20,14 +20,20 @@ export function ChannelTally({ href }: { href: string }) {
       style={{
         fontFamily:
           'var(--font-jetbrains-mono), ui-monospace, "SF Mono", Menlo, monospace',
-        fontSize: "0.72rem",
-        letterSpacing: "0.1em",
+        fontSize: "0.8125rem",
+        letterSpacing: "0.06em",
         fontVariantNumeric: "tabular-nums",
-        color: count > 0 ? "#6ea6d4" : "#8b9296",
-        opacity: count > 0 ? 1 : 0.7,
+        color: count > 0 ? "var(--color-oxblood)" : "var(--color-ink-50)",
       }}
     >
-      {count > 0 ? `×${count}` : "—"}
+      {count > 0 ? (
+        `entered ×${count}`
+      ) : (
+        <>
+          <span aria-hidden="true" className="hidden sm:inline">—</span>
+          <span className="sr-only">not entered in this tab</span>
+        </>
+      )}
     </span>
   );
 }

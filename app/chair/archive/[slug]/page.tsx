@@ -183,6 +183,24 @@ const BODIES: Record<string, EntryBody> = {
       ["2197.29", "Sensor stack"],
     ],
   },
+
+  "successor-systems": {
+    classification: "Successor systems · post-apparatus trajectory",
+    status:         "Projected c. 2061–2094; partially realized",
+    compiler:       "Devereux, F.; Tan, Y.",
+    body: [
+      "The chair was not the apparatus's final form. It was the form in which the apparatus became visible as furniture: a ring, a seat, a set of ports, a room. The archive's successor-systems entry follows the same operation after it left the room.",
+      "The first successor was the wearable. Between the 2020s and the 2030s the sensor stack migrated from the chair's ring to the wrist, the ear, the eye, and the skin. The device no longer required a station. It required a body in motion. The brochure's line about the absence of a documented stand position reads, in retrospect, as the precise point of transfer: the furniture had enforced stillness, and the wearable converted the whole day into a fitting.",
+      "The second successor was the implant. By the 2040s the loop had moved inside the envelope of the skin, where the distinction between medical device and consumer apparatus was maintained only by the paperwork. The archive's own periodization is coarse here; the surviving records are manufacturer filings and reimbursement schedules, not design history. What they show is continuity of operation: activity externalized, returned as administrable state, and made available for adjustment.",
+      "The third successor is the cortical interface. The archive marks it as projection rather than record. In the projected form the apparatus disappears into the subject's own predictive machinery; the loop becomes a protocol rather than an object, and the question of whether one is wearing it becomes undecidable. The trajectory is consistent with the chair, which is why the archive keeps it: the apparatus was never the furniture.",
+    ],
+    crossRefs: [
+      ["2197.04", "Ouroboros Ring"],
+      ["2197.14", "Proto-apparatuses"],
+      ["2197.18", "Lineage claim"],
+      ["2197.33", "Cohort-2049 cataloging"],
+    ],
+  },
 };
 
 interface PageProps { params: Promise<{ slug: string }>; }

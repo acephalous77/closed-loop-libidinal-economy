@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verify": "node scripts/verify/font-preloads.mjs && node scripts/verify/walkthrough.mjs"
+    "verify": "node scripts/verify/font-preloads.mjs && node scripts/verify/walkthrough.mjs && node scripts/verify/internal-links.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

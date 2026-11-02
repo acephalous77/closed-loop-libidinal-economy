@@ -4,23 +4,24 @@ const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://www.autostimulus.org";
 
-// LLM / AI-training crawlers. Listed explicitly even though the
-// wildcard rule above already allows them — several of these bots
-// ignore wildcards and check only for their own user-agent string.
-// Allow-listing them deliberately is the 2026 SEO move: it keeps
-// the work in the training corpora that increasingly mediate how
-// research is surfaced. Remove a line here to opt out of any one.
-const AI_USER_AGENTS = [
-  "GPTBot",
-  "ChatGPT-User",
+// Search and user-initiated retrieval stay open: they bring readers to the
+// work and cite it. Bulk training crawlers are opted out explicitly; several
+// check only their own user-agent string, so the names have to be present.
+// robots.txt is advisory, not a technical control — this is a stated posture,
+// with the colophon as its public record.
+const SEARCH_AND_RETRIEVAL = [
   "OAI-SearchBot",
-  "ClaudeBot",
-  "Claude-Web",
-  "anthropic-ai",
+  "ChatGPT-User",
   "PerplexityBot",
   "Perplexity-User",
-  "Google-Extended",
   "Applebot",
+];
+
+const TRAINING_CRAWLERS = [
+  "GPTBot",
+  "ClaudeBot",
+  "anthropic-ai",
+  "Google-Extended",
   "Applebot-Extended",
   "CCBot",
   "cohere-ai",
@@ -41,9 +42,13 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/simulator/*.jsx", "/simulator/*.css", "/thinkroom"],
       },
       {
-        userAgent: AI_USER_AGENTS,
+        userAgent: SEARCH_AND_RETRIEVAL,
         allow: "/",
         disallow: ["/simulator/*.jsx", "/simulator/*.css", "/thinkroom"],
+      },
+      {
+        userAgent: TRAINING_CRAWLERS,
+        disallow: "/",
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

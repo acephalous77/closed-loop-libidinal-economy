@@ -34,7 +34,7 @@ const SERIF =
 
 const LABEL: CSSProperties = {
   margin: 0,
-  fontSize: "0.7rem",
+  fontSize: "0.8125rem",
   textTransform: "uppercase",
   letterSpacing: "0.2em",
   color: FAINT,
@@ -42,7 +42,7 @@ const LABEL: CSSProperties = {
 
 const BODY: CSSProperties = {
   fontFamily: SERIF,
-  fontSize: "1rem",
+  fontSize: "1.125rem",
   lineHeight: 1.5,
   color: DIM,
   maxWidth: "44rem",
@@ -104,7 +104,7 @@ export default function Colophon() {
                 style={{
                   margin: 0,
                   fontFamily: MONO,
-                  fontSize: "0.7rem",
+                  fontSize: "0.8125rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.16em",
                   color: FAINT,
@@ -148,7 +148,7 @@ export default function Colophon() {
               className="m-0"
               style={{
                 fontFamily: SERIF,
-                fontSize: "1.08rem",
+                fontSize: "1.25rem",
                 lineHeight: 1.65,
                 color: TEXT,
                 opacity: 0.92,
@@ -165,9 +165,8 @@ export default function Colophon() {
           {/* ============ SERIES · the numbered register ============ */}
           <Block label="Series">
             <p className="m-0 pb-sm" style={BODY}>
-              the seven works are the founding registers, numbered. companion
-              registers from the notes lane follow, numbered in turn — the
-              series is in progress.
+              the seven works are the founding registers, numbered. further
+              registers follow, numbered in turn. the series is in progress.
             </p>
             <ol
               className="m-0 list-none p-0"
@@ -185,7 +184,7 @@ export default function Colophon() {
                         <span
                           style={{
                             fontFamily: MONO,
-                            fontSize: "0.72rem",
+                            fontSize: "0.8125rem",
                             color: FAINT,
                             fontVariantNumeric: "tabular-nums",
                             whiteSpace: "nowrap",
@@ -197,7 +196,7 @@ export default function Colophon() {
                           style={{
                             fontFamily: SERIF,
                             fontStyle: "italic",
-                            fontSize: "1.06rem",
+                            fontSize: "1.35rem",
                             color: TEXT,
                           }}
                         >
@@ -207,7 +206,7 @@ export default function Colophon() {
                       <span
                         style={{
                           fontFamily: MONO,
-                          fontSize: "0.7rem",
+                          fontSize: "0.8125rem",
                           letterSpacing: "0.08em",
                           color: FAINT,
                           fontVariantNumeric: "tabular-nums",
@@ -230,7 +229,7 @@ export default function Colophon() {
                 <li key={line} className="flex items-baseline gap-sm">
                   <span
                     aria-hidden="true"
-                    style={{ fontFamily: MONO, fontSize: "0.8rem", color: ACCENT }}
+                    style={{ fontFamily: MONO, fontSize: "0.9rem", color: ACCENT }}
                   >
                     ·
                   </span>
@@ -275,7 +274,7 @@ export default function Colophon() {
               className="m-0"
               style={{
                 fontFamily: MONO,
-                fontSize: "0.72rem",
+                fontSize: "0.8125rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.14em",
                 color: FAINT,

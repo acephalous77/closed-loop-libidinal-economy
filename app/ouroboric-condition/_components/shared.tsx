@@ -13,9 +13,9 @@
 // MONO  = the rendered (the profile, the metric, capture).
 //
 // Font families resolve through the --atlas-serif / --atlas-mono CSS
-// variables set on the route layout wrapper (EB Garamond hand-rolled,
-// IBM Plex Mono vendored — both self-hosted, no build- or runtime-CDN
-// request).
+// variables set on the route layout wrapper (Source Serif 4 through the
+// shell alias, IBM Plex Mono vendored — both self-hosted, no build- or
+// runtime-CDN request).
 
 import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";

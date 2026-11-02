@@ -10,8 +10,8 @@ import { JsonLd } from "@/lib/jsonld";
  * and sodium "Apparatus" dark — performed inside the work), so this layout
  * adds no site chrome or footer; the atelier back-link lives in the atlas's
  * own top bar. It supplies the two typefaces the work depends on as CSS
- * variables: EB Garamond (the lived) and IBM Plex Mono (the rendered), both
- * self-hosted by next/font at build (no runtime font CDN request).
+ * variables: Source Serif 4 (the lived, through the shell alias) and IBM Plex
+ * Mono (the rendered), both self-hosted at build (no runtime font CDN request).
  */
 
 const plexMono = localFont({
@@ -72,13 +72,12 @@ export const metadata: Metadata = {
   },
 };
 
-// The atlas provides its own pinch/drag zoom; disable the browser's page-zoom
-// on this route so the two don't fight (faithful to the prototype's intent).
+// The atlas provides its own pinch/drag zoom. Browser page-zoom stays
+// available: the work's gesture layer is additive, and disabling zoom would
+// take a basic accessibility control away from the reader.
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
   viewportFit: "cover",
 };
 
@@ -114,7 +113,7 @@ export default function OuroboricConditionLayout({
               "@type": "Person",
               name: "Adnan Selimović",
               alternateName: "A. Selimović",
-              url: `${SITE_URL}/closed-loop/the-colophon`,
+              url: `${SITE_URL}/author`,
             },
             publisher: {
               "@type": "Organization",

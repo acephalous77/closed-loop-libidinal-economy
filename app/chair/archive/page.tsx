@@ -53,6 +53,10 @@ export const ENTRIES = [
     title: "Cohort 2049 Cataloging Operation",
     summary: "The state action by which the surviving devices were defaced and sealed.",
     topic: "Regulation" },
+  { num: "48", slug: "successor-systems", code: "2197.48",
+    title: "Successor Systems · From Furniture to Implant",
+    summary: "The post-apparatus trajectory: wearables, implants, and the cortical horizon.",
+    topic: "Lineage" },
 ] as const;
 
 export default function ArchiveIndex() {

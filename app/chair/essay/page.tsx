@@ -488,7 +488,7 @@ function Fn({ n }: { n: string }) {
         }}>[{n}]</a>
       </sup>
       {note && (
-        <span aria-hidden className="chair-sidenote">
+        <span aria-hidden inert className="chair-sidenote">
           <span style={{
             fontFamily: FONT.mono, fontSize: "0.72em", color: T.accent,
             fontWeight: 600, marginRight: "0.35em",
@@ -630,7 +630,7 @@ function Signature() {
     }}>
       <span style={{ color: T.ink }}>Adnan Selimović</span>
       <span aria-hidden style={{ opacity: 0.4 }}>·</span>
-      <span>Brooklyn, May 2026</span>
+      <span>Blacksburg, May 2026</span>
       <span aria-hidden style={{ opacity: 0.4 }}>·</span>
       <span>Volume Ω.026</span>
     </div>

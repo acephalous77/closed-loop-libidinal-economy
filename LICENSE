@@ -10,7 +10,8 @@ TEXTUAL CONTENT — Creative Commons Attribution-ShareAlike 4.0 International
 The textual content of this site — the prose argument, the mathematical
 exposition, the explanations accompanying the visualizations, and all other
 written material in `/content` — is licensed under the Creative Commons
-Attribution-ShareAlike 4.0 International License.
+Attribution-ShareAlike 4.0 International License, with one project exception
+stated below.
 
 You are free to:
 
@@ -27,6 +28,20 @@ Under the following terms:
     original.
 
 Full license: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+================================================================================
+PROJECT EXCEPTION — Patriotic Times
+================================================================================
+
+The text of *Patriotic Times: A Coloring Book* is licensed under the Creative
+Commons Attribution-NonCommercial-ShareAlike 4.0 International License
+(CC BY-NC-SA 4.0), not CC BY-SA 4.0.
+
+The plates of *Patriotic Times* are all rights reserved by the author.
+Reproduction for educational or exhibition use is permitted with attribution.
+Commercial reproduction requires written consent.
+
+Full license for the text: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 
 ================================================================================
 CODE — The MIT License
@@ -60,12 +75,17 @@ THE SOFTWARE.
 TYPOGRAPHY
 ================================================================================
 
-The fonts in `/public/fonts` are not covered by either license above:
+The fonts in `/public/fonts` and `/app/_fonts` are not covered by either
+license above:
 
+  - Source Serif 4 (Adobe, 2021) — SIL Open Font License 1.1
+  - IBM Plex Mono (IBM, 2017) — SIL Open Font License 1.1
   - EB Garamond (Octavio Pardo, after Claude Garamond, 1561) —
     SIL Open Font License 1.1
   - JetBrains Mono (JetBrains, 2020) — SIL Open Font License 1.1
   - Garamond Math (Yuansheng Zhao) — SIL Open Font License 1.1
+  - Spectral, Manrope, Anton, Newsreader, Space Grotesk, Space Mono,
+    Caveat, Permanent Marker — SIL Open Font License 1.1
 
-All three are open-source under the SIL OFL. Use, modification, and
-redistribution under the terms of that license.
+All are open-source under the SIL OFL. Use, modification, and redistribution
+under the terms of that license.

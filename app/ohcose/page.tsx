@@ -118,7 +118,7 @@ export default function OhcosePortal() {
             borderTop: "2px solid var(--color-oxblood)",
             borderBottom: "1px solid var(--color-ink)",
             padding: "0.55rem 0.25rem",
-            fontSize: "0.7rem",
+            fontSize: "0.8125rem",
             letterSpacing: "0.2em",
             color: "var(--color-ink-70)",
           }}
@@ -186,7 +186,7 @@ export default function OhcosePortal() {
                     className="block group-hover:underline"
                     style={{
                       color: "var(--color-ink-90)",
-                      fontSize: "1.05rem",
+                      fontSize: "1.125rem",
                       fontWeight: 600,
                     }}
                   >

@@ -38,6 +38,7 @@ export function WorkCover({
         flexShrink: 0,
         lineHeight: 1.1,
         textAlign: "center",
+        overflow: "hidden",
       }}
     >
       <span
@@ -46,8 +47,9 @@ export function WorkCover({
           justifyContent: "space-between",
           width: "100%",
           fontFamily: MONO,
-          fontSize: 9,
-          letterSpacing: "0.12em",
+          fontSize: Math.max(9, Math.round(h * 0.095)),
+          letterSpacing: work.year.length > 6 ? "0.05em" : "0.12em",
+          whiteSpace: "nowrap",
           textTransform: "uppercase",
           color: ink,
           opacity: 0.72,
@@ -67,23 +69,24 @@ export function WorkCover({
             display: "block",
             fontFamily: SERIF,
             fontStyle: "italic",
-            fontSize: 10.5,
+            fontSize: Math.max(10, Math.round(h * 0.105)),
             lineHeight: 1.2,
+            textWrap: "balance",
           }}
         >
-          {work.title}
+          {work.short}
         </span>
         <span
           style={{
             display: "block",
             marginTop: "0.3rem",
             fontFamily: MONO,
-            fontSize: 7.5,
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: accent,
-          }}
-        >
+            fontSize: Math.max(7.5, Math.round(h * 0.08)),
+          letterSpacing: "0.12em",
+          textTransform: "uppercase",
+          color: ink,
+        }}
+      >
           {work.coverNote}
         </span>
       </span>

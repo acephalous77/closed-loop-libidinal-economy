@@ -28,6 +28,7 @@ function AtlasBoot() {
         justifyContent: "center",
       }}
     >
+      <h1 className="sr-only">The Ouroboric Condition — An Atlas of Capture</h1>
       <div style={{ width: 7, height: 7, borderRadius: "50%", background: L.oxide, opacity: 0.35 }} />
     </div>
   );

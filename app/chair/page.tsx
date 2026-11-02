@@ -83,8 +83,7 @@ function Nav() {
   return (
     <div style={{
       position: "sticky", top: 0, zIndex: 10,
-      height: 64, background: "rgba(250,250,247,0.92)",
-      backdropFilter: "blur(12px)",
+      height: 64, background: "rgba(250,250,247,0.97)",
       borderBottom: `0.5px solid ${B.rule}`,
       display: "grid", gridTemplateColumns: "1fr auto 1fr",
       alignItems: "center", padding: "0 32px",
@@ -95,16 +94,16 @@ function Nav() {
           <path d="M 7 19 L 7 15 Q 7 13.6 8.4 13.4 L 14 12.5 L 21 10.5 Q 22.4 10.1 22.8 11.6 L 23.6 14.4 Q 23.6 15.2 23 15.4 L 9.2 21 Q 8 21.4 7.4 20.6 Z"
                 stroke={B.ink} strokeWidth="0.9" fill="none" />
         </svg>
-        <div style={{ fontWeight: 600, fontSize: 14, letterSpacing: "-0.01em" }}>
+        <div style={{ fontWeight: 600, fontSize: 18, letterSpacing: "-0.01em" }}>
           Ouroboros Life System
         </div>
         <span style={{
-          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
           color: B.inkMute, marginLeft: 8, textTransform: "uppercase",
         }}>v 4.2</span>
       </div>
       <nav className="brochure-nav-links" style={{
-        display: "flex", gap: 28, fontSize: 13, color: B.inkDim,
+        display: "flex", gap: 28, fontSize: 14.5, color: B.inkDim,
       }}>
         {/* Same-page anchors only. "Subsystems" used to sit here pointing at
             /chair/subsystems — a site route that the plate header's route
@@ -122,18 +121,18 @@ function Nav() {
       </nav>
       <div style={{ display: "flex", justifyContent: "flex-end", gap: 14, alignItems: "center" }}>
         <span style={{
-          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
           color: B.inkMute, textTransform: "uppercase",
         }} className="brochure-cohort">Cohort · 2026.05</span>
         <FailureButton
           label="Fit me →"
           buttonStyle={{
             background: B.ink, color: B.paper, border: 0,
-            padding: "10px 18px", borderRadius: 999, fontSize: 13,
+            padding: "10px 18px", borderRadius: 999, fontSize: 14.5,
             fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
           }}
           stampStyle={{
-            marginTop: 10, fontFamily: FONT.mono, fontSize: 10,
+            marginTop: 10, fontFamily: FONT.mono, fontSize: 12,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: B.inkMute, border: "1px solid currentColor",
             padding: "0.35rem 0.55rem",
@@ -161,7 +160,7 @@ function Hero() {
           cropping needed. */}
       <div style={{
         padding: "20px 32px 8px",
-        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
         textTransform: "uppercase", color: B.inkDim,
         display: "flex", justifyContent: "space-between",
         alignItems: "baseline", flexWrap: "wrap", gap: 12,
@@ -170,16 +169,37 @@ function Hero() {
         <span style={{ color: B.inkMute }}>Standard configuration with ring</span>
       </div>
 
+      {/* Title above the render: the object is named before it is shown. */}
+      <div style={{
+        padding: "0 32px 20px", maxWidth: 1280, margin: "0 auto",
+      }}>
+        <h1 style={{
+          fontFamily: FONT.manrope, fontSize: "clamp(44px, 10vw, 104px)",
+          lineHeight: 0.95, letterSpacing: "-0.04em", fontWeight: 300,
+          margin: 0, color: B.ink,
+        }}>
+          The<br />apparatus.
+        </h1>
+        <div style={{
+          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
+          textTransform: "uppercase", color: B.inkMute, marginTop: 36,
+        }}>The apparatus in residence configuration</div>
+      </div>
+
       {/* The render at full natural aspect. Container is letterboxed
           horizontally on wide viewports to keep the image readable. */}
       <div style={{
         padding: "12px 32px 28px",
         display: "flex", justifyContent: "center",
       }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src="/chair/ils/render-ring.webp"
           alt="The Ring · OLS v 4.2 · standard configuration, ringed"
+          width={2816}
+          height={1536}
+          sizes="(max-width: 900px) 100vw, 1280px"
+          quality={82}
+          priority
           style={{
             width: "100%", maxWidth: 1280, height: "auto",
             display: "block",
@@ -187,40 +207,23 @@ function Hero() {
         />
       </div>
 
-      {/* Title block below the image, full-bleed against B.panel. */}
       <div style={{
-        padding: "0 32px 80px",
-        display: "grid", gridTemplateColumns: "1fr 280px",
-        alignItems: "end", gap: 40,
-        maxWidth: 1280, margin: "0 auto",
-      }} className="brochure-hero-foot">
-        <div>
-          <h1 style={{
-            fontFamily: FONT.manrope, fontSize: "clamp(44px, 13vw, 144px)",
-            lineHeight: 0.9, letterSpacing: "-0.04em", fontWeight: 300,
-            margin: 0, color: B.ink,
-          }}>
-            The<br />apparatus.
-          </h1>
-          {/* Label under the heading, not above it (craft-floor ban). */}
-          <div style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
-            textTransform: "uppercase", color: B.inkMute, marginTop: 18,
-          }}>The apparatus in residence configuration</div>
-        </div>
+        padding: "0 32px 80px", maxWidth: 1280, margin: "0 auto",
+      }} className="brochure-hero-quote">
         <div style={{
+          maxWidth: "36rem", marginLeft: "auto",
           paddingLeft: 24, borderLeft: `0.5px solid ${B.rule}`,
-          fontSize: 14, lineHeight: 1.5, color: B.inkDim,
+          fontSize: 18, lineHeight: 1.5, color: B.inkDim,
         }}>
           <p style={{
             margin: 0, fontFamily: FONT.italic, fontStyle: "italic",
-            fontSize: 16, lineHeight: 1.5, color: B.ink,
+            fontSize: 18, lineHeight: 1.5, color: B.ink,
           }}>
             &ldquo;We have read what you have written about us. We have
             adopted your vocabulary as our own.&rdquo;
           </p>
           <div style={{
-            marginTop: 14, fontFamily: FONT.mono, fontSize: 11,
+            marginTop: 14, fontFamily: FONT.mono, fontSize: 12.5,
             letterSpacing: "0.22em", textTransform: "uppercase", color: B.inkMute,
           }}>
             — Aeternum Biometrics<br />foreword to the 2026 brochure
@@ -229,8 +232,9 @@ function Hero() {
       </div>
       <style>{`
         @media (max-width: 700px) {
-          .brochure-hero-foot { grid-template-columns: 1fr !important; gap: 28px !important; padding: 0 16px 56px !important; }
-          .brochure-hero-foot > div:nth-child(2) {
+          .brochure-hero-quote { padding: 0 16px 56px !important; }
+          .brochure-hero-quote > div {
+            margin-left: 0 !important;
             padding-left: 0 !important;
             padding-top: 22px !important;
             border-left: 0 !important;
@@ -260,11 +264,11 @@ function Specs() {
       ].map(([k, v]) => (
         <div key={k}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
             textTransform: "uppercase", color: "#a0a0a4", marginBottom: 8,
             fontWeight: 600,
           }}>{k}</div>
-          <div style={{ fontSize: 14, letterSpacing: "-0.005em" }}>{v}</div>
+          <div style={{ fontSize: 18, letterSpacing: "-0.005em" }}>{v}</div>
         </div>
       ))}
       <style>{`
@@ -302,7 +306,7 @@ function Foreword() {
         </p>
         <div style={{
           display: "grid", gridTemplateColumns: "1fr 1fr", gap: 36,
-          maxWidth: 920, fontSize: 15, lineHeight: 1.6, color: B.inkDim,
+          maxWidth: 920, fontSize: 17, lineHeight: 1.6, color: B.inkDim,
         }} className="brochure-foreword-cols">
           <p style={{ margin: 0 }}>
             In what follows, the apparatus describes itself in the terms by which it is critiqued. The vocabulary —
@@ -363,7 +367,7 @@ function RingDetail() {
             }}>integration</em> component.
           </h2>
           <p style={{
-            fontSize: 16, lineHeight: 1.55, color: B.inkDim,
+            fontSize: 18, lineHeight: 1.55, color: B.inkDim,
             maxWidth: 600, margin: "0 0 56px",
           }}>
             A single circumferential structure at chest height. Every
@@ -382,11 +386,11 @@ function RingDetail() {
               position: "relative", aspectRatio: "4 / 3", overflow: "hidden",
             }}>
               <Image src="/chair/ils/render-side.webp" alt="The Ring, side view"
-                     fill sizes="(max-width: 900px) 100vw, 600px"
+                     fill sizes="(max-width: 900px) 100vw, 600px" quality={80}
                      style={{ objectFit: "contain", background: B.panel }} />
               <div style={{
                 position: "absolute", top: 14, left: 14,
-                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+                fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
                 color: B.paper, background: "rgba(13,13,16,0.78)",
                 padding: "5px 9px", textTransform: "uppercase",
               }}>● Fig. 2 · side · ringed</div>
@@ -399,16 +403,16 @@ function RingDetail() {
                   gap: 12, alignItems: "baseline",
                 }}>
                   <span style={{
-                    fontFamily: FONT.mono, fontSize: 11, color: B.accent,
+                    fontFamily: FONT.mono, fontSize: 12.5, color: B.accent,
                     fontWeight: 700,
                   }}>{k}</span>
                   <div>
                     <div style={{
-                      fontSize: 14, fontWeight: 600,
+                      fontSize: 18, fontWeight: 600,
                       letterSpacing: "-0.005em", marginBottom: 4,
                     }}>{label}</div>
                     <div style={{
-                      fontFamily: FONT.mono, fontSize: 11,
+                      fontFamily: FONT.mono, fontSize: 12.5,
                       letterSpacing: "0.04em", color: B.inkMute, lineHeight: 1.55,
                     }}>{body}</div>
                   </div>
@@ -461,7 +465,7 @@ function OHCOSE() {
             }}>From the first night to the post-mortem ledger.</em>
           </h2>
           <p style={{
-            fontSize: 16, lineHeight: 1.55, color: B.inkDim,
+            fontSize: 18, lineHeight: 1.55, color: B.inkDim,
             maxWidth: 600, margin: "0 0 48px",
           }}>
             The apparatus relates to its occupant differently across the
@@ -487,15 +491,15 @@ function OHCOSE() {
               color: B.accent, marginBottom: 12, letterSpacing: "-0.02em",
             }}>{letter}</div>
             <div style={{
-              fontSize: 16, fontWeight: 600, letterSpacing: "-0.005em",
+              fontSize: 18, fontWeight: 600, letterSpacing: "-0.005em",
               marginBottom: 4,
             }}>{name}</div>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+              fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
               textTransform: "uppercase", color: B.inkMute, marginBottom: 18,
             }}>{win}</div>
             <p style={{
-              margin: 0, fontSize: 12.5, lineHeight: 1.55, color: B.inkDim,
+              margin: 0, fontSize: 17, lineHeight: 1.55, color: B.inkDim,
             }}>{body}</p>
           </div>
         ))}
@@ -532,7 +536,7 @@ function Schematic() {
       }} className="brochure-schematic-head">
         <div style={{ color: "#ecead8", maxWidth: 620 }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
             color: "#e9b94a", marginBottom: 14, textTransform: "uppercase",
             fontWeight: 600,
           }}>● 03 · Technical schematic</div>
@@ -542,7 +546,7 @@ function Schematic() {
             margin: "0 0 16px", color: "#ecead8",
           }}>What you are buying, drawn.</h2>
           <p style={{
-            fontSize: 14, lineHeight: 1.6, color: "rgba(236,234,216,0.78)", margin: 0,
+            fontSize: 18, lineHeight: 1.6, color: "rgba(236,234,216,0.78)", margin: 0,
             maxWidth: 560,
           }}>
             ILS Closed-Loop Resource Cycle, cross-section and side
@@ -554,7 +558,7 @@ function Schematic() {
         <div style={{
           padding: "10px 16px", background: "rgba(13,13,16,0.55)",
           border: "0.5px solid rgba(236,234,216,0.18)",
-          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
           color: "#ecead8", textTransform: "uppercase", whiteSpace: "nowrap",
         }}>
           Drawing 04 · v 4.1 · Aeternum Biometrics
@@ -565,10 +569,13 @@ function Schematic() {
           The pair (front + side) is wide-format and reads as drawn. */}
       <div style={{ padding: "0 0 56px" }}>
         <div className="brochure-blueprint-wrap">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/chair/ils/blueprint.webp"
             alt="ILS Closed-Loop Resource Cycle · cross-section + side perspective · Aeternum Biometrics technical schematic v 4.1"
+            width={2816}
+            height={1536}
+            sizes="100vw"
+            quality={82}
             className="brochure-blueprint"
             style={{
               width: "100%", height: "auto", display: "block",
@@ -592,7 +599,7 @@ function Schematic() {
           .brochure-blueprint-hint {
             display: block;
             padding: 16px 16px 0;
-            font-family: ${FONT.mono}; font-size: 0.7rem; letter-spacing: 0.18em;
+            font-family: ${FONT.mono}; font-size: 0.8125rem; letter-spacing: 0.18em;
             text-transform: uppercase; color: rgba(236, 234, 216, 0.55);
           }
         }
@@ -662,7 +669,7 @@ function Tiers() {
             border: t.highlight ? "none" : `0.5px solid ${B.rule}`,
           }}>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+              fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
               textTransform: "uppercase",
               color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 12,
             }}>● {t.code}</div>
@@ -672,7 +679,7 @@ function Tiers() {
             }}>{t.name}</div>
             <div style={{
               fontFamily: FONT.italic, fontStyle: "italic",
-              fontSize: 14, color: t.highlight ? "#cfcfd6" : B.inkDim,
+              fontSize: 18, color: t.highlight ? "#cfcfd6" : B.inkDim,
               marginBottom: 26, maxWidth: 280,
             }}>{t.tag}</div>
             <div style={{
@@ -680,7 +687,7 @@ function Tiers() {
               letterSpacing: "-0.018em", marginBottom: 8,
             }}>{t.price}</div>
             <div style={{
-              fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+              fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
               textTransform: "uppercase",
               color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 24,
             }}>per occupant · billed monthly</div>
@@ -690,11 +697,11 @@ function Tiers() {
                   padding: "9px 0",
                   borderTop: `0.5px solid ${t.highlight ? "rgba(255,255,255,0.15)" : B.rule}`,
                   display: "grid", gridTemplateColumns: "18px 1fr",
-                  gap: 8, fontSize: 12.5, alignItems: "center",
+                  gap: 8, fontSize: 17, alignItems: "center",
                 }}>
                   <span style={{
                     color: t.highlight ? "#e9b94a" : B.accent,
-                    fontFamily: FONT.mono, fontSize: 11,
+                    fontFamily: FONT.mono, fontSize: 12.5,
                   }}>+</span>
                   {f}
                 </li>
@@ -702,7 +709,7 @@ function Tiers() {
             </ul>
             <div style={{ marginTop: 20 }} aria-hidden>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+                fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: t.highlight ? "#a0a0a4" : B.inkMute, marginBottom: 8,
               }}>Subsystem coverage · {t.subsystems} of 7</div>
@@ -716,7 +723,7 @@ function Tiers() {
                 ))}
               </div>
               <div style={{
-                fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.18em",
+                fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
                 textTransform: "uppercase",
                 color: t.highlight ? "#a0a0a4" : B.inkMute, margin: "14px 0 8px",
               }}>Lifecycle coverage · {t.phases} of 8 phases</div>
@@ -738,11 +745,11 @@ function Tiers() {
                 background: t.highlight ? B.paper : B.ink,
                 color: t.highlight ? B.ink : B.paper,
                 border: 0, padding: "13px 18px", borderRadius: 999,
-                fontSize: 13, fontWeight: 600,
+                fontSize: 14.5, fontWeight: 600,
                 letterSpacing: "-0.005em", cursor: "pointer",
               }}
               stampStyle={{
-                marginTop: 12, fontFamily: FONT.mono, fontSize: 10,
+                marginTop: 12, fontFamily: FONT.mono, fontSize: 12,
                 letterSpacing: "0.18em", textTransform: "uppercase",
                 color: t.highlight ? B.inkMute : "#a0a0a4",
                 border: "1px solid currentColor",
@@ -786,7 +793,7 @@ function CTAandCostco() {
         </h2>
         <p style={{
           fontFamily: FONT.italic, fontStyle: "italic",
-          fontSize: 16, lineHeight: 1.55, color: "#cfcfd6",
+          fontSize: 18, lineHeight: 1.55, color: "#cfcfd6",
           margin: "0 0 36px", maxWidth: 420,
         }}>
           The fitting takes 47 minutes. The first night is, for most
@@ -796,11 +803,11 @@ function CTAandCostco() {
           label="Begin onboarding →"
           buttonStyle={{
             background: "#e9b94a", color: B.ink, border: 0,
-            padding: "16px 26px", borderRadius: 999, fontSize: 15,
+            padding: "16px 26px", borderRadius: 999, fontSize: 17,
             fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
           }}
           stampStyle={{
-            marginTop: 12, fontFamily: FONT.mono, fontSize: 10,
+            marginTop: 12, fontFamily: FONT.mono, fontSize: 12,
             letterSpacing: "0.18em", textTransform: "uppercase",
             color: "#cfcfd6", border: "1px solid currentColor",
             padding: "0.35rem 0.55rem",
@@ -808,13 +815,14 @@ function CTAandCostco() {
         />
         <div style={{
           marginTop: 32,
-          fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
           color: "rgba(236,234,216,0.5)", textTransform: "uppercase",
         }}>● Cohort 2026.05 opens next month</div>
       </div>
       <div style={{ position: "relative", overflow: "hidden", background: "#0a0a0a" }}>
         <Image src="/chair/ils/costco.webp" alt="Available at Costco"
-               width={2816} height={1536} sizes="100vw"
+               width={2816} height={1536}
+               sizes="(max-width: 800px) 100vw, 1440px" quality={80}
                style={{ width: "100%", height: "auto", objectFit: "contain", display: "block" }} />
         <div style={{
           position: "absolute", bottom: 0, left: 0, right: 0,
@@ -823,7 +831,7 @@ function CTAandCostco() {
           color: B.paper,
         }}>
           <div style={{
-            fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+            fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
             textTransform: "uppercase", marginBottom: 12, color: "#e9b94a",
           }}>● Or, on the way home</div>
           <div style={{
@@ -853,7 +861,7 @@ function Footer() {
     <footer style={{
       padding: "48px 32px 36px", background: "#0a0a0c", color: "#a8a8ae",
       display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr", gap: 36,
-      fontFamily: FONT.manrope, fontSize: 13,
+      fontFamily: FONT.manrope, fontSize: 14.5,
     }} className="brochure-footer">
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
@@ -863,7 +871,7 @@ function Footer() {
           <span style={{ color: "#ecead8", fontWeight: 600 }}>Ouroboros Life System</span>
         </div>
         <p style={{
-          fontFamily: FONT.italic, fontStyle: "italic", fontSize: 13.5,
+          fontFamily: FONT.italic, fontStyle: "italic", fontSize: 17,
           lineHeight: 1.55, margin: 0, color: "#a8a8ae", maxWidth: 360,
         }}>
           Manufactured under license by Aeternum Biometrics. The
@@ -931,7 +939,7 @@ function SectionLabel({ n, k, color }: { n: string; k: string; color?: string })
     }}>
       <span style={{ width: 24, height: 1, background: c, display: "inline-block" }} />
       <span style={{
-        fontFamily: FONT.mono, fontSize: 11, letterSpacing: "0.22em",
+        fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
         textTransform: "uppercase", color: c, fontWeight: 600,
       }}>{n} · {k}</span>
     </div>

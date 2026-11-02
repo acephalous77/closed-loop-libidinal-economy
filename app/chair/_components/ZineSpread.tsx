@@ -1026,7 +1026,7 @@ export default function ZineSpread() {
             >
               <Image
                 src="/chair/zine/01-punk-tech.webp"
-                alt=""
+                alt="Punk-zine illustration: a green snake coiled around a cracked phone, with keys and a briefcase."
                 fill
                 priority
                 sizes="(max-width: 1024px) 90vw, 700px"

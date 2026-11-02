@@ -10,6 +10,6 @@ export default async function Image() {
     title: "on the",
     italicTitle: "chair",
     subtitle: "the chair as a figure for the closed-loop libidinal economy",
-    footerRight: "2021",
+    footerRight: "2024—2026",
   });
 }

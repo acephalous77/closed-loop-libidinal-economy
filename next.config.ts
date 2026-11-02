@@ -47,7 +47,6 @@ const nextConfig: NextConfig = {
       "the-dynamics",
       "reading-list",
       "open-questions",
-      "colophon",
       "instrumentation",
     ];
     return TOP_PATHS.flatMap((p) => [

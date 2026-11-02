@@ -16,7 +16,7 @@ import Link from "next/link";
 const PATH = "/closed-loop/the-instruments";
 
 export const metadata: Metadata = {
-  title: "the instruments — closed-loop",
+  title: "the instruments",
   description:
     "The framework's six measurable instruments. Each has a formal definition in the apparatus, an empirical-calibration protocol in §12, and a dynamics plate.",
   alternates: { canonical: PATH },

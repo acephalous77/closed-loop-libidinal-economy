@@ -20,12 +20,12 @@ export function FrameworkOrientation() {
     >
       <h2
         id="orientation-heading"
-        className="font-mono text-xs text-ink-50 uppercase tracking-[0.25em]"
+        className="font-serif italic text-lg text-ink-70"
       >
         what this is
       </h2>
 
-      <p className="mt-sm font-serif text-base text-ink-90 leading-[1.55] text-balance">
+      <p className="mt-sm text-left font-serif text-base text-ink-90 leading-[1.55] text-balance">
         Platforms that learn from your engagement and adjust what they deliver
         in response form a closed loop. This document specifies the loop&apos;s
         architecture, what it forecloses, and what kinds of intervention remain
@@ -212,10 +212,10 @@ function DocumentMap() {
 
   return (
     <div className="mt-lg">
-      <h2 className="font-mono text-xs text-ink-50 uppercase tracking-[0.25em] text-center">
+      <h2 className="font-serif italic text-lg text-ink-70 text-center">
         three paths through the material
       </h2>
-      <p className="mt-sm font-serif italic text-sm text-ink-50 leading-snug text-center max-w-[36rem] mx-auto">
+      <p className="mt-sm font-serif italic text-base text-ink-70 leading-snug text-center max-w-[36rem] mx-auto">
         First-time reader: start with{" "}
         <Link
           href="/closed-loop/v2-argument"
@@ -235,7 +235,7 @@ function DocumentMap() {
             </span>
             <Link
               href={p.href}
-              className="block mt-xs font-mono text-md text-ink-90 hover:text-oxblood transition-colors duration-100"
+              className="block mt-xs font-serif italic text-md text-ink-90 hover:text-oxblood transition-colors duration-100"
             >
               {p.label}
             </Link>

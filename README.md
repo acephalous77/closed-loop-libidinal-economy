@@ -12,7 +12,7 @@ economy. Multiple works under one roof. Live at
 | `/closed-loop`            | The Closed-Loop Libidinal Economy         | 2026      | live   |
 | `/patriotic-times`        | Patriotic Times — A Coloring Book         | 2025—2026 | live   |
 | `/ohcose`                 | OHCOSE Manual                             | 2025      | live   |
-| `/chair`                  | The Ouroboros Life System                 | 2021      | live   |
+| `/chair`                  | The Ouroboros Life System                 | 2024—2026 | live   |
 | `/ouroboric-condition`    | The Ouroboric Condition — An Atlas        | 2018      | live   |
 | `/manufacture-of-the-subject` | The Manufacture of the Subject        | 2015      | live   |
 
@@ -44,9 +44,10 @@ including the thinkroom cookie and the four storage keys.
 - Next.js 16 (App Router) + React 19 + TypeScript
 - Tailwind v4 (constrained to spec-defined design tokens only)
 - MDX content with `remark-math` + `remark-gfm` + `rehype-katex` + `rehype-slug`
-- Self-hosted EB Garamond, JetBrains Mono, Garamond Math (SIL OFL); the
-  chair, ouroboric-condition, and manufacture registers add their own faces
-  via `next/font/google` (self-hosted at build; no runtime font CDN request)
+- Self-hosted Source Serif 4 and IBM Plex Mono for the shell, plus Garamond
+  Math where KaTeX runs (SIL OFL); the chair, ouroboric-condition, and
+  manufacture registers add their own faces with `next/font/local`
+  (self-hosted at build; no runtime font CDN request)
 - Deployed on Vercel; prose surfaces build fully static
 
 ## Development
@@ -68,7 +69,7 @@ npm start
 
 ```
 app/
-├── page.tsx                   Atelier index (xerox-zine flyer)
+├── page.tsx                   Atelier index (press prospectus)
 ├── layout.tsx                 Root shell, fonts, atelier metadata
 ├── closed-loop/               The Closed-Loop Libidinal Economy (2026)
 │   ├── (v2) v2-argument · the-apparatus · v2-dynamics · the-architecture ·
@@ -100,7 +101,7 @@ Textual content: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0),
 except *Patriotic Times*, which is
 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Code
 under MIT. See [LICENSE](./LICENSE). Fonts under SIL Open Font License 1.1
-(Garamond Math, EB Garamond, JetBrains Mono).
+(Source Serif 4, IBM Plex Mono, Garamond Math, and the work-specific faces).
 
 ## Citation (closed-loop framework)
 

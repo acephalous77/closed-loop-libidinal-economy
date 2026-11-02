@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     "citation_author": "Adnan Selimović",
     "citation_publication_date": "2026/05/28",
     "citation_online_date": "2026/05/28",
+    "citation_doi": "10.5281/zenodo.23371083",
     "citation_keywords": "libidinal economy; closed-loop dynamics; performative prediction; foreclosure lemma; reclamation theorem; Mode A intervention; metric superego; chrono-debt",
     "DC.title": "The Closed-Loop Libidinal Economy (v2)",
     "DC.creator": "Adnan Selimović",
@@ -41,8 +42,11 @@ export default function Cover() {
         ]}
       />
       <div className="flex-1 flex flex-col items-center px-sm pt-[6rem] pb-md">
-        {/* Title — two lines, EB Garamond 3xl, lowercase per spec */}
-        <h1 className="font-serif text-3xl text-ink leading-none tracking-tight text-center">
+        {/* Title — two lines, Source Serif 4, lowercase per spec */}
+        <h1
+          className="font-serif text-ink leading-none tracking-tight text-center"
+          style={{ fontSize: "clamp(2.75rem, 8vw, 4.5rem)" }}
+        >
           <span className="block">the closed-loop</span>
           <span className="block">libidinal economy</span>
         </h1>

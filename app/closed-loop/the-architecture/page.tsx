@@ -16,7 +16,7 @@ import { ClosedLoopSchematic } from "@/components/closed-loop-v2/Schematic";
 const PATH = "/closed-loop/the-architecture";
 
 export const metadata: Metadata = {
-  title: "the architecture — closed-loop",
+  title: "the architecture",
   description:
     "The closed-loop architecture as an interactive schematic. Hover or keyboard-focus any part to see its plain-language caption; click to enter that part's apparatus treatment.",
   alternates: { canonical: PATH },

@@ -4,7 +4,7 @@ const BASE =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://www.autostimulus.org";
 
-const ATELIER_ROUTES = ["/", "/colophon"];
+const ATELIER_ROUTES = ["/", "/author", "/colophon"];
 
 const OHCOSE_ROUTES = [
   "/ohcose",
@@ -230,7 +230,7 @@ const OUROBORIC_ROUTES = ["/ouroboric-condition"];
 
 const MANUFACTURE_ROUTES = ["/manufacture-of-the-subject"];
 
-const PSYCHOPOLITICS_ROUTES = ["/psychopolitics-atlas/index.html"];
+const PSYCHOPOLITICS_ROUTES = ["/psychopolitics-atlas"];
 
 const ROUTES = [
   ...ATELIER_ROUTES,
@@ -245,10 +245,12 @@ const ROUTES = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  // Do not stamp every route with the build time. `lastModified` is optional,
+  // and a build-time value claims every page changed on every deploy. The
+  // route dates are not maintained per page yet, so the honest sitemap omits
+  // the field rather than manufacture freshness.
   return ROUTES.map((path) => ({
     url: `${BASE}${path}`,
-    lastModified: now,
     changeFrequency: "monthly" as const,
     priority:
       path === "/"
@@ -259,7 +261,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
           path === "/patriotic-times" ||
           path === "/ouroboric-condition" ||
           path === "/manufacture-of-the-subject" ||
-          path === "/psychopolitics-atlas/index.html"
+          path === "/psychopolitics-atlas"
         ? 0.9
         : // Project-section landings + per-section pages — high
         path.startsWith("/closed-loop/the-") ||
