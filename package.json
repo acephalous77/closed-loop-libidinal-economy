@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "verify": "node scripts/verify/font-preloads.mjs && node scripts/verify/walkthrough.mjs && node scripts/verify/internal-links.mjs"
+    "verify": "node scripts/verify/font-preloads.mjs && node scripts/verify/walkthrough.mjs && node scripts/verify/internal-links.mjs && node scripts/verify/atlas-consistency.mjs && node scripts/verify/atlas-contrast.mjs",
+    "verify:atlas-mobile": "node scripts/verify/atlas-mobile.mjs",
+    "verify:atlas-prod": "node scripts/verify/atlas-prod.mjs",
+    "atlas:og": "node scripts/atlas-og.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",

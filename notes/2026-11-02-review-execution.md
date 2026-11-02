@@ -1,11 +1,18 @@
 # 2026-11-02 — review execution
 
 **Approval:** `APPROVE REVIEW-2026-11-02` (all lines).
-**Status:** applied except the atlas files claimed by the live parallel session
-noted below. No publication, no send.
+**Status:** applied. The atlas work arrived from the parallel `ATLAS-REVIEW`
+session; its process had stopped by the time the review closed, so the output
+was verified and committed here. No publication, no send.
 
 ## Applied
 
+- **A1/A2/A3 — atlas record and metadata.** The final atlas register is 654
+  nodes, 1,139 relations, 1903–2026; `WORKS` now uses the bare atlas path,
+  `llms.txt` carries the source-note and evidence-tier language, and the atlas
+  has a scoped CSP.
+- **A4 — legacy atlas assets.** Removed `support.js`, `vendor/`, and the four
+  JetBrains Mono files; the rebuilt atlas references none of them.
 - **D1 — Dividual record.** `RETIRED-2026-11-03.md` now names
   `https://www.autostimulus.org/author`, commit `7f8763d`, GitHub Actions
   `41472950886`, and the live production redirect. The false “Not done” block
@@ -41,36 +48,36 @@ noted below. No publication, no send.
   apparatus cadence.
 - **A5 — audit.** Moved `AUDIT-2026-10-31-design.md` to
   `_attic/2026-11-02/design-audit-2026-10-31.md`.
-- **A6 — QA note.** Added the dated shipping correction to
-  `notes/2026-11-02-atlas-mobile-qa.md`. The deploy-note correction is present
-  in the worktree but that file is claimed by the live atlas session.
+- **A6 — QA and deploy notes.** Added the dated shipping correction to
+  `notes/2026-11-02-atlas-mobile-qa.md` and the 560px/mobile correction to
+  `notes/2026-11-02-deploy.md`.
 
-## Held by the live atlas session
+## Adopted from the parallel atlas pass
 
-`ATLAS-REVIEW-2026-11-02 phase 1` holds `lib/works.ts`, `public/llms.txt`,
-`next.config.ts`, `public/psychopolitics-atlas/`, `scripts/verify/`, and the
-atlas notes. Its worktree changes include the 1903–2026 range, the bare atlas
-path, source-note/evidence tiers, mobile index/alt views, a scoped CSP, and a
-new atlas OG script. This pass did not commit those files and restored the
-legacy atlas assets it had removed, so the live pass can finish in place.
-
-The earlier A1/A2/A3 changes are therefore superseded by that live pass’s
-1903/bare-path/source-note work; do not reapply the 1926/`.html` versions.
+`ATLAS-REVIEW-2026-11-02 phase 1` finished the 1903–2026 range, the bare atlas
+path, source-note/evidence tiers, the mobile index and alternative views, a
+scoped CSP, and a new atlas OG script. Its claims were released and its process
+had stopped; the output was verified here and committed. The earlier
+1926/`.html` versions are superseded and must not be reapplied.
 
 ## Verification
 
 - Autostimulus: `npm run build` — 282 static pages, TypeScript clean.
+- Autostimulus: `npm run verify` — font preloads, walkthrough, 249 same-origin
+  links clean; two redirects followed; 404 clean.
+- Atlas consistency: `PASS — 654 nodes, 1139 links, 1903-2026, 14 flagged edges`.
+- Atlas mobile: `PASS — 390px alternatives, rail inert, no overflow/external
+  requests`.
 - Dividual: `npm run verify` — Astro check 0 errors, 12 pages, schema 44 nodes,
   no problems.
+- Dividual deploy: GitHub Actions `41500715382` — success.
 - H1 pilot: `deai.py --style-scan` — 1,502 words, 0 reliable tells.
 - F12: local vision at full size — no sparkle, no obvious patch.
-- Atlas: not re-verified here; the live atlas pass owns those changes.
 
 ## Remaining
 
-- Let the live atlas session finish and commit its claimed files.
-- Deploy/push the non-atlas autostimulus changes and the Dividual cleanup.
-- H1/H2 drafts are in
+- Deploy/push the atlas and non-atlas autostimulus changes.
+- H1/H2 drafts are committed in
   `/Users/thenetos/Projects/gamification-paper/submission/` as separate pilot
   files; no manuscript edit, no gate.
 - Search Console remains blocked on access. Scholar remains held.

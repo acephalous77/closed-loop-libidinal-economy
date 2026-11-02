@@ -82,20 +82,12 @@ const nextConfig: NextConfig = {
   /**
    * Baseline security response headers, applied to every route.
    *
-   * There is still no Content-Security-Policy here, but the reason has
-   * changed and the old one no longer applies. It used to be that the
-   * preserved simulator pulled React + Babel-standalone from unpkg and
-   * compiled its JSX in the browser, which needed script-src
-   * 'unsafe-eval' plus the CDN origin. As of 2026-07-31 that is gone:
-   * React is vendored locally and the JSX is compiled ahead of time by
-   * public/simulator/build.sh, so no route needs 'unsafe-eval' and no
-   * route loads script from a third-party origin.
-   *
-   * What remains before a CSP can be enforced is Next's own inline
-   * bootstrap and the inline <style> blocks the static instruments use —
-   * both want either a nonce or 'unsafe-inline', which is a per-route
-   * exercise across 205 routes rather than a header edit. Worth doing;
-   * start report-only and observe before enforcing.
+   * The atlas carries a scoped CSP below. The rest of the site still has
+   * no site-wide policy: Next's inline bootstrap and the inline <style>
+   * blocks the static instruments use want either a nonce or
+   * 'unsafe-inline', which is a per-route exercise across the remaining
+   * routes rather than one header edit. Start report-only there before
+   * enforcing.
    *
    * X-Frame-Options is SAMEORIGIN (not DENY) so same-origin embedding of
    * the simulator keeps working. The site sets no cookies for tracking
@@ -116,6 +108,20 @@ const nextConfig: NextConfig = {
           {
             key: "Strict-Transport-Security",
             value: "max-age=63072000; includeSubDomains",
+          },
+        ],
+      },
+      {
+        // The atlas is a self-contained static page. It uses inline style
+        // attributes for data-driven marks, but no remote scripts, fonts,
+        // images, or connections. The policy is atlas-scoped so the rest of
+        // the site is not forced through a per-route nonce exercise yet.
+        source: "/psychopolitics-atlas/:path*",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value:
+              "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'",
           },
         ],
       },

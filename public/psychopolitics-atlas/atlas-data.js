@@ -1,11 +1,11 @@
 // Psychopolitics of Socialization — relational atlas dataset.
 // Core faithfully encoded from the six-dossier corpus (files 01–06). Later expanded
-// with additional well-documented figures and ties drawn from the primary literature
+// with additional well-documented figures and ties drawn from the research corpus
 // (Delgado, Freeman, the propaganda/persuasion roots, the behavioural-economics and
 // platform-critique present, the scientific-racism afterlife, etc.) — each carrying its
-// own source citation and evidence tier; these are factual but reach beyond the dossiers.
-// Evidence tiers preserved verbatim from the source triage:
-//   documented | contested | speculative
+// own source note and evidence tier where triaged; these reach beyond the core dossiers.
+// Evidence tiers:
+//   documented | contested | speculative | untriaged
 // Clusters group the genealogy; lenses tag which analytic filter each node serves.
 // Matrix fields: lev = lever operated on; co = coercion(0 = against the will) → seduction(1 = through desire).
 
@@ -53,7 +53,8 @@ export const TYPES = {
 export const EVIDENCE = {
   documented:  { label: "Documented", note: "Attested in government records, court opinions, peer-reviewed work, or archives." },
   contested:   { label: "Contested", note: "Proximities real; the causal / efficacy interpretation is unproven." },
-  speculative: { label: "Speculative / conspiracy-tier", note: "Lacks documentary support; kept strictly separate." },
+  speculative: { label: "Speculative / not established", note: "Lacks documentary support; includes analytic conjectures and conspiracy-tier claims, each named in the record." },
+  untriaged:   { label: "Untriaged", note: "Not yet triaged against the source record; visible, not counted as documented." },
 };
 
 export const LEVERS = ["body","sensory","social","symbolic","reinforcement","data"];
@@ -65,8 +66,8 @@ export const LEVER_LABEL = {
 export const LENSES = {
   socio:        { label: "Sociological", desc: "Captive populations, total institutions, social roles, the racialization of \u2018pathology\u2019." },
   polecon:      { label: "Political-economic", desc: "Who paid whom \u2014 the funding plumbing of the security state, foundations, pharma, ad-markets." },
-  epistemic:    { label: "Epistemological", desc: "The documented / contested / speculative triage; intent vs. efficacy; the replication failure." },
-  temporal:     { label: "Temporal (the loop)", desc: "1938\u21922026: sociology theorizes it \u2192 animals \u2018prove\u2019 it \u2192 laundered return to human policy." },
+  epistemic:    { label: "Epistemological", desc: "The documented / contested / speculative triage, plus untriaged records; intent vs. efficacy; the replication failure." },
+  temporal:     { label: "Temporal (the loop)", desc: "1903\u21922026: sociology theorizes it \u2192 animals \u2018prove\u2019 it \u2192 laundered return to human policy." },
   mechanism:    { label: "Mechanism", desc: "The coercion\u2192seduction \u00d7 lever map: how each program actually operates." },
   transmission: { label: "Transmission", desc: "How discredited science becomes recruiting folklore and factional ideology." },
   theory:       { label: "Theoretical", desc: "The interpretive frame \u2014 the theorists and concepts that read the apparatus: governmentality, the culture industry, mimetic desire, mechanism design, agnotology." },
@@ -563,7 +564,7 @@ export const NODES = [
     rec:{ what:"Incorporated 1952 by John D. Rockefeller III; founding president Frederick Osborn (also American Eugenics Society). Its first draft mission reportedly urged parents \u2018above the average in intelligence, quality of personality and affection\u2019 to have larger families \u2014 reform eugenics, later softened.",
       src:["Rockefeller Archive Center","Mehler, \u2018Eliminating the Inferior\u2019"] } },
   { id:"milbank", label:"Milbank Memorial Fund", sub:"backer of eugenics & demography", type:"funder", cl:"eugenics", ev:"documented", yr:1928, lens:["polecon","socio"],
-    rec:{ what:"Began population work in 1928 (hiring Notestein) and funded Princeton\u2019s Office of Population Research (1936). Linda Gordon calls it \u2018one of the main backers of eugenics\u2019 from the 1920s to 1950s; Osborn, a trustee, threaded it to the AES and the Population Council.",
+    rec:{ what:"Began population work in 1928 (hiring Notestein); Princeton\u2019s Office of Population Research was founded in 1936, with Rockefeller support beginning in 1944. Linda Gordon calls it \u2018one of the main backers of eugenics\u2019 from the 1920s to 1950s; Osborn, a trustee, threaded it to the AES and the Population Council.",
       src:["Gordon, The Moral Property of Women"] } },
   { id:"hugh_moore", label:"Hugh Moore Fund", sub:"\u2018The Population Bomb,\u2019 1954", type:"funder", cl:"eugenics", ev:"documented", yr:1954, lens:["polecon","transmission","socio"],
     rec:{ what:"Dixie Cup founder Hugh Moore\u2019s fund coined the \u2018population bomb\u2019 framing in a 1954 pamphlet \u2014 fourteen years before Ehrlich borrowed the title. Ran paid newspaper campaigns and the population-lobby infrastructure with General William Draper.",

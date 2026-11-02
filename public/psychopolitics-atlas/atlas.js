@@ -1,5 +1,6 @@
 /*  The Psychopolitics of Socialization — field-guide atlas.
- *  Vanilla ES module. No framework, no third-party requests, no session.
+ *  Vanilla ES module. No framework, no third-party requests, no cookies;
+ *  one local flag remembers whether the guide was seen.
  *  Data: ./atlas-data.js (the 2026 corpus) + ./atlas-additions.js
  *  (the 2026-11-02 Sham Individualism / audience / Rockefeller expansion).
  */
@@ -13,7 +14,7 @@ const C = {
   paper: "#e9e6dc",
   paper2: "#c8c4b7",
   paper3: "#9a978c",
-  paper4: "#747268",
+  paper4: "#8a887d",
   prussian: "#7fb1d8",
   ochre: "#c9a45c",
   moss: "#9bb47a",
@@ -67,6 +68,7 @@ const REL_LABEL = {
   captures: "state tie →", litigates: "co-counsel / party",
   rhymes: "rhymes with",
 };
+const Q_LABEL = { C: "contested tie", S: "speculative tie" };
 const REL_LABEL_IN = {
   funded: "funded by", conduit: "takes conduit from", ran: "run by",
   sited: "site of", subjects: "draws subjects to",
@@ -102,6 +104,21 @@ const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
 const esc = (s) => String(s == null ? "" : s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
   .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+function sourceKind(s) {
+  if (/dossier|corpus/i.test(s)) return "internal";
+  if (/wikipedia|pointer/i.test(s)) return "reference";
+  if (/\bverify\b|not consulted|not confirmed/i.test(s)) return "unverified";
+  return "public";
+}
+function sourceBadge(s) {
+  const k = sourceKind(s);
+  const labels = { internal: "internal dossier", reference: "reference", unverified: "unverified", public: "source" };
+  return `<span class="src-kind src-${k}">${labels[k]}</span>`;
+}
+function qMark(l) {
+  if (!l.q) return "";
+  return `<span class="q q-${l.q}" title="${esc(Q_LABEL[l.q] || l.q)}">${l.q}</span>`;
+}
 const NS = "http://www.w3.org/2000/svg";
 function S(tag, attrs = {}, kids = []) {
   const el = document.createElementNS(NS, tag);
@@ -160,13 +177,27 @@ function mergeData() {
     clusterMembers.get(n.cl).push(n);
   }
 
+  const stats = {
+    nodes: nodes.length,
+    links: links.length,
+    assessed: links.filter((l) => l.q).length,
+    contestedTies: links.filter((l) => l.q === "C").length,
+    speculativeTies: links.filter((l) => l.q === "S").length,
+    untriaged: nodes.filter((n) => !n.ev).length,
+    documented: nodes.filter((n) => n.ev === "documented").length,
+    contested: nodes.filter((n) => n.ev === "contested").length,
+    speculative: nodes.filter((n) => n.ev === "speculative").length,
+    noSource: nodes.filter((n) => !(n.rec && n.rec.src && n.rec.src.length)).length,
+  };
+  stats.unassessed = stats.links - stats.assessed;
+
   const zoneOf = new Map();
   for (let i = 0; i < ZONES.length; i++) for (const cl of ZONES[i].cls) zoneOf.set(cl, i);
   for (const n of nodes) n._zone = zoneOf.has(n.cl) ? zoneOf.get(n.cl) : 0;
 
   return {
     clusters, lenses, nodes, byId, links, threads, pos, clusterPos,
-    types, levers, leverLabel, evidence, adj, clusterMembers, zoneOf,
+    types, levers, leverLabel, evidence, adj, clusterMembers, zoneOf, stats,
   };
 }
 
@@ -214,6 +245,8 @@ const ui = {
   status: $("#status"),
   statusLegend: $("#status-legend"),
   indexBody: $("#index-body"),
+  indexCards: $("#index-cards"),
+  evidenceKey: $("#evidence-key-body"),
   indexCount: $("#index-count"),
   indexSearch: $("#index-search"),
   indexKind: $("#index-kind"),
@@ -242,6 +275,8 @@ let moved = false;
 let activePointers = new Map();
 let pinch = null;
 let lastFocus = null;
+let dossierFocus = null;
+let pathFocus = null;
 let palData = [];
 let palItems = [];
 let syncHashTimer = null;
@@ -249,7 +284,7 @@ let syncHashTimer = null;
 /* ── data visibility ────────────────────────────────────────────────── */
 function lensActive(n) {
   if (state.lens === "structure") return true;
-  if (state.lens === "epistemic") return n.ev != null;
+  if (state.lens === "epistemic") return true;
   return (n.lens || []).includes(state.lens);
 }
 function evVisible(n) {
@@ -751,12 +786,21 @@ function refresh() {
     }
   }
 
-  ui.status.innerHTML = `${DATA.nodes.length} nodes · ${DATA.links.length} relations · <b>${shown} in view</b>`;
+  syncStatus(shown);
   scheduleLabels();
   renderPathLayer();
   updateCrumbs();
   syncRail();
   syncHash();
+}
+
+function syncStatus(shown = DATA.nodes.filter(nodeVisible).length) {
+  const st = DATA.stats;
+  const narrow = window.matchMedia && window.matchMedia("(max-width: 560px)").matches;
+  ui.status.innerHTML = narrow
+    ? `${st.nodes} nodes · ${st.links} relations · <b>${shown} in view</b>`
+    : `${st.nodes} nodes · ${st.links} relations · ${st.assessed}/${st.links} edges assessed · <b>${shown} in view</b>`;
+  ui.status.setAttribute("title", `${st.assessed} of ${st.links} edges carry an evidence flag; unmarked edges are not assessed.`);
 }
 
 /* ── path layer ─────────────────────────────────────────────────────── */
@@ -849,6 +893,7 @@ function focusRegion(cl) {
 function clearRegion() { state.region = null; refresh(); }
 
 function toggleRel(r) {
+  closeRailOnMobile();
   if (state.relFocus === r) { state.relFocus = null; refresh(); return; }
   clearOverlays([]);
   state.relFocus = r;
@@ -856,6 +901,7 @@ function toggleRel(r) {
   refresh();
 }
 function toggleBridges() {
+  closeRailOnMobile();
   clearOverlays([]);
   state.bridges = true;
   closeDossier();
@@ -865,6 +911,7 @@ function toggleBridges() {
   refresh();
 }
 function toggleConnectors() {
+  closeRailOnMobile();
   clearOverlays([]);
   state.connectors = true;
   closeDossier();
@@ -874,6 +921,7 @@ function toggleConnectors() {
   refresh();
 }
 function resetView() {
+  closeRailOnMobile();
   clearOverlays([]);
   state.lens = "structure";
   state.evidence = new Set(["documented", "contested", "speculative", "untriaged"]);
@@ -917,6 +965,7 @@ function onHover(n) {
 function selectNode(id, opts = {}) {
   const n = DATA.byId[id];
   if (!n) return;
+  closeRailOnMobile();
   if (state.mode === "index") setMode("field", false);
   const keepContext = state.mode === "paths" || opts.keepContext;
   clearOverlays(keepContext ? ["selected", "thread", "path"] : ["selected"]);
@@ -930,7 +979,10 @@ function selectNode(id, opts = {}) {
   if (opts.center !== false) centerOn(n, opts.k || 0.74, true);
 }
 function closeDossier() {
+  if (ui.dossier.dataset.open !== "1") return;
   ui.dossier.dataset.open = "0";
+  if (dossierFocus && dossierFocus.isConnected && dossierFocus !== document.body) dossierFocus.focus({ preventScroll: true });
+  dossierFocus = null;
 }
 function dismissDossier() {
   state.selected = null;
@@ -940,8 +992,11 @@ function dismissDossier() {
   refresh();
 }
 function openDossier() {
+  if (ui.dossier.dataset.open !== "1") dossierFocus = document.activeElement;
   ui.dossier.dataset.open = "1";
   ui.dossier.scrollTop = 0;
+  const close = ui.dossier.querySelector("[data-close]");
+  if (close) close.focus({ preventScroll: true });
 }
 
 function fillDossier(n) {
@@ -963,7 +1018,7 @@ function fillDossier(n) {
     const items = bucket[key].map((l) => {
       const other = dir === "out" ? DATA.byId[l.t] : DATA.byId[l.s];
       if (!other) return "";
-      return `<button class="rel-item" data-rel-id="${esc(other.id)}"><span class="arrow">${dir === "out" ? "→" : "←"}</span><span>${esc(other.label)}</span><span class="kind">${esc(DATA.clusters[other.cl] ? DATA.clusters[other.cl].label : other.cl)}</span></button>`;
+      return `<button class="rel-item" data-rel-id="${esc(other.id)}"><span class="arrow">${dir === "out" ? "→" : "←"}</span><span>${esc(other.label)}</span>${qMark(l)}<span class="kind">${esc(DATA.clusters[other.cl] ? DATA.clusters[other.cl].label : other.cl)}</span></button>`;
     }).join("");
     return `<div class="rel-group"><h4>${esc(key)} · ${bucket[key].length}</h4>${items}</div>`;
   }).join("");
@@ -988,7 +1043,9 @@ function fillDossier(n) {
       ${rec.what ? `<div class="record-block"><h3>What it is</h3><p>${esc(rec.what)}</p></div>` : ""}
       ${rec.fund ? `<div class="record-block"><h3>Funding / base</h3><p>${esc(rec.fund)}</p></div>` : ""}
       ${rec.did ? `<div class="record-block"><h3>Did</h3><p>${esc(rec.did)}</p></div>` : ""}
-      ${rec.src && rec.src.length ? `<div class="record-block"><h3>Sources</h3><ul>${rec.src.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>` : ""}
+      ${rec.src && rec.src.length
+        ? `<div class="record-block"><h3>Sources</h3><ul class="source-list">${rec.src.map((s) => `<li>${sourceBadge(s)} ${esc(s)}</li>`).join("")}</ul><p class="source-note">“Internal dossier” references point to the unpublished research corpus; “reference” entries are pointers, not primary sources.</p></div>`
+        : `<div class="record-block"><h3>Sources</h3><p class="source-empty">No source note recorded.${!n.ev ? " This record is untriaged." : ""}</p></div>`}
       ${!rec.what && !rec.did && !rec.fund ? `<div class="record-block"><p>No record yet. This node is carried by its ties.</p></div>` : ""}
       <div class="dossier-actions">
         <button data-act="focus">Focus this node</button>
@@ -1109,10 +1166,14 @@ function exitPath() {
   refresh();
 }
 function closePathReader() {
+  if (ui.pathReader.dataset.open !== "1") return;
   ui.pathReader.dataset.open = "0";
+  if (pathFocus && pathFocus.isConnected && pathFocus !== document.body) pathFocus.focus({ preventScroll: true });
+  pathFocus = null;
 }
 function renderPathReader() {
   if (state.mode !== "paths") { closePathReader(); return; }
+  if (ui.pathReader.dataset.open !== "1") pathFocus = document.activeElement;
   ui.pathReader.dataset.open = "1";
   const th = state.thread ? DATA.threads.find((t) => t.id === state.thread.id) : null;
   if (!th) {
@@ -1130,6 +1191,7 @@ function renderPathReader() {
       <div class="path-controls"><button class="path-close" data-path-exit>← leave paths</button></div>`;
     ui.pathReader.querySelectorAll("[data-path]").forEach((b) => b.addEventListener("click", () => enterPath(b.dataset.path)));
     ui.pathReader.querySelector("[data-path-exit]").addEventListener("click", () => setMode("field"));
+    if (!ui.pathReader.contains(document.activeElement)) ui.pathReader.focus({ preventScroll: true });
     return;
   }
   const step = th.steps[state.thread.step];
@@ -1162,6 +1224,7 @@ function renderPathReader() {
   ui.pathReader.querySelector("[data-next]").addEventListener("click", () => gotoStep(state.thread.step >= th.steps.length - 1 ? 0 : state.thread.step + 1));
   ui.pathReader.querySelector("[data-open-record]").addEventListener("click", () => { if (n) selectNode(n.id, { center: false }); });
   ui.pathReader.querySelector("[data-exit]").addEventListener("click", exitPath);
+  if (!ui.pathReader.contains(document.activeElement)) ui.pathReader.focus({ preventScroll: true });
 }
 
 /* ── rail ───────────────────────────────────────────────────────────── */
@@ -1219,7 +1282,9 @@ function buildRail() {
         <summary>About</summary>
         <div class="rail-body">
           <p class="rail-note">The atlas began as a genealogy of crowding science, Cold-War behavior-engineering and the population-control apparatus. The 2026-11 edition adds the <b>Sham Individualism</b> strand (radio demagogy → Sabido → the podcast ear), the <b>audience as population</b> bridge, and the <b>Rockefeller hinge</b> test.</p>
-          <p class="rail-note">Evidence tiers: documented, contested, speculative. Effect figures relayed by the entertainment-education movement are marked contested; the negative-image thesis is marked speculative. The Rockefeller co-funding is documented; the connection is open.</p>
+          <p class="rail-note">Evidence tiers: documented, contested, speculative, untriaged. Effect figures relayed by the entertainment-education movement are marked contested; the negative-image thesis is marked speculative; untriaged records are visible and are not counted as documented. The Rockefeller co-funding is documented; the connection is open.</p>
+          <p class="rail-note">Edge marks: <b>C</b> = contested tie, <b>S</b> = speculative tie; unmarked edges are <b>not assessed</b>. ${DATA.stats.assessed} of ${DATA.stats.links} edges carry a flag.</p>
+          <p class="rail-note">One local flag remembers that the introduction was seen. No cookies, no first-party analytics; assets are served from this origin.</p>
           <button class="path-go" data-open-intro style="width:100%">How to read this atlas</button>
         </div>
       </details>
@@ -1298,7 +1363,7 @@ function buildRail() {
   // relations
   const relBox = $("#rail-rel");
   const relOrder = ["funded", "staffs", "theorizes", "influenced", "became", "ran", "feeds", "captures", "litigates", "rival", "exposed", "rhymes"];
-  relBox.innerHTML = `<p class="rail-note">Light up every edge of one kind across the field — follow the money, the genealogy, or the critique.</p>` +
+  relBox.innerHTML = `<p class="rail-note">Light up every edge of one kind across the field — follow the money, the genealogy, or the critique. Edge marks: <b>C</b> contested, <b>S</b> speculative; unmarked = not assessed.</p>` +
     relOrder.map((r) => {
       const cnt = DATA.links.filter((l) => l.r === r).length;
       if (!cnt) return "";
@@ -1380,6 +1445,18 @@ function syncRail() {
   if (connectors) connectors.setAttribute("aria-current", String(state.connectors));
 }
 
+function syncRailState() {
+  const mobile = window.matchMedia && window.matchMedia("(max-width: 980px)").matches;
+  const open = ui.app.dataset.rail === "1";
+  if (ui.rail) ui.rail.inert = !!(mobile && !open);
+  if (ui.stage) ui.stage.inert = !!(mobile && open);
+  const toggle = document.querySelector("[data-rail-toggle]");
+  if (toggle) {
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close the field guide" : "Open the field guide");
+  }
+}
+
 function setLens(k) {
   state.lens = k;
   if (k === "epistemic") { /* evidence tier colors */ }
@@ -1417,11 +1494,19 @@ function updateCrumbs() {
   }));
 }
 
+function closeRailOnMobile() {
+  if (ui.app.dataset.rail !== "1") return;
+  if (!(window.matchMedia && window.matchMedia("(max-width: 980px)").matches)) return;
+  ui.app.dataset.rail = "0";
+  syncRailState();
+}
+
 function setMode(mode, render = true) {
+  closeRailOnMobile();
   state.mode = mode;
   ui.app.dataset.mode = mode;
   ui.app.dataset.rail = "0";
-  document.querySelectorAll("[data-mode]").forEach((b) => b.setAttribute("aria-current", String(b.dataset.mode === mode)));
+  document.querySelectorAll(".modes [data-mode]").forEach((b) => b.setAttribute("aria-current", String(b.dataset.mode === mode)));
   $("#domains-view").dataset.visible = mode === "domains" ? "1" : "0";
   $("#timeline-view").dataset.visible = mode === "timeline" ? "1" : "0";
   $("#matrix-view").dataset.visible = mode === "matrix" ? "1" : "0";
@@ -1458,6 +1543,14 @@ function buildIndexFilters() {
   ui.indexEv.innerHTML = `<option value="all">all tiers</option><option value="documented">documented</option><option value="contested">contested</option><option value="speculative">speculative</option><option value="untriaged">untriaged</option>`;
 }
 
+function buildEvidenceKey() {
+  if (!ui.evidenceKey) return;
+  ui.evidenceKey.innerHTML = ["documented", "contested", "speculative", "untriaged"].map((ev) => {
+    const d = DATA.evidence[ev] || { label: ev, note: "" };
+    return `<span style="color:${EV_COLOR[ev]}"><i style="background:${EV_COLOR[ev]};border-color:${EV_COLOR[ev]}"></i>${esc(d.label)} — ${esc(d.note)}</span>`;
+  }).join("");
+}
+
 function renderIndex() {
   const q = (state.indexQ || "").trim().toLowerCase();
   let rows = DATA.nodes.filter((n) => {
@@ -1478,7 +1571,7 @@ function renderIndex() {
   ui.indexCount.textContent = `${rows.length} of ${DATA.nodes.length}`;
   ui.indexBody.innerHTML = rows.map((n) => {
     const ev = n.ev || "untriaged";
-    return `<tr data-index-id="${esc(n.id)}" tabindex="0">
+    return `<tr data-index-id="${esc(n.id)}">
       <td><span class="name">${esc(n.label)}</span>${n.sub ? `<span class="sub">${esc(n.sub)}</span>` : ""}</td>
       <td class="mono">${esc(DATA.types[n.type] ? DATA.types[n.type].label : n.type)}</td>
       <td class="mono">${esc(DATA.clusters[n.cl] ? DATA.clusters[n.cl].label : n.cl)}</td>
@@ -1488,14 +1581,27 @@ function renderIndex() {
       <td><button class="go" data-locate="${esc(n.id)}">locate →</button></td>
     </tr>`;
   }).join("") || `<tr><td colspan="7" class="index-empty">No node matches that filter.</td></tr>`;
+  ui.indexCards.innerHTML = rows.map((n) => {
+    const ev = n.ev || "untriaged";
+    const srcCount = n.rec && n.rec.src ? n.rec.src.length : 0;
+    const domain = DATA.clusters[n.cl] ? DATA.clusters[n.cl].label : n.cl;
+    return `<button class="index-card" data-locate="${esc(n.id)}">
+      <span class="name">${esc(n.label)}</span>
+      ${n.sub ? `<span class="sub">${esc(n.sub)}</span>` : ""}
+      <span class="meta"><span class="ev" style="color:${EV_COLOR[ev]}"><i style="background:${EV_COLOR[ev]};border-color:${EV_COLOR[ev]}"></i>${esc(ev)}</span><span>${esc(domain)}</span><span>${n.yr || "—"}</span><span>${n.deg} ties</span><span class="src">${srcCount ? `${srcCount} source note${srcCount === 1 ? "" : "s"}` : "no source recorded"}</span></span>
+    </button>`;
+  }).join("") || `<div class="index-empty">No node matches that filter.</div>`;
   ui.indexBody.querySelectorAll("[data-index-id]").forEach((tr) => {
     const id = tr.dataset.indexId;
     const go = () => { setMode("field", false); selectNode(id, { center: true }); };
     tr.addEventListener("click", (e) => { if (e.target.closest("[data-locate]")) return; go(); });
-    tr.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); } });
   });
   ui.indexBody.querySelectorAll("[data-locate]").forEach((b) => b.addEventListener("click", (e) => {
     e.stopPropagation();
+    setMode("field", false);
+    selectNode(b.dataset.locate, { center: true });
+  }));
+  ui.indexCards.querySelectorAll("[data-locate]").forEach((b) => b.addEventListener("click", () => {
     setMode("field", false);
     selectNode(b.dataset.locate, { center: true });
   }));
@@ -1597,6 +1703,7 @@ function renderDomains() {
     t.setAttribute("y", (pick.y + asc).toFixed(1));
     placed.push({ x: pick.x, y: pick.y, w, h });
   }
+  renderDomainsList(counts);
 }
 function renderTimeline() {
   const svg = $("#timeline-svg");
@@ -1605,7 +1712,8 @@ function renderTimeline() {
   svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   const yrs = DATA.nodes.filter((n) => n.yr).map((n) => n.yr);
-  const minY = 1920, maxY = 2030;
+  const minY = yrs.length ? Math.floor(Math.min(...yrs) / 10) * 10 : 1900;
+  const maxY = yrs.length ? Math.ceil(Math.max(...yrs) / 10) * 10 : 2030;
   const xFor = (yr) => L + ((yr - minY) / (maxY - minY)) * (W - L - R);
   const laneH = (H - T - B) / ZONES.length;
   const gAxes = S("g"), gNodes = S("g");
@@ -1618,7 +1726,7 @@ function renderTimeline() {
       "font-size": "11", fill: C.paper3,
     }));
   }
-  for (let yr = 1920; yr <= 2030; yr += 10) {
+  for (let yr = minY; yr <= maxY; yr += 10) {
     const x = xFor(yr);
     gAxes.appendChild(S("line", { x1: x, y1: T - 8, x2: x, y2: H - B + 4, stroke: C.rule, "stroke-width": "0.6", "stroke-dasharray": "2 5" }));
     gAxes.appendChild(textEl(String(yr), {
@@ -1642,6 +1750,7 @@ function renderTimeline() {
     gNodes.appendChild(dot);
   }
   svg.appendChild(gAxes); svg.appendChild(gNodes);
+  renderTimelineList();
 }
 
 function renderMatrix() {
@@ -1680,6 +1789,55 @@ function renderMatrix() {
     gNodes.appendChild(dot);
   }
   svg.appendChild(gAxes); svg.appendChild(gNodes);
+  renderMatrixList();
+}
+
+/* ── mobile text alternatives ──────────────────────────────────────── */
+function renderDomainsList(counts) {
+  const box = $("#domains-list");
+  if (!box) return;
+  const rows = Object.keys(DATA.clusters).sort((a, b) => DATA.clusters[a].label.localeCompare(DATA.clusters[b].label)).map((cl) => {
+    const members = DATA.clusterMembers.get(cl) || [];
+    const top = members.slice().sort((a, b) => b.deg - a.deg).slice(0, 3).map((n) => n.label).join(" · ");
+    return `<button class="alt-row" data-domain-row="${esc(cl)}"><span class="alt-count">${members.length}</span>${esc(DATA.clusters[cl].label)}<span class="alt-meta">${esc(top)}</span></button>`;
+  });
+  box.innerHTML = rows.join("");
+  box.querySelectorAll("[data-domain-row]").forEach((b) => b.addEventListener("click", () => focusRegion(b.dataset.domainRow)));
+}
+
+function renderTimelineList() {
+  const box = $("#timeline-list");
+  if (!box) return;
+  const rows = DATA.nodes.filter((n) => n.yr).sort((a, b) => a.yr - b.yr || a.label.localeCompare(b.label));
+  const byDecade = new Map();
+  for (const n of rows) {
+    const dec = Math.floor(n.yr / 10) * 10;
+    if (!byDecade.has(dec)) byDecade.set(dec, []);
+    byDecade.get(dec).push(n);
+  }
+  box.innerHTML = [...byDecade.entries()].map(([dec, items], i) => `<details class="alt-decade"${i === 0 ? " open" : ""}><summary>${dec}s <span>${items.length}</span></summary>${items.map((n) => {
+    const ev = n.ev || "untriaged";
+    return `<button class="alt-row" data-node-row="${esc(n.id)}"><span class="alt-year">${n.yr}</span>${esc(n.label)}<span class="alt-meta">${esc(DATA.clusters[n.cl] ? DATA.clusters[n.cl].label : n.cl)} · ${esc(ev)}</span></button>`;
+  }).join("")}</details>`).join("");
+  box.querySelectorAll("[data-node-row]").forEach((b) => b.addEventListener("click", () => {
+    setMode("field", false);
+    selectNode(b.dataset.nodeRow, { center: true });
+  }));
+}
+
+function renderMatrixList() {
+  const box = $("#matrix-list");
+  if (!box) return;
+  const plotted = DATA.nodes.filter((n) => n.lever != null && n.co != null).sort((a, b) => a.lever.localeCompare(b.lever) || b.co - a.co);
+  box.innerHTML = `<table class="alt-table"><caption class="sr-only">Coercion–seduction by lever, the ${plotted.length} records triaged by mechanism.</caption><thead><tr><th>Node</th><th>Lever</th><th>Coercion ↔ seduction</th></tr></thead><tbody>${plotted.map((n) => {
+    const ev = n.ev || "untriaged";
+    const pct = Math.max(0, Math.min(100, Number(n.co) * 100));
+    return `<tr><td class="name"><button data-node-row="${esc(n.id)}">${esc(n.label)}</button><span class="tier">${esc(ev)}</span></td><td>${esc(DATA.leverLabel[n.lever] || n.lever)}</td><td><span class="bar"><i style="width:${pct.toFixed(1)}%"></i></span>${Number(n.co).toFixed(2)}</td></tr>`;
+  }).join("")}</tbody></table>`;
+  box.querySelectorAll("[data-node-row]").forEach((b) => b.addEventListener("click", () => {
+    setMode("field", false);
+    selectNode(b.dataset.nodeRow, { center: true });
+  }));
 }
 
 /* ── minimap ────────────────────────────────────────────────────────── */
@@ -1721,7 +1879,7 @@ function buildPaletteData() {
     { kind: "action", id: "paths", name: "Open paths", sub: "guided arguments" },
     { kind: "action", id: "index", name: "Open the index", sub: "every node in text" },
     { kind: "action", id: "domains", name: "Open domains", sub: "the macro-skeleton" },
-    { kind: "action", id: "timeline", name: "Open the timeline", sub: "1926–2026" },
+    { kind: "action", id: "timeline", name: "Open the timeline", sub: "1903–2026" },
     { kind: "action", id: "matrix", name: "Open the matrix", sub: "coercion × lever" },
     { kind: "action", id: "intro", name: "How to read this atlas", sub: "the field guide" },
     { kind: "action", id: "reset", name: "Reset the view", sub: "clear all overlays" },
@@ -1763,9 +1921,10 @@ function renderPalette(q) {
   if (!query) {
     list = palData.filter((x) => x.kind === "action" || x.kind === "path");
   } else {
+    const groupOrder = { action: 0, path: 1, domain: 2, node: 3 };
     list = palData.map((x) => ({ x, s: Math.min(fuzzy(x.name, query), x.search ? fuzzy(x.search, query) + 2 : 99) }))
       .filter((v) => v.s < 99)
-      .sort((a, b) => a.s - b.s || (a.x.kind === "node" ? 1 : 0) - (b.x.kind === "node" ? 1 : 0))
+      .sort((a, b) => (groupOrder[a.x.kind] || 9) - (groupOrder[b.x.kind] || 9) || a.s - b.s || a.x.name.localeCompare(b.x.name))
       .map((v) => v.x);
   }
   palItems = list.slice(0, 40);
@@ -1774,7 +1933,7 @@ function renderPalette(q) {
   let html = "", last = "";
   palItems.forEach((x, i) => {
     if (x.kind !== last) { html += `<div class="palette-group">${groups[x.kind]}</div>`; last = x.kind; }
-    html += `<button class="palette-item" data-pal="${i}" role="option" aria-selected="${i === state.paletteSel}">
+    html += `<button class="palette-item" id="pal-item-${i}" data-pal="${i}" role="option" aria-selected="${i === state.paletteSel}">
       <span class="p-name">${esc(x.name)}</span><span class="p-sub">${esc(x.sub || "")}</span><span class="p-kind">${esc(x.kind)}</span>
     </button>`;
   });
@@ -1782,7 +1941,8 @@ function renderPalette(q) {
   ui.paletteResults.innerHTML = html;
   ui.paletteResults.querySelectorAll("[data-pal]").forEach((b) => b.addEventListener("click", () => activatePalette(+b.dataset.pal)));
   const sel = ui.paletteResults.querySelector('[aria-selected="true"]');
-  if (sel) sel.scrollIntoView({ block: "nearest" });
+  if (sel) { ui.paletteInput.setAttribute("aria-activedescendant", sel.id); sel.scrollIntoView({ block: "nearest" }); }
+  else ui.paletteInput.removeAttribute("aria-activedescendant");
 }
 function activatePalette(i) {
   const x = palItems[i];
@@ -1830,7 +1990,8 @@ function buildIntro() {
   ui.introLegend.innerHTML = items.map(([g, label]) => `<li><span class="glyph">${g}</span><span>${label}</span></li>`).join("") +
     `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.moss}" stroke-width="1.4"/></svg></span><span>solid ring — documented</span></li>` +
     `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.ochre}" stroke-width="1.4" stroke-dasharray="2 2"/></svg></span><span>dashed — contested</span></li>` +
-    `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.rust}" stroke-width="1.4" stroke-dasharray="0.7 3"/></svg></span><span>dotted — speculative</span></li>`;
+    `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.rust}" stroke-width="1.4" stroke-dasharray="0.7 3"/></svg></span><span>dotted — speculative / not established</span></li>` +
+    `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.paper4}" stroke-width="1.4" stroke-dasharray="1 4"/></svg></span><span>long dash — untriaged</span></li>`;
 }
 function openIntro() {
   lastFocus = document.activeElement;
@@ -2025,12 +2186,13 @@ function exportSVG() {
 
 /* ── global wiring ──────────────────────────────────────────────────── */
 function wireChrome() {
-  document.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
+  document.querySelectorAll(".modes [data-mode]").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
   document.querySelector("[data-palette]").addEventListener("click", openPalette);
   document.querySelector("[data-share]").addEventListener("click", copyURL);
   document.querySelector("[data-export]").addEventListener("click", exportSVG);
   document.querySelector("[data-rail-toggle]").addEventListener("click", () => {
     ui.app.dataset.rail = ui.app.dataset.rail === "1" ? "0" : "1";
+    syncRailState();
   });
   document.querySelectorAll("[data-zoom]").forEach((b) => b.addEventListener("click", () => {
     const z = b.dataset.zoom;
@@ -2046,6 +2208,18 @@ function wireChrome() {
     else if (e.key === "ArrowUp") { e.preventDefault(); state.paletteSel = clamp(state.paletteSel - 1, 0, palItems.length - 1); renderPalette(ui.paletteInput.value); }
     else if (e.key === "Enter") { e.preventDefault(); activatePalette(state.paletteSel); }
     else if (e.key === "Escape") { e.preventDefault(); closePalette(); }
+  });
+
+  ui.palette.addEventListener("keydown", (e) => {
+    if (e.key !== "Tab") return;
+    const focusables = $$("input, button", ui.palette).filter((el) => {
+      const st = getComputedStyle(el);
+      return el.getClientRects().length > 0 && st.visibility !== "hidden" && st.display !== "none";
+    });
+    if (!focusables.length) return;
+    const first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
   // index
@@ -2095,13 +2269,18 @@ function wireChrome() {
     const r = ui.stage.getBoundingClientRect();
     stageW = r.width; stageH = r.height;
     applyTransform();
+    syncStatus();
+    syncRailState();
   });
   window.addEventListener("hashchange", applyHash);
 
   // intro focus trap
   ui.intro.addEventListener("keydown", (e) => {
     if (e.key !== "Tab") return;
-    const focusables = $$("button, [href], input, select, textarea", ui.intro).filter((el) => el.offsetParent !== null);
+    const focusables = $$("button, [href], input, select, textarea", ui.intro).filter((el) => {
+      const st = getComputedStyle(el);
+      return el.getClientRects().length > 0 && st.visibility !== "hidden" && st.display !== "none";
+    });
     if (!focusables.length) return;
     const first = focusables[0], last = focusables[focusables.length - 1];
     if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
@@ -2113,10 +2292,12 @@ function wireChrome() {
 function init() {
   stageW = ui.stage.getBoundingClientRect().width || 1000;
   stageH = ui.stage.getBoundingClientRect().height || 700;
-  ui.statusLegend.innerHTML = ["documented", "contested", "speculative"].map((e) => `<span style="color:${EV_COLOR[e]}"><i style="background:${EV_COLOR[e]};border-color:${EV_COLOR[e]}"></i>${e}</span>`).join("");
+  ui.statusLegend.innerHTML = ["documented", "contested", "speculative", "untriaged"].map((e) => `<span style="color:${EV_COLOR[e]}"><i style="background:${EV_COLOR[e]};border-color:${EV_COLOR[e]}"></i>${esc(DATA.evidence[e] ? DATA.evidence[e].label : e)}</span>`).join("");
   buildField();
   buildRail();
+  syncRailState();
   buildIndexFilters();
+  buildEvidenceKey();
   palData = buildPaletteData();
   buildIntro();
   wireChrome();

@@ -3,6 +3,10 @@
 Status: local QA complete. The atlas is live at `9b91d5d`; one CSS change is
 uncommitted and production still serves `9b91d5d`.
 
+Correction — 2026-11-02: shipped in `466391f`; see
+`notes/2026-11-02-atlas-mobile-deploy.md`. The status line above is kept as the
+state at the time of the QA pass.
+
 ## What was checked
 
 The rebuilt atlas was served on port 4174 from `public/` at

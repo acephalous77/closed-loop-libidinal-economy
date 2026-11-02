@@ -18,7 +18,7 @@ export interface Work {
   href: string;
   status: "live" | "in production";
   coverNote: string;
-  /** The short name carried by the chronology, the press sheet and the door. */
+  /** The compact name carried by the press sheet and the work cover; the door uses the full title. */
   short: string;
   cover: { bg: string; ink: string; accent: string };
   /** The work accent lifted for the console's graphite ground (AA on #17191b). */
@@ -36,8 +36,8 @@ export const WORKS: Work[] = [
     consoleAccent: "#7fa3b8",
     mark: "◉",
     year: "2026",
-    register: "relational atlas · ~600 nodes · crowding science → the population present",
-    href: "/psychopolitics-atlas/index.html",
+    register: "relational atlas · 654 nodes · 1903–2026 · crowding science → the population present",
+    href: "/psychopolitics-atlas",
     status: "live",
   },
   {

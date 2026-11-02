@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Psychopolitics of Socialization — a relational atlas</title>
-<meta name="description" content="A relational atlas of the psychopolitics of socialization: crowding science, Cold-War behavior-engineering, the population-control apparatus, and the demagogy of the present — 1926–2026. Field, paths, index, domains, timeline and matrix views; analytic lenses; evidence tiers; primary sources. By A. Selimović.">
+<meta name="description" content="A relational atlas of the psychopolitics of socialization: crowding science, Cold-War behavior-engineering, the population-control apparatus, and the demagogy of the present — 1903–2026. Field, paths, index, domains, timeline and matrix views; analytic lenses; evidence tiers; source notes. By A. Selimović.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="autostimulus">
 <meta property="og:title" content="The Psychopolitics of Socialization — a relational atlas">
-<meta property="og:description" content="654 nodes, 1926–2026: crowding science → Cold-War behavior-engineering → population control → the demagogy of the present. An interrogable relational field.">
+<meta property="og:description" content="654 nodes, 1903–2026: crowding science → Cold-War behavior-engineering → population control → the demagogy of the present. An interrogable relational field.">
 <link rel="canonical" href="https://www.autostimulus.org/psychopolitics-atlas">
 <meta property="og:url" content="https://www.autostimulus.org/psychopolitics-atlas">
 <meta property="og:image" content="https://www.autostimulus.org/psychopolitics-atlas/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The Psychopolitics of Socialization — a relational atlas. Follow the wires.">
+<meta property="og:image:alt" content="The Psychopolitics of Socialization — a relational atlas. 654 nodes, 1903–2026.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="The Psychopolitics of Socialization — a relational atlas">
-<meta name="twitter:description" content="654 nodes, 1926–2026: the intentional study of density, coercion, persuasion and behavioral engineering, drawn as one field.">
+<meta name="twitter:description" content="654 nodes, 1903–2026: the intentional study of density, coercion, persuasion and behavioral engineering, drawn as one field.">
 <meta name="twitter:image" content="https://www.autostimulus.org/psychopolitics-atlas/og.png">
 <link rel="preload" href="/psychopolitics-atlas/fonts/SourceSerif4-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/psychopolitics-atlas/fonts/IBMPlexMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -32,7 +32,7 @@
     <a class="door" href="/">↑ autostimulus</a>
     <div class="title-block">
       <h1>The Psychopolitics of Socialization</h1>
-      <p class="deck">A relational atlas of mass address, population science and the platform present · 1926–2026</p>
+      <p class="deck">A relational atlas of mass address, population science and the platform present · <span class="nowrap">1903–2026</span></p>
     </div>
     <nav class="modes" aria-label="Views">
       <button data-mode="field" aria-current="true">Field</button>
@@ -45,8 +45,8 @@
     <div class="tools">
       <button class="tool rail-toggle" data-rail-toggle aria-label="Open the field guide" style="display:none">☰ <span class="label">Guide</span></button>
       <button class="tool" data-palette>Search <kbd>⌘K</kbd></button>
-      <button class="tool" data-share>⧉ <span class="label">Link</span></button>
-      <button class="tool" data-export>↓ <span class="label">SVG</span></button>
+      <button class="tool" data-share aria-label="Copy a link to this view">⧉ <span class="label">Link</span></button>
+      <button class="tool" data-export aria-label="Download the current field as SVG">↓ <span class="label">SVG</span></button>
     </div>
   </header>
 
@@ -60,7 +60,7 @@
     <aside class="rail" id="rail" aria-label="Field guide"></aside>
 
     <section class="stage" id="stage" tabindex="-1" aria-label="Relational field">
-      <svg id="field-svg" role="img" aria-label="A relational field of actors, programs, funders, concepts and cases across the socialization apparatus, 1926 to 2026. The Index view lists every node in text.">
+      <svg id="field-svg" role="img" aria-label="A relational field of actors, programs, funders, concepts and cases across the socialization apparatus, 1903 to 2026. The Index view lists every node in text.">
         <g id="world">
           <g id="layer-hulls"></g>
           <g id="layer-edges"></g>
@@ -69,9 +69,9 @@
         </g>
       </svg>
 
-      <div class="path-reader" id="path-reader" data-open="0" aria-label="Guided path"></div>
+      <div class="path-reader" id="path-reader" data-open="0" role="dialog" aria-label="Guided path" tabindex="-1"></div>
 
-      <div class="dossier" id="dossier" data-open="0" aria-label="Node record"></div>
+      <div class="dossier" id="dossier" data-open="0" role="dialog" aria-label="Node record" tabindex="-1"></div>
 
       <div class="index-view" id="index-view">
         <div class="index-head">
@@ -89,6 +89,10 @@
               <option value="domain">sort: domain</option>
             </select>
           </div>
+          <details class="evidence-key" id="evidence-key">
+            <summary>Evidence key</summary>
+            <div class="evidence-key-body" id="evidence-key-body"></div>
+          </details>
         </div>
         <div class="index-body">
           <table class="index-table">
@@ -105,25 +109,29 @@
             </thead>
             <tbody id="index-body"></tbody>
           </table>
+          <div class="index-cards" id="index-cards" aria-label="Index as cards"></div>
         </div>
       </div>
 
       <div class="alt-view" id="domains-view" data-visible="0">
-        <svg id="domains-svg" role="img" aria-label="The domains as a weighted graph. Circle size is the number of nodes; wire thickness is the number of ties between domains."></svg>
+        <svg id="domains-svg" role="img" aria-label="The domains as a weighted graph. Circle size is the number of nodes; wire thickness is the number of ties between domains. The domain directory below lists the same domains in text."></svg>
+        <div class="alt-list" id="domains-list" aria-label="Domain directory"></div>
         <div class="timeline-note">The 28 domains as one weighted graph. Circle size = how many nodes the domain holds; wire thickness = how many ties bind two domains. Click a domain to drop into the field.</div>
       </div>
 
       <div class="alt-view" id="timeline-view" data-visible="0">
         <div class="timeline-wrap">
           <div class="timeline-scroll">
-            <svg id="timeline-svg" role="img" aria-label="The genealogy across time, arranged in nine zones. Each mark is a node placed at its year."></svg>
+            <svg id="timeline-svg" role="img" aria-label="The genealogy across time, arranged in nine zones. Each mark is a node placed at its year. The decade list below lists the same nodes in text."></svg>
           </div>
         </div>
+        <div class="alt-list timeline-list" id="timeline-list" aria-label="Timeline by decade"></div>
         <div class="timeline-note">The genealogy across time, in nine active strata. Each mark is a node at its year; click one to open its record in the field.</div>
       </div>
 
       <div class="alt-view" id="matrix-view" data-visible="0">
-        <svg id="matrix-svg" role="img" aria-label="The coercion–seduction by lever map. Horizontal axis: against the will to through desire. Vertical lanes: body, sensory, social, symbolic, reinforcement, data."></svg>
+        <svg id="matrix-svg" role="img" aria-label="The coercion–seduction by lever map. Horizontal axis: against the will to through desire. Vertical lanes: body, sensory, social, symbolic, reinforcement, data. The table below lists the same subset in text."></svg>
+        <div class="alt-table-wrap" id="matrix-list" aria-label="Matrix as a table"></div>
         <div class="timeline-note">The coercion–seduction × lever map — the subset of programs triaged by mechanism. Most actors are not mechanisms and do not appear here.</div>
       </div>
 
@@ -140,7 +148,7 @@
   <footer class="trail" id="trail">
     <span class="crumbs" id="crumbs"></span>
     <span class="spacer"></span>
-    <span class="doorline">the reader's apparatus stays behind — this page keeps no session</span>
+    <span class="doorline">the reader's apparatus stays behind — no cookies, no session; one local flag remembers the guide</span>
     <a href="/">↑ autostimulus</a>
   </footer>
 </div>
@@ -163,8 +171,8 @@
   <div class="intro-plate">
     <div class="intro-main">
       <div class="intro-kicker"><span class="dot"></span> Field guide · 2026 edition</div>
-      <h2 id="intro-title">One field, nine lenses, three disciplines of doubt</h2>
-      <p class="lede">A genealogy of the intentional study of density, coercion, persuasion and behavioral engineering — from Calhoun's rodents and the radio demagogues through Cold-War human experimentation to the platform present and the contemporary population-control apparatus. <b>654 nodes</b>, each opening to its record, evidence tier and sources.</p>
+      <h2 id="intro-title">One field, nine lenses, a register of doubt</h2>
+      <p class="lede">A genealogy of the intentional study of density, coercion, persuasion and behavioral engineering — from Calhoun's rodents and the radio demagogues through Cold-War human experimentation to the platform present and the contemporary population-control apparatus. <b>654 nodes</b>, <b>1,139 relations</b>, each opening to its record, an evidence tier where triaged, and source notes where recorded. The main arc runs from the 1920s; the dataset also carries antecedents from 1903.</p>
       <div class="intro-rules">
         <div class="intro-rule"><span class="num">01</span><span class="txt"><b>Documented ≠ effective.</b> Intent and ambition are not demonstrated capability — MK-ULTRA's “mind control,” Cambridge Analytica's psychographics.</span></div>
         <div class="intro-rule"><span class="num">02</span><span class="txt"><b>The replication failure.</b> Human crowding never confirmed Calhoun; hierarchy and control predict pathology. Its suppression is part of the politics.</span></div>
@@ -175,8 +183,8 @@
         <span class="rail-note" style="margin:0">or start with a path →</span>
       </div>
       <div class="intro-foot">
-        <span>No analytics · no tracking · no third-party requests</span>
-        <span>1926–2026</span>
+        <span>No cookies · no first-party analytics · assets served from this origin</span>
+        <span class="nowrap">1903–2026</span>
       </div>
     </div>
     <aside class="intro-side">
@@ -191,7 +199,7 @@
 <noscript>
   <div style="max-width:720px;margin:12vh auto;padding:0 24px;font-family:Georgia,serif;color:#e9e6dc;background:#0a0d13">
     <h1>The Psychopolitics of Socialization</h1>
-    <p>This atlas is a visual field rendered with JavaScript. The index view needs scripting to list its 654 nodes. The underlying data is in <code>atlas-data.js</code> and <code>atlas-additions.js</code>; the primary sources are named in each record.</p>
+    <p>This atlas is a visual field rendered with JavaScript. The index view needs scripting to list its 654 nodes. The underlying data is in <code>atlas-data.js</code> and <code>atlas-additions.js</code>; source notes are named where recorded, and dossier references point to the unpublished research corpus.</p>
   </div>
 </noscript>
 </body>
