@@ -6,7 +6,8 @@
 network; stage atlas files only; commit and deploy.
 
 **Status:** landed in `1feca94`; production recorded in `cf88c8a`. The atlas is
-live. Phase 2 is deferred. One edge action remains: Cloudflare Web Analytics.
+live. Phase 2 is deferred. The Cloudflare Web Analytics edge action is now
+closed (see the correction below).
 
 ## What changed
 
@@ -45,19 +46,16 @@ live. Phase 2 is deferred. One edge action remains: Cloudflare Web Analytics.
   matrix, paths. `PASS` here is the local engine's description check, not a
   human design ruling.
 - `npm run verify:atlas-prod` — static route/CSP/counts/assets PASS; browser
-  check FAILS on the Cloudflare beacon injection (see below).
+  check initially failed on the Cloudflare beacon injection (see correction).
 - Production browser at 390 and 1440: 200; CSP present; 654/1,139 at 390 and
-  14/1,139 assessed at 1440; zero horizontal overflow; the Cloudflare request is
-  `requestfailed: csp`, with a CSP console violation.
+  14/1,139 assessed at 1440; zero horizontal overflow.
 
-## Open — Cloudflare
+## Closed — Cloudflare
 
-No Cloudflare API token, account id, or zone id is present in the shell. The
-edge still injects
-`https://static.cloudflareinsights.com/beacon.min.js/vce701…`; the CSP blocks
-execution, but the console violation remains and the script is still attempted.
-Adnan’s dashboard action is the clean fix: Cloudflare → Web Analytics →
-`autostimulus.org` → disable. Until then, do not claim the beacon is disabled.
+Correction — 2026-11-02: after Adnan disabled Web Analytics for
+`autostimulus.org`, `npm run verify:atlas-prod` passes. The browser probe sees
+no `cloudflareinsights` request and no beacon in the DOM; the CSP is present.
+The earlier failure is kept as the state before the dashboard action.
 
 ## Deferred to phase 2
 
