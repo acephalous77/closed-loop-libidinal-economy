@@ -744,7 +744,7 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper-3); }
   .tool { padding: 6px 7px; }
   .tool .label { display: none; }
   .statusbar { font-size: 9.5px; gap: 8px; }
-  .statusbar .legend { gap: 7px; }
+  .statusbar .legend { display: none; }
   .trail .doorline { display: none; }
   .trail { font-size: 9px; }
   .index-table th:nth-child(5), .index-table td:nth-child(5),
