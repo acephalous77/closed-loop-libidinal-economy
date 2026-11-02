@@ -56,3 +56,13 @@ current assets). CI `41532846598` passed.
 
 The atlas `atlas.js`/`index.html` changes in the worktree belong to the atlas
 pass and are not part of this commit. `lib/works.ts` is read-only here.
+
+## Closed-loop cover, same day
+
+`141d05d` and `0689aa8` carry the prose treatment into the framework's front
+matter. The three paths now run in a paragraph under “where to begin”; the
+byline is the author alone; the first-version heading is serif italic; the
+floating apparatus is removed from the cover. Production at 390 and 1440: zero
+`ol`/`ul`/`dl` in the main, no horizontal overflow, no instrument. `deai.py`
+reports 0 reliable tells (229 words); local vision PASS. CI `41539826741`
+passed.
