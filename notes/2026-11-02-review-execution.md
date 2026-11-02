@@ -101,3 +101,10 @@ beacon is therefore still injected at the Cloudflare edge, not disabled. The
 dashboard action remains: Cloudflare → Web Analytics → the `autostimulus.org`
 zone → disable. `scripts/verify/atlas-prod.mjs` now checks the browser and fails
 until the edge stops injecting it.
+
+## Resolved — 2026-11-02
+
+Adnan disabled Cloudflare Web Analytics at the edge. `npm run
+verify:atlas-prod` now passes (CSP, counts, no beacon, current assets); a
+browser pass at 390 and 1440 shows zero external requests and zero console
+errors.

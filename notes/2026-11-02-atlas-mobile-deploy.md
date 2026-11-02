@@ -46,3 +46,7 @@ Adnan's dashboard action.
 Production moved again on the same date: `1feca94` carries the phase-1 atlas
 pass (1903–2026, 654/1,139, source notes, mobile alternatives, scoped CSP, new
 OG image). `466391f` is the previous atlas deployment, not the current one.
+
+Resolved — 2026-11-02: Cloudflare Web Analytics was disabled at the edge.
+`verify:atlas-prod` passes with no beacon; browser passes at 390 and 1440 show
+no external requests and no console errors.
