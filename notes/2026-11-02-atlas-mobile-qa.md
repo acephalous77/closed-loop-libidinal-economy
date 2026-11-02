@@ -64,3 +64,17 @@ overlay; the close control is fixed and visible.
 - Commit and deploy the mobile status-bar CSS change when ruled.
 - The atlas backup `public/psychopolitics-atlas/index-2026-11-02.html` remains
   untracked and is not part of the build.
+
+## Correction — 2026-11-02 (ATLAS-REVIEW-2026-11-02 phase 1)
+
+The QA above covered the field, paths, intro, and the desktop SVG views. It
+did **not** exercise the text alternatives for domains, timeline, matrix, or
+the mobile index cards. The "28 domains, 654 timeline marks, 62 matrix marks"
+line reports SVG marks, not mobile list rows. Phase 1 added those alternatives
+and `scripts/verify/atlas-mobile.mjs`; the 390px pass now checks 28 domain
+rows, 654 decade-list rows, 62 matrix table rows, 654 index cards, the
+evidence key, rail inert state, and zero horizontal overflow. Vision at 390px
+returned PASS on field, index, dossier, domains, timeline, matrix, and paths.
+
+The atlas backup is now `_attic/2026-11-02/atlas-index-backup.html` (gitignored),
+not `public/psychopolitics-atlas/index-2026-11-02.html`.

@@ -90,3 +90,14 @@ had stopped; the output was verified here and committed. The earlier
   `/Users/thenetos/Projects/gamification-paper/submission/` as separate pilot
   files; no manuscript edit, no gate.
 - Search Console remains blocked on access. Scholar remains held.
+
+## Correction — 2026-11-02 (production browser check)
+
+The static `verify:atlas-prod` pass reported "no Cloudflare beacon" because the
+Vercel HTML carries no beacon. A browser at production still attempts
+`https://static.cloudflareinsights.com/beacon.min.js/vce701…`; the atlas CSP
+blocks the request (`requestfailed: csp`) and logs a CSP console violation. The
+beacon is therefore still injected at the Cloudflare edge, not disabled. The
+dashboard action remains: Cloudflare → Web Analytics → the `autostimulus.org`
+zone → disable. `scripts/verify/atlas-prod.mjs` now checks the browser and fails
+until the edge stops injecting it.

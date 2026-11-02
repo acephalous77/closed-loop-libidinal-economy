@@ -59,8 +59,10 @@ try {
   check(await page.locator("#dossier [data-close]").evaluate((el) => el === document.activeElement), "dossier close control did not take focus");
   await page.screenshot({ path: `${ARTIFACTS}/390-dossier.png`, fullPage: false });
   await page.locator("#dossier [data-close]").click();
+  check((await page.locator("#dossier").getAttribute("data-open")) === "0", "dossier did not close");
 
   await page.locator('[data-mode="domains"]').click();
+  check((await page.locator("#dossier").getAttribute("data-open")) === "0", "dossier reopened on domains");
   await page.waitForSelector("#domains-list .alt-row");
   check((await page.locator("#domains-list .alt-row").count()) === 28, "domain directory is not 28 rows");
   check(await page.locator("#domains-svg").evaluate((el) => getComputedStyle(el).display === "none"), "domain SVG visible on mobile");

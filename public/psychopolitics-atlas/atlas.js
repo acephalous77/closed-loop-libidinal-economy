@@ -1,5 +1,5 @@
 /*  The Psychopolitics of Socialization — field-guide atlas.
- *  Vanilla ES module. No framework, no third-party requests, no cookies;
+ *  Vanilla ES module. No framework, no third-party runtime, no cookies;
  *  one local flag remembers whether the guide was seen.
  *  Data: ./atlas-data.js (the 2026 corpus) + ./atlas-additions.js
  *  (the 2026-11-02 Sham Individualism / audience / Rockefeller expansion).

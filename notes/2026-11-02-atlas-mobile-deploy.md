@@ -31,3 +31,18 @@ Checked in Chromium at 390×844:
 - no console errors, page errors, or failed requests.
 
 The atlas is live at `466391f`. Nothing else remains open on this pass.
+
+## Correction — 2026-11-02 (ATLAS-REVIEW-2026-11-02 phase 1)
+
+"Nothing else remains open on this pass" was true of the shipped mobile field
+and path checks, not of the atlas. The pass did not test the mobile text
+alternatives; phase 1 found that the domains/timeline/matrix SVGs were still
+being shown at 390px and that the index table was the only index surface. The
+alternatives are now built and checked. The Cloudflare Web Analytics beacon is
+also still present in production; the atlas-scoped CSP and the post-deploy
+network check address the script path, while disabling the zone setting remains
+Adnan's dashboard action.
+
+Production moved again on the same date: `1feca94` carries the phase-1 atlas
+pass (1903–2026, 654/1,139, source notes, mobile alternatives, scoped CSP, new
+OG image). `466391f` is the previous atlas deployment, not the current one.
