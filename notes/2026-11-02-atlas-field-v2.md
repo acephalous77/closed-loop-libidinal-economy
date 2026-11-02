@@ -46,3 +46,10 @@ authorship-restoration workstream remains proposed only.
 - `npm run build` — 282 static pages, TypeScript clean.
 - `npm run verify` — font-preload invariant, walkthrough, 249 same-origin links,
   404, atlas consistency and contrast all PASS.
+
+## Deployed
+
+`57c0b62` — “Give the atlas field the engraved-map treatment.” GitHub Actions
+`41526572765` passed. Production `verify:atlas-prod` PASS; the production
+browser sees 84 territory paths, 1,139 relation paths, the cartouche with
+654 / 1,139 / 1903–2026, no external requests, and no console errors.
