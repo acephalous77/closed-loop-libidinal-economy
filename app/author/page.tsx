@@ -82,6 +82,7 @@ const PERSON = {
     "speculative design",
   ],
   mainEntityOfPage: AUTHOR_URL,
+  sameAs: ["https://orcid.org/0000-0003-0193-5214"],
 };
 
 const PROFILE_PAGE = {
@@ -565,6 +566,21 @@ export default function AuthorPage() {
               Selimović, Adnan. “Selected Works and Citation Record.”{" "}
               <span style={{ fontStyle: "italic" }}>autostimulus</span>, 2026,{" "}
               <span style={{ color: TEXT }}>https://www.autostimulus.org/author</span>.
+            </p>
+            <p style={{ ...BODY, maxWidth: "42rem", marginTop: "0.75rem" }}>
+              ORCID:{" "}
+              <a
+                href="https://orcid.org/0000-0003-0193-5214"
+                className="author-link"
+                style={{
+                  color: ACCENT,
+                  textDecoration: "underline",
+                  textDecorationColor: ACCENT,
+                  textUnderlineOffset: "0.16em",
+                }}
+              >
+                0000-0003-0193-5214
+              </a>
             </p>
           </Block>
 

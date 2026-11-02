@@ -28,10 +28,9 @@ const SITE_URL =
 // the E-E-A-T signal Google/Bing/LLMs use to weight authority. Add
 // URLs here as they exist — they propagate to every page's JSON-LD.
 const AUTHOR_SAME_AS: string[] = [
-  // "https://orcid.org/0000-0000-0000-0000",
+  "https://orcid.org/0000-0003-0193-5214",
   // "https://scholar.google.com/citations?user=XXXXXXXXXXX",
   // "https://philpapers.org/profile/XXXXX",
-  // "https://www.researchgate.net/profile/Adnan-Selimovic",
 ];
 
 const AUTHOR = {

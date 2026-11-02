@@ -151,6 +151,14 @@ export default function ColophonPage() {
               ))}
             </tbody>
           </table>
+          <p style={{
+            margin: "12px 0 0", fontFamily: FONT.serif, fontSize: 13,
+            lineHeight: 1.55, color: T.inkMute,
+          }}>
+            Edition note: the brochure is v 4.2; the technical drawing is
+            rev 4.1. Plate numbers belong to the printed plates; register
+            numbers belong to this catalogue.
+          </p>
         </div>
 
         <div style={{

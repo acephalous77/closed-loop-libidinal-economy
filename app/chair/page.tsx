@@ -499,7 +499,7 @@ function OHCOSE() {
               textTransform: "uppercase", color: B.inkMute, marginBottom: 18,
             }}>{win}</div>
             <p style={{
-              margin: 0, fontSize: 17, lineHeight: 1.55, color: B.inkDim,
+              margin: 0, fontSize: 18, lineHeight: 1.55, color: B.inkDim,
             }}>{body}</p>
           </div>
         ))}
