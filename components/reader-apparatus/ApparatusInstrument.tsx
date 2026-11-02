@@ -78,7 +78,12 @@ export function ApparatusInstrument() {
     return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
-  if (!mounted || !snap.started || pathname === "/") return null;
+  if (
+    !mounted ||
+    !snap.started ||
+    pathname === "/" ||
+    pathname === "/closed-loop"
+  ) return null;
 
   const t = clock(now - snap.startedAt);
   const works = apparatus.worksEntered();
