@@ -36,10 +36,10 @@ try {
   await page.evaluate(() => document.fonts.ready);
   await page.waitForSelector("#field-svg", { state: "attached" });
   check((await page.locator("#status").innerText()).includes("654 nodes"), "status lacks 654 nodes");
-  check((await page.locator("#status").innerText()).includes("1138 relations"), "status lacks 1138 relations");
+  check((await page.locator("#status").innerText()).includes("1097 relations"), "status lacks 1097 relations");
   check((await page.locator("#layer-grid line").count()) > 0, "graticule missing");
   check((await page.locator("#layer-hulls > path").count()) === 84, "territory plate paths are not 84");
-  check((await page.locator("#layer-edges > path").count()) === 1138, "relation arcs are not 1138 paths");
+  check((await page.locator("#layer-edges > path").count()) === 1097, "relation arcs are not 1097 paths");
   check(await page.locator(".field-cartouche").evaluate((el) => getComputedStyle(el).display === "none"), "cartouche visible on mobile");
   const statusFit = await page.evaluate(() => {
     const el = document.querySelector("#status");

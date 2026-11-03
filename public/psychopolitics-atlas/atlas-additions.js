@@ -19,12 +19,10 @@
 //
 // Sources are named in each record; the full dossiers live at
 // ~/Desktop/RECENT RESEARCH/SHAM INDIVIDUALISM/ (01-09).
-
 export const CLUSTERS = {
   demagogy: { label: "Radio demagogy & the present", hue: 320 },
   measure:  { label: "Audience & statistical reason", hue: 185 },
 };
-
 export const LENSES = {
   address: {
     label: "Mass address",
@@ -35,7 +33,6 @@ export const LENSES = {
     desc: "How samples, ratings and demographics constitute an audience as a population — the commercial twin of demography.",
   },
 };
-
 export const NODES = [
   // ===== THE TECHNIQUE: RADIO DEMAGOGY =====
   { id:"adorno_radio", label:"The Martin Luther Thomas study", sub:"Adorno, 1943 / 2000", type:"idea", cl:"demagogy", ev:"documented", yr:1943, lens:["address","theory","epistemic"],
@@ -93,7 +90,6 @@ export const NODES = [
       fund:"—",
       did:"The repertoire of devices: the repeated “I,” the lone wolf, persecuted innocence, the manufactured personal relationship, the rhetorical question, the conspiratorial enemy, the personalization of the political, formula and repetition.",
       src:["Adorno, The Psychological Technique of Martin Luther Thomas' Radio Addresses (2000)","Sham Individualism dossier 01 §1"] } },
-
   // ===== THE JUNCTION: SABIDO / ENTERTAINMENT-EDUCATION =====
   { id:"sabido", label:"Miguel Sabido", sub:"entertainment-education, b. 1937", type:"person", cl:"demagogy", ev:"documented", yr:1975, lens:["address","mechanism","polecon"],
     rec:{ what:"Televisa writer-producer who developed entertainment-education: serial drama engineered with positive, negative and transitional role models, epilogues and service referral, so that identification converts into behavior.",
@@ -170,7 +166,6 @@ export const NODES = [
       fund:"Columbia Bureau of Applied Social Research; US government broadcasting requirements.",
       did:"Survey project in Turkey, Greece and the Middle East; the Balgat case.",
       src:["Lerner 1958","Samarajiwa 1987; Shah 2011"] } },
-
   // ===== THE PRESENT: DEMAGOGY AT PLATFORM SCALE =====
   { id:"rogan", label:"Joe Rogan", sub:"The Joe Rogan Experience", type:"person", cl:"demagogy", ev:"documented", yr:2009, lens:["address","transmission"],
     rec:{ what:"Podcaster whose long-form, withheld-judgment interviews industrialized pseudo-intimacy at platform scale; the present case for the demagogy line.",
@@ -207,7 +202,6 @@ export const NODES = [
       fund:"—",
       did:"The project's sharpened thesis, not a finding.",
       src:["Sham Individualism dossiers 05 §4 and 07 §2"] } },
-
   // ===== THE MEASURE: AUDIENCE AS POPULATION =====
   { id:"audience_measurement", label:"Audience measurement", sub:"the ratings apparatus", type:"idea", cl:"measure", ev:"documented", yr:1929, lens:["measure","polecon","epistemic"],
     rec:{ what:"The sample-and-inference apparatus that constitutes “the audience” as a statistical object with rates, cume, average-quarter-hour share, dayparts and demographics.",
@@ -274,7 +268,6 @@ export const NODES = [
       fund:"—",
       did:"Lazarsfeld, “Remarks on Administrative and Critical Communications Research,” Studies in Philosophy and Social Science 9:1 (1941): 2–16.",
       src:["Lazarsfeld 1941","Sham Individualism dossier 01 §3"] } },
-
   // ===== THE HINGE: ROCKEFELLER / OPR =====
   { id:"opr", label:"Office of Population Research", sub:"Princeton, founded 1936", type:"institution", cl:"eugenics", ev:"documented", yr:1936, lens:["polecon","measure","socio"],
     rec:{ what:"Princeton's population research centre, founded in 1936 as a clearinghouse for research on population problems under Frank Notestein; Rockefeller support begins in 1944.",
@@ -287,14 +280,13 @@ export const NODES = [
       did:"RF 37072 radio grant; the 1949 “10 RF Projects” file; the one documented cross-domain career — a career overlap, not a programmatic hinge.",
       src:["RAC DIMES agent record, “Marshall, John (1903–1980)”","RF project files","Sham Individualism dossier 04 §3–§5"] } },
 ];
-
 export const LINKS = [
   // ---- radio research / technique ----
   { s:"rockefeller_fdn", t:"princeton_radio", r:"funded" },
-  { s:"princeton_radio", t:"lazarsfeld", r:"staffs" },
-  { s:"princeton_radio", t:"adorno", r:"staffs" },
-  { s:"princeton_radio", t:"lowenthal", r:"staffs" },
-  { s:"princeton_radio", t:"macdougald", r:"staffs" },
+  { s:"lazarsfeld", t:"princeton_radio", r:"staffs" },
+  { s:"adorno", t:"princeton_radio", r:"staffs" },
+  { s:"lowenthal", t:"princeton_radio", r:"staffs" },
+  { s:"macdougald", t:"princeton_radio", r:"staffs" },
   { s:"princeton_radio", t:"little_annie", r:"ran" },
   { s:"adorno", t:"adorno_radio", r:"theorizes" },
   { s:"adorno_radio", t:"sham_individualism", r:"became" },
@@ -309,9 +301,8 @@ export const LINKS = [
   { s:"horkheimer_adorno", t:"han", r:"influenced" },
   { s:"kris_speier", t:"simpson", r:"influenced" },
   { s:"macdougald", t:"manosphere", r:"influenced" },
-
   // ---- Sabido / entertainment-education ----
-  { s:"televisa", t:"sabido", r:"staffs" },
+  { s:"sabido", t:"televisa", r:"staffs" },
   { s:"sabido", t:"ven_conmigo", r:"ran" },
   { s:"sabido", t:"acompaname", r:"ran" },
   { s:"sabido", t:"vamos_juntos", r:"ran" },
@@ -333,7 +324,6 @@ export const LINKS = [
   { s:"mamdani", t:"notestein", r:"rival" },
   { s:"sabido", t:"adorno_radio", r:"rhymes" },
   { s:"sham_individualism", t:"sabido", r:"influenced" },
-
   // ---- the present ----
   { s:"spotify", t:"rogan", r:"funded" },
   { s:"rogan", t:"alex_jones", r:"convenes" },
@@ -351,7 +341,6 @@ export const LINKS = [
   { s:"alex_jones", t:"manosphere", r:"rhymes" },
   { s:"rogan", t:"manosphere", r:"influenced" },
   { s:"sham_individualism", t:"manosphere", r:"theorizes" },
-
   // ---- audience / measure ----
   { s:"crossley", t:"audience_measurement", r:"ran" },
   { s:"hooper", t:"audience_measurement", r:"ran" },
@@ -372,21 +361,17 @@ export const LINKS = [
   { s:"audience_measurement", t:"cambridge_analytica", r:"rhymes", q:"S" },
   { s:"audience_measurement", t:"zuboff", r:"influenced" },
   { s:"audience_measurement", t:"fogg", r:"rhymes" },
-  { s:"hacking", t:"foucault", r:"influenced" },
-  { s:"miller_rose", t:"nikolas_rose", r:"staffs" },
+  { s:"foucault", t:"hacking", r:"influenced" },
   { s:"callon_muniesa", t:"mechanism_design", r:"rhymes" },
-
   // ---- Rockefeller hinge ----
   { s:"rockefeller_fdn", t:"opr", r:"funded" },
-  { s:"opr", t:"notestein", r:"staffs" },
+  { s:"notestein", t:"opr", r:"staffs" },
   { s:"opr", t:"population_council", r:"influenced" },
   { s:"john_marshall", t:"rockefeller_fdn", r:"staffs" },
   { s:"john_marshall", t:"princeton_radio", r:"ran" },
   { s:"john_marshall", t:"opr", r:"rhymes", q:"S" },
   { s:"john_marshall", t:"population_council", r:"convenes" },
-  { s:"princeton_radio", t:"rockefeller_fdn", r:"feeds" },
 ];
-
 export const THREADS = [
   {
     id: "sham",
@@ -478,14 +463,12 @@ export const THREADS = [
     ],
   },
 ];
-
 // Positions are generated by scripts/atlas-place.mjs and written back into
 // this file; the values below are the anchors for the two new clusters.
 export const CLUSTER_POS = {
   demagogy: [-280, 760],
   measure:  [-880, 860],
 };
-
 export const POS = {
   adorno_radio: [-369.2, 690.8],
   lowenthal: [-304.2, 771],

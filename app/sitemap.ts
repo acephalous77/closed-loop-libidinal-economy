@@ -230,7 +230,7 @@ const OUROBORIC_ROUTES = ["/ouroboric-condition"];
 
 const MANUFACTURE_ROUTES = ["/manufacture-of-the-subject"];
 
-const PSYCHOPOLITICS_ROUTES = ["/psychopolitics-atlas"];
+const PSYCHOPOLITICS_ROUTES = ["/psychopolitics-atlas", "/psychopolitics-atlas/records.html"];
 
 const ROUTES = [
   ...ATELIER_ROUTES,

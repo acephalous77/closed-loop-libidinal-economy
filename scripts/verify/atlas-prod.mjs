@@ -16,7 +16,7 @@ check(res.status === 200, `${base} returned ${res.status}`);
 const html = await res.text();
 const csp = res.headers.get("content-security-policy") || "";
 check(csp.includes("script-src 'self'"), "CSP missing or too loose");
-check(html.includes("654 nodes") && html.includes("1,138 relations"), "production counts missing");
+check(html.includes("654 nodes") && html.includes("1,097 relations"), "production counts missing");
 check(html.includes("1903–2026"), "production date range missing");
 check(html.includes('rel="canonical" href="https://www.autostimulus.org/psychopolitics-atlas"'), "canonical is not bare");
 check(!html.includes("index-2026-11-02.html"), "old atlas backup referenced");
@@ -28,6 +28,9 @@ const js = await (await fetch(`${base}/atlas.js`)).text();
 check(js.includes("renderDomainsList") && js.includes("syncRailState"), "production JS is stale");
 const og = await fetch(`${base}/og.png`);
 check(og.status === 200 && (og.headers.get("content-type") || "").includes("image/png"), "og.png is not served as PNG");
+const index = await fetch(`${base}/records.html`);
+const indexHtml = await index.text();
+check(index.status === 200 && indexHtml.includes("<b>654</b> records") && indexHtml.includes("<b>1,097</b> relations"), "static record index missing or stale");
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } });

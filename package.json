@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/build-atlas-index.mjs && next build",
     "start": "next start",
     "lint": "eslint",
     "verify": "node scripts/verify/font-preloads.mjs && node scripts/verify/walkthrough.mjs && node scripts/verify/internal-links.mjs && node scripts/verify/atlas-consistency.mjs && node scripts/verify/atlas-contrast.mjs",

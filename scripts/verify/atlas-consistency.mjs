@@ -42,13 +42,13 @@ const llms = fs.readFileSync(path.join(root, "public/llms.txt"), "utf8");
 const next = fs.readFileSync(path.join(root, "next.config.ts"), "utf8");
 
 check(nodes.length === 654, `nodes ${nodes.length} !== 654`);
-check(links.length === 1138, `links ${links.length} !== 1138`);
+check(links.length === 1097, `links ${links.length} !== 1097`);
 check(tiers.documented === 610, `documented ${tiers.documented} !== 610`);
 check(tiers.contested === 37, `contested ${tiers.contested} !== 37`);
 check(tiers.speculative === 6, `speculative ${tiers.speculative} !== 6`);
 check(tiers.untriaged === 1, `untriaged ${tiers.untriaged} !== 1`);
 check(tiers.documented + tiers.contested + tiers.speculative + tiers.untriaged === nodes.length, "tiers do not sum to nodes");
-check(assessed === 13, `assessed edges ${assessed} !== 13`);
+check(assessed === 12, `assessed edges ${assessed} !== 12`);
 check(nodes.filter((n) => n.eff).length === 18, `efficacy records ${nodes.filter((n) => n.eff).length} !== 18`);
 check(base.EFFICACY && ["failed", "contested", "partial"].every((k) => base.EFFICACY[k]), "efficacy taxonomy missing");
 check(minYear === 1903 && maxYear === 2026, `year range ${minYear}-${maxYear} !== 1903-2026`);
@@ -61,6 +61,10 @@ check(html.includes('og:url" content="https://www.autostimulus.org/psychopolitic
 check(html.includes('id="domains-list"') && html.includes('id="timeline-list"') && html.includes('id="matrix-list"'), "mobile alternative containers missing");
 check(html.includes('id="index-cards"') && html.includes('id="evidence-key-body"'), "index cards or evidence key missing");
 check(html.includes('data-mode="efficacy"') && html.includes('id="efficacy-view"') && html.includes('id="efficacy-list"'), "efficacy view missing");
+check(fs.existsSync(path.join(atlas, "records.html")), "static record index missing");
+const recordsHtml = fs.readFileSync(path.join(atlas, "records.html"), "utf8");
+check((recordsHtml.match(/<article class="record"/g) || []).length === nodes.length, "record index does not carry every node");
+check(recordsHtml.includes("1,097</b> relations") && recordsHtml.includes("<b>654</b> records"), "record index counts stale");
 check(/id="dossier"[^>]*role="dialog"[^>]*tabindex="-1"/.test(html), "dossier focus target missing");
 check(/id="path-reader"[^>]*role="dialog"[^>]*tabindex="-1"/.test(html), "path-reader focus target missing");
 
