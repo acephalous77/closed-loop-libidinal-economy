@@ -49,3 +49,12 @@ five covers, and the reader's apparatus is absent from all of them. The
 manufacture credit rows now read as prose; OHCOSE carries the Gen-C gloss, the
 revision stamp, and the barcode label. CI `41551184808` passed. The atlas
 session's `e6df810` landed after this pass; it is not part of the cover work.
+
+## Follow-up — the chair cover top
+
+`bee591b` removes the sticky product nav and the figure strip. The cover now
+opens on the plate header, the title, the render with one caption, and the
+epigraph; the product sections and the tier CTA remain below. The top third
+now passes the brief at both widths (readable, coherent type, render as the
+hero, no SaaS bar). The cover is a single scroll rather than a dashboard with
+same-page controls. DOM at 390 and 1440: no overflow.
