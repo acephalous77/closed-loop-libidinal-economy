@@ -24,16 +24,6 @@ const C = {
   cyan: "#7fc4c9",
 };
 
-const TYPE_COLOR = {
-  person: "#8fb3d9",
-  funder: "#c9a45c",
-  institution: "#9a9fae",
-  program: "#c97963",
-  idea: "#9bb47a",
-  theory: "#b7a0d4",
-  case: "#7fc4c9",
-  faction: "#c98aa8",
-};
 const EV_COLOR = {
   documented: C.moss,
   contested: C.ochre,
@@ -80,16 +70,20 @@ const REL_LABEL_IN = {
 };
 
 const ZONES = [
-  { id: "patrons", label: "The patrons", cls: ["eugenics", "philan", "state"] },
-  { id: "science", label: "The science", cls: ["density", "coercion", "persuasion", "measure"] },
-  { id: "programs", label: "The programs", cls: ["mkultra", "carceral", "haight", "control"] },
-  { id: "address", label: "The address", cls: ["demagogy"] },
-  { id: "present", label: "The present", cls: ["platform", "litigation"] },
-  { id: "frame", label: "The frame", cls: ["theory", "transmission"] },
-  { id: "money", label: "The money", cls: ["venture", "ai", "sovereign", "aisafety", "darkmoney"] },
-  { id: "frontiers", label: "The frontiers", cls: ["embryo", "longevity", "neuro", "belief", "pronatal"] },
-  { id: "apparatus", label: "The apparatus", cls: ["surveil", "statecap"] },
+  { id: "patrons", label: "The patrons", hue: 72, cls: ["eugenics", "philan", "state"] },
+  { id: "science", label: "The science", hue: 185, cls: ["density", "coercion", "persuasion", "measure"] },
+  { id: "programs", label: "The programs", hue: 45, cls: ["mkultra", "carceral", "haight", "control"] },
+  { id: "address", label: "The address", hue: 320, cls: ["demagogy"] },
+  { id: "present", label: "The present", hue: 250, cls: ["platform", "litigation"] },
+  { id: "frame", label: "The frame", hue: 300, cls: ["theory", "transmission"] },
+  { id: "money", label: "The money", hue: 100, cls: ["venture", "ai", "sovereign", "aisafety", "darkmoney"] },
+  { id: "frontiers", label: "The frontiers", hue: 150, cls: ["embryo", "longevity", "neuro", "belief", "pronatal"] },
+  { id: "apparatus", label: "The apparatus", hue: 215, cls: ["surveil", "statecap"] },
 ];
+function zoneHue(cl) {
+  const z = DATA.zoneOf.get(cl);
+  return z != null && ZONES[z] ? ZONES[z].hue : 250;
+}
 
 const PATH_GROUPS = [
   { label: "The historical spine", ids: ["loop", "notouch", "travels", "consent", "population_turn", "rockefeller", "sham"] },
@@ -433,17 +427,29 @@ function shapeSpec(type, r) {
   }
 }
 
+function typeGlyph(type, size = 13, color = C.paper) {
+  const [tag, attrs] = shapeSpec(type, 5.5);
+  const el = S(tag, attrs);
+  el.setAttribute("fill", type === "idea" ? "none" : color);
+  el.setAttribute("stroke", type === "idea" ? color : C.field);
+  el.setAttribute("stroke-width", type === "idea" ? "1.4" : "1");
+  const svg = S("svg", { viewBox: "-8 -8 16 16", width: String(size), height: String(size) });
+  svg.appendChild(el);
+  return svg.outerHTML;
+}
+
 function buildNodes() {
   for (const n of DATA.nodes) {
     const g = S("g", { "data-node": n.id, role: "button", "aria-label": n.label + (n.sub ? " — " + n.sub : "") });
     g.style.cursor = "pointer";
-    const halo = S("circle", { r: n.r + 7, fill: "none", "stroke-width": "1.6" });
+    const halo = S("circle", { r: n.r + 7, fill: "none", "stroke-width": "1.6", "vector-effect": "non-scaling-stroke" });
     halo.style.opacity = "0";
     const [tag, attrs] = shapeSpec(n.type, n.r);
     const shape = S(tag, attrs);
     shape.setAttribute("stroke-width", "1.2");
+    shape.setAttribute("vector-effect", "non-scaling-stroke");
     const core = S("circle", { r: Math.max(1.1, n.r * .24), "stroke-width": "0.8" });
-    const ring = S("circle", { r: n.r + 3.4, fill: "none", "stroke-width": "1" });
+    const ring = S("circle", { r: n.r + 3.4, fill: "none", "stroke-width": "1.15", "vector-effect": "non-scaling-stroke" });
     const hit = S("circle", { r: Math.max(n.r + 7, 12), fill: "#000", "fill-opacity": "0" });
     const label = textEl(n.label, {
       x: 0, y: n.r + 12.5, "text-anchor": "middle",
@@ -525,20 +531,20 @@ function buildHulls() {
       top = cy - ry;
       d = `M ${cx - rx} ${cy} a ${rx} ${ry} 0 1 0 ${2 * rx} 0 a ${rx} ${ry} 0 1 0 ${-2 * rx} 0 Z`;
     }
-    const hue = DATA.clusters[cl] ? DATA.clusters[cl].hue : 250;
+    const hue = zoneHue(cl);
     const clusterNo = String(Object.keys(DATA.clusters).indexOf(cl) + 1).padStart(2, "0");
     const plate = S("path", {
-      d, fill: `oklch(0.65 0.1 ${hue} / 0.052)`, stroke: "none",
+      d, fill: `oklch(0.65 0.1 ${hue} / 0.042)`, stroke: "none",
     });
     const inner = S("path", {
-      d, fill: "none", stroke: `oklch(0.72 0.09 ${hue} / 0.16)`,
+      d, fill: "none", stroke: `oklch(0.72 0.09 ${hue} / 0.13)`,
       "stroke-width": "0.75", "stroke-dasharray": "0.7 9", "stroke-linejoin": "round",
       "vector-effect": "non-scaling-stroke",
       transform: `translate(${cx.toFixed(2)} ${cy.toFixed(2)}) scale(.945) translate(${(-cx).toFixed(2)} ${(-cy).toFixed(2)})`,
     });
     const path = S("path", {
       d, fill: "none",
-      stroke: `oklch(0.74 0.08 ${hue} / 0.42)`, "stroke-width": "1.1",
+      stroke: `oklch(0.74 0.08 ${hue} / 0.36)`, "stroke-width": "1.1",
       "stroke-dasharray": "1.6 6.4", "stroke-linejoin": "round",
       "vector-effect": "non-scaling-stroke",
     });
@@ -552,7 +558,7 @@ function buildHulls() {
       x: cx, y: top - 12, "text-anchor": "middle",
       "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
       "font-size": "9.5", "font-weight": "600", "letter-spacing": "1.2",
-      fill: `oklch(0.88 0.07 ${hue} / 0.95)`,
+      fill: C.paper, "fill-opacity": "0.92",
       "paint-order": "stroke", stroke: C.field, "stroke-width": "3",
       "stroke-linejoin": "round",
     });
@@ -730,11 +736,11 @@ function updateLabels() {
     const forced = state.selected === n.id || state.hover === n.id || currentId === n.id;
     const onRoute = (tIds && tIds.has(n.id)) || (pIds && pIds.has(n.id));
     lbl.style.display = "";
-    lbl.style.opacity = Math.min(1, op).toFixed(2);
+    lbl.style.opacity = (op >= 0.5 ? Math.min(1, op + 0.08) : op).toFixed(2);
     const size = (10.5 + boost * 2.8) / k;
     lbl.setAttribute("font-size", size.toFixed(1));
-    lbl.setAttribute("stroke-width", (2.4 / k).toFixed(2));
-    lbl.setAttribute("fill", forced ? C.paper : C.paper2);
+    lbl.setAttribute("stroke-width", (3 / k).toFixed(2));
+    lbl.setAttribute("fill", C.paper);
     lbl.setAttribute("font-weight", boost > 0.35 ? "600" : "400");
     candidates.push({ lbl, id: n.id, forced, score: (forced ? 1e6 : 0) + (onRoute ? 1e5 : 0) + (n.deg || 0) * 100 + op * 100 + boost * 1000 });
   }
@@ -757,8 +763,8 @@ function updateLabels() {
     const dim = state.region && state.region !== cl;
     const hiddenByFocus = (state.thread || state.path || state.focusSet) && !dim;
     h.label.setAttribute("font-size", (10 / k).toFixed(1));
-    h.label.setAttribute("stroke-width", (3 / k).toFixed(2));
-    h.label.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.35" : "0.9");
+    h.label.setAttribute("stroke-width", (3.4 / k).toFixed(2));
+    h.label.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.35" : "0.95");
     h.path.style.opacity = hiddenByFocus ? "0.25" : (dim ? "0.4" : "1");
     h.plate.style.opacity = hiddenByFocus ? "0.16" : (dim ? "0.24" : "1");
     h.inner.style.opacity = hiddenByFocus ? "0.12" : (dim ? "0.18" : "1");
@@ -788,8 +794,7 @@ function updateMinimapViewport() {
 /* ── field paint ────────────────────────────────────────────────────── */
 function paintNode(n) {
   const ev = n.ev || "untriaged";
-  const typeColor = TYPE_COLOR[n.type] || C.paper3;
-  const fill = state.lens === "epistemic" ? EV_COLOR[ev] : typeColor;
+  const fill = state.lens === "epistemic" ? EV_COLOR[ev] : `oklch(0.68 0.11 ${zoneHue(n.cl)})`;
   n._shape.setAttribute("fill", n.type === "idea" ? "none" : fill);
   n._shape.setAttribute("stroke", n.type === "idea" ? fill : C.field);
   n._shape.setAttribute("stroke-width", n.type === "idea" ? "1.8" : "1.2");
@@ -833,7 +838,7 @@ function refresh() {
     const a = l.source, b = l.target;
     const vis = nodeVisible(a) && nodeVisible(b);
     const hub = Math.min(a.deg, b.deg) >= 9;
-    let op = hub ? 0.52 : 0.38;
+    let op = hub ? 0.4 : 0.26;
     if (!vis) op = 0;
     else if (tIds) op = (tIds.has(a.id) && tIds.has(b.id)) ? 0.18 : 0;
     else if (pIds) op = state.path.edgeSet.has(l.s + "|" + l.t) ? 0.9 : 0;
@@ -842,6 +847,7 @@ function refresh() {
     else if (rel) op = l.r === rel ? 0.78 : 0.035;
     else if (bSet) op = (bSet.has(a.id) && bSet.has(b.id)) ? 0.55 : 0.03;
     else if (aSet) op = (aSet.has(a.id) || aSet.has(b.id)) ? 0.42 : 0.035;
+    else if (state.hover) op = (l.s === state.hover || l.t === state.hover) ? 0.82 : 0.06;
     l._el.style.opacity = op.toFixed(3);
     l._el.setAttribute("stroke", FAMILY_COLOR[REL_FAMILY[l.r] || "power"]);
     const baseW = 1.35 + Math.min(1.1, Math.min(a.deg, b.deg) / 16);
@@ -1031,9 +1037,12 @@ function onHover(n) {
   if (n) {
     const r = ui.stage.getBoundingClientRect();
     const sx = n.x * view.k + view.x, sy = n.y * view.k + view.y;
-    ui.tooltip.innerHTML = `<b>${esc(n.label)}</b> <span>· ${esc(DATA.clusters[n.cl] ? DATA.clusters[n.cl].label : n.cl)}${n.sub ? " · " + esc(n.sub) : ""}</span>`;
-    ui.tooltip.style.left = (sx + 10) + "px";
-    ui.tooltip.style.top = (sy - 8) + "px";
+    const typeLabel = DATA.types[n.type] ? DATA.types[n.type].label : n.type;
+    const evLabel = n.ev && DATA.evidence[n.ev] ? DATA.evidence[n.ev].label : "untriaged";
+    ui.tooltip.innerHTML = `<b>${esc(n.label)}</b> <span>· ${esc(DATA.clusters[n.cl] ? DATA.clusters[n.cl].label : n.cl)}</span><span class="tt-meta">${esc(typeLabel)} · ${esc(evLabel)} · ${n.deg} ties · click to open</span>`;
+    const tw = ui.tooltip.offsetWidth || 320, th = ui.tooltip.offsetHeight || 44;
+    ui.tooltip.style.left = clamp(sx + 10, tw / 2 + 8, stageW - tw / 2 - 8) + "px";
+    ui.tooltip.style.top = clamp(sy - 8, th * 1.35 + 8, stageH + th * 0.35 - 8) + "px";
     ui.tooltip.style.opacity = "1";
     const g = n._g;
     if (g) g.style.opacity = "1";
@@ -1041,11 +1050,7 @@ function onHover(n) {
     ui.tooltip.style.opacity = "0";
   }
   scheduleLabels();
-  for (const x of DATA.nodes) {
-    if (!nodeVisible(x)) continue;
-    if (state.selected === x.id || state.hover === x.id) paintNode(x);
-    else if (state.hover) paintNode(x);
-  }
+  refresh();
 }
 
 function selectNode(id, opts = {}) {
@@ -1112,7 +1117,7 @@ function fillDossier(n) {
   ui.dossier.innerHTML = `
     <div class="dossier-head">
       <div class="dossier-kicker">
-        <span class="swatch" style="background:${TYPE_COLOR[n.type] || C.paper3};border-color:${TYPE_COLOR[n.type] || C.paper3}"></span>
+        <span class="swatch" style="background:oklch(0.68 0.11 ${zoneHue(n.cl)});border-color:oklch(0.68 0.11 ${zoneHue(n.cl)})"></span>
         <span>${esc(type)}</span><span>·</span><span>${esc(cl ? cl.label : n.cl)}</span>
         <button class="dossier-close" data-close aria-label="Close the record">×</button>
       </div>
@@ -1392,9 +1397,10 @@ function buildRail() {
     const rows = z.cls.map((cl) => {
       const c = DATA.clusters[cl];
       if (!c) return "";
-      return `<button class="rail-item" data-region="${esc(cl)}"><span class="dot" style="background:oklch(0.68 0.1 ${c.hue})"></span><span>${esc(c.label)}</span><span class="count">${counts[cl] || 0}</span></button>`;
+      return `<button class="rail-item" data-region="${esc(cl)}"><span class="dot" style="background:oklch(0.68 0.1 ${zoneHue(cl)})"></span><span>${esc(c.label)}</span><span class="count">${counts[cl] || 0}</span></button>`;
     }).join("");
-    return `<div class="rail-group"><span>${esc(z.label)}</span><span>${totalZ}</span></div>${rows}`;
+    const zc = `oklch(0.7 0.1 ${z.hue})`;
+    return `<div class="rail-group"><span class="zone-name"><i class="zone-dot" style="background:${zc};border-color:${zc}"></i>${esc(z.label)}</span><span>${totalZ}</span></div>${rows}`;
   }).join("");
   domBox.querySelectorAll("[data-region]").forEach((b) => b.addEventListener("click", () => focusRegion(b.dataset.region)));
 
@@ -1438,7 +1444,7 @@ function buildRail() {
     b.className = "check-row";
     b.dataset.kind = k;
     b.setAttribute("aria-pressed", String(state.kinds.has(k)));
-    b.innerHTML = `<span class="swatch" style="background:${TYPE_COLOR[k]};border-color:${TYPE_COLOR[k]}"></span><span>${esc(DATA.types[k].label)}</span><span class="tick">●</span>`;
+    b.innerHTML = `<span class="swatch kind-swatch">${typeGlyph(k, 11, C.paper)}</span><span>${esc(DATA.types[k].label)}</span><span class="tick">●</span>`;
     b.addEventListener("click", () => {
       if (state.kinds.has(k)) state.kinds.delete(k); else state.kinds.add(k);
       syncRail(); refresh();
@@ -1517,7 +1523,7 @@ function syncRail() {
   document.querySelectorAll("[data-kind]").forEach((b) => {
     const on = state.kinds.has(b.dataset.kind);
     b.setAttribute("aria-pressed", String(on));
-    b.querySelector(".tick").style.color = on ? TYPE_COLOR[b.dataset.kind] : C.paper4;
+    b.querySelector(".tick").style.color = on ? C.paper : C.paper4;
     b.style.opacity = on ? "1" : "0.5";
   });
   document.querySelectorAll("[data-rel]").forEach((b) => {
@@ -1548,7 +1554,7 @@ function setLens(k) {
   if (k === "epistemic") { /* evidence tier colors */ }
   refresh();
   const desc = $("#lens-desc");
-  if (desc) desc.textContent = k === "structure" ? "Nodes coloured by kind." : (DATA.lenses[k] ? DATA.lenses[k].desc : "");
+  if (desc) desc.textContent = k === "structure" ? "Nodes coloured by macro-zone; shape marks the kind." : (DATA.lenses[k] ? DATA.lenses[k].desc : "");
 }
 
 /* ── crumbs / status / mode ─────────────────────────────────────────── */
@@ -1700,8 +1706,8 @@ function renderDomains() {
   const centers = {};
   for (const cl of Object.keys(DATA.clusters)) centers[cl] = clusterCenter(cl);
   const xs = Object.values(centers).map((p) => p[0]), ys = Object.values(centers).map((p) => p[1]);
-  const minX = Math.min(...xs) - 340, maxX = Math.max(...xs) + 340;
-  const minY = Math.min(...ys) - 260, maxY = Math.max(...ys) + 260;
+  const minX = Math.min(...xs) - 400, maxX = Math.max(...xs) + 400;
+  const minY = Math.min(...ys) - 300, maxY = Math.max(...ys) + 300;
   svg.setAttribute("viewBox", `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   const counts = {}, w = {};
@@ -1716,9 +1722,9 @@ function renderDomains() {
     (maxX - minX) / (svg.clientWidth || 1154),
     (maxY - minY) / (svg.clientHeight || 764),
   );
-  const labelFs = unit * 10.5;
-  const countFs = unit * 8.5;
-  const gap = unit * 6;
+  const labelFs = unit * 11;
+  const countFs = unit * 9.5;
+  const gap = unit * 9;
   const gEdges = S("g"), gNodes = S("g");
   for (const k in w) {
     const [a, b] = k.split("|");
@@ -1727,8 +1733,8 @@ function renderDomains() {
     const cnt = w[k];
     gEdges.appendChild(S("line", {
       x1: A[0], y1: A[1], x2: B[0], y2: B[1],
-      stroke: C.prussian, "stroke-opacity": Math.min(0.35, 0.04 + cnt * 0.012),
-      "stroke-width": Math.min(5, 0.5 + cnt * 0.18),
+      stroke: C.prussian, "stroke-opacity": Math.min(0.5, 0.12 + cnt * 0.022),
+      "stroke-width": Math.min(5.5, 0.8 + cnt * 0.22),
     }));
   }
   const items = Object.keys(DATA.clusters).map((cl) => {
@@ -1744,13 +1750,13 @@ function renderDomains() {
     g.style.cursor = "pointer";
     g.appendChild(S("circle", {
       cx: p[0], cy: p[1], r,
-      fill: `oklch(0.65 0.1 ${c.hue} / 0.16)`,
-      stroke: `oklch(0.74 0.11 ${c.hue} / 0.8)`, "stroke-width": "1.2",
+      fill: `oklch(0.65 0.11 ${zoneHue(cl)} / 0.26)`,
+      stroke: `oklch(0.76 0.11 ${zoneHue(cl)} / 0.95)`, "stroke-width": "1.25",
     }));
     g.appendChild(textEl(String(n), {
       x: p[0], y: p[1] + countFs * 0.35, "text-anchor": "middle",
       "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
-      "font-size": countFs, fill: C.paper3,
+      "font-size": countFs, fill: C.paper2,
     }));
     const title = S("title"); title.textContent = `${c.label} — ${n} nodes`;
     g.appendChild(title);
@@ -1768,7 +1774,7 @@ function renderDomains() {
     const t = textEl(c.label, {
       x: 0, y: 0, "text-anchor": "start",
       "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
-      "font-size": labelFs, fill: C.paper, "fill-opacity": "0.92",
+      "font-size": labelFs, fill: C.paper, "fill-opacity": "0.96",
     });
     g.appendChild(t);
     const bb = t.getBBox();
@@ -1782,12 +1788,20 @@ function renderDomains() {
       { a: "start", x: p[0] + r * 0.55, y: p[1] - r * 0.55 - gap - h, tx: p[0] + r * 0.55 },
       { a: "end", x: p[0] - r * 0.55 - w, y: p[1] + r * 0.55 + gap, tx: p[0] - r * 0.55 },
       { a: "end", x: p[0] - r * 0.55 - w, y: p[1] - r * 0.55 - gap - h, tx: p[0] - r * 0.55 },
+      { a: "middle", x: p[0] - w / 2, y: p[1] + r + gap * 1.8, tx: p[0] },
+      { a: "middle", x: p[0] - w / 2, y: p[1] - r - gap * 1.8 - h, tx: p[0] },
+      { a: "start", x: p[0] + r + gap * 1.8, y: p[1] - h / 2, tx: p[0] + r + gap * 1.8 },
+      { a: "end", x: p[0] - r - gap * 1.8 - w, y: p[1] - h / 2, tx: p[0] - r - gap * 1.8 },
     ];
-    const pick = candidates.find((q) => !hit({ x: q.x, y: q.y, w, h })) || candidates[0];
+    const boxFor = (q) => ({ x: q.x - 4, y: q.y - 4, w: w + 8, h: h + 8 });
+    const inBounds = (q) => q.x >= minX + 8 && q.x + w <= maxX - 8 && q.y >= minY + 8 && q.y + h <= maxY - 8;
+    const pick = candidates.find((q) => inBounds(q) && !hit(boxFor(q)))
+      || candidates.find((q) => !hit(boxFor(q)));
+    if (!pick) { t.remove(); continue; }
     t.setAttribute("text-anchor", pick.a);
     t.setAttribute("x", pick.tx.toFixed(1));
     t.setAttribute("y", (pick.y + asc).toFixed(1));
-    placed.push({ x: pick.x, y: pick.y, w, h });
+    placed.push({ x: pick.x - 4, y: pick.y - 4, w: w + 8, h: h + 8 });
   }
   renderDomainsList(counts);
 }
@@ -1826,7 +1840,7 @@ function renderTimeline() {
     const lane = n._zone;
     const x = xFor(n.yr);
     const y = T + lane * laneH + 18 + hash(n.id) * (laneH - 32);
-    const c = DATA.clusters[n.cl] ? DATA.clusters[n.cl].hue : 250;
+    const c = zoneHue(n.cl);
     const r = 2.6 + Math.min(4.2, Math.sqrt(n.deg) / 2.2);
     const dot = S("circle", { cx: x, cy: y, r, fill: `oklch(0.7 0.11 ${c})`, stroke: C.field, "stroke-width": "0.8" });
     dot.style.cursor = "pointer";
@@ -1865,7 +1879,7 @@ function renderMatrix() {
     const lane = Math.max(0, lanes.indexOf(n.lever));
     const x = L + n.co * (W - L - R);
     const y = T + lane * laneH + laneH * 0.55 + (hash(n.id) - 0.5) * laneH * 0.5;
-    const c = DATA.clusters[n.cl] ? DATA.clusters[n.cl].hue : 250;
+    const c = zoneHue(n.cl);
     const r = 3.2 + Math.min(5, Math.sqrt(n.deg) / 2.2);
     const dot = S("circle", { cx: x, cy: y, r, fill: `oklch(0.7 0.12 ${c})`, stroke: C.field, "stroke-width": "0.8" });
     dot.style.cursor = "pointer";
@@ -1934,7 +1948,7 @@ function buildMinimap() {
   svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
   const hullg = S("g");
   for (const [cl, h] of Object.entries(DATA._hulls || {})) {
-    const hue = DATA.clusters[cl] ? DATA.clusters[cl].hue : 250;
+    const hue = zoneHue(cl);
     hullg.appendChild(S("path", {
       d: h.path.getAttribute("d"),
       fill: `oklch(0.65 0.1 ${hue} / 0.13)`,
@@ -1946,7 +1960,7 @@ function buildMinimap() {
   const g = S("g");
   const dot = Math.max(8, Math.max(worldBounds.w, worldBounds.h) / 130);
   for (const n of DATA.nodes) {
-    const c = DATA.clusters[n.cl] ? DATA.clusters[n.cl].hue : 250;
+    const c = zoneHue(n.cl);
     g.appendChild(S("circle", {
       cx: n.x, cy: n.y, r: dot,
       fill: `oklch(0.7 0.1 ${c})`, "fill-opacity": "0.55",
@@ -2065,16 +2079,7 @@ function buildIntro() {
     return `<button class="intro-path" data-intro-path="${esc(t.id)}"><span class="p-dot" style="background:${t.accent}"></span><span>${esc(t.title)}</span><span class="p-count">${t.steps.length}</span></button>`;
   }).join("");
   ui.introPaths.querySelectorAll("[data-intro-path]").forEach((b) => b.addEventListener("click", () => { closeIntro(); enterPath(b.dataset.introPath); }));
-  const glyph = (type) => {
-    const [tag, attrs] = shapeSpec(type, 5.5);
-    const el = S(tag, attrs);
-    el.setAttribute("fill", type === "idea" ? "none" : TYPE_COLOR[type]);
-    el.setAttribute("stroke", type === "idea" ? TYPE_COLOR[type] : C.field);
-    el.setAttribute("stroke-width", type === "idea" ? "1.4" : "1");
-    const svg = S("svg", { viewBox: "-8 -8 16 16", width: "13", height: "13" });
-    svg.appendChild(el);
-    return svg.outerHTML;
-  };
+  const glyph = (type) => typeGlyph(type, 13, C.paper);
   const items = [
     [glyph("person"), "person"],
     [glyph("institution"), "institution"],
@@ -2083,12 +2088,19 @@ function buildIntro() {
     [glyph("idea"), "idea"],
     [glyph("theory"), "theory"],
     [glyph("case"), "case"],
+    [glyph("faction"), "faction"],
   ];
   ui.introLegend.innerHTML = items.map(([g, label]) => `<li><span class="glyph">${g}</span><span>${label}</span></li>`).join("") +
     `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.moss}" stroke-width="1.4"/></svg></span><span>solid ring — documented</span></li>` +
     `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.ochre}" stroke-width="1.4" stroke-dasharray="2 2"/></svg></span><span>dashed — contested</span></li>` +
     `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.rust}" stroke-width="1.4" stroke-dasharray="0.7 3"/></svg></span><span>dotted — speculative / not established</span></li>` +
     `<li><span class="glyph"><svg viewBox="0 0 13 13" width="13" height="13"><circle cx="6.5" cy="6.5" r="4.5" fill="none" stroke="${C.paper4}" stroke-width="1.4" stroke-dasharray="1 4"/></svg></span><span>long dash — untriaged</span></li>`;
+  const colorBox = $("#intro-colors");
+  if (colorBox) {
+    const zoneKeys = ZONES.map((z) => `<span class="intro-color"><i class="swatch-dot" style="background:oklch(0.7 0.1 ${z.hue});border-color:oklch(0.7 0.1 ${z.hue})"></i>${esc(z.label)}</span>`).join("");
+    const famKeys = Object.entries(FAMILY_COLOR).map(([k, c]) => `<span class="intro-color"><i class="swatch-line" style="background:${c}"></i>${esc(k)}</span>`).join("");
+    colorBox.innerHTML = `<div class="intro-color-group"><h4>Territory / zone</h4>${zoneKeys}</div><div class="intro-color-group"><h4>Edge / relation</h4>${famKeys}</div>`;
+  }
 }
 function openIntro() {
   lastFocus = document.activeElement;
@@ -2285,6 +2297,7 @@ function exportSVG() {
 function wireChrome() {
   document.querySelectorAll(".modes [data-mode]").forEach((b) => b.addEventListener("click", () => setMode(b.dataset.mode)));
   document.querySelector("[data-palette]").addEventListener("click", openPalette);
+  document.querySelector("[data-help]").addEventListener("click", openIntro);
   document.querySelector("[data-share]").addEventListener("click", copyURL);
   document.querySelector("[data-export]").addEventListener("click", exportSVG);
   document.querySelector("[data-rail-toggle]").addEventListener("click", () => {
@@ -2329,6 +2342,11 @@ function wireChrome() {
   // intro
   $("#intro-close").addEventListener("click", closeIntro);
   $("#intro-enter").addEventListener("click", closeIntro);
+  if (window.matchMedia && window.matchMedia("(max-width: 700px)").matches) {
+    const enter = $("#intro-enter");
+    if (enter) enter.textContent = "Enter the index";
+    $("#intro-enter").addEventListener("click", () => setMode("index", false));
+  }
 
   // dossier close on escape handled globally
   document.addEventListener("keydown", (e) => {
@@ -2396,7 +2414,9 @@ function init() {
     fcMeta.textContent = `${DATA.stats.nodes} nodes · ${DATA.stats.links.toLocaleString("en-US")} relations · ${Math.min(...years)}–${Math.max(...years)}`;
   }
   const fcKey = $("#fc-key");
-  if (fcKey) fcKey.textContent = `TERRITORIES T01–T${String(Object.keys(DATA.clusters).length).padStart(2, "0")} · TIES BY FAMILY`;
+  if (fcKey) fcKey.textContent = `${ZONES.length} MACRO-ZONES · T01–T${String(Object.keys(DATA.clusters).length).padStart(2, "0")} · TIES BY FAMILY`;
+  const fcStrip = $("#fc-strip");
+  if (fcStrip) fcStrip.innerHTML = ZONES.map((z) => `<i style="background:oklch(0.7 0.1 ${z.hue})"></i>`).join("");
   buildField();
   buildRail();
   syncRailState();
@@ -2408,7 +2428,9 @@ function init() {
   wireStage();
   renderPositions();
   refresh();
-  setMode("field", false);
+  const mobileFirst = window.matchMedia && window.matchMedia("(max-width: 700px)").matches;
+  const hasHash = (location.hash || "").replace(/^#/, "").length > 0;
+  setMode(mobileFirst && !hasHash ? "index" : "field", false);
   maybeIntro();
   applyHash();
 }

@@ -34,7 +34,7 @@ try {
   const csp = res?.headers()["content-security-policy"] || "";
   check(!!csp && csp.includes("script-src 'self'"), "atlas CSP header missing or too loose");
   await page.evaluate(() => document.fonts.ready);
-  await page.waitForSelector("#field-svg");
+  await page.waitForSelector("#field-svg", { state: "attached" });
   check((await page.locator("#status").innerText()).includes("654 nodes"), "status lacks 654 nodes");
   check((await page.locator("#status").innerText()).includes("1139 relations"), "status lacks 1139 relations");
   check((await page.locator("#layer-grid line").count()) > 0, "graticule missing");
@@ -46,9 +46,10 @@ try {
     return { scroll: el.scrollWidth, client: el.clientWidth };
   });
   check(statusFit.scroll <= statusFit.client + 1, `status clips: ${statusFit.scroll}/${statusFit.client}`);
-  await page.screenshot({ path: `${ARTIFACTS}/390-field.png`, fullPage: false });
+  check((await page.locator("#app").getAttribute("data-mode")) === "index", "mobile does not open on the index");
+  await page.screenshot({ path: `${ARTIFACTS}/390-default.png`, fullPage: false });
 
-  await page.locator('[data-mode="index"]').click();
+  await page.locator('.modes [data-mode="index"]').click();
   await page.waitForSelector("#index-cards .index-card");
   check((await page.locator("#index-cards .index-card").count()) === 654, "index cards are not 654");
   check((await page.locator("#index-count").innerText()) === "654 of 654", "index count mismatch");
@@ -65,32 +66,32 @@ try {
   await page.locator("#dossier [data-close]").click();
   check((await page.locator("#dossier").getAttribute("data-open")) === "0", "dossier did not close");
 
-  await page.locator('[data-mode="domains"]').click();
+  await page.locator('.modes [data-mode="domains"]').click();
   check((await page.locator("#dossier").getAttribute("data-open")) === "0", "dossier reopened on domains");
   await page.waitForSelector("#domains-list .alt-row");
   check((await page.locator("#domains-list .alt-row").count()) === 28, "domain directory is not 28 rows");
   check(await page.locator("#domains-svg").evaluate((el) => getComputedStyle(el).display === "none"), "domain SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-domains.png`, fullPage: false });
 
-  await page.locator('[data-mode="timeline"]').click();
+  await page.locator('.modes [data-mode="timeline"]').click();
   await page.waitForSelector("#timeline-list .alt-row");
   check((await page.locator("#timeline-list .alt-row").count()) === 654, "timeline list is not 654 nodes");
   check((await page.locator("#timeline-list .alt-decade").count()) >= 12, "timeline list has too few decades");
   check(await page.locator("#timeline-svg").evaluate((el) => getComputedStyle(el).display === "none"), "timeline SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-timeline.png`, fullPage: false });
 
-  await page.locator('[data-mode="matrix"]').click();
+  await page.locator('.modes [data-mode="matrix"]').click();
   await page.waitForSelector("#matrix-list tbody tr");
   check((await page.locator("#matrix-list tbody tr").count()) === 62, "matrix table is not 62 rows");
   check(await page.locator("#matrix-svg").evaluate((el) => getComputedStyle(el).display === "none"), "matrix SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-matrix.png`, fullPage: false });
 
-  await page.locator('[data-mode="paths"]').click();
+  await page.locator('.modes [data-mode="paths"]').click();
   await page.waitForSelector("#path-reader[data-open='1']");
   check(await page.locator("#path-reader").isVisible(), "path reader not visible");
   await page.screenshot({ path: `${ARTIFACTS}/390-paths.png`, fullPage: false });
   await page.keyboard.press("Escape");
-  await page.locator('[data-mode="field"]').click();
+  await page.locator('.modes [data-mode="field"]').click();
 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
   check(overflow <= 1, `horizontal overflow +${overflow}px`);
