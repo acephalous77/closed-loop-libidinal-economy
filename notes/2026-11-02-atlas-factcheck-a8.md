@@ -1,6 +1,6 @@
 # 2026-11-02 — whole-atlas fact check (A8) and the static record index (A9)
 
-**Status:** applied on the ruling “whole atlas” for A8 and “crawlable record
+**Status:** deployed on the ruling “whole atlas” for A8 and “crawlable record
 index” for A9. Nothing sends; no training, no publication.
 
 ## A8 — method and coverage
@@ -106,5 +106,16 @@ links to it, and the sitemap carries its route.
 - `npm run verify` — atlas consistency expects 654 / 1,097 / 12; record index
   carries every node; contrast and walkthrough pass.
 - `npm run verify:atlas-mobile` — PASS at 390px.
-- `npm run verify:atlas-prod` — pending deploy; it now checks `records.html`
-  and its counts.
+- `npm run verify:atlas-prod` — PASS after deploy: CSP present, 654 nodes /
+  1,097 relations, no Cloudflare beacon, current assets; `records.html` carries
+  654 records and 1,097 relations.
+
+## Deploy
+
+- Code commit `a877952`; CI `41570508723` — success.
+- Vercel production deployment `7509368384` — success,
+  2026-11-03T03:10:53Z.
+- `https://www.autostimulus.org/psychopolitics-atlas/records.html` — HTTP 200,
+  no scripts, no external requests.
+- A8’s 12 flagged edges, 37 contested and 6 speculative records remain open as
+  recorded above; deployment did not settle them.
