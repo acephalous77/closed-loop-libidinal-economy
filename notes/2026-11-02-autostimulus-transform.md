@@ -97,3 +97,27 @@ sentence, and the eight numbered section headings carry the sequence. The intro
 is now set at 20px/1.65, and the line-broken `engagement- monetization` was
 rejoined. The bottom apparatus links remain as navigation. Local vision PASS;
 390 and 1440 hold without overflow.
+
+## The argument, fresh eyes
+
+The reading-surface pass left the prose as it was; this pass rewrites the page.
+Every paragraph was reread and line-edited against its claims: the theorem
+labels, citations, links, and mathematics are unchanged. Flat closes and
+repeated sentence openers were replaced with longer turns; the two short
+sentences that carry a designed contrast stay, and the closing “Read the prose
+alone / read the apparatus alone / read both” triad stays. The eyebrow no longer
+runs a middot row: “Eight moves through the framework, version 2, 2026.”
+
+- Final rendered prose: 1,926 words, 120 sentences; the main holds one
+  navigation list at the bottom.
+- `deai.py --style-scan` — 0 reliable tells; 12 cadence flags (texture, not
+  scored): 12 flat closes, 2 tricolons, and the remaining short-copula beats.
+- `voice-engine/run.py --scan` — 0 triage candidates. Its remaining opener
+  alert is the anaphoric “Read” triad; the coordination-colon alerts clear.
+- `architecture.py --register A` — review only: mean 14.1 words, short-sentence
+  share 27.5 %, staccato 3.48/100 on the rendered paragraph text. The technical
+  definitions carry the short beats; the page was not flattened to raise the
+  mean.
+- `npm run build` — 282 static pages, TypeScript clean; `npm run verify` clean;
+  390/1440 overflow 0.
+
