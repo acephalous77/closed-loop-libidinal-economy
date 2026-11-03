@@ -124,3 +124,17 @@ runs a middot row: “Eight moves through the framework, version 2, 2026.”
 Landed as `1f2cbd8`; CI `41558830328` passed. Production `200` at
 `https://www.autostimulus.org/closed-loop/v2-argument` carries the new eyebrow
 and opening.
+
+## The dynamics hub, fresh eyes
+
+The next public prose surface was read against its plates. The intro now says
+the Machine surface is where the claims become operable; the italic gloss says
+the plates illustrate the formal results “without standing in for the proofs.”
+The metric-superego gloss loses the doubled “null-band band”; the bifurcation
+gloss closes as a sentence; the footer is prose rather than a dash label.
+
+- Rendered text: 558 words; `deai.py` 0 reliable tells, 6 cadence flags
+  (texture: five flat closes and the footer). The plates and their technical
+  glosses are unchanged.
+- `npm run build` — 282 pages, TypeScript clean; `npm run verify` clean; 390/1440
+  overflow 0. The two `ul` elements are the plate grid and the navigation list.

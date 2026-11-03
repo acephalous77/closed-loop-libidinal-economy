@@ -78,7 +78,7 @@ const PLATES: Plate[] = [
     name: "Metric superego",
     href: "/closed-loop/v2-dynamics/metric-superego",
     gloss:
-      "The KL distance from the user's behavioral distribution to the platform-induced target. The reader sees the monotone descent and the null-band band that the platform's measurement cannot resolve.",
+      "The KL distance from the user's behavioral distribution to the platform-induced target. The reader sees the monotone descent and the null band that the platform's measurement cannot resolve.",
     apparatusName: "Proposition 5'",
     apparatusHref: "/closed-loop/the-apparatus/section-3/prop-5-prime",
   },
@@ -134,7 +134,7 @@ const PLATES: Plate[] = [
     name: "Crisis-boundary bifurcations",
     href: "/closed-loop/v2-dynamics/crisis-boundary",
     gloss:
-      "Three generic bifurcation regimes at the contractivity boundary κ_Φ = 1 — saddle-node, period-doubling, Neimark-Sacker — plus the pitchfork under cohort symmetry. The empirical signatures of each.",
+      "Three generic bifurcation regimes at the contractivity boundary κ_Φ = 1 — saddle-node, period-doubling, Neimark-Sacker — plus the pitchfork under cohort symmetry. The empirical signature of each follows.",
     apparatusName: "Theorem 12",
     apparatusHref: "/closed-loop/the-apparatus/section-10/theorem-12",
   },
@@ -169,14 +169,14 @@ export default function DynamicsIndex() {
         Twelve interactive plates. Each plate is a small machine: a
         reader operates the apparatus result against a parameter and
         sees the mechanism behave. The plates are the framework&apos;s
-        Machine surface — its claims are statable and operable.
+        Machine surface, where its claims become statable and operable.
       </p>
       <p className="text-base text-ink-70 italic max-w-prose mb-lg">
         Each plate carries a caption (the result in one sentence), a
         middle layer (what the controls do, what to look for), and a
         link back to the apparatus section that authorizes it. The
         plates are pedagogical companions to the formal results, which
-        they illustrate without standing in for.
+        they illustrate without standing in for the proofs.
       </p>
 
       <TrajectoryGrid plates={PLATES} />
@@ -222,11 +222,12 @@ export default function DynamicsIndex() {
       <CitationBlock />
 
       <footer className="mt-xl pt-md border-t border-paper-85 font-mono text-xs text-ink-50">
-        v2 dynamics — twelve plates. v1 dynamics surface at{" "}
+        This is the v2 dynamics surface, twelve plates. The v1 surface
+        remains at{" "}
         <Link href="/closed-loop/the-dynamics" className="text-oxblood hover:underline">
           /closed-loop/the-dynamics
-        </Link>{" "}
-        preserved intact.
+        </Link>
+        .
       </footer>
     </main>
   );
