@@ -138,3 +138,12 @@ gloss closes as a sentence; the footer is prose rather than a dash label.
   glosses are unchanged.
 - `npm run build` — 282 pages, TypeScript clean; `npm run verify` clean; 390/1440
   overflow 0. The two `ul` elements are the plate grid and the navigation list.
+
+## Correction — the interpellation sentence
+
+The fresh-eyes pass had made “the older critical traditions thematized as
+ideological interpellation” the subject of a singular verb. The sentence is
+restored as “Ideological interpellation, as the older critical traditions
+thematized it, reappears here as performative stability of behavior under
+closed-loop observation.” The argument remains 0 reliable tells at 1,927 words;
+build, `npm run verify`, and 390/1440 hold.

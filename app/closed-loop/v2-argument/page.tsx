@@ -241,9 +241,9 @@ export default function CuratedArgumentPage() {
         </p>
         <p className="text-base text-ink-90">
           What Adorno called the metric of inner damage gestures at this; the
-          apparatus supplies the dynamical form. The older critical
-          traditions thematized as ideological interpellation reappears here
-          as performative stability of behavior under closed-loop observation.
+          apparatus supplies the dynamical form. Ideological interpellation,
+          as the older critical traditions thematized it, reappears here as
+          performative stability of behavior under closed-loop observation.
         </p>
       </section>
 
