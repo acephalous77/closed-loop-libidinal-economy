@@ -100,8 +100,8 @@ export default function OhcosePortal() {
             style={{ color: "var(--color-ink-70)" }}
           >
             A cradle-to-grave partnership for the Standard Consumer-Citizen,
-            Gen-C Model. Optimizing every phase of life for the greater
-            economic good.
+            Gen-C model — the cohort now entering intake. Optimizing every
+            phase of life for the greater economic good.
           </p>
         </div>
       </section>
@@ -126,6 +126,7 @@ export default function OhcosePortal() {
           <span>Intake open</span>
           <span style={{ color: "var(--color-ink)" }}>Cohort 2031 · Gen-C</span>
           <span>Jurisdiction · all residents</span>
+          <span>Rev. 2031.05</span>
         </div>
       </section>
 

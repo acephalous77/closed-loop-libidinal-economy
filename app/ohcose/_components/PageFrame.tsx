@@ -116,6 +116,17 @@ export function PageFrame({ children, pageNum, secCode }: PageFrameProps) {
           {/* Barcode bottom-left */}
           <div>
             <Barcode />
+            <div
+              className="font-mono uppercase"
+              style={{
+                fontSize: "0.62rem",
+                letterSpacing: "0.14em",
+                color: "var(--color-ink-50)",
+                marginTop: "0.3rem",
+              }}
+            >
+              scan at intake
+            </div>
           </div>
 
           {/* Page number bottom-center */}

@@ -231,7 +231,9 @@ export function Masthead() {
         </div>
         <div className="rule thin mt24" />
         <div className="flex between center wrapf gap16" style={{ marginTop: 14 }}>
-          <span className="src">After Adnan Selimović · Stiegler · Zuboff · Marcuse · Lyotard · Preciado</span>
+          <span className="src" style={{ maxWidth: "64ch", lineHeight: 1.5 }}>
+            A descent after Adnan Selimović, with Stiegler, Zuboff, Marcuse, Lyotard, and Preciado.
+          </span>
           <span
             className="mono dim"
             style={{ fontSize: 12, letterSpacing: ".18em", textTransform: "uppercase" }}

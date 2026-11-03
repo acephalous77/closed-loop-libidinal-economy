@@ -477,13 +477,14 @@ function OHCOSE() {
       </div>
       <div style={{
         marginTop: 12, display: "grid",
-        gridTemplateColumns: "repeat(6, 1fr)", gap: 12,
+        gridTemplateColumns: "repeat(6, 1fr)", gap: 0,
+        borderTop: `0.5px solid ${B.rule}`,
       }} className="brochure-ohcose-grid">
         {phases.map(([letter, name, win, body], i) => (
           <div key={i} style={{
-            padding: "20px 18px 22px", background: B.panel,
-            border: `0.5px solid ${B.rule}`,
-            display: "flex", flexDirection: "column", minHeight: 360,
+            padding: "20px 18px 22px",
+            borderLeft: i ? `0.5px solid ${B.rule}` : "none",
+            display: "flex", flexDirection: "column",
           }}>
             <div style={{
               fontFamily: FONT.italic, fontStyle: "italic",
@@ -509,8 +510,13 @@ function OHCOSE() {
         @media (max-width: 700px)  {
           #ohcose { padding: 56px 16px 48px !important; }
           .brochure-ohcose-head { grid-template-columns: 1fr !important; gap: 16px !important; }
-          .brochure-ohcose-grid { grid-template-columns: 1fr !important; gap: 12px !important; }
-          .brochure-ohcose-grid > div { min-height: 0 !important; padding: 18px 16px 20px !important; }
+          .brochure-ohcose-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+          .brochure-ohcose-grid > div {
+            border-left: 0 !important;
+            border-top: 0.5px solid ${B.rule};
+            padding: 18px 0 20px !important;
+          }
+          .brochure-ohcose-grid > div:first-child { border-top: 0 !important; }
         }
       `}</style>
     </section>

@@ -149,9 +149,9 @@ function Conclusion({ onFreeze }: { onFreeze?: () => boolean }) {
           className="flex between wrapf gap16"
           style={{ marginTop: 64, borderTop: "1px solid #00000033", paddingTop: 16 }}
         >
-          <span className="src" style={{ color: "#6b665e" }}>
-            After Adnan Selimović, “The Manufacture of the Subject.” Stiegler · Zuboff · Marcuse · Lyotard · Preciado ·
-            Rifkin · Han.
+          <span className="src" style={{ color: "#6b665e", maxWidth: "72ch", lineHeight: 1.5 }}>
+            After Adnan Selimović&rsquo;s “The Manufacture of the Subject,” with Stiegler, Zuboff, Marcuse,
+            Lyotard, Preciado, Rifkin, and Han.
           </span>
           {/* The piece had no link back to the umbrella anywhere — the only
               way out of the descent was the browser's back button. It rides
