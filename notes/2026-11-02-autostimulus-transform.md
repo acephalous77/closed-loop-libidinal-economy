@@ -121,3 +121,6 @@ runs a middot row: “Eight moves through the framework, version 2, 2026.”
 - `npm run build` — 282 static pages, TypeScript clean; `npm run verify` clean;
   390/1440 overflow 0.
 
+Landed as `1f2cbd8`; CI `41558830328` passed. Production `200` at
+`https://www.autostimulus.org/closed-loop/v2-argument` carries the new eyebrow
+and opening.
