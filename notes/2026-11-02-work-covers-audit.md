@@ -41,3 +41,11 @@ cover. It is now hidden on `/`, `/closed-loop`, `/chair`, `/ohcose`,
 - Local vision: chair PASS; OHCOSE PASS; Ouroboric PASS. The Manufacture
   screenshot opens on the birth overlay, so its verdict is a code and DOM
   check, not a vision claim.
+
+## Deployed
+
+`403a0e8` is live. Production at 390 and 1440: no horizontal overflow on the
+five covers, and the reader's apparatus is absent from all of them. The
+manufacture credit rows now read as prose; OHCOSE carries the Gen-C gloss, the
+revision stamp, and the barcode label. CI `41551184808` passed. The atlas
+session's `e6df810` landed after this pass; it is not part of the cover work.
