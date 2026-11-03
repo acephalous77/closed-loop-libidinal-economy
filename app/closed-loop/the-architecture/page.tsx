@@ -40,14 +40,13 @@ export default function TheArchitecturePage() {
         the architecture
       </h1>
       <p className="text-base text-ink-90 max-w-prose mb-md">
-        The closed-loop architecture as an interactive schematic.
-        Ten labeled parts plus two annotations: the user state, the
-        observation channel, the platform&apos;s filtering posterior,
-        the platform policy, the stimulus, the user dynamics, the
-        performative distribution, the reward functional, the
-        parameter update, and the closure operator Φ. The reflective
-        threshold θ_ref and the contractivity boundary κ_Φ = 1 are
-        annotated.
+        The schematic draws the loop from the user state through the
+        platform&apos;s observation channel and filtering posterior,
+        through the policy and stimulus, and back through the user
+        dynamics. It shows the performative distribution, the reward
+        functional, the parameter update, and the closure operator Φ.
+        The reflective threshold θ_ref and the contractivity boundary
+        κ_Φ = 1 are annotated.
       </p>
       <p className="text-base text-ink-70 italic max-w-prose mb-lg">
         Hover or keyboard-focus a part to see its plain-language

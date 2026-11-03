@@ -156,3 +156,13 @@ confirms and what refutes (“confirms the prediction … refutes it”); the
 recursive-limit paragraph drops the “reader who comes … comes” loop and the
 double-instrument construction. The argument is 1,921 words; `deai.py` 0
 reliable tells, 12 cadence flags; build and `npm run verify` clean.
+
+## The architecture intro
+
+The architecture page opened with a ten-part roster — “Ten labeled parts plus
+two annotations: …”. The intro now describes the loop in prose, from the user
+state through the observation channel and filtering posterior, the policy and
+stimulus, and the user dynamics, then names the distribution, reward functional,
+parameter update, and closure operator. The annotations follow as a sentence.
+The schematic is unchanged; the page is 283 words, 0 reliable tells, one
+navigation list; build, `npm run verify`, and 390/1440 hold.
