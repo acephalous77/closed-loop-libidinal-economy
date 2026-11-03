@@ -44,3 +44,9 @@ Nodes **654** unchanged; relations **1,138** (one removed); flagged edges
 - `npm run verify` — atlas consistency expects 654 / 1,138 / 1903–2026 /
   13 flagged edges; links, contrast, walkthrough pass.
 - `npm run verify:atlas-mobile` — PASS at 390px; 1,138 relation paths.
+
+## Deployed
+
+`068d8e7` — “Correct the flagged atlas edges.” GitHub Actions `41559142095`
+passed; `verify:atlas-prod` PASS. Production serves 654 nodes / 1,138
+relations; the base data carries 10 flagged edges and the additions 3.
