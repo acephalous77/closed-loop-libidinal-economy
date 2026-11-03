@@ -69,3 +69,6 @@ line (head `234px → 178px`), the four controls share the search border, the
 evidence key is a bordered control with an `i` mark, the index card metadata
 uses `·` separators, and the mobile shortcut hint is suppressed. The
 `atlas-mobile` suite remains green.
+
+Deployed as `b03960f`; GitHub Actions `41554164669` passed and
+`verify:atlas-prod` PASS.
