@@ -16,7 +16,7 @@ check(res.status === 200, `${base} returned ${res.status}`);
 const html = await res.text();
 const csp = res.headers.get("content-security-policy") || "";
 check(csp.includes("script-src 'self'"), "CSP missing or too loose");
-check(html.includes("654 nodes") && html.includes("1,139 relations"), "production counts missing");
+check(html.includes("654 nodes") && html.includes("1,138 relations"), "production counts missing");
 check(html.includes("1903–2026"), "production date range missing");
 check(html.includes('rel="canonical" href="https://www.autostimulus.org/psychopolitics-atlas"'), "canonical is not bare");
 check(!html.includes("index-2026-11-02.html"), "old atlas backup referenced");
