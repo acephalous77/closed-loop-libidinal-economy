@@ -147,3 +147,12 @@ restored as “Ideological interpellation, as the older critical traditions
 thematized it, reappears here as performative stability of behavior under
 closed-loop observation.” The argument remains 0 reliable tells at 1,927 words;
 build, `npm run verify`, and 390/1440 hold.
+
+## Second copyedit
+
+The next read tightened the claims sentences without changing them: “The
+sections below” replaces “The pages below”; the cohort test now says what
+confirms and what refutes (“confirms the prediction … refutes it”); the
+recursive-limit paragraph drops the “reader who comes … comes” loop and the
+double-instrument construction. The argument is 1,921 words; `deai.py` 0
+reliable tells, 12 cadence flags; build and `npm run verify` clean.

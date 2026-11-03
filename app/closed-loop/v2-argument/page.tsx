@@ -100,7 +100,7 @@ export default function CuratedArgumentPage() {
         experience, it makes certain interior structures unrecoverable
         through measurement of the loop, and it produces an asymmetry between
         the modes of intervention open to individuals and the modes open to
-        institutional regulation. The pages below sketch that argument; the{" "}
+        institutional regulation. The sections below sketch that argument; the{" "}
         <Link href="/closed-loop/the-apparatus" className="text-oxblood hover:underline">
           formal apparatus
         </Link>{" "}
@@ -412,8 +412,9 @@ export default function CuratedArgumentPage() {
           The cohort gradient is empirically testable. Stratify a population
           by age of first platform exposure, measure the KL distance from the
           platform target in each stratum, and fit the exponential. A
-          monotone, exponentially decreasing relationship confirms; no cohort
-          effect or a non-exponential form refutes. The{" "}
+          monotone, exponentially decreasing relationship confirms the
+          prediction; no cohort effect or a non-exponential form refutes it.
+          The{" "}
           <Link
             href="/closed-loop/the-apparatus/section-12#priorities"
             className="text-oxblood hover:underline"
@@ -438,11 +439,11 @@ export default function CuratedArgumentPage() {
         <MoveHeading n="8" at={{ label: "§12", href: "/closed-loop/the-apparatus/section-12#reflexive" }}>The recursive limit</MoveHeading>
         <p className="text-base text-ink-90 mb-sm">
           This argument writes about its own conditions of production. The
-          author is within the cohort it describes. The reader who comes to it
-          comes through the platform-mediated discourse it analyzes. The
-          instruments it would have to use to measure its own claims are the
-          instruments whose constitutive structure it predicts the closure has
-          formatted. The reflexive measurement problem (
+          author is within the cohort it describes. The reader arrives through
+          the platform-mediated discourse this argument analyzes. To measure
+          its own claims it would need instruments whose constitutive
+          structure, it predicts, the closure has formatted. The reflexive
+          measurement problem (
           <Link
             href="/closed-loop/the-apparatus/section-12#reflexive"
             className="text-oxblood hover:underline"
