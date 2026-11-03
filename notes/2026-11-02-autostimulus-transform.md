@@ -174,3 +174,19 @@ eyebrow. The first-version paragraph was rebuilt as two plain sentences — the
 essays and their note, the first mathematics, the first dynamics; the
 instrumentation explains how the site is built. The page is 225 words, 0
 reliable tells; no main-column list and no overflow at 390/1440.
+
+## Public prose audit, final
+
+All sixteen public routes were rendered at 1440 and scanned: 0 reliable tells
+on every route, and 0 horizontal overflow. The argument is 1,929 words, the
+home 372, the author 394, the colophon 194, the closed-loop cover 226, the
+architecture 290, the instruments 400, the glossary 951, the apparatus index
+370, the chair 1,003, OHCOSE 191, Manufacture 1,983, Patriotic 806, errata 66,
+dynamics 563.
+
+The remaining main-column lists are navigation or work form: the argument’s
+one bottom apparatus list; the dynamics plate grid plus one navigation list;
+the architecture’s one navigation list; the instruments catalog; the glossary’s
+ten definition lists; the errata list; the apparatus’s result/section lists;
+the chair’s six work-form lists; the OHCOSE schedule; the Patriotic timeline.
+Home, author, colophon, and Manufacture carry none.
