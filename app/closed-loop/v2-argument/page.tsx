@@ -93,10 +93,10 @@ export default function CuratedArgumentPage() {
         Eight moves · the framework in prose · v2, 2026
       </p>
 
-      <p className="text-base text-ink-90 mb-lg leading-snug">
+      <p className="text-base text-ink-90 mb-lg leading-[1.65]">
         The closed-loop libidinal economy is the architecture of
-        platform-mediated subject-formation under engagement-
-        monetization. The framework specifies what this architecture
+        platform-mediated subject-formation under engagement-monetization.
+        The framework specifies what this architecture
         does: it forecloses certain time-scales of human experience,
         renders certain interior structures empirically unrecoverable
         through measurement of the loop, and produces an asymmetry
@@ -122,19 +122,11 @@ export default function CuratedArgumentPage() {
         </figcaption>
       </figure>
 
-      <nav aria-label="In-page TOC" className="text-base mb-xl pl-sm border-l-2 border-paper-85">
-        <p className="font-mono text-xs uppercase tracking-wider text-ink-70 mb-xs">Eight moves</p>
-        <ol className="space-y-xs text-ink-90">
-          <li><Link href="#architecture" className="hover:text-oxblood">1. The architecture</Link></li>
-          <li><Link href="#registers" className="hover:text-oxblood">2. The fusion of the four registers</Link></li>
-          <li><Link href="#capture" className="hover:text-oxblood">3. Capture without coercion</Link></li>
-          <li><Link href="#pause" className="hover:text-oxblood">4. The foreclosure of the pause</Link></li>
-          <li><Link href="#clocks" className="hover:text-oxblood">5. The capture of the body&apos;s clocks</Link></li>
-          <li><Link href="#asymmetry" className="hover:text-oxblood">6. The asymmetry of the intervention modes</Link></li>
-          <li><Link href="#cohort" className="hover:text-oxblood">7. The cohort gradient</Link></li>
-          <li><Link href="#recursive" className="hover:text-oxblood">8. The recursive limit</Link></li>
-        </ol>
-      </nav>
+      <p className="text-base text-ink-70 mb-xl leading-[1.65]">
+        What follows moves from the architecture to the recursive limit, one
+        load-bearing result at a time; each section links to the apparatus
+        result that authorizes it.
+      </p>
 
       <section id="architecture" className="mb-xl">
         <MoveHeading n="1" at={{ label: "§0", href: "/closed-loop/the-apparatus/section-0" }}>The architecture</MoveHeading>

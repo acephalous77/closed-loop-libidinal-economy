@@ -87,3 +87,13 @@ the corpus. The short “The” opener chain is gone.
 The work-cover prose was scanned across all five covers and the closed-loop
 front matter: 0 reliable tells throughout. The work registers were not
 rewritten.
+
+## The argument reading surface
+
+The full v2 argument was extracted and scanned: 0 reliable tells across 1,987
+words. Its prose was not rewritten. The top eight-item table of contents was
+navigation, but it opened the essay as a list; it is replaced by one orienting
+sentence, and the eight numbered section headings carry the sequence. The intro
+is now set at 20px/1.65, and the line-broken `engagement- monetization` was
+rejoined. The bottom apparatus links remain as navigation. Local vision PASS;
+390 and 1440 hold without overflow.
