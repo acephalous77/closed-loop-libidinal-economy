@@ -56,7 +56,7 @@ export default function Cover() {
           a framework for the dynamics of attention under platform capture
         </p>
         <p className="font-mono text-xs text-ink-50 uppercase tracking-[0.2em] mt-xs">
-          v2 · 2026
+          version 2, 2026
         </p>
 
         {/* Orientation block — what this is + the central image + 3 paths */}
@@ -71,35 +71,35 @@ export default function Cover() {
             the first version
           </h2>
           <p className="mt-sm font-serif text-sm text-ink-70 leading-snug text-left">
-            The essays read on as written —{" "}
+            The first version stays as it was written:{" "}
             <Link
               href="/closed-loop/the-argument"
               className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
-              the pieces
+              the essays
             </Link>{" "}
-            and the note, with the first{" "}
+            and their note, the first{" "}
             <Link
               href="/closed-loop/the-mathematics"
               className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               mathematics
-            </Link>{" "}
-            and first{" "}
+            </Link>
+            , and the first{" "}
             <Link
               href="/closed-loop/the-dynamics"
               className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               dynamics
-            </Link>{" "}
-            kept as the 2026 archive, and{" "}
+            </Link>
+            . The{" "}
             <Link
               href="/closed-loop/instrumentation"
               className="text-ink-70 underline decoration-ink-50 underline-offset-2 hover:text-oxblood hover:decoration-oxblood transition-colors duration-100"
             >
               instrumentation
             </Link>{" "}
-            for how the site is built.
+            explains how the site is built.
           </p>
         </section>
 

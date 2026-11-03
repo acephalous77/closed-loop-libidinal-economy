@@ -166,3 +166,11 @@ stimulus, and the user dynamics, then names the distribution, reward functional,
 parameter update, and closure operator. The annotations follow as a sentence.
 The schematic is unchanged; the page is 283 words, 0 reliable tells, one
 navigation list; build, `npm run verify`, and 390/1440 hold.
+
+## The closed-loop cover
+
+The cover’s “v2 · 2026” label became “version 2, 2026,” matching the argument’s
+eyebrow. The first-version paragraph was rebuilt as two plain sentences — the
+essays and their note, the first mathematics, the first dynamics; the
+instrumentation explains how the site is built. The page is 225 words, 0
+reliable tells; no main-column list and no overflow at 390/1440.
