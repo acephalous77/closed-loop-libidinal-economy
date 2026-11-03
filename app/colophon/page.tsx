@@ -19,8 +19,8 @@ export default function Colophon() {
           <header className="press-author-head">
             <h1 className="press-display">The colophon</h1>
             <p className="press-standfirst">
-              autostimulus is the press of A. Selimović. One concern runs
-              through every register: the institution that produces a subject,
+              autostimulus is A. Selimović&apos;s press, and one concern runs
+              through its registers: the institution that produces a subject,
               and the loop that holds it.
             </p>
           </header>
@@ -28,28 +28,17 @@ export default function Colophon() {
           <p className="press-body">
             The <Link href="/closed-loop">Closed-Loop Libidinal Economy</Link>{" "}
             is the framework, set out in prose, mathematics, and operable plates.
-            Around it the press publishes{" "}
-            <Link href="/psychopolitics-atlas">
-              The Psychopolitics of Socialization
-            </Link>
-            , <Link href="/ohcose">OHCOSE</Link>, and{" "}
-            <Link href="/manufacture-of-the-subject">
-              The Manufacture of the Subject
-            </Link>
-            , which follow the apparatus through the population, the agency, and
-            the life course. The speculative works take the same loop into other
-            rooms:{" "}
-            <Link href="/chair">The Ouroboros Life System</Link>,{" "}
-            <Link href="/patriotic-times">Patriotic Times</Link>, and{" "}
-            <Link href="/ouroboric-condition">The Ouroboric Condition</Link>.
-            Each keeps its own paper and ink, and the shell serves them.
+            Around it the press carries the same loop into the population, the
+            agency, the life course, the showroom, the nursery, and the specimen
+            table; the works are gathered on the{" "}
+            <Link href="/#works">front page</Link>, each with its own paper and
+            ink, and the shell serves them.
           </p>
 
           <p className="press-body">
-            The press is self-hosted. Fonts, scripts, and images come from this
-            house; the pages make no third-party requests and carry no
-            analytics. One cookie sitewide belongs to the thinkroom passphrase
-            gate. Every instrument readout carries its plain definition, and the
+            The press runs from this house. Fonts, scripts, and images come from
+            here; the pages make no third-party requests and carry no analytics;
+            one cookie sitewide belongs to the thinkroom passphrase gate. Every instrument readout carries its plain definition, and the
             reader&apos;s apparatus measures in memory and dies with the tab.
             The full refusals list sits at{" "}
             <Link href="/closed-loop/the-colophon">
@@ -59,12 +48,12 @@ export default function Colophon() {
           </p>
 
           <p className="press-body">
-            Texts are licensed CC BY-SA 4.0 and code is MIT. The source
+            Texts are licensed CC BY-SA 4.0 and code is MIT; the source
             repository is public at{" "}
             <a href="https://github.com/acephalous77/closed-loop-libidinal-economy">
               github.com/acephalous77/closed-loop-libidinal-economy
             </a>
-            . Each work keeps its own faces; the shell serves them, which is the
+            . Each work keeps its own faces, and the shell serves them — the
             Register Rule.
           </p>
 

@@ -66,3 +66,24 @@ floating apparatus is removed from the cover. Production at 390 and 1440: zero
 `ol`/`ul`/`dl` in the main, no horizontal overflow, no instrument. `deai.py`
 reports 0 reliable tells (229 words); local vision PASS. CI `41539826741`
 passed.
+
+## Voice pass, after the shell
+
+The rendered shell prose was rescanned and then rewritten. The home no longer
+walks the works one by one; it opens on the feed, the school record, and the
+chair, and lets the works arrive through the argument. The author page opens on
+the instruments that keep a file on a person; the colophon no longer re-lists
+the corpus. The short “The” opener chain is gone.
+
+- `deai.py --style-scan` — home 0 reliable tells (372 words), author 0 (394),
+  colophon 0 (194).
+- `voice-engine/run.py --scan` — 0 triage candidates, no density thresholds
+  breached; the engine reports the prose within tolerance.
+- `architecture.py --register A` — review only: mean 23.5 / 21.7 / 20.4 words,
+  short sentences deliberate, staccato runs 0. The cadence tool notes the short
+  sentence share; the voice wants those beats.
+- `npm run build` — 282 pages, TypeScript clean; `npm run verify` clean.
+
+The work-cover prose was scanned across all five covers and the closed-loop
+front matter: 0 reliable tells throughout. The work registers were not
+rewritten.

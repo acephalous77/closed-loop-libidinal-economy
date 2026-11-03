@@ -80,8 +80,9 @@ export default function PressFront() {
             <div>
               <h1 className="press-display">The loop is closed.</h1>
               <p className="press-standfirst">
-                autostimulus publishes A. Selimović&apos;s work on attention,
-                capture, and the institutions that produce a subject.
+                autostimulus publishes Adnan Selimović&apos;s work on the
+                institutions that produce a subject — the feed, the school, the
+                clinic, the chair — and on the loop that holds them together.
               </p>
             </div>
 
@@ -103,65 +104,55 @@ export default function PressFront() {
             </h2>
 
             <p className="press-body">
-              The works follow one concern through the institutions that produce
-              a subject. A feed at two in the morning, a school record, an exit
-              interview, a chair that measures the body it holds: each is a
-              station in the same loop, and each work takes the register that
-              station already speaks. From 2015 to 2026, the works keep the paper
-              and ink of the institutions they describe.
+              At two in the morning the feed has already learned which minute you
+              will spend; by the time you leave school, a record has outlasted
+              the classroom; by the time you sit down, a chair is measuring the
+              body it holds. The works gathered here follow the production of a
+              subject through the rooms that carry it, each in the register the
+              room already speaks — the agency memo, the product brochure, the
+              coloring book, the atlas. One loop runs under those surfaces.
             </p>
 
             <p className="press-body">
-              The spine of the press is{" "}
+              A spine runs through them:{" "}
               <Link href="/closed-loop">The Closed-Loop Libidinal Economy</Link>,
               a framework for attention under platform capture. Its{" "}
               <Link href="/closed-loop/v2-argument">v2 argument</Link> sets out
-              the loop, a foreclosure lemma, a reclamation theorem, and three
-              modes of intervention. The apparatus runs through thirteen sections
-              and fifteen numbered results; the mathematics of v1 remains on file
-              as the 2026 archive. The prose moves between the essay and the
-              operable plate. A reader can follow the argument and then run it.
+              the loop as a fixed point, gives the foreclosure lemma and the
+              reclamation theorem, and separates three modes of intervention;
+              the formal apparatus carries the proofs through thirteen sections
+              and fifteen numbered results, while the first mathematics and first
+              dynamics remain on file as the 2026 archive. Read the argument
+              first, then run the plates.
             </p>
 
             <p className="press-body">
-              Socialization holds a person longest.{" "}
+              Socialization is the longest room.{" "}
               <Link href="/psychopolitics-atlas">
                 The Psychopolitics of Socialization
               </Link>{" "}
-              maps the relational machinery of that apparatus, from crowding
-              science to the population present.{" "}
-              <Link href="/ohcose">OHCOSE</Link> files the life course as a case
-              inside the Office of Human Continuity and Social Equilibrium; its
-              manual is written in the flat voice of an agency that keeps a file
-              on the reader.{" "}
+              maps the relational machinery that turns a crowd into a
+              population, from crowding science to the present;{" "}
+              <Link href="/ohcose">OHCOSE</Link> enters the same apparatus as an
+              agency manual and files a life course as a case;{" "}
               <Link href="/manufacture-of-the-subject">
                 The Manufacture of the Subject
               </Link>{" "}
-              begins at the crib and ends at the deathbed. From the first line,
-              the meter runs on the reader.
+              walks the line from crib to deathbed, the meter running from the
+              first sentence. Speculative works take the loop into the showroom
+              and the nursery: a{" "}
+              <Link href="/chair">chair</Link> that harvests its sitter, a{" "}
+              <Link href="/patriotic-times">coloring book</Link> of the national
+              security state, an{" "}
+              <Link href="/ouroboric-condition">atlas</Link> of psychic surplus
+              and what survives it. Each keeps its own paper and ink.
             </p>
 
             <p className="press-body">
-              Speculative design takes the loop out of the institution and puts
-              it in the reader&apos;s hands. A product brochure and zine for a
-              chair that harvests its sitter,{" "}
-              <Link href="/chair">The Ouroboros Life System</Link> speaks in the
-              warmth of a furniture catalog while the product does what the copy
-              admits. <Link href="/patriotic-times">Patriotic Times</Link>{" "}
-              renders the national security state as a coloring book; the crayon carries
-              the argument into the reader&apos;s hand.{" "}
-              <Link href="/ouroboric-condition">
-                The Ouroboric Condition
-              </Link>{" "}
-              is the earliest of the atlases, a specimen collection of psychic
-              surplus. It asks what survives capture and what it costs.
-            </p>
-
-            <p className="press-body">
-              Each work keeps its own paper, and the shell around them keeps a
-              discipline of its own. It carries no analytics and makes no
-              third-party requests; its reader&apos;s instrument measures in
-              memory and dies with the tab.
+              The press keeps its own discipline. The pages carry no analytics and
+              make no third-party requests; the reader&apos;s apparatus measures a
+              session in memory and dies when the tab closes. Paper belongs to
+              the work; restraint belongs to the press.
             </p>
           </section>
 

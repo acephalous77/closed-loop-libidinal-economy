@@ -82,60 +82,52 @@ export default function AuthorPage() {
           <header className="press-author-head">
             <h1 className="press-display">Adnan Selimović</h1>
             <p className="press-standfirst">
-              Adnan Selimović is a critical theorist and writer in Blacksburg,
-              Virginia. His work follows the apparatus that captures psychic
-              surplus.
+              Adnan Selimović writes about the institutions that produce a
+              subject, and about the loop that keeps them producing.
             </p>
           </header>
 
           <p className="press-body">
-            The instruments he describes are specific. A recommendation model
-            learns the reader&apos;s next minute. A school record outlasts the
-            classroom. A chair measures the body it holds. He writes about them
-            in the registers they already use, and his press, autostimulus,
-            publishes the works.
+            He writes from Blacksburg, Virginia, about the instruments that keep
+            a file on a person: the school, the clinic, the platform, the chair.
+            A recommendation model learns the next minute; a school record
+            outlasts the classroom; a chair measures the body it holds. The
+            writing follows them into the register they already use — the agency
+            memo, the brochure, the coloring book, the atlas — because the
+            institution&apos;s own voice is part of the evidence.
           </p>
 
           <p className="press-body">
-            The framework is{" "}
+            His framework is{" "}
             <Link href="/closed-loop">The Closed-Loop Libidinal Economy</Link>,
-            published by the press in 2026 and set out in prose, mathematics, and
-            operable plates. Its{" "}
+            published by autostimulus in 2026 in prose, mathematics, and operable
+            plates. Its{" "}
             <Link href="/closed-loop/v2-argument">v2 argument</Link> names the
-            loop, sets out a foreclosure lemma and a reclamation theorem, and
-            specifies three modes of intervention. Psychic surplus moves through
-            the feed, the metric, and the habit that outlasts the session; the
-            framework gives that passage a formal shape other researchers can
-            test.
+            loop, sets out the foreclosure lemma and the reclamation theorem, and
+            specifies three modes of intervention; the formal apparatus carries
+            the proofs, and the plates let a reader run the mechanism and watch
+            it hold or fail.
           </p>
 
           <p className="press-body">
-            The corpus around the framework runs from 2015 to 2026.{" "}
+            The corpus runs from 2015 to 2026.{" "}
             <Link href="/psychopolitics-atlas">
               The Psychopolitics of Socialization
             </Link>{" "}
-            maps the socialization apparatus from crowding science to the
-            population present. <Link href="/ohcose">OHCOSE</Link> takes the form
-            of an agency manual from the Office of Human Continuity and Social
-            Equilibrium and files the life course as a case.{" "}
+            maps the relational machinery that turns a crowd into a population;{" "}
+            <Link href="/ohcose">OHCOSE</Link> files a life course as a case
+            inside an agency that keeps a file on the reader;{" "}
             <Link href="/manufacture-of-the-subject">
               The Manufacture of the Subject
             </Link>{" "}
-            is an essay descent from crib to deathbed; from the first line, the
-            meter runs on the reader.
-          </p>
-
-          <p className="press-body">
-            At other scales, the speculative-design works stage the same loop. A
-            product brochure and zine for a chair that harvests its sitter,{" "}
-            <Link href="/chair">The Ouroboros Life System</Link> borrows the
-            voice of a furniture catalog to describe the transaction.{" "}
-            <Link href="/patriotic-times">Patriotic Times</Link> renders the
-            national security state as a coloring book and lets the reader fill
-            in the evidence.{" "}
-            <Link href="/ouroboric-condition">The Ouroboric Condition</Link> is a
-            specimen atlas of psychic surplus; it asks what survives capture and
-            what it costs.
+            walks the line from crib to deathbed, the meter running from the
+            first sentence. Speculative works take the same loop into the
+            showroom and the nursery: a{" "}
+            <Link href="/chair">chair</Link> that harvests its sitter, a{" "}
+            <Link href="/patriotic-times">coloring book</Link> of the national
+            security state, an{" "}
+            <Link href="/ouroboric-condition">atlas</Link> of psychic surplus
+            and what survives it.
           </p>
 
           <p className="press-body">
@@ -154,7 +146,7 @@ export default function AuthorPage() {
               Recovering Churn Structure
             </a>{" "}
             demonstrates a method for a setting where the answer is already
-            known. The three are deposited on Zenodo with DOIs.
+            known. All three are deposited on Zenodo with DOIs.
           </p>
 
           <p className="press-note">
@@ -169,11 +161,10 @@ export default function AuthorPage() {
           </p>
 
           <p className="press-body">
-            Every work keeps its own paper, and the site keeps its own
-            discipline. It carries no analytics and makes no third-party
-            requests; its instrument measures the reader in memory and dies with
-            the tab. The corpus describes capture; the site declines to practice
-            it.
+            Each work keeps its own paper. The site keeps its own discipline: no
+            analytics, no third-party requests, an instrument that measures the
+            reader in memory and dies with the tab. The corpus describes capture;
+            the site declines to practice it.
           </p>
 
           <PressFooter
