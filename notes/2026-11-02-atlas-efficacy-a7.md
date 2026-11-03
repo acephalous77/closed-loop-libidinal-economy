@@ -1,10 +1,11 @@
 # 2026-11-02 — atlas efficacy field A7
 
-**Status:** applied on the instruction “proceed commit approve all.” Adds a
+**Status:** deployed. Applied on the instruction “proceed commit approve all.” Adds a
 new **Efficacy** view; no node/link counts, edges, dates, routes, or evidence
-tiers changed. The view plots only records whose record states an efficacy
+tiers changed. The view plots only records whose claim carries an efficacy
 verdict; it does not turn absence of a verdict into a finding of no effect.
-Nothing sends; no training, no publication.
+The verdict describes the claim in the record, not the record's actor. Nothing
+sends; no training, no publication.
 
 ## The field
 
@@ -15,8 +16,9 @@ Nothing sends; no training, no publication.
   by a new colour channel.
 - Clicking a node opens its record in the field; the mobile alternative is a
   four-column table (node, verdict, year, recorded claim).
-- The view note says: “Only records with a recorded efficacy verdict; absence
-  is not a verdict of no effect.”
+- The view note says: “Only records whose claims carry a verdict; the verdict
+  describes the recorded claim, not the actor. Absence is not a verdict of no
+  effect.”
 
 ## Records
 
@@ -30,7 +32,8 @@ Nothing sends; no training, no publication.
 - **Partial / at-scale (3):** `dellavigna_linos`, `oes_sbst`, `fb_contagion`.
 
 The taxonomy is `EFFICACY` in `atlas-data.js`; the field is `renderEfficacy()`
-in `atlas.js`; the view is `#efficacy-view` in `index.html`.
+in `atlas.js`; the view is `#efficacy-view` in `index.html`. The page meta
+and `public/llms.txt` name the efficacy view.
 
 ## Verify
 
@@ -41,3 +44,13 @@ in `atlas.js`; the view is `#efficacy-view` in `index.html`.
   the SVG is hidden, and the page has no overflow.
 - Desktop browser check: mode `efficacy`, 18 circles, 32 SVG text nodes, no
   overflow.
+
+## Deploy
+
+- Field commit `792969b`; scope-clarification commit `723c36a`.
+- CI `41561191162` and `41561775377` — success.
+- `npm run verify:atlas-prod` — PASS. The production browser check now opens
+  the efficacy view at 390px, counts 18 table rows, and confirms the SVG is
+  hidden; no Cloudflare beacon, CSP present, counts 654/1,138.
+- Production HTML serves `data-mode="efficacy"`; `atlas-data.js` serves 15
+  `eff` records and `atlas-additions.js` serves 3 — 18 in all.

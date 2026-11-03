@@ -31,11 +31,18 @@ check(og.status === 200 && (og.headers.get("content-type") || "").includes("imag
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+await page.addInitScript(() => {
+  try { localStorage.setItem("atlas_intro_seen_v3", "1"); } catch {}
+});
 const blocked = [];
 page.on("requestfailed", (r) => {
   if (r.url().includes("cloudflareinsights")) blocked.push(r.url());
 });
 await page.goto(base, { waitUntil: "networkidle", timeout: 60000 });
+await page.locator('.modes [data-mode="efficacy"]').click();
+await page.waitForSelector("#efficacy-list tbody tr");
+check((await page.locator("#efficacy-list tbody tr").count()) === 18, "production efficacy table is not 18 rows");
+check(await page.locator("#efficacy-svg").evaluate((el) => getComputedStyle(el).display === "none"), "production efficacy SVG visible on mobile");
 await browser.close();
 if (blocked.length) failures.push(`Cloudflare beacon still injected (CSP-blocked): ${[...new Set(blocked)].join(" | ")} — disable Web Analytics in the Cloudflare dashboard`);
 
