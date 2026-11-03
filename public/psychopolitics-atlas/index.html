@@ -44,10 +44,10 @@
     </nav>
     <div class="tools">
       <button class="tool rail-toggle" data-rail-toggle aria-label="Open the field guide" style="display:none">☰ <span class="label">Guide</span></button>
-      <button class="tool" data-palette>Search <kbd>⌘K</kbd></button>
-      <button class="tool" data-help aria-label="Open the field guide and key">? <span class="label">Key</span></button>
-      <button class="tool" data-share aria-label="Copy a link to this view">⧉ <span class="label">Link</span></button>
-      <button class="tool" data-export aria-label="Download the current field as SVG">↓ <span class="label">SVG</span></button>
+      <button class="tool" data-palette title="Search the atlas (⌘K or /)">Search <kbd>⌘K</kbd></button>
+      <button class="tool" data-help aria-label="Open the field guide and key" title="Open the field guide and colour key">? <span class="label">Key</span></button>
+      <button class="tool" data-share aria-label="Copy a link to this view" title="Copy a link to this view">⧉ <span class="label">Link</span></button>
+      <button class="tool" data-export aria-label="Download the current field as SVG" title="Download the current field as SVG">↓ <span class="label">SVG</span></button>
     </div>
   </header>
 
@@ -99,7 +99,7 @@
             </select>
           </div>
           <details class="evidence-key" id="evidence-key">
-            <summary>Evidence key</summary>
+            <summary><span class="ek-mark" aria-hidden="true">i</span>Evidence key</summary>
             <div class="evidence-key-body" id="evidence-key-body"></div>
           </details>
         </div>
@@ -201,7 +201,7 @@
       <div class="intro-paths" id="intro-paths"></div>
       <h3>How to read it</h3>
       <ul class="intro-legend" id="intro-legend"></ul>
-      <p class="intro-keynote">Territory tint marks the macro-zone; the T-code names the domain. Edge color marks the relation family; node shape marks the kind.</p>
+      <p class="intro-keynote">Territory tint marks the macro-zone; the T-code names the domain. Node size is the number of ties; edge color marks the relation family; node shape marks the kind; C/S marks a contested or speculative tie.</p>
       <div class="intro-colors" id="intro-colors" aria-label="Color key"></div>
     </aside>
   </div>

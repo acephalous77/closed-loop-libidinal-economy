@@ -63,3 +63,9 @@ zone strip and says `9 MACRO-ZONES · T01–T28 · TIES BY FAMILY`.
 `41551427876` passed. Production `verify:atlas-prod` PASS; live 1440 opens on
 the field, live 390 opens on the index, both with 9 zone bands, the `?` key
 control, no external requests, no console errors, and no overflow.
+
+Follow-up mobile/index polish: the 390px filter row is one scrollable
+line (head `234px → 178px`), the four controls share the search border, the
+evidence key is a bordered control with an `i` mark, the index card metadata
+uses `·` separators, and the mobile shortcut hint is suppressed. The
+`atlas-mobile` suite remains green.
