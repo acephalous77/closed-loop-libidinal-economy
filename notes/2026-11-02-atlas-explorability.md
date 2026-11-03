@@ -56,3 +56,10 @@ zone strip and says `9 MACRO-ZONES · T01–T28 · TIES BY FAMILY`.
 - `npm run verify:atlas-mobile` — PASS, including the new index default.
 - Local vision: resting field PASS; hover/tooltip PASS; intro colour key PASS.
 - Production verification follows the deploy.
+
+## Deployed
+
+`e6df810` — “Give the atlas one colour per meaning.” GitHub Actions
+`41551427876` passed. Production `verify:atlas-prod` PASS; live 1440 opens on
+the field, live 390 opens on the index, both with 9 zone bands, the `?` key
+control, no external requests, no console errors, and no overflow.
