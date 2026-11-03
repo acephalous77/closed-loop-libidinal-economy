@@ -16,7 +16,7 @@ function load(file) {
     .replace(/^export const /gm, "const ");
   const context = {};
   vm.createContext(context);
-  vm.runInContext(`${source}\n;globalThis.out = { NODES, LINKS, CLUSTERS: typeof CLUSTERS === "undefined" ? null : CLUSTERS, EVIDENCE: typeof EVIDENCE === "undefined" ? null : EVIDENCE, EFFICACY: typeof EFFICACY === "undefined" ? null : EFFICACY, LENSES: typeof LENSES === "undefined" ? null : LENSES };`, context);
+  vm.runInContext(`${source}\n;globalThis.out = { NODES, LINKS, CLUSTERS: typeof CLUSTERS === "undefined" ? null : CLUSTERS, EVIDENCE: typeof EVIDENCE === "undefined" ? null : EVIDENCE, EFFICACY: typeof EFFICACY === "undefined" ? null : EFFICACY };`, context);
   return context.out;
 }
 
@@ -27,7 +27,6 @@ const links = [...base.LINKS, ...additions.LINKS];
 const clusters = { ...base.CLUSTERS, ...(additions.CLUSTERS || {}) };
 const evidence = { ...base.EVIDENCE, ...(additions.EVIDENCE || {}) };
 const efficacy = { ...base.EFFICACY, ...(additions.EFFICACY || {}) };
-const lenses = { ...base.LENSES, ...(additions.LENSES || {}) };
 
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -131,4 +130,4 @@ const html = `<!doctype html>
 </html>`;
 
 fs.writeFileSync(path.join(atlasDir, "records.html"), html);
-console.log(`atlas-index: ${nodes.length} records, ${links.length} relations, ${html.length.toLocaleString("en-US")} bytes`);
+console.log(`atlas-index: ${nodes.length} records, ${links.length} relations, ${Buffer.byteLength(html, "utf8").toLocaleString("en-US")} bytes`);
