@@ -42,3 +42,9 @@ Counts: documented **610** · contested **37** · speculative **6** · untriaged
 - `npm run verify` — atlas consistency expects 610 / 37 / 6 / 1; links,
   contrast, and walkthrough pass.
 - `npm run verify:atlas-mobile` — PASS.
+
+## Deployed
+
+`2c3e1d8` — “Source the last untriaged atlas records.” GitHub Actions
+`41557822704` passed; `verify:atlas-prod` PASS. Production serves 610
+documented / 37 contested / 6 speculative / 1 untriaged.
