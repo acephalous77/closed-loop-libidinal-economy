@@ -1766,7 +1766,7 @@ function renderEfficacy() {
     const dot = S("circle", { cx: x, cy: y, r, fill: `oklch(0.7 0.12 ${c})`, stroke: C.field, "stroke-width": "1.1" });
     dot.style.cursor = "pointer";
     dot.addEventListener("click", () => { setMode("field", false); selectNode(n.id, { center: true }); });
-    const title = S("title"); title.textContent = `${n.label} — ${effLabel(n)}, ${n.yr}`;
+    const title = S("title"); title.textContent = `${n.label} — ${effLabel(n)} on the recorded claim, ${n.yr}`;
     dot.appendChild(title);
     gNodes.appendChild(dot);
     const anchor = x > W - R - 90 ? "end" : "start";
@@ -1982,7 +1982,7 @@ function renderEfficacyList() {
   if (!box) return;
   const order = { failed: 0, contested: 1, partial: 2 };
   const rows = DATA.nodes.filter((n) => n.eff).sort((a, b) => order[a.eff] - order[b.eff] || a.yr - b.yr || a.label.localeCompare(b.label));
-  box.innerHTML = `<table class="alt-table"><caption class="sr-only">${rows.length} records with a recorded efficacy verdict.</caption><thead><tr><th>Node</th><th>Verdict</th><th>Year</th><th>Record</th></tr></thead><tbody>${rows.map((n) => {
+  box.innerHTML = `<table class="alt-table"><caption class="sr-only">${rows.length} records with a recorded efficacy verdict; the verdict describes the recorded claim, not the actor.</caption><thead><tr><th>Node</th><th>Verdict on claim</th><th>Year</th><th>Record</th></tr></thead><tbody>${rows.map((n) => {
     const claim = (n.rec && n.rec.what ? n.rec.what : "").replace(/\s+/g, " ").trim();
     const snippet = claim.length > 220 ? claim.slice(0, 217) + "…" : claim;
     return `<tr><td class="name"><button data-node-row="${esc(n.id)}">${esc(n.label)}</button><span class="tier">${esc(n.ev || "untriaged")}</span></td><td>${esc(effLabel(n))}</td><td>${n.yr || "—"}</td><td>${esc(snippet)}</td></tr>`;
