@@ -50,3 +50,8 @@ evidence filters, key, and counts follow automatically.
 `a4cb70e` — “Triage the atlas evidence, conservatively.” GitHub Actions
 `41556417217` passed; `verify:atlas-prod` PASS. Production serves 599
 documented / 37 contested / 6 speculative / 12 untriaged.
+
+## Follow-up
+
+2026-11-02 — A3 sourced 11 of these 12; see
+`notes/2026-11-02-atlas-source-a3.md`. `copypasta` remains untriaged.

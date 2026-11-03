@@ -43,10 +43,10 @@ const next = fs.readFileSync(path.join(root, "next.config.ts"), "utf8");
 
 check(nodes.length === 654, `nodes ${nodes.length} !== 654`);
 check(links.length === 1139, `links ${links.length} !== 1139`);
-check(tiers.documented === 599, `documented ${tiers.documented} !== 599`);
+check(tiers.documented === 610, `documented ${tiers.documented} !== 610`);
 check(tiers.contested === 37, `contested ${tiers.contested} !== 37`);
 check(tiers.speculative === 6, `speculative ${tiers.speculative} !== 6`);
-check(tiers.untriaged === 12, `untriaged ${tiers.untriaged} !== 12`);
+check(tiers.untriaged === 1, `untriaged ${tiers.untriaged} !== 1`);
 check(tiers.documented + tiers.contested + tiers.speculative + tiers.untriaged === nodes.length, "tiers do not sum to nodes");
 check(assessed === 14, `assessed edges ${assessed} !== 14`);
 check(minYear === 1903 && maxYear === 2026, `year range ${minYear}-${maxYear} !== 1903-2026`);
