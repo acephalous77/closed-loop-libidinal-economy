@@ -44,3 +44,9 @@ evidence filters, key, and counts follow automatically.
 - `npm run verify` — atlas consistency now expects 599 / 37 / 6 / 12; links,
   contrast, and walkthrough pass.
 - `npm run verify:atlas-mobile` — PASS.
+
+## Deployed
+
+`a4cb70e` — “Triage the atlas evidence, conservatively.” GitHub Actions
+`41556417217` passed; `verify:atlas-prod` PASS. Production serves 599
+documented / 37 contested / 6 speculative / 12 untriaged.
