@@ -822,6 +822,7 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper-3); }
 .alt-table .bar { display: inline-block; width: 38px; height: 4px; background: var(--rule-2); margin-right: 4px; vertical-align: middle; }
 .alt-table .bar i { display: block; height: 100%; background: var(--ochre); }
 .alt-table button { background: transparent; border: 0; color: inherit; font: inherit; text-align: left; padding: 0; }
+#efficacy-list .alt-table td:last-child { color: var(--paper-3); font-size: 9.5px; line-height: 1.45; }
 
 @media (max-width: 700px) {
   .alt-view svg { display: none; }

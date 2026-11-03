@@ -18,7 +18,7 @@ function load(file) {
   const source = fs.readFileSync(path.join(atlas, file), "utf8").replace(/^export const /gm, "const ");
   const context = {};
   vm.createContext(context);
-  vm.runInContext(`${source}\n;globalThis.out = { NODES, LINKS, EVIDENCE: typeof EVIDENCE === "undefined" ? null : EVIDENCE };`, context);
+  vm.runInContext(`${source}\n;globalThis.out = { NODES, LINKS, EVIDENCE: typeof EVIDENCE === "undefined" ? null : EVIDENCE, EFFICACY: typeof EFFICACY === "undefined" ? null : EFFICACY };`, context);
   return context.out;
 }
 
@@ -49,6 +49,8 @@ check(tiers.speculative === 6, `speculative ${tiers.speculative} !== 6`);
 check(tiers.untriaged === 1, `untriaged ${tiers.untriaged} !== 1`);
 check(tiers.documented + tiers.contested + tiers.speculative + tiers.untriaged === nodes.length, "tiers do not sum to nodes");
 check(assessed === 13, `assessed edges ${assessed} !== 13`);
+check(nodes.filter((n) => n.eff).length === 18, `efficacy records ${nodes.filter((n) => n.eff).length} !== 18`);
+check(base.EFFICACY && ["failed", "contested", "partial"].every((k) => base.EFFICACY[k]), "efficacy taxonomy missing");
 check(minYear === 1903 && maxYear === 2026, `year range ${minYear}-${maxYear} !== 1903-2026`);
 
 for (const needle of [`${nodes.length} nodes`, `${links.length.toLocaleString("en-US")} relations`, "1903–2026", "source notes"]) {
@@ -58,6 +60,7 @@ check(html.includes('rel="canonical" href="https://www.autostimulus.org/psychopo
 check(html.includes('og:url" content="https://www.autostimulus.org/psychopolitics-atlas"'), "og:url is not the bare atlas URL");
 check(html.includes('id="domains-list"') && html.includes('id="timeline-list"') && html.includes('id="matrix-list"'), "mobile alternative containers missing");
 check(html.includes('id="index-cards"') && html.includes('id="evidence-key-body"'), "index cards or evidence key missing");
+check(html.includes('data-mode="efficacy"') && html.includes('id="efficacy-view"') && html.includes('id="efficacy-list"'), "efficacy view missing");
 check(/id="dossier"[^>]*role="dialog"[^>]*tabindex="-1"/.test(html), "dossier focus target missing");
 check(/id="path-reader"[^>]*role="dialog"[^>]*tabindex="-1"/.test(html), "path-reader focus target missing");
 
@@ -66,6 +69,7 @@ check(!js.includes('sub: "1926–2026"'), "palette still carries 1926–2026");
 check(js.includes("untriaged: C.paper4"), "untriaged color missing");
 check(js.includes("DATA.evidence[ev]") && js.includes("untriaged"), "JS does not read the four-tier evidence ladder");
 check(js.includes("buildEvidenceKey"), "evidence key builder missing");
+check(js.includes("renderEfficacy") && js.includes("DATA.efficacy"), "efficacy renderer missing");
 check(js.includes("buildGrid") && js.includes("buildHulls") && js.includes("buildEdges"), "field construction seams missing");
 check(js.includes('S("path", { fill: "none"'), "relation arcs are not paths");
 check(js.includes("plate") && js.includes("_hulls[cl].plate"), "territory plate layers missing");

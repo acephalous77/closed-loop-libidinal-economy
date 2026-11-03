@@ -22,6 +22,8 @@ const C = {
   rose: "#c98aa8",
   violet: "#b7a0d4",
   cyan: "#7fc4c9",
+  rule: "#232a39",
+  rule2: "#30394c",
 };
 
 const EV_COLOR = {
@@ -36,6 +38,11 @@ const FAMILY_COLOR = {
   knowledge: C.cyan,
   conflict: C.rust,
   transfer: C.rose,
+};
+const EFF_COLOR = {
+  failed: C.rust,
+  contested: C.ochre,
+  partial: C.moss,
 };
 const REL_FAMILY = {
   funded: "money", conduit: "money",
@@ -152,6 +159,7 @@ function mergeData() {
   const levers = BASE.LEVERS;
   const leverLabel = BASE.LEVER_LABEL;
   const evidence = BASE.EVIDENCE;
+  const efficacy = BASE.EFFICACY;
 
   for (const n of nodes) {
     n.deg = 0;
@@ -191,7 +199,7 @@ function mergeData() {
 
   return {
     clusters, lenses, nodes, byId, links, threads, pos, clusterPos,
-    types, levers, leverLabel, evidence, adj, clusterMembers, zoneOf, stats,
+    types, levers, leverLabel, evidence, efficacy, adj, clusterMembers, zoneOf, stats,
   };
 }
 
@@ -1602,6 +1610,7 @@ function setMode(mode, render = true) {
   $("#domains-view").dataset.visible = mode === "domains" ? "1" : "0";
   $("#timeline-view").dataset.visible = mode === "timeline" ? "1" : "0";
   $("#matrix-view").dataset.visible = mode === "matrix" ? "1" : "0";
+  $("#efficacy-view").dataset.visible = mode === "efficacy" ? "1" : "0";
   if (mode === "paths") {
     renderPathReader();
   } else {
@@ -1619,6 +1628,9 @@ function setMode(mode, render = true) {
   } else if (mode === "matrix") {
     closeDossier();
     renderMatrix();
+  } else if (mode === "efficacy") {
+    closeDossier();
+    renderEfficacy();
   }
   if (mode !== "index") $("#index-view").scrollTop = 0;
   if (render) refresh();
@@ -1697,6 +1709,78 @@ function renderIndex() {
     setMode("field", false);
     selectNode(b.dataset.locate, { center: true });
   }));
+}
+
+/* ── efficacy field ─────────────────────────────────────────────────── */
+function effLabel(n) {
+  return DATA.efficacy[n.eff] ? DATA.efficacy[n.eff].label : n.eff;
+}
+function renderEfficacy() {
+  const svg = $("#efficacy-svg");
+  if (!svg) return;
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+  const W = 1280, H = 720, L = 190, R = 60, T = 82, B = 64;
+  svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+  svg.setAttribute("preserveAspectRatio", "xMidYMid meet");
+  const plotted = DATA.nodes.filter((n) => n.eff && n.yr).sort((a, b) => a.yr - b.yr || a.label.localeCompare(b.label));
+  const minYear = 1900, maxYear = 2030;
+  const xFor = (yr) => L + ((yr - minYear) / (maxYear - minYear)) * (W - L - R);
+  const lanes = ["partial", "contested", "failed"];
+  const laneH = (H - T - B) / lanes.length;
+  const gAxes = S("g"), gNodes = S("g");
+  for (let i = 0; i < lanes.length; i++) {
+    const y = T + i * laneH;
+    gAxes.appendChild(S("line", { x1: L, y1: y + laneH - 1, x2: W - R, y2: y + laneH - 1, stroke: EFF_COLOR[lanes[i]], "stroke-opacity": "0.35", "stroke-width": "0.8" }));
+    gAxes.appendChild(textEl(effLabel({ eff: lanes[i] }), {
+      x: L - 14, y: y + laneH * 0.55, "text-anchor": "end",
+      "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
+      "font-size": "10.5", fill: C.paper3,
+    }));
+    const count = plotted.filter((n) => n.eff === lanes[i]).length;
+    gAxes.appendChild(textEl(String(count), {
+      x: L - 14, y: y + laneH * 0.55 + 15, "text-anchor": "end",
+      "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
+      "font-size": "9", fill: C.paper4,
+    }));
+  }
+  for (let yr = 1900; yr <= 2030; yr += 20) {
+    const x = xFor(yr);
+    gAxes.appendChild(S("line", { x1: x, y1: T - 8, x2: x, y2: H - B + 4, stroke: C.rule, "stroke-width": "0.6", "stroke-dasharray": "2 5" }));
+    gAxes.appendChild(textEl(String(yr), {
+      x, y: T - 16, "text-anchor": "middle",
+      "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
+      "font-size": "10", fill: C.paper4,
+    }));
+  }
+  gAxes.appendChild(textEl("Only records with a recorded efficacy verdict; absence is not a verdict of no effect.", {
+    x: L, y: H - 22,
+    "font-family": "IBM Plex Mono, ui-monospace, Menlo, monospace",
+    "font-size": "10", fill: C.paper4,
+  }));
+  for (const n of plotted) {
+    const lane = lanes.indexOf(n.eff);
+    const x = xFor(n.yr);
+    const y = T + lane * laneH + laneH * 0.55 + (hash(n.id) - 0.5) * laneH * 0.42;
+    const c = zoneHue(n.cl);
+    const r = 4 + Math.min(4.5, Math.sqrt(n.deg) / 2.6);
+    const dot = S("circle", { cx: x, cy: y, r, fill: `oklch(0.7 0.12 ${c})`, stroke: C.field, "stroke-width": "1.1" });
+    dot.style.cursor = "pointer";
+    dot.addEventListener("click", () => { setMode("field", false); selectNode(n.id, { center: true }); });
+    const title = S("title"); title.textContent = `${n.label} — ${effLabel(n)}, ${n.yr}`;
+    dot.appendChild(title);
+    gNodes.appendChild(dot);
+    const anchor = x > W - R - 90 ? "end" : "start";
+    const tx = anchor === "end" ? x - 8 : x + 8;
+    const t = textEl(n.label, {
+      x: tx, y: y + 3, "text-anchor": anchor,
+      "font-family": "Source Serif 4, Georgia, serif",
+      "font-size": "10.5", fill: C.paper2,
+      stroke: C.field, "stroke-width": "3", "paint-order": "stroke",
+    });
+    gNodes.appendChild(t);
+  }
+  svg.appendChild(gAxes); svg.appendChild(gNodes);
+  renderEfficacyList();
 }
 
 /* ── domains / timeline / matrix ────────────────────────────────────── */
@@ -1893,6 +1977,22 @@ function renderMatrix() {
 }
 
 /* ── mobile text alternatives ──────────────────────────────────────── */
+function renderEfficacyList() {
+  const box = $("#efficacy-list");
+  if (!box) return;
+  const order = { failed: 0, contested: 1, partial: 2 };
+  const rows = DATA.nodes.filter((n) => n.eff).sort((a, b) => order[a.eff] - order[b.eff] || a.yr - b.yr || a.label.localeCompare(b.label));
+  box.innerHTML = `<table class="alt-table"><caption class="sr-only">${rows.length} records with a recorded efficacy verdict.</caption><thead><tr><th>Node</th><th>Verdict</th><th>Year</th><th>Record</th></tr></thead><tbody>${rows.map((n) => {
+    const claim = (n.rec && n.rec.what ? n.rec.what : "").replace(/\s+/g, " ").trim();
+    const snippet = claim.length > 220 ? claim.slice(0, 217) + "…" : claim;
+    return `<tr><td class="name"><button data-node-row="${esc(n.id)}">${esc(n.label)}</button><span class="tier">${esc(n.ev || "untriaged")}</span></td><td>${esc(effLabel(n))}</td><td>${n.yr || "—"}</td><td>${esc(snippet)}</td></tr>`;
+  }).join("")}</tbody></table>`;
+  box.querySelectorAll("[data-node-row]").forEach((b) => b.addEventListener("click", () => {
+    setMode("field", false);
+    selectNode(b.dataset.nodeRow, { center: true });
+  }));
+}
+
 function renderDomainsList(counts) {
   const box = $("#domains-list");
   if (!box) return;

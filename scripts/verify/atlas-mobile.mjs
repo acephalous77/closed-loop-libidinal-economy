@@ -86,6 +86,12 @@ try {
   check(await page.locator("#matrix-svg").evaluate((el) => getComputedStyle(el).display === "none"), "matrix SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-matrix.png`, fullPage: false });
 
+  await page.locator('.modes [data-mode="efficacy"]').click();
+  await page.waitForSelector("#efficacy-list tbody tr");
+  check((await page.locator("#efficacy-list tbody tr").count()) === 18, "efficacy table is not 18 rows");
+  check(await page.locator("#efficacy-svg").evaluate((el) => getComputedStyle(el).display === "none"), "efficacy SVG visible on mobile");
+  await page.screenshot({ path: `${ARTIFACTS}/390-efficacy.png`, fullPage: false });
+
   await page.locator('.modes [data-mode="paths"]').click();
   await page.waitForSelector("#path-reader[data-open='1']");
   check(await page.locator("#path-reader").isVisible(), "path reader not visible");
