@@ -58,7 +58,6 @@ export default function BrochurePage() {
       <PlateHeader plate="II" route="/chair" code="OLS · ARTIFACT · BROCHURE"
                    tokens={BROCHURE_TOKENS} />
 
-      <Nav />
       <Hero />
       <Specs />
       <Foreword />
@@ -77,101 +76,14 @@ export default function BrochurePage() {
 }
 
 // ──────────────────────────────────────────────────────────────────
-// NAV — sticky bar, hamburger on mobile.
-// ──────────────────────────────────────────────────────────────────
-function Nav() {
-  return (
-    <div style={{
-      position: "sticky", top: 0, zIndex: 10,
-      height: 64, background: "rgba(250,250,247,0.97)",
-      borderBottom: `0.5px solid ${B.rule}`,
-      display: "grid", gridTemplateColumns: "1fr auto 1fr",
-      alignItems: "center", padding: "0 32px",
-    }} className="brochure-nav">
-      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-        <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
-          <circle cx="16" cy="16" r="13" stroke={B.ink} strokeWidth="1.2" />
-          <path d="M 7 19 L 7 15 Q 7 13.6 8.4 13.4 L 14 12.5 L 21 10.5 Q 22.4 10.1 22.8 11.6 L 23.6 14.4 Q 23.6 15.2 23 15.4 L 9.2 21 Q 8 21.4 7.4 20.6 Z"
-                stroke={B.ink} strokeWidth="0.9" fill="none" />
-        </svg>
-        <div style={{ fontWeight: 600, fontSize: 18, letterSpacing: "-0.01em" }}>
-          Ouroboros Life System
-        </div>
-        <span style={{
-          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
-          color: B.inkMute, marginLeft: 8, textTransform: "uppercase",
-        }}>v 4.2</span>
-      </div>
-      <nav className="brochure-nav-links" style={{
-        display: "flex", gap: 28, fontSize: 14.5, color: B.inkDim,
-      }}>
-        {/* Same-page anchors only. "Subsystems" used to sit here pointing at
-            /chair/subsystems — a site route that the plate header's route
-            strip already carries two rows above, so the page opened with the
-            same link twice in two different registers. The product bar is the
-            brochure's own contents; site navigation belongs to the header. */}
-        {([
-          ["The Ring",   "#ring"],
-          ["OHCOSE",     "#ohcose"],
-          ["Schematic",  "#schematic"],
-          ["Tiers",      "#tiers"],
-        ] as [string, string][]).map(([label, href]) => (
-          <Link key={label} href={href} style={{ color: "inherit", textDecoration: "none" }}>{label}</Link>
-        ))}
-      </nav>
-      <div style={{ display: "flex", justifyContent: "flex-end", gap: 14, alignItems: "center" }}>
-        <span style={{
-          fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.18em",
-          color: B.inkMute, textTransform: "uppercase",
-        }} className="brochure-cohort">Cohort · 2026.05</span>
-        <FailureButton
-          label="Fit me →"
-          buttonStyle={{
-            background: B.ink, color: B.paper, border: 0,
-            padding: "10px 18px", borderRadius: 999, fontSize: 14.5,
-            fontWeight: 600, letterSpacing: "-0.005em", cursor: "pointer",
-          }}
-          stampStyle={{
-            marginTop: 10, fontFamily: FONT.mono, fontSize: 12,
-            letterSpacing: "0.18em", textTransform: "uppercase",
-            color: B.inkMute, border: "1px solid currentColor",
-            padding: "0.35rem 0.55rem",
-          }}
-        />
-      </div>
-      <style>{`
-        @media (max-width: 800px) {
-          .brochure-nav { grid-template-columns: 1fr auto !important; }
-          .brochure-nav-links { display: none !important; }
-          .brochure-cohort { display: none !important; }
-        }
-      `}</style>
-    </div>
-  );
-}
-
-// ──────────────────────────────────────────────────────────────────
 // HERO
 // ──────────────────────────────────────────────────────────────────
 function Hero() {
   return (
     <div style={{ background: B.panel }} className="brochure-hero">
-      {/* Top fig. label as a strip above the image — no overlay
-          cropping needed. */}
-      <div style={{
-        padding: "20px 32px 8px",
-        fontFamily: FONT.mono, fontSize: 12.5, letterSpacing: "0.22em",
-        textTransform: "uppercase", color: B.inkDim,
-        display: "flex", justifyContent: "space-between",
-        alignItems: "baseline", flexWrap: "wrap", gap: 12,
-      }}>
-        <span style={{ color: B.accent, fontWeight: 600 }}>● OLS · v 4.2 · fig. 1</span>
-        <span style={{ color: B.inkMute }}>Standard configuration with ring</span>
-      </div>
-
       {/* Title above the render: the object is named before it is shown. */}
       <div style={{
-        padding: "0 32px 20px", maxWidth: 1280, margin: "0 auto",
+        padding: "56px 32px 20px", maxWidth: 1280, margin: "0 auto",
       }}>
         <h1 style={{
           fontFamily: FONT.manrope, fontSize: "clamp(44px, 10vw, 104px)",
@@ -192,19 +104,28 @@ function Hero() {
         padding: "12px 32px 28px",
         display: "flex", justifyContent: "center",
       }}>
-        <Image
-          src="/chair/ils/render-ring.webp"
-          alt="The Ring · OLS v 4.2 · standard configuration, ringed"
-          width={2816}
-          height={1536}
-          sizes="(max-width: 900px) 100vw, 1280px"
-          quality={82}
-          priority
-          style={{
-            width: "100%", maxWidth: 1280, height: "auto",
-            display: "block",
-          }}
-        />
+        <div style={{ width: "100%", maxWidth: 1280 }}>
+          <Image
+            src="/chair/ils/render-ring.webp"
+            alt="The Ring · OLS v 4.2 · standard configuration, ringed"
+            width={2816}
+            height={1536}
+            sizes="(max-width: 900px) 100vw, 1280px"
+            quality={82}
+            priority
+            style={{
+              width: "100%", height: "auto",
+              display: "block",
+            }}
+          />
+          <div style={{
+            marginTop: 10, fontFamily: FONT.mono, fontSize: 12.5,
+            letterSpacing: "0.18em", textTransform: "uppercase",
+            color: B.inkMute, textAlign: "right",
+          }}>
+            OLS v 4.2 · standard configuration with ring
+          </div>
+        </div>
       </div>
 
       <div style={{
