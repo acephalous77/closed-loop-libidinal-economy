@@ -205,6 +205,10 @@ a:hover { color: var(--paper); border-bottom-color: var(--paper-3); }
 .fc-strip { display: flex; gap: 2px; margin-top: 4px; }
 .fc-strip i { display: block; flex: 1; height: 3px; opacity: 0.85; }
 .stage svg { display: block; width: 100%; height: 100%; touch-action: none; }
+/* Graticule, relation arcs and the guided path are drawing only. Without
+   this, a click on a territory plate that lands on an arc stroke is
+   swallowed by the arc layer instead of reaching the plate. */
+#layer-grid, #layer-edges, #layer-path { pointer-events: none; }
 .stage .field-note {
   position: absolute; left: 16px; bottom: 14px; max-width: 420px;
   font-family: var(--mono); font-size: 10.5px; line-height: 1.45;

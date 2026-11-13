@@ -395,12 +395,28 @@ a.text-oxblood:hover {
 }
 
 /* Long inline expressions can exceed a phone measure; let the paragraph
-   scroll rather than widening the page. Display math already scrolls. */
+   scroll rather than widening the page. Display math already scrolls.
+   Applies outside .mathematics-prose too (the apparatus pages): a single
+   inline KaTeX run cannot break, so the paragraph becomes the scroller. */
 @media (max-width: 640px) {
   .mathematics-prose p {
     overflow-x: auto;
     overflow-y: hidden;
     padding-bottom: 2px;
+  }
+  p:has(.katex) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 2px;
+  }
+}
+
+/* The WebGL orbit control wrapper sets touch-action:none inline, which
+   traps a phone swipe inside the 420px canvas. pan-y gives vertical
+   scrolling back to the page while horizontal drags still rotate. */
+@media (pointer: coarse) {
+  .mode-space-viewport > div {
+    touch-action: pan-y !important;
   }
 }
 

@@ -55,6 +55,10 @@ export function CohortGradient() {
   const xScale = (age: number) =>
     pad.l + ((age - AGES[0]) / (AGES[AGES.length - 1] - AGES[0])) * (w - pad.l - pad.r);
   const yScale = (v: number) => pad.t + (1 - v) * (h - pad.t - pad.b);
+  const tooltipX = (age: number, width: number) => {
+    const right = xScale(age) + 8;
+    return right + 118 > width ? xScale(age) - 8 - 118 : right;
+  };
 
   // Fine-grained age points for smooth curve
   const finePoints = useMemo(() => {
@@ -230,8 +234,16 @@ export function CohortGradient() {
                   width="40"
                   height={h - pad.t - pad.b}
                   fill="transparent"
+                  tabIndex={0}
+                  role="img"
+                  aria-label={`Age ${age}: predicted I(60s) approximately ${predict(age).toFixed(3)}`}
                   onMouseEnter={() => setHover({ age, predicted: predict(age) })}
-                  style={{ cursor: "crosshair" }}
+                  onFocus={() => setHover({ age, predicted: predict(age) })}
+                  onBlur={() => setHover(null)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") setHover(null);
+                  }}
+                  style={{ cursor: "crosshair", outline: "none" }}
                 />
               </g>
             );
@@ -249,8 +261,16 @@ export function CohortGradient() {
                 strokeWidth="0.8"
                 strokeDasharray="2 3"
               />
+              <circle
+                cx={xScale(hover.age)}
+                cy={yScale(hover.predicted)}
+                r="7"
+                fill="none"
+                style={{ stroke: "var(--color-oxblood)" }}
+                strokeWidth="1.5"
+              />
               <rect
-                x={xScale(hover.age) + 8}
+                x={tooltipX(hover.age, w)}
                 y={yScale(hover.predicted) - 32}
                 width="118"
                 height="42"
@@ -258,7 +278,7 @@ export function CohortGradient() {
                 strokeWidth="0.5"
               />
               <text
-                x={xScale(hover.age) + 14}
+                x={tooltipX(hover.age, w) + 6}
                 y={yScale(hover.predicted) - 18}
                 fontFamily="var(--font-mono)"
                 fontSize="9.5"
@@ -267,7 +287,7 @@ export function CohortGradient() {
                 age = {hover.age}
               </text>
               <SvgM
-                x={xScale(hover.age) + 14}
+                x={tooltipX(hover.age, w) + 6}
                 y={yScale(hover.predicted) - 14}
                 w={104}
                 h={14}
@@ -351,7 +371,8 @@ export function CohortGradient() {
         prediction; the shaded band is the framework's hedge on magnitude;
         the oxblood dashed line is the falsification threshold. The three
         dotted curves show what confirming, null, and disconfirming data
-        would look like. Hover a cohort age to see the exact predicted{" "}
+        would look like. Hover a cohort age, or focus a point with the keyboard,
+        to see the exact predicted{" "}
         <M>{String.raw`I(60\text{s})`}</M> value.
       </figcaption>
     </figure>

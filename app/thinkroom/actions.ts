@@ -33,15 +33,25 @@ function timingSafeEqualHex(a: string, b: string): boolean {
 const WINDOW_MS = 15 * 60 * 1000;
 const MAX_ATTEMPTS = 10;
 const attempts = new Map<string, { n: number; t: number }>();
-function tooManyAttempts(ip: string): boolean {
+function isRateLimited(ip: string): boolean {
+  const rec = attempts.get(ip);
+  if (!rec || Date.now() - rec.t > WINDOW_MS) return false;
+  return rec.n >= MAX_ATTEMPTS;
+}
+
+function recordFailure(ip: string): void {
   const now = Date.now();
   const rec = attempts.get(ip);
   if (!rec || now - rec.t > WINDOW_MS) {
     attempts.set(ip, { n: 1, t: now });
-    return false;
+  } else {
+    rec.n += 1;
+    rec.t = now;
   }
-  rec.n += 1;
-  return rec.n > MAX_ATTEMPTS;
+}
+
+function clearAttempts(ip: string): void {
+  attempts.delete(ip);
 }
 
 export async function submitPassword(formData: FormData) {
@@ -60,15 +70,17 @@ export async function submitPassword(formData: FormData) {
     h.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     h.get("x-real-ip") ||
     "unknown";
-  if (tooManyAttempts(ip)) {
+  if (isRateLimited(ip)) {
     redirect("/thinkroom/enter?error=rate&next=" + encodeURIComponent(safeNext));
   }
 
   const submittedHash = await sha256Hex(submitted);
   const passwordHash = await sha256Hex(password);
   if (!timingSafeEqualHex(submittedHash, passwordHash)) {
+    recordFailure(ip);
     redirect("/thinkroom/enter?error=1&next=" + encodeURIComponent(safeNext));
   }
+  clearAttempts(ip);
 
   const hash = await sha256Hex(password + ":" + secret);
   const jar = await cookies();
@@ -85,6 +97,15 @@ export async function submitPassword(formData: FormData) {
 
 export async function signOut() {
   const jar = await cookies();
-  jar.delete(COOKIE_NAME);
+  // __Host- cookies require Secure on every write, including deletion.
+  // ResponseCookies.delete() omits Secure, so browsers reject the clear
+  // and the 30-day pass survives sign-out. Expire it explicitly instead.
+  jar.set(COOKIE_NAME, "", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "lax",
+    path: "/",
+    maxAge: 0,
+  });
   redirect("/thinkroom/enter");
 }

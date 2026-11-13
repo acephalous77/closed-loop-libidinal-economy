@@ -140,14 +140,22 @@ export function CausalChain() {
   lit.varDiv = lit.prZero;
   lit.fore = lit.prZero && lit.varDiv;
 
-  // Compute edge midpoint coords for SVG paths.
-  function nodeCenterOut(id: NodeId) {
-    const n = NODES[id];
-    return { x: n.x + n.w, y: n.y + n.h / 2 };
-  }
-  function nodeCenterIn(id: NodeId) {
-    const n = NODES[id];
-    return { x: n.x, y: n.y + n.h / 2 };
+  // Compute edge anchors. Nodes stacked in one column must leave from the
+  // bottom and enter at the top; the right→left convention otherwise draws
+  // the bound → Lemma 1 → Step 2 chain backwards through its own boxes.
+  function edgeAnchors(from: NodeId, to: NodeId) {
+    const a = NODES[from], b = NODES[to];
+    const sameColumn = Math.abs(a.x + a.w / 2 - (b.x + b.w / 2)) < 1;
+    if (sameColumn) {
+      return b.y >= a.y
+        ? { a: { x: a.x + a.w / 2, y: a.y + a.h }, b: { x: b.x + b.w / 2, y: b.y }, straight: true }
+        : { a: { x: a.x + a.w / 2, y: a.y }, b: { x: b.x + b.w / 2, y: b.y + b.h }, straight: true };
+    }
+    return {
+      a: { x: a.x + a.w, y: a.y + a.h / 2 },
+      b: { x: b.x, y: b.y + b.h / 2 },
+      straight: false,
+    };
   }
 
   return (
@@ -224,13 +232,16 @@ export function CausalChain() {
           {/* Edges */}
           {EDGES.map((e, idx) => {
             const isLit = e.litWhen(lit);
-            const a = nodeCenterOut(e.from);
-            const b = nodeCenterIn(e.to);
+            const { a, b, straight } = edgeAnchors(e.from, e.to);
             const mx = (a.x + b.x) / 2;
             return (
               <path
                 key={idx}
-                d={`M ${a.x} ${a.y} Q ${mx} ${a.y} ${mx} ${(a.y + b.y) / 2} T ${b.x} ${b.y}`}
+                d={
+                  straight
+                    ? `M ${a.x} ${a.y} L ${b.x} ${b.y}`
+                    : `M ${a.x} ${a.y} Q ${mx} ${a.y} ${mx} ${(a.y + b.y) / 2} T ${b.x} ${b.y}`
+                }
                 fill="none"
                 style={{ stroke: isLit ? "var(--color-ink)" : "var(--color-ink-50)" }}
                 strokeWidth={isLit ? 1.5 : 0.8}

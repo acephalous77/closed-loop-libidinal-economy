@@ -17,8 +17,8 @@
 // shell alias, IBM Plex Mono vendored — both self-hosted, no build- or
 // runtime-CDN request).
 
-import { useEffect, useState } from "react";
-import type { MouseEvent } from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
+import type { MouseEvent, RefObject } from "react";
 import type { Tone } from "./data";
 import { prefersReducedMotion } from "@/lib/motion";
 
@@ -87,21 +87,34 @@ export const ATLAS_CSS = `
 
 // rAF clock — milliseconds since mount. Every resting (t=0) frame in the
 // diagrams is a complete composition; motion layers on top.
+//
+// The chart behind an open plate is opaque and invisible, but it used to
+// keep 17 rAF clocks setting state every frame. TickPauseContext freezes
+// those clocks; the plate's own clock sits outside the provider and keeps
+// running. The elapsed time is preserved across a pause so closing a plate
+// does not restart the diagram.
+export const TickPauseContext = createContext(false);
+
 export function useTick(): number {
   const [t, setT] = useState(0);
+  const paused = useContext(TickPauseContext);
+  const offset = useRef(0);
   useEffect(() => {
     // Honor reduced-motion: the t=0 frame is already a complete composition,
     // so we simply never start the clock — the atlas rests, motionless.
     if (prefersReducedMotion()) return;
     let raf = 0;
-    const start = performance.now();
+    const start = performance.now() - offset.current;
     const loop = (n: number) => {
-      setT(n - start);
+      if (!paused) {
+        offset.current = n - start;
+        setT(offset.current);
+      }
       raf = requestAnimationFrame(loop);
     };
     raf = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(raf);
-  }, []);
+  }, [paused]);
   return t;
 }
 
@@ -120,6 +133,46 @@ export function useViewport(): number {
     };
   }, []);
   return w;
+}
+
+// Focus management for the atlas dialogs: move focus in on open, keep Tab
+// inside, and restore the opener's focus on close.
+export function useDialogFocus(
+  active: boolean,
+  ref: RefObject<HTMLElement | null>,
+): void {
+  useEffect(() => {
+    if (!active) return;
+    const previous = document.activeElement as HTMLElement | null;
+    const root = ref.current;
+    if (!root) return;
+    const focusables = () =>
+      Array.from(
+        root.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        ),
+      ).filter((el) => el.offsetParent !== null || el === document.activeElement);
+    focusables()[0]?.focus();
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key !== "Tab") return;
+      const items = focusables();
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      previous?.focus();
+    };
+  }, [active, ref]);
 }
 
 export function ptOnCircle(

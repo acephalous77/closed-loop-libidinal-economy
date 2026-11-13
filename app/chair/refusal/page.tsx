@@ -113,8 +113,8 @@ export default function RefusalPage() {
           operates.
         </RP>
 
-        <blockquote style={{
-          margin: "34px -20px", padding: "20px 30px",
+        <blockquote className="chair-bleed-quote" style={{
+          padding: "20px 30px",
           borderTop: `0.5px solid ${T.accent}`,
           borderBottom: `0.5px solid ${T.accent}`,
           fontFamily: FONT.serif, fontStyle: "italic",

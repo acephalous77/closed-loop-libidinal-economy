@@ -64,8 +64,10 @@ function step(state: SimState, target: Dist3, beta: number): SimState {
   return { nu: newNu, t: newT, history };
 }
 
-function initialState(start: Dist3): SimState {
-  return { nu: start, t: 0, history: [{ t: 0, kl: 0, nu: start }] };
+function initialState(start: Dist3, target: Dist3): SimState {
+  // The certificate starts at D_KL(start || target), not on the plot's
+  // 1e-15 floor; otherwise the first readout claims perfect conformity.
+  return { nu: start, t: 0, history: [{ t: 0, kl: klDivergence(start, target), nu: start }] };
 }
 
 // Barycentric → Cartesian for the 3-choice simplex triangle.
@@ -80,7 +82,7 @@ export function MetricSuperego() {
   const [beta, setBeta] = useState(0.08);
   const [target, setTarget] = useState<Dist3>([0.7, 0.2, 0.1]);
   const [start, setStart] = useState<Dist3>([0.1, 0.6, 0.3]);
-  const [state, setState] = useState<SimState>(() => initialState([0.1, 0.6, 0.3]));
+  const [state, setState] = useState<SimState>(() => initialState([0.1, 0.6, 0.3], [0.7, 0.2, 0.1]));
   const [running, setRunning] = useState(false);
   const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -99,7 +101,7 @@ export function MetricSuperego() {
 
   function reset() {
     setRunning(false);
-    setState(initialState(start));
+    setState(initialState(start, target));
   }
 
   // Plot dimensions.
@@ -278,7 +280,7 @@ export function MetricSuperego() {
           label="ν_u(0) presets"
           onSelect={(v) => {
             setStart(v);
-            setState(initialState(v));
+            setState(initialState(v, target));
             setRunning(false);
           }}
           options={[
@@ -289,7 +291,11 @@ export function MetricSuperego() {
         />
         <PresetButtonGroup
           label="π_R* presets"
-          onSelect={(v) => setTarget(v)}
+          onSelect={(v) => {
+            setTarget(v);
+            setState(initialState(start, v));
+            setRunning(false);
+          }}
           options={[
             { label: "target a₁", value: [0.7, 0.2, 0.1] as Dist3 },
             { label: "target a₂", value: [0.2, 0.7, 0.1] as Dist3 },

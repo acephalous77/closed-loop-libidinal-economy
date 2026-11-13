@@ -229,8 +229,9 @@ export function ReclamationTrajectories() {
 
         {/* Bound label */}
         <text
-          x={xOf(Ts[Math.floor(Ts.length * 0.7)])}
+          x={width - padX}
           y={yOf(lowerBound(Ts[Math.floor(Ts.length * 0.7)], params)) - 8}
+          textAnchor="end"
           className="axis-label"
           fill="var(--color-oxblood)"
         >

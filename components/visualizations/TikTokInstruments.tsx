@@ -179,7 +179,7 @@ function InstrumentPanel({ panel }: { panel: Panel }) {
 
       <button
         onClick={() => setExpanded(!expanded)}
-        className="block w-full focus:outline-none"
+        className="block w-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oxblood"
         aria-expanded={expanded}
         aria-label={`Toggle expanded view of ${panel.name} diagram`}
       >
@@ -228,7 +228,6 @@ function DiagramFrame({ children }: { children: React.ReactNode }) {
     <svg
       viewBox={`0 0 ${DIAGRAM_W} ${DIAGRAM_H}`}
       className="w-full h-auto"
-      style={{ maxHeight: "180px" }}
       preserveAspectRatio="xMidYMid meet"
     >
       {children}
@@ -405,8 +404,17 @@ const WAVE_BODY = Array.from({ length: 100 }, (_, i) => {
 
 const WAVE_MEDIUM = Array.from({ length: 100 }, (_, i) => {
   const x = 30 + i * 4.8;
+  // The medium starts a quarter-cycle out and closes the gap by the
+  // lock line at x≈250; after that the two phases move together. The old
+  // formula kept a residual drift, so the "phase lock" marker sat over
+  // waves that had not locked.
+  const lockIndex = 46;
   const phaseShift =
-    i < 30 ? Math.PI / 2 : (0.2 * (30 - i)) / 30 * Math.PI;
+    i < 30
+      ? Math.PI / 2
+      : i < lockIndex
+        ? (Math.PI / 2) * ((lockIndex - i) / (lockIndex - 30))
+        : 0;
   const y = 110 + Math.sin(i * 0.25 + phaseShift) * 15;
   return `${i === 0 ? "M" : "L"} ${x.toFixed(2)} ${y.toFixed(3)}`;
 }).join(" ");

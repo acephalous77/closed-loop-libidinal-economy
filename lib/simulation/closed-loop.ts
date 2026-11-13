@@ -98,7 +98,14 @@ export function makeInitialState(): SimState {
  * `prev`. Uses Math.random() internally; pass a seeded RNG by monkey-
  * patching globalThis.Math.random temporarily for reproducible runs.
  */
-export function step(prev: SimState, knobs: SimKnobs): SimState {
+export function step(
+  prev: SimState,
+  knobs: SimKnobs,
+  opts: { light?: boolean } = {},
+): SimState {
+  // `light` skips the four 1200-sample trails and the 500-sample ISI
+  // history. ReclamationTrajectories runs thousands of users per frame and
+  // never reads those buffers; copying them dominated the frame.
   const s: SimState = {
     ...prev,
     u: { ...prev.u },
@@ -108,12 +115,14 @@ export function step(prev: SimState, knobs: SimKnobs): SimState {
     sigmaSurplus: { ...prev.sigmaSurplus },
     lambdaBase: { ...prev.lambdaBase },
     lambda: { ...prev.lambda },
-    uTrail: {
-      S: prev.uTrail.S.slice(),
-      C: prev.uTrail.C.slice(),
-      P: prev.uTrail.P.slice(),
-      K: prev.uTrail.K.slice(),
-    },
+    uTrail: opts.light
+      ? prev.uTrail
+      : {
+          S: prev.uTrail.S.slice(),
+          C: prev.uTrail.C.slice(),
+          P: prev.uTrail.P.slice(),
+          K: prev.uTrail.K.slice(),
+        },
   };
   s.t = prev.t + 1;
 
@@ -157,7 +166,7 @@ export function step(prev: SimState, knobs: SimKnobs): SimState {
     const isi = s.t - s.lastStim;
     s.isi = isi;
     s.lastStim = s.t;
-    s.isiHist = [...prev.isiHist.slice(-499), isi];
+    if (!opts.light) s.isiHist = [...prev.isiHist.slice(-499), isi];
   } else {
     s.isi = s.t - s.lastStim;
   }
@@ -173,7 +182,7 @@ export function step(prev: SimState, knobs: SimKnobs): SimState {
       next = next + 0.005 * (0.5 - next);
     }
     s.u[k] = Math.max(0, Math.min(1, next));
-    s.uTrail[k] = [...s.uTrail[k].slice(-1199), s.u[k]];
+    if (!opts.light) s.uTrail[k] = [...s.uTrail[k].slice(-1199), s.u[k]];
   }
 
   // (2) y_t = g(u_t) + η_t — engagement event probability

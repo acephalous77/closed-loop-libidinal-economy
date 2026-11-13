@@ -13,7 +13,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
-import { L, D, useTick, useViewport, ptOnCircle, ATLAS_CSS, type OpenFn } from "./shared";
+import { L, D, useTick, useViewport, ptOnCircle, ATLAS_CSS, TickPauseContext, useDialogFocus, type OpenFn } from "./shared";
 import { ATLAS_SITES, ATLAS_WORLD } from "./data";
 import type { AtlasSite } from "./data";
 import { AtlasChart } from "./chart";
@@ -134,18 +134,24 @@ function Intro({ onEnter, vw }: { onEnter: () => void; vw: number }) {
 
 // ───────── index drawer ─────────
 function IndexDrawer({ onOpen, onClose }: { onOpen: OpenFn; onClose: () => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useDialogFocus(true, ref);
   return (
     <>
       <div onClick={onClose} style={{ position: "fixed", inset: 0, background: "rgba(22,18,14,.3)", zIndex: 44, animation: "at-fade .2s ease" }} />
       <div
+        ref={ref}
         className="atlas-root"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Index of specimens"
         style={{ position: "fixed", top: 0, right: 0, bottom: 0, width: "min(382px,88vw)", background: L.paper, borderLeft: `1px solid ${L.ink}`, zIndex: 45, overflowY: "auto", padding: "20px 22px 48px", boxShadow: "-14px 0 50px rgba(0,0,0,.22)" }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", borderBottom: `1px solid ${L.ink}`, paddingBottom: 12 }}>
           <span className="mono" style={{ fontSize: 11, letterSpacing: "0.24em", color: L.oxide }}>
             INDEX OF SPECIMENS
           </span>
-          <button onClick={onClose} className="mono" style={{ fontSize: 18, color: L.gloss, background: "none", border: "none", cursor: "pointer", lineHeight: 1 }}>
+          <button onClick={onClose} aria-label="Close the index" className="mono" style={{ fontSize: 18, color: L.gloss, background: "none", border: "none", cursor: "pointer", lineHeight: 1 }}>
             ×
           </button>
         </div>
@@ -198,12 +204,12 @@ function Key({ onClose, narrow }: { onClose: () => void; narrow: boolean }) {
     </div>
   );
   return (
-    <div className="atlas-root" style={{ position: "fixed", right: "max(14px, env(safe-area-inset-right))", bottom: "calc(max(14px, env(safe-area-inset-bottom)) + 52px)", width: "min(300px,90vw)", background: L.paper, border: `1px solid ${L.ink}`, padding: "16px 18px", zIndex: 30, boxShadow: "0 10px 40px rgba(0,0,0,.18)" }}>
+    <div className="atlas-root" role="dialog" aria-label="Key" style={{ position: "fixed", right: "max(14px, env(safe-area-inset-right))", bottom: "calc(max(14px, env(safe-area-inset-bottom)) + 52px)", width: "min(300px,90vw)", background: L.paper, border: `1px solid ${L.ink}`, padding: "16px 18px", zIndex: 30, boxShadow: "0 10px 40px rgba(0,0,0,.18)" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
         <span className="mono" style={{ fontSize: 11, letterSpacing: "0.2em", color: L.oxide }}>
           KEY
         </span>
-        <button onClick={onClose} className="mono" style={{ fontSize: 14, color: L.gloss, background: "none", border: "none", cursor: "pointer" }}>
+        <button onClick={onClose} aria-label="Close the key" className="mono" style={{ fontSize: 14, color: L.gloss, background: "none", border: "none", cursor: "pointer" }}>
           ×
         </button>
       </div>
@@ -251,6 +257,7 @@ export default function AtlasApp() {
   const tf = useRef<TF | null>(null);
   const pointers = useRef<Map<number, { x: number; y: number }>>(new Map());
   const gesture = useRef<Gesture>(null);
+  const panMoved = useRef(false);
 
   const persist = useCallback(
     (extra?: Partial<Saved>) => {
@@ -348,13 +355,18 @@ export default function AtlasApp() {
     if (!vp) return;
     const handler = (e: WheelEvent) => {
       e.preventDefault();
+      const r = vp.getBoundingClientRect();
+      const unitY = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? r.height : 1;
+      const unitX = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? r.width : 1;
       if (e.ctrlKey) {
-        // trackpad pinch / ctrl+wheel → zoom toward the cursor
-        zoomAt(e.clientX, e.clientY, e.deltaY < 0 ? 1.1 : 1 / 1.1);
+        // trackpad pinch / ctrl+wheel → zoom toward the cursor. Scale by
+        // the delta: a fixed 1.1 per event turns a real pinch (dozens of
+        // small events per second) into an instant run to the clamp.
+        zoomAt(e.clientX, e.clientY, Math.exp(-e.deltaY * unitY * 0.0025));
       } else if (tf.current) {
         // the section is read top→bottom: the wheel descends through the strata
-        tf.current.y -= e.deltaY;
-        tf.current.x -= e.deltaX;
+        tf.current.y -= e.deltaY * unitY;
+        tf.current.x -= e.deltaX * unitX;
         apply();
       }
     };
@@ -375,8 +387,8 @@ export default function AtlasApp() {
   );
 
   const onPointerDown = useCallback((e: React.PointerEvent) => {
-    const onNode = !!(e.target as Element).closest("[data-atlas-node]");
     pointers.current.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    panMoved.current = false;
     if (pointers.current.size >= 2) {
       const pts = [...pointers.current.values()];
       gesture.current = { mode: "pinch", dist: dist(pts[0], pts[1]) };
@@ -385,13 +397,10 @@ export default function AtlasApp() {
           e.currentTarget.setPointerCapture(id);
         } catch {}
       }
-    } else if (!onNode) {
-      gesture.current = { mode: "pan", sx: e.clientX, sy: e.clientY, ox: tf.current!.x, oy: tf.current!.y };
-      try {
-        e.currentTarget.setPointerCapture(e.pointerId);
-      } catch {}
     } else {
-      gesture.current = null; // single tap on a node → let the click through
+      // Always start a pan, even on a specimen. A tap still reaches the
+      // node's onClick; once the pointer travels, capture and suppress it.
+      gesture.current = { mode: "pan", sx: e.clientX, sy: e.clientY, ox: tf.current!.x, oy: tf.current!.y };
     }
   }, []);
   const onPointerMove = useCallback(
@@ -403,8 +412,13 @@ export default function AtlasApp() {
       const g = gesture.current;
       if (!g) return;
       if (g.mode === "pan") {
-        tf.current!.x = g.ox + (e.clientX - g.sx);
-        tf.current!.y = g.oy + (e.clientY - g.sy);
+        const dx = e.clientX - g.sx, dy = e.clientY - g.sy;
+        if (Math.abs(dx) + Math.abs(dy) > 4) {
+          panMoved.current = true;
+          try { e.currentTarget.setPointerCapture(e.pointerId); } catch {}
+        }
+        tf.current!.x = g.ox + dx;
+        tf.current!.y = g.oy + dy;
         apply();
       } else if (g.mode === "pinch") {
         const pts = [...pointers.current.values()];
@@ -478,6 +492,17 @@ export default function AtlasApp() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [openId]);
 
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (openIdRef.current) close();
+      else if (indexOpen) setIndexOpen(false);
+      else if (keyOpen) setKeyOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [indexOpen, keyOpen, close]);
+
   const site = openId ? SITE[openId] : null;
   const ctrlStyle = (lbl: string): CSSProperties => ({
     fontSize: lbl.length > 2 ? 11 : 16,
@@ -501,10 +526,19 @@ export default function AtlasApp() {
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}
         onPointerCancel={onPointerUp}
+        onClickCapture={(e) => {
+          if (panMoved.current) {
+            panMoved.current = false;
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }}
         style={{ position: "absolute", inset: 0, cursor: "grab", touchAction: "none" }}
       >
         <div ref={worldRef} style={{ position: "absolute", top: 0, left: 0, width: W, height: H, transformOrigin: "0 0", willChange: "transform" }}>
-          <AtlasChart onOpen={open} hovered={hovered} setHovered={setHovered} narrow={narrow} />
+          <TickPauseContext.Provider value={!!openId || !entered}>
+            <AtlasChart onOpen={open} hovered={hovered} setHovered={setHovered} narrow={narrow} />
+          </TickPauseContext.Provider>
         </div>
       </div>
 

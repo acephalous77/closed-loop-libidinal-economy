@@ -94,10 +94,12 @@ export function NetworkCoupling() {
 
   const edges = useMemo(() => generateEdges(rho, edgeSeed), [rho, edgeSeed]);
 
-  // Branching ratio. Approximate rho(W) by mean degree * connection density;
-  // use edges.length / NUM_NODES as a proxy. The eigenvalue ~ mean degree.
+  // Branching ratio. One active node transmits to its neighbours while
+  // its activation decays; the expected number of secondary activations
+  // is degree × alpha × (1 + decay + decay² + …) = degree × alpha/(1-decay).
+  // Omitting the decay integral mislabels supercritical runs as stable.
   const meanDegree = (2 * edges.length) / NUM_NODES;
-  const branchingRatio = meanDegree * alpha;
+  const branchingRatio = (meanDegree * alpha) / Math.max(1e-9, 1 - decay);
   const stable = branchingRatio < 1;
 
   // Node positions: circle layout.
@@ -143,8 +145,8 @@ export function NetworkCoupling() {
     });
   }
 
-  // Cascade size = sum of activations.
-  const cascadeSize = state.activation.reduce((a, b) => a + b, 0);
+  // Cascade size = number of nodes currently activated.
+  const cascadeSize = state.activation.reduce((a, b) => a + (b > 0.05 ? 1 : 0), 0);
 
   return (
     <div className="network-coupling-container">
@@ -197,7 +199,7 @@ export function NetworkCoupling() {
         {/* Right-side panel: branching ratio + threshold */}
         <g transform="translate(480 40)">
           <text x={0} y={0} className="axis-label">
-            branching ratio rho(W) * alpha
+            branching ratio rho(W) * alpha / (1 - decay)
           </text>
           <rect x={0} y={12} width={300} height={26} fill="none" stroke="var(--color-ink-70)" strokeWidth={1} />
           <rect
@@ -221,7 +223,7 @@ export function NetworkCoupling() {
             cascade size
           </text>
           <text x={0} y={140} className="axis-label" fill="var(--color-ink)">
-            {cascadeSize.toFixed(1)} / {NUM_NODES} nodes activated
+            {cascadeSize} / {NUM_NODES} nodes activated
           </text>
 
           {/* Mean degree */}

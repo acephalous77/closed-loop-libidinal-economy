@@ -118,8 +118,19 @@ function Engine({
   return (
     <div
       data-atlas-node="1"
+      role="button"
+      tabIndex={0}
+      aria-label="The Ouroboros — the apparatus"
       onMouseEnter={() => !narrow && setHovered("ouroboros")}
       onMouseLeave={() => !narrow && setHovered(null)}
+      onFocus={() => setHovered("ouroboros")}
+      onBlur={() => setHovered(null)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen("ouroboros", e as unknown as React.MouseEvent);
+        }
+      }}
       onClick={(e) =>
         narrow && hovered !== "ouroboros" ? setHovered("ouroboros") : onOpen("ouroboros", e)
       }
@@ -194,8 +205,19 @@ function SmallNode({
   return (
     <div
       data-atlas-node="1"
+      role="button"
+      tabIndex={0}
+      aria-label={`${s.title} — specimen ${s.fig}`}
       onMouseEnter={() => !narrow && setHovered(s.id)}
       onMouseLeave={() => !narrow && setHovered(null)}
+      onFocus={() => setHovered(s.id)}
+      onBlur={() => setHovered(null)}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onOpen(s.id, e as unknown as React.MouseEvent);
+        }
+      }}
       onClick={(e) => (narrow && hovered !== s.id ? setHovered(s.id) : onOpen(s.id, e))}
       style={{ position: "absolute", left: POS[s.id].x, top: POS[s.id].y, transform: "translate(-50%,-50%)", width: sz, height: sz, cursor: "pointer", opacity: dimmed ? 0.2 : 1, transition: "opacity .25s", zIndex: isHot ? 6 : 3 }}
     >

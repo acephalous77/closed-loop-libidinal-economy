@@ -182,7 +182,7 @@ export default function OhcosePortal() {
                 >
                   {phase.numeral}.
                 </span>
-                <span className="flex-1">
+                <span className="flex-1 min-w-0">
                   <span
                     className="block group-hover:underline"
                     style={{

@@ -147,7 +147,7 @@ export default function PhaseIIInscriptiveNormalization() {
                 >
                   {s.code}
                 </span>
-                <span className="flex-1">
+                <span className="flex-1 min-w-0">
                   <span
                     className="block group-hover:underline"
                     style={{ color: "var(--color-ink-90)", fontSize: "1.15rem", fontWeight: 600 }}

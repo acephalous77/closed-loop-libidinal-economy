@@ -43,7 +43,9 @@ const COUPLING_RATES: Record<string, number> = {
 };
 
 function key(a: Register, b: Register): string {
-  return a < b ? a + b : b + a;
+  // The tables are keyed in register order (SC, SK, SP, CP, CK, PK),
+  // not alphabetically; sorting by index keeps every pair addressed.
+  return REGISTERS.indexOf(a) <= REGISTERS.indexOf(b) ? a + b : b + a;
 }
 
 function couplingRate(a: Register, b: Register): number {
@@ -154,7 +156,7 @@ export function LibidinalRouting() {
         className="w-full max-w-[900px] h-auto"
       >
         {/* Title */}
-        <text x={gridX + gridW / 2} y={32} textAnchor="middle" className="axis-label">
+        <text x={gridX + gridW / 2} y={16} textAnchor="middle" className="axis-label">
           mutual information I(u^i ; u^j) across the four registers
         </text>
 
@@ -253,6 +255,33 @@ export function LibidinalRouting() {
           })}
         </g>
       </svg>
+
+      <table className="sr-only">
+        <caption>
+          Mutual information between registers at closure time {t}. Rows are
+          the first register, columns the second.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">register</th>
+            {REGISTERS.map((reg) => (
+              <th key={`th-${reg}`} scope="col">{reg}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {REGISTERS.map((rowReg) => (
+            <tr key={`tr-${rowReg}`}>
+              <th scope="row">{rowReg}</th>
+              {REGISTERS.map((colReg) => (
+                <td key={`td-${rowReg}-${colReg}`}>
+                  {miAt(t, rowReg, colReg).toFixed(2)}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {/* Readouts */}
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-md mt-md font-mono text-sm">

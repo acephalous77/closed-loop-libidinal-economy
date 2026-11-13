@@ -71,8 +71,10 @@ function bifurcationCurves(regime: Regime): {
         upper.push({ mu, xi });
         lower.push({ mu, xi: -xi });
       }
-      segments.push({ points: upper, stable: true, label: "stable" });
-      segments.push({ points: lower, stable: false, label: "unstable" });
+      // f'(x) = 1 + 2x. On the upper branch f' > 1 (unstable); on the
+      // lower branch |f'| < 1 for the displayed range (stable).
+      segments.push({ points: upper, stable: false, label: "unstable" });
+      segments.push({ points: lower, stable: true, label: "stable" });
       break;
     }
     case "pitchfork": {

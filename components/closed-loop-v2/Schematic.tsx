@@ -229,7 +229,15 @@ export function ClosedLoopSchematic() {
 
   function handleClick(event: MouseEvent<SVGSVGElement>) {
     const id = partIdFrom(event.target);
-    if (id) handleActivate(id);
+    if (!id) return;
+    // On touch there is no hover: the first tap must show the caption,
+    // the second tap enters the part. A mouse click still activates at once.
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    if (coarse && activeId !== id) {
+      setHoveredId(id);
+      return;
+    }
+    handleActivate(id);
   }
 
   function handleKeyDown(event: KeyboardEvent<SVGSVGElement>) {
@@ -274,7 +282,7 @@ export function ClosedLoopSchematic() {
       <svg
         viewBox="0 0 960 800"
         xmlns="http://www.w3.org/2000/svg"
-        role="img"
+        role="group"
         aria-labelledby="schematic-title schematic-desc"
         className="schematic-svg w-full max-w-[960px] h-auto"
         onMouseOver={handlePointerOver}
@@ -672,7 +680,7 @@ export function ClosedLoopSchematic() {
             strokeWidth="1.5"
             strokeDasharray="3 3"
           />
-          <SvgM x={936} y={306} w={130} h={18} align="left" color="var(--color-oxblood)" size="11px">
+          <SvgM x={806} y={306} w={130} h={18} align="left" color="var(--color-oxblood)" size="11px">
             {String.raw`\kappa_\Phi = 1`}
           </SvgM>
         </Part>

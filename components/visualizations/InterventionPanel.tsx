@@ -224,6 +224,7 @@ function ModeCard({
           step={knobStep}
           value={knobValue}
           onChange={(e) => onKnobChange(Number(e.target.value))}
+          aria-label={`${title} parameter`}
           className="flex-1 accent-oxblood cursor-pointer"
         />
         <span className="font-mono text-xs text-ink-90 w-[3rem] text-right">

@@ -93,12 +93,14 @@ export default function NetworkCouplingPage() {
               the percolation theorem (§8.5) classifies the resulting
               cascade dynamics. The plate visualizes both: cascades
               live on the graph; the branching-ratio bar shows where
-              the parameters sit relative to threshold. In the
-              plate&apos;s reduction the temporal kernel is absorbed
-              into a single per-edge probability{" "}
-              <M>{String.raw`\alpha`}</M>, so the branching ratio it
-              displays, <M>{String.raw`\rho(W) \cdot \alpha`}</M>, is
-              the scalar stand-in for{" "}
+              the parameters sit relative to threshold. The
+              plate&apos;s reduction keeps the per-edge probability{" "}
+              <M>{String.raw`\alpha`}</M> and the per-step decay{" "}
+              <M>{String.raw`\delta`}</M>; an activation keeps
+              transmitting while it decays, so the branching ratio it
+              displays is{" "}
+              <M>{String.raw`\rho(W)\alpha/(1-\delta)`}</M>, the scalar
+              stand-in for{" "}
               <M>{String.raw`\rho(W) \cdot \rho(\alpha) \cdot \int \kappa`}</M>.
             </p>
 
@@ -108,19 +110,19 @@ export default function NetworkCouplingPage() {
 
             <ul className="list-disc pl-md mb-sm space-y-xs">
               <li>
-                <strong>Subcritical (rho · alpha {`<`} 1).</strong>{" "}
+                <strong>Subcritical (rho · alpha / (1 − decay) {`<`} 1).</strong>{" "}
                 Low connection density or low per-edge propagation.
                 Seeded cascade dissipates after a few hops; cascade
                 size remains small; the percolation bar reads moss.
               </li>
               <li>
-                <strong>Near threshold (rho · alpha {`~`} 1).</strong>{" "}
+                <strong>Near threshold (rho · alpha / (1 − decay) {`~`} 1).</strong>{" "}
                 Critical dynamics. Long-range temporal correlations;
                 power-law cascade sizes; the framework&apos;s
                 mobilization-dispersion regime.
               </li>
               <li>
-                <strong>Supercritical (rho · alpha {`>`} 1).</strong>{" "}
+                <strong>Supercritical (rho · alpha / (1 − decay) {`>`} 1).</strong>{" "}
                 High connectivity or strong per-edge propagation.
                 Cascades propagate platform-wide; the percolation
                 bar reads oxblood. This is the framework&apos;s

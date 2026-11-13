@@ -4,9 +4,9 @@ import { JsonLd } from "@/lib/jsonld";
 import { WORKS } from "@/lib/works";
 import { PressFooter, PressMasthead } from "@/components/shell/PressChrome";
 
-const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://www.autostimulus.org";
+import { resolveSiteUrl } from "@/lib/site";
+
+const SITE_URL = resolveSiteUrl();
 
 export const metadata: Metadata = {
   title: { absolute: "autostimulus" },

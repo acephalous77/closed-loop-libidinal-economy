@@ -127,8 +127,11 @@ export function CapturedResonance() {
   const yOfPsi = (psi: number) => plotY0 + ((Math.PI - psi) / (2 * Math.PI)) * plotH;
   const xOfIdx = (i: number) => plotX0 + (i / Math.max(HISTORY_LENGTH - 1, 1)) * plotW;
 
+  // Before the buffer fills, the live trace belongs at the right edge,
+  // not stretched across the whole plot as if it already had history.
+  const traceOffset = Math.max(0, HISTORY_LENGTH - state.psiHistory.length);
   const psiPath = state.psiHistory
-    .map((psi, i) => `${i === 0 ? "M" : "L"} ${xOfIdx(i).toFixed(2)} ${yOfPsi(psi).toFixed(2)}`)
+    .map((psi, i) => `${i === 0 ? "M" : "L"} ${xOfIdx(i + traceOffset).toFixed(2)} ${yOfPsi(psi).toFixed(2)}`)
     .join(" ");
 
   // Threshold visualization.

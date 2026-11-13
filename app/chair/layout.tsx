@@ -140,6 +140,13 @@ export default function ChairLayout({
           color: ${T.ink};
         }
 
+        /* Full-bleed pull quote — keeps the desktop overhang but stops
+           the mobile gutter bleed from widening the page. */
+        .chair-bleed-quote { margin: 34px -20px; }
+        @media (max-width: 700px) {
+          .chair-bleed-quote { margin-left: -16px; margin-right: -16px; }
+        }
+
         /* Mobile-pad utility — applied via className="chair-pad" to
            every chair page's outer padding container. The companion
            pages were all using 60px 80px or 60px 100px inline, which

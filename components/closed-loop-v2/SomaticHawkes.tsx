@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useAnimating } from "./useAnimating";
 
 /**
@@ -100,8 +100,10 @@ export function SomaticHawkes() {
   const animating = useAnimating(running);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
-  // Build alpha matrix from the two scalar parameters.
-  const alpha: Record<Register, Record<Register, number>> = (() => {
+  // Build alpha matrix from the two scalar parameters. Memoized: a fresh
+  // object every render re-ran the effect (and its interval) every tick,
+  // so a slider drag never let the simulation advance.
+  const alpha = useMemo(() => {
     const m: Record<Register, Record<Register, number>> = {} as Record<
       Register,
       Record<Register, number>
@@ -113,7 +115,7 @@ export function SomaticHawkes() {
       }
     }
     return m;
-  })();
+  }, [selfExcitation, crossCoupling]);
 
   useEffect(() => {
     if (!animating) return;

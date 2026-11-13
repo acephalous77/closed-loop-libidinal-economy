@@ -275,6 +275,9 @@ let labelRaf = 0;
 let pointer = null;
 let dragNode = null;
 let moved = false;
+let dragPanned = false;
+let panClickGuardUntil = 0;
+let tweenRaf = 0;
 let activePointers = new Map();
 let pinch = null;
 let lastFocus = null;
@@ -648,7 +651,11 @@ function centerOn(n, k = 0.68, animate = true) {
   const y = stageH * 0.44 - n.y * k;
   tweenTo({ x, y, k }, animate ? 470 : 0);
 }
+function cancelTween() {
+  if (tweenRaf) { cancelAnimationFrame(tweenRaf); tweenRaf = 0; }
+}
 function tweenTo(to, dur) {
+  cancelTween();
   if (!dur || reduceMotion) { view.x = to.x; view.y = to.y; view.k = to.k; applyTransform(); return; }
   const s = { ...view }, t0 = performance.now();
   const ease = (x) => 1 - Math.pow(1 - x, 3);
@@ -659,11 +666,16 @@ function tweenTo(to, dur) {
     view.y = s.y + (to.y - s.y) * e;
     view.k = s.k + (to.k - s.k) * e;
     applyTransform();
-    if (p < 1) requestAnimationFrame(step);
+    if (p < 1) tweenRaf = requestAnimationFrame(step);
+    else tweenRaf = 0;
   };
-  requestAnimationFrame(step);
+  tweenRaf = requestAnimationFrame(step);
 }
 function zoomAt(factor, cx, cy) {
+  // A direct zoom always wins over an in-flight fit/center animation;
+  // otherwise the next tween frame overwrites the click and the buttons
+  // look dead for half a second.
+  cancelTween();
   const nk = clamp(view.k * factor, 0.028, 3.6);
   const s = nk / view.k;
   view.x = cx - (cx - view.x) * s;
@@ -1319,8 +1331,8 @@ function renderPathReader() {
     </div>
     <div style="margin-top:14px" class="rail-note">${esc(step.note)}</div>`;
   ui.pathReader.querySelectorAll("[data-step]").forEach((b) => b.addEventListener("click", () => gotoStep(+b.dataset.step)));
-  ui.pathReader.querySelector("[data-prev]").addEventListener("click", () => gotoStep(state.thread.step - 1));
-  ui.pathReader.querySelector("[data-next]").addEventListener("click", () => gotoStep(state.thread.step >= th.steps.length - 1 ? 0 : state.thread.step + 1));
+  ui.pathReader.querySelector("[data-prev]").addEventListener("click", () => { if (state.thread) gotoStep(state.thread.step - 1); });
+  ui.pathReader.querySelector("[data-next]").addEventListener("click", () => { if (state.thread) gotoStep(state.thread.step >= th.steps.length - 1 ? 0 : state.thread.step + 1); });
   ui.pathReader.querySelector("[data-open-record]").addEventListener("click", () => { if (n) selectNode(n.id, { center: false }); });
   ui.pathReader.querySelector("[data-exit]").addEventListener("click", exitPath);
   if (!ui.pathReader.contains(document.activeElement)) ui.pathReader.focus({ preventScroll: true });
@@ -1603,6 +1615,11 @@ function closeRailOnMobile() {
 
 function setMode(mode, render = true) {
   closeRailOnMobile();
+  if (mode !== "paths" && state.thread) {
+    state.thread = null;
+    state.step = 0;
+    closePathReader();
+  }
   state.mode = mode;
   ui.app.dataset.mode = mode;
   ui.app.dataset.rail = "0";
@@ -2071,11 +2088,14 @@ function buildMinimap() {
   updateMinimapViewport();
   let dragMini = false;
   const jump = (e) => {
-    const r = svg.getBoundingClientRect();
-    const px = ((e.clientX - r.left) / r.width) * worldBounds.w + worldBounds.x;
-    const py = ((e.clientY - r.top) / r.height) * worldBounds.h + worldBounds.y;
-    view.x = stageW / 2 - px * view.k;
-    view.y = stageH / 2 - py * view.k;
+    cancelTween();
+    const m = svg.getScreenCTM();
+    if (!m) return;
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const p = pt.matrixTransform(m.inverse());
+    view.x = stageW / 2 - p.x * view.k;
+    view.y = stageH / 2 - p.y * view.k;
     applyTransform();
   };
   svg.addEventListener("pointerdown", (e) => { dragMini = true; svg.setPointerCapture(e.pointerId); jump(e); });
@@ -2222,21 +2242,43 @@ function maybeIntro() {
 /* ── zoom / pan / drag ──────────────────────────────────────────────── */
 function wireStage() {
   ui.stage.addEventListener("wheel", (e) => {
+    // Let overlays scroll normally: the dossier, path reader, index and
+    // alternative views are inside the stage, so an unguarded wheel
+    // listener here zooms the map underneath them and eats their scroll.
+    if (e.target.closest(".dossier, .path-reader, .minimap, .zoom-controls, .index-view, .alt-view")) return;
     e.preventDefault();
+    // Normalize Firefox's line/page delta modes; otherwise one notch moves
+    // the scale by a fraction of a per mille and zoom looks broken.
+    const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? stageH : 1);
     const p = stagePoint(e);
-    zoomAt(Math.exp(-e.deltaY * 0.0014), p.x, p.y);
+    zoomAt(Math.exp(-dy * 0.0014), p.x, p.y);
   }, { passive: false });
 
   ui.stage.addEventListener("pointerdown", (e) => {
-    if (e.target.closest("[data-node]")) return;
     if (e.target.closest(".dossier, .path-reader, .minimap, .zoom-controls, .index-view, .alt-view")) return;
+    const onNode = !!e.target.closest("[data-node]");
+    cancelTween();
     activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     if (activePointers.size === 1) {
-      pointer = { x: e.clientX, y: e.clientY, vx: view.x, vy: view.y, pan: true };
-      ui.stage.setPointerCapture(e.pointerId);
+      // A single pointer on a node is the node's drag; the stage still
+      // tracks it so a second finger can turn the gesture into a pinch.
+      if (onNode) { pointer = null; return; }
+      pointer = { x: e.clientX, y: e.clientY, ox: e.clientX, oy: e.clientY, vx: view.x, vy: view.y, pan: true };
+      dragPanned = false;
+      // Do not capture on pointerdown: capturing here retargets the click
+      // to the stage, which swallows clicks on territory plates and labels.
+      // Capture starts only once a real drag is detected (pointermove).
     } else if (activePointers.size === 2) {
+      // The second finger always wins: cancel a node drag that started
+      // under the first finger, or the map would move a node instead of
+      // zooming when the pinch lands on a node.
       pointer = null;
+      dragNode = null;
+      moved = false;
       const [a, b] = [...activePointers.values()];
+      for (const id of activePointers.keys()) {
+        try { ui.stage.setPointerCapture(id); } catch (err) {}
+      }
       pinch = { d: Math.hypot(a.x - b.x, a.y - b.y) || 1, k: view.k, x: view.x, y: view.y, cx: (a.x + b.x) / 2, cy: (a.y + b.y) / 2 };
     }
   });
@@ -2258,8 +2300,13 @@ function wireStage() {
       return;
     }
     if (pointer && pointer.pan) {
-      view.x = pointer.vx + (e.clientX - pointer.x);
-      view.y = pointer.vy + (e.clientY - pointer.y);
+      const dx = e.clientX - pointer.ox, dy = e.clientY - pointer.oy;
+      if (Math.abs(dx) + Math.abs(dy) > 3 && !dragPanned) {
+        dragPanned = true;
+        try { ui.stage.setPointerCapture(e.pointerId); } catch (err) {}
+      }
+      view.x = pointer.vx + dx;
+      view.y = pointer.vy + dy;
       applyTransform();
       return;
     }
@@ -2276,10 +2323,13 @@ function wireStage() {
   });
   const end = (e) => {
     if (activePointers.has(e.pointerId)) activePointers.delete(e.pointerId);
-    if (activePointers.size === 0) { pointer = null; pinch = null; }
+    if (activePointers.size === 0) {
+      pointer = null; pinch = null;
+      if (dragPanned) { panClickGuardUntil = performance.now() + 350; dragPanned = false; }
+    }
     if (activePointers.size === 1) {
       const [a] = [...activePointers.values()];
-      pointer = { x: a.x, y: a.y, vx: view.x, vy: view.y, pan: true };
+      pointer = { x: a.x, y: a.y, ox: a.x, oy: a.y, vx: view.x, vy: view.y, pan: true };
       pinch = null;
     }
     if (dragNode) {
@@ -2296,6 +2346,7 @@ function wireStage() {
 
   ui.stage.addEventListener("click", (e) => {
     if (!e.target.isConnected) return;
+    if (performance.now() < panClickGuardUntil) return;
     if (e.target.closest(".dossier, .path-reader, .minimap, .zoom-controls, .index-view, .alt-view")) return;
     if (e.target.closest("[data-node]")) return;
     if (state.thread || state.path || state.focusSet || state.region || state.relFocus || state.bridges || state.connectors) {
@@ -2306,7 +2357,8 @@ function wireStage() {
 }
 function onNodeDown(e, n) {
   if (e.button != null && e.button !== 0) return;
-  e.stopPropagation();
+  // Do not stop propagation: the stage tracks every pointer so a second
+  // finger can convert a node drag into a pinch-zoom (see wireStage).
   const r = ui.stage.getBoundingClientRect();
   dragNode = { n, sx: e.clientX, sy: e.clientY, x: n.x, y: n.y };
   moved = false;
@@ -2343,7 +2395,7 @@ function applyHash() {
   const m = {};
   h.split("&").forEach((kv) => { const i = kv.indexOf("="); if (i > 0) m[kv.slice(0, i)] = kv.slice(i + 1); });
   try {
-    if (m.v && ["field", "paths", "index", "domains", "timeline", "matrix"].includes(m.v)) setMode(m.v, false);
+    if (m.v && ["field", "paths", "index", "domains", "timeline", "matrix", "efficacy"].includes(m.v)) setMode(m.v, false);
     if (m.l && (m.l === "structure" || DATA.lenses[m.l])) state.lens = m.l;
     if (m.depth) state.focusDepth = +m.depth || 1;
     if (m.path) {
@@ -2461,6 +2513,8 @@ function wireChrome() {
       if (state.focusSet || state.region || state.relFocus || state.bridges || state.connectors) { clearOverlays([]); refresh(); }
     }
     if (typing) return;
+    if (ui.intro.dataset.open === "1") return;
+    if (ui.palette.dataset.open === "1") return;
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") { e.preventDefault(); openPalette(); }
     else if (e.key === "/") { e.preventDefault(); openPalette(); }
     else if (e.key === "?") { e.preventDefault(); openIntro(); }

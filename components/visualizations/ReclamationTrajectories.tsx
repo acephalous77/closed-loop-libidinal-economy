@@ -38,7 +38,6 @@ const HORIZON_TICKS = 15000; // 300s at 20ms per tick
 interface UserSim {
   state: SimState;
   trail: number[]; // projected u over time
-  experiencedWindow: boolean;
   maxIsi: number;
   stimTimes: number[]; // tick indices of fired stimuli (for raster)
 }
@@ -47,7 +46,6 @@ function makeUser(): UserSim {
   return {
     state: makeInitialState(),
     trail: [],
-    experiencedWindow: false,
     maxIsi: 0,
     stimTimes: [],
   };
@@ -77,6 +75,14 @@ export function ReclamationTrajectories() {
     runningRef.current = running;
   }, [thetaRef, policy, running]);
 
+  // Reclassify and repaint when the threshold or policy changes even while
+  // paused; the interval is not running to do it.
+  useEffect(() => {
+    const users = usersRef.current;
+    setWindowedCount(users.reduce((n, u) => n + (u.maxIsi >= thetaRef ? 1 : 0), 0));
+    drawFrame();
+  }, [thetaRef, policy]);
+
   // Reset users and counters — called from event handlers (the picker,
   // the reset button); the mount effect below seeds the initial set.
   function reset(n: number = nUsers) {
@@ -95,7 +101,6 @@ export function ReclamationTrajectories() {
 
   // Animation loop — interval-driven (more reliable than rAF in dev).
   useEffect(() => {
-    const TICKS_PER_FRAME = 30;
     const FRAME_MS = 16;
 
     const interval = setInterval(() => {
@@ -108,29 +113,27 @@ export function ReclamationTrajectories() {
       };
       const tref = thetaRefRef.current;
 
+      // The 500-user case cannot advance 30 ticks per user per frame on a
+      // laptop; scale the batch so the canvas stays interactive.
+      const ticksPerFrame = users.length >= 500 ? 8 : users.length >= 200 ? 16 : 30;
       let stillRunning = false;
-      let newlyWindowed = 0;
 
       for (const user of users) {
         if (user.state.t >= HORIZON_TICKS) continue;
         stillRunning = true;
-        for (let i = 0; i < TICKS_PER_FRAME; i++) {
+        for (let i = 0; i < ticksPerFrame; i++) {
           if (user.state.t >= HORIZON_TICKS) break;
           const before = user.state.lastStim;
-          user.state = step(user.state, knobs);
+          user.state = step(user.state, knobs, { light: true });
           if (user.state.t % 5 === 0) user.trail.push(projectU(user.state));
           if (user.state.lastStim !== before) user.stimTimes.push(user.state.t);
           if (user.state.isi > user.maxIsi) user.maxIsi = user.state.isi;
-          if (!user.experiencedWindow && user.state.isi >= tref) {
-            user.experiencedWindow = true;
-            newlyWindowed++;
-          }
         }
       }
 
-      if (newlyWindowed > 0) {
-        setWindowedCount((c) => c + newlyWindowed);
-      }
+      // The window classification is derived from maxIsi, not latched:
+      // changing θ_ref must reclassify users immediately (both ways).
+      setWindowedCount(users.reduce((n, u) => n + (u.maxIsi >= tref ? 1 : 0), 0));
 
       const repTick = users.length > 0 ? users[0].state.t : 0;
       setTick(repTick);
@@ -151,15 +154,19 @@ export function ReclamationTrajectories() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Resolve device pixels.
+    // Resolve device pixels. Round the backing store: fractional CSS sizes
+    // at fractional DPR otherwise reallocate the canvas every frame.
     const dpr = window.devicePixelRatio || 1;
     const cssW = canvas.clientWidth;
     const cssH = canvas.clientHeight;
-    if (canvas.width !== cssW * dpr || canvas.height !== cssH * dpr) {
-      canvas.width = cssW * dpr;
-      canvas.height = cssH * dpr;
+    if (!cssW || !cssH) return;
+    const pixelW = Math.round(cssW * dpr);
+    const pixelH = Math.round(cssH * dpr);
+    if (canvas.width !== pixelW || canvas.height !== pixelH) {
+      canvas.width = pixelW;
+      canvas.height = pixelH;
     }
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.setTransform(pixelW / cssW, 0, 0, pixelH / cssH, 0, 0);
 
     const W = cssW;
     const H = cssH;
@@ -167,25 +174,31 @@ export function ReclamationTrajectories() {
     const RASTER_BAND_TOP = TRAIL_BAND_H + 4;
     const RASTER_BAND_H = H - RASTER_BAND_TOP - 2;
 
-    // Clear with paper-95 (#e8eae4).
-    ctx.fillStyle = "#e8eae4";
+    // Theme tokens come from the live CSS variables so the canvas follows
+    // the dark-mode palette instead of freezing the light-mode colours.
+    const theme = getComputedStyle(canvas);
+    const PAPER_95 = theme.getPropertyValue("--color-paper-95").trim() || "#e8eae4";
+    const INK = theme.getPropertyValue("--color-ink").trim() || "#5a514a";
+    const OXBLOOD = theme.getPropertyValue("--color-oxblood").trim() || "#7a1f1f";
+
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = PAPER_95;
     ctx.fillRect(0, 0, W, H);
 
     const users = usersRef.current;
     if (users.length === 0) return;
 
-    // Color tokens (must match design system).
-    const INK_50 = "rgba(138, 127, 116, 0.55)";
-    const OXBLOOD = "rgba(122, 31, 31, 0.85)";
-    const INK_70 = "rgba(90, 81, 74, 0.7)";
-
     // Draw trajectory lines: ink-50 for unwindowed, oxblood for windowed.
+    // Derived from maxIsi so a θ_ref change repaints the whole set.
+    const tref = thetaRefRef.current;
     for (const user of users) {
       const trail = user.trail;
       if (trail.length < 2) continue;
+      const inWindow = user.maxIsi >= tref;
       ctx.beginPath();
-      ctx.strokeStyle = user.experiencedWindow ? OXBLOOD : INK_50;
-      ctx.lineWidth = user.experiencedWindow ? 1.2 : 0.6;
+      ctx.strokeStyle = inWindow ? OXBLOOD : INK;
+      ctx.globalAlpha = inWindow ? 0.85 : 0.55;
+      ctx.lineWidth = inWindow ? 1.2 : 0.6;
       for (let i = 0; i < trail.length; i++) {
         // Trail index corresponds to tick = i * 5; x = tick / HORIZON_TICKS * W
         const x = ((i * 5) / HORIZON_TICKS) * W;
@@ -199,12 +212,14 @@ export function ReclamationTrajectories() {
     // Stim raster — for the FIRST user only (representative).
     const rep = users[0];
     if (rep) {
-      ctx.fillStyle = INK_70;
+      ctx.fillStyle = INK;
+      ctx.globalAlpha = 0.7;
       for (const t of rep.stimTimes) {
         const x = (t / HORIZON_TICKS) * W;
         ctx.fillRect(x, RASTER_BAND_TOP, 0.7, RASTER_BAND_H);
       }
     }
+    ctx.globalAlpha = 1;
   };
 
   // Initial draw on mount.

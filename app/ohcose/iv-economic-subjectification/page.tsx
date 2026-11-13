@@ -80,7 +80,7 @@ export default function PhaseIVEconomicSubjectification() {
             <li key={s.slug} className="ohcose-row py-sm flex items-baseline gap-md" style={{ borderBottom: "1px solid var(--color-paper-85)" }}>
               <Link href={`/ohcose/iv-economic-subjectification/${s.slug}`} className="contents group">
                 <span className="font-mono font-bold tabular-nums" style={{ color: "var(--color-ink)", fontSize: "1rem", width: "3.5rem" }}>{s.code}</span>
-                <span className="flex-1">
+                <span className="flex-1 min-w-0">
                   <span className="block group-hover:underline" style={{ color: "var(--color-ink-90)", fontSize: "1.15rem", fontWeight: 600 }}>{s.name}</span>
                   <span className="block text-sm mt-xs leading-snug" style={{ color: "var(--color-ink-70)" }}>{s.summary}</span>
                 </span>

@@ -681,7 +681,7 @@ function MindMap() {
             <div className="mm-side-empty">
               <div className="card-title">SELECT A NODE</div>
               <div className="card-sub" style={{marginTop:8}}>
-                Click any object in the atlas to read its formal definition, see what it depends on, and what depends on it.
+                Click or focus any object in the atlas to read its formal definition, see what it depends on, and what depends on it.
                 Then switch to <em>Causes</em> or <em>Consequences</em> to see the trace.
               </div>
               <Legend/>
@@ -733,7 +733,14 @@ function Node({ n, selected, hovered, dimmed, lit, timescaleMode, onClick, onEnt
 
   return (
     <g onClick={onClick} onMouseEnter={onEnter} onMouseLeave={onLeave}
-       style={{cursor:"pointer", opacity}}>
+       onFocus={onEnter} onBlur={onLeave}
+       onKeyDown={(e) => {
+         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); }
+         if (e.key === "Escape") onLeave();
+       }}
+       tabIndex={0} role="button"
+       aria-label={`${n.name}: ${n.defn}`}
+       style={{cursor:"pointer", opacity, outline:"none"}}>
       <rect x={x} y={y} width={box.w} height={box.h} rx={box.rx}
         fill={fill} stroke={stroke} strokeWidth={sw}/>
       <text x={n.x} y={n.y - 2} textAnchor="middle"

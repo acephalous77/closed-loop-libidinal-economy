@@ -1004,7 +1004,7 @@ function MindMap() {
         onLeave: () => setHover(null)
       }
     );
-  })), /* @__PURE__ */ React.createElement("aside", { className: "mm-side" }, sel ? /* @__PURE__ */ React.createElement(NodeDetail, { n: sel, inEdges, outEdges }) : /* @__PURE__ */ React.createElement("div", { className: "mm-side-empty" }, /* @__PURE__ */ React.createElement("div", { className: "card-title" }, "SELECT A NODE"), /* @__PURE__ */ React.createElement("div", { className: "card-sub", style: { marginTop: 8 } }, "Click any object in the atlas to read its formal definition, see what it depends on, and what depends on it. Then switch to ", /* @__PURE__ */ React.createElement("em", null, "Causes"), " or ", /* @__PURE__ */ React.createElement("em", null, "Consequences"), " to see the trace."), /* @__PURE__ */ React.createElement(Legend, null)))), /* @__PURE__ */ React.createElement("footer", { className: "mm-foot" }, /* @__PURE__ */ React.createElement("span", null, "relational atlas \u2014 closed-loop libidinal economy"), /* @__PURE__ */ React.createElement("span", null, NODES.length, " nodes \xB7 ", EDGES.length, " edges \xB7 6 assumptions \xB7 3 modes")));
+  })), /* @__PURE__ */ React.createElement("aside", { className: "mm-side" }, sel ? /* @__PURE__ */ React.createElement(NodeDetail, { n: sel, inEdges, outEdges }) : /* @__PURE__ */ React.createElement("div", { className: "mm-side-empty" }, /* @__PURE__ */ React.createElement("div", { className: "card-title" }, "SELECT A NODE"), /* @__PURE__ */ React.createElement("div", { className: "card-sub", style: { marginTop: 8 } }, "Click or focus any object in the atlas to read its formal definition, see what it depends on, and what depends on it. Then switch to ", /* @__PURE__ */ React.createElement("em", null, "Causes"), " or ", /* @__PURE__ */ React.createElement("em", null, "Consequences"), " to see the trace."), /* @__PURE__ */ React.createElement(Legend, null)))), /* @__PURE__ */ React.createElement("footer", { className: "mm-foot" }, /* @__PURE__ */ React.createElement("span", null, "relational atlas \u2014 closed-loop libidinal economy"), /* @__PURE__ */ React.createElement("span", null, NODES.length, " nodes \xB7 ", EDGES.length, " edges \xB7 6 assumptions \xB7 3 modes")));
 }
 function ModeBtn({ cur, val, setMode, label }) {
   return /* @__PURE__ */ React.createElement("button", { className: `mm-mode ${cur === val ? "on" : ""}`, onClick: () => setMode(val) }, label);
@@ -1037,7 +1037,19 @@ function Node({ n, selected, hovered, dimmed, lit, timescaleMode, onClick, onEnt
       onClick,
       onMouseEnter: onEnter,
       onMouseLeave: onLeave,
-      style: { cursor: "pointer", opacity }
+      onFocus: onEnter,
+      onBlur: onLeave,
+      onKeyDown: (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onClick();
+        }
+        if (e.key === "Escape") onLeave();
+      },
+      tabIndex: 0,
+      role: "button",
+      "aria-label": `${n.name}: ${n.defn}`,
+      style: { cursor: "pointer", opacity, outline: "none" }
     },
     /* @__PURE__ */ React.createElement(
       "rect",

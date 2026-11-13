@@ -8,9 +8,9 @@
 // Carries the argument, the verbatim pull-quote, the genealogy, the
 // performing diagram, and the interconnections you navigate by.
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { CSSProperties, ReactNode } from "react";
-import { L, D, useTick, useViewport, AtlasDefs, type OpenFn } from "./shared";
+import { L, D, useTick, useViewport, AtlasDefs, useDialogFocus, type OpenFn } from "./shared";
 import { ATLAS_SITES } from "./data";
 import type { AtlasSite } from "./data";
 import { DIAGRAMS } from "./diagrams";
@@ -61,6 +61,8 @@ interface PlateProps {
 }
 
 export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlateProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  useDialogFocus(true, ref);
   const vw = useViewport();
   const narrow = vw < 820;
   const dsize = narrow ? Math.min(380, vw - 56) : 400;
@@ -115,7 +117,7 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
   );
 
   return (
-    <div className="atlas-root" style={{ position: "fixed", inset: 0, background: c.bg, color: c.ink, zIndex: 50, overflowY: "auto", overflowX: "hidden" }}>
+    <div ref={ref} className="atlas-root" role="dialog" aria-modal="true" aria-label={`Specimen ${site.fig}: ${site.title}`} style={{ position: "fixed", inset: 0, background: c.bg, color: c.ink, zIndex: 50, overflowY: "auto", overflowX: "hidden" }}>
       {/* ledger + frame */}
       <svg width="100%" height="100%" style={{ position: "fixed", inset: 0, pointerEvents: "none" }} preserveAspectRatio="none" viewBox="0 0 1440 900">
         <AtlasDefs idPrefix={dark ? "pld" : "pll"} tone={site.tone} />
@@ -137,14 +139,24 @@ export function AtlasPlate({ site, onOpen, onClose, onNav, idx, total }: PlatePr
               {tag}
             </div>
           )}
-          <div className="mono" style={{ fontSize: 11, letterSpacing: "0.12em", color: c.dim }}>
-            <span onClick={() => onNav(-1)} style={{ cursor: "pointer" }}>
+          <div className="mono" style={{ fontSize: 11, letterSpacing: "0.12em", color: c.dim, display: "flex", alignItems: "center", gap: 4 }}>
+            <button
+              type="button"
+              aria-label="previous specimen"
+              onClick={() => onNav(-1)}
+              style={{ minWidth: 44, minHeight: 44, background: "none", border: "none", color: "inherit", font: "inherit", cursor: "pointer" }}
+            >
               ◂
-            </span>
-            &nbsp;&nbsp;{String(idx + 1).padStart(2, "0")} / {total}&nbsp;&nbsp;
-            <span onClick={() => onNav(1)} style={{ cursor: "pointer" }}>
+            </button>
+            <span>{String(idx + 1).padStart(2, "0")} / {total}</span>
+            <button
+              type="button"
+              aria-label="next specimen"
+              onClick={() => onNav(1)}
+              style={{ minWidth: 44, minHeight: 44, background: "none", border: "none", color: "inherit", font: "inherit", cursor: "pointer" }}
+            >
               ▸
-            </span>
+            </button>
           </div>
         </div>
         {narrow && (

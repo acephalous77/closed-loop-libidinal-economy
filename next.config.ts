@@ -76,6 +76,17 @@ const nextConfig: NextConfig = {
         source: "/psychopolitics-atlas",
         destination: "/psychopolitics-atlas/index.html",
       },
+      /* The simulator is a static app under /public too. Its in-site links
+         use /simulator/index.html, but a typed /simulator (or a stale link
+         to the directory) should resolve the same way instead of 404ing. */
+      {
+        source: "/simulator",
+        destination: "/simulator/index.html",
+      },
+      {
+        source: "/simulator/",
+        destination: "/simulator/index.html",
+      },
     ];
   },
 

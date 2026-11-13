@@ -108,7 +108,7 @@ export default function PhaseIOntogenesis() {
                 >
                   {s.code}
                 </span>
-                <span className="flex-1">
+                <span className="flex-1 min-w-0">
                   <span
                     className={"block " + (isLive ? "group-hover:underline" : "")}
                     style={{ color: "var(--color-ink-90)", fontSize: "1rem", fontWeight: 600 }}

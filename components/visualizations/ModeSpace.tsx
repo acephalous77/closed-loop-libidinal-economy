@@ -2,7 +2,8 @@
 
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Line, Html } from "@react-three/drei";
-import { useState } from "react";
+import { Component, useEffect, useState } from "react";
+import type { ReactNode } from "react";
 import { M } from "@/components/ui/Math";
 
 /**
@@ -137,7 +138,8 @@ function ModeAPath() {
   // Operating point (1,0,0) curving to (0.3, 0.8, 0) along the R̂-B plane.
   // Generate a smooth curve.
   const pts: [number, number, number][] = [];
-  for (let s = 0; s <= 1; s += 0.05) {
+  for (let i = 0; i <= 20; i++) {
+    const s = i / 20;
     const r = 1 - s * 0.7; // R̂ falls from 1 to 0.3
     const b = s * 0.8; // B grows from 0 to 0.8
     pts.push([r, b, 0]);
@@ -259,9 +261,46 @@ function ModeCRegion() {
   );
 }
 
+/**
+ * A missing or lost WebGL context should cost the reader the 3D scene,
+ * not the whole route. R3F throws during render when the context cannot
+ * be created; this keeps the prose, controls and legend on screen.
+ */
+class WebGLBoundary extends Component<{ children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+  render() {
+    if (this.state.failed) {
+      return (
+        <div className="font-mono text-sm text-ink-70 p-md" style={{ background: COLORS.paper95, height: "100%" }}>
+          The 3D view could not start in this browser (WebGL unavailable). The
+          three paths and their non-substitutability are described in the legend
+          below.
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export function ModeSpace() {
   const [visible, setVisible] = useState<Visible>({ A: true, B: true, C: true });
   const [resetKey, setResetKey] = useState(0);
+  const [webglOk, setWebglOk] = useState<boolean | null>(null);
+
+  // R3F's context-creation failure is logged outside React's render path,
+  // so an error boundary alone does not catch it. Check first and render
+  // the prose fallback instead of mounting a Canvas that cannot start.
+  useEffect(() => {
+    try {
+      const probe = document.createElement("canvas");
+      setWebglOk(!!(probe.getContext("webgl2") || probe.getContext("webgl")));
+    } catch {
+      setWebglOk(false);
+    }
+  }, []);
 
   return (
     <figure className="my-md">
@@ -305,29 +344,39 @@ export function ModeSpace() {
 
         {/* 3D Canvas */}
         <div
-          className="[&_canvas]:!w-full [&_canvas]:!h-full [&_canvas]:!block"
+          className="mode-space-viewport [&_canvas]:!w-full [&_canvas]:!h-full [&_canvas]:!block"
           style={{ width: "100%", height: "420px", background: COLORS.paper95 }}
           role="img"
           aria-label="3D scene with R̂, B, and D_KL axes and the three intervention paths"
         >
-          <Canvas
-            key={resetKey}
-            camera={{ position: [1.8, 1.5, 1.8], fov: 50 }}
-            dpr={[1, 2]}
-          >
-            <ambientLight intensity={0.8} />
-            <Axes />
-            <OperatingPoint />
-            {visible.A && <ModeAPath />}
-            {visible.B && <ModeBPath />}
-            {visible.C && <ModeCRegion />}
-            <OrbitControls
-              enablePan
-              enableZoom
-              enableRotate
-              target={[0.5, 0.4, 0.4]}
-            />
-          </Canvas>
+          {webglOk === false ? (
+            <div className="font-mono text-sm text-ink-70 p-md" style={{ background: COLORS.paper95, height: "100%" }}>
+              The 3D view could not start in this browser (WebGL unavailable).
+              The three paths and their non-substitutability are described in
+              the legend below.
+            </div>
+          ) : webglOk ? (
+            <WebGLBoundary>
+              <Canvas
+                key={resetKey}
+                camera={{ position: [1.8, 1.5, 1.8], fov: 50 }}
+                dpr={[1, 2]}
+              >
+                <ambientLight intensity={0.8} />
+                <Axes />
+                <OperatingPoint />
+                {visible.A && <ModeAPath />}
+                {visible.B && <ModeBPath />}
+                {visible.C && <ModeCRegion />}
+                <OrbitControls
+                  enablePan
+                  enableZoom
+                  enableRotate
+                  target={[0.5, 0.4, 0.4]}
+                />
+              </Canvas>
+            </WebGLBoundary>
+          ) : null}
         </div>
 
         {/* Legend */}

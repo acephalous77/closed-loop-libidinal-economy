@@ -64,7 +64,7 @@ export function CapturedResonance() {
     return () => clearInterval(interval);
   }, []);
 
-  const w = 460;
+  const w = 580;
   const h = 240;
   const cx = h / 2 + 40;
   const cy = h / 2;
