@@ -24,9 +24,10 @@ function load(file) {
 
 const base = load("atlas-data.js");
 const add = load("atlas-additions.js");
-const nodes = [...base.NODES, ...add.NODES];
+const con = load("atlas-consumer.js");
+const nodes = [...base.NODES, ...add.NODES, ...con.NODES];
 const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
-const links = [...base.LINKS, ...add.LINKS].filter((l) => byId[l.s] && byId[l.t]);
+const links = [...base.LINKS, ...add.LINKS, ...con.LINKS].filter((l) => byId[l.s] && byId[l.t]);
 const years = nodes.map((n) => n.yr).filter(Boolean);
 const minYear = Math.min(...years);
 const maxYear = Math.max(...years);
@@ -41,19 +42,19 @@ const works = fs.readFileSync(path.join(root, "lib/works.ts"), "utf8");
 const llms = fs.readFileSync(path.join(root, "public/llms.txt"), "utf8");
 const next = fs.readFileSync(path.join(root, "next.config.ts"), "utf8");
 
-check(nodes.length === 654, `nodes ${nodes.length} !== 654`);
-check(links.length === 1097, `links ${links.length} !== 1097`);
-check(tiers.documented === 610, `documented ${tiers.documented} !== 610`);
-check(tiers.contested === 37, `contested ${tiers.contested} !== 37`);
+check(nodes.length === 777, `nodes ${nodes.length} !== 777`);
+check(links.length === 1311, `links ${links.length} !== 1311`);
+check(tiers.documented === 721, `documented ${tiers.documented} !== 721`);
+check(tiers.contested === 49, `contested ${tiers.contested} !== 49`);
 check(tiers.speculative === 6, `speculative ${tiers.speculative} !== 6`);
 check(tiers.untriaged === 1, `untriaged ${tiers.untriaged} !== 1`);
 check(tiers.documented + tiers.contested + tiers.speculative + tiers.untriaged === nodes.length, "tiers do not sum to nodes");
-check(assessed === 12, `assessed edges ${assessed} !== 12`);
-check(nodes.filter((n) => n.eff).length === 18, `efficacy records ${nodes.filter((n) => n.eff).length} !== 18`);
+check(assessed === 52, `assessed edges ${assessed} !== 52`);
+check(nodes.filter((n) => n.eff).length === 38, `efficacy records ${nodes.filter((n) => n.eff).length} !== 38`);
 check(base.EFFICACY && ["failed", "contested", "partial"].every((k) => base.EFFICACY[k]), "efficacy taxonomy missing");
-check(minYear === 1903 && maxYear === 2026, `year range ${minYear}-${maxYear} !== 1903-2026`);
+check(minYear === 1858 && maxYear === 2026, `year range ${minYear}-${maxYear} !== 1858-2026`);
 
-for (const needle of [`${nodes.length} nodes`, `${links.length.toLocaleString("en-US")} relations`, "1903–2026", "source notes"]) {
+for (const needle of [`${nodes.length} nodes`, `${links.length.toLocaleString("en-US")} relations`, "1858–2026", "source notes"]) {
   check(html.includes(needle), `index.html missing ${needle}`);
 }
 check(html.includes('rel="canonical" href="https://www.autostimulus.org/psychopolitics-atlas"'), "canonical is not the bare atlas URL");
@@ -61,15 +62,17 @@ check(html.includes('og:url" content="https://www.autostimulus.org/psychopolitic
 check(html.includes('id="domains-list"') && html.includes('id="timeline-list"') && html.includes('id="matrix-list"'), "mobile alternative containers missing");
 check(html.includes('id="index-cards"') && html.includes('id="evidence-key-body"'), "index cards or evidence key missing");
 check(html.includes('data-mode="efficacy"') && html.includes('id="efficacy-view"') && html.includes('id="efficacy-list"'), "efficacy view missing");
+check(fs.existsSync(path.join(atlas, "atlas-consumer.js")), "consumer expansion module missing");
+check(js.includes('from "./atlas-consumer.js"'), "atlas.js does not import the consumer expansion");
 check(fs.existsSync(path.join(atlas, "records.html")), "static record index missing");
 const recordsHtml = fs.readFileSync(path.join(atlas, "records.html"), "utf8");
 check((recordsHtml.match(/<article class="record"/g) || []).length === nodes.length, "record index does not carry every node");
-check(recordsHtml.includes("1,097</b> relations") && recordsHtml.includes("<b>654</b> records"), "record index counts stale");
+check(recordsHtml.includes("1,311</b> relations") && recordsHtml.includes("<b>777</b> records"), "record index counts stale");
 check(/id="dossier"[^>]*role="dialog"[^>]*tabindex="-1"/.test(html), "dossier focus target missing");
 check(/id="path-reader"[^>]*role="dialog"[^>]*tabindex="-1"/.test(html), "path-reader focus target missing");
 
-check(js.includes('sub: "1903–2026"'), "palette timeline subtitle is not 1903–2026");
-check(!js.includes('sub: "1926–2026"'), "palette still carries 1926–2026");
+check(js.includes('sub: "1858–2026"'), "palette timeline subtitle is not 1858–2026");
+check(!js.includes('sub: "1903–2026"'), "palette still carries 1903–2026");
 check(js.includes("untriaged: C.paper4"), "untriaged color missing");
 check(js.includes("DATA.evidence[ev]") && js.includes("untriaged"), "JS does not read the four-tier evidence ladder");
 check(js.includes("buildEvidenceKey"), "evidence key builder missing");

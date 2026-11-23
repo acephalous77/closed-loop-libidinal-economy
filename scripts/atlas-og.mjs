@@ -18,9 +18,10 @@ function load(file) {
 
 const base = load("atlas-data.js");
 const add = load("atlas-additions.js");
-const nodes = [...base.NODES, ...add.NODES];
+const con = load("atlas-consumer.js");
+const nodes = [...base.NODES, ...add.NODES, ...con.NODES];
 const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
-const links = [...base.LINKS, ...add.LINKS].filter((l) => byId[l.s] && byId[l.t]);
+const links = [...base.LINKS, ...add.LINKS, ...con.LINKS].filter((l) => byId[l.s] && byId[l.t]);
 const years = nodes.map((n) => n.yr).filter(Boolean);
 const minYear = Math.min(...years);
 const maxYear = Math.max(...years);

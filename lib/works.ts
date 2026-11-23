@@ -36,7 +36,7 @@ export const WORKS: Work[] = [
     consoleAccent: "#7fa3b8",
     mark: "◉",
     year: "2026",
-    register: "relational atlas · 654 nodes · 1903–2026 · crowding science → the population present",
+    register: "relational atlas · 777 nodes · 1858–2026 · crowding science → the consumer readout",
     href: "/psychopolitics-atlas",
     status: "live",
   },

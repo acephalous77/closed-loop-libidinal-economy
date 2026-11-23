@@ -22,11 +22,15 @@ function load(file) {
 
 const base = load("atlas-data.js");
 const additions = load("atlas-additions.js");
-const nodes = [...base.NODES, ...additions.NODES];
-const links = [...base.LINKS, ...additions.LINKS];
-const clusters = { ...base.CLUSTERS, ...(additions.CLUSTERS || {}) };
-const evidence = { ...base.EVIDENCE, ...(additions.EVIDENCE || {}) };
-const efficacy = { ...base.EFFICACY, ...(additions.EFFICACY || {}) };
+const consumer = load("atlas-consumer.js");
+const nodes = [...base.NODES, ...additions.NODES, ...consumer.NODES];
+const links = [...base.LINKS, ...additions.LINKS, ...consumer.LINKS];
+const clusters = { ...base.CLUSTERS, ...(additions.CLUSTERS || {}), ...(consumer.CLUSTERS || {}) };
+const evidence = { ...base.EVIDENCE, ...(additions.EVIDENCE || {}), ...(consumer.EVIDENCE || {}) };
+const efficacy = { ...base.EFFICACY, ...(additions.EFFICACY || {}), ...(consumer.EFFICACY || {}) };
+const years = nodes.map((n) => n.yr).filter(Boolean);
+const minYear = Math.min(...years);
+const maxYear = Math.max(...years);
 
 const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (ch) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
@@ -67,7 +71,7 @@ const html = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Record index — The Psychopolitics of Socialization</title>
-<meta name="description" content="A crawlable index of all ${nodes.length} records and ${links.length} relations in The Psychopolitics of Socialization — labels, years, evidence tiers, efficacy verdicts, and source notes.">
+<meta name="description" content="A crawlable index of all ${nodes.length} records and ${links.length.toLocaleString("en-US")} relations in The Psychopolitics of Socialization — labels, years, evidence tiers, efficacy verdicts, and source notes.">
 <link rel="canonical" href="https://www.autostimulus.org/psychopolitics-atlas/records.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Record index — The Psychopolitics of Socialization">
@@ -120,7 +124,7 @@ const html = `<!doctype html>
   <div class="kicker">The Psychopolitics of Socialization · record index</div>
   <h1>Every record, in text.</h1>
   <p class="lede">A crawlable index of the atlas: all ${nodes.length} records, their years, evidence tiers, efficacy verdicts where recorded, and source notes. The field is the visual argument; this page is its register.</p>
-  <div class="stats"><span><b>${nodes.length}</b> records</span><span><b>${links.length.toLocaleString("en-US")}</b> relations</span><span><b>${count("documented")}</b> documented</span><span><b>${count("contested")}</b> contested</span><span><b>${count("speculative")}</b> speculative</span><span><b>${count("untriaged")}</b> untriaged</span><span>1903–2026</span></div>
+  <div class="stats"><span><b>${nodes.length}</b> records</span><span><b>${links.length.toLocaleString("en-US")}</b> relations</span><span><b>${count("documented")}</b> documented</span><span><b>${count("contested")}</b> contested</span><span><b>${count("speculative")}</b> speculative</span><span><b>${count("untriaged")}</b> untriaged</span><span>${minYear}–${maxYear}</span></div>
   <nav class="jump" aria-label="Jump to a domain">${nav}</nav>
 </header>
 <main>${sections}</main>

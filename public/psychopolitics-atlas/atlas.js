@@ -2,11 +2,13 @@
  *  Vanilla ES module. No framework, no third-party runtime, no cookies;
  *  one local flag remembers whether the guide was seen.
  *  Data: ./atlas-data.js (the 2026 corpus) + ./atlas-additions.js
- *  (the 2026-11-02 Sham Individualism / audience / Rockefeller expansion).
+ *  (the 2026-11-02 Sham Individualism / audience / Rockefeller expansion)
+ *  + ./atlas-consumer.js (the 2026-11-22 Consumer Research room).
  */
 
 import * as BASE from "./atlas-data.js";
 import * as ADD from "./atlas-additions.js";
+import * as CON from "./atlas-consumer.js";
 
 /* ── palette ────────────────────────────────────────────────────────── */
 const C = {
@@ -45,12 +47,13 @@ const EFF_COLOR = {
   partial: C.moss,
 };
 const REL_FAMILY = {
-  funded: "money", conduit: "money",
+  funded: "money", conduit: "money", buys: "money", sells: "money", prices: "money", supplies: "money",
   staffs: "power", ran: "power", sited: "power", convenes: "power",
-  captures: "power", subjects: "power",
+  captures: "power", subjects: "power", audits: "power", exempts: "power",
+  establishes: "power", bans: "power", conditions: "power", enforces: "power",
   theorizes: "knowledge", influenced: "knowledge", became: "knowledge",
-  feeds: "knowledge",
-  exposed: "conflict", rival: "conflict", litigates: "conflict",
+  feeds: "knowledge", reads: "knowledge", justifies: "knowledge",
+  exposed: "conflict", exposes: "conflict", rival: "conflict", litigates: "conflict",
   denies: "conflict",
   appropriated: "transfer", rhymes: "transfer",
 };
@@ -58,22 +61,32 @@ const REL_LABEL = {
   funded: "funds", conduit: "is conduit for", ran: "ran / directed",
   sited: "sited at", subjects: "draws subjects from",
   influenced: "influences", became: "becomes / migrates into",
-  exposed: "exposes", appropriated: "appropriated by",
+  exposed: "exposes", exposes: "exposes", appropriated: "appropriated by",
   rival: "in tension with", denies: "denies",
   theorizes: "reads / theorizes", staffs: "holds a post at",
   convenes: "co-present at", feeds: "shares a data pipe with",
   captures: "state tie →", litigates: "co-counsel / party",
   rhymes: "rhymes with",
+  reads: "reads / measures", prices: "prices", sells: "sells",
+  buys: "buys / procures from", audits: "audits / evaluates",
+  exempts: "exempts / carves out", justifies: "justifies / legitimates",
+  establishes: "establishes / creates", bans: "bans / prohibits",
+  conditions: "conditions the use of", enforces: "enforces",
+  supplies: "supplies",
 };
 const Q_LABEL = { C: "contested tie", S: "speculative tie" };
 const REL_LABEL_IN = {
   funded: "funded by", conduit: "takes conduit from", ran: "run by",
   sited: "site of", subjects: "draws subjects to",
   influenced: "influenced by", became: "flows from", exposed: "exposed by",
-  appropriated: "appropriates", rival: "in tension with",
+  exposes: "exposed by", appropriated: "appropriates", rival: "in tension with",
   denies: "denied by", theorizes: "read by", staffs: "principal of",
   convenes: "co-presence", feeds: "data from", captures: "state tie ←",
   litigates: "co-party", rhymes: "rhymes with",
+  reads: "read / measured by", prices: "priced by", sells: "sold by",
+  buys: "bought by", audits: "audited by", exempts: "exempted by",
+  justifies: "justified by", establishes: "established by", bans: "banned by",
+  conditions: "conditioned by", enforces: "enforced by", supplies: "supplied by",
 };
 
 const ZONES = [
@@ -86,6 +99,9 @@ const ZONES = [
   { id: "money", label: "The money", hue: 100, cls: ["venture", "ai", "sovereign", "aisafety", "darkmoney"] },
   { id: "frontiers", label: "The frontiers", hue: 150, cls: ["embryo", "longevity", "neuro", "belief", "pronatal"] },
   { id: "apparatus", label: "The apparatus", hue: 215, cls: ["surveil", "statecap"] },
+  { id: "readout", label: "The readout", hue: 175, cls: ["consumer"] },
+  { id: "arbitrage", label: "The arbitrage", hue: 20, cls: ["arbitrage"] },
+  { id: "remedy", label: "The remedy", hue: 320, cls: ["remedy"] },
 ];
 function zoneHue(cl) {
   const z = DATA.zoneOf.get(cl);
@@ -94,6 +110,7 @@ function zoneHue(cl) {
 
 const PATH_GROUPS = [
   { label: "The historical spine", ids: ["loop", "notouch", "travels", "consent", "population_turn", "rockefeller", "sham"] },
+  { label: "The readout", ids: ["comparator", "spread", "remedy", "negative_file", "export_return"] },
   { label: "The present", ids: ["feed", "cadence", "audience", "capital_tissue", "cutout_thinned", "embryo_web", "ladder", "belief_market", "legibility_state", "sovereign_capital"] },
   { label: "The frame", ids: ["money", "intent", "evidence_gap"] },
 ];
@@ -145,16 +162,16 @@ const reduceMotion = !!(window.matchMedia && window.matchMedia("(prefers-reduced
 
 /* ── merge + prepare ────────────────────────────────────────────────── */
 function mergeData() {
-  const clusters = { ...BASE.CLUSTERS, ...ADD.CLUSTERS };
-  const lenses = { ...BASE.LENSES, ...ADD.LENSES };
-  const nodes = [...BASE.NODES, ...ADD.NODES].map((n, i) => ({ ...n, _i: i }));
+  const clusters = { ...BASE.CLUSTERS, ...ADD.CLUSTERS, ...CON.CLUSTERS };
+  const lenses = { ...BASE.LENSES, ...ADD.LENSES, ...CON.LENSES };
+  const nodes = [...BASE.NODES, ...ADD.NODES, ...CON.NODES].map((n, i) => ({ ...n, _i: i }));
   const byId = Object.fromEntries(nodes.map((n) => [n.id, n]));
-  const links = [...BASE.LINKS, ...ADD.LINKS]
+  const links = [...BASE.LINKS, ...ADD.LINKS, ...CON.LINKS]
     .filter((l) => byId[l.s] && byId[l.t])
     .map((l) => ({ ...l, source: byId[l.s], target: byId[l.t] }));
-  const threads = [...BASE.THREADS, ...ADD.THREADS];
-  const pos = { ...BASE.POS, ...ADD.POS };
-  const clusterPos = { ...BASE.CLUSTER_POS, ...ADD.CLUSTER_POS };
+  const threads = [...BASE.THREADS, ...ADD.THREADS, ...CON.THREADS];
+  const pos = { ...BASE.POS, ...ADD.POS, ...CON.POS };
+  const clusterPos = { ...BASE.CLUSTER_POS, ...ADD.CLUSTER_POS, ...CON.CLUSTER_POS };
   const types = BASE.TYPES;
   const levers = BASE.LEVERS;
   const leverLabel = BASE.LEVER_LABEL;
@@ -2110,7 +2127,7 @@ function buildPaletteData() {
     { kind: "action", id: "paths", name: "Open paths", sub: "guided arguments" },
     { kind: "action", id: "index", name: "Open the index", sub: "every node in text" },
     { kind: "action", id: "domains", name: "Open domains", sub: "the macro-skeleton" },
-    { kind: "action", id: "timeline", name: "Open the timeline", sub: "1903–2026" },
+    { kind: "action", id: "timeline", name: "Open the timeline", sub: "1858–2026" },
     { kind: "action", id: "matrix", name: "Open the matrix", sub: "coercion × lever" },
     { kind: "action", id: "intro", name: "How to read this atlas", sub: "the field guide" },
     { kind: "action", id: "reset", name: "Reset the view", sub: "clear all overlays" },

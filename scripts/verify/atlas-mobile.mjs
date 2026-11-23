@@ -35,11 +35,11 @@ try {
   check(!!csp && csp.includes("script-src 'self'"), "atlas CSP header missing or too loose");
   await page.evaluate(() => document.fonts.ready);
   await page.waitForSelector("#field-svg", { state: "attached" });
-  check((await page.locator("#status").innerText()).includes("654 nodes"), "status lacks 654 nodes");
-  check((await page.locator("#status").innerText()).includes("1097 relations"), "status lacks 1097 relations");
+  check((await page.locator("#status").innerText()).includes("777 nodes"), "status lacks 777 nodes");
+  check((await page.locator("#status").innerText()).includes("1311 relations"), "status lacks 1311 relations");
   check((await page.locator("#layer-grid line").count()) > 0, "graticule missing");
-  check((await page.locator("#layer-hulls > path").count()) === 84, "territory plate paths are not 84");
-  check((await page.locator("#layer-edges > path").count()) === 1097, "relation arcs are not 1097 paths");
+  check((await page.locator("#layer-hulls > path").count()) === 93, "territory plate paths are not 93");
+  check((await page.locator("#layer-edges > path").count()) === 1311, "relation arcs are not 1311 paths");
   check(await page.locator(".field-cartouche").evaluate((el) => getComputedStyle(el).display === "none"), "cartouche visible on mobile");
   const statusFit = await page.evaluate(() => {
     const el = document.querySelector("#status");
@@ -51,8 +51,8 @@ try {
 
   await page.locator('.modes [data-mode="index"]').click();
   await page.waitForSelector("#index-cards .index-card");
-  check((await page.locator("#index-cards .index-card").count()) === 654, "index cards are not 654");
-  check((await page.locator("#index-count").innerText()) === "654 of 654", "index count mismatch");
+  check((await page.locator("#index-cards .index-card").count()) === 777, "index cards are not 777");
+  check((await page.locator("#index-count").innerText()) === "777 of 777", "index count mismatch");
   check(await page.locator(".index-table").evaluate((el) => getComputedStyle(el).display === "none"), "index table visible on mobile");
   await page.locator("#evidence-key summary").click();
   const key = await page.locator("#evidence-key-body").innerText();
@@ -69,26 +69,26 @@ try {
   await page.locator('.modes [data-mode="domains"]').click();
   check((await page.locator("#dossier").getAttribute("data-open")) === "0", "dossier reopened on domains");
   await page.waitForSelector("#domains-list .alt-row");
-  check((await page.locator("#domains-list .alt-row").count()) === 28, "domain directory is not 28 rows");
+  check((await page.locator("#domains-list .alt-row").count()) === 31, "domain directory is not 31 rows");
   check(await page.locator("#domains-svg").evaluate((el) => getComputedStyle(el).display === "none"), "domain SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-domains.png`, fullPage: false });
 
   await page.locator('.modes [data-mode="timeline"]').click();
   await page.waitForSelector("#timeline-list .alt-row");
-  check((await page.locator("#timeline-list .alt-row").count()) === 654, "timeline list is not 654 nodes");
+  check((await page.locator("#timeline-list .alt-row").count()) === 777, "timeline list is not 777 nodes");
   check((await page.locator("#timeline-list .alt-decade").count()) >= 12, "timeline list has too few decades");
   check(await page.locator("#timeline-svg").evaluate((el) => getComputedStyle(el).display === "none"), "timeline SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-timeline.png`, fullPage: false });
 
   await page.locator('.modes [data-mode="matrix"]').click();
   await page.waitForSelector("#matrix-list tbody tr");
-  check((await page.locator("#matrix-list tbody tr").count()) === 62, "matrix table is not 62 rows");
+  check((await page.locator("#matrix-list tbody tr").count()) === 81, "matrix table is not 81 rows");
   check(await page.locator("#matrix-svg").evaluate((el) => getComputedStyle(el).display === "none"), "matrix SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-matrix.png`, fullPage: false });
 
   await page.locator('.modes [data-mode="efficacy"]').click();
   await page.waitForSelector("#efficacy-list tbody tr");
-  check((await page.locator("#efficacy-list tbody tr").count()) === 18, "efficacy table is not 18 rows");
+  check((await page.locator("#efficacy-list tbody tr").count()) === 38, "efficacy table is not 38 rows");
   check(await page.locator("#efficacy-svg").evaluate((el) => getComputedStyle(el).display === "none"), "efficacy SVG visible on mobile");
   await page.screenshot({ path: `${ARTIFACTS}/390-efficacy.png`, fullPage: false });
 

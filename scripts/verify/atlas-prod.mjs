@@ -16,8 +16,8 @@ check(res.status === 200, `${base} returned ${res.status}`);
 const html = await res.text();
 const csp = res.headers.get("content-security-policy") || "";
 check(csp.includes("script-src 'self'"), "CSP missing or too loose");
-check(html.includes("654 nodes") && html.includes("1,097 relations"), "production counts missing");
-check(html.includes("1903–2026"), "production date range missing");
+check(html.includes("777 nodes") && html.includes("1,311 relations"), "production counts missing");
+check(html.includes("1858–2026"), "production date range missing");
 check(html.includes('rel="canonical" href="https://www.autostimulus.org/psychopolitics-atlas"'), "canonical is not bare");
 check(!html.includes("index-2026-11-02.html"), "old atlas backup referenced");
 
@@ -30,7 +30,7 @@ const og = await fetch(`${base}/og.png`);
 check(og.status === 200 && (og.headers.get("content-type") || "").includes("image/png"), "og.png is not served as PNG");
 const index = await fetch(`${base}/records.html`);
 const indexHtml = await index.text();
-check(index.status === 200 && indexHtml.includes("<b>654</b> records") && indexHtml.includes("<b>1,097</b> relations"), "static record index missing or stale");
+check(index.status === 200 && indexHtml.includes("<b>777</b> records") && indexHtml.includes("<b>1,311</b> relations"), "static record index missing or stale");
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
@@ -44,7 +44,7 @@ page.on("requestfailed", (r) => {
 await page.goto(base, { waitUntil: "networkidle", timeout: 60000 });
 await page.locator('.modes [data-mode="efficacy"]').click();
 await page.waitForSelector("#efficacy-list tbody tr");
-check((await page.locator("#efficacy-list tbody tr").count()) === 18, "production efficacy table is not 18 rows");
+check((await page.locator("#efficacy-list tbody tr").count()) === 38, "production efficacy table is not 38 rows");
 check(await page.locator("#efficacy-svg").evaluate((el) => getComputedStyle(el).display === "none"), "production efficacy SVG visible on mobile");
 await browser.close();
 if (blocked.length) failures.push(`Cloudflare beacon still injected (CSP-blocked): ${[...new Set(blocked)].join(" | ")} — disable Web Analytics in the Cloudflare dashboard`);
