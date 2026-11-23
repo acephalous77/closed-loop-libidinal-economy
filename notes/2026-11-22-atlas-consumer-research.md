@@ -50,4 +50,8 @@ The prose passed the canonical scan on the new record text and the new intro cop
 
 ## What this does not claim
 
-The new records are as good as the dossier's citations, not better. The build does not fact-check the dossier, does not send anything, and does not deploy. Production remains the 2026-11-02 atlas until a push is ruled.
+The new records are as good as the dossier's citations, not better. The build does not fact-check the dossier and does not send anything. The deploy is recorded below.
+
+## Deployed
+
+`4236b0f` — “atlas: add the consumer-research readout (777 nodes, 1858–2026)” — pushed to `origin/main` on 2026-11-22. GitHub Actions `verify` run `45094858371` passed in 3m4s (lint, build, font preloads, walkthrough, internal links). `npm run verify:atlas-prod` PASS at `https://www.autostimulus.org/psychopolitics-atlas` — CSP present, 777 nodes / 1,311 relations / 1858–2026, no Cloudflare beacon, current assets. The “not deployed” status above is superseded by this section.
